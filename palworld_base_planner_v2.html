@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{
+    --bg: #21241f; --panel: #2b2f27; --panel2: #343a2f;
+    --parchment: #ece3cc; --parchment-dim: #cfc6ab;
+    --brass: #c9973f; --brass-dim: #9c7530;
+    --teal: #4f8b7a; --teal-dim: #35604f;
+    --line: #4a5140; --danger: #b5583f;
+    font-family: "Hiragino Sans","Yu Gothic",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--parchment);padding:20px;}
+  .wrap{max-width:960px;margin:0 auto;}
+  .title{font-size:20px;font-weight:700;margin:0 0 4px;}
+  .subtitle{font-size:12.5px;color:var(--parchment-dim);margin:0 0 20px;}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px 18px;margin-bottom:16px;}
+  .panel h2{font-size:13px;margin:0 0 12px;color:var(--brass);letter-spacing:.05em;text-transform:uppercase;font-weight:700;}
+  .row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .row label{font-size:13px;color:var(--parchment-dim);min-width:110px;}
+  input[type=range]{flex:1;accent-color:var(--brass);}
+  input[type=number]{width:64px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:4px;padding:4px 6px;font-size:13px;}
+  .toggle-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);}
+  .toggle-row:last-child{border-bottom:none;}
+  .toggle-label{font-size:13px;}
+  .toggle-desc{font-size:11px;color:var(--parchment-dim);margin-top:2px;}
+  .switch{position:relative;width:40px;height:22px;background:var(--panel2);border:1px solid var(--line);border-radius:11px;cursor:pointer;flex-shrink:0;}
+  .switch.on{background:var(--teal-dim);border-color:var(--teal);}
+  .switch .knob{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--parchment-dim);transition:left .15s;}
+  .switch.on .knob{left:20px;background:var(--parchment);}
+  .roles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;}
+  .role-item{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+  .role-name{font-size:12.5px;min-width:56px;}
+  .weight-btns{display:flex;gap:3px;}
+  .wbtn{width:26px;height:24px;border-radius:3px;border:1px solid var(--line);background:var(--panel2);color:var(--parchment-dim);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+  .wbtn.active{background:var(--brass-dim);border-color:var(--brass);color:var(--parchment);}
+  .compute-btn{width:100%;padding:11px;background:var(--brass-dim);border:1px solid var(--brass);color:var(--parchment);font-size:14px;font-weight:700;border-radius:5px;cursor:pointer;}
+  .compute-btn:hover{background:var(--brass);}
+  .compute-btn:disabled{opacity:.5;cursor:default;}
+  .summary{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .metric{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px 14px;flex:1;min-width:100px;}
+  .metric .num{font-size:18px;font-weight:700;color:var(--brass);}
+  .metric .lbl{font-size:10.5px;color:var(--parchment-dim);margin-top:2px;}
+  .coverage-warn{background:#3a2a20;border:1px solid var(--danger);color:#e7c3af;border-radius:5px;padding:8px 12px;font-size:12px;margin-bottom:12px;}
+  .progress-log{font-size:11px;color:var(--parchment-dim);margin-bottom:12px;font-family:monospace;}
+  .slot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:8px;}
+  .slot{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 12px;position:relative;}
+  .slot .num-badge{position:absolute;top:8px;right:10px;font-size:10px;color:var(--parchment-dim);}
+  .slot .pname{font-size:14px;font-weight:700;margin-bottom:2px;padding-right:24px;}
+  .slot .ptype{font-size:10.5px;color:var(--parchment-dim);margin-bottom:6px;}
+  .badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:3px;margin-right:4px;margin-bottom:2px;}
+  .badge.day{background:#4a4020;color:#e8cf7a;border:1px solid #7a6a30;}
+  .badge.night{background:#242a4a;color:#9fb0e8;border:1px solid #3d4a7a;}
+  .badge.role{background:var(--panel2);color:var(--teal);border:1px solid var(--teal-dim);}
+  .badge.passive{background:#2f2540;color:#c9a8e8;border:1px solid #5a3d7a;}
+  .slot .pskill{font-size:10.5px;color:var(--parchment-dim);margin-top:6px;border-top:1px solid var(--line);padding-top:6px;line-height:1.4;}
+  .empty-slot{border-style:dashed;color:var(--parchment-dim);display:flex;align-items:center;justify-content:center;font-size:12px;min-height:70px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="title">拠点配置プランナー v2</p>
+  <p class="subtitle">基礎適正Lv + 理想パッシブ理論値で実効スコアを計算し、局所探索で組み合わせを反復改善します。</p>
+
+  <div class="panel">
+    <h2>拠点設定</h2>
+    <div class="row">
+      <label>拠点の枠数</label>
+      <input type="range" id="slotRange" min="1" max="50" value="15">
+      <input type="number" id="slotNum" min="1" max="50" value="15">
+    </div>
+    <div class="toggle-row">
+      <div><div class="toggle-label">昼夜バランス重視</div><div class="toggle-desc">重要な役職は昼型・夜型を揃えて24時間稼働を狙う(不足時は不眠系パッシブで補完)</div></div>
+      <div class="switch on" id="toggleDayNight"><div class="knob"></div></div>
+    </div>
+    <div class="toggle-row">
+      <div><div class="toggle-label">汎用型を優先</div><div class="toggle-desc">複数役職を高Lvでこなせるパルの評価を上げる</div></div>
+      <div class="switch on" id="toggleGeneralist"><div class="knob"></div></div>
+    </div>
+    <div class="toggle-row">
+      <div><div class="toggle-label">理想パッシブを適用</div><div class="toggle-desc">各パルに実在するパッシブ(超絶技巧・職人気質など)を4枠仮定して実効値を計算</div></div>
+      <div class="switch on" id="togglePassive"><div class="knob"></div></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>役職の重要度</h2>
+    <div class="roles-grid" id="rolesGrid"></div>
+  </div>
+
+  <button class="compute-btn" id="computeBtn">この条件で最適配置を計算する</button>
+
+  <div id="resultArea" style="margin-top:20px;"></div>
+</div>
+
+<script>
+const PAL_DATA = [{"name":"モコロン","types":["無"],"active":"昼","work":{"手作業":1,"運搬":1,"牧場":1},"meal":2,"pskill":"モコモコの盾"},{"name":"ツッパニャン","types":["無"],"active":"昼","work":{"手作業":1,"採集":1,"採掘":1,"運搬":1},"meal":2,"pskill":"猫の手も借りたい"},{"name":"タマコッコ","types":["無"],"active":"昼","work":{"採集":1,"牧場":1},"meal":1,"pskill":"タマゴ産出"},{"name":"クルリス","types":["草"],"active":"昼","work":{"種まき":1,"手作業":1,"採集":1,"伐採":1,"製薬":1},"meal":1,"pskill":"クルリス・リコイル"},{"name":"カモノスケ","types":["水"],"active":"昼","work":{"水やり":1,"手作業":1,"運搬":1},"meal":2,"pskill":"サーフィンタックル"},{"name":"モモノスケ","types":["水","炎"],"active":"昼","work":{"火おこし":2,"水やり":2,"手作業":1,"運搬":1},"meal":2,"pskill":"ファイアータックル"},{"name":"タマモ","types":["無"],"active":"昼","work":{"採集":1,"牧場":1},"meal":1,"pskill":"ここ掘れコンコン"},{"name":"ルミカイト","types":["水"],"active":"昼","work":{"水やり":1,"運搬":1},"meal":2,"pskill":"そよ風グライダー"},{"name":"エレカイト","types":["水","雷"],"active":"昼","work":{"水やり":1,"発電":2,"運搬":1},"meal":2,"pskill":"ビリ風グライダー"},{"name":"ミルフィー","types":["無"],"active":"昼","work":{"採集":1,"牧場":2},"meal":1,"pskill":"ふわふわウール"},{"name":"ブシガエル","types":["水"],"active":"昼","work":{"水やり":1,"手作業":1,"採集":1,"運搬":1},"meal":2,"pskill":"跳躍の構え"},{"name":"ドスガエル","types":["水","闇"],"active":"昼","work":{"水やり":1,"手作業":2,"採集":1,"運搬":1},"meal":2,"pskill":"暗躍の構え"},{"name":"モモンパ","types":["草","無"],"active":"昼","work":{"種まき":1,"採集":1,"運搬":1},"meal":1,"pskill":"モモンパルス"},{"name":"チョロゾウ","types":["水"],"active":"昼","work":{"水やり":1},"meal":1,"pskill":"癒しのシャワー"},{"name":"ナエモチ","types":["草","地"],"active":"昼","work":{"種まき":1},"meal":1,"pskill":"木こり応援"},{"name":"ポチムネ","types":["地"],"active":"昼","work":{"採集":1,"伐採":1,"運搬":1},"meal":1,"pskill":"がんばりサポート"},{"name":"ポワワ","types":["草","無"],"active":"昼","work":{"種まき":1,"採集":1},"meal":1,"pskill":"ハッピークローバー"},{"name":"パチグリ","types":["雷"],"active":"昼","work":{"発電":1},"meal":1,"pskill":"ビリビリボム"},{"name":"コチグリ","types":["氷"],"active":"昼","work":{"冷却":1},"meal":1,"pskill":"カチコチボム"},{"name":"ンダコアラ","types":["闇"],"active":"夜","work":{"手作業":1,"採掘":1,"運搬":1,"牧場":1},"meal":1,"pskill":"カフェイン摂取"},{"name":"ペンタマ","types":["水","氷"],"active":"昼","work":{"水やり":1,"手作業":1,"冷却":1,"運搬":1},"meal":1,"pskill":"ペンタマランチャー"},{"name":"デンタマ","types":["水","雷"],"active":"昼","work":{"水やり":1,"発電":2,"手作業":1,"運搬":1},"meal":1,"pskill":"デンタマランチャー"},{"name":"キャプペン","types":["水","氷"],"active":"昼","work":{"水やり":2,"手作業":2,"採掘":3,"冷却":2,"運搬":3},"meal":4,"pskill":"勇敢なる海の戦士"},{"name":"ペンキッド","types":["水","雷"],"active":"昼","work":{"水やり":2,"発電":3,"手作業":2,"採掘":3,"運搬":3},"meal":4,"pskill":"不屈の電撃水将"},{"name":"ホウロック","types":["闇"],"active":"夜","work":{"採集":1},"meal":1,"pskill":"闇の叡智"},{"name":"メルパカ","types":["無"],"active":"昼","work":{"牧場":2},"meal":2,"pskill":"パカパカウール"},{"name":"アルパオー","types":["無"],"active":"昼","work":{"採集":2},"meal":4,"pskill":"力持ちキング"},{"name":"アオパオー","types":["氷"],"active":"昼","work":{"採集":2,"冷却":4},"meal":4,"pskill":"力持ちキング"},{"name":"ネムラム","types":["闇"],"active":"夜","work":{"手作業":1,"採集":1,"運搬":1},"meal":1,"pskill":"夢色チェイサー"},{"name":"エテッパ","types":["草"],"active":"昼","work":{"種まき":1,"手作業":1,"採集":1,"伐採":1,"運搬":1},"meal":1,"pskill":"ウキウキライフル"},{"name":"カレッパ","types":["炎"],"active":"昼","work":{"火おこし":1,"手作業":1,"伐採":1,"運搬":1},"meal":1,"pskill":"ウキウキガンファイア"},{"name":"ルナティ","types":["闇"],"active":"昼","work":{"採集":1},"meal":1,"pskill":"クーデレ"},{"name":"ラヴィ","types":["炎"],"active":"昼","work":{"火おこし":1,"手作業":1,"運搬":1,"牧場":1},"meal":2,"pskill":"マグマのナミダ"},{"name":"ヒノコジカ","types":["炎"],"active":"昼","work":{"火おこし":1,"牧場":1},"meal":1,"pskill":"小さな種火"},{"name":"ニャオテト","types":["闇"],"active":"夜","work":{"採集":1,"牧場":1},"meal":1,"pskill":"猫に小判"},{"name":"チルテト","types":["氷"],"active":"昼","work":{"冷却":1,"牧場":1},"meal":1,"pskill":"猫に小判"},{"name":"イノボウ","types":["地"],"active":"昼","work":{"採掘":1},"meal":1,"pskill":"石頭"},{"name":"キツネビ","types":["炎"],"active":"昼","work":{"火おこし":1},"meal":1,"pskill":"だっこファイヤー"},{"name":"ユキツネ","types":["氷"],"active":"昼","work":{"冷却":1},"meal":2,"pskill":"だっこフロスト"},{"name":"ヤミイカ","types":["闇","水"],"active":"夜","work":{"水やり":1,"採集":1,"運搬":2},"meal":2,"pskill":"イカ揚げ"},{"name":"ユメイカ","types":["無","水"],"active":"昼","work":{"水やり":1,"採集":1,"運搬":2},"meal":2,"pskill":"ユメ揚げ"},{"name":"モグルン","types":["地"],"active":"昼","work":{"手作業":1,"採掘":1,"運搬":1},"meal":2,"pskill":"鉱石探知"},{"name":"ツノガミ","types":["無"],"active":"昼","work":{"伐採":2},"meal":2,"pskill":"森の守護者"},{"name":"ヤマガミ","types":["地"],"active":"昼","work":{"伐採":2},"meal":2,"pskill":"金色の森の守護者"},{"name":"ガウルフ","types":["無"],"active":"昼","work":{"採集":1},"meal":2,"pskill":"ガウライド"},{"name":"ベリゴート","types":["草"],"active":"昼","work":{"種まき":2,"牧場":1},"meal":2,"pskill":"ベリー摘み"},{"name":"ベノゴート","types":["闇"],"active":"昼","work":{"種まき":2,"牧場":1},"meal":2,"pskill":"毒腺摘み"},{"name":"コモップ","types":["氷"],"active":"昼","work":{"採集":1,"冷却":1},"meal":1,"pskill":"もふもふもふもふ"},{"name":"ドンモップ","types":["氷"],"active":"昼","work":{"採集":2,"冷却":3},"meal":4,"pskill":"もふもふの王"},{"name":"ヘルメッコ","types":["水"],"active":"昼","work":{"水やり":2,"採掘":1,"運搬":1},"meal":3,"pskill":"トゲトゲキャリー"},{"name":"ゴルメッコ","types":["水","地"],"active":"昼","work":{"水やり":2,"採掘":3,"運搬":1},"meal":3,"pskill":"ピカピカキャリー"},{"name":"シメナワ","types":["地"],"active":"昼","work":{"手作業":1,"採集":1,"運搬":2},"meal":1,"pskill":"空中ブランコ"},{"name":"オバケナワ","types":["氷"],"active":"昼","work":{"手作業":3,"採集":2,"冷却":2,"運搬":3},"meal":1,"pskill":"寒色ブランコ"},{"name":"メリポップ","types":["無"],"active":"昼","work":{"牧場":1},"meal":1,"pskill":"キャンディーポップ"},{"name":"メリコロネ","types":["地"],"active":"昼","work":{"牧場":1},"meal":1,"pskill":"ビターポップ"},{"name":"ミルカルビ","types":["無"],"active":"昼","work":{"牧場":2},"meal":2,"pskill":"ミルク産出"},{"name":"アズレーン","types":["水","竜"],"active":"昼","work":{"水やり":4},"meal":5,"pskill":"水翔の舞"},{"name":"アズルーナ","types":["氷","竜"],"active":"昼","work":{"冷却":4},"meal":5,"pskill":"氷翔の舞"},{"name":"ボルトラ","types":["雷"],"active":"昼","work":{"発電":1,"手作業":1,"運搬":1,"牧場":1},"meal":1,"pskill":"静電気"},{"name":"ケルピス","types":["水"],"active":"昼","work":{"水やり":1,"牧場":1},"meal":1,"pskill":"打ち水"},{"name":"マグピス","types":["炎"],"active":"昼","work":{"火おこし":1,"牧場":1},"meal":1,"pskill":"打ち溶岩"},{"name":"ヒメウサ","types":["無"],"active":"昼","work":{"手作業":1,"採集":1,"運搬":1},"meal":1,"pskill":"器用な手先"},{"name":"ヨモギウサ","types":["草"],"active":"昼","work":{"種まき":2,"手作業":2,"採集":2,"運搬":1},"meal":1,"pskill":"草編み職人"},{"name":"クララン","types":["水"],"active":"昼","work":{"水やり":2,"手作業":1,"運搬":1},"meal":3,"pskill":"クラランドロップ"},{"name":"ユララン","types":["水","闇"],"active":"夜","work":{"水やり":2,"手作業":1,"製薬":1,"運搬":1},"meal":3,"pskill":"ユラランドロップ"},{"name":"リオリネ","types":["水"],"active":"昼","work":{"水やり":1,"手作業":2,"運搬":1},"meal":3,"pskill":"マジカルツインパワー"},{"name":"ヒメンダコ","types":["水","闇"],"active":"夜","work":{"水やり":2,"手作業":2,"運搬":2},"meal":3,"pskill":"ペタペタ姫"},{"name":"ユメンダコ","types":["水","無"],"active":"昼","work":{"水やり":2,"手作業":2,"運搬":2},"meal":3,"pskill":"カプカプ姫"},{"name":"エアムルグ","types":["無"],"active":"昼","work":{"採集":2},"meal":2,"pskill":"エアムルグライド"},{"name":"ニャンシー","types":["闇"],"active":"夜","work":{"手作業":2,"伐採":1,"製薬":1,"運搬":1},"meal":6,"pskill":"お手憑きネコ"},{"name":"ホークウィン","types":["無"],"active":"昼","work":{"採集":2},"meal":2,"pskill":"旅のお供"},{"name":"ニャンバット","types":["闇"],"active":"夜","work":{"採集":2,"採掘":3,"運搬":2},"meal":2,"pskill":"超音波センサー"},{"name":"クルットリ","types":["無"],"active":"昼","work":{"採集":1},"meal":2,"pskill":"エッグボムランチャー"},{"name":"ライコーン","types":["雷"],"active":"昼","work":{"発電":3,"伐採":1},"meal":3,"pskill":"疾風迅雷"},{"name":"レイコーン","types":["氷"],"active":"昼","work":{"伐採":3,"冷却":6},"meal":3,"pskill":"凍風乱華"},{"name":"シャーキッド","types":["水"],"active":"昼","work":{"水やり":2,"手作業":1,"運搬":1},"meal":3,"pskill":"怒りんぼサメ"},{"name":"シャーマンダー","types":["炎"],"active":"昼","work":{"火おこし":2,"手作業":1,"運搬":1},"meal":3,"pskill":"怒りんぼサメ"},{"name":"ツキカゲ","types":["闇"],"active":"夜","work":{"手作業":2},"meal":5,"pskill":"闇に煌めく鋭爪"},{"name":"ユキカゲ","types":["氷"],"active":"昼","work":{"手作業":2,"冷却":3},"meal":5,"pskill":"氷結の鋭爪"},{"name":"マスクロウ","types":["闇"],"active":"夜","work":{"伐採":1},"meal":5,"pskill":"テレツツキ"},{"name":"ブルフェルノ","types":["炎"],"active":"昼","work":{"火おこし":2,"伐採":2},"meal":5,"pskill":"ぽかぽかボディ"},{"name":"モコチッチ","types":["氷"],"active":"昼","work":{"冷却":2,"運搬":1},"meal":3,"pskill":"ふわもこまんまるバード"},{"name":"イバラヒメ","types":["草"],"active":"昼","work":{"種まき":1,"手作業":1,"採集":1,"製薬":2,"運搬":1},"meal":5,"pskill":"姫様の視線"},{"name":"パピテフ","types":["草"],"active":"昼","work":{"種まき":2,"製薬":1},"meal":3,"pskill":"なぞの鱗粉"},{"name":"パチマル","types":["雷"],"active":"昼","work":{"発電":2,"運搬":1},"meal":3,"pskill":"パチパチブースター"},{"name":"シルフィア","types":["竜"],"active":"昼","work":{"伐採":2},"meal":6,"pskill":"心やさしい聖竜"},{"name":"シルティア","types":["竜","水"],"active":"昼","work":{"水やり":3,"伐採":2},"meal":6,"pskill":"心やさしい水竜"},{"name":"カバネドリ","types":["炎","闇"],"active":"夜","work":{"火おこし":1,"運搬":3},"meal":6,"pskill":"空からの襲撃者"},{"name":"シロカバネ","types":["氷","闇"],"active":"夜","work":{"冷却":2,"運搬":3},"meal":6,"pskill":"空からの襲撃者"},{"name":"ヤミトバリ","types":["闇"],"active":"夜","work":{"製薬":3},"meal":5,"pskill":"ライフスティール"},{"name":"ヴィオレッタ","types":["草"],"active":"昼","work":{"種まき":2,"手作業":2,"採集":2,"製薬":3,"運搬":1},"meal":3,"pskill":"大地の浄化"},{"name":"ビーナイト","types":["草"],"active":"昼","work":{"種まき":1,"手作業":1,"採集":1,"伐採":1,"製薬":1,"運搬":2,"牧場":1},"meal":3,"pskill":"働きバチ"},{"name":"クインビーナ","types":["草"],"active":"昼","work":{"種まき":2,"手作業":2,"採集":2,"伐採":1,"製薬":2},"meal":7,"pskill":"嬢王蜂の統率"},{"name":"ラブマンダー","types":["無"],"active":"夜","work":{"手作業":2,"採掘":1,"製薬":2,"運搬":2},"meal":5,"pskill":"ハートドレイン"},{"name":"ニャンギマリ","types":["無"],"active":"昼","work":{"採集":2},"meal":4,"pskill":"ふくよかボディ"},{"name":"モモンチュラ","types":["闇"],"active":"昼","work":{"手作業":2,"採集":2,"製薬":2,"運搬":2},"meal":4,"pskill":"モモンウェブ"},{"name":"バニザラシ","types":["氷","水"],"active":"昼","work":{"水やり":2,"冷却":3},"meal":3,"pskill":"雪山のすべり屋"},{"name":"チョコザラシ","types":["氷","地"],"active":"昼","work":{"採掘":4,"冷却":4},"meal":4,"pskill":"雪山のスライダー"},{"name":"ダリザード","types":["闇"],"active":"夜","work":{"手作業":1,"採集":1,"運搬":1},"meal":3,"pskill":"第六感"},{"name":"チリザード","types":["炎"],"active":"昼","work":{"火おこし":1,"手作業":1,"採集":1,"運搬":1},"meal":3,"pskill":"第六感"},{"name":"ゴリレイジ","types":["無"],"active":"昼","work":{"手作業":1,"伐採":2,"運搬":3},"meal":3,"pskill":"フルパワーゴリラモード"},{"name":"ゴリガイア","types":["地"],"active":"昼","work":{"手作業":1,"採掘":2,"運搬":3},"meal":3,"pskill":"フルパワーゴリラモード"},{"name":"シーペント","types":["水"],"active":"昼","work":{"水やり":2},"meal":5,"pskill":"スイスイスイマー"},{"name":"スナペント","types":["地"],"active":"昼","work":{"採集":1},"meal":5,"pskill":"スナスナスイマー"},{"name":"フェザーロ","types":["草"],"active":"昼","work":{"種まき":1,"手作業":2,"採集":2,"伐採":1,"製薬":1,"運搬":2},"meal":3,"pskill":"鷹の眼"},{"name":"サンドロ","types":["草","地"],"active":"昼","work":{"手作業":2,"採集":2,"伐採":1,"製薬":1,"運搬":2},"meal":3,"pskill":"鷹の眼"},{"name":"ポプリーナ","types":["草"],"active":"昼","work":{"種まき":1,"手作業":1,"採集":1,"製薬":1,"運搬":1},"meal":3,"pskill":"お手伝いうさぎ"},{"name":"フォレーナ","types":["炎"],"active":"昼","work":{"火おこし":2,"手作業":3,"運搬":2},"meal":5,"pskill":"おきつねさま"},{"name":"フォレーオ","types":["炎","闇"],"active":"夜","work":{"火おこし":2,"手作業":3,"運搬":2},"meal":5,"pskill":"くろぎつねさま"},{"name":"クレメーオ","types":["闇"],"active":"夜","work":{"手作業":2,"製薬":2,"運搬":2},"meal":5,"pskill":"魔導書コレクター"},{"name":"クレメーナ","types":["闇","炎"],"active":"夜","work":{"火おこし":2,"手作業":2,"製薬":2,"運搬":2},"meal":5,"pskill":"植物図鑑"},{"name":"ヘルガルダ","types":["闇"],"active":"夜","work":{"運搬":3},"meal":8,"pskill":"冥府の翼"},{"name":"ライガルダ","types":["闇","雷"],"active":"夜","work":{"発電":3,"運搬":3},"meal":8,"pskill":"雷鳴の翼"},{"name":"モリタロス","types":["草"],"active":"昼","work":{"種まき":3,"採集":2,"伐採":3,"採掘":2,"運搬":3},"meal":8,"pskill":"大自然の脅威"},{"name":"ユキタロス","types":["氷"],"active":"昼","work":{"伐採":3,"採掘":3,"冷却":5,"運搬":3},"meal":8,"pskill":"永久凍土の脅威"},{"name":"ミステリア","types":["無"],"active":"昼","work":{"手作業":3,"採集":1,"運搬":1},"meal":2,"pskill":"アンチグラビティ"},{"name":"ムラクモ","types":["無"],"active":"昼","work":{"伐採":2},"meal":6,"pskill":"風雲"},{"name":"ムラサメ","types":["雷"],"active":"昼","work":{"発電":2,"伐採":2},"meal":6,"pskill":"雷雲"},{"name":"アロアリュー","types":["草","竜"],"active":"昼","work":{"種まき":2,"伐採":2},"meal":6,"pskill":"花薫る竜"},{"name":"ビリビリュー","types":["雷","竜"],"active":"昼","work":{"発電":2,"伐採":2},"meal":6,"pskill":"雷華の竜"},{"name":"ツジギリ","types":["炎"],"active":"昼","work":{"火おこし":2,"手作業":1,"採集":1,"伐採":3,"運搬":2},"meal":4,"pskill":"紫電一閃"},{"name":"ヤミウチ","types":["炎","闇"],"active":"昼","work":{"火おこし":2,"手作業":1,"採集":1,"伐採":3,"運搬":2},"meal":4,"pskill":"紫電一閃"},{"name":"コチワニ","types":["氷","水"],"active":"昼","work":{"水やり":1,"冷却":2,"運搬":1},"meal":3,"pskill":"つめたいおくち"},{"name":"グランモス","types":["草","地"],"active":"昼","work":{"種まき":2,"伐採":2,"採掘":2},"meal":8,"pskill":"ガイアクラッシャー"},{"name":"ブリザモス","types":["氷","地"],"active":"昼","work":{"伐採":2,"採掘":2,"冷却":2},"meal":8,"pskill":"アイスクラッシャー"},{"name":"ガブルミ","types":["水"],"active":"昼","work":{"水やり":2,"運搬":1},"meal":3,"pskill":"ガブルーム"},{"name":"ヒグルミ","types":["水","炎"],"active":"昼","work":{"火おこし":2,"水やり":2,"運搬":1},"meal":3,"pskill":"メラメラルーム"},{"name":"フラリーナ","types":["草"],"active":"昼","work":{"種まき":3,"手作業":2,"採集":2,"製薬":2,"運搬":1},"meal":3,"pskill":"花精霊の祝福"},{"name":"チェリーナ","types":["草","炎"],"active":"昼","work":{"火おこし":4,"手作業":3,"採集":3,"製薬":4},"meal":6,"pskill":"花精霊の情熱"},{"name":"リーファン","types":["草"],"active":"昼","work":{"種まき":3,"手作業":3,"採集":3,"運搬":2},"meal":7,"pskill":"滅私鍛錬"},{"name":"ヘルゴート","types":["炎","闇"],"active":"夜","work":{"火おこし":1,"手作業":2,"採掘":1,"運搬":2},"meal":4,"pskill":"炎爪の狩人"},{"name":"アビスゴート","types":["闇"],"active":"夜","work":{"手作業":2,"採掘":1,"運搬":2},"meal":4,"pskill":"黒爪の狩人"},{"name":"カミナラシ","types":["雷"],"active":"昼","work":{"発電":1,"手作業":1,"運搬":1},"meal":2,"pskill":"カミナリ娘"},{"name":"ヤミナラシ","types":["闇","雷"],"active":"昼","work":{"発電":1,"手作業":1,"製薬":1,"運搬":1},"meal":2,"pskill":"ヤミナリ娘"},{"name":"サラブレイズ","types":["炎"],"active":"昼","work":{"火おこし":2,"伐採":2},"meal":5,"pskill":"赤兎馬"},{"name":"サラブラック","types":["炎","闇"],"active":"夜","work":{"火おこし":2,"伐採":1},"meal":5,"pskill":"黒兎馬"},{"name":"ペコドン","types":["竜","水"],"active":"昼","work":{"水やり":2,"運搬":1},"meal":7,"pskill":"ペコペコミサイル"},{"name":"パリピドン","types":["竜","雷"],"active":"昼","work":{"発電":3,"運搬":1},"meal":7,"pskill":"ミサイルパーリィ"},{"name":"フブキツネ","types":["氷"],"active":"昼","work":{"冷却":2},"meal":3,"pskill":"オーロラの導き"},{"name":"ライバード","types":["雷"],"active":"昼","work":{"発電":2,"採集":1,"運搬":3},"meal":7,"pskill":"天雷"},{"name":"チルバード","types":["氷"],"active":"昼","work":{"採集":2,"冷却":5,"運搬":5},"meal":5,"pskill":"天霞"},{"name":"アンドーン","types":["闇","水"],"active":"夜","work":{"水やり":4,"運搬":2},"meal":4,"pskill":"夜釣り名人"},{"name":"メラドーン","types":["炎","水"],"active":"昼","work":{"火おこし":3,"水やり":4,"運搬":2},"meal":4,"pskill":"フレイムランタン"},{"name":"イヌズマ","types":["雷"],"active":"昼","work":{"発電":2},"meal":5,"pskill":"跳躍力"},{"name":"フリーズマ","types":["氷"],"active":"昼","work":{"冷却":3},"meal":4,"pskill":"ブリザードッグ"},{"name":"デスティング","types":["闇","地"],"active":"夜","work":{"伐採":2,"採掘":3},"meal":7,"pskill":"スティールスコーピオン"},{"name":"ゴルディング","types":["地"],"active":"昼","work":{"伐採":2,"採掘":3},"meal":7,"pskill":"スティールスコーピオン"},{"name":"ハグミー","types":["草"],"active":"昼","work":{"種まき":3,"採集":3,"運搬":1},"meal":2,"pskill":"ハグミープリーズ"},{"name":"ハグユー","types":["闇","草"],"active":"夜","work":{"種まき":3,"採集":3,"運搬":1},"meal":2,"pskill":"ハグユーソーマッチ"},{"name":"ツララジカ","types":["氷"],"active":"昼","work":{"伐採":2,"冷却":2},"meal":7,"pskill":"ひんやりボディ"},{"name":"ササゾー","types":["草"],"active":"昼","work":{"種まき":2,"手作業":2,"伐採":2,"運搬":3},"meal":5,"pskill":"グレパンダ"},{"name":"ライゾー","types":["雷"],"active":"昼","work":{"発電":2,"手作業":2,"伐採":2,"運搬":3},"meal":5,"pskill":"グレパンダ"},{"name":"オコチョ","types":["氷","竜"],"active":"昼","work":{"採集":1,"冷却":1},"meal":3,"pskill":"にょろにょろイタチ"},{"name":"モモチョ","types":["炎","竜"],"active":"昼","work":{"火おこし":2,"採集":1},"meal":3,"pskill":"ぱちぱちイタチ"},{"name":"イグニクス","types":["炎"],"active":"昼","work":{"火おこし":3,"運搬":3},"meal":7,"pskill":"フレイムウィング"},{"name":"マグマンダー","types":["炎","地"],"active":"昼","work":{"火おこし":5,"採掘":5},"meal":8,"pskill":"マグマオーバーロード"},{"name":"ブリザンダー","types":["氷","地"],"active":"昼","work":{"採掘":5,"冷却":5},"meal":8,"pskill":"アイスオーバーロード"},{"name":"ココヤンバ","types":["草"],"active":"昼","work":{"種まき":2,"採集":2,"採掘":3},"meal":5,"pskill":"サンバステップ"},{"name":"ドリタス","types":["地"],"active":"昼","work":{"採掘":3},"meal":5,"pskill":"ドリルクラッシャー"},{"name":"ラブラドン","types":["草"],"active":"昼","work":{"種まき":3},"meal":7,"pskill":"愛情は過積載"},{"name":"スプラドン","types":["草","水"],"active":"昼","work":{"水やり":3},"meal":7,"pskill":"愛情は過積載"},{"name":"トドドドン","types":["地","水"],"active":"昼","work":{"水やり":1,"採掘":2,"運搬":1,"牧場":1},"meal":4,"pskill":"土壌改善"},{"name":"ゴルドドン","types":["地","水"],"active":"昼","work":{"水やり":1,"採掘":2,"運搬":1,"牧場":1},"meal":4,"pskill":"ゴールドハーベスト"},{"name":"トコナッツ","types":["草","地"],"active":"昼","work":{"種まき":4,"採集":4,"採掘":2},"meal":7,"pskill":"ぽかぽか日和"},{"name":"シラヌイ","types":["炎"],"active":"昼","work":{"火おこし":2},"meal":4,"pskill":"心頭滅却"},{"name":"カゲヌイ","types":["闇"],"active":"昼","work":{"火おこし":2},"meal":4,"pskill":"影縛り"},{"name":"ゴクエンオ","types":["炎"],"active":"昼","work":{"火おこし":3,"伐採":2},"meal":7,"pskill":"獄炎獅子"},{"name":"シンエンオ","types":["炎","闇"],"active":"夜","work":{"火おこし":3,"伐採":2},"meal":7,"pskill":"黒炎獅子"},{"name":"グラクレス","types":["地","草"],"active":"昼","work":{"種まき":1,"手作業":1,"伐採":3,"運搬":3},"meal":6,"pskill":"ハードアーマー"},{"name":"ゴルクレス","types":["地"],"active":"昼","work":{"手作業":1,"採掘":3,"運搬":3},"meal":6,"pskill":"ハードアーマー"},{"name":"クジャンナ","types":["氷"],"active":"昼","work":{"採集":1,"冷却":2},"meal":3,"pskill":"クジャクイック"},{"name":"マジョルナ","types":["闇","炎"],"active":"夜","work":{"火おこし":4,"手作業":5,"製薬":3,"運搬":2},"meal":8,"pskill":"闇狐の秘密スペル"},{"name":"シルキーヌ","types":["氷"],"active":"昼","work":{"製薬":2,"冷却":2,"牧場":1},"meal":5,"pskill":"シルクメーカー"},{"name":"ソワレーヌ","types":["無"],"active":"昼","work":{"製薬":3},"meal":5,"pskill":"神秘の金糸纏い"},{"name":"ソルレイス","types":["闇"],"active":"夜","work":{"採集":2,"採掘":1},"meal":3,"pskill":"冥界の使者"},{"name":"キノッポ","types":["草"],"active":"昼","work":{"種まき":2,"手作業":1,"採集":2,"伐採":2},"meal":3,"pskill":"ほわほわ胞子"},{"name":"ベノッポ","types":["草","闇"],"active":"夜","work":{"種まき":2,"手作業":1,"採集":2,"伐採":2},"meal":3,"pskill":"ほわほわ胞子"},{"name":"チルウィッチ","types":["氷"],"active":"昼","work":{"手作業":2,"製薬":2,"冷却":3,"運搬":1},"meal":3,"pskill":"魔女の冷気"},{"name":"ヨミーラ","types":["闇","地"],"active":"夜","work":{"手作業":5,"製薬":4,"運搬":2},"meal":6,"pskill":"ヨミがえり"},{"name":"レヴィドラ","types":["竜","水"],"active":"昼","work":{"水やり":4},"meal":7,"pskill":"嵐を呼ぶ海竜"},{"name":"アグニドラ","types":["竜","炎"],"active":"昼","work":{"火おこし":4},"meal":7,"pskill":"嵐を呼ぶ溶岩竜"},{"name":"スザク","types":["炎"],"active":"昼","work":{"火おこし":3},"meal":8,"pskill":"炎の翼"},{"name":"シヴァ","types":["水"],"active":"昼","work":{"水やり":3},"meal":8,"pskill":"水の翼"},{"name":"トリステップ","types":["地"],"active":"昼","work":{"採集":2},"meal":4,"pskill":"サンドダッシュ"},{"name":"フェスキー","types":["竜"],"active":"昼","work":{"手作業":1,"採集":2,"採掘":2,"運搬":3},"meal":4,"pskill":"天空竜の慈愛"},{"name":"フォレスキー","types":["竜","草"],"active":"昼","work":{"種まき":2,"手作業":1,"採集":2,"採掘":2,"運搬":3},"meal":4,"pskill":"草竜の慈愛"},{"name":"フワフラワ","types":["草"],"active":"昼","work":{"種まき":2,"手作業":2,"採集":1,"製薬":2},"meal":2,"pskill":"フローラルブースト"},{"name":"コロマジロ","types":["地"],"active":"昼","work":{"採掘":1},"meal":2,"pskill":"ころころまんぷくオイル"},{"name":"ヤクモマル","types":["無"],"active":"昼","work":{"採集":2},"meal":3,"pskill":"類は友を呼ぶ"},{"name":"オオタチウオ","types":["水"],"active":"昼","work":{"水やり":4,"採集":1,"伐採":4},"meal":5,"pskill":"肉抜骨断"},{"name":"ヒノタチウオ","types":["水","炎"],"active":"昼","work":{"火おこし":3,"水やり":2,"採集":2,"伐採":3},"meal":5,"pskill":"肉焼骨断"},{"name":"ボルカノン","types":["炎","地"],"active":"昼","work":{"火おこし":3,"採掘":3},"meal":5,"pskill":"鉱石を貪る獣"},{"name":"フロスカノン","types":["氷","地"],"active":"昼","work":{"採掘":3,"冷却":3},"meal":5,"pskill":"氷塊を貪る獣"},{"name":"ナイトロット","types":["闇"],"active":"昼","work":{"採集":2},"meal":6,"pskill":"ナイトダンサー"},{"name":"ライトロット","types":["無"],"active":"昼","work":{"採集":7},"meal":6,"pskill":"ライトダンサー"},{"name":"ジオルドン","types":["地"],"active":"昼","work":{"採掘":5},"meal":8,"pskill":"パワーストーン"},{"name":"フロスドン","types":["氷"],"active":"昼","work":{"採掘":5,"冷却":6},"meal":8,"pskill":"パワークリスタル"},{"name":"ツンドラー","types":["氷"],"active":"昼","work":{"手作業":1,"伐採":2,"冷却":3,"運搬":3},"meal":7,"pskill":"ドラゴンハンター"},{"name":"グランドラー","types":["地"],"active":"昼","work":{"手作業":1,"伐採":2,"採掘":3,"運搬":3},"meal":7,"pskill":"エレキハンター"},{"name":"ユキボウ","types":["氷"],"active":"昼","work":{"手作業":2,"採掘":3,"冷却":3,"運搬":2},"meal":5,"pskill":"見えざる目"},{"name":"ヒエティ","types":["氷"],"active":"昼","work":{"手作業":2,"伐採":3,"冷却":2,"運搬":4},"meal":8,"pskill":"雪山の巨人"},{"name":"トロピティ","types":["草"],"active":"昼","work":{"種まき":1,"手作業":2,"伐採":3,"運搬":4},"meal":8,"pskill":"南国の巨人"},{"name":"オドロクロ","types":["闇","炎"],"active":"夜","work":{"火おこし":3,"手作業":2,"採集":1,"採掘":2,"牧場":1},"meal":7,"pskill":"墓荒らし"},{"name":"カプリリス","types":["草"],"active":"昼","work":{"種まき":6,"手作業":4,"採集":4,"運搬":2},"meal":7,"pskill":"絡めとる大舌"},{"name":"ボルカイザー","types":["炎"],"active":"昼","work":{"火おこし":3,"採掘":4},"meal":9,"pskill":"マグマカイザー"},{"name":"ボルドラゴ","types":["竜","炎"],"active":"昼","work":{"火おこし":4,"採掘":4},"meal":9,"pskill":"ドラゴンカイザー"},{"name":"ウゴクゾー","types":["地","草"],"active":"昼","work":{"種まき":3,"採集":3,"伐採":5,"採掘":6,"運搬":6},"meal":8,"pskill":"フォレストレーザー"},{"name":"ノロウゾー","types":["地","闇"],"active":"夜","work":{"種まき":3,"採集":3,"伐採":5,"採掘":6,"運搬":6},"meal":8,"pskill":"コラプションレーザー"},{"name":"アヌビス","types":["地"],"active":"昼","work":{"手作業":4,"採掘":3,"運搬":2},"meal":6,"pskill":"砂漠の守護神"},{"name":"セクメト","types":["地"],"active":"昼","work":{"手作業":6,"採掘":3,"運搬":2},"meal":7,"pskill":"砂漠の女帝"},{"name":"ブッサソリ","types":["闇","地"],"active":"夜","work":{"採集":1,"伐採":3,"製薬":1},"meal":4,"pskill":"サソリソナー"},{"name":"ブッサンダー","types":["雷","地"],"active":"昼","work":{"発電":3,"採集":2,"伐採":4,"製薬":2},"meal":5,"pskill":"低周波サソリ"},{"name":"オモシガメ","types":["地"],"active":"昼","work":{"採掘":4},"meal":8,"pskill":"石積みの古代亀"},{"name":"オシロガメ","types":["無"],"active":"昼","work":{"採掘":6},"meal":8,"pskill":"石追いの古代亀"},{"name":"ニャニミテ","types":["闇"],"active":"昼","work":{"手作業":3,"採集":2,"伐採":2,"運搬":2},"meal":3,"pskill":"ショットニャンモード"},{"name":"ミミドッグ","types":["無"],"active":"昼","work":{"採集":1},"meal":2,"pskill":"鍵開け"},{"name":"ゼノベーダ","types":["闇"],"active":"夜","work":{"伐採":2,"運搬":2},"meal":7,"pskill":"隕石マニア"},{"name":"ゼノルーダ","types":["竜"],"active":"昼","work":{"採掘":3},"meal":9,"pskill":"クレーターマニア"},{"name":"プラムルリム","types":["草","闇"],"active":"昼","work":{"種まき":3,"手作業":1,"採集":2,"製薬":3,"運搬":1},"meal":3,"pskill":"豊作の祈り"},{"name":"ナイトメアリ","types":["闇"],"active":"夜","work":{"手作業":3,"運搬":2},"meal":3,"pskill":"ソウルコレクター"},{"name":"グラスメアリ","types":["草"],"active":"昼","work":{"種まき":3,"手作業":4,"運搬":2},"meal":6,"pskill":"魂縛の幽霊兎"},{"name":"クロマル","types":["闇"],"active":"昼","work":{"採集":2},"meal":3,"pskill":"ここ掘れワンワン"},{"name":"フユマル","types":["闇","氷"],"active":"夜","work":{"採集":2,"冷却":2},"meal":3,"pskill":"忠犬フユマル"},{"name":"オーメン","types":["闇"],"active":"昼","work":{"採集":1},"meal":2,"pskill":"仮面舞踏"},{"name":"コゴエール","types":["氷","水"],"active":"昼","work":{"水やり":3,"冷却":4},"meal":6,"pskill":"ひんやりクジラ号"},{"name":"モモエール","types":["氷","炎"],"active":"昼","work":{"火おこし":3,"冷却":4},"meal":6,"pskill":"ぽかぽかクジラ号"},{"name":"ラベロット","types":["草"],"active":"昼","work":{"種まき":2,"手作業":3,"採集":3,"伐採":2,"運搬":2},"meal":3,"pskill":"草原のスピードスター"},{"name":"ヤンデリナ","types":["闇"],"active":"昼","work":{"手作業":4,"伐採":1,"製薬":3,"運搬":2},"meal":2,"pskill":"狂愛の刃"},{"name":"キンガゼル","types":["地"],"active":"昼","work":{"採集":2},"meal":7,"pskill":"砂塵の加護"},{"name":"ワンフー","types":["無"],"active":"昼","work":{"手作業":3,"採集":2,"伐採":2,"製薬":1,"運搬":2},"meal":4,"pskill":"帰還の祈り"},{"name":"ドスコイヌ","types":["地"],"active":"昼","work":{"採掘":4,"運搬":3},"meal":6,"pskill":"横綱の貫禄"},{"name":"セレスディア","types":["無"],"active":"昼","work":{"採集":1,"伐採":4},"meal":6,"pskill":"浄化の祝福"},{"name":"コスモディア","types":["闇"],"active":"夜","work":{"採集":4,"伐採":8},"meal":8,"pskill":"混沌の祝福"},{"name":"ジオラーヴァ","types":["竜","闇"],"active":"夜","work":{"手作業":1,"採掘":4},"meal":9,"pskill":"黒鎧竜"},{"name":"テラナイト","types":["地"],"active":"昼","work":{"採集":3,"採掘":4,"運搬":4},"meal":9,"pskill":"鋼鉄ガーディアンモード"},{"name":"マグナイト","types":["炎"],"active":"昼","work":{"火おこし":5,"採掘":7,"運搬":7},"meal":9,"pskill":"鉄血ガーディアンモード"},{"name":"アイギルガ","types":["竜"],"active":"昼","work":{"伐採":3},"meal":7,"pskill":"イージスシールド"},{"name":"オーマサンダ","types":["雷"],"active":"昼","work":{"発電":4,"採集":1},"meal":6,"pskill":"プラズマダッシュ"},{"name":"ニャルル","types":["無"],"active":"昼","work":{"採集":2},"meal":4,"pskill":"のびのびキャット"},{"name":"デンツム","types":["雷"],"active":"昼","work":{"発電":4},"meal":4,"pskill":"デンデンバッテリー"},{"name":"ドンツム","types":["雷","地"],"active":"昼","work":{"発電":4},"meal":4,"pskill":"ドンドンシェル"},{"name":"ポポフィア","types":["草"],"active":"昼","work":{"種まき":2,"運搬":2},"meal":3,"pskill":"綿毛の妖精"},{"name":"バトラビー","types":["地"],"active":"昼","work":{"手作業":3,"採集":4,"採掘":2,"運搬":1},"meal":4,"pskill":"大地は友達"},{"name":"フードール","types":["闇"],"active":"夜","work":{"手作業":1,"運搬":1},"meal":3,"pskill":"虚ろに潜むもの"},{"name":"ノンビリリ","types":["雷"],"active":"昼","work":{"発電":3},"meal":4,"pskill":"のんびりスイッチ"},{"name":"ウラミィ","types":["闇"],"active":"夜","work":{"手作業":3,"製薬":4,"運搬":2},"meal":5,"pskill":"笑顔を振りまく死者"},{"name":"オーマンボ","types":["水"],"active":"昼","work":{"水やり":4},"meal":6,"pskill":"カリスママンボー"},{"name":"トノサマンボ","types":["水","雷"],"active":"昼","work":{"水やり":4,"発電":6},"meal":6,"pskill":"プラズママンボー"},{"name":"ネモフィ","types":["無"],"active":"昼","work":{"手作業":6,"採集":5},"meal":7,"pskill":"ながそでチアー"},{"name":"レイバーン","types":["竜","闇"],"active":"夜","work":{"運搬":6},"meal":9,"pskill":"自由な翼竜"},{"name":"ヘルバーン","types":["竜","炎"],"active":"昼","work":{"火おこし":6,"運搬":6},"meal":9,"pskill":"憤怒の翼竜"},{"name":"ダイナモフ","types":["雷"],"active":"昼","work":{"発電":6,"採集":3,"運搬":3},"meal":6,"pskill":"電気マッサージ抱卵"},{"name":"フラペック","types":["草"],"active":"昼","work":{"種まき":5,"採集":5},"meal":6,"pskill":"フラワーダンス"},{"name":"センコ","types":["炎"],"active":"昼","work":{"火おこし":7,"手作業":6,"運搬":2},"meal":8,"pskill":"バーニングフューチャー"},{"name":"ハナミズチ","types":["草","水"],"active":"昼","work":{"水やり":5,"種まき":7},"meal":9,"pskill":"グロリアスミスト"},{"name":"ラピエール","types":["炎"],"active":"昼","work":{"火おこし":7,"手作業":5,"製薬":4,"運搬":2},"meal":8,"pskill":"ラピラピトリックショー"},{"name":"アルセーヴ","types":["闇"],"active":"夜","work":{"採集":5,"運搬":5},"meal":8,"pskill":"闇に潜む怪鳥"},{"name":"メドゥーナ","types":["闇"],"active":"夜","work":{"手作業":6,"採集":6,"製薬":5,"運搬":2},"meal":6,"pskill":"蛇の知恵"},{"name":"マシュリー","types":["草"],"active":"昼","work":{"種まき":6,"手作業":4,"採集":4,"製薬":6},"meal":7,"pskill":"チャーミングスポア"},{"name":"ヴィランタン","types":["闇","炎"],"active":"夜","work":{"火おこし":4,"手作業":4,"製薬":4},"meal":7,"pskill":"ランタンエンチャント"},{"name":"ホシノコ","types":["闇"],"active":"夜","work":{"手作業":6,"製薬":6,"運搬":1},"meal":5,"pskill":"秘めたるダークエネルギー"},{"name":"モノクローナ","types":["闇","無"],"active":"夜","work":{"手作業":8,"採集":4,"運搬":2},"meal":9,"pskill":"染まらぬ孤高の姫"},{"name":"ゴウカブキ","types":["炎"],"active":"昼","work":{"火おこし":8,"手作業":6,"採集":5,"運搬":5},"meal":8,"pskill":"大立廻り"},{"name":"シェルガドラ","types":["竜","地"],"active":"昼","work":{"採掘":8},"meal":9,"pskill":"不壊の要塞竜"},{"name":"エレパンダ","types":["雷"],"active":"昼","work":{"発電":3,"手作業":2,"伐採":2,"運搬":3},"meal":7,"pskill":"黄色い重戦車"},{"name":"リリクイン","types":["草"],"active":"昼","work":{"種まき":4,"手作業":3,"採集":2,"製薬":3},"meal":6,"pskill":"豊穣の女神"},{"name":"ルナクイン","types":["闇"],"active":"昼","work":{"手作業":3,"採集":2,"製薬":3},"meal":6,"pskill":"幽光の女神"},{"name":"ボルゼクス","types":["竜","雷"],"active":"昼","work":{"発電":4,"手作業":2,"運搬":3},"meal":7,"pskill":"獰猛な迅雷竜"},{"name":"ホルス","types":["炎"],"active":"昼","work":{"火おこし":3,"運搬":3},"meal":8,"pskill":"灼熱の捕食者"},{"name":"イシス","types":["水"],"active":"昼","work":{"水やり":4,"運搬":3},"meal":8,"pskill":"潮流の捕食者"},{"name":"ゼノグリフ","types":["闇"],"active":"夜","work":{"採集":1},"meal":8,"pskill":"改造遺伝子"},{"name":"セレムーン","types":["闇","無"],"active":"夜","work":{"手作業":4,"製薬":3,"運搬":3},"meal":2,"pskill":"セレスタルダークネス"},{"name":"ヒョウガオー","types":["氷"],"active":"昼","work":{"伐採":3,"採掘":3,"冷却":4},"meal":6,"pskill":"ブリザードクラッシュ"},{"name":"シャオロン","types":["竜","水"],"active":"昼","work":{"水やり":8,"採集":5},"meal":9,"pskill":"蒼天の支配者"},{"name":"モスローン","types":["草"],"active":"昼","work":{"種まき":6,"手作業":6,"採集":4,"製薬":8,"運搬":2},"meal":9,"pskill":"胞子の番人"},{"name":"ノクサージュ","types":["草","闇"],"active":"夜","work":{"種まき":8,"手作業":6,"採集":5,"製薬":6,"運搬":3},"meal":9,"pskill":"霧の番人"},{"name":"ベラノワール","types":["闇"],"active":"夜","work":{"手作業":2,"製薬":4,"運搬":2},"meal":4,"pskill":"悪夢の瞳"},{"name":"ベラルージュ","types":["闇"],"active":"夜","work":{"手作業":2,"製薬":4,"運搬":2},"meal":4,"pskill":"悪夢の視線"},{"name":"ゼノドラン","types":["闇","竜"],"active":"夜","work":{"採集":1},"meal":8,"pskill":"メテオウィング"},{"name":"レジェンディア","types":["無"],"active":"昼","work":{"採集":7,"伐採":7},"meal":9,"pskill":"セイクリッドバリア"},{"name":"セイントール","types":["無"],"active":"昼","work":{"伐採":2,"採掘":2},"meal":9,"pskill":"天翔の聖騎士"},{"name":"ベイントール","types":["闇"],"active":"夜","work":{"伐採":2,"採掘":2},"meal":9,"pskill":"深淵の黒騎士"},{"name":"グレイシャル","types":["氷"],"active":"昼","work":{"冷却":4},"meal":7,"pskill":"氷天馬"},{"name":"グレイシャドウ","types":["闇"],"active":"夜","work":{"採集":4},"meal":7,"pskill":"黒天馬"},{"name":"ネプティオス","types":["水"],"active":"昼","work":{"水やり":4,"運搬":2},"meal":7,"pskill":"大海の覇者"},{"name":"ジェッドラン","types":["竜"],"active":"昼","work":{"採集":3},"meal":9,"pskill":"エアリアルミサイル"},{"name":"グランジーラ","types":["水"],"active":"昼","work":{},"meal":9,"pskill":"残響の守護者"}]
+;
+
+const PASSIVE_POOL = {"speed": [{"name": "超絶技巧", "pct": 75.0}, {"name": "職人気質", "pct": 50.0}, {"name": "社畜", "pct": 30.0}, {"name": "希少", "pct": 20.0}, {"name": "まじめ", "pct": 20.0}, {"name": "うぬぼれ屋", "pct": 10.0}], "night": [{"name": "吸血鬼", "pct": 0}, {"name": "不眠", "pct": 0}]}
+;
+
+
+const ROLES = ["火おこし","水やり","種まき","発電","手作業","採集","伐採","採掘","製薬","冷却","運搬","牧場"];
+const roleWeights = {};
+ROLES.forEach(r => roleWeights[r] = (r==="手作業"||r==="運搬") ? 2 : 1);
+
+let dayNightBalance = true;
+let generalistPref = true;
+let usePassive = true;
+
+const rolesGrid = document.getElementById('rolesGrid');
+ROLES.forEach(role => {
+  const item = document.createElement('div');
+  item.className = 'role-item';
+  item.innerHTML = `<span class="role-name">${role}</span>
+    <div class="weight-btns" data-role="${role}">
+      <div class="wbtn" data-w="0">無</div><div class="wbtn" data-w="1">低</div>
+      <div class="wbtn" data-w="2">中</div><div class="wbtn" data-w="3">高</div>
+    </div>`;
+  rolesGrid.appendChild(item);
+});
+function refreshWeightButtons(){
+  document.querySelectorAll('.weight-btns').forEach(group => {
+    const role = group.dataset.role;
+    group.querySelectorAll('.wbtn').forEach(btn => {
+      btn.classList.toggle('active', parseInt(btn.dataset.w) === roleWeights[role]);
+    });
+  });
+}
+rolesGrid.addEventListener('click', (e) => {
+  const btn = e.target.closest('.wbtn');
+  if(!btn) return;
+  const group = btn.closest('.weight-btns');
+  roleWeights[group.dataset.role] = parseInt(btn.dataset.w);
+  refreshWeightButtons();
+});
+refreshWeightButtons();
+
+document.getElementById('toggleDayNight').addEventListener('click', function(){
+  dayNightBalance = !dayNightBalance; this.classList.toggle('on', dayNightBalance);
+});
+document.getElementById('toggleGeneralist').addEventListener('click', function(){
+  generalistPref = !generalistPref; this.classList.toggle('on', generalistPref);
+});
+document.getElementById('togglePassive').addEventListener('click', function(){
+  usePassive = !usePassive; this.classList.toggle('on', usePassive);
+});
+
+const slotRange = document.getElementById('slotRange');
+const slotNum = document.getElementById('slotNum');
+slotRange.addEventListener('input', () => slotNum.value = slotRange.value);
+slotNum.addEventListener('input', () => {
+  let v = parseInt(slotNum.value)||1;
+  v = Math.max(1, Math.min(50, v));
+  slotNum.value = v; slotRange.value = v;
+});
+
+function baseScore(pal){
+  let s = 0, roleCount = 0;
+  for(const r in pal.work){
+    const w = roleWeights[r] || 0;
+    if(w > 0){ s += w * pal.work[r]; roleCount++; }
+  }
+  if(generalistPref && roleCount > 1) s *= (1 + 0.12*(roleCount-1));
+  return s;
+}
+
+function idealPassiveLoadout(pal, wantNight){
+  let slots = 4;
+  let chosen = [];
+  let alreadyNight = (pal.active === "夜" || pal.active === "両方");
+  let addedNightPassive = false;
+  if(wantNight && !alreadyNight){
+    chosen.push(PASSIVE_POOL.night[0]);
+    slots -= 1;
+    addedNightPassive = true;
+  }
+  const speedPicks = PASSIVE_POOL.speed.slice(0, slots);
+  chosen = chosen.concat(speedPicks);
+  const totalPct = chosen.reduce((s,c)=>s+(c.pct||0),0);
+  return { chosen, totalPct, isNightActive: alreadyNight || addedNightPassive };
+}
+
+function effectiveScoreOf(pal, wantNight){
+  const base = baseScore(pal);
+  if(!usePassive) return { effective: base, loadout: null };
+  const loadout = idealPassiveLoadout(pal, wantNight);
+  return { effective: base * (1 + loadout.totalPct/100), loadout };
+}
+
+function coverageOK(usedSet, activeRoles){
+  for(const role of activeRoles){
+    let ok = false;
+    for(const name of usedSet){
+      const pal = PAL_BY_NAME[name];
+      if(pal.work[role] > 0){ ok = true; break; }
+    }
+    if(!ok) return false;
+  }
+  return true;
+}
+
+let PAL_BY_NAME = {};
+PAL_DATA.forEach(p => PAL_BY_NAME[p.name] = p);
+
+function compute(){
+  const btn = document.getElementById('computeBtn');
+  btn.disabled = true; btn.textContent = "計算中...";
+  setTimeout(() => { runCompute(); btn.disabled = false; btn.textContent = "この条件で最適配置を計算する"; }, 30);
+}
+
+function runCompute(){
+  const slots = parseInt(slotNum.value);
+  const activeRoles = ROLES.filter(r => roleWeights[r] > 0).sort((a,b)=>roleWeights[b]-roleWeights[a]);
+
+  const used = new Set();
+  const picks = [];
+
+  activeRoles.forEach(role => {
+    const candidates = PAL_DATA
+      .filter(p => !used.has(p.name) && (p.work[role]||0) > 0)
+      .map(p => ({pal:p, ...effectiveScoreOf(p, dayNightBalance)}))
+      .sort((a,b) => (b.pal.work[role]-a.pal.work[role]) || (b.effective-a.effective));
+    if(candidates.length && picks.length < slots){
+      const top = candidates[0];
+      picks.push({pal: top.pal, effective: top.effective, loadout: top.loadout, reason: role});
+      used.add(top.pal.name);
+    }
+    if(dayNightBalance && picks.length < slots){
+      const thisPickTime = picks.length ? picks[picks.length-1].pal.active : null;
+      const oppTime = thisPickTime === "夜" ? "昼" : "夜";
+      const opp = candidates.find(c => !used.has(c.pal.name) && c.pal.active === oppTime);
+      if(opp){
+        picks.push({pal: opp.pal, effective: opp.effective, loadout: opp.loadout, reason: role+"(昼夜補完)"});
+        used.add(opp.pal.name);
+      }
+    }
+  });
+
+  const remaining = PAL_DATA
+    .filter(p => !used.has(p.name))
+    .map(p => ({pal:p, ...effectiveScoreOf(p, dayNightBalance)}))
+    .filter(c => c.effective > 0)
+    .sort((a,b) => b.effective - a.effective);
+  for(const c of remaining){
+    if(picks.length >= slots) break;
+    picks.push({pal: c.pal, effective: c.effective, loadout: c.loadout, reason: "総合力"});
+    used.add(c.pal.name);
+  }
+
+  const initialTotal = picks.reduce((s,p)=>s+p.effective,0);
+
+  const maxIter = 150;
+  let iterCount = 0;
+  let improved = true;
+  while(improved && iterCount < maxIter){
+    improved = false;
+    iterCount++;
+    for(let i=0;i<picks.length;i++){
+      const current = picks[i];
+      let bestCand = null, bestEff = current.effective, bestLoadout = current.loadout;
+      for(const cand of PAL_DATA){
+        if(used.has(cand.name)) continue;
+        const res = effectiveScoreOf(cand, dayNightBalance);
+        if(res.effective > bestEff){
+          const tempUsed = new Set(used);
+          tempUsed.delete(current.pal.name);
+          tempUsed.add(cand.name);
+          if(coverageOK(tempUsed, activeRoles)){
+            bestEff = res.effective; bestCand = cand; bestLoadout = res.loadout;
+          }
+        }
+      }
+      if(bestCand){
+        used.delete(current.pal.name);
+        used.add(bestCand.name);
+        picks[i] = {pal: bestCand, effective: bestEff, loadout: bestLoadout, reason: "局所探索で入替"};
+        improved = true;
+      }
+    }
+  }
+
+  const finalTotal = picks.reduce((s,p)=>s+p.effective,0);
+  renderResult(picks, slots, activeRoles, {initialTotal, finalTotal, iterCount});
+}
+
+function renderResult(picks, slots, activeRoles, stats){
+  const area = document.getElementById('resultArea');
+  const totalMeal = picks.reduce((s,p)=>s+(p.pal.meal||0),0);
+  const coveredRoles = new Set();
+  picks.forEach(p => { for(const r in p.pal.work) coveredRoles.add(r); });
+  const uncovered = activeRoles.filter(r => !coveredRoles.has(r));
+  const nightCount = picks.filter(p => p.loadout ? p.loadout.isNightActive : (p.pal.active==="夜"||p.pal.active==="両方")).length;
+
+  const improvePct = stats.initialTotal > 0 ? ((stats.finalTotal - stats.initialTotal)/stats.initialTotal*100) : 0;
+
+  let html = '';
+  html += `<div class="summary">
+    <div class="metric"><div class="num">${picks.length}/${slots}</div><div class="lbl">配置数</div></div>
+    <div class="metric"><div class="num">${totalMeal}</div><div class="lbl">合計食事量</div></div>
+    <div class="metric"><div class="num">${nightCount}</div><div class="lbl">24h稼働可能数</div></div>
+    <div class="metric"><div class="num">${Math.round(stats.finalTotal)}</div><div class="lbl">合計実効スコア</div></div>
+  </div>`;
+
+  html += `<div class="progress-log">局所探索: ${stats.iterCount}パス実行 / 初期スコア${Math.round(stats.initialTotal)} → 最終${Math.round(stats.finalTotal)} (改善${improvePct.toFixed(1)}%)</div>`;
+
+  if(uncovered.length){
+    html += `<div class="coverage-warn">枠数不足のため未カバーの役職: ${uncovered.join('、')}</div>`;
+  }
+  if(activeRoles.length === 0){
+    html += `<div class="coverage-warn">役職の重要度が全て「無」です。1つ以上「低」以上に設定してください。</div>`;
+  }
+
+  html += '<div class="slot-grid">';
+  picks.forEach((p,i) => {
+    const pal = p.pal;
+    const roleBadges = Object.entries(pal.work)
+      .filter(([r,lv]) => roleWeights[r] > 0)
+      .sort((a,b)=>b[1]-a[1])
+      .map(([r,lv]) => `<span class="badge role">${r} Lv${lv}</span>`).join('');
+    const timeBadge = pal.active === "夜" ? '<span class="badge night">夜行性</span>'
+      : pal.active === "両方" ? '<span class="badge day">昼</span><span class="badge night">夜</span>'
+      : '<span class="badge day">昼行性</span>';
+    let passiveBadges = '';
+    if(p.loadout){
+      passiveBadges = p.loadout.chosen.map(ps => `<span class="badge passive">${ps.name}${ps.pct?'+'+ps.pct+'%':''}</span>`).join('');
+    }
+    html += `<div class="slot">
+      <div class="num-badge">#${i+1}</div>
+      <div class="pname">${pal.name}</div>
+      <div class="ptype">${pal.types.join('/')} ・ ${p.reason} ・ 実効${Math.round(p.effective)}</div>
+      <div>${timeBadge}${roleBadges}</div>
+      ${passiveBadges ? '<div style="margin-top:4px;">'+passiveBadges+'</div>' : ''}
+      <div class="pskill">◆ ${pal.pskill}</div>
+    </div>`;
+  });
+  for(let i=picks.length; i<slots; i++){
+    html += `<div class="slot empty-slot">空き枠</div>`;
+  }
+  html += '</div>';
+  area.innerHTML = html;
+}
+
+document.getElementById('computeBtn').addEventListener('click', compute);
+compute();
+</script>
+</body>
+</html>

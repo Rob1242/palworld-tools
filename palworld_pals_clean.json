@@ -1,0 +1,9847 @@
+[
+  {
+    "id": "1",
+    "name": "モコロン",
+    "detail_url": "https://gamewith.jp/palworld/433663",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 1
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "モコモコの盾",
+      "effect": "発動すると、プレイヤーに装備され盾になる。家畜牧場にアサインすると、羊毛を落とすことがある。"
+    }
+  },
+  {
+    "id": "2",
+    "name": "ツッパニャン",
+    "detail_url": "https://gamewith.jp/palworld/433664",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 1,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "猫の手も借りたい",
+      "effect": "手持ちにいる間、ツッパニャンが荷物を肩代わりして、プレイヤーの所持重量上限(+50)が増える。"
+    }
+  },
+  {
+    "id": "3",
+    "name": "タマコッコ",
+    "detail_url": "https://gamewith.jp/palworld/433665",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 1
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "タマゴ産出",
+      "effect": "家畜牧場にアサインすると、卵を産むことがある。"
+    }
+  },
+  {
+    "id": "4",
+    "name": "クルリス",
+    "detail_url": "https://gamewith.jp/palworld/433666",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 1,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 1,
+      "採掘": 0,
+      "製薬": 1,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "クルリス・リコイル",
+      "effect": "発動するとプレイヤーの頭の上に乗り、攻撃にあわせてサブマシンガンで追撃を行う。"
+    }
+  },
+  {
+    "id": "6",
+    "name": "カモノスケ",
+    "detail_url": "https://gamewith.jp/palworld/433668",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "サーフィンタックル",
+      "effect": "発動すると、カモノスケが敵に向かってボディサーフィンをしながら突っ込む。"
+    }
+  },
+  {
+    "id": "189",
+    "name": "モモノスケ",
+    "detail_url": "https://gamewith.jp/palworld/504742",
+    "types": [
+      "水",
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "ファイアータックル",
+      "effect": "発動すると、モモノスケが敵に向かってファイアーサーフィンをしながら突っ込む。"
+    }
+  },
+  {
+    "id": "15",
+    "name": "タマモ",
+    "detail_url": "https://gamewith.jp/palworld/433677",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 1
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "ここ掘れコンコン",
+      "effect": "家畜牧場にアサインすると、地面からアイテムを掘り出すことがある。"
+    }
+  },
+  {
+    "id": "27",
+    "name": "ルミカイト",
+    "detail_url": "https://gamewith.jp/palworld/433688",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "そよ風グライダー",
+      "effect": "手持ちにいる間、グライダーの代わりに呼び出せる。グライド中は、長時間素早く移動することができる。"
+    }
+  },
+  {
+    "id": "193",
+    "name": "エレカイト",
+    "detail_url": "https://gamewith.jp/palworld/504737",
+    "types": [
+      "水",
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 2,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "ビリ風グライダー",
+      "effect": "手持ちにいる間、装備中のグライダーの性能が変わる。グライド中は、長時間素早く移動することができる。"
+    }
+  },
+  {
+    "id": "19",
+    "name": "ミルフィー",
+    "detail_url": "https://gamewith.jp/palworld/433681",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 2
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "ふわふわウール",
+      "effect": "手持ちにいる間、無属性のパルの攻撃力が増加する。家畜牧場にアサインすると、羊毛を落とすことがある。"
+    }
+  },
+  {
+    "id": "150",
+    "name": "ブシガエル",
+    "detail_url": "https://gamewith.jp/palworld/454692",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "跳躍の構え",
+      "effect": "発動すると、ブシガエルが忠誠心と膨らんだ腹部で力を溜める。プレイヤーが上に乗ると高くジャンプする。"
+    }
+  },
+  {
+    "id": "195",
+    "name": "ドスガエル",
+    "detail_url": "https://gamewith.jp/palworld/504734",
+    "types": [
+      "水",
+      "闇"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "暗躍の構え",
+      "effect": "発動すると、ドスガエルが忠誠心と膨らんだ腹部で力を溜める。プレイヤーが上に乗ると高くジャンプする。手持ちにいる間、闇属性のパルの攻撃力が増加する。"
+    }
+  },
+  {
+    "id": "196",
+    "name": "モモンパ",
+    "detail_url": "https://gamewith.jp/palworld/504733",
+    "types": [
+      "草",
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 1,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "モモンパルス",
+      "effect": "手持ちにいる間、プレイヤーが瀕死になるとモモンパが癒やしの力でプレイヤーを復活させる。"
+    }
+  },
+  {
+    "id": "17",
+    "name": "チョロゾウ",
+    "detail_url": "https://gamewith.jp/palworld/433679",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "癒しのシャワー",
+      "effect": "発動すると傷によく効く不思議な水を吹き出して、プレイヤーのHPを回復する。"
+    }
+  },
+  {
+    "id": "14",
+    "name": "ナエモチ",
+    "detail_url": "https://gamewith.jp/palworld/433676",
+    "types": [
+      "草",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 1,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "木こり応援",
+      "effect": "手持ちにいる間、プレイヤーが伐採するときのダメージが増加する。"
+    }
+  },
+  {
+    "id": "231",
+    "name": "ポチムネ",
+    "detail_url": "https://gamewith.jp/palworld/567835",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 1,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "がんばりサポート",
+      "effect": "手持ちにいる間、プレイヤーが使用する近接武器のダメージが上昇する。(重複不可)"
+    }
+  },
+  {
+    "id": "232",
+    "name": "ポワワ",
+    "detail_url": "https://gamewith.jp/palworld/567834",
+    "types": [
+      "草",
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 1,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "ハッピークローバー",
+      "effect": "拠点にいる間、他の拠点パルの採集の作業適正レベルが+1される。(重複不可)"
+    }
+  },
+  {
+    "id": "12",
+    "name": "パチグリ",
+    "detail_url": "https://gamewith.jp/palworld/433674",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 1,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "ビリビリボム",
+      "effect": "発動すると、パチグリが手に装備され、敵に投げつけると着弾時に雷の爆発を起こす。"
+    }
+  },
+  {
+    "id": "13",
+    "name": "コチグリ",
+    "detail_url": "https://gamewith.jp/palworld/433675",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 1,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "カチコチボム",
+      "effect": "発動すると、コチグリが手に装備され、敵に投げつけると着弾時に氷の爆発を起こす。"
+    }
+  },
+  {
+    "id": "18",
+    "name": "ンダコアラ",
+    "detail_url": "https://gamewith.jp/palworld/433680",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 1,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 1
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "カフェイン摂取",
+      "effect": "発動すると、ンダコアラがエナジードリンクを大量摂取し一定時間ンダコアラの移動速度が激増する。"
+    }
+  },
+  {
+    "id": "10",
+    "name": "ペンタマ",
+    "detail_url": "https://gamewith.jp/palworld/433672",
+    "types": [
+      "水",
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 1,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "ペンタマランチャー",
+      "effect": "発動すると、ロケットランチャーが装備され、ペンタマを弾丸として射出する。着弾して爆発するとペンタマは瀕死になる。"
+    }
+  },
+  {
+    "id": "190",
+    "name": "デンタマ",
+    "detail_url": "https://gamewith.jp/palworld/504741",
+    "types": [
+      "水",
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 2,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "デンタマランチャー",
+      "effect": "発動すると、ロケットランチャーが装備され、デンタマを弾丸として射出する。着弾して爆発するとデンタマは瀕死になる。"
+    }
+  },
+  {
+    "id": "11",
+    "name": "キャプペン",
+    "detail_url": "https://gamewith.jp/palworld/433673",
+    "types": [
+      "水",
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 2,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "勇敢なる海の戦士",
+      "effect": "一緒に戦っている間、炎属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "191",
+    "name": "ペンキッド",
+    "detail_url": "https://gamewith.jp/palworld/504740",
+    "types": [
+      "水",
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 3,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "不屈の電撃水将",
+      "effect": "一緒に戦っている間、水属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "16",
+    "name": "ホウロック",
+    "detail_url": "https://gamewith.jp/palworld/433678",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "闇の叡智",
+      "effect": "手持ちにいる間、闇属性のパルの攻撃力が増加する。"
+    }
+  },
+  {
+    "id": "40",
+    "name": "メルパカ",
+    "detail_url": "https://gamewith.jp/palworld/433700",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 2
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "パカパカウール",
+      "effect": "背中に乗って移動できる。家畜牧場にアサインすると、羊毛を落とすことがある。"
+    }
+  },
+  {
+    "id": "101",
+    "name": "アルパオー",
+    "detail_url": "https://gamewith.jp/palworld/433753",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "力持ちキング",
+      "effect": "背中に乗って移動できる。手持ちにいる間、アルパオーが荷物を肩代わりして、プレイヤーの所持重量上限(+100)が増える。"
+    }
+  },
+  {
+    "id": "127",
+    "name": "アオパオー",
+    "detail_url": "https://gamewith.jp/palworld/434142",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 4,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "力持ちキング",
+      "effect": "背中に乗って移動できる。手持ちにいる間、アルパオーが荷物を肩代わりして、プレイヤーの所持重量上限(+100)が増える。"
+    }
+  },
+  {
+    "id": "20",
+    "name": "ネムラム",
+    "detail_url": "https://gamewith.jp/palworld/433682",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "夢色チェイサー",
+      "effect": "手持ちにいる間、プレイヤーの近くに出現する。プレイヤーの攻撃に合わせて魔弾で追撃を行う。"
+    }
+  },
+  {
+    "id": "8",
+    "name": "エテッパ",
+    "detail_url": "https://gamewith.jp/palworld/433670",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 1,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 1,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "ウキウキライフル",
+      "effect": "発動すると、一定時間エテッパが付近の敵にアサルトライフルを撃ちまくる。"
+    }
+  },
+  {
+    "id": "215",
+    "name": "カレッパ",
+    "detail_url": "https://gamewith.jp/palworld/567851",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 1,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 1,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "ウキウキガンファイア",
+      "effect": "発動すると、一定時間カレッパが付近の敵に炎属性のアサルトライフルを撃ちまくる。"
+    }
+  },
+  {
+    "id": "22",
+    "name": "ルナティ",
+    "detail_url": "https://gamewith.jp/palworld/433684",
+    "types": [
+      "闇"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "クーデレ",
+      "effect": "一緒に戦っている間、プレイヤーの攻撃に闇属性を付与する。"
+    }
+  },
+  {
+    "id": "78",
+    "name": "ラヴィ",
+    "detail_url": "https://gamewith.jp/palworld/433736",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 1,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 1
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "マグマのナミダ",
+      "effect": "家畜牧場にアサインすると、発火器官を作ることがある。"
+    }
+  },
+  {
+    "id": "9",
+    "name": "ヒノコジカ",
+    "detail_url": "https://gamewith.jp/palworld/433671",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 1,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 1
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "小さな種火",
+      "effect": "手持ちにいる間、炎属性のパルの攻撃力が増加する。"
+    }
+  },
+  {
+    "id": "25",
+    "name": "ニャオテト",
+    "detail_url": "https://gamewith.jp/palworld/433687",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 1
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "猫に小判",
+      "effect": "家畜牧場にアサインすると、地面から金貨を掘り出すことがある。"
+    }
+  },
+  {
+    "id": "26",
+    "name": "チルテト",
+    "detail_url": "https://gamewith.jp/palworld/433982",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 1,
+      "運搬": 0,
+      "牧場": 1
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "猫に小判",
+      "effect": "家畜牧場にアサインすると、地面から金貨を掘り出すことがある。"
+    }
+  },
+  {
+    "id": "21",
+    "name": "イノボウ",
+    "detail_url": "https://gamewith.jp/palworld/433683",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 1,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "石頭",
+      "effect": "背中に乗って移動できる。ライド中は、岩を壊す効率が上がる。"
+    }
+  },
+  {
+    "id": "5",
+    "name": "キツネビ",
+    "detail_url": "https://gamewith.jp/palworld/433667",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 1,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "だっこファイヤー",
+      "effect": "発動すると、プレイヤーに装備され、火炎放射器と化す。"
+    }
+  },
+  {
+    "id": "178",
+    "name": "ユキツネ",
+    "detail_url": "https://gamewith.jp/palworld/479852",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 1,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "だっこフロスト",
+      "effect": "発動すると、プレイヤーに装備され、冷気を放出して攻撃できる。"
+    }
+  },
+  {
+    "id": "24",
+    "name": "ヤミイカ",
+    "detail_url": "https://gamewith.jp/palworld/433686",
+    "types": [
+      "闇",
+      "水"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "イカ揚げ",
+      "effect": "手持ちにいる間、グライダーの代わりに呼び出せる。グライド中は、ふわふわと長時間浮くことができる。"
+    }
+  },
+  {
+    "id": "192",
+    "name": "ユメイカ",
+    "detail_url": "https://gamewith.jp/palworld/504739",
+    "types": [
+      "無",
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "ユメ揚げ",
+      "effect": "手持ちにいる間、装備中のグライダーの性能が変わる。グライド中は、ふわふわと長時間浮くことができる。"
+    }
+  },
+  {
+    "id": "23",
+    "name": "モグルン",
+    "detail_url": "https://gamewith.jp/palworld/433685",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 1,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "鉱石探知",
+      "effect": "発動すると、微細な振動を発信して、近くにある鉱石の場所を探知できる。"
+    }
+  },
+  {
+    "id": "41",
+    "name": "ツノガミ",
+    "detail_url": "https://gamewith.jp/palworld/433701",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "森の守護者",
+      "effect": "背中に乗って移動できる。ライド中は2段ジャンプが可能になり、木を壊す効率が上がる。"
+    }
+  },
+  {
+    "id": "130",
+    "name": "ヤマガミ",
+    "detail_url": "https://gamewith.jp/palworld/434144",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "金色の森の守護者",
+      "effect": "背中に乗って移動できる。ライド中は2段ジャンプが可能になり、木を壊す効率が上がる。"
+    }
+  },
+  {
+    "id": "28",
+    "name": "ガウルフ",
+    "detail_url": "https://gamewith.jp/palworld/433689",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "ガウライド",
+      "effect": "背中に乗って移動できる。ライド時の移動速度が少し速いのが特徴。"
+    }
+  },
+  {
+    "id": "39",
+    "name": "ベリゴート",
+    "detail_url": "https://gamewith.jp/palworld/433699",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 1
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "ベリー摘み",
+      "effect": "家畜牧場にアサインすると、背中から赤いベリーを落とすことがある。"
+    }
+  },
+  {
+    "id": "179",
+    "name": "ベノゴート",
+    "detail_url": "https://gamewith.jp/palworld/479851",
+    "types": [
+      "闇"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 1
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "毒腺摘み",
+      "effect": "家畜牧場にアサインすると、背中から毒腺を落とすことがある。"
+    }
+  },
+  {
+    "id": "59",
+    "name": "コモップ",
+    "detail_url": "https://gamewith.jp/palworld/433719",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 1,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "もふもふもふもふ",
+      "effect": "手持ちにいる間、ドンモップのステータスが上がる。"
+    }
+  },
+  {
+    "id": "60",
+    "name": "ドンモップ",
+    "detail_url": "https://gamewith.jp/palworld/433720",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 3,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "もふもふの王",
+      "effect": "背中に乗って移動できる。一緒に戦っている間、手持ちにいるコモップの数が多いほどステータスが上がる。"
+    }
+  },
+  {
+    "id": "203",
+    "name": "ヘルメッコ",
+    "detail_url": "https://gamewith.jp/palworld/504723",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 1,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "トゲトゲキャリー",
+      "effect": "手持ちにいる間、ヘルメッコが荷物を肩代わりして。インベントリ内の防具が軽くなる。"
+    }
+  },
+  {
+    "id": "204",
+    "name": "ゴルメッコ",
+    "detail_url": "https://gamewith.jp/palworld/504722",
+    "types": [
+      "水",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "ピカピカキャリー",
+      "effect": "手持ちにいる間、ゴルメッコが荷物を肩代わりして。インベントリ内の防具が軽くなり、地属性のパルの攻撃力が増加する。"
+    }
+  },
+  {
+    "id": "35",
+    "name": "シメナワ",
+    "detail_url": "https://gamewith.jp/palworld/433695",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "空中ブランコ",
+      "effect": "手持ちにいる間、グライダーの代わりに呼び出せる。グライドすると、プレイヤーを高く持ち上げる。"
+    }
+  },
+  {
+    "id": "129",
+    "name": "オバケナワ",
+    "detail_url": "https://gamewith.jp/palworld/434143",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 2,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "寒色ブランコ",
+      "effect": "手持ちにいる間、グライダーの代わりに呼び出せる。グライドすると、プレイヤーを高く持ち上げる。"
+    }
+  },
+  {
+    "id": "38",
+    "name": "メリポップ",
+    "detail_url": "https://gamewith.jp/palworld/433698",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 1
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "キャンディーポップ",
+      "effect": "家畜牧場にアサインすると、わたあめを落とすことがある。"
+    }
+  },
+  {
+    "id": "216",
+    "name": "メリコロネ",
+    "detail_url": "https://gamewith.jp/palworld/567850",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 1
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "ビターポップ",
+      "effect": "家畜牧場にアサインすると、キャラメルわたあめを落とすことがある。拠点にいる間、拠点パルの満腹度の減少割合が軽減される。(重複不可)"
+    }
+  },
+  {
+    "id": "31",
+    "name": "ミルカルビ",
+    "detail_url": "https://gamewith.jp/palworld/433692",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 2
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "ミルク産出",
+      "effect": "家畜牧場にアサインすると、ミルクを出すことがある。"
+    }
+  },
+  {
+    "id": "91",
+    "name": "アズレーン",
+    "detail_url": "https://gamewith.jp/palworld/433747",
+    "types": [
+      "水",
+      "竜"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 4,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "水翔の舞",
+      "effect": "背中に乗って水上を移動できる。ライド中、プレイヤーの攻撃に水属性を付与する。"
+    }
+  },
+  {
+    "id": "188",
+    "name": "アズルーナ",
+    "detail_url": "https://gamewith.jp/palworld/504743",
+    "types": [
+      "氷",
+      "竜"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 4,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "氷翔の舞",
+      "effect": "背中に乗って水上を移動できる。ライド中、プレイヤーの攻撃が氷属性に変化する。"
+    }
+  },
+  {
+    "id": "7",
+    "name": "ボルトラ",
+    "detail_url": "https://gamewith.jp/palworld/433669",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 1,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 1
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "静電気",
+      "effect": "手持ちにいる間、雷属性のパルの攻撃力が増加する。"
+    }
+  },
+  {
+    "id": "89",
+    "name": "ケルピス",
+    "detail_url": "https://gamewith.jp/palworld/433745",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 1
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "打ち水",
+      "effect": "手持ちにいる間、水属性のパルの攻撃力が増加する。家畜牧場にアサインすると、パルの体液を落とすことがある。"
+    }
+  },
+  {
+    "id": "90",
+    "name": "マグピス",
+    "detail_url": "https://gamewith.jp/palworld/433746",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 1,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 1
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "打ち溶岩",
+      "effect": "手持ちにいる間、炎属性のパルの攻撃力が増加する。家畜牧場にアサインすると、発火器官を落とすことがある。"
+    }
+  },
+  {
+    "id": "43",
+    "name": "ヒメウサ",
+    "detail_url": "https://gamewith.jp/palworld/433703",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "器用な手先",
+      "effect": "手持ちにいる間、無属性のパルの攻撃力が増加する。拠点にいる間、武器製作台で働くときの作業効率が上がる。"
+    }
+  },
+  {
+    "id": "180",
+    "name": "ヨモギウサ",
+    "detail_url": "https://gamewith.jp/palworld/479850",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 1,
+    "partner_skill": {
+      "name": "草編み職人",
+      "effect": "手持ちにいる間、草属性パルの攻撃力が増加する。拠点にいる間、武器制作台で働くときの作業効率が上がる。"
+    }
+  },
+  {
+    "id": "206",
+    "name": "クララン",
+    "detail_url": "https://gamewith.jp/palworld/504720",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "クラランドロップ",
+      "effect": "手持ちにいる間、釣りで手に入るアイテムの獲得量が増える。また、クラランとユラランが拠点にいる間、クラランの水やりの作業速度が上がる。"
+    }
+  },
+  {
+    "id": "205",
+    "name": "ユララン",
+    "detail_url": "https://gamewith.jp/palworld/504721",
+    "types": [
+      "水",
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 1,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "ユラランドロップ",
+      "effect": "手持ちにいる間、サルベージで手に入るアイテムの獲得量が増える。また、クラランとユラランが拠点にいる間、ユラランの水やりの作業速度が上がる。"
+    }
+  },
+  {
+    "id": "233",
+    "name": "リオリネ",
+    "detail_url": "https://gamewith.jp/palworld/567833",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "マジカルツインパワー",
+      "effect": "拠点にいる間、他の拠点パルの水やりの作業適正レベルが+1される。(重複不可)"
+    }
+  },
+  {
+    "id": "207",
+    "name": "ヒメンダコ",
+    "detail_url": "https://gamewith.jp/palworld/504719",
+    "types": [
+      "水",
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "ペタペタ姫",
+      "effect": "一緒に戦っている間、釣りのミニゲームでバーが重なっていない場合の捕獲ゲージの減少量が少なくなる。"
+    }
+  },
+  {
+    "id": "229",
+    "name": "ユメンダコ",
+    "detail_url": "https://gamewith.jp/palworld/567837",
+    "types": [
+      "水",
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "カプカプ姫",
+      "effect": "手持ちにいる間、水属性のパルの防御力が増加する。(重複不可)"
+    }
+  },
+  {
+    "id": "52",
+    "name": "エアムルグ",
+    "detail_url": "https://gamewith.jp/palworld/433712",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "エアムルグライド",
+      "effect": "手持ちにいる間、グライダーの代わりに呼び出せる。グライド中、右手が空くので銃を撃つことができる。"
+    }
+  },
+  {
+    "id": "234",
+    "name": "ニャンシー",
+    "detail_url": "https://gamewith.jp/palworld/567832",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 1,
+      "採掘": 0,
+      "製薬": 1,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "お手憑きネコ",
+      "effect": "手持ちにいる間、背面ボーナス時の捕獲確率が上昇する。(重複不可)"
+    }
+  },
+  {
+    "id": "42",
+    "name": "ホークウィン",
+    "detail_url": "https://gamewith.jp/palworld/433702",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "旅のお供",
+      "effect": "背中に乗って空を飛ぶことができる。"
+    }
+  },
+  {
+    "id": "76",
+    "name": "ニャンバット",
+    "detail_url": "https://gamewith.jp/palworld/433734",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "超音波センサー",
+      "effect": "発動すると、超音波の力で近くにいるパルの位置を探知できる。"
+    }
+  },
+  {
+    "id": "29",
+    "name": "クルットリ",
+    "detail_url": "https://gamewith.jp/palworld/433690",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "エッグボムランチャー",
+      "effect": "発動すると、プレイヤーに装備され、爆発する卵を生むランチャーと化す。"
+    }
+  },
+  {
+    "id": "62",
+    "name": "ライコーン",
+    "detail_url": "https://gamewith.jp/palworld/433721",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 3,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 1,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "疾風迅雷",
+      "effect": "背中に乗って移動できる。ライド中、プレイヤーの攻撃に雷属性を付与する。"
+    }
+  },
+  {
+    "id": "217",
+    "name": "レイコーン",
+    "detail_url": "https://gamewith.jp/palworld/567849",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 3,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 6,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "凍風乱華",
+      "effect": "背中に乗って移動できる。ライド中、プレイヤーの攻撃が氷属性に変化し、プレイヤーの攻撃力が上昇する。"
+    }
+  },
+  {
+    "id": "33",
+    "name": "シャーキッド",
+    "detail_url": "https://gamewith.jp/palworld/433694",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "怒りんぼサメ",
+      "effect": "発動すると、狙いを定めた敵に向かって高威力のアクアショットで攻撃する。手持ちにいる間、プレイヤーの攻撃力が上がる。"
+    }
+  },
+  {
+    "id": "34",
+    "name": "シャーマンダー",
+    "detail_url": "https://gamewith.jp/palworld/434012",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "怒りんぼサメ",
+      "effect": "発動すると、狙いを定めた敵に向かって高威力のアクアショットで攻撃する。手持ちにいる間、プレイヤーの攻撃力が上がる。"
+    }
+  },
+  {
+    "id": "51",
+    "name": "ツキカゲ",
+    "detail_url": "https://gamewith.jp/palworld/433711",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "闇に煌めく鋭爪",
+      "effect": "発動すると、狙いを定めた敵に向かって高威力のジャンピングクローで攻撃する。"
+    }
+  },
+  {
+    "id": "181",
+    "name": "ユキカゲ",
+    "detail_url": "https://gamewith.jp/palworld/479849",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 3,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "氷結の鋭爪",
+      "effect": "発動すると、狙いを定めた敵に向かって高威力のスノークローで攻撃する。"
+    }
+  },
+  {
+    "id": "48",
+    "name": "マスクロウ",
+    "detail_url": "https://gamewith.jp/palworld/433708",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 1,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "テレツツキ",
+      "effect": "発動すると、狙いを定めた敵に向かって高威力のファントムアサルトで攻撃する。"
+    }
+  },
+  {
+    "id": "46",
+    "name": "ブルフェルノ",
+    "detail_url": "https://gamewith.jp/palworld/433706",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "ぽかぽかボディ",
+      "effect": "背中に乗って移動できる。ライド中は暖かく、寒さを感じなくなる。"
+    }
+  },
+  {
+    "id": "235",
+    "name": "モコチッチ",
+    "detail_url": "https://gamewith.jp/palworld/567831",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 2,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "ふわもこまんまるバード",
+      "effect": "手持ちにいる間、氷まみれ状態のパルの捕獲確率が上昇する(重複不可)"
+    }
+  },
+  {
+    "id": "32",
+    "name": "イバラヒメ",
+    "detail_url": "https://gamewith.jp/palworld/433693",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 1,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 2,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "姫様の視線",
+      "effect": "手持ちにいる間、草属性のパルの攻撃力が増加する"
+    }
+  },
+  {
+    "id": "45",
+    "name": "パピテフ",
+    "detail_url": "https://gamewith.jp/palworld/433705",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 1,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "なぞの鱗粉",
+      "effect": "発動すると、狙いを定めた敵に向かってポイズンフォグで攻撃する。"
+    }
+  },
+  {
+    "id": "236",
+    "name": "パチマル",
+    "detail_url": "https://gamewith.jp/palworld/567830",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 2,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "パチパチブースター",
+      "effect": "拠点にいる間、他の拠点パルの発電の作業適正レベルが+1される。(重複不可)"
+    }
+  },
+  {
+    "id": "88",
+    "name": "シルフィア",
+    "detail_url": "https://gamewith.jp/palworld/433985",
+    "types": [
+      "竜"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "心やさしい聖竜",
+      "effect": "背中に乗って空を飛ぶことができる。\n一緒に戦っている間、闇属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "133",
+    "name": "シルティア",
+    "detail_url": "https://gamewith.jp/palworld/434145",
+    "types": [
+      "竜",
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 3,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "心やさしい水竜",
+      "effect": "背中に乗って空を飛ぶことができる。一緒に戦っている間、炎属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "79",
+    "name": "カバネドリ",
+    "detail_url": "https://gamewith.jp/palworld/433737",
+    "types": [
+      "炎",
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 1,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "空からの襲撃者",
+      "effect": "背中に乗って空を飛ぶことができる。ライド中、敵の弱点部位を攻撃した際のダメージが増える。"
+    }
+  },
+  {
+    "id": "126",
+    "name": "シロカバネ",
+    "detail_url": "https://gamewith.jp/palworld/433995",
+    "types": [
+      "氷",
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 2,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "空からの襲撃者",
+      "effect": "背中に乗って空を飛ぶことができる。ライド中、敵の弱点部位を攻撃した際のダメージが増える。"
+    }
+  },
+  {
+    "id": "108",
+    "name": "ヤミトバリ",
+    "detail_url": "https://gamewith.jp/palworld/433756",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 3,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "ライフスティール",
+      "effect": "一緒に戦っている間、ダメージを与えるとその一部を吸収しHPを回復するライフスティール効果を、プレイヤーとヤミトバリに付与する。"
+    }
+  },
+  {
+    "id": "86",
+    "name": "ヴィオレッタ",
+    "detail_url": "https://gamewith.jp/palworld/433743",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 3,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "大地の浄化",
+      "effect": "一緒に戦っている間、地属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "56",
+    "name": "ビーナイト",
+    "detail_url": "https://gamewith.jp/palworld/433716",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 1,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 1,
+      "採掘": 0,
+      "製薬": 1,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 1
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "働きバチ",
+      "effect": "家畜牧場にアサインすると、ハチミツを落とすことがある。手持ちにいる間、クインビーナのステータスが上がる。"
+    }
+  },
+  {
+    "id": "57",
+    "name": "クインビーナ",
+    "detail_url": "https://gamewith.jp/palworld/433718",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 2,
+      "伐採": 1,
+      "採掘": 0,
+      "製薬": 2,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "嬢王蜂の統率",
+      "effect": "一緒に戦っている間、手持ちにいるビーナイトの数が多いほどステータスが上がる。"
+    }
+  },
+  {
+    "id": "77",
+    "name": "ラブマンダー",
+    "detail_url": "https://gamewith.jp/palworld/433735",
+    "types": [
+      "無"
+    ],
+    "active_time": "夜",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 1,
+      "製薬": 2,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "ハートドレイン",
+      "effect": "一緒に戦っている間、ダメージを与えるとその一部を吸収しHPを回復するライフスティール効果を、プレイヤーとラブマンダーに付与する。"
+    }
+  },
+  {
+    "id": "58",
+    "name": "ニャンギマリ",
+    "detail_url": "https://gamewith.jp/palworld/433717",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "ふくよかボディ",
+      "effect": "背中に乗って移動できる。ライド中、無属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "172",
+    "name": "モモンチュラ",
+    "detail_url": "https://gamewith.jp/palworld/479858",
+    "types": [
+      "闇"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 2,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "モモンウェブ",
+      "effect": "背中に乗って移動できる。ライド中、射撃地点にクモの糸を飛ばして、グラップリングで高速移動できる。"
+    }
+  },
+  {
+    "id": "202",
+    "name": "バニザラシ",
+    "detail_url": "https://gamewith.jp/palworld/504724",
+    "types": [
+      "氷",
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 3,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "雪山のすべり屋",
+      "effect": "背中に乗って移動できる。また、斜面を勢いよく滑り降りることができる。"
+    }
+  },
+  {
+    "id": "228",
+    "name": "チョコザラシ",
+    "detail_url": "https://gamewith.jp/palworld/567838",
+    "types": [
+      "氷",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 4,
+      "製薬": 0,
+      "冷却": 4,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "雪山のスライダー",
+      "effect": "背中に乗って移動できる。雪の上にいる間、移動速度が上昇する。また斜面で勢いよく滑り降りることができる。滑るとき、初速は遅いが、最高速度が高い。"
+    }
+  },
+  {
+    "id": "49",
+    "name": "ダリザード",
+    "detail_url": "https://gamewith.jp/palworld/433709",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "第六感",
+      "effect": "発動すると、第六感を働かせ、近くにあるダンジョンの場所を探知できる。"
+    }
+  },
+  {
+    "id": "50",
+    "name": "チリザード",
+    "detail_url": "https://gamewith.jp/palworld/433710",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 1,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "第六感",
+      "effect": "発動すると、第六感を働かせ、近くにあるダンジョンの場所を探知できる。"
+    }
+  },
+  {
+    "id": "55",
+    "name": "ゴリレイジ",
+    "detail_url": "https://gamewith.jp/palworld/433715",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "フルパワーゴリラモード",
+      "effect": "発動すると野生の力を解放し、一定時間ゴリレイジの攻撃力が増加する。"
+    }
+  },
+  {
+    "id": "140",
+    "name": "ゴリガイア",
+    "detail_url": "https://gamewith.jp/palworld/454708",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 2,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "フルパワーゴリラモード",
+      "effect": "発動すると野生の力を解放し、一定時間ゴリレイジの攻撃力が増加する。"
+    }
+  },
+  {
+    "id": "73",
+    "name": "シーペント",
+    "detail_url": "https://gamewith.jp/palworld/433731",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "スイスイスイマー",
+      "effect": "背中に乗って水上を移動できる。ライド中、水上移動によるスタミナ消費を無効にする。"
+    }
+  },
+  {
+    "id": "132",
+    "name": "スナペント",
+    "detail_url": "https://gamewith.jp/palworld/434146",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "スナスナスイマー",
+      "effect": "背中に乗って移動できる。手持ちにいる間、スナペントが荷物を肩代わりして、インベントリ内の鉱石が軽くなる。"
+    }
+  },
+  {
+    "id": "53",
+    "name": "フェザーロ",
+    "detail_url": "https://gamewith.jp/palworld/433713",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 1,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 2,
+      "伐採": 1,
+      "採掘": 0,
+      "製薬": 1,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "鷹の眼",
+      "effect": "一緒に戦っている間、プレイヤーが弱点部位へのダメージが増える。"
+    }
+  },
+  {
+    "id": "54",
+    "name": "サンドロ",
+    "detail_url": "https://gamewith.jp/palworld/433714",
+    "types": [
+      "草",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 2,
+      "伐採": 1,
+      "採掘": 0,
+      "製薬": 1,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "鷹の眼",
+      "effect": "一緒に戦っている間、プレイヤーが弱点部位へのダメージが増える。"
+    }
+  },
+  {
+    "id": "30",
+    "name": "ポプリーナ",
+    "detail_url": "https://gamewith.jp/palworld/433691",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 1,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 1,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "お手伝いうさぎ",
+      "effect": "手持ちにいる間、プレイヤーの近くに出現する。自動で近くにあるアイテムを拾いに行く。"
+    }
+  },
+  {
+    "id": "84",
+    "name": "フォレーナ",
+    "detail_url": "https://gamewith.jp/palworld/433741",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "おきつねさま",
+      "effect": "一緒に戦っている間、プレイヤーの攻撃に炎属性を付与する。"
+    }
+  },
+  {
+    "id": "144",
+    "name": "フォレーオ",
+    "detail_url": "https://gamewith.jp/palworld/454704",
+    "types": [
+      "炎",
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "くろぎつねさま",
+      "effect": "一緒に戦っている間、プレイヤーの攻撃に闇属性を付与する。"
+    }
+  },
+  {
+    "id": "83",
+    "name": "クレメーオ",
+    "detail_url": "https://gamewith.jp/palworld/433740",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 2,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "魔導書コレクター",
+      "effect": "一緒に戦っている間、無属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "143",
+    "name": "クレメーナ",
+    "detail_url": "https://gamewith.jp/palworld/454705",
+    "types": [
+      "闇",
+      "炎"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 2,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "植物図鑑",
+      "effect": "一緒に戦っている間、草属性のパルを倒した際の、ドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "111",
+    "name": "ヘルガルダ",
+    "detail_url": "https://gamewith.jp/palworld/433757",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "冥府の翼",
+      "effect": "背中に乗って空を飛ぶことができる。ライド中、プレイヤーの攻撃に闇属性を付与する。"
+    }
+  },
+  {
+    "id": "147",
+    "name": "ライガルダ",
+    "detail_url": "https://gamewith.jp/palworld/454695",
+    "types": [
+      "闇",
+      "雷"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 3,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "雷鳴の翼",
+      "effect": "背中に乗って空を飛ぶことができる。ライド中、プレイヤーの攻撃に雷属性を付与する。"
+    }
+  },
+  {
+    "id": "237",
+    "name": "モリタロス",
+    "detail_url": "https://gamewith.jp/palworld/567829",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 3,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 3,
+      "採掘": 2,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "大自然の脅威",
+      "effect": "発動すると、モリタロスが力を分け与えてプレイヤーの攻撃が草属性に変化し、攻撃力が増加する。"
+    }
+  },
+  {
+    "id": "238",
+    "name": "ユキタロス",
+    "detail_url": "https://gamewith.jp/palworld/567828",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 3,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 5,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "永久凍土の脅威",
+      "effect": "手持ちにいる間、プレイヤーがずぶ濡れ状態の敵を攻撃すると、一発で氷まみれ状態になる。"
+    }
+  },
+  {
+    "id": "70",
+    "name": "ミステリア",
+    "detail_url": "https://gamewith.jp/palworld/433729",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "アンチグラビティ",
+      "effect": "手持ちにいる間、ミステリアの反重力により、プレイヤーの所持重量上限(+80)が増える。"
+    }
+  },
+  {
+    "id": "107",
+    "name": "ムラクモ",
+    "detail_url": "https://gamewith.jp/palworld/433991",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "風雲",
+      "effect": "背中に乗って移動できる。ライド中、2段ジャンプが可能になる。"
+    }
+  },
+  {
+    "id": "186",
+    "name": "ムラサメ",
+    "detail_url": "https://gamewith.jp/palworld/479844",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 2,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "雷雲",
+      "effect": "背中に乗って移動できる。ライド中、2段ジャンプが可能になり、水属性パルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "71",
+    "name": "アロアリュー",
+    "detail_url": "https://gamewith.jp/palworld/433728",
+    "types": [
+      "草",
+      "竜"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "花薫る竜",
+      "effect": "背中に乗って移動できる。ライド中、草属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "72",
+    "name": "ビリビリュー",
+    "detail_url": "https://gamewith.jp/palworld/433984",
+    "types": [
+      "雷",
+      "竜"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 2,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "雷華の竜",
+      "effect": "背中に乗って移動できる。ライド中、雷属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "80",
+    "name": "ツジギリ",
+    "detail_url": "https://gamewith.jp/palworld/433738",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 3,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "紫電一閃",
+      "effect": "発動すると、狙いを定めた敵に向かって高威力の居合斬りで攻撃する。"
+    }
+  },
+  {
+    "id": "142",
+    "name": "ヤミウチ",
+    "detail_url": "https://gamewith.jp/palworld/454706",
+    "types": [
+      "炎",
+      "闇"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 1,
+      "伐採": 3,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "紫電一閃",
+      "effect": "発動すると、狙いを定めた敵に向かって高威力の居合斬りで攻撃する。"
+    }
+  },
+  {
+    "id": "201",
+    "name": "コチワニ",
+    "detail_url": "https://gamewith.jp/palworld/504725",
+    "types": [
+      "氷",
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 2,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "つめたいおくち",
+      "effect": "手持ちにいる間、コチワニの口の中で食材を冷やすことでインベントリ内の食材が腐敗しにくくなる。"
+    }
+  },
+  {
+    "id": "102",
+    "name": "グランモス",
+    "detail_url": "https://gamewith.jp/palworld/433755",
+    "types": [
+      "草",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 2,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "ガイアクラッシャー",
+      "effect": "背中に乗って移動できる。ライド中、木と鉱石を壊す効率が上がる。"
+    }
+  },
+  {
+    "id": "103",
+    "name": "ブリザモス",
+    "detail_url": "https://gamewith.jp/palworld/434119",
+    "types": [
+      "氷",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 2,
+      "製薬": 0,
+      "冷却": 2,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "アイスクラッシャー",
+      "effect": "背中に乗って移動できる。ライド中、木と鉱石を壊す効率が上がる。"
+    }
+  },
+  {
+    "id": "208",
+    "name": "ガブルミ",
+    "detail_url": "https://gamewith.jp/palworld/504718",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "ガブルーム",
+      "effect": "手持ちにいる間、ガブルミが荷物を肩代わりして、インベントリ内の武器が軽くなる。"
+    }
+  },
+  {
+    "id": "209",
+    "name": "ヒグルミ",
+    "detail_url": "https://gamewith.jp/palworld/504717",
+    "types": [
+      "水",
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "メラメラルーム",
+      "effect": "手持ちにいる間、ヒグルミが荷物を肩代わりして、インベントリ内の武器が軽くなる。また、炎属性のパルの攻撃力が増加する。"
+    }
+  },
+  {
+    "id": "99",
+    "name": "フラリーナ",
+    "detail_url": "https://gamewith.jp/palworld/433752",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 3,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 2,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "花精霊の祝福",
+      "effect": "発動すると、花の癒しの力でプレイヤーのHPを回復する。"
+    }
+  },
+  {
+    "id": "221",
+    "name": "チェリーナ",
+    "detail_url": "https://gamewith.jp/palworld/567845",
+    "types": [
+      "草",
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 4,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 3,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 4,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "花精霊の情熱",
+      "effect": "発動すると、花の癒しの力でプレイヤーのHPが80％回復する。手持ちにいる間、プレイヤーとパルが受ける草属性のダメージを軽減し、ツタまみれ状態を無効にする。(重複不可)"
+    }
+  },
+  {
+    "id": "239",
+    "name": "リーファン",
+    "detail_url": "https://gamewith.jp/palworld/567827",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 3,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 3,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "滅私鍛錬",
+      "effect": "このパルの攻撃力と防御力は、手持ちにいるリーファン以外の草属性パルの数だけ増加する。"
+    }
+  },
+  {
+    "id": "44",
+    "name": "ヘルゴート",
+    "detail_url": "https://gamewith.jp/palworld/433704",
+    "types": [
+      "炎",
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 1,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 1,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "炎爪の狩人",
+      "effect": "発動すると、狙いを定めた敵に向かって高威力のヘルファイアクローで攻撃する。"
+    }
+  },
+  {
+    "id": "131",
+    "name": "アビスゴート",
+    "detail_url": "https://gamewith.jp/palworld/434006",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 1,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "黒爪の狩人",
+      "effect": "発動すると、狙いを定めた敵に向かって高威力のヘルファイアクローで攻撃する。"
+    }
+  },
+  {
+    "id": "69",
+    "name": "カミナラシ",
+    "detail_url": "https://gamewith.jp/palworld/433730",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 1,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "カミナリ娘",
+      "effect": "手持ちにいる間、プレイヤーの近くに出現する。プレイヤーの攻撃に合わせて落雷で追撃を行う。"
+    }
+  },
+  {
+    "id": "183",
+    "name": "ヤミナラシ",
+    "detail_url": "https://gamewith.jp/palworld/479847",
+    "types": [
+      "闇",
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 1,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 1,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "ヤミナリ娘",
+      "effect": "手持ちにいる間、プレイヤーの近くに出現する。プレイヤーの攻撃にあわせて闇の稲妻で追撃を行う。"
+    }
+  },
+  {
+    "id": "64",
+    "name": "サラブレイズ",
+    "detail_url": "https://gamewith.jp/palworld/433724",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "赤兎馬",
+      "effect": "背中に乗って移動できる。\nライド中、プレイヤーの攻撃に炎属性を付与する。"
+    }
+  },
+  {
+    "id": "65",
+    "name": "サラブラック",
+    "detail_url": "https://gamewith.jp/palworld/433723",
+    "types": [
+      "炎",
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 1,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "黒兎馬",
+      "effect": "背中に乗って移動できる。ライド中、プレイヤーの攻撃に闇属性を付与する。"
+    }
+  },
+  {
+    "id": "95",
+    "name": "ペコドン",
+    "detail_url": "https://gamewith.jp/palworld/433987",
+    "types": [
+      "竜",
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "ペコペコミサイル",
+      "effect": "背中に乗って移動できる。ライド中、ミサイルランチャーを連射できる。"
+    }
+  },
+  {
+    "id": "96",
+    "name": "パリピドン",
+    "detail_url": "https://gamewith.jp/palworld/433750",
+    "types": [
+      "竜",
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 3,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "ミサイルパーリィ",
+      "effect": "背中に乗って移動できる。ライド中、ミサイルランチャーを連射できる。"
+    }
+  },
+  {
+    "id": "63",
+    "name": "フブキツネ",
+    "detail_url": "https://gamewith.jp/palworld/433983",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 2,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "オーロラの導き",
+      "effect": "手持ちにいる間、氷属性のパルの攻撃力が増加する。"
+    }
+  },
+  {
+    "id": "81",
+    "name": "ライバード",
+    "detail_url": "https://gamewith.jp/palworld/433739",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 2,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "天雷",
+      "effect": "背中に乗って空を飛ぶことができる。ライド中、プレイヤーの攻撃に雷属性を付与する。"
+    }
+  },
+  {
+    "id": "219",
+    "name": "チルバード",
+    "detail_url": "https://gamewith.jp/palworld/567847",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 5,
+      "運搬": 5,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "天霞",
+      "effect": "背中に乗って空を飛ぶことができる。ライド中、プレイヤーの攻撃が氷属性に変化し、プレイヤーの攻撃力が上昇する。このパルの移動速度は手持ちにいるチルバード以外の氷属性パルの数だけ増加する。"
+    }
+  },
+  {
+    "id": "210",
+    "name": "アンドーン",
+    "detail_url": "https://gamewith.jp/palworld/504716",
+    "types": [
+      "闇",
+      "水"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 4,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "夜釣り名人",
+      "effect": "背中に乗って水上を高速で移動できる。一緒に戦っている間、夜に釣りを行うとパルがエサに食いつくまでの時間が短くなる。"
+    }
+  },
+  {
+    "id": "211",
+    "name": "メラドーン",
+    "detail_url": "https://gamewith.jp/palworld/504715",
+    "types": [
+      "炎",
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work_suitability": {
+      "火おこし": 3,
+      "水やり": 4,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "フレイムランタン",
+      "effect": "背中に乗って水上を高速で移動できる。一緒に戦っている間、夜に釣りを行うとパルがエサに食いつくまでの時間が短くなる。"
+    }
+  },
+  {
+    "id": "67",
+    "name": "イヌズマ",
+    "detail_url": "https://gamewith.jp/palworld/433726",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 2,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "跳躍力",
+      "effect": "背中に乗って移動できる。ライド中、2段ジャンプが可能になる。"
+    }
+  },
+  {
+    "id": "218",
+    "name": "フリーズマ",
+    "detail_url": "https://gamewith.jp/palworld/567848",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 3,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "ブリザードッグ",
+      "effect": "背中に乗って移動できる。ライド中、2段ジャンプが可能になる。手持ちにいる間、氷属性のパルの防御力が増加する。(重複不可)"
+    }
+  },
+  {
+    "id": "135",
+    "name": "デスティング",
+    "detail_url": "https://gamewith.jp/palworld/434125",
+    "types": [
+      "闇",
+      "地"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "スティールスコーピオン",
+      "effect": "一緒に戦っている間、プレイヤーの防御力が増加し、雷属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "148",
+    "name": "ゴルディング",
+    "detail_url": "https://gamewith.jp/palworld/454694",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "スティールスコーピオン",
+      "effect": "一緒に戦っている間、プレイヤーの防御力が増加し、雷属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "240",
+    "name": "ハグミー",
+    "detail_url": "https://gamewith.jp/palworld/567826",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 3,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 3,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "ハグミープリーズ",
+      "effect": "手持ちにいる間、プレイヤーとパルがツタまみれ状態の敵に与えるダメージをアップさせる。(重複不可)"
+    }
+  },
+  {
+    "id": "241",
+    "name": "ハグユー",
+    "detail_url": "https://gamewith.jp/palworld/567825",
+    "types": [
+      "闇",
+      "草"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 3,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 3,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "ハグユーソーマッチ",
+      "effect": "手持ちにいる間。プレイヤーの攻撃にツタまみれの状態異常値が付与される。(重複不可)"
+    }
+  },
+  {
+    "id": "66",
+    "name": "ツララジカ",
+    "detail_url": "https://gamewith.jp/palworld/433725",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 2,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "ひんやりボディ",
+      "effect": "背中に乗って移動できる。\nライド中は涼しく、暑さを感じなくなる"
+    }
+  },
+  {
+    "id": "36",
+    "name": "ササゾー",
+    "detail_url": "https://gamewith.jp/palworld/433696",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "グレパンダ",
+      "effect": "背中に乗って移動できる。ライド中、グレネードランチャーを連射できる。"
+    }
+  },
+  {
+    "id": "37",
+    "name": "ライゾー",
+    "detail_url": "https://gamewith.jp/palworld/433697",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 2,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "グレパンダ",
+      "effect": "背中に乗って移動できる。ライド中、グレネードランチャーを連射できる。"
+    }
+  },
+  {
+    "id": "61",
+    "name": "オコチョ",
+    "detail_url": "https://gamewith.jp/palworld/433722",
+    "types": [
+      "氷",
+      "竜"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 1,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "にょろにょろイタチ",
+      "effect": "背中に乗って移動できる。ライド中、プレイヤーの攻撃に竜属性を付与する。"
+    }
+  },
+  {
+    "id": "141",
+    "name": "モモチョ",
+    "detail_url": "https://gamewith.jp/palworld/454707",
+    "types": [
+      "炎",
+      "竜"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "ぱちぱちイタチ",
+      "effect": "背中に乗って移動できる。ライド中、プレイヤーの攻撃に炎属性を付与する。"
+    }
+  },
+  {
+    "id": "82",
+    "name": "イグニクス",
+    "detail_url": "https://gamewith.jp/palworld/433804",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 3,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "フレイムウィング",
+      "effect": "背中に乗って空を飛ぶことができる。ライド中、プレイヤーの攻撃に炎属性を付与する。"
+    }
+  },
+  {
+    "id": "242",
+    "name": "マグマンダー",
+    "detail_url": "https://gamewith.jp/palworld/567824",
+    "types": [
+      "炎",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 5,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 5,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "マグマオーバーロード",
+      "effect": "背中に乗って移動できる。このパルの攻撃力は、手持ちにいるマグマンダー以外の炎属性または地属性パルの数だけ増加する。"
+    }
+  },
+  {
+    "id": "243",
+    "name": "ブリザンダー",
+    "detail_url": "https://gamewith.jp/palworld/567823",
+    "types": [
+      "氷",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 5,
+      "製薬": 0,
+      "冷却": 5,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "アイスオーバーロード",
+      "effect": "背中に乗って移動できる。手持ちにいる間、プレイヤーとパルが氷属性で弱点を突いた時のダメージが増加する。(重複不可)"
+    }
+  },
+  {
+    "id": "199",
+    "name": "ココヤンバ",
+    "detail_url": "https://gamewith.jp/palworld/504728",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "サンバステップ",
+      "effect": "背中に乗って移動できる。草むらの上にいる間、速く走ることができる。"
+    }
+  },
+  {
+    "id": "75",
+    "name": "ドリタス",
+    "detail_url": "https://gamewith.jp/palworld/433733",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "ドリルクラッシャー",
+      "effect": "発動すると、シェルスピン状態になる。回転しながらプレイヤーに追随し、鉱石を効率的に壊せる。"
+    }
+  },
+  {
+    "id": "97",
+    "name": "ラブラドン",
+    "detail_url": "https://gamewith.jp/palworld/433751",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 3,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "愛情は過積載",
+      "effect": "背中に乗って移動できる。手持ちにいる間、ラブラドンが荷物を肩代わりして、プレイヤーの所持重量上限(+100)が増える。"
+    }
+  },
+  {
+    "id": "98",
+    "name": "スプラドン",
+    "detail_url": "https://gamewith.jp/palworld/433988",
+    "types": [
+      "草",
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 3,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "愛情は過積載",
+      "effect": "背中に乗って移動できる。手持ちにいる間、ラブラドンが荷物を肩代わりして、プレイヤーの所持重量上限(+100)が増える。"
+    }
+  },
+  {
+    "id": "47",
+    "name": "トドドドン",
+    "detail_url": "https://gamewith.jp/palworld/433707",
+    "types": [
+      "地",
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 2,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 1
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "土壌改善",
+      "effect": "手持ちにいる間、地属性のパルの攻撃力が増加する。家畜牧場にアサインすると、上質なパルオイルを落とすことがある。"
+    }
+  },
+  {
+    "id": "194",
+    "name": "ゴルドドン",
+    "detail_url": "https://gamewith.jp/palworld/504736",
+    "types": [
+      "地",
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 1,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 2,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 1
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "ゴールドハーベスト",
+      "effect": "手持ちにいる間、地属性のパルの攻撃力が上昇する。家畜牧場にアサインすると、上質なパルオイルか、低確率で金貨を落とす。"
+    }
+  },
+  {
+    "id": "200",
+    "name": "トコナッツ",
+    "detail_url": "https://gamewith.jp/palworld/504726",
+    "types": [
+      "草",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 4,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 4,
+      "伐採": 0,
+      "採掘": 2,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "ぽかぽか日和",
+      "effect": "背中に乗って移動できる。拠点にいる間、配合牧場にアサインしたパルが卵を生むまでの時間が短くなる。※効果は重複しません。"
+    }
+  },
+  {
+    "id": "68",
+    "name": "シラヌイ",
+    "detail_url": "https://gamewith.jp/palworld/433727",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "心頭滅却",
+      "effect": "背中に乗って移動できる。ライド中、寒さや暑さの影響を受けない。"
+    }
+  },
+  {
+    "id": "182",
+    "name": "カゲヌイ",
+    "detail_url": "https://gamewith.jp/palworld/479848",
+    "types": [
+      "闇"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 2,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "影縛り",
+      "effect": "背中に乗って移動できる。ライド中、プレイヤーの攻撃が闇属性に変化する。"
+    }
+  },
+  {
+    "id": "93",
+    "name": "ゴクエンオ",
+    "detail_url": "https://gamewith.jp/palworld/433986",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 3,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "獄炎獅子",
+      "effect": "背中に乗って移動できる。\n一緒に戦っている間、草属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "94",
+    "name": "シンエンオ",
+    "detail_url": "https://gamewith.jp/palworld/433749",
+    "types": [
+      "炎",
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 3,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "黒炎獅子",
+      "effect": "背中に乗って移動できる。一緒に戦っている間、無属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "106",
+    "name": "グラクレス",
+    "detail_url": "https://gamewith.jp/palworld/433990",
+    "types": [
+      "地",
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 1,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 3,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "ハードアーマー",
+      "effect": "一緒に戦っている間、プレイヤーの防御力が上がり炎属性のダメージを軽減する。"
+    }
+  },
+  {
+    "id": "185",
+    "name": "ゴルクレス",
+    "detail_url": "https://gamewith.jp/palworld/479845",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "ハードアーマー",
+      "effect": "一緒に戦っている間、プレイヤーの防御力が上がり炎属性のダメージを軽減する。"
+    }
+  },
+  {
+    "id": "198",
+    "name": "クジャンナ",
+    "detail_url": "https://gamewith.jp/palworld/504729",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 2,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "クジャクイック",
+      "effect": "一緒に戦っている間、クジャンナの冷気でプレイヤーの集中力が高まり素早いリロードが可能になる。"
+    }
+  },
+  {
+    "id": "244",
+    "name": "マジョルナ",
+    "detail_url": "https://gamewith.jp/palworld/567822",
+    "types": [
+      "闇",
+      "炎"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 4,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 5,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 3,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "闇狐の秘密スペル",
+      "effect": "手持ちにいる間、炎上状態の敵にプレイヤーの攻撃を当てると敵の周囲に炎が発生し、触れている敵に継続的にプレイヤーの攻撃の一定割合のダメージを与える。(重複不可)"
+    }
+  },
+  {
+    "id": "87",
+    "name": "シルキーヌ",
+    "detail_url": "https://gamewith.jp/palworld/433744",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 2,
+      "冷却": 2,
+      "運搬": 0,
+      "牧場": 1
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "シルクメーカー",
+      "effect": "発動すると、狙いを定めた敵に向かって高威力のブリザードスパイクで攻撃する。家畜牧場にアサインすると、上質な布を作ることがある。"
+    }
+  },
+  {
+    "id": "220",
+    "name": "ソワレーヌ",
+    "detail_url": "https://gamewith.jp/palworld/567846",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 3,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "神秘の金糸纏い",
+      "effect": "手持ちにいる間、無属性のパルの防御力が増加する。(重複不可)家畜牧場にアサインすると、上質な布をつくることがある。"
+    }
+  },
+  {
+    "id": "74",
+    "name": "ソルレイス",
+    "detail_url": "https://gamewith.jp/palworld/433732",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 1,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "冥界の使者",
+      "effect": "背中に乗って移動できる。ライド中、プレイヤーの攻撃に闇属性を付与する。"
+    }
+  },
+  {
+    "id": "152",
+    "name": "キノッポ",
+    "detail_url": "https://gamewith.jp/palworld/454690",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 2,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "ほわほわ胞子",
+      "effect": "背中に乗って移動できる。拠点にいる間、キノッポの不思議な胞子で拠点のパルのSAN値が減りにくくなる。"
+    }
+  },
+  {
+    "id": "153",
+    "name": "ベノッポ",
+    "detail_url": "https://gamewith.jp/palworld/454689",
+    "types": [
+      "草",
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 2,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "ほわほわ胞子",
+      "effect": "背中に乗って移動できる。拠点にいる間、キノッポの不思議な胞子で拠点のパルのSAN値が減りにくくなる。"
+    }
+  },
+  {
+    "id": "197",
+    "name": "チルウィッチ",
+    "detail_url": "https://gamewith.jp/palworld/504731",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 2,
+      "冷却": 3,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "魔女の冷気",
+      "effect": "一緒に戦っている間、プレイヤーの攻撃が氷属性に変化する。"
+    }
+  },
+  {
+    "id": "245",
+    "name": "ヨミーラ",
+    "detail_url": "https://gamewith.jp/palworld/567821",
+    "types": [
+      "闇",
+      "地"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 5,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 4,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "ヨミがえり",
+      "effect": "一緒に戦っている間、ヨミーラが瀕死になったときに、ヨミーラの満腹度が0になる代わりに復活する。"
+    }
+  },
+  {
+    "id": "113",
+    "name": "レヴィドラ",
+    "detail_url": "https://gamewith.jp/palworld/434126",
+    "types": [
+      "竜",
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 4,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "嵐を呼ぶ海竜",
+      "effect": "背中に乗って水上を移動できる。ライド中、水上移動によるスタミナ消費を無効にする。"
+    }
+  },
+  {
+    "id": "114",
+    "name": "アグニドラ",
+    "detail_url": "https://gamewith.jp/palworld/433994",
+    "types": [
+      "竜",
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 4,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "嵐を呼ぶ溶岩竜",
+      "effect": "背中に乗って移動できる。ライド中炎属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "115",
+    "name": "スザク",
+    "detail_url": "https://gamewith.jp/palworld/433803",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 3,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "炎の翼",
+      "effect": "背中に乗って空を飛ぶことができ、ライド中、炎属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "136",
+    "name": "シヴァ",
+    "detail_url": "https://gamewith.jp/palworld/433997",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 3,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "水の翼",
+      "effect": "背中に乗って空を飛ぶことができ、ライド中、水属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "155",
+    "name": "トリステップ",
+    "detail_url": "https://gamewith.jp/palworld/454687",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "サンドダッシュ",
+      "effect": "背中に乗って移動できる。砂の上にいる間、早く走ることができる。"
+    }
+  },
+  {
+    "id": "109",
+    "name": "フェスキー",
+    "detail_url": "https://gamewith.jp/palworld/433992",
+    "types": [
+      "竜"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 2,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "天空竜の慈愛",
+      "effect": "背中に乗って空を飛ぶことができる。\nライド中、竜属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "145",
+    "name": "フォレスキー",
+    "detail_url": "https://gamewith.jp/palworld/454703",
+    "types": [
+      "竜",
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 2,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "草竜の慈愛",
+      "effect": "背中に乗って空を飛ぶことができ、ライド中、草属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "151",
+    "name": "フワフラワ",
+    "detail_url": "https://gamewith.jp/palworld/454691",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 2,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "フローラルブースト",
+      "effect": "拠点にいる間、フワフラワが農園に元気を注ぎ込み作物の成長速度が上がる。"
+    }
+  },
+  {
+    "id": "154",
+    "name": "コロマジロ",
+    "detail_url": "https://gamewith.jp/palworld/454688",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 1,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "ころころまんぷくオイル",
+      "effect": "手持ちにいる間、コロマジロが荷物を肩代わりして、インベントリ内の原油が軽くなる。"
+    }
+  },
+  {
+    "id": "158",
+    "name": "ヤクモマル",
+    "detail_url": "https://gamewith.jp/palworld/454684",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "類は友を呼ぶ",
+      "effect": "背中に乗って移動できる。一緒に戦っている間、このパルと同じパッシブスキルを持ったパルに遭遇しやすくなる。※一部のパッシブスキルを除く"
+    }
+  },
+  {
+    "id": "246",
+    "name": "オオタチウオ",
+    "detail_url": "https://gamewith.jp/palworld/567820",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 4,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 4,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "肉抜骨断",
+      "effect": "発動すると、オオタチウオがプレイヤーの刀となる。すぐに体を戻さないとオオタチウオが瀕死になる。居合切りを発動しても瀕死になる。"
+    }
+  },
+  {
+    "id": "247",
+    "name": "ヒノタチウオ",
+    "detail_url": "https://gamewith.jp/palworld/567819",
+    "types": [
+      "水",
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 3,
+      "水やり": 2,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 3,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "肉焼骨断",
+      "effect": "発動すると、ヒノタチウオがプレイヤーの刀となる。すぐに体を戻さないとヒノタチウオが瀕死になる。居合切りを発動しても瀕死になる。"
+    }
+  },
+  {
+    "id": "100",
+    "name": "ボルカノン",
+    "detail_url": "https://gamewith.jp/palworld/433754",
+    "types": [
+      "炎",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 3,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "鉱石を貪る獣",
+      "effect": "背中に乗って移動できる。ライド中、鉱石を壊す効率が上がる。"
+    }
+  },
+  {
+    "id": "128",
+    "name": "フロスカノン",
+    "detail_url": "https://gamewith.jp/palworld/433802",
+    "types": [
+      "氷",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 3,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "氷塊を貪る獣",
+      "effect": "背中に乗って移動できる。ライド中、鉱石を壊す効率が上がる。"
+    }
+  },
+  {
+    "id": "166",
+    "name": "ナイトロット",
+    "detail_url": "https://gamewith.jp/palworld/479864",
+    "types": [
+      "闇"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "ナイトダンサー",
+      "effect": "背中に乗って移動できる。夜の間、ライド中の移動速度が上昇する。"
+    }
+  },
+  {
+    "id": "225",
+    "name": "ライトロット",
+    "detail_url": "https://gamewith.jp/palworld/567841",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 7,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "ライトダンサー",
+      "effect": "背中に乗って移動でき、ライド中はジャンプ力が上昇する。このパルの移動速度は、手持ちにいるライトロット以外の無属性パルの数だけ増加する。"
+    }
+  },
+  {
+    "id": "248",
+    "name": "ジオルドン",
+    "detail_url": "https://gamewith.jp/palworld/567818",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 5,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "パワーストーン",
+      "effect": "手持ちにいる間、プレイヤーとパルが泥まみれ状態の敵に与えるダメージをアップさせる。(重複不可)"
+    }
+  },
+  {
+    "id": "249",
+    "name": "フロスドン",
+    "detail_url": "https://gamewith.jp/palworld/567817",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 5,
+      "製薬": 0,
+      "冷却": 6,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "パワークリスタル",
+      "effect": "手持ちにいる間、プレイヤーとパルが受ける竜属性のダメージを軽減する。(重複不可)"
+    }
+  },
+  {
+    "id": "92",
+    "name": "ツンドラー",
+    "detail_url": "https://gamewith.jp/palworld/433748",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 3,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "ドラゴンハンター",
+      "effect": "一緒に戦っている間、竜属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "184",
+    "name": "グランドラー",
+    "detail_url": "https://gamewith.jp/palworld/479846",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "エレキハンター",
+      "effect": "一緒に戦っている間、雷属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "250",
+    "name": "ユキボウ",
+    "detail_url": "https://gamewith.jp/palworld/567816",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 3,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "見えざる目",
+      "effect": "手持ちにいる間、敵に気づかれにくくなる。(重複不可)"
+    }
+  },
+  {
+    "id": "104",
+    "name": "ヒエティ",
+    "detail_url": "https://gamewith.jp/palworld/434122",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 3,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 2,
+      "運搬": 4,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "雪山の巨人",
+      "effect": "背中に乗って移動できる。手持ちにいる間、ヒエティが荷物を肩代わりして、プレイヤーの所持重量上限(+120)が増える。"
+    }
+  },
+  {
+    "id": "105",
+    "name": "トロピティ",
+    "detail_url": "https://gamewith.jp/palworld/433989",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 1,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 3,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 4,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "南国の巨人",
+      "effect": "背中に乗って移動できる。\n手持ちにいる間、トロピティが荷物を肩代わりして、プレイヤーの所持重量上限(+120)が増える。"
+    }
+  },
+  {
+    "id": "160",
+    "name": "オドロクロ",
+    "detail_url": "https://gamewith.jp/palworld/454682",
+    "types": [
+      "闇",
+      "炎"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 3,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 2,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 1
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "墓荒らし",
+      "effect": "家畜牧場にアサインすると、地面から骨を掘り出すことがある。"
+    }
+  },
+  {
+    "id": "251",
+    "name": "カプリリス",
+    "detail_url": "https://gamewith.jp/palworld/567815",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 6,
+      "発電": 0,
+      "手作業": 4,
+      "採集": 4,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "絡めとる大舌",
+      "effect": "手持ちにいる間、プレイヤーがローリングやステップをすると、カプリリスが旋風を発生させ、触れた敵にダメージを与える。(重複不可)"
+    }
+  },
+  {
+    "id": "110",
+    "name": "ボルカイザー",
+    "detail_url": "https://gamewith.jp/palworld/434008",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 3,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 4,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "マグマカイザー",
+      "effect": "背中に乗って移動できる。ライド中、炎属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "146",
+    "name": "ボルドラゴ",
+    "detail_url": "https://gamewith.jp/palworld/454696",
+    "types": [
+      "竜",
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 4,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 4,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "ドラゴンカイザー",
+      "effect": "背中に乗って移動できる。ライド中、竜属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "252",
+    "name": "ウゴクゾー",
+    "detail_url": "https://gamewith.jp/palworld/567814",
+    "types": [
+      "地",
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 3,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 3,
+      "伐採": 5,
+      "採掘": 6,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 6,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "フォレストレーザー",
+      "effect": "背中に乗って移動できる。発動すると、ウゴクゾーの右手から草属性の強力なレーザーを照射する。"
+    }
+  },
+  {
+    "id": "253",
+    "name": "ノロウゾー",
+    "detail_url": "https://gamewith.jp/palworld/567813",
+    "types": [
+      "地",
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 3,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 3,
+      "伐採": 5,
+      "採掘": 6,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 6,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "コラプションレーザー",
+      "effect": "背中に乗って移動できる。発動すると、ノロウゾーの右手から闇属性の強力なレーザーを照射する。"
+    }
+  },
+  {
+    "id": "112",
+    "name": "アヌビス",
+    "detail_url": "https://gamewith.jp/palworld/433993",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 4,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "砂漠の守護神",
+      "effect": "一緒に戦っている間、プレイヤーの攻撃に地属性を付与する。戦闘中、たまに高速ステップで攻撃を回避する。"
+    }
+  },
+  {
+    "id": "254",
+    "name": "セクメト",
+    "detail_url": "https://gamewith.jp/palworld/567812",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 6,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "砂漠の女帝",
+      "effect": "拠点にいる間、拠点内にいるアヌビスの作業速度が上昇する。(重複不可)セクメトが作業台や作業工場などで働くときの作業効率が上昇する。"
+    }
+  },
+  {
+    "id": "156",
+    "name": "ブッサソリ",
+    "detail_url": "https://gamewith.jp/palworld/454686",
+    "types": [
+      "闇",
+      "地"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 3,
+      "採掘": 0,
+      "製薬": 1,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "サソリソナー",
+      "effect": "発動すると、空気中の粒子を分析して、ダンジョンの出口を探知できる。"
+    }
+  },
+  {
+    "id": "222",
+    "name": "ブッサンダー",
+    "detail_url": "https://gamewith.jp/palworld/567844",
+    "types": [
+      "雷",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 3,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 4,
+      "採掘": 0,
+      "製薬": 2,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "低周波サソリ",
+      "effect": "発動すると、ブッサンダーが力を分け与えてプレイヤーの攻撃が雷属性に変化し、攻撃力が増加する。"
+    }
+  },
+  {
+    "id": "255",
+    "name": "オモシガメ",
+    "detail_url": "https://gamewith.jp/palworld/567811",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 4,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "石積みの古代亀",
+      "effect": "背中に乗って移動できる。拠点にいる間、他の拠点パルの採掘の作業適正レベルが+1される。(重複不可)"
+    }
+  },
+  {
+    "id": "256",
+    "name": "オシロガメ",
+    "detail_url": "https://gamewith.jp/palworld/567810",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 6,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "石追いの古代亀",
+      "effect": "背中に乗って移動できる。手持ちにいる間、武器と防具の耐久度消耗を抑える。(重複不可)"
+    }
+  },
+  {
+    "id": "176",
+    "name": "ニャニミテ",
+    "detail_url": "https://gamewith.jp/palworld/479854",
+    "types": [
+      "闇"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 2,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "ショットニャンモード",
+      "effect": "発動すると、一定時間ニャニミテが付近の敵にショットガンを撃ちまくる。"
+    }
+  },
+  {
+    "id": "161",
+    "name": "ミミドッグ",
+    "detail_url": "https://gamewith.jp/palworld/454681",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "鍵開け",
+      "effect": "宝箱の近くにいる時、ミミドッグの力で、鍵を使用せずに宝箱を開けることができる。スキルのレベルに応じて開けられる宝箱が変わる。"
+    }
+  },
+  {
+    "id": "162",
+    "name": "ゼノベーダ",
+    "detail_url": "https://gamewith.jp/palworld/454680",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "隕石マニア",
+      "effect": "手持ちにいる間、鉱石に対して与えるダメージが増え、隕石の欠片が多く獲得できる。"
+    }
+  },
+  {
+    "id": "163",
+    "name": "ゼノルーダ",
+    "detail_url": "https://gamewith.jp/palworld/454791",
+    "types": [
+      "竜"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "クレーターマニア",
+      "effect": "背中に乗って移動できる。手持ちにいる間、隕石の欠片とピュアクォーツが多く獲得できる。"
+    }
+  },
+  {
+    "id": "175",
+    "name": "プラムルリム",
+    "detail_url": "https://gamewith.jp/palworld/479855",
+    "types": [
+      "草",
+      "闇"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 3,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 3,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "豊作の祈り",
+      "effect": "拠点にいる間、プラムルリムが捧げる祈りによって、作物の収穫量が上がる。"
+    }
+  },
+  {
+    "id": "165",
+    "name": "ナイトメアリ",
+    "detail_url": "https://gamewith.jp/palworld/479865",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "ソウルコレクター",
+      "effect": "一緒に戦っている間、パルを倒した際のソウルの獲得量が増える。"
+    }
+  },
+  {
+    "id": "224",
+    "name": "グラスメアリ",
+    "detail_url": "https://gamewith.jp/palworld/567842",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 3,
+      "発電": 0,
+      "手作業": 4,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "魂縛の幽霊兎",
+      "effect": "手持ちにいる間、草属性のパルの防御力が増加する。(重複不可)"
+    }
+  },
+  {
+    "id": "168",
+    "name": "クロマル",
+    "detail_url": "https://gamewith.jp/palworld/479862",
+    "types": [
+      "闇"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "ここ掘れワンワン",
+      "effect": "発動すると、鋭い嗅覚で、近くにあるクロマイトの場所を探知できる。一緒に戦っている間、クロマイトが多く獲得できる。"
+    }
+  },
+  {
+    "id": "226",
+    "name": "フユマル",
+    "detail_url": "https://gamewith.jp/palworld/567840",
+    "types": [
+      "闇",
+      "氷"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 2,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "忠犬フユマル",
+      "effect": "拠点にいる間、他の拠点パルの冷却の作業適正レベルが+1される。(重複不可)"
+    }
+  },
+  {
+    "id": "170",
+    "name": "オーメン",
+    "detail_url": "https://gamewith.jp/palworld/479860",
+    "types": [
+      "闇"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "仮面舞踏",
+      "effect": "手持ちにいる間、手持ちパルの経験値の獲得量が増加する。"
+    }
+  },
+  {
+    "id": "212",
+    "name": "コゴエール",
+    "detail_url": "https://gamewith.jp/palworld/504714",
+    "types": [
+      "氷",
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 3,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 4,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "ひんやりクジラ号",
+      "effect": "背中に乗って移動できる。一緒に戦っている間、釣りの捕獲ゲージが通常より上昇した状態でミニゲームが開始する。また、バーが重なっている間の捕獲ゲージの上昇量が増える。"
+    }
+  },
+  {
+    "id": "213",
+    "name": "モモエール",
+    "detail_url": "https://gamewith.jp/palworld/504713",
+    "types": [
+      "氷",
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 3,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 4,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "ぽかぽかクジラ号",
+      "effect": "背中に乗って移動できる。一緒に戦っている間、釣りの捕獲ゲージが通常より上昇した状態でミニゲームが開始する。また、バーが重なっている間の捕獲ゲージの上昇量が増える。"
+    }
+  },
+  {
+    "id": "85",
+    "name": "ラベロット",
+    "detail_url": "https://gamewith.jp/palworld/433742",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 3,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "草原のスピードスター",
+      "effect": "一緒に戦っている間、プレイヤーの移動速度が上がりプレイヤーの攻撃に草属性を付与する。"
+    }
+  },
+  {
+    "id": "171",
+    "name": "ヤンデリナ",
+    "detail_url": "https://gamewith.jp/palworld/479859",
+    "types": [
+      "闇"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 4,
+      "採集": 0,
+      "伐採": 1,
+      "採掘": 0,
+      "製薬": 3,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "狂愛の刃",
+      "effect": "手持ちにいる間、肉切り包丁で解体を行った際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "177",
+    "name": "キンガゼル",
+    "detail_url": "https://gamewith.jp/palworld/479853",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "砂塵の加護",
+      "effect": "背中に乗って移動できる。ライド中、プレイヤーの攻撃に地属性を付与する。"
+    }
+  },
+  {
+    "id": "159",
+    "name": "ワンフー",
+    "detail_url": "https://gamewith.jp/palworld/454683",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 2,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 1,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "帰還の祈り",
+      "effect": "発動すると、最も近くの拠点へ移動することができる。ダンジョンの中などでは使用できない。"
+    }
+  },
+  {
+    "id": "257",
+    "name": "ドスコイヌ",
+    "detail_url": "https://gamewith.jp/palworld/567809",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 4,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "横綱の貫禄",
+      "effect": "背中に乗って移動できる。手持ちにいる間、プレイヤーとパルが受ける雷属性のダメージを軽減し、帯電状態を無効にする。(重複不可)"
+    }
+  },
+  {
+    "id": "169",
+    "name": "セレスディア",
+    "detail_url": "https://gamewith.jp/palworld/479861",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 4,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "浄化の祝福",
+      "effect": "背中に乗って移動できる。ライド中、プレイヤーの自然回復速度が上昇する。"
+    }
+  },
+  {
+    "id": "227",
+    "name": "コスモディア",
+    "detail_url": "https://gamewith.jp/palworld/567839",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 4,
+      "伐採": 8,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "混沌の祝福",
+      "effect": "背中に乗って移動できる。手持ちにいる間、一緒に戦っているパルのHPが徐々に減っていく代わりに、そのパルの攻撃力が40%増加する。（重複不可）"
+    }
+  },
+  {
+    "id": "134",
+    "name": "ジオラーヴァ",
+    "detail_url": "https://gamewith.jp/palworld/434131",
+    "types": [
+      "竜",
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 4,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "黒鎧竜",
+      "effect": "背中に乗って空を飛ぶことができる。ライド中、鉱石に対して与えるダメージが増え、金属鉱石が多く獲得できる。"
+    }
+  },
+  {
+    "id": "157",
+    "name": "テラナイト",
+    "detail_url": "https://gamewith.jp/palworld/454685",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 3,
+      "伐採": 0,
+      "採掘": 4,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 4,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "鋼鉄ガーディアンモード",
+      "effect": "発動すると鋼鉄の覚悟により、一定時間テラナイトの攻撃力と防御力が増加する。"
+    }
+  },
+  {
+    "id": "223",
+    "name": "マグナイト",
+    "detail_url": "https://gamewith.jp/palworld/567843",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 5,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 7,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 7,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "鉄血ガーディアンモード",
+      "effect": "発動すると鋼鉄の覚悟により、一定時間マグナイトの攻撃力と防御力が増加する。"
+    }
+  },
+  {
+    "id": "167",
+    "name": "アイギルガ",
+    "detail_url": "https://gamewith.jp/palworld/479863",
+    "types": [
+      "竜"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 3,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "イージスシールド",
+      "effect": "背中に乗って移動できる。ライド中、イージスチャージを使用した際のシールドの継続時間が長くなる。"
+    }
+  },
+  {
+    "id": "173",
+    "name": "オーマサンダ",
+    "detail_url": "https://gamewith.jp/palworld/479857",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 4,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "プラズマダッシュ",
+      "effect": "背中に乗って移動できる。また、空中でダッシュし高速で移動できる。"
+    }
+  },
+  {
+    "id": "258",
+    "name": "ニャルル",
+    "detail_url": "https://gamewith.jp/palworld/567808",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "のびのびキャット",
+      "effect": "手持ちにいる間、プレイヤーにかかる重力が低下し、ジャンプや落下時にふわふわする。(重複不可)"
+    }
+  },
+  {
+    "id": "259",
+    "name": "デンツム",
+    "detail_url": "https://gamewith.jp/palworld/567807",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 4,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "デンデンバッテリー",
+      "effect": "手持ちにいる間、プレイヤーの攻撃に帯電の状態異常値が付与される。(重複不可)"
+    }
+  },
+  {
+    "id": "260",
+    "name": "ドンツム",
+    "detail_url": "https://gamewith.jp/palworld/567806",
+    "types": [
+      "雷",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 4,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "ドンドンシェル",
+      "effect": "手持ちにいる間、プレイヤーとパルが受ける水属性のダメージを軽減し、ずぶ濡れ状態を無効にする。(重複不可)"
+    }
+  },
+  {
+    "id": "261",
+    "name": "ポポフィア",
+    "detail_url": "https://gamewith.jp/palworld/567805",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 2,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "綿毛の妖精",
+      "effect": "手持ちにいる間、ツタまみれ状態のパルの捕獲確率が上昇する。(重複不可)"
+    }
+  },
+  {
+    "id": "262",
+    "name": "バトラビー",
+    "detail_url": "https://gamewith.jp/palworld/567804",
+    "types": [
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 4,
+      "伐採": 0,
+      "採掘": 2,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "大地は友達",
+      "effect": "手持ちにいる間、プレイヤーはダッシュ中に防御力増加を得る。(重複不可)"
+    }
+  },
+  {
+    "id": "263",
+    "name": "フードール",
+    "detail_url": "https://gamewith.jp/palworld/567803",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 1,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "虚ろに潜むもの",
+      "effect": "手持ちにいる間、プレイヤーが非戦闘状態のエネミーに与えるダメージが上昇する。(重複不可)"
+    }
+  },
+  {
+    "id": "264",
+    "name": "ノンビリリ",
+    "detail_url": "https://gamewith.jp/palworld/567802",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 3,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "のんびりスイッチ",
+      "effect": "手持ちにいる間、帯電状態の敵にプレイヤーの攻撃を当てると敵から電気が放出し、周囲の敵にプレイヤーの攻撃の一定割合のダメージを与える。(重複不可)"
+    }
+  },
+  {
+    "id": "265",
+    "name": "ウラミィ",
+    "detail_url": "https://gamewith.jp/palworld/567801",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 4,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "笑顔を振りまく死者",
+      "effect": "手持ちにいる間、毒状態の敵を攻撃すると、その敵の攻撃力を低下させる。(重複不可)"
+    }
+  },
+  {
+    "id": "266",
+    "name": "オーマンボ",
+    "detail_url": "https://gamewith.jp/palworld/567800",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 4,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "カリスママンボー",
+      "effect": "背中に乗って水上を移動できる。手持ちにいる間、通常より才能のあるパルが釣れやすくなる。(重複不可)"
+    }
+  },
+  {
+    "id": "267",
+    "name": "トノサマンボ",
+    "detail_url": "https://gamewith.jp/palworld/567799",
+    "types": [
+      "水",
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 4,
+      "種まき": 0,
+      "発電": 6,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "プラズママンボー",
+      "effect": "背中に乗って水上を移動できる。ライド中、プレイヤーの攻撃が雷属性に変化し、プレイヤーの攻撃力が上昇する。また、手持ちにいる間、通常より才能のあるパルが釣れやすくなる。(重複不可)"
+    }
+  },
+  {
+    "id": "268",
+    "name": "ネモフィ",
+    "detail_url": "https://gamewith.jp/palworld/567798",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 6,
+      "採集": 5,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "ながそでチアー",
+      "effect": "手持ちにいる間、手持ちにいる他のパルが持つパートナースキルのクールタイムを減少させる。(重複不可)"
+    }
+  },
+  {
+    "id": "269",
+    "name": "レイバーン",
+    "detail_url": "https://gamewith.jp/palworld/567797",
+    "types": [
+      "竜",
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 6,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "自由な翼竜",
+      "effect": "背中に乗って空を飛ぶことができる。このパルの攻撃力と移動速度は、手持ちにいるレイバーン以外の竜属性または闇属性のパルの数だけ増加する。"
+    }
+  },
+  {
+    "id": "270",
+    "name": "ヘルバーン",
+    "detail_url": "https://gamewith.jp/palworld/567796",
+    "types": [
+      "竜",
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 6,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 6,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "憤怒の翼竜",
+      "effect": "背中に乗って空を飛ぶことができる。このパルの攻撃力と移動速度は、手持ちにいるヘルバーン以外の竜属性または炎属性のパルの数だけ増加する。"
+    }
+  },
+  {
+    "id": "271",
+    "name": "ダイナモフ",
+    "detail_url": "https://gamewith.jp/palworld/567795",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 6,
+      "手作業": 0,
+      "採集": 3,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "電気マッサージ抱卵",
+      "effect": "背中に乗って空を飛ぶことができる。拠点にいる間、タマゴの孵化速度が上昇する。(重複不可)"
+    }
+  },
+  {
+    "id": "272",
+    "name": "フラペック",
+    "detail_url": "https://gamewith.jp/palworld/567794",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 5,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 5,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "フラワーダンス",
+      "effect": "手持ちにいる間、プレイヤーがローリングやステップをするときの無敵時間が長くなる。(重複不可)"
+    }
+  },
+  {
+    "id": "273",
+    "name": "センコ",
+    "detail_url": "https://gamewith.jp/palworld/567793",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 7,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 6,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "バーニングフューチャー",
+      "effect": "手持ちにいる間、炎上状態の敵にプレイヤーの攻撃を当てると敵が爆発し、追加でプレイヤーの攻撃の一定割合のダメージを与える。(重複不可)"
+    }
+  },
+  {
+    "id": "274",
+    "name": "ハナミズチ",
+    "detail_url": "https://gamewith.jp/palworld/567792",
+    "types": [
+      "草",
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 5,
+      "種まき": 7,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "グロリアスミスト",
+      "effect": "背中に乗って移動できる。手持ちにいる間、プレイヤーの攻撃にずぶ濡れの状態異常値が付与される。(重複不可)"
+    }
+  },
+  {
+    "id": "275",
+    "name": "ラピエール",
+    "detail_url": "https://gamewith.jp/palworld/567791",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 7,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 5,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 4,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "ラピラピトリックショー",
+      "effect": "手持ちにいる間、プレイヤーのHPが50%以下になった時に、ラピエールがプレイヤーの周囲に爆風を発生させる。また、プレイヤーのHPが50%以下の間、プレイヤーの攻撃力が上昇する。(重複不可)"
+    }
+  },
+  {
+    "id": "276",
+    "name": "アルセーヴ",
+    "detail_url": "https://gamewith.jp/palworld/567790",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 5,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 5,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "闇に潜む怪鳥",
+      "effect": "背中に乗って空を飛ぶことができる。手持ちにいる間、プレイヤーとパルが暗闇状態の敵に与えるダメージをアップさせる。(重複不可)"
+    }
+  },
+  {
+    "id": "277",
+    "name": "メドゥーナ",
+    "detail_url": "https://gamewith.jp/palworld/567789",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 6,
+      "採集": 6,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 5,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "蛇の知恵",
+      "effect": "手持ちにいる間、プレイヤーの攻撃に暗闇の状態異常値が付与される。(重複不可)"
+    }
+  },
+  {
+    "id": "278",
+    "name": "マシュリー",
+    "detail_url": "https://gamewith.jp/palworld/567788",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 6,
+      "発電": 0,
+      "手作業": 4,
+      "採集": 4,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 6,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "チャーミングスポア",
+      "effect": "拠点にいる間、他の拠点パルの製薬の作業適正レベルが+1される。(重複不可)"
+    }
+  },
+  {
+    "id": "279",
+    "name": "ヴィランタン",
+    "detail_url": "https://gamewith.jp/palworld/567787",
+    "types": [
+      "闇",
+      "炎"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 4,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 4,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 4,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "ランタンエンチャント",
+      "effect": "手持ちにいる間、プレイヤーが放った矢が着弾時に爆発して、追加でプレイヤーの攻撃の一定割合のダメージを与える。(重複不可)"
+    }
+  },
+  {
+    "id": "280",
+    "name": "ホシノコ",
+    "detail_url": "https://gamewith.jp/palworld/567786",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 6,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 6,
+      "冷却": 0,
+      "運搬": 1,
+      "牧場": 0
+    },
+    "meal_amount": 5,
+    "partner_skill": {
+      "name": "秘めたるダークエネルギー",
+      "effect": "手持ちにいる間、闇属性のパルの防御力が増加する。(重複不可)"
+    }
+  },
+  {
+    "id": "281",
+    "name": "モノクローナ",
+    "detail_url": "https://gamewith.jp/palworld/567785",
+    "types": [
+      "闇",
+      "無"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 8,
+      "採集": 4,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "染まらぬ孤高の姫",
+      "effect": "手持ちにいる間、すべての手持ちのパルの種類が異なるとき、プレイヤーの攻撃力が上昇する。(重複不可)"
+    }
+  },
+  {
+    "id": "282",
+    "name": "ゴウカブキ",
+    "detail_url": "https://gamewith.jp/palworld/567784",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 8,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 6,
+      "採集": 5,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 5,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "大立廻り",
+      "effect": "手持ちにいる間、プレイヤーの攻撃に炎上の状態異常値が付与される。(重複不可)"
+    }
+  },
+  {
+    "id": "283",
+    "name": "シェルガドラ",
+    "detail_url": "https://gamewith.jp/palworld/567783",
+    "types": [
+      "竜",
+      "地"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 8,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "不壊の要塞竜",
+      "effect": "背中に乗って移動できる。手持ちにいる間、プレイヤーとパルが爆発する攻撃を受けた際にダメージを軽減し、スタン状態を無効にする。(重複不可)"
+    }
+  },
+  {
+    "id": "116",
+    "name": "エレパンダ",
+    "detail_url": "https://gamewith.jp/palworld/433758",
+    "types": [
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 3,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "黄色い重戦車",
+      "effect": "背中に乗って移動できる。ライド中、ミニガンを連射できる。"
+    }
+  },
+  {
+    "id": "117",
+    "name": "リリクイン",
+    "detail_url": "https://gamewith.jp/palworld/434132",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 4,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 3,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "豊穣の女神",
+      "effect": "発動すると、女王の癒やしの力でプレイヤーのHPを大きく回復する。"
+    }
+  },
+  {
+    "id": "118",
+    "name": "ルナクイン",
+    "detail_url": "https://gamewith.jp/palworld/434133",
+    "types": [
+      "闇"
+    ],
+    "active_time": "昼",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 3,
+      "採集": 2,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 3,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "幽光の女神",
+      "effect": "発動すると、女王の癒やしの力でプレイヤーのHPを大きく回復する。"
+    }
+  },
+  {
+    "id": "120",
+    "name": "ボルゼクス",
+    "detail_url": "https://gamewith.jp/palworld/434135",
+    "types": [
+      "竜",
+      "雷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 4,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "獰猛な迅雷竜",
+      "effect": "一緒に戦っている間、水属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "119",
+    "name": "ホルス",
+    "detail_url": "https://gamewith.jp/palworld/434007",
+    "types": [
+      "炎"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 3,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "灼熱の捕食者",
+      "effect": "背中に乗って空を飛ぶことができる。一緒に戦っている間、氷属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "187",
+    "name": "イシス",
+    "detail_url": "https://gamewith.jp/palworld/479843",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 4,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "潮流の捕食者",
+      "effect": "背中に乗って空を飛ぶことができる。一緒に戦っている間、炎属性のパルを倒した際のドロップアイテム獲得量が増える。"
+    }
+  },
+  {
+    "id": "121",
+    "name": "ゼノグリフ",
+    "detail_url": "https://gamewith.jp/palworld/434136",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "改造遺伝子",
+      "effect": "背中に乗って空を飛ぶことができる。ライド中、闇属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "149",
+    "name": "セレムーン",
+    "detail_url": "https://gamewith.jp/palworld/454693",
+    "types": [
+      "闇",
+      "無"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 4,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 3,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "セレスタルダークネス",
+      "effect": "背中に乗って移動できる。ライド中、無属性と闇属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "174",
+    "name": "ヒョウガオー",
+    "detail_url": "https://gamewith.jp/palworld/479856",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 3,
+      "採掘": 3,
+      "製薬": 0,
+      "冷却": 4,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 6,
+    "partner_skill": {
+      "name": "ブリザードクラッシュ",
+      "effect": "背中に乗って移動できる、ライド中、氷属性のハンマーを振り下ろして攻撃できる。"
+    }
+  },
+  {
+    "id": "284",
+    "name": "シャオロン",
+    "detail_url": "https://gamewith.jp/palworld/567782",
+    "types": [
+      "竜",
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 8,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 5,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "蒼天の支配者",
+      "effect": "背中に乗って空を飛ぶことができる。このパルの攻撃力は、手持ちにいるシャオロン以外の竜属性パルの数だけ増加する。"
+    }
+  },
+  {
+    "id": "285",
+    "name": "モスローン",
+    "detail_url": "https://gamewith.jp/palworld/567781",
+    "types": [
+      "草"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 6,
+      "発電": 0,
+      "手作業": 6,
+      "採集": 4,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 8,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "胞子の番人",
+      "effect": "手持ちにいる間、ツタまみれ状態の敵にプレイヤーが攻撃を当てると敵が爆発し、追加でプレイヤーの攻撃の一定割合のダメージを与える。(重複不可)　また,、プレイヤーとパルは世界樹の起爆胞子を無効化する。"
+    }
+  },
+  {
+    "id": "286",
+    "name": "ノクサージュ",
+    "detail_url": "https://gamewith.jp/palworld/567780",
+    "types": [
+      "草",
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 8,
+      "発電": 0,
+      "手作業": 6,
+      "採集": 5,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 6,
+      "冷却": 0,
+      "運搬": 3,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "霧の番人",
+      "effect": "発動すると、プレイヤーの攻撃に毒の状態異常値が付与される。手持ちにいる間、プレイヤーとパルは毒状態を無効にして、世界樹エリアの毒ガスを無効化する。(重複不可)"
+    }
+  },
+  {
+    "id": "138",
+    "name": "ベラノワール",
+    "detail_url": "https://gamewith.jp/palworld/444088",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 4,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "悪夢の瞳",
+      "effect": "発動すると、狙いを定めた敵に向かって高威力のナイトメアレイで攻撃する。"
+    }
+  },
+  {
+    "id": "139",
+    "name": "ベラルージュ",
+    "detail_url": "https://gamewith.jp/palworld/444094",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 2,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 4,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 4,
+    "partner_skill": {
+      "name": "悪夢の視線",
+      "effect": "発動すると、狙いを定めた敵に向かって高威力のナイトメアレイブルームで攻撃する。"
+    }
+  },
+  {
+    "id": "164",
+    "name": "ゼノドラン",
+    "detail_url": "https://gamewith.jp/palworld/479866",
+    "types": [
+      "闇",
+      "竜"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 1,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 8,
+    "partner_skill": {
+      "name": "メテオウィング",
+      "effect": "背中に乗って空を飛ぶことができる。空を飛んでいる間、移動速度が大幅に上昇する。"
+    }
+  },
+  {
+    "id": "230",
+    "name": "レジェンディア",
+    "detail_url": "https://gamewith.jp/palworld/567836",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 7,
+      "伐採": 7,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "セイクリッドバリア",
+      "effect": "背中に乗って移動できる。ライド中、あらゆる攻撃を防ぐバリアを生成できる。また、ライド中、3段ジャンプが可能になる。"
+    }
+  },
+  {
+    "id": "122",
+    "name": "セイントール",
+    "detail_url": "https://gamewith.jp/palworld/434140",
+    "types": [
+      "無"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 2,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "天翔の聖騎士",
+      "effect": "背中に乗って移動できる。ライド中、3段ジャンプが可能になる。"
+    }
+  },
+  {
+    "id": "123",
+    "name": "ベイントール",
+    "detail_url": "https://gamewith.jp/palworld/434139",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 2,
+      "採掘": 2,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "深淵の黒騎士",
+      "effect": "背中に乗って移動できる。ライド中、2段ジャンプが可能になる。"
+    }
+  },
+  {
+    "id": "124",
+    "name": "グレイシャル",
+    "detail_url": "https://gamewith.jp/palworld/434027",
+    "types": [
+      "氷"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 4,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "氷天馬",
+      "effect": "背中に乗って空を飛ぶことができる。ライド中、プレイヤーの攻撃が氷属性に変化し、氷属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "137",
+    "name": "グレイシャドウ",
+    "detail_url": "https://gamewith.jp/palworld/434124",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 4,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "黒天馬",
+      "effect": "背中に乗って空を飛ぶことができる。ライド中、プレイヤーの攻撃が闇属性に変化し、闇属性の攻撃が強化される。"
+    }
+  },
+  {
+    "id": "214",
+    "name": "ネプティオス",
+    "detail_url": "https://gamewith.jp/palworld/504712",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 4,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 2,
+      "牧場": 0
+    },
+    "meal_amount": 7,
+    "partner_skill": {
+      "name": "大海の覇者",
+      "effect": "一緒に戦っている間、プレイヤーの攻撃に合わせて槍で追撃を行う。背中に乗って水上を高速で移動できる。ライド中、水上で高く飛び上がることができる。"
+    }
+  },
+  {
+    "id": "125",
+    "name": "ジェッドラン",
+    "detail_url": "https://gamewith.jp/palworld/434141",
+    "types": [
+      "竜"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 3,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "エアリアルミサイル",
+      "effect": "背中に乗って空を飛ぶことができる。ライド中、ミサイルランチャーを連射できる。"
+    }
+  },
+  {
+    "id": "287",
+    "name": "グランジーラ",
+    "detail_url": "https://gamewith.jp/palworld/567777",
+    "types": [
+      "水"
+    ],
+    "active_time": "昼",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": true,
+      "swim": false
+    },
+    "work_suitability": {
+      "火おこし": 0,
+      "水やり": 0,
+      "種まき": 0,
+      "発電": 0,
+      "手作業": 0,
+      "採集": 0,
+      "伐採": 0,
+      "採掘": 0,
+      "製薬": 0,
+      "冷却": 0,
+      "運搬": 0,
+      "牧場": 0
+    },
+    "meal_amount": 9,
+    "partner_skill": {
+      "name": "残響の守護者",
+      "effect": "背中に乗って空を飛ぶことができる。拠点に1匹までしか召喚できない。拠点にいる間、常に拠点上空を回遊し侵入者に対しては遥か上空から砲撃を行う。"
+    }
+  }
+]
