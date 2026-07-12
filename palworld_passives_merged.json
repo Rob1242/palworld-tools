@@ -1,0 +1,2332 @@
+[
+  {
+    "name": "悪魔の手",
+    "asset": "WorldTree_CraftSpeed",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_05.webp",
+    "rank": 5,
+    "effects": [
+      {
+        "type": "CraftSpeed",
+        "value": 90.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "Sanity_Decrease",
+        "value": 15.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "WorldTreeDecayImmunity",
+        "value": 0.0,
+        "target": "ToSelfAndTrainer"
+      }
+    ],
+    "effect_text_jp": "作業速度+90%SAN値が減りやすい+15%世界樹の木・岩に近づいても消滅しない",
+    "description_en": "Work Speed +{EffectValue1}%\r\nSAN dreceases +15.0% faster\r\nWorld Tree harvestables won't vanish when approached.",
+    "is_worldtree": true,
+    "url": "https://palworld-lab.com/passives/%E6%82%AA%E9%AD%94%E3%81%AE%E6%89%8B/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "次元跳躍",
+    "asset": "WorldTree_MoveSpeed",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_05.webp",
+    "rank": 5,
+    "effects": [
+      {
+        "type": "MoveSpeed",
+        "value": 50.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "FullStomatch_Decrease",
+        "value": 15.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "WorldTreeDecayImmunity",
+        "value": 0.0,
+        "target": "ToSelfAndTrainer"
+      }
+    ],
+    "effect_text_jp": "移動速度上昇+50%満腹度が減りやすい+15%世界樹の木・岩に近づいても消滅しない",
+    "description_en": "Movement Speed +{EffectValue1}%\r\nIncreases Hunger depletion rate by +15.0%\r\nWorld Tree resources will not vanish when approached.",
+    "is_worldtree": true,
+    "url": "https://palworld-lab.com/passives/%E6%AC%A1%E5%85%83%E8%B7%B3%E8%BA%8D/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "諸刃の聖剣",
+    "asset": "WorldTree_ATK",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_05.webp",
+    "rank": 5,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": 50.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "Defense",
+        "value": -30.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "WorldTreeDecayImmunity",
+        "value": 0.0,
+        "target": "ToSelfAndTrainer"
+      }
+    ],
+    "effect_text_jp": "攻撃+50%防御-30%世界樹の木・岩に近づいても消滅しない",
+    "description_en": "Attack +{EffectValue1}%\r\nDefense {EffectValue2}%\r\nWorld Tree resources will not vanish when approached.",
+    "is_worldtree": true,
+    "url": "https://palworld-lab.com/passives/%E8%AB%B8%E5%88%83%E3%81%AE%E8%81%96%E5%89%A3/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "神樹の苗床",
+    "asset": "WorldTree_FullStomach",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_05.webp",
+    "rank": 5,
+    "effects": [
+      {
+        "type": "FullStomatch_Decrease",
+        "value": -50.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "MaxHP",
+        "value": -20.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "WorldTreeDecayImmunity",
+        "value": 0.0,
+        "target": "ToSelfAndTrainer"
+      }
+    ],
+    "effect_text_jp": "満腹度が減りにくい+50%HP-20%世界樹の木・岩に近づいても消滅しない",
+    "description_en": "Decrease Hunger depletion rate by +50.0%\r\nHP {EffectValue2}%\r\nWorld Tree resources will not vanish when approached.",
+    "is_worldtree": true,
+    "url": "https://palworld-lab.com/passives/%E7%A5%9E%E6%A8%B9%E3%81%AE%E8%8B%97%E5%BA%8A/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "聖域の肉壁",
+    "asset": "WorldTree_DEF",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_05.webp",
+    "rank": 5,
+    "effects": [
+      {
+        "type": "Defense",
+        "value": 50.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ShotAttack",
+        "value": -30.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "WorldTreeDecayImmunity",
+        "value": 0.0,
+        "target": "ToSelfAndTrainer"
+      }
+    ],
+    "effect_text_jp": "防御+50%攻撃-30%世界樹の木・岩に近づいても消滅しない",
+    "description_en": "Defense +{EffectValue1}%\r\nAttack {EffectValue2}%\r\nWorld Tree resources will not vanish when approached.",
+    "is_worldtree": true,
+    "url": "https://palworld-lab.com/passives/%E8%81%96%E5%9F%9F%E3%81%AE%E8%82%89%E5%A3%81/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "仙人",
+    "asset": "WorldTree_Sanity",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_05.webp",
+    "rank": 5,
+    "effects": [
+      {
+        "type": "Sanity_Decrease",
+        "value": -50.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "CraftSpeed",
+        "value": -20.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "WorldTreeDecayImmunity",
+        "value": 0.0,
+        "target": "ToSelfAndTrainer"
+      }
+    ],
+    "effect_text_jp": "SAN値が減りにくい+50%作業速度-20%世界樹の木・岩に近づいても消滅しない",
+    "description_en": "SAN depletion rate -50.0%\r\nWork Speed {EffectValue2}%\r\nWorld Tree resources will not vanish when approached.",
+    "is_worldtree": true,
+    "url": "https://palworld-lab.com/passives/%E4%BB%99%E4%BA%BA/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "破壊神",
+    "asset": "WorldTree_ATK_DEF",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_05.webp",
+    "rank": 5,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": 40.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "Defense",
+        "value": 20.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "MaxHP",
+        "value": -50.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "WorldTreeDecayImmunity",
+        "value": 0.0,
+        "target": "ToSelfAndTrainer"
+      }
+    ],
+    "effect_text_jp": "攻撃+40%防御+20%HP -50%世界樹の木・岩に近づいても消滅しない",
+    "description_en": "Attack +{EffectValue1}%\r\nDefense +{EffectValue2}%\r\nMax Health {EffectValue3}%\r\nWorld Tree resources will not vanish when approached.",
+    "is_worldtree": true,
+    "url": "https://palworld-lab.com/passives/%E7%A0%B4%E5%A3%8A%E7%A5%9E/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "ダイヤモンドボディ",
+    "asset": "Deffence_up3",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "Defense",
+        "value": 30.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "LeanBackInvalid_ForPassiveSkill",
+        "value": 0.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "KnockbackInvalid_ForPassiveSkill",
+        "value": 0.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "防御+30%ひるみ無効吹き飛び無効",
+    "description_en": "Defense +{EffectValue1}%\r\nImmune to Flinch\r\nImmune to Knockback",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%80%E3%82%A4%E3%83%A4%E3%83%A2%E3%83%B3%E3%83%89%E3%83%9C%E3%83%87%E3%82%A3/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "ヌシ",
+    "asset": "Nushi",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "ElementBoost_Water",
+        "value": 20.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ElementBoost_Ice",
+        "value": 20.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "Defense",
+        "value": 20.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "水属性攻撃ダメージ増加20%氷属性攻撃ダメージ増加20%防御+20%",
+    "description_en": "{EffectValue1}% increase to Water attack damage \r\n{EffectValue1}% increase to Ice attack damage \r\n{EffectValue1}% increase to defense.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%8C%E3%82%B7/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "ベビーシッター",
+    "asset": "MutationPal_Babysitter",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "PalEggHatchingSpeed",
+        "value": 30.0,
+        "target": "ToBuildObject"
+      },
+      {
+        "type": "BreedSpeed_InBaseCamp",
+        "value": 30.0,
+        "target": "ToBuildObject"
+      }
+    ],
+    "effect_text_jp": "拠点にいる間、配合牧場にアサインしたパルのタマゴ生成速度+30%拠点にいる間、孵化速度+30%",
+    "description_en": "While at a base, increases egg production speed by +{EffectValue2}% and incubation speed by +{EffectValue1}% for Pals assigned to a Breeding Farm.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%99%E3%83%93%E3%83%BC%E3%82%B7%E3%83%83%E3%82%BF%E3%83%BC/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "永炎",
+    "asset": "EternalFlame",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "ElementBoost_Fire",
+        "value": 30.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ElementBoost_Electricity",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "炎属性攻撃ダメージ増加30%雷属性攻撃ダメージ増加30%",
+    "description_en": "{EffectValue1}% increase to Fire attack damage.\r\n{EffectValue1}% increase to Lightning attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E6%B0%B8%E7%82%8E/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "永久機関",
+    "asset": "Stamina_Up_3",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "PalSP_Increase",
+        "value": 75.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "最大スタミナ+75% ※ライドパルのみ有効",
+    "description_en": "Max stamina +{EffectValue1}%\r\n*This effect is only valid for rideable pals.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E6%B0%B8%E4%B9%85%E6%A9%9F%E9%96%A2/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "希少",
+    "asset": "Rare",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": 15.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "Defense",
+        "value": 15.0,
+        "target": "None"
+      },
+      {
+        "type": "CraftSpeed",
+        "value": 20.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "攻撃+15%防御+15%作業速度+20%",
+    "description_en": "Attack +15%\r\nDefense +15%\r\nWork Speed +20%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%B8%8C%E5%B0%91/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "鬼神",
+    "asset": "PAL_ALLAttack_up3",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": 30.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "Defense",
+        "value": 5.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "攻撃+30%防御+5%",
+    "description_en": "Attack +30%\r\nDefense +5%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E9%AC%BC%E7%A5%9E/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "吸血鬼",
+    "asset": "Vampire",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "Nocturnal",
+        "value": 0.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "LifeSteal",
+        "value": 5.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "ダメージの5%を吸収し回復夜でも眠らず働く",
+    "description_en": "Absorbs a portion of the damage dealt to restore HP. \r\nDoes not sleep at night and continues to work.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%90%B8%E8%A1%80%E9%AC%BC/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "救世主",
+    "asset": "Salvation",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "ElementBoost_Normal",
+        "value": 30.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ElementBoost_Leaf",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "無属性攻撃ダメージ増加30%草属性攻撃ダメージ増加30%",
+    "description_en": "{EffectValue1}% increase in Neutral attack damage.\r\n{EffectValue1}% increase in Grass attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E6%95%91%E4%B8%96%E4%B8%BB/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "空渡り",
+    "asset": "RideJumpCount_Increase2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "RideJumpCount_Increase",
+        "value": 2.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "ライド中のジャンプ回数+2",
+    "description_en": "Mounted Jump Count +2",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%A9%BA%E6%B8%A1%E3%82%8A/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "軽身",
+    "asset": "RideJumpCount_Increase1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "RideJumpCount_Increase",
+        "value": 1.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "ライド中のジャンプ回数+1",
+    "description_en": "Mounted Jump Count +1",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E8%BB%BD%E8%BA%AB/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "重装甲",
+    "asset": "MutationPal_ExplosionResist",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "ExplosionResist",
+        "value": 100.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "爆破ダメージ無効",
+    "description_en": "Immune to Explosion Damage",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E9%87%8D%E8%A3%85%E7%94%B2/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "侵略者",
+    "asset": "Invader",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "ElementBoost_Dark",
+        "value": 30.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ElementBoost_Dragon",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "闇属性攻撃ダメージ増加30%竜属性攻撃ダメージ増加30%",
+    "description_en": "{EffectValue1}% increase in Dark attack damage.\r\n{EffectValue1}% increase in Dragon attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E4%BE%B5%E7%95%A5%E8%80%85/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "神速",
+    "asset": "MoveSpeed_up_3",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "MoveSpeed",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "移動速度上昇30%",
+    "description_en": "{EffectValue1}% increase to movement speed.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%A5%9E%E9%80%9F/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "絶食の極み",
+    "asset": "PAL_FullStomach_Down_3",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "FullStomatch_Decrease",
+        "value": -20.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "満腹度が減りにくい+20.0%",
+    "description_en": "Hunger decreases +20.0% slower.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%B5%B6%E9%A3%9F%E3%81%AE%E6%A5%B5%E3%81%BF/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "大盤振る舞い",
+    "asset": "SelfDeathAddItemDrop_up_3",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "SelfDeathAddItemDrop",
+        "value": 100.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "自身のドロップアイテム+100%",
+    "description_en": "Your Dropped Items + {EffectValue1}%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%A4%A7%E7%9B%A4%E6%8C%AF%E3%82%8B%E8%88%9E%E3%81%84/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "超絶技巧",
+    "asset": "CraftSpeed_up3",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "CraftSpeed",
+        "value": 75.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "作業速度+75%",
+    "description_en": "Work Speed +75%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E8%B6%85%E7%B5%B6%E6%8A%80%E5%B7%A7/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "伝説",
+    "asset": "Legend",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": 20.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "Defense",
+        "value": 20.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "MoveSpeed",
+        "value": 20.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "攻撃+20%防御+20%移動速度上昇20%",
+    "description_en": "Attack +{EffectValue1}%\r\nDefense +{EffectValue2}%\r\nMovement Speed increases {EffectValue3}%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E4%BC%9D%E8%AA%AC/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "特異体質",
+    "asset": "MutationPal_Mutant",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "AutoHPRegeneRate",
+        "value": 50.0,
+        "target": "ToSelfAndTrainer"
+      },
+      {
+        "type": "ResistAdditionalEffect_Burn",
+        "value": 100.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ResistAdditionalEffect_Poison",
+        "value": 100.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "Defense",
+        "value": 25.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "パルとプレイヤーのHP自然回復量+50%防御+25%毒状態異常ダメージ無効炎上状態異常ダメージ無効",
+    "description_en": "Pal and Player Auto Health Regeneration Rate +{EffectValue1}%\r\nDefense +{EffectValue4}%\r\nImmune to Poison Damage\r\nImmune to Burn Damage",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%89%B9%E7%95%B0%E4%BD%93%E8%B3%AA/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "波乗り王",
+    "asset": "SwimSpeed_up_3",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "SwimSpeed",
+        "value": 50.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "水上の移動速度上昇50%",
+    "description_en": "{EffectValue1}% increase movement speed on water.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E6%B3%A2%E4%B9%97%E3%82%8A%E7%8E%8B/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "不死身",
+    "asset": "MutationPal_Immortal",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "LifeSteal",
+        "value": 5.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "AutoHPRegeneRate",
+        "value": 100.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ShotAttack",
+        "value": 15.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "ライフスティール+5.0%パルのHP自然回復量+100%攻撃+15%",
+    "description_en": "Life Steal +{EffectValue1}%\r\nPal Auto Health Regeneration Rate +{EffectValue2}%\r\nAttack +{EffectValue3}%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E4%B8%8D%E6%AD%BB%E8%BA%AB/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "不動明王の心",
+    "asset": "PAL_Sanity_Down_3",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "Sanity_Decrease",
+        "value": -20.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "SAN値が減りにくい+20.0%",
+    "description_en": "SAN drops +20.0% slower.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E4%B8%8D%E5%8B%95%E6%98%8E%E7%8E%8B%E3%81%AE%E5%BF%83/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "牧場の主",
+    "asset": "WorkSuitabilityAddRank_MonsterFarm_2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "WorkSuitabilityAddRank_MonsterFarm",
+        "value": 2.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "牧場の作業適性+2",
+    "description_en": "Ranching's work suitability +2",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%89%A7%E5%A0%B4%E3%81%AE%E4%B8%BB/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "魔女",
+    "asset": "Witch",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_04.webp",
+    "rank": 4,
+    "effects": [
+      {
+        "type": "ElementBoost_Dark",
+        "value": 30.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ElementBoost_Ice",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "闇属性攻撃ダメージ増加30%氷属性攻撃ダメージ増加30%",
+    "description_en": "{EffectValue1}% increase in Dark attack damage.\r\n{EffectValue1}% increase in Ice attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E9%AD%94%E5%A5%B3/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "サービス精神",
+    "asset": "SelfDeathAddItemDrop_up_2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "SelfDeathAddItemDrop",
+        "value": 50.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "自身のドロップアイテム+50%",
+    "description_en": "Your Dropped Items + {EffectValue1}%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E7%B2%BE%E7%A5%9E/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "ダイエットマスター",
+    "asset": "PAL_FullStomach_Down_2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "FullStomatch_Decrease",
+        "value": -15.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "満腹度が減りにくい+15.0%",
+    "description_en": "Hunger decreases +15.0% slower.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%80%E3%82%A4%E3%82%A8%E3%83%83%E3%83%88%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "バテ防止係",
+    "asset": "PlayerSP_DecreaseRate_Passive",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "PlayerSP_DecreaseRate",
+        "value": -5.0,
+        "target": "ToTrainer"
+      }
+    ],
+    "effect_text_jp": "プレイヤーのスタミナ消費量軽減+5.0%",
+    "description_en": "Player Stamina Consumption -5.0%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%90%E3%83%86%E9%98%B2%E6%AD%A2%E4%BF%82/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "ヒーリングコーチ",
+    "asset": "AutoHPRegeneRate_Passive",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "AutoHPRegeneRate",
+        "value": 5.0,
+        "target": "ToTrainer"
+      }
+    ],
+    "effect_text_jp": "プレイヤーのHP自然回復量+5.0%",
+    "description_en": "Player Auto Health Regeneration Rate +{EffectValue1}%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%92%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B3%E3%83%BC%E3%83%81/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "ヘビー級",
+    "asset": "Deffence_up2_2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_02.webp",
+    "rank": 2,
+    "effects": [
+      {
+        "type": "Defense",
+        "value": 20.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "KnockbackInvalid_ForPassiveSkill",
+        "value": 0.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "防御+20%吹き飛び無効",
+    "description_en": "Defense +{EffectValue1}%\r\nImmune to Knockback",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%98%E3%83%93%E3%83%BC%E7%B4%9A/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "モチベーター",
+    "asset": "TrainerWorkSpeed_UP_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "CraftSpeed",
+        "value": 25.0,
+        "target": "ToTrainer"
+      }
+    ],
+    "effect_text_jp": "プレイヤーの作業速度増加25%",
+    "description_en": "{EffectValue1}% increase in Player Work Speed.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%A2%E3%83%81%E3%83%99%E3%83%BC%E3%82%BF%E3%83%BC/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "リロードマスター",
+    "asset": "ReloadSpeedUp_Passive",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ReloadSpeedUp",
+        "value": 4.0,
+        "target": "ToTrainer"
+      }
+    ],
+    "effect_text_jp": "プレイヤーのリロード速度上昇+4.0%",
+    "description_en": "Player Reload Speed +{EffectValue1}%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%AA%E3%83%AD%E3%83%BC%E3%83%89%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "ワーカーホリック",
+    "asset": "PAL_Sanity_Down_2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "Sanity_Decrease",
+        "value": -15.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "SAN値が減りにくい+15.0%",
+    "description_en": "SAN drops +15.0% slower.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%AF%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%9B%E3%83%AA%E3%83%83%E3%82%AF/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "泳ぐのが得意",
+    "asset": "SwimSpeed_up_2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "SwimSpeed",
+        "value": 40.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "水上の移動速度上昇40%",
+    "description_en": "{EffectValue1}% increase movement speed on water.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E6%B3%B3%E3%81%90%E3%81%AE%E3%81%8C%E5%BE%97%E6%84%8F/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "炎帝",
+    "asset": "ElementBoost_Fire_2_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ElementBoost_Fire",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "炎属性攻撃ダメージ増加30%",
+    "description_en": "{EffectValue1}% increase in Fire attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%82%8E%E5%B8%9D/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "海皇",
+    "asset": "ElementBoost_Aqua_2_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ElementBoost_Water",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "水属性攻撃ダメージ増加30%",
+    "description_en": "{EffectValue1}% increase in Water attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E6%B5%B7%E7%9A%87/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "屈強な肉体",
+    "asset": "Deffence_up2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "Defense",
+        "value": 20.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "LeanBackInvalid_ForPassiveSkill",
+        "value": 0.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "防御+20%ひるみ無効",
+    "description_en": "Defense +{EffectValue1}%\r\nImmune to Flinch",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%B1%88%E5%BC%B7%E3%81%AA%E8%82%89%E4%BD%93/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "堅城の軍師",
+    "asset": "TrainerDEF_UP_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "Defense",
+        "value": 10.0,
+        "target": "ToTrainer"
+      }
+    ],
+    "effect_text_jp": "プレイヤーの防御増加10%",
+    "description_en": "{EffectValue1}% increase in Player Defense.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%A0%85%E5%9F%8E%E3%81%AE%E8%BB%8D%E5%B8%AB/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "鉱山のチーフ",
+    "asset": "TrainerMining_up1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "Mining",
+        "value": 25.0,
+        "target": "ToTrainer"
+      }
+    ],
+    "effect_text_jp": "プレイヤーの採掘効率増加25%",
+    "description_en": "{EffectValue1}% increase in Player Mining Efficiency.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E9%89%B1%E5%B1%B1%E3%81%AE%E3%83%81%E3%83%BC%E3%83%95/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "高貴",
+    "asset": "SalePrice_Up_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ShopSellPrice_Money_Increase",
+        "value": 5.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ShopBuyPrice_Money_Increase",
+        "value": -5.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "取引価格が改善+5%",
+    "description_en": "Increases the value of items when sold by +{EffectValue1}%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E9%AB%98%E8%B2%B4/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "職人気質",
+    "asset": "CraftSpeed_up2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "CraftSpeed",
+        "value": 50.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "作業速度+50%",
+    "description_en": "Work Speed +50%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E8%81%B7%E4%BA%BA%E6%B0%97%E8%B3%AA/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "神龍",
+    "asset": "ElementBoost_Dragon_2_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ElementBoost_Dragon",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "竜属性攻撃ダメージ増加30%",
+    "description_en": "{EffectValue1}% increase in Dragon attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%A5%9E%E9%BE%8D/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "精霊王",
+    "asset": "ElementBoost_Leaf_2_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ElementBoost_Leaf",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "草属性攻撃ダメージ増加30%",
+    "description_en": "{EffectValue1}% increase in Grass attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%B2%BE%E9%9C%8A%E7%8E%8B/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "聖天",
+    "asset": "ElementBoost_Normal_2_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ElementBoost_Normal",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "無属性攻撃ダメージ増加30%",
+    "description_en": "{EffectValue1}% increase in Neutral attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E8%81%96%E5%A4%A9/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "走るのが得意",
+    "asset": "MoveSpeed_up_2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "MoveSpeed",
+        "value": 20.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "移動速度上昇20%",
+    "description_en": "{EffectValue1}% increase to movement speed.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E8%B5%B0%E3%82%8B%E3%81%AE%E3%81%8C%E5%BE%97%E6%84%8F/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "大物",
+    "asset": "MiniNushi",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ElementBoost_Water",
+        "value": 5.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ElementBoost_Ice",
+        "value": 5.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "Defense",
+        "value": 5.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "水属性攻撃ダメージ増加5%氷属性攻撃ダメージ増加5%防御+5%",
+    "description_en": "{EffectValue1}% increase to Water attack damage \r\n{EffectValue1}% increase to Ice attack damage \r\n{EffectValue1}% increase to defense.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%A4%A7%E7%89%A9/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "地帝",
+    "asset": "ElementBoost_Earth_2_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ElementBoost_Earth",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "地属性攻撃ダメージ増加30%",
+    "description_en": "{EffectValue1}% increase in Earth attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%9C%B0%E5%B8%9D/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "突撃指揮者",
+    "asset": "TrainerATK_UP_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": 10.0,
+        "target": "ToTrainer"
+      }
+    ],
+    "effect_text_jp": "プレイヤーの攻撃増加10%",
+    "description_en": "{EffectValue1}% increase in Player Attack.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%AA%81%E6%92%83%E6%8C%87%E6%8F%AE%E8%80%85/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "脳筋",
+    "asset": "Noukin",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_02.webp",
+    "rank": 2,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": 30.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "CraftSpeed",
+        "value": -50.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "攻撃+30%作業速度 -50%",
+    "description_en": "Attack +30%\r\nWork Speed -50%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E8%84%B3%E7%AD%8B/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "博愛主義者",
+    "asset": "Test_PalEgg_HatchingSpeed_Up",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "BreedSpeed",
+        "value": 100.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "配合牧場配置中タマゴ生成速度が100%増加",
+    "description_en": "When assigned to a Breeding Farm, breeding speed is increased by {EffectValue1}%.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%8D%9A%E6%84%9B%E4%B8%BB%E7%BE%A9%E8%80%85/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "伐採リーダー",
+    "asset": "TrainerLogging_up1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "Logging",
+        "value": 25.0,
+        "target": "ToTrainer"
+      }
+    ],
+    "effect_text_jp": "プレイヤーの伐採効率増加25%",
+    "description_en": "{EffectValue1}% increase in Player Logging Efficiency.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E4%BC%90%E6%8E%A1%E3%83%AA%E3%83%BC%E3%83%80%E3%83%BC/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "氷帝",
+    "asset": "ElementBoost_Ice_2_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ElementBoost_Ice",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "氷属性攻撃ダメージ増加30%",
+    "description_en": "{EffectValue1}% increase in Ice attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E6%B0%B7%E5%B8%9D/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "牧場っ子",
+    "asset": "WorkSuitabilityAddRank_MonsterFarm_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "WorkSuitabilityAddRank_MonsterFarm",
+        "value": 1.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "牧場の作業適性+1",
+    "description_en": "Ranching's work suitability +1",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%89%A7%E5%A0%B4%E3%81%A3%E5%AD%90/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "無限のスタミナ",
+    "asset": "Stamina_Up_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "PalSP_Increase",
+        "value": 50.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "最大スタミナ+50% ※ライド可能なパルのみ有効",
+    "description_en": "Max stamina +{EffectValue1}%\r\n*This effect is only valid for rideable pals.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%84%A1%E9%99%90%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%9F%E3%83%8A/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "冥王",
+    "asset": "ElementBoost_Dark_2_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ElementBoost_Dark",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "闇属性攻撃ダメージ増加30%",
+    "description_en": "{EffectValue1}% increase in Dark attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%86%A5%E7%8E%8B/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "雷帝",
+    "asset": "ElementBoost_Thunder_2_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ElementBoost_Electricity",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "雷属性攻撃ダメージ増加30%",
+    "description_en": "{EffectValue1}% increase in Lightning attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E9%9B%B7%E5%B8%9D/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "冷静沈着",
+    "asset": "CoolTimeReduction_Up_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ActiveSkillCoolTime_Decrease",
+        "value": 30.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ShotAttack",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "クールタイム短縮30%攻撃+10%",
+    "description_en": "Active skill cooldown reduction {EffectValue1}%\r\nAttack +{EffectValue2}%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%86%B7%E9%9D%99%E6%B2%88%E7%9D%80/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "獰猛",
+    "asset": "PAL_ALLAttack_up2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_03.webp",
+    "rank": 3,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": 20.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "攻撃+20%",
+    "description_en": "Attack +20%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%8D%B0%E7%8C%9B/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "アブノーマル",
+    "asset": "ElementResist_Normal_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementResist_Normal",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "無属性ダメージ軽減10%",
+    "description_en": "{EffectValue1}% decrease in incoming Neutral damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%82%A2%E3%83%96%E3%83%8E%E3%83%BC%E3%83%9E%E3%83%AB/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "うぬぼれ屋",
+    "asset": "PAL_conceited",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "CraftSpeed",
+        "value": 10.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "Defense",
+        "value": -10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "作業速度+10%防御 -10%",
+    "description_en": "Work Speed +10%\r\nDefense -10%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%81%86%E3%81%AC%E3%81%BC%E3%82%8C%E5%B1%8B/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "オラオラ系",
+    "asset": "PAL_oraora",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": 10.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "Defense",
+        "value": -10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "攻撃+10%防御 -10%",
+    "description_en": "Attack +10%\r\nDefense -10%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%82%AA%E3%83%A9%E3%82%AA%E3%83%A9%E7%B3%BB/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "コンデンサ",
+    "asset": "ElementBoost_Thunder_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementBoost_Electricity",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "雷属性攻撃ダメージ増加10%",
+    "description_en": "{EffectValue1}% increase in Lightning attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%82%B3%E3%83%B3%E3%83%87%E3%83%B3%E3%82%B5/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "サディスト",
+    "asset": "PAL_sadist",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": 15.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "Defense",
+        "value": -15.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "攻撃+15%防御 -15%",
+    "description_en": "Attack +15%\r\nDefense -15%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%82%B5%E3%83%87%E3%82%A3%E3%82%B9%E3%83%88/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "しなやかスイム",
+    "asset": "SwimSpeed_up_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "SwimSpeed",
+        "value": 30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "水上の移動速度上昇30%",
+    "description_en": "{EffectValue1}% increase movement speed on water.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%81%97%E3%81%AA%E3%82%84%E3%81%8B%E3%82%B9%E3%82%A4%E3%83%A0/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "すばしこい",
+    "asset": "MoveSpeed_up_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "MoveSpeed",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "移動速度上昇10%",
+    "description_en": "{EffectValue1}% increase to movement speed.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%81%99%E3%81%B0%E3%81%97%E3%81%93%E3%81%84/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "せっかち",
+    "asset": "CoolTimeReduction_Up_2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ActiveSkillCoolTime_Decrease",
+        "value": 15.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "アクティブスキルのクールタイム短縮15%",
+    "description_en": "Active skill cooldown reduction {EffectValue1}%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%81%9B%E3%81%A3%E3%81%8B%E3%81%A1/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "ドラゴンキラー",
+    "asset": "ElementResist_Dragon_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementResist_Dragon",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "竜属性ダメージ軽減10%",
+    "description_en": "{EffectValue1}% decrease in incoming Dragon damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%89%E3%83%A9%E3%82%B4%E3%83%B3%E3%82%AD%E3%83%A9%E3%83%BC/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "ポジティブ思考",
+    "asset": "PAL_Sanity_Down_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "Sanity_Decrease",
+        "value": -10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "SAN値が減りにくい+10.0%",
+    "description_en": "SAN drops +10.0% slower.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%9D%E3%82%B8%E3%83%86%E3%82%A3%E3%83%96%E6%80%9D%E8%80%83/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "まじめ",
+    "asset": "CraftSpeed_up1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "CraftSpeed",
+        "value": 20.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "作業速度+20%",
+    "description_en": "Work Speed +20%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%81%BE%E3%81%98%E3%82%81/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "マゾヒスト",
+    "asset": "PAL_masochist",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "Defense",
+        "value": 15.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ShotAttack",
+        "value": -15.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "防御+15%攻撃 -15%",
+    "description_en": "Defense +15%\r\nAttack -15%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%9E%E3%82%BE%E3%83%92%E3%82%B9%E3%83%88/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "火遊び好き",
+    "asset": "ElementBoost_Fire_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementBoost_Fire",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "炎属性攻撃ダメージ増加10%",
+    "description_en": "{EffectValue1}% increase in Fire attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%81%AB%E9%81%8A%E3%81%B3%E5%A5%BD%E3%81%8D/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "健康優良児",
+    "asset": "Stamina_Up_2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "PalSP_Increase",
+        "value": 25.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "最大スタミナ+25% ※ライドパルのみ有効",
+    "description_en": "Max stamina +{EffectValue1}%\r\n*This effect is only valid for rideable pals.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%81%A5%E5%BA%B7%E5%84%AA%E8%89%AF%E5%85%90/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "硬い皮膚",
+    "asset": "Deffence_up1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "Defense",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "防御+10%",
+    "description_en": "Defense +10%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%A1%AC%E3%81%84%E7%9A%AE%E8%86%9A/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "高温体質",
+    "asset": "ElementResist_Ice_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementResist_Ice",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "氷属性ダメージ軽減10%",
+    "description_en": "{EffectValue1}% decrease in incoming Ice damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E9%AB%98%E6%B8%A9%E4%BD%93%E8%B3%AA/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "社畜",
+    "asset": "PAL_CorporateSlave",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "CraftSpeed",
+        "value": 30.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ShotAttack",
+        "value": -30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "作業速度+30%攻撃 -30%",
+    "description_en": "Work Speed +30%\r\nAttack -30%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%A4%BE%E7%95%9C/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "小食",
+    "asset": "PAL_FullStomach_Down_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "FullStomatch_Decrease",
+        "value": -10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "満腹度が減りにくい+10.0%",
+    "description_en": "Hunger decreases +10.0% slower.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%B0%8F%E9%A3%9F/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "水遊び好き",
+    "asset": "ElementBoost_Aqua_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementBoost_Water",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "水属性攻撃ダメージ増加10%",
+    "description_en": "{EffectValue1}% increase in Water attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E6%B0%B4%E9%81%8A%E3%81%B3%E5%A5%BD%E3%81%8D/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "絶縁体",
+    "asset": "ElementResist_Thunder_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementResist_Electricity",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "雷属性ダメージ軽減10%",
+    "description_en": "{EffectValue1}% decrease in incoming Lightning damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%B5%B6%E7%B8%81%E4%BD%93/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "粗暴",
+    "asset": "PAL_rude",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": 15.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "CraftSpeed",
+        "value": -10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "攻撃+15%作業速度 -10%",
+    "description_en": "Attack +15%\r\nWork Speed -10%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%B2%97%E6%9A%B4/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "草木の香り",
+    "asset": "ElementBoost_Leaf_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementBoost_Leaf",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "草属性攻撃ダメージ増加10%",
+    "description_en": "{EffectValue1}% increase in Grass attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E8%8D%89%E6%9C%A8%E3%81%AE%E9%A6%99%E3%82%8A/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "耐震構造",
+    "asset": "ElementResist_Earth_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementResist_Earth",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "地属性ダメージ軽減10%",
+    "description_en": "{EffectValue1}% decrease in incoming Earth damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E8%80%90%E9%9C%87%E6%A7%8B%E9%80%A0/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "大地の力",
+    "asset": "ElementBoost_Earth_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementBoost_Earth",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "地属性攻撃ダメージ増加10%",
+    "description_en": "{EffectValue1}% increase in Earth attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%A4%A7%E5%9C%B0%E3%81%AE%E5%8A%9B/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "日焼け好き",
+    "asset": "ElementResist_Fire_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementResist_Fire",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "炎属性ダメージ軽減10%",
+    "description_en": "{EffectValue1}% decrease in incoming Fire damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E6%97%A5%E7%84%BC%E3%81%91%E5%A5%BD%E3%81%8D/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "不眠",
+    "asset": "Nocturnal",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "Nocturnal",
+        "value": 0.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "夜になっても眠らず働き続ける",
+    "description_en": "Does not sleep and continues to work even at night.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E4%B8%8D%E7%9C%A0/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "防水加工",
+    "asset": "ElementResist_Aqua_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementResist_Water",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "水属性ダメージ軽減10%",
+    "description_en": "{EffectValue1}% decrease in incoming Water damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E9%98%B2%E6%B0%B4%E5%8A%A0%E5%B7%A5/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "防草効果",
+    "asset": "ElementResist_Leaf_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementResist_Leaf",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "草属性ダメージ軽減10%",
+    "description_en": "{EffectValue1}% decrease in incoming Grass damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E9%98%B2%E8%8D%89%E5%8A%B9%E6%9E%9C/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "未知の生体細胞",
+    "asset": "Alien",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": 10.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ElementResist_Fire",
+        "value": 15.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ElementBoost_Electricity",
+        "value": 15.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "攻撃+10%炎属性ダメージ軽減15%属性ダメージ軽減15%",
+    "description_en": "Attack +{EffectValue1}%\r\nFire damage reduction {EffectValue2}%\r\nLightning damage reduction {EffectValue3}%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E6%9C%AA%E7%9F%A5%E3%81%AE%E7%94%9F%E4%BD%93%E7%B4%B0%E8%83%9E/",
+    "jp_text_caveat": "JP effect_text says '属性ダメージ軽減15%' (unspecified element, reduction) but real data (Alien asset) shows ElementBoost_Electricity=15 (lightning attack damage INCREASE +15%, not a reduction). Treating EN structured data as authoritative."
+  },
+  {
+    "name": "無の境地",
+    "asset": "ElementBoost_Normal_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementBoost_Normal",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "無属性攻撃ダメージ増加10%",
+    "description_en": "{EffectValue1}% increase in Neutral attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%84%A1%E3%81%AE%E5%A2%83%E5%9C%B0/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "夜の帳",
+    "asset": "ElementBoost_Dark_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementBoost_Dark",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "闇属性攻撃ダメージ増加10%",
+    "description_en": "{EffectValue1}% increase in Dark attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%A4%9C%E3%81%AE%E5%B8%B3/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "勇敢",
+    "asset": "PAL_ALLAttack_up1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "攻撃+10%",
+    "description_en": "Attack +10%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%8B%87%E6%95%A2/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "陽キャラ",
+    "asset": "ElementResist_Dark_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementResist_Dark",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "闇属性ダメージ軽減10%",
+    "description_en": "{EffectValue1}% decrease in incoming Dark damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E9%99%BD%E3%82%AD%E3%83%A3%E3%83%A9/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "竜の血族",
+    "asset": "ElementBoost_Dragon_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementBoost_Dragon",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "竜属性攻撃ダメージ増加10%",
+    "description_en": "{EffectValue1}% increase in Dragon attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%AB%9C%E3%81%AE%E8%A1%80%E6%97%8F/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "良い毛並み",
+    "asset": "SalePrice_Up_2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ShopSellPrice_Money_Increase",
+        "value": 3.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ShopBuyPrice_Money_Increase",
+        "value": -3.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "取引価格が改善+3%",
+    "description_en": "Increases the value of items when sold by +{EffectValue1}%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E8%89%AF%E3%81%84%E6%AF%9B%E4%B8%A6%E3%81%BF/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "冷血",
+    "asset": "ElementBoost_Ice_1_PAL",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_01.webp",
+    "rank": 1,
+    "effects": [
+      {
+        "type": "ElementBoost_Ice",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "氷属性攻撃ダメージ増加10%",
+    "description_en": "{EffectValue1}% increase in Ice attack damage.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%86%B7%E8%A1%80/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "うたれ弱い",
+    "asset": "Deffence_down1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -1,
+    "effects": [
+      {
+        "type": "Defense",
+        "value": -10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "防御 -10%",
+    "description_en": "Defense -10%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%81%86%E3%81%9F%E3%82%8C%E5%BC%B1%E3%81%84/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "ことなかれ主義者",
+    "asset": "PAL_ALLAttack_down2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -3,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": -20.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "攻撃 -20%",
+    "description_en": "Attack -20%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%81%93%E3%81%A8%E3%81%AA%E3%81%8B%E3%82%8C%E4%B8%BB%E7%BE%A9%E8%80%85/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "サボり癖",
+    "asset": "CraftSpeed_down2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -3,
+    "effects": [
+      {
+        "type": "CraftSpeed",
+        "value": -30.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "作業速度 -30%",
+    "description_en": "Work Speed -30%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%82%B5%E3%83%9C%E3%82%8A%E7%99%96/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "すぐ骨折する",
+    "asset": "Deffence_down2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -3,
+    "effects": [
+      {
+        "type": "Defense",
+        "value": -20.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "防御 -20%",
+    "description_en": "Defense -20%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%81%99%E3%81%90%E9%AA%A8%E6%8A%98%E3%81%99%E3%82%8B/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "のんびり屋さん",
+    "asset": "CoolTimeReduction_Down_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -1,
+    "effects": [
+      {
+        "type": "ActiveSkillCoolTime_Decrease",
+        "value": -15.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "アクティブスキルのクールタイム延長 -15%",
+    "description_en": "Active skill cooldown extension {EffectValue1}%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%81%AE%E3%82%93%E3%81%B3%E3%82%8A%E5%B1%8B%E3%81%95%E3%82%93/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "ビビり",
+    "asset": "PAL_ALLAttack_down1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -1,
+    "effects": [
+      {
+        "type": "ShotAttack",
+        "value": -10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "攻撃 -10%",
+    "description_en": "Attack -10%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%83%93%E3%83%93%E3%82%8A/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "みすぼらしい",
+    "asset": "SalePrice_Down_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -1,
+    "effects": [
+      {
+        "type": "ShopSellPrice_Money_Increase",
+        "value": -10.0,
+        "target": "ToSelf"
+      },
+      {
+        "type": "ShopBuyPrice_Money_Increase",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "取引価格が悪化-10%",
+    "description_en": "Decrease the value of items when sold by {EffectValue1}%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E3%81%BF%E3%81%99%E3%81%BC%E3%82%89%E3%81%97%E3%81%84/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "引きこもり",
+    "asset": "Stamina_Down_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -1,
+    "effects": [
+      {
+        "type": "PalSP_Increase",
+        "value": -25.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "最大スタミナ-25% ※ライドパルのみ有効",
+    "description_en": "Max Stamina {EffectValue1}%\r\n*This effect is only valid for rideable pals.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%BC%95%E3%81%8D%E3%81%93%E3%82%82%E3%82%8A/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "手加減",
+    "asset": "NonKilling",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -1,
+    "effects": [
+      {
+        "type": "NonKilling",
+        "value": 0.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "平和主義者（攻撃対象のHPを1未満にできない）",
+    "description_en": "Pacifist.\r\nWill not reduce the target's Health below 1.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E6%89%8B%E5%8A%A0%E6%B8%9B/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "食いしんぼ",
+    "asset": "PAL_FullStomach_Up_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -1,
+    "effects": [
+      {
+        "type": "FullStomatch_Decrease",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "満腹度が減りやすい+10.0%",
+    "description_en": "Hunger decreases +10.0% faster.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E9%A3%9F%E3%81%84%E3%81%97%E3%82%93%E3%81%BC/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "精神が不安定",
+    "asset": "PAL_Sanity_Up_1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -1,
+    "effects": [
+      {
+        "type": "Sanity_Decrease",
+        "value": 10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "SAN値が減りやすい+10.0%",
+    "description_en": "SAN drops +10.0% faster.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%B2%BE%E7%A5%9E%E3%81%8C%E4%B8%8D%E5%AE%89%E5%AE%9A/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "破滅願望",
+    "asset": "PAL_Sanity_Up_2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -2,
+    "effects": [
+      {
+        "type": "Sanity_Decrease",
+        "value": 15.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "SAN値が減りやすい+15.0%",
+    "description_en": "SAN drops +15.0% faster.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%A0%B4%E6%BB%85%E9%A1%98%E6%9C%9B/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "不器用",
+    "asset": "CraftSpeed_down1",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -1,
+    "effects": [
+      {
+        "type": "CraftSpeed",
+        "value": -10.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "作業速度 -10%",
+    "description_en": "Work Speed -10%",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E4%B8%8D%E5%99%A8%E7%94%A8/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "無限の胃袋",
+    "asset": "PAL_FullStomach_Up_2",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -2,
+    "effects": [
+      {
+        "type": "FullStomatch_Decrease",
+        "value": 15.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "満腹度が減りやすい+15.0%",
+    "description_en": "Hunger decreases +15.0% faster.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E7%84%A1%E9%99%90%E3%81%AE%E8%83%83%E8%A2%8B/",
+    "jp_text_caveat": null
+  },
+  {
+    "name": "夜更かし",
+    "asset": "NightOwl",
+    "icon": "/icons/passives/T_icon_skillstatus_rank_arrow_00.webp",
+    "rank": -1,
+    "effects": [
+      {
+        "type": "NightOwl",
+        "value": 0.0,
+        "target": "ToSelf"
+      }
+    ],
+    "effect_text_jp": "夜中まで起きているせいか、昼寝をしがち。",
+    "description_en": "Tends to nap through the day, due to being nocturnal.",
+    "is_worldtree": false,
+    "url": "https://palworld-lab.com/passives/%E5%A4%9C%E6%9B%B4%E3%81%8B%E3%81%97/",
+    "jp_text_caveat": null
+  }
+]
