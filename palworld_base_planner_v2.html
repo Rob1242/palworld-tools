@@ -62,6 +62,7 @@
   .pal-icon-empty{width:40px;height:40px;border-radius:50%;border:1px dashed var(--line);background:var(--panel2);flex-shrink:0;}
   .slot-header-text{flex:1;min-width:0;}
   .badge.ride{background:#20343a;color:#8fd0e0;border:1px solid #35606c;}
+  .badge.passive.warn{background:#3a2a20;color:#e7c3af;border:1px solid var(--danger);}
 </style>
 </head>
 <body>
@@ -88,6 +89,10 @@
     <div class="toggle-row">
       <div><div class="toggle-label">理想パッシブを適用</div><div class="toggle-desc">各パルに実在するパッシブ(超絶技巧・職人気質など)を4枠仮定して実効値を計算</div></div>
       <div class="switch on" id="togglePassive"><div class="knob"></div></div>
+    </div>
+    <div class="toggle-row">
+      <div><div class="toggle-label">世界樹パッシブも考慮</div><div class="toggle-desc">悪魔の手(作業速度+90%、デメリット:SAN値減少+15%)を選択肢に含める。手術台での移植が前提の上級者向け機能</div></div>
+      <div class="switch" id="toggleWorldTree"><div class="knob"></div></div>
     </div>
   </div>
 
@@ -138,7 +143,7 @@ function relativeWorkValue(role, lv){
   console.log("[selfTest] 作業速度相対値の自己診断完了(上にconsole.assertエラーが出ていなければOK)");
 })();
 
-const PASSIVE_POOL = {"speed": [{"name": "超絶技巧", "pct": 75.0}, {"name": "職人気質", "pct": 50.0}, {"name": "社畜", "pct": 30.0}, {"name": "希少", "pct": 20.0}, {"name": "まじめ", "pct": 20.0}, {"name": "うぬぼれ屋", "pct": 10.0}], "night": [{"name": "吸血鬼", "pct": 0}, {"name": "不眠", "pct": 0}]}
+const PASSIVE_POOL = {"speed": [{"name": "超絶技巧", "pct": 75.0}, {"name": "職人気質", "pct": 50.0}, {"name": "社畜", "pct": 30.0}, {"name": "希少", "pct": 20.0}, {"name": "まじめ", "pct": 20.0}, {"name": "うぬぼれ屋", "pct": 10.0}], "night": [{"name": "吸血鬼", "pct": 0}, {"name": "不眠", "pct": 0}], "worldtree_speed": [{"name": "悪魔の手", "pct": 90.0, "drawback": "SAN値減少+15%"}]}
 ;
 
 
@@ -149,6 +154,7 @@ ROLES.forEach(r => roleWeights[r] = (r==="手作業"||r==="運搬") ? 2 : 1);
 let dayNightBalance = true;
 let generalistPref = true;
 let usePassive = true;
+let useWorldTree = false;
 
 const rolesGrid = document.getElementById('rolesGrid');
 ROLES.forEach(role => {
@@ -187,6 +193,9 @@ document.getElementById('toggleGeneralist').addEventListener('click', function()
 document.getElementById('togglePassive').addEventListener('click', function(){
   usePassive = !usePassive; this.classList.toggle('on', usePassive);
 });
+document.getElementById('toggleWorldTree').addEventListener('click', function(){
+  useWorldTree = !useWorldTree; this.classList.toggle('on', useWorldTree);
+});
 
 const slotRange = document.getElementById('slotRange');
 const slotNum = document.getElementById('slotNum');
@@ -217,7 +226,10 @@ function idealPassiveLoadout(pal, wantNight){
     slots -= 1;
     addedNightPassive = true;
   }
-  const speedPicks = PASSIVE_POOL.speed.slice(0, slots);
+  const speedCandidates = useWorldTree
+    ? PASSIVE_POOL.speed.concat(PASSIVE_POOL.worldtree_speed).sort((a,b)=>b.pct-a.pct)
+    : PASSIVE_POOL.speed;
+  const speedPicks = speedCandidates.slice(0, slots);
   chosen = chosen.concat(speedPicks);
   const totalPct = chosen.reduce((s,c)=>s+(c.pct||0),0);
   return { chosen, totalPct, isNightActive: alreadyNight || addedNightPassive };
@@ -365,7 +377,11 @@ function renderResult(picks, slots, activeRoles, stats){
       : '<span class="badge day">昼行性</span>';
     let passiveBadges = '';
     if(p.loadout){
-      passiveBadges = p.loadout.chosen.map(ps => `<span class="badge passive">${ps.name}${ps.pct?'+'+ps.pct+'%':''}</span>`).join('');
+      passiveBadges = p.loadout.chosen.map(ps => {
+        const warn = ps.drawback ? ' warn' : '';
+        const drawbackText = ps.drawback ? ` (${ps.drawback})` : '';
+        return `<span class="badge passive${warn}">${ps.name}${ps.pct?'+'+ps.pct+'%':''}${drawbackText}</span>`;
+      }).join('');
     }
     const rideBadges = [
       pal.ride && pal.ride.rideable ? '<span class="badge ride">乗れる</span>' : '',
