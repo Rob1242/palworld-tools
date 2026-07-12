@@ -27,7 +27,7 @@ def match_asset_to_jp(info, jp_idx):
     if " " in name:
         variant_key = name.strip().lower().replace(" ", "_")
         if variant_key in jp_idx:
-            return jp_idx[variant_key], "exact"
+            return jp_idx[variant_key], "variant_fallback"
     if "_" in name:
         base = name.rsplit("_", 1)[0].strip().lower()
         if base in jp_idx:
@@ -74,12 +74,9 @@ def pair_key(a, b):
 
 def build_forward_and_reverse(bd):
     forward = {}
-    reverse = {}
 
     # 1. ランク平均による正規の配合ペア(ベースライン)
     for child, pairs in bd["child_to_parents_formula"].items():
-        reverse.setdefault(child, {"unique": [], "formula": []})
-        reverse[child]["formula"] = [[p["parent_a"], p["parent_b"]] for p in pairs]
         for p in pairs:
             forward[pair_key(p["parent_a"], p["parent_b"])] = child
 
@@ -88,15 +85,30 @@ def build_forward_and_reverse(bd):
         for c in combos:
             k = pair_key(special_parent, c["partner"])
             forward[k] = c["child"]
-            reverse.setdefault(c["child"], {"unique": [], "formula": []})
-            reverse[c["child"]]["unique"].append([special_parent, c["partner"]])
 
     # 3. unique_combos(固定レシピ)が最優先で上書き
     for uc in bd["unique_combos"]:
         k = pair_key(uc["parent_a"], uc["parent_b"])
         forward[k] = uc["child"]
-        reverse.setdefault(uc["child"], {"unique": [], "formula": []})
-        reverse[uc["child"]]["unique"].append([uc["parent_a"], uc["parent_b"]])
+
+    # forwardから逆向きマッピングを構築
+    unique_pair_keys = set()
+    for special_parent, combos in bd["parent_to_children_formula"].items():
+        for c in combos:
+            k = pair_key(special_parent, c["partner"])
+            if forward.get(k) == c["child"]:
+                unique_pair_keys.add(k)
+    for uc in bd["unique_combos"]:
+        k = pair_key(uc["parent_a"], uc["parent_b"])
+        if forward.get(k) == uc["child"]:
+            unique_pair_keys.add(k)
+
+    reverse = {}
+    for key, child in forward.items():
+        a, b = key.split("|")
+        bucket = "unique" if key in unique_pair_keys else "formula"
+        reverse.setdefault(child, {"unique": [], "formula": []})
+        reverse[child][bucket].append([a, b])
 
     return forward, reverse
 
