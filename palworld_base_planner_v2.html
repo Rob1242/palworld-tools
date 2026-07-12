@@ -130,6 +130,10 @@ function relativeWorkValue(role, lv){
   for(let l = 6; l <= lv; l++){
     value *= growth;
   }
+  // 単純な指数外挿は実測maxを大きく超えうる(JSONのnote参照)ため、実測maxが存在する役職はそこでキャップする。運搬はmaxデータが無いため未キャップのまま。
+  if(table.max !== undefined){
+    value = Math.min(value, table.max);
+  }
   return value / lv1;
 }
 
@@ -140,6 +144,7 @@ function relativeWorkValue(role, lv){
   console.assert(approxEqual(relativeWorkValue("火おこし", 6), (5400*3)/70), "[selfTest失敗] 火おこしLv6は実測Lv5の3倍で外挿されるはず");
   console.assert(approxEqual(relativeWorkValue("水やり", 6), (1000*2)/70), "[selfTest失敗] 水やりLv6は実測Lv5の2倍で外挿されるはず");
   console.assert(approxEqual(relativeWorkValue("運搬", 6), (40*2)/2), "[selfTest失敗] 運搬Lv6は実測Lv5の2倍で外挿されるはず");
+  console.assert(approxEqual(relativeWorkValue("火おこし", 8), WORK_SPEED_TABLE["火おこし"].max / WORK_SPEED_TABLE["火おこし"]["1"]), "[selfTest失敗] 火おこしLv8はmaxでキャップされるはず");
   console.log("[selfTest] 作業速度相対値の自己診断完了(上にconsole.assertエラーが出ていなければOK)");
 })();
 
