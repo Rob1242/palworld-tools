@@ -1,0 +1,1437 @@
+[
+  {
+    "name": "モコロン",
+    "en_name": "Lamball",
+    "icon": "game_data/icons/pals/T_SheepBall_icon_normal.webp"
+  },
+  {
+    "name": "ツッパニャン",
+    "en_name": "Cattiva",
+    "icon": "game_data/icons/pals/T_PinkCat_icon_normal.webp"
+  },
+  {
+    "name": "タマコッコ",
+    "en_name": "Chikipi",
+    "icon": "game_data/icons/pals/T_ChickenPal_icon_normal.webp"
+  },
+  {
+    "name": "クルリス",
+    "en_name": "Lifmunk",
+    "icon": "game_data/icons/pals/T_Carbunclo_icon_normal.webp"
+  },
+  {
+    "name": "カモノスケ",
+    "en_name": "Fuack",
+    "icon": "game_data/icons/pals/T_BluePlatypus_icon_normal.webp"
+  },
+  {
+    "name": "モモノスケ",
+    "en_name": "Fuack_Ignis",
+    "icon": "game_data/icons/pals/T_BluePlatypus_Fire_icon_normal.webp"
+  },
+  {
+    "name": "タマモ",
+    "en_name": "Vixy",
+    "icon": "game_data/icons/pals/T_CuteFox_icon_normal.webp"
+  },
+  {
+    "name": "ルミカイト",
+    "en_name": "Celaray",
+    "icon": "game_data/icons/pals/T_FlyingManta_icon_normal.webp"
+  },
+  {
+    "name": "エレカイト",
+    "en_name": "Celaray_Lux",
+    "icon": "game_data/icons/pals/T_FlyingManta_Thunder_icon_normal.webp"
+  },
+  {
+    "name": "ミルフィー",
+    "en_name": "Cremis",
+    "icon": "game_data/icons/pals/T_WoolFox_icon_normal.webp"
+  },
+  {
+    "name": "ブシガエル",
+    "en_name": "Croajiro",
+    "icon": "game_data/icons/pals/T_KendoFrog_icon_normal.webp"
+  },
+  {
+    "name": "ドスガエル",
+    "en_name": "Croajiro_Noct",
+    "icon": "game_data/icons/pals/T_KendoFrog_Dark_icon_normal.webp"
+  },
+  {
+    "name": "モモンパ",
+    "en_name": "Herbil",
+    "icon": "game_data/icons/pals/T_LeafMomonga_icon_normal.webp"
+  },
+  {
+    "name": "チョロゾウ",
+    "en_name": "Teafant",
+    "icon": "game_data/icons/pals/T_Ganesha_icon_normal.webp"
+  },
+  {
+    "name": "ナエモチ",
+    "en_name": "Gumoss",
+    "icon": "game_data/icons/pals/T_PlantSlime_icon_normal.webp"
+  },
+  {
+    "name": "ポチムネ",
+    "en_name": "Pupperai",
+    "icon": "game_data/icons/pals/T_SamuraiDog_icon_normal.webp"
+  },
+  {
+    "name": "ポワワ",
+    "en_name": "Clovee",
+    "icon": "game_data/icons/pals/T_CloverFairy_icon_normal.webp"
+  },
+  {
+    "name": "パチグリ",
+    "en_name": "Jolthog",
+    "icon": "game_data/icons/pals/T_Hedgehog_icon_normal.webp"
+  },
+  {
+    "name": "コチグリ",
+    "en_name": "Jolthog_Cryst",
+    "icon": "game_data/icons/pals/T_Hedgehog_Ice_icon_normal.webp"
+  },
+  {
+    "name": "ンダコアラ",
+    "en_name": "Depresso",
+    "icon": "game_data/icons/pals/T_NegativeKoala_icon_normal.webp"
+  },
+  {
+    "name": "ペンタマ",
+    "en_name": "Pengullet",
+    "icon": "game_data/icons/pals/T_Penguin_icon_normal.webp"
+  },
+  {
+    "name": "デンタマ",
+    "en_name": "Pengullet_Lux",
+    "icon": "game_data/icons/pals/T_Penguin_Electric_icon_normal.webp"
+  },
+  {
+    "name": "キャプペン",
+    "en_name": "Penking",
+    "icon": "game_data/icons/pals/T_CaptainPenguin_icon_normal.webp"
+  },
+  {
+    "name": "ペンキッド",
+    "en_name": "Penking_Lux",
+    "icon": "game_data/icons/pals/T_CaptainPenguin_Black_icon_normal.webp"
+  },
+  {
+    "name": "ホウロック",
+    "en_name": "Hoocrates",
+    "icon": "game_data/icons/pals/T_WizardOwl_icon_normal.webp"
+  },
+  {
+    "name": "メルパカ",
+    "en_name": "Melpaca",
+    "icon": "game_data/icons/pals/T_Alpaca_icon_normal.webp"
+  },
+  {
+    "name": "アルパオー",
+    "en_name": "Kingpaca",
+    "icon": "game_data/icons/pals/T_KingAlpaca_icon_normal.webp"
+  },
+  {
+    "name": "アオパオー",
+    "en_name": "Kingpaca_Cryst",
+    "icon": "game_data/icons/pals/T_KingAlpaca_Ice_icon_normal.webp"
+  },
+  {
+    "name": "ネムラム",
+    "en_name": "Daedream",
+    "icon": "game_data/icons/pals/T_DreamDemon_icon_normal.webp"
+  },
+  {
+    "name": "エテッパ",
+    "en_name": "Tanzee",
+    "icon": "game_data/icons/pals/T_Monkey_icon_normal.webp"
+  },
+  {
+    "name": "カレッパ",
+    "en_name": "Tanzee_Ignis",
+    "icon": "game_data/icons/pals/T_Monkey_Fire_icon_normal.webp"
+  },
+  {
+    "name": "ルナティ",
+    "en_name": "Nox",
+    "icon": "game_data/icons/pals/T_NightFox_icon_normal.webp"
+  },
+  {
+    "name": "ラヴィ",
+    "en_name": "Flambelle",
+    "icon": "game_data/icons/pals/T_LavaGirl_icon_normal.webp"
+  },
+  {
+    "name": "ヒノコジカ",
+    "en_name": "Rooby",
+    "icon": "game_data/icons/pals/T_FlameBambi_icon_normal.webp"
+  },
+  {
+    "name": "ニャオテト",
+    "en_name": "Mau",
+    "icon": "game_data/icons/pals/T_Bastet_icon_normal.webp"
+  },
+  {
+    "name": "チルテト",
+    "en_name": "Mau_Cryst",
+    "icon": "game_data/icons/pals/T_Bastet_Ice_icon_normal.webp"
+  },
+  {
+    "name": "イノボウ",
+    "en_name": "Rushoar",
+    "icon": "game_data/icons/pals/T_Boar_icon_normal.webp"
+  },
+  {
+    "name": "キツネビ",
+    "en_name": "Foxparks",
+    "icon": "game_data/icons/pals/T_Kitsunebi_icon_normal.webp"
+  },
+  {
+    "name": "ユキツネ",
+    "en_name": "Foxparks_Cryst",
+    "icon": "game_data/icons/pals/T_Kitsunebi_Ice_icon_normal.webp"
+  },
+  {
+    "name": "ヤミイカ",
+    "en_name": "Killamari",
+    "icon": "game_data/icons/pals/T_NegativeOctopus_icon_normal.webp"
+  },
+  {
+    "name": "ユメイカ",
+    "en_name": "Killamari_Primo",
+    "icon": "game_data/icons/pals/T_NegativeOctopus_Neutral_icon_normal.webp"
+  },
+  {
+    "name": "モグルン",
+    "en_name": "Fuddler",
+    "icon": "game_data/icons/pals/T_CuteMole_icon_normal.webp"
+  },
+  {
+    "name": "ツノガミ",
+    "en_name": "Eikthyrdeer",
+    "icon": "game_data/icons/pals/T_Deer_icon_normal.webp"
+  },
+  {
+    "name": "ヤマガミ",
+    "en_name": "Eikthyrdeer_Terra",
+    "icon": "game_data/icons/pals/T_Deer_Ground_icon_normal.webp"
+  },
+  {
+    "name": "ガウルフ",
+    "en_name": "Direhowl",
+    "icon": "game_data/icons/pals/T_Garm_icon_normal.webp"
+  },
+  {
+    "name": "ベリゴート",
+    "en_name": "Caprity",
+    "icon": "game_data/icons/pals/T_BerryGoat_icon_normal.webp"
+  },
+  {
+    "name": "ベノゴート",
+    "en_name": "Caprity_Noct",
+    "icon": "game_data/icons/pals/T_BerryGoat_Dark_icon_normal.webp"
+  },
+  {
+    "name": "コモップ",
+    "en_name": "Swee",
+    "icon": "game_data/icons/pals/T_MopBaby_icon_normal.webp"
+  },
+  {
+    "name": "ドンモップ",
+    "en_name": "Sweepa",
+    "icon": "game_data/icons/pals/T_MopKing_icon_normal.webp"
+  },
+  {
+    "name": "ヘルメッコ",
+    "en_name": "Turtacle",
+    "icon": "game_data/icons/pals/T_TentacleTurtle_icon_normal.webp"
+  },
+  {
+    "name": "ゴルメッコ",
+    "en_name": "Turtacle_Terra",
+    "icon": "game_data/icons/pals/T_TentacleTurtle_Ground_icon_normal.webp"
+  },
+  {
+    "name": "シメナワ",
+    "en_name": "Hangyu",
+    "icon": "game_data/icons/pals/T_WindChimes_icon_normal.webp"
+  },
+  {
+    "name": "オバケナワ",
+    "en_name": "Hangyu_Cryst",
+    "icon": "game_data/icons/pals/T_WindChimes_Ice_icon_normal.webp"
+  },
+  {
+    "name": "メリポップ",
+    "en_name": "Woolipop",
+    "icon": "game_data/icons/pals/T_SweetsSheep_icon_normal.webp"
+  },
+  {
+    "name": "メリコロネ",
+    "en_name": "Woolipop_Terra",
+    "icon": "game_data/icons/pals/T_SweetsSheep_Ground_icon_normal.webp"
+  },
+  {
+    "name": "ミルカルビ",
+    "en_name": "Mozzarina",
+    "icon": "game_data/icons/pals/T_CowPal_icon_normal.webp"
+  },
+  {
+    "name": "アズレーン",
+    "en_name": "Azurobe",
+    "icon": "game_data/icons/pals/T_BlueDragon_icon_normal.webp"
+  },
+  {
+    "name": "アズルーナ",
+    "en_name": "Azurobe_Cryst",
+    "icon": "game_data/icons/pals/T_BlueDragon_Ice_icon_normal.webp"
+  },
+  {
+    "name": "ボルトラ",
+    "en_name": "Sparkit",
+    "icon": "game_data/icons/pals/T_ElecCat_icon_normal.webp"
+  },
+  {
+    "name": "ケルピス",
+    "en_name": "Kelpsea",
+    "icon": "game_data/icons/pals/T_Kelpie_icon_normal.webp"
+  },
+  {
+    "name": "マグピス",
+    "en_name": "Kelpsea_Ignis",
+    "icon": "game_data/icons/pals/T_Kelpie_Fire_icon_normal.webp"
+  },
+  {
+    "name": "ヒメウサ",
+    "en_name": "Ribbuny",
+    "icon": "game_data/icons/pals/T_PinkRabbit_icon_normal.webp"
+  },
+  {
+    "name": "ヨモギウサ",
+    "en_name": "Ribbuny_Botan",
+    "icon": "game_data/icons/pals/T_PinkRabbit_Grass_icon_normal.webp"
+  },
+  {
+    "name": "クララン",
+    "en_name": "Jelliette",
+    "icon": "game_data/icons/pals/T_JellyfishFairy_icon_normal.webp"
+  },
+  {
+    "name": "ユララン",
+    "en_name": "Jellroy",
+    "icon": "game_data/icons/pals/T_JellyfishGhost_icon_normal.webp"
+  },
+  {
+    "name": "リオリネ",
+    "en_name": "Amione",
+    "icon": "game_data/icons/pals/T_ClioneTwins_icon_normal.webp"
+  },
+  {
+    "name": "ヒメンダコ",
+    "en_name": "Gloopie",
+    "icon": "game_data/icons/pals/T_OctopusGirl_icon_normal.webp"
+  },
+  {
+    "name": "ユメンダコ",
+    "en_name": "Gloopie_Primo",
+    "icon": "game_data/icons/pals/T_OctopusGirl_Neutral_icon_normal.webp"
+  },
+  {
+    "name": "エアムルグ",
+    "en_name": "Galeclaw",
+    "icon": "game_data/icons/pals/T_Eagle_icon_normal.webp"
+  },
+  {
+    "name": "ニャンシー",
+    "en_name": "Wispaw",
+    "icon": "game_data/icons/pals/T_GhostBlackCat_icon_normal.webp"
+  },
+  {
+    "name": "ホークウィン",
+    "en_name": "Nitewing",
+    "icon": "game_data/icons/pals/T_HawkBird_icon_normal.webp"
+  },
+  {
+    "name": "ニャンバット",
+    "en_name": "Tombat",
+    "icon": "game_data/icons/pals/T_CatBat_icon_normal.webp"
+  },
+  {
+    "name": "クルットリ",
+    "en_name": "Tocotoco",
+    "icon": "game_data/icons/pals/T_ColorfulBird_icon_normal.webp"
+  },
+  {
+    "name": "ライコーン",
+    "en_name": "Univolt",
+    "icon": "game_data/icons/pals/T_Kirin_icon_normal.webp"
+  },
+  {
+    "name": "レイコーン",
+    "en_name": "Univolt_Cryst",
+    "icon": "game_data/icons/pals/T_Kirin_Ice_icon_normal.webp"
+  },
+  {
+    "name": "シャーキッド",
+    "en_name": "Gobfin",
+    "icon": "game_data/icons/pals/T_SharkKid_icon_normal.webp"
+  },
+  {
+    "name": "シャーマンダー",
+    "en_name": "Gobfin_Ignis",
+    "icon": "game_data/icons/pals/T_SharkKid_Fire_icon_normal.webp"
+  },
+  {
+    "name": "ツキカゲ",
+    "en_name": "Loupmoon",
+    "icon": "game_data/icons/pals/T_Werewolf_icon_normal.webp"
+  },
+  {
+    "name": "ユキカゲ",
+    "en_name": "Loupmoon_Cryst",
+    "icon": "game_data/icons/pals/T_Werewolf_Ice_icon_normal.webp"
+  },
+  {
+    "name": "マスクロウ",
+    "en_name": "Cawgnito",
+    "icon": "game_data/icons/pals/T_DarkCrow_icon_normal.webp"
+  },
+  {
+    "name": "ブルフェルノ",
+    "en_name": "Arsox",
+    "icon": "game_data/icons/pals/T_FlameBuffalo_icon_normal.webp"
+  },
+  {
+    "name": "モコチッチ",
+    "en_name": "Muffly",
+    "icon": "game_data/icons/pals/T_FluffyBird_icon_normal.webp"
+  },
+  {
+    "name": "イバラヒメ",
+    "en_name": "Bristla",
+    "icon": "game_data/icons/pals/T_LittleBriarRose_icon_normal.webp"
+  },
+  {
+    "name": "パピテフ",
+    "en_name": "Cinnamoth",
+    "icon": "game_data/icons/pals/T_CuteButterfly_icon_normal.webp"
+  },
+  {
+    "name": "パチマル",
+    "en_name": "Puffolt",
+    "icon": "game_data/icons/pals/T_ElecPomeranian_icon_normal.webp"
+  },
+  {
+    "name": "シルフィア",
+    "en_name": "Elphidran",
+    "icon": "game_data/icons/pals/T_FairyDragon_icon_normal.webp"
+  },
+  {
+    "name": "シルティア",
+    "en_name": "Elphidran_Aqua",
+    "icon": "game_data/icons/pals/T_FairyDragon_Water_icon_normal.webp"
+  },
+  {
+    "name": "カバネドリ",
+    "en_name": "Vanwyrm",
+    "icon": "game_data/icons/pals/T_BirdDragon_icon_normal.webp"
+  },
+  {
+    "name": "シロカバネ",
+    "en_name": "Vanwyrm_Cryst",
+    "icon": "game_data/icons/pals/T_BirdDragon_Ice_icon_normal.webp"
+  },
+  {
+    "name": "ヤミトバリ",
+    "en_name": "Felbat",
+    "icon": "game_data/icons/pals/T_CatVampire_icon_normal.webp"
+  },
+  {
+    "name": "ヴィオレッタ",
+    "en_name": "Vaelet",
+    "icon": "game_data/icons/pals/T_VioletFairy_icon_normal.webp"
+  },
+  {
+    "name": "ビーナイト",
+    "en_name": "Beegarde",
+    "icon": "game_data/icons/pals/T_SoldierBee_icon_normal.webp"
+  },
+  {
+    "name": "クインビーナ",
+    "en_name": "Elizabee",
+    "icon": "game_data/icons/pals/T_QueenBee_icon_normal.webp"
+  },
+  {
+    "name": "ラブマンダー",
+    "en_name": "Lovander",
+    "icon": "game_data/icons/pals/T_PinkLizard_icon_normal.webp"
+  },
+  {
+    "name": "ニャンギマリ",
+    "en_name": "Grintale",
+    "icon": "game_data/icons/pals/T_NaughtyCat_icon_normal.webp"
+  },
+  {
+    "name": "モモンチュラ",
+    "en_name": "Tarantriss",
+    "icon": "game_data/icons/pals/T_PurpleSpider_icon_normal.webp"
+  },
+  {
+    "name": "バニザラシ",
+    "en_name": "Polapup",
+    "icon": "game_data/icons/pals/T_IceSeal_icon_normal.webp"
+  },
+  {
+    "name": "チョコザラシ",
+    "en_name": "Polapup_Terra",
+    "icon": "game_data/icons/pals/T_IceSeal_Ground_icon_normal.webp"
+  },
+  {
+    "name": "ダリザード",
+    "en_name": "Leezpunk",
+    "icon": "game_data/icons/pals/T_LizardMan_icon_normal.webp"
+  },
+  {
+    "name": "チリザード",
+    "en_name": "Leezpunk_Ignis",
+    "icon": "game_data/icons/pals/T_LizardMan_Fire_icon_normal.webp"
+  },
+  {
+    "name": "ゴリレイジ",
+    "en_name": "Gorirat",
+    "icon": "game_data/icons/pals/T_Gorilla_icon_normal.webp"
+  },
+  {
+    "name": "ゴリガイア",
+    "en_name": "Gorirat_Terra",
+    "icon": "game_data/icons/pals/T_Gorilla_Ground_icon_normal.webp"
+  },
+  {
+    "name": "シーペント",
+    "en_name": "Surfent",
+    "icon": "game_data/icons/pals/T_Serpent_icon_normal.webp"
+  },
+  {
+    "name": "スナペント",
+    "en_name": "Surfent_Terra",
+    "icon": "game_data/icons/pals/T_Serpent_Ground_icon_normal.webp"
+  },
+  {
+    "name": "フェザーロ",
+    "en_name": "Robinquill",
+    "icon": "game_data/icons/pals/T_RobinHood_icon_normal.webp"
+  },
+  {
+    "name": "サンドロ",
+    "en_name": "Robinquill_Terra",
+    "icon": "game_data/icons/pals/T_RobinHood_Ground_icon_normal.webp"
+  },
+  {
+    "name": "ポプリーナ",
+    "en_name": "Flopie",
+    "icon": "game_data/icons/pals/T_FlowerRabbit_icon_normal.webp"
+  },
+  {
+    "name": "フォレーナ",
+    "en_name": "Wixen",
+    "icon": "game_data/icons/pals/T_FoxMage_icon_normal.webp"
+  },
+  {
+    "name": "フォレーオ",
+    "en_name": "Wixen_Noct",
+    "icon": "game_data/icons/pals/T_FoxMage_Dark_icon_normal.webp"
+  },
+  {
+    "name": "クレメーオ",
+    "en_name": "Katress",
+    "icon": "game_data/icons/pals/T_CatMage_icon_normal.webp"
+  },
+  {
+    "name": "クレメーナ",
+    "en_name": "Katress_Ignis",
+    "icon": "game_data/icons/pals/T_CatMage_Fire_icon_normal.webp"
+  },
+  {
+    "name": "ヘルガルダ",
+    "en_name": "Helzephyr",
+    "icon": "game_data/icons/pals/T_HadesBird_icon_normal.webp"
+  },
+  {
+    "name": "ライガルダ",
+    "en_name": "Helzephyr_Lux",
+    "icon": "game_data/icons/pals/T_HadesBird_Electric_icon_normal.webp"
+  },
+  {
+    "name": "モリタロス",
+    "en_name": "Elgrove",
+    "icon": "game_data/icons/pals/T_GrassMinotaur_icon_normal.webp"
+  },
+  {
+    "name": "ユキタロス",
+    "en_name": "Elgrove_Cryst",
+    "icon": "game_data/icons/pals/T_GrassMinotaur_Ice_icon_normal.webp"
+  },
+  {
+    "name": "ミステリア",
+    "en_name": "Lunaris",
+    "icon": "game_data/icons/pals/T_Mutant_icon_normal.webp"
+  },
+  {
+    "name": "ムラクモ",
+    "en_name": "Fenglope",
+    "icon": "game_data/icons/pals/T_FengyunDeeper_icon_normal.webp"
+  },
+  {
+    "name": "ムラサメ",
+    "en_name": "Fenglope_Lux",
+    "icon": "game_data/icons/pals/T_FengyunDeeper_Electric_icon_normal.webp"
+  },
+  {
+    "name": "アロアリュー",
+    "en_name": "Dinossom",
+    "icon": "game_data/icons/pals/T_FlowerDinosaur_icon_normal.webp"
+  },
+  {
+    "name": "ビリビリュー",
+    "en_name": "Dinossom_Lux",
+    "icon": "game_data/icons/pals/T_FlowerDinosaur_Electric_icon_normal.webp"
+  },
+  {
+    "name": "ツジギリ",
+    "en_name": "Bushi",
+    "icon": "game_data/icons/pals/T_Ronin_icon_normal.webp"
+  },
+  {
+    "name": "ヤミウチ",
+    "en_name": "Bushi_Noct",
+    "icon": "game_data/icons/pals/T_Ronin_Dark_icon_normal.webp"
+  },
+  {
+    "name": "コチワニ",
+    "en_name": "Munchill",
+    "icon": "game_data/icons/pals/T_IceCrocodile_icon_normal.webp"
+  },
+  {
+    "name": "グランモス",
+    "en_name": "Mammorest",
+    "icon": "game_data/icons/pals/T_GrassMammoth_icon_normal.webp"
+  },
+  {
+    "name": "ブリザモス",
+    "en_name": "Mammorest_Cryst",
+    "icon": "game_data/icons/pals/T_GrassMammoth_Ice_icon_normal.webp"
+  },
+  {
+    "name": "ガブルミ",
+    "en_name": "Finsider",
+    "icon": "game_data/icons/pals/T_StuffedShark_icon_normal.webp"
+  },
+  {
+    "name": "ヒグルミ",
+    "en_name": "Finsider_Ignis",
+    "icon": "game_data/icons/pals/T_StuffedShark_Fire_icon_normal.webp"
+  },
+  {
+    "name": "フラリーナ",
+    "en_name": "Petallia",
+    "icon": "game_data/icons/pals/T_FlowerDoll_icon_normal.webp"
+  },
+  {
+    "name": "チェリーナ",
+    "en_name": "Petallia_Ignis",
+    "icon": "game_data/icons/pals/T_FlowerDoll_Fire_icon_normal.webp"
+  },
+  {
+    "name": "リーファン",
+    "en_name": "Leafan",
+    "icon": "game_data/icons/pals/T_PandaGirl_icon_normal.webp"
+  },
+  {
+    "name": "ヘルゴート",
+    "en_name": "Incineram",
+    "icon": "game_data/icons/pals/T_Baphomet_icon_normal.webp"
+  },
+  {
+    "name": "アビスゴート",
+    "en_name": "Incineram_Noct",
+    "icon": "game_data/icons/pals/T_Baphomet_Dark_icon_normal.webp"
+  },
+  {
+    "name": "カミナラシ",
+    "en_name": "Dazzi",
+    "icon": "game_data/icons/pals/T_RaijinDaughter_icon_normal.webp"
+  },
+  {
+    "name": "ヤミナラシ",
+    "en_name": "Dazzi_Noct",
+    "icon": "game_data/icons/pals/T_RaijinDaughter_Water_icon_normal.webp"
+  },
+  {
+    "name": "サラブレイズ",
+    "en_name": "Pyrin",
+    "icon": "game_data/icons/pals/T_FireKirin_icon_normal.webp"
+  },
+  {
+    "name": "サラブラック",
+    "en_name": "Pyrin_Noct",
+    "icon": "game_data/icons/pals/T_FireKirin_Dark_icon_normal.webp"
+  },
+  {
+    "name": "ペコドン",
+    "en_name": "Relaxaurus",
+    "icon": "game_data/icons/pals/T_LazyDragon_icon_normal.webp"
+  },
+  {
+    "name": "パリピドン",
+    "en_name": "Relaxaurus_Lux",
+    "icon": "game_data/icons/pals/T_LazyDragon_Electric_icon_normal.webp"
+  },
+  {
+    "name": "フブキツネ",
+    "en_name": "Foxcicle",
+    "icon": "game_data/icons/pals/T_IceFox_icon_normal.webp"
+  },
+  {
+    "name": "ライバード",
+    "en_name": "Beakon",
+    "icon": "game_data/icons/pals/T_ThunderBird_icon_normal.webp"
+  },
+  {
+    "name": "チルバード",
+    "en_name": "Beakon_Cryst",
+    "icon": "game_data/icons/pals/T_ThunderBird_Ice_icon_normal.webp"
+  },
+  {
+    "name": "アンドーン",
+    "en_name": "Ghangler",
+    "icon": "game_data/icons/pals/T_GhostAnglerfish_icon_normal.webp"
+  },
+  {
+    "name": "メラドーン",
+    "en_name": "Ghangler_Ignis",
+    "icon": "game_data/icons/pals/T_GhostAnglerfish_Fire_icon_normal.webp"
+  },
+  {
+    "name": "イヌズマ",
+    "en_name": "Rayhound",
+    "icon": "game_data/icons/pals/T_ThunderDog_icon_normal.webp"
+  },
+  {
+    "name": "フリーズマ",
+    "en_name": "Rayhound_Cryst",
+    "icon": "game_data/icons/pals/T_ThunderDog_Ice_icon_normal.webp"
+  },
+  {
+    "name": "デスティング",
+    "en_name": "Menasting",
+    "icon": "game_data/icons/pals/T_DarkScorpion_icon_normal.webp"
+  },
+  {
+    "name": "ゴルディング",
+    "en_name": "Menasting_Terra",
+    "icon": "game_data/icons/pals/T_DarkScorpion_Ground_icon_normal.webp"
+  },
+  {
+    "name": "ハグミー",
+    "en_name": "Needoll",
+    "icon": "game_data/icons/pals/T_CactusDoll_icon_normal.webp"
+  },
+  {
+    "name": "ハグユー",
+    "en_name": "Needoll_Noct",
+    "icon": "game_data/icons/pals/T_CactusDoll_Dark_icon_normal.webp"
+  },
+  {
+    "name": "ツララジカ",
+    "en_name": "Reindrix",
+    "icon": "game_data/icons/pals/T_IceDeer_icon_normal.webp"
+  },
+  {
+    "name": "ササゾー",
+    "en_name": "Mossanda",
+    "icon": "game_data/icons/pals/T_GrassPanda_icon_normal.webp"
+  },
+  {
+    "name": "ライゾー",
+    "en_name": "Mossanda_Lux",
+    "icon": "game_data/icons/pals/T_GrassPanda_Electric_icon_normal.webp"
+  },
+  {
+    "name": "オコチョ",
+    "en_name": "Chillet",
+    "icon": "game_data/icons/pals/T_WeaselDragon_icon_normal.webp"
+  },
+  {
+    "name": "モモチョ",
+    "en_name": "Chillet_Ignis",
+    "icon": "game_data/icons/pals/T_WeaselDragon_Fire_icon_normal.webp"
+  },
+  {
+    "name": "イグニクス",
+    "en_name": "Ragnahawk",
+    "icon": "game_data/icons/pals/T_RedArmorBird_icon_normal.webp"
+  },
+  {
+    "name": "マグマンダー",
+    "en_name": "Moldron",
+    "icon": "game_data/icons/pals/T_VolcanoDragon_icon_normal.webp"
+  },
+  {
+    "name": "ブリザンダー",
+    "en_name": "Moldron_Cryst",
+    "icon": "game_data/icons/pals/T_VolcanoDragon_Ice_icon_normal.webp"
+  },
+  {
+    "name": "ココヤンバ",
+    "en_name": "Palumba",
+    "icon": "game_data/icons/pals/T_TropicalOstrich_icon_normal.webp"
+  },
+  {
+    "name": "ドリタス",
+    "en_name": "Digtoise",
+    "icon": "game_data/icons/pals/T_DrillGame_icon_normal.webp"
+  },
+  {
+    "name": "ラブラドン",
+    "en_name": "Broncherry",
+    "icon": "game_data/icons/pals/T_SakuraSaurus_icon_normal.webp"
+  },
+  {
+    "name": "スプラドン",
+    "en_name": "Broncherry_Aqua",
+    "icon": "game_data/icons/pals/T_SakuraSaurus_Water_icon_normal.webp"
+  },
+  {
+    "name": "トドドドン",
+    "en_name": "Dumud",
+    "icon": "game_data/icons/pals/T_LazyCatfish_icon_normal.webp"
+  },
+  {
+    "name": "ゴルドドン",
+    "en_name": "Dumud_Gild",
+    "icon": "game_data/icons/pals/T_LazyCatfish_Gold_icon_normal.webp"
+  },
+  {
+    "name": "トコナッツ",
+    "en_name": "Braloha",
+    "icon": "game_data/icons/pals/T_Plesiosaur_icon_normal.webp"
+  },
+  {
+    "name": "シラヌイ",
+    "en_name": "Kitsun",
+    "icon": "game_data/icons/pals/T_AmaterasuWolf_icon_normal.webp"
+  },
+  {
+    "name": "カゲヌイ",
+    "en_name": "Kitsun_Noct",
+    "icon": "game_data/icons/pals/T_AmaterasuWolf_Dark_icon_normal.webp"
+  },
+  {
+    "name": "ゴクエンオ",
+    "en_name": "Blazehowl",
+    "icon": "game_data/icons/pals/T_Manticore_icon_normal.webp"
+  },
+  {
+    "name": "シンエンオ",
+    "en_name": "Blazehowl_Noct",
+    "icon": "game_data/icons/pals/T_Manticore_Dark_icon_normal.webp"
+  },
+  {
+    "name": "グラクレス",
+    "en_name": "Warsect",
+    "icon": "game_data/icons/pals/T_HerculesBeetle_icon_normal.webp"
+  },
+  {
+    "name": "ゴルクレス",
+    "en_name": "Warsect_Terra",
+    "icon": "game_data/icons/pals/T_HerculesBeetle_Ground_icon_normal.webp"
+  },
+  {
+    "name": "クジャンナ",
+    "en_name": "Frostplume",
+    "icon": "game_data/icons/pals/T_SnowPeafowl_icon_normal.webp"
+  },
+  {
+    "name": "マジョルナ",
+    "en_name": "Majex",
+    "icon": "game_data/icons/pals/T_DarkFlameFox_icon_normal.webp"
+  },
+  {
+    "name": "シルキーヌ",
+    "en_name": "Sibelyx",
+    "icon": "game_data/icons/pals/T_WhiteMoth_icon_normal.webp"
+  },
+  {
+    "name": "ソワレーヌ",
+    "en_name": "Sibelyx_Primo",
+    "icon": "game_data/icons/pals/T_WhiteMoth_Neutral_icon_normal.webp"
+  },
+  {
+    "name": "ソルレイス",
+    "en_name": "Maraith",
+    "icon": "game_data/icons/pals/T_GhostBeast_icon_normal.webp"
+  },
+  {
+    "name": "キノッポ",
+    "en_name": "Shroomer",
+    "icon": "game_data/icons/pals/T_MushroomDragon_icon_normal.webp"
+  },
+  {
+    "name": "ベノッポ",
+    "en_name": "Shroomer_Noct",
+    "icon": "game_data/icons/pals/T_MushroomDragon_Dark_icon_normal.webp"
+  },
+  {
+    "name": "チルウィッチ",
+    "en_name": "Icelyn",
+    "icon": "game_data/icons/pals/T_IceWitch_icon_normal.webp"
+  },
+  {
+    "name": "ヨミーラ",
+    "en_name": "Gildra",
+    "icon": "game_data/icons/pals/T_MummyPal_icon_normal.webp"
+  },
+  {
+    "name": "レヴィドラ",
+    "en_name": "Jormuntide",
+    "icon": "game_data/icons/pals/T_Umihebi_icon_normal.webp"
+  },
+  {
+    "name": "アグニドラ",
+    "en_name": "Jormuntide_Ignis",
+    "icon": "game_data/icons/pals/T_Umihebi_Fire_icon_normal.webp"
+  },
+  {
+    "name": "スザク",
+    "en_name": "Suzaku",
+    "icon": "game_data/icons/pals/T_Suzaku_icon_normal.webp"
+  },
+  {
+    "name": "シヴァ",
+    "en_name": "Suzaku_Aqua",
+    "icon": "game_data/icons/pals/T_Suzaku_Water_icon_normal.webp"
+  },
+  {
+    "name": "トリステップ",
+    "en_name": "Dazemu",
+    "icon": "game_data/icons/pals/T_FeatherOstrich_icon_normal.webp"
+  },
+  {
+    "name": "フェスキー",
+    "en_name": "Quivern",
+    "icon": "game_data/icons/pals/T_SkyDragon_icon_normal.webp"
+  },
+  {
+    "name": "フォレスキー",
+    "en_name": "Quivern_Botan",
+    "icon": "game_data/icons/pals/T_SkyDragon_Grass_icon_normal.webp"
+  },
+  {
+    "name": "フワフラワ",
+    "en_name": "Lullu",
+    "icon": "game_data/icons/pals/T_LeafPrincess_icon_normal.webp"
+  },
+  {
+    "name": "コロマジロ",
+    "en_name": "Kikit",
+    "icon": "game_data/icons/pals/T_SmallArmadillo_icon_normal.webp"
+  },
+  {
+    "name": "ヤクモマル",
+    "en_name": "Yakumo",
+    "icon": "game_data/icons/pals/T_GuardianDog_icon_normal.webp"
+  },
+  {
+    "name": "オオタチウオ",
+    "en_name": "Skutlass",
+    "icon": "game_data/icons/pals/T_SwordCutlassfish_icon_normal.webp"
+  },
+  {
+    "name": "ヒノタチウオ",
+    "en_name": "Skutlass_Ignis",
+    "icon": "game_data/icons/pals/T_SwordCutlassfish_Fire_icon_normal.webp"
+  },
+  {
+    "name": "ボルカノン",
+    "en_name": "Reptyro",
+    "icon": "game_data/icons/pals/T_VolcanicMonster_icon_normal.webp"
+  },
+  {
+    "name": "フロスカノン",
+    "en_name": "Reptyro_Cryst",
+    "icon": "game_data/icons/pals/T_VolcanicMonster_Ice_icon_normal.webp"
+  },
+  {
+    "name": "ナイトロット",
+    "en_name": "Starryon",
+    "icon": "game_data/icons/pals/T_NightBlueHorse_icon_normal.webp"
+  },
+  {
+    "name": "ライトロット",
+    "en_name": "Starryon_Primo",
+    "icon": "game_data/icons/pals/T_NightBlueHorse_Neutral_icon_normal.webp"
+  },
+  {
+    "name": "ジオルドン",
+    "en_name": "Pierdon",
+    "icon": "game_data/icons/pals/T_RockBeast_icon_normal.webp"
+  },
+  {
+    "name": "フロスドン",
+    "en_name": "Pierdon_Cryst",
+    "icon": "game_data/icons/pals/T_RockBeast_Ice_icon_normal.webp"
+  },
+  {
+    "name": "ツンドラー",
+    "en_name": "Cryolinx",
+    "icon": "game_data/icons/pals/T_WhiteTiger_icon_normal.webp"
+  },
+  {
+    "name": "グランドラー",
+    "en_name": "Cryolinx_Terra",
+    "icon": "game_data/icons/pals/T_WhiteTiger_Ground_icon_normal.webp"
+  },
+  {
+    "name": "ユキボウ",
+    "en_name": "Snugloo",
+    "icon": "game_data/icons/pals/T_SmallYeti_icon_normal.webp"
+  },
+  {
+    "name": "ヒエティ",
+    "en_name": "Wumpo",
+    "icon": "game_data/icons/pals/T_Yeti_icon_normal.webp"
+  },
+  {
+    "name": "トロピティ",
+    "en_name": "Wumpo_Botan",
+    "icon": "game_data/icons/pals/T_Yeti_Grass_icon_normal.webp"
+  },
+  {
+    "name": "オドロクロ",
+    "en_name": "Sootseer",
+    "icon": "game_data/icons/pals/T_CandleGhost_icon_normal.webp"
+  },
+  {
+    "name": "カプリリス",
+    "en_name": "Carnibora",
+    "icon": "game_data/icons/pals/T_VenusFlytrap_icon_normal.webp"
+  },
+  {
+    "name": "ボルカイザー",
+    "en_name": "Blazamut",
+    "icon": "game_data/icons/pals/T_KingBahamut_icon_normal.webp"
+  },
+  {
+    "name": "ボルドラゴ",
+    "en_name": "Blazamut_Ryu",
+    "icon": "game_data/icons/pals/T_KingBahamut_Dragon_icon_normal.webp"
+  },
+  {
+    "name": "ウゴクゾー",
+    "en_name": "Dualith",
+    "icon": "game_data/icons/pals/T_GrassGolem_icon_normal.webp"
+  },
+  {
+    "name": "ノロウゾー",
+    "en_name": "Dualith_Noct",
+    "icon": "game_data/icons/pals/T_GrassGolem_Dark_icon_normal.webp"
+  },
+  {
+    "name": "アヌビス",
+    "en_name": "Anubis",
+    "icon": "game_data/icons/pals/T_Anubis_icon_normal.webp"
+  },
+  {
+    "name": "セクメト",
+    "en_name": "Sekhmet",
+    "icon": "game_data/icons/pals/T_Sekhmet_icon_normal.webp"
+  },
+  {
+    "name": "ブッサソリ",
+    "en_name": "Prixter",
+    "icon": "game_data/icons/pals/T_ScorpionMan_icon_normal.webp"
+  },
+  {
+    "name": "ブッサンダー",
+    "en_name": "Prixter_Lux",
+    "icon": "game_data/icons/pals/T_ScorpionMan_Electric_icon_normal.webp"
+  },
+  {
+    "name": "オモシガメ",
+    "en_name": "Tetroise",
+    "icon": "game_data/icons/pals/T_CubeTurtle_icon_normal.webp"
+  },
+  {
+    "name": "オシロガメ",
+    "en_name": "Tetroise_Primo",
+    "icon": "game_data/icons/pals/T_CubeTurtle_Neutral_icon_normal.webp"
+  },
+  {
+    "name": "ニャニミテ",
+    "en_name": "Nyafia",
+    "icon": "game_data/icons/pals/T_BadCatgirl_icon_normal.webp"
+  },
+  {
+    "name": "ミミドッグ",
+    "en_name": "Mimog",
+    "icon": "game_data/icons/pals/T_MimicDog_icon_normal.webp"
+  },
+  {
+    "name": "ゼノベーダ",
+    "en_name": "Xenovader",
+    "icon": "game_data/icons/pals/T_DarkAlien_icon_normal.webp"
+  },
+  {
+    "name": "ゼノルーダ",
+    "en_name": "Xenogard",
+    "icon": "game_data/icons/pals/T_WhiteAlienDragon_icon_normal.webp"
+  },
+  {
+    "name": "プラムルリム",
+    "en_name": "Prunelia",
+    "icon": "game_data/icons/pals/T_BlueberryFairy_icon_normal.webp"
+  },
+  {
+    "name": "ナイトメアリ",
+    "en_name": "Nitemary",
+    "icon": "game_data/icons/pals/T_GhostRabbit_icon_normal.webp"
+  },
+  {
+    "name": "グラスメアリ",
+    "en_name": "Nitemary_Botan",
+    "icon": "game_data/icons/pals/T_GhostRabbit_Grass_icon_normal.webp"
+  },
+  {
+    "name": "クロマル",
+    "en_name": "Smokie",
+    "icon": "game_data/icons/pals/T_BlackPuppy_icon_normal.webp"
+  },
+  {
+    "name": "フユマル",
+    "en_name": "Smokie_Cryst",
+    "icon": "game_data/icons/pals/T_BlackPuppy_Ice_icon_normal.webp"
+  },
+  {
+    "name": "オーメン",
+    "en_name": "Omascul",
+    "icon": "game_data/icons/pals/T_MysteryMask_icon_normal.webp"
+  },
+  {
+    "name": "コゴエール",
+    "en_name": "Whalaska",
+    "icon": "game_data/icons/pals/T_IceNarwhal_icon_normal.webp"
+  },
+  {
+    "name": "モモエール",
+    "en_name": "Whalaska_Ignis",
+    "icon": "game_data/icons/pals/T_IceNarwhal_Fire_icon_normal.webp"
+  },
+  {
+    "name": "ラベロット",
+    "en_name": "Verdash",
+    "icon": "game_data/icons/pals/T_GrassRabbitMan_icon_normal.webp"
+  },
+  {
+    "name": "ヤンデリナ",
+    "en_name": "Splatterina",
+    "icon": "game_data/icons/pals/T_GrimGirl_icon_normal.webp"
+  },
+  {
+    "name": "キンガゼル",
+    "en_name": "Gildane",
+    "icon": "game_data/icons/pals/T_GoldenHorse_icon_normal.webp"
+  },
+  {
+    "name": "ワンフー",
+    "en_name": "Dogen",
+    "icon": "game_data/icons/pals/T_SifuDog_icon_normal.webp"
+  },
+  {
+    "name": "ドスコイヌ",
+    "en_name": "Bulldosu",
+    "icon": "game_data/icons/pals/T_SumoDog_icon_normal.webp"
+  },
+  {
+    "name": "セレスディア",
+    "en_name": "Celesdir",
+    "icon": "game_data/icons/pals/T_WhiteDeer_icon_normal.webp"
+  },
+  {
+    "name": "コスモディア",
+    "en_name": "Celesdir_Noct",
+    "icon": "game_data/icons/pals/T_WhiteDeer_Dark_icon_normal.webp"
+  },
+  {
+    "name": "ジオラーヴァ",
+    "en_name": "Astegon",
+    "icon": "game_data/icons/pals/T_BlackMetalDragon_icon_normal.webp"
+  },
+  {
+    "name": "テラナイト",
+    "en_name": "Knocklem",
+    "icon": "game_data/icons/pals/T_WingGolem_icon_normal.webp"
+  },
+  {
+    "name": "マグナイト",
+    "en_name": "Knocklem_Ignis",
+    "icon": "game_data/icons/pals/T_WingGolem_Fire_icon_normal.webp"
+  },
+  {
+    "name": "アイギルガ",
+    "en_name": "Silvegis",
+    "icon": "game_data/icons/pals/T_WhiteShieldDragon_icon_normal.webp"
+  },
+  {
+    "name": "オーマサンダ",
+    "en_name": "Azurmane",
+    "icon": "game_data/icons/pals/T_BlueThunderHorse_icon_normal.webp"
+  },
+  {
+    "name": "ニャルル",
+    "en_name": "Valentail",
+    "icon": "game_data/icons/pals/T_LongCat_icon_normal.webp"
+  },
+  {
+    "name": "デンツム",
+    "en_name": "Snock",
+    "icon": "game_data/icons/pals/T_ElecSnail_icon_normal.webp"
+  },
+  {
+    "name": "ドンツム",
+    "en_name": "Snock_Lux",
+    "icon": "game_data/icons/pals/T_ElecSnail_Ground_icon_normal.webp"
+  },
+  {
+    "name": "ポポフィア",
+    "en_name": "Souffline",
+    "icon": "game_data/icons/pals/T_DandelionGirl_icon_normal.webp"
+  },
+  {
+    "name": "バトラビー",
+    "en_name": "Lapiron",
+    "icon": "game_data/icons/pals/T_BrownRabbit_icon_normal.webp"
+  },
+  {
+    "name": "フードール",
+    "en_name": "Hoodle",
+    "icon": "game_data/icons/pals/T_HoodGhost_icon_normal.webp"
+  },
+  {
+    "name": "ノンビリリ",
+    "en_name": "Slowatt",
+    "icon": "game_data/icons/pals/T_ElecLizard_icon_normal.webp"
+  },
+  {
+    "name": "ウラミィ",
+    "en_name": "Bakemi",
+    "icon": "game_data/icons/pals/T_OniGhostGirl_icon_normal.webp"
+  },
+  {
+    "name": "オーマンボ",
+    "en_name": "Solmora",
+    "icon": "game_data/icons/pals/T_KingSunfish_icon_normal.webp"
+  },
+  {
+    "name": "トノサマンボ",
+    "en_name": "Solmora_Lux",
+    "icon": "game_data/icons/pals/T_KingSunfish_Thunder_icon_normal.webp"
+  },
+  {
+    "name": "ネモフィ",
+    "en_name": "Lapure",
+    "icon": "game_data/icons/pals/T_SleeveRabbit_icon_normal.webp"
+  },
+  {
+    "name": "レイバーン",
+    "en_name": "Eidrolon",
+    "icon": "game_data/icons/pals/T_GhostDragon_icon_normal.webp"
+  },
+  {
+    "name": "ヘルバーン",
+    "en_name": "Eidrolon_Ignis",
+    "icon": "game_data/icons/pals/T_GhostDragon_Fire_icon_normal.webp"
+  },
+  {
+    "name": "ダイナモフ",
+    "en_name": "Dynamoff",
+    "icon": "game_data/icons/pals/T_ThunderFluffyBird_icon_normal.webp"
+  },
+  {
+    "name": "フラペック",
+    "en_name": "Tropicaw",
+    "icon": "game_data/icons/pals/T_RedFlowerBird_icon_normal.webp"
+  },
+  {
+    "name": "センコ",
+    "en_name": "Flaracle",
+    "icon": "game_data/icons/pals/T_FoxExorcist_icon_normal.webp"
+  },
+  {
+    "name": "ハナミズチ",
+    "en_name": "Ophydia",
+    "icon": "game_data/icons/pals/T_LotusDragon_icon_normal.webp"
+  },
+  {
+    "name": "ラピエール",
+    "en_name": "Dupin",
+    "icon": "game_data/icons/pals/T_ClownRabbit_icon_normal.webp"
+  },
+  {
+    "name": "アルセーヴ",
+    "en_name": "Roujay",
+    "icon": "game_data/icons/pals/T_ThiefBird_icon_normal.webp"
+  },
+  {
+    "name": "メドゥーナ",
+    "en_name": "Venusa",
+    "icon": "game_data/icons/pals/T_SnakeGirl_icon_normal.webp"
+  },
+  {
+    "name": "マシュリー",
+    "en_name": "Mycora",
+    "icon": "game_data/icons/pals/T_MushroomLady_icon_normal.webp"
+  },
+  {
+    "name": "ヴィランタン",
+    "en_name": "Loomen",
+    "icon": "game_data/icons/pals/T_LanternButler_icon_normal.webp"
+  },
+  {
+    "name": "ホシノコ",
+    "en_name": "Wistella",
+    "icon": "game_data/icons/pals/T_MoonChild_icon_normal.webp"
+  },
+  {
+    "name": "モノクローナ",
+    "en_name": "Solenne",
+    "icon": "game_data/icons/pals/T_MonochromeQueen_icon_normal.webp"
+  },
+  {
+    "name": "ゴウカブキ",
+    "en_name": "Renjishi",
+    "icon": "game_data/icons/pals/T_KabukiMan_icon_normal.webp"
+  },
+  {
+    "name": "シェルガドラ",
+    "en_name": "Aegidron",
+    "icon": "game_data/icons/pals/T_DomeArmorDragon_icon_normal.webp"
+  },
+  {
+    "name": "エレパンダ",
+    "en_name": "Grizzbolt",
+    "icon": "game_data/icons/pals/T_ElecPanda_icon_normal.webp"
+  },
+  {
+    "name": "リリクイン",
+    "en_name": "Lyleen",
+    "icon": "game_data/icons/pals/T_LilyQueen_icon_normal.webp"
+  },
+  {
+    "name": "ルナクイン",
+    "en_name": "Lyleen_Noct",
+    "icon": "game_data/icons/pals/T_LilyQueen_Dark_icon_normal.webp"
+  },
+  {
+    "name": "ボルゼクス",
+    "en_name": "Orserk",
+    "icon": "game_data/icons/pals/T_ThunderDragonMan_icon_normal.webp"
+  },
+  {
+    "name": "ホルス",
+    "en_name": "Faleris",
+    "icon": "game_data/icons/pals/T_Horus_icon_normal.webp"
+  },
+  {
+    "name": "イシス",
+    "en_name": "Faleris_Aqua",
+    "icon": "game_data/icons/pals/T_Horus_Water_icon_normal.webp"
+  },
+  {
+    "name": "ゼノグリフ",
+    "en_name": "Shadowbeak",
+    "icon": "game_data/icons/pals/T_BlackGriffon_icon_normal.webp"
+  },
+  {
+    "name": "セレムーン",
+    "en_name": "Selyne",
+    "icon": "game_data/icons/pals/T_MoonQueen_icon_normal.webp"
+  },
+  {
+    "name": "ヒョウガオー",
+    "en_name": "Bastigor",
+    "icon": "game_data/icons/pals/T_SnowTigerBeastman_icon_normal.webp"
+  },
+  {
+    "name": "シャオロン",
+    "en_name": "Shaolong",
+    "icon": "game_data/icons/pals/T_BlueSkyDragon_icon_normal.webp"
+  },
+  {
+    "name": "モスローン",
+    "en_name": "Silvance",
+    "icon": "game_data/icons/pals/T_Mothman_icon_normal.webp"
+  },
+  {
+    "name": "ノクサージュ",
+    "en_name": "Dandilord",
+    "icon": "game_data/icons/pals/T_FlowerPrince_icon_normal.webp"
+  },
+  {
+    "name": "ベラノワール",
+    "en_name": "Bellanoir",
+    "icon": "game_data/icons/pals/T_NightLady_icon_normal.webp"
+  },
+  {
+    "name": "ベラルージュ",
+    "en_name": "Bellanoir_Libero",
+    "icon": "game_data/icons/pals/T_NightLady_Dark_icon_normal.webp"
+  },
+  {
+    "name": "ゼノドラン",
+    "en_name": "Xenolord",
+    "icon": "game_data/icons/pals/T_DarkMechaDragon_icon_normal.webp"
+  },
+  {
+    "name": "レジェンディア",
+    "en_name": "Hartalis",
+    "icon": "game_data/icons/pals/T_LegendDeer_icon_normal.webp"
+  },
+  {
+    "name": "セイントール",
+    "en_name": "Paladius",
+    "icon": "game_data/icons/pals/T_SaintCentaur_icon_normal.webp"
+  },
+  {
+    "name": "ベイントール",
+    "en_name": "Necromus",
+    "icon": "game_data/icons/pals/T_BlackCentaur_icon_normal.webp"
+  },
+  {
+    "name": "グレイシャル",
+    "en_name": "Frostallion",
+    "icon": "game_data/icons/pals/T_IceHorse_icon_normal.webp"
+  },
+  {
+    "name": "グレイシャドウ",
+    "en_name": "Frostallion_Noct",
+    "icon": "game_data/icons/pals/T_IceHorse_Dark_icon_normal.webp"
+  },
+  {
+    "name": "ネプティオス",
+    "en_name": "Neptilius",
+    "icon": "game_data/icons/pals/T_PoseidonOrca_icon_normal.webp"
+  },
+  {
+    "name": "ジェッドラン",
+    "en_name": "Jetragon",
+    "icon": "game_data/icons/pals/T_JetDragon_icon_normal.webp"
+  },
+  {
+    "name": "グランジーラ",
+    "en_name": "Panthalus",
+    "icon": "game_data/icons/pals/T_KingWhale_icon_normal.webp"
+  }
+]
