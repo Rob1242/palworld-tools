@@ -249,6 +249,162 @@ document.getElementById("showAllBtn").addEventListener("click", () => { boxState
 
 renderBoxGrid();
 
+// ---- 配合ロードマップ ----
+
+const PAL_LIST = Object.entries(BREEDING_DATA.pals || {}).map(([asset, info]) => ({
+  asset,
+  displayName: info.jp_name || `${info.en_name}(JP名未確認)`,
+  icon: info.icon,
+})).sort((a, b) => a.displayName.localeCompare(b.displayName, 'ja'));
+
+function nameOf(asset){
+  const info = BREEDING_DATA.pals[asset];
+  if(!info) return asset;
+  return info.jp_name || `${info.en_name}(JP名未確認)`;
+}
+function iconOf(asset){
+  const info = BREEDING_DATA.pals[asset];
+  return info && info.icon;
+}
+
+function setupPicker(inputEl, resultsEl, onPick){
+  inputEl.addEventListener("input", () => {
+    const q = inputEl.value.trim().toLowerCase();
+    if(!q){ resultsEl.style.display = "none"; return; }
+    const matches = PAL_LIST.filter(p =>
+      p.displayName.toLowerCase().includes(q) || p.asset.toLowerCase().includes(q)
+    ).slice(0, 30);
+    if(matches.length === 0){
+      resultsEl.innerHTML = `<div class="pal-picker-item">見つかりません</div>`;
+    } else {
+      resultsEl.innerHTML = matches.map(p => `
+        <div class="pal-picker-item" data-asset="${p.asset}">
+          ${p.icon ? `<img src="${p.icon}" alt="">` : ""}<span>${p.displayName}</span>
+        </div>
+      `).join("");
+      resultsEl.querySelectorAll(".pal-picker-item[data-asset]").forEach(el => {
+        el.addEventListener("click", () => {
+          const asset = el.dataset.asset;
+          inputEl.value = nameOf(asset);
+          resultsEl.style.display = "none";
+          onPick(asset);
+        });
+      });
+    }
+    resultsEl.style.display = "block";
+  });
+  inputEl.addEventListener("blur", () => setTimeout(() => resultsEl.style.display = "none", 150));
+}
+
+function ownedAssetSet(){
+  const ownedIds = new Set(getOwnedIds());
+  const owned = new Set();
+  Object.entries(BREEDING_DATA.pals).forEach(([asset, info]) => {
+    if(info.dex_id && ownedIds.has(info.dex_id)) owned.add(asset);
+  });
+  return owned;
+}
+
+function findBreedingRoute(targetAsset, ownedSet, maxGenerations = 8){
+  if(ownedSet.has(targetAsset)){
+    return { found: true, alreadyOwned: true, steps: [] };
+  }
+  const forward = BREEDING_DATA.forwardPairs;
+  const producedBy = {};
+  let allKnown = new Set(ownedSet);
+
+  for(let gen = 1; gen <= maxGenerations; gen++){
+    const arr = Array.from(allKnown);
+    const newlyFound = new Map();
+    for(let i = 0; i < arr.length; i++){
+      for(let j = i; j < arr.length; j++){
+        const key = [arr[i], arr[j]].sort().join("|");
+        const child = forward[key];
+        if(child && !allKnown.has(child) && !newlyFound.has(child)){
+          newlyFound.set(child, [arr[i], arr[j]]);
+        }
+      }
+    }
+    if(newlyFound.size === 0) break;
+    newlyFound.forEach((pair, child) => {
+      producedBy[child] = { a: pair[0], b: pair[1], generation: gen };
+      allKnown.add(child);
+    });
+    if(allKnown.has(targetAsset)){
+      return { found: true, alreadyOwned: false, steps: reconstructSteps(targetAsset, producedBy, ownedSet) };
+    }
+  }
+  return { found: false };
+}
+
+function reconstructSteps(targetAsset, producedBy, ownedSet){
+  const needed = new Set();
+  const stack = [targetAsset];
+  while(stack.length){
+    const cur = stack.pop();
+    if(needed.has(cur) || ownedSet.has(cur)) continue;
+    needed.add(cur);
+    const rec = producedBy[cur];
+    if(rec){ stack.push(rec.a); stack.push(rec.b); }
+  }
+  return Array.from(needed)
+    .filter(a => producedBy[a])
+    .map(a => ({ child: a, ...producedBy[a] }))
+    .sort((x, y) => x.generation - y.generation);
+}
+
+(function selfTestRoute(){
+  // 単純ケース: A,Aから作れるパルがownedなら0ステップ
+  const dummyForward = { "X|X": "X" };
+  const savedForward = BREEDING_DATA.forwardPairs;
+  BREEDING_DATA.forwardPairs = dummyForward;
+  const r1 = findBreedingRoute("X", new Set(["X"]));
+  console.assert(r1.found && r1.alreadyOwned === true, "[selfTest失敗] 所持済みパルは0ステップになるはず");
+  BREEDING_DATA.forwardPairs = savedForward;
+
+  // 到達不能ケース
+  const r2 = findBreedingRoute("__NOT_EXIST__", new Set());
+  console.assert(r2.found === false, "[selfTest失敗] 存在しない組み合わせはfound:falseになるはず");
+  console.log("[selfTest] 配合ロードマップBFSの自己診断完了(上に赤いAssertion failedが無ければOK)");
+})();
+
+function renderRoute(result, targetAsset, ownedSet){
+  const box = document.getElementById("roadmapResult");
+  box.className = "result-box";
+  if(!result.found){
+    box.innerHTML = `<p>「${nameOf(targetAsset)}」への配合ルートが見つかりませんでした(所持パルからは最大8世代以内で作れません。野生入手が必要な可能性があります)。</p>`;
+    return;
+  }
+  if(result.alreadyOwned){
+    box.innerHTML = `<p>「${nameOf(targetAsset)}」はすでに所持しています。</p>`;
+    return;
+  }
+  let html = `<h3 style="font-family:var(--font-display);margin-top:0;">${nameOf(targetAsset)} への配合ルート(${result.steps.length}ステップ)</h3><ol class="route-pair-list" style="list-style:none;padding:0;">`;
+  result.steps.forEach(s => {
+    const isFinal = s.child === targetAsset;
+    html += `<li class="route-pair-item" style="${isFinal ? 'border:1px solid var(--brass);' : ''}">
+      <span class="unique-tag" style="background:var(--teal-dim);">第${s.generation}世代</span>
+      ${ownedSet.has(s.a) ? '' : '🥚'}${iconOf(s.a) ? `<img src="${iconOf(s.a)}" alt="">` : ""}${nameOf(s.a)}
+      <span style="color:var(--brass);">×</span>
+      ${ownedSet.has(s.b) ? '' : '🥚'}${iconOf(s.b) ? `<img src="${iconOf(s.b)}" alt="">` : ""}${nameOf(s.b)}
+      <span style="color:var(--brass);">→</span>
+      ${iconOf(s.child) ? `<img src="${iconOf(s.child)}" alt="">` : ""}${nameOf(s.child)}${isFinal ? ' 🎯' : ''}
+    </li>`;
+  });
+  html += `</ol><p style="margin-top:10px;color:var(--parchment-dim);font-size:12px;">🥚 = このルート内で先に配合して用意する必要があるパル(元々の所持パルではない)</p>`;
+  box.innerHTML = html;
+}
+
+setupPicker(
+  document.querySelector('#roadmapTargetInput'),
+  document.querySelector('#roadmapView .pal-picker-results'),
+  asset => {
+    const owned = ownedAssetSet();
+    const result = findBreedingRoute(asset, owned);
+    renderRoute(result, asset, owned);
+  }
+);
+
 document.querySelectorAll(".mode-tab").forEach(tab => {
   tab.addEventListener("click", () => {
     document.querySelectorAll(".mode-tab").forEach(t => t.classList.remove("active"));
