@@ -39,12 +39,16 @@ def build_pal_data():
 
 def build_work_speed_table():
     data = json.load(open(WORK_SPEED_PATH, encoding="utf-8"))
-    return data["work_speed_by_role"]
+    table = dict(data["work_speed_by_role"])
+    # 運搬はthepalprofessor.com実測のスタック数データ(transport_stack_by_level)を
+    # 他役職と同じLv1〜5の実測テーブルとしてそのままマージする(牧場用のstar系データとは別物)
+    table["運搬"] = data["transport_stack_by_level"]
+    return table
 
 
 def replace_pal_data(html_text, pal_data):
     serialized = json.dumps(pal_data, ensure_ascii=False, separators=(",", ":"))
-    pattern = re.compile(r"const PAL_DATA = \[.*?\]\n;\n", re.DOTALL)
+    pattern = re.compile(r"const PAL_DATA = \[.*?\];\n", re.DOTALL)
     if not pattern.search(html_text):
         raise ValueError("const PAL_DATA = [...] ブロックが見つかりませんでした")
     return pattern.sub(f"const PAL_DATA = {serialized};\n", html_text, count=1)
