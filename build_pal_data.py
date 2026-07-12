@@ -51,14 +51,14 @@ def replace_pal_data(html_text, pal_data):
     pattern = re.compile(r"const PAL_DATA = \[.*?\];\n", re.DOTALL)
     if not pattern.search(html_text):
         raise ValueError("const PAL_DATA = [...] ブロックが見つかりませんでした")
-    return pattern.sub(f"const PAL_DATA = {serialized};\n", html_text, count=1)
+    return pattern.sub(lambda m: f"const PAL_DATA = {serialized};\n", html_text, count=1)
 
 
 def upsert_work_speed_table(html_text, work_speed_table):
     serialized = json.dumps(work_speed_table, ensure_ascii=False, separators=(",", ":"))
     existing_pattern = re.compile(r"const WORK_SPEED_TABLE = .*?;\n")
     if existing_pattern.search(html_text):
-        return existing_pattern.sub(f"const WORK_SPEED_TABLE = {serialized};\n", html_text, count=1)
+        return existing_pattern.sub(lambda m: f"const WORK_SPEED_TABLE = {serialized};\n", html_text, count=1)
     marker = "const PASSIVE_POOL = "
     idx = html_text.index(marker)
     insertion = f"const WORK_SPEED_TABLE = {serialized};\n\n"
