@@ -77,7 +77,7 @@
 </header>
 <div class="wrap">
   <p class="title">拠点配置プランナー v2</p>
-  <p class="subtitle">基礎適正Lv + 理想パッシブ理論値で実効スコアを計算し、局所探索で組み合わせを反復改善します。</p>
+  <p class="subtitle">基礎適正Lv + 理想パッシブ理論値で実効スコアを計算し、動的計画法(DP)で役職カバレッジを保ちながら合計スコアが最大になる組み合わせを厳密に求めます(近似ではありません)。</p>
   <p class="subtitle" style="font-size:11px;">※ 作業適正Lv6以上のパルは実測データが無いため、役職ごとの実測伸び率(Lv4→5)で外挿した推定値を使用しています。</p>
 
   <div class="panel">
@@ -88,7 +88,7 @@
       <input type="number" id="slotNum" min="1" max="50" value="15">
     </div>
     <div class="toggle-row">
-      <div><div class="toggle-label">昼夜バランス重視</div><div class="toggle-desc">重要な役職は昼型・夜型を揃えて24時間稼働を狙う(不足時は不眠系パッシブで補完)</div></div>
+      <div><div class="toggle-label">昼夜バランス重視</div><div class="toggle-desc">昼行性パルは不眠系パッシブ枠を消費して夜も稼働する前提でスコア計算し、24時間稼働に強いパルを優遇する(役職ごとに昼型・夜型を必ず1体ずつ組み合わせることを保証するものではありません)</div></div>
       <div class="switch on" id="toggleDayNight"><div class="knob"></div></div>
     </div>
     <div class="toggle-row">
@@ -108,6 +108,7 @@
   <div class="panel">
     <h2>役職の重要度</h2>
     <div class="roles-grid" id="rolesGrid"></div>
+    <p class="subtitle" style="font-size:11px;margin-top:10px;margin-bottom:0;">※ 牧場はLvではなく★による収穫倍率システム(handoff文書3.5参照)で、他役職と同じ実測データが無いため、重要度を上げても計算には反映されません(捏造禁止ルールにより未対応のまま表示)。</p>
   </div>
 
   <button class="compute-btn" id="computeBtn">この条件で最適配置を計算する</button>
@@ -223,6 +224,7 @@ slotNum.addEventListener('input', () => {
 function baseScore(pal){
   let s = 0, roleCount = 0;
   for(const r in pal.work){
+    if(r === "牧場") continue; // 牧場はLvでなく★収穫倍率システムのため、実測データが無く現状スコア化不可(handoff文書3.5参照)
     const w = roleWeights[r] || 0;
     if(w > 0){ s += w * relativeWorkValue(r, pal.work[r]); roleCount++; }
   }
@@ -256,20 +258,164 @@ function effectiveScoreOf(pal, wantNight){
   return { effective: base * (1 + loadout.totalPct/100), loadout };
 }
 
-function coverageOK(usedSet, activeRoles){
-  for(const role of activeRoles){
-    let ok = false;
-    for(const name of usedSet){
-      const pal = PAL_BY_NAME[name];
-      if(pal.work[role] > 0){ ok = true; break; }
-    }
-    if(!ok) return false;
-  }
-  return true;
-}
-
 let PAL_BY_NAME = {};
 PAL_DATA.forEach(p => PAL_BY_NAME[p.name] = p);
+
+function popcount(x){
+  let c = 0;
+  while(x){ c += x & 1; x >>= 1; }
+  return c;
+}
+
+// 枠数slots・対象役職activeRoles(牧場を除く重み>0の役職)が与えられたとき、
+// 「各役職を最低1体はカバーしつつ、合計実効スコアを最大化する」パルの組み合わせを
+// 動的計画法(0/1ナップサック+役職カバレッジ集合の合併)で厳密に求める。
+// 局所探索のような近似・ヒューリスティックではなく、この評価関数の下での数学的な最適解。
+function bestAssignment(slots, activeRoles){
+  const R = activeRoles.length;
+  const roleBit = {};
+  activeRoles.forEach((r,i) => { roleBit[r] = 1 << i; });
+  const fullMask = R > 0 ? (1 << R) - 1 : 0;
+  const maskCount = 1 << R;
+
+  const allItems = PAL_DATA.map(pal => {
+    const {effective, loadout} = effectiveScoreOf(pal, dayNightBalance);
+    let mask = 0;
+    for(const r of activeRoles){ if((pal.work[r]||0) > 0) mask |= roleBit[r]; }
+    return {pal, effective, loadout, mask};
+  });
+  // スコアにもカバレッジにも寄与しないパルは探索対象から除外(結果は不変、計算量削減のみ)
+  const items = allItems.filter(it => !(it.effective <= 0 && it.mask === 0));
+  const N = items.length;
+
+  // dp[i][j][m] = items[0..i-1]のみを使い、j体選び、役職カバレッジ集合がmであるときの最大合計スコア。
+  // 「同じパルを二度選んでしまう」バグを避けるため、各パルの使用有無を層(i)ごとに固定して保持する
+  // (層を潰して1枚の表に「最後に更新した候補」だけ記録する方式だと、後から下位の層の値が
+  //  別の候補で上書きされ、復元時に同一パルを別の枠で二重に辿ってしまうことがあるため)。
+  const NEG = -Infinity;
+  const rowSize = maskCount;
+  const layerSize = (slots+1) * rowSize;
+  const at = (i,j,m) => i*layerSize + j*rowSize + m;
+  const dp = new Float32Array((N+1) * layerSize).fill(NEG);
+  dp[at(0,0,0)] = 0;
+
+  for(let i=0;i<N;i++){
+    const it = items[i];
+    dp.copyWithin(at(i+1,0,0), at(i,0,0), at(i,0,0) + layerSize); // 「このパルを使わない」場合をそのまま引き継ぐ
+    const jMax = Math.min(slots, i+1);
+    for(let j=jMax; j>=1; j--){
+      for(let m=0; m<maskCount; m++){
+        const base = dp[at(i,j-1,m)];
+        if(base === NEG) continue;
+        const m2 = m | it.mask;
+        const cand = base + it.effective;
+        const cell = at(i+1,j,m2);
+        if(cand > dp[cell]) dp[cell] = cand;
+      }
+    }
+  }
+
+  // 使用枠数はslotsに近いほど良い(スコアは非負なので、有用なパルが揃うなら枠は全部使い切るのが最適)。
+  // ただし対象役職に対して有用なパルがslots体に満たない場合は、届く範囲で最大のjを使う。
+  // 各jの中では、全役職カバー(fullMask)を最優先し、それが届かなければカバー役職数が最大のものを選ぶ。
+  let targetJ = -1, targetM = -1, targetScore = NEG;
+  for(let j=slots; j>=0; j--){
+    let rowM = -1, rowScore = NEG, rowBits = -1;
+    const full = dp[at(N,j,fullMask)];
+    if(full !== NEG){
+      rowM = fullMask; rowScore = full; rowBits = popcount(fullMask);
+    } else {
+      for(let m=0;m<maskCount;m++){
+        const v = dp[at(N,j,m)];
+        if(v === NEG) continue;
+        const bits = popcount(m);
+        if(bits > rowBits || (bits === rowBits && v > rowScore)){
+          rowBits = bits; rowM = m; rowScore = v;
+        }
+      }
+    }
+    if(rowM !== -1){ targetJ = j; targetM = rowM; targetScore = rowScore; break; }
+  }
+
+  const closeEnough = (a,b) => Math.abs(a-b) < 1e-4 * Math.max(1, Math.abs(a), Math.abs(b));
+
+  const picks = [];
+  let i = N, j = targetJ, m = targetM;
+  while(i > 0 && j >= 0 && m >= 0){
+    const curVal = dp[at(i,j,m)];
+    const withoutThisPal = dp[at(i-1,j,m)];
+    if(closeEnough(curVal, withoutThisPal)){
+      i -= 1; // items[i-1]はこの状態には使われていない
+      continue;
+    }
+    const it = items[i-1];
+    let matched = false;
+    for(let pm=0; pm<maskCount; pm++){
+      if((pm | it.mask) !== m) continue;
+      const base = dp[at(i-1, j-1, pm)];
+      if(base === NEG) continue;
+      if(closeEnough(base + it.effective, curVal)){
+        picks.push({
+          pal: it.pal,
+          effective: it.effective,
+          loadout: it.loadout,
+          reason: activeRoles.filter(r => (it.pal.work[r]||0) > 0).join('・') || "総合力"
+        });
+        i -= 1; j -= 1; m = pm;
+        matched = true;
+        break;
+      }
+    }
+    if(!matched) break; // 理論上到達しないはずの防御的分岐
+  }
+  picks.reverse();
+
+  return { picks, totalScore: targetScore === NEG ? 0 : targetScore, maskCount };
+}
+
+(function selfTestBestAssignment(){
+  const savedWeights = Object.assign({}, roleWeights);
+  const savedDayNight = dayNightBalance, savedGeneralist = generalistPref, savedPassive = usePassive;
+
+  // テスト1: 役職を1つだけ有効にした場合、DPの結果は「その役職で実効スコア上位N体」と完全一致するはず
+  // (役職が1つだけなら、スコアが正なら自動的にその役職をカバーするため、カバレッジ制約は事実上効かない)
+  ROLES.forEach(r => roleWeights[r] = 0);
+  roleWeights["採掘"] = 1;
+  dayNightBalance = false; generalistPref = false; usePassive = false;
+  const testSlots = 3;
+  const { picks: dpPicks } = bestAssignment(testSlots, ["採掘"]);
+  const bruteForce = PAL_DATA
+    .map(p => ({pal: p, effective: effectiveScoreOf(p, false).effective}))
+    .filter(c => c.effective > 0)
+    .sort((a,b) => b.effective - a.effective)
+    .slice(0, testSlots)
+    .map(c => c.pal.name)
+    .sort();
+  const dpNames = dpPicks.map(p => p.pal.name).sort();
+  console.assert(JSON.stringify(dpNames) === JSON.stringify(bruteForce),
+    "[selfTest失敗] 役職1つ・重複無視のケースでDP結果が単純ソート結果と一致しない", dpNames, bruteForce);
+
+  // テスト2: 重複パルが選ばれていないこと
+  console.assert(new Set(dpNames).size === dpNames.length, "[selfTest失敗] 同じパルが複数回選ばれている");
+
+  // テスト3: 全役職を有効にした場合、返された組み合わせで「未カバー」と判定される役職があれば、
+  // それは本当に(スロット数に関わらず)全パルの中にその役職をこなせる者が1体もいない場合に限るはず
+  ROLES.forEach(r => roleWeights[r] = 1);
+  dayNightBalance = true; generalistPref = true; usePassive = true;
+  const activeRoles = ROLES.filter(r => roleWeights[r] > 0 && r !== "牧場");
+  const { picks: fullPicks } = bestAssignment(20, activeRoles);
+  const coveredByPicks = new Set();
+  fullPicks.forEach(p => { for(const r in p.pal.work) coveredByPicks.add(r); });
+  const uncoveredNow = activeRoles.filter(r => !coveredByPicks.has(r));
+  const trulyImpossible = uncoveredNow.filter(r => !PAL_DATA.some(p => (p.work[r]||0) > 0));
+  console.assert(JSON.stringify(uncoveredNow.slice().sort()) === JSON.stringify(trulyImpossible.slice().sort()),
+    "[selfTest失敗] 20枠あるのに本来カバー可能な役職が未カバーになっている(coverageOKバグの再発)", uncoveredNow, trulyImpossible);
+  console.assert(fullPicks.length === 20, "[selfTest失敗] 20枠フルに使われていない", fullPicks.length);
+
+  ROLES.forEach(r => roleWeights[r] = savedWeights[r]);
+  dayNightBalance = savedDayNight; generalistPref = savedGeneralist; usePassive = savedPassive;
+  console.log("[selfTest] 拠点最適化DPの自己診断完了(上に赤いAssertion failedが無ければOK)");
+})();
 
 function compute(){
   const btn = document.getElementById('computeBtn');
@@ -279,77 +425,13 @@ function compute(){
 
 function runCompute(){
   const slots = parseInt(slotNum.value);
-  const activeRoles = ROLES.filter(r => roleWeights[r] > 0).sort((a,b)=>roleWeights[b]-roleWeights[a]);
+  const activeRoles = ROLES.filter(r => roleWeights[r] > 0 && r !== "牧場").sort((a,b)=>roleWeights[b]-roleWeights[a]);
 
-  const used = new Set();
-  const picks = [];
+  const t0 = performance.now();
+  const { picks, totalScore, maskCount } = bestAssignment(slots, activeRoles);
+  const solveMs = Math.round(performance.now() - t0);
 
-  activeRoles.forEach(role => {
-    const candidates = PAL_DATA
-      .filter(p => !used.has(p.name) && (p.work[role]||0) > 0)
-      .map(p => ({pal:p, ...effectiveScoreOf(p, dayNightBalance)}))
-      .sort((a,b) => (b.pal.work[role]-a.pal.work[role]) || (b.effective-a.effective));
-    if(candidates.length && picks.length < slots){
-      const top = candidates[0];
-      picks.push({pal: top.pal, effective: top.effective, loadout: top.loadout, reason: role});
-      used.add(top.pal.name);
-    }
-    if(dayNightBalance && picks.length < slots){
-      const thisPickTime = picks.length ? picks[picks.length-1].pal.active : null;
-      const oppTime = thisPickTime === "夜" ? "昼" : "夜";
-      const opp = candidates.find(c => !used.has(c.pal.name) && c.pal.active === oppTime);
-      if(opp){
-        picks.push({pal: opp.pal, effective: opp.effective, loadout: opp.loadout, reason: role+"(昼夜補完)"});
-        used.add(opp.pal.name);
-      }
-    }
-  });
-
-  const remaining = PAL_DATA
-    .filter(p => !used.has(p.name))
-    .map(p => ({pal:p, ...effectiveScoreOf(p, dayNightBalance)}))
-    .filter(c => c.effective > 0)
-    .sort((a,b) => b.effective - a.effective);
-  for(const c of remaining){
-    if(picks.length >= slots) break;
-    picks.push({pal: c.pal, effective: c.effective, loadout: c.loadout, reason: "総合力"});
-    used.add(c.pal.name);
-  }
-
-  const initialTotal = picks.reduce((s,p)=>s+p.effective,0);
-
-  const maxIter = 150;
-  let iterCount = 0;
-  let improved = true;
-  while(improved && iterCount < maxIter){
-    improved = false;
-    iterCount++;
-    for(let i=0;i<picks.length;i++){
-      const current = picks[i];
-      let bestCand = null, bestEff = current.effective, bestLoadout = current.loadout;
-      for(const cand of PAL_DATA){
-        if(used.has(cand.name)) continue;
-        const res = effectiveScoreOf(cand, dayNightBalance);
-        if(res.effective > bestEff){
-          const tempUsed = new Set(used);
-          tempUsed.delete(current.pal.name);
-          tempUsed.add(cand.name);
-          if(coverageOK(tempUsed, activeRoles)){
-            bestEff = res.effective; bestCand = cand; bestLoadout = res.loadout;
-          }
-        }
-      }
-      if(bestCand){
-        used.delete(current.pal.name);
-        used.add(bestCand.name);
-        picks[i] = {pal: bestCand, effective: bestEff, loadout: bestLoadout, reason: "局所探索で入替"};
-        improved = true;
-      }
-    }
-  }
-
-  const finalTotal = picks.reduce((s,p)=>s+p.effective,0);
-  renderResult(picks, slots, activeRoles, {initialTotal, finalTotal, iterCount});
+  renderResult(picks, slots, activeRoles, {finalTotal: totalScore, solveMs, maskCount});
 }
 
 function renderResult(picks, slots, activeRoles, stats){
@@ -360,8 +442,6 @@ function renderResult(picks, slots, activeRoles, stats){
   const uncovered = activeRoles.filter(r => !coveredRoles.has(r));
   const nightCount = picks.filter(p => p.loadout ? p.loadout.isNightActive : (p.pal.active==="夜"||p.pal.active==="両方")).length;
 
-  const improvePct = stats.initialTotal > 0 ? ((stats.finalTotal - stats.initialTotal)/stats.initialTotal*100) : 0;
-
   let html = '';
   html += `<div class="summary">
     <div class="metric"><div class="num">${picks.length}/${slots}</div><div class="lbl">配置数</div></div>
@@ -370,7 +450,7 @@ function renderResult(picks, slots, activeRoles, stats){
     <div class="metric"><div class="num">${Math.round(stats.finalTotal)}</div><div class="lbl">合計実効スコア</div></div>
   </div>`;
 
-  html += `<div class="progress-log">局所探索: ${stats.iterCount}パス実行 / 初期スコア${Math.round(stats.initialTotal)} → 最終${Math.round(stats.finalTotal)} (改善${improvePct.toFixed(1)}%)</div>`;
+  html += `<div class="progress-log">動的計画法による厳密最適解(近似・局所探索ではありません) / 計算時間${stats.solveMs}ms / 役職カバレッジパターン${stats.maskCount.toLocaleString()}通りを全探索</div>`;
 
   if(uncovered.length){
     html += `<div class="coverage-warn">枠数不足のため未カバーの役職: ${uncovered.join('、')}</div>`;
