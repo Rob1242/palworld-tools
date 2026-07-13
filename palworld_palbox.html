@@ -363,7 +363,15 @@
       <input type="text" id="roadmapTargetInput" placeholder="目標のパルを検索…">
       <div class="pal-picker-results" style="display:none;"></div>
     </div>
+    <div class="pform-section" style="margin-top:16px;max-width:420px;">
+      <div class="pform-label">欲しいパッシブ(任意・最大4つ)</div>
+      <p class="pform-hint">指定すると、最終配合の親候補(所持個体の中から目的パッシブに最も近い個体を自動選択)が、目的のパッシブを継承候補プールに含んでいるか確認します。</p>
+      <input type="text" class="skill-search" id="roadmapPassiveSearch" placeholder="パッシブ名で検索…">
+      <div class="skill-pick-list" id="roadmapPassivePickList"></div>
+      <div class="picked-chips" id="roadmapPassivePickedChips"></div>
+    </div>
     <div id="roadmapResult" class="result-box empty" style="margin-top:14px;">目標のパルを選んでください</div>
+    <div id="roadmapPassiveFit"></div>
   </div>
 
   <p class="footer-note">所持データはこの端末のブラウザ内(localStorage)にのみ保存されます。他の端末・ブラウザとは共有されません。</p>
@@ -735,13 +743,147 @@ function renderRoute(result, targetAsset, ownedSet){
   box.innerHTML = html;
 }
 
+// ---- パッシブ厳選(目的のパッシブを持つ子を作るための最終配合ペア判定) ----
+const roadmapState = { targetAsset: null, passives: [] };
+
+function instancesOfAsset(asset){
+  const info = BREEDING_DATA.pals[asset];
+  if(!info || !info.dex_id) return [];
+  return getInstances().filter(inst => inst.dexId === info.dex_id);
+}
+
+// 指定種族の所持個体の中から、目的パッシブとの重複が最も多い個体を選ぶ
+// (複数所持している場合、狙ったパッシブに一番近い個体を配合に使うのが得なため)
+function bestParentForPassives(asset, targetSet){
+  const candidates = instancesOfAsset(asset);
+  if(candidates.length === 0) return null;
+  let best = candidates[0], bestScore = -1;
+  candidates.forEach(inst => {
+    const score = inst.passives.filter(p => targetSet.has(p)).length;
+    if(score > bestScore){ bestScore = score; best = inst; }
+  });
+  return best;
+}
+
+function renderPassiveFit(result, targetAsset){
+  const wrap = document.getElementById("roadmapPassiveFit");
+  if(!wrap) return;
+  if(!roadmapState.passives.length || !result.found || result.alreadyOwned){
+    wrap.innerHTML = "";
+    return;
+  }
+  const finalStep = result.steps.find(s => s.child === targetAsset);
+  if(!finalStep){ wrap.innerHTML = ""; return; }
+
+  const targetSet = new Set(roadmapState.passives);
+  const parentA = bestParentForPassives(finalStep.a, targetSet);
+  const parentB = bestParentForPassives(finalStep.b, targetSet);
+  const pool = new Set();
+  if(parentA) parentA.passives.forEach(p => pool.add(p));
+  if(parentB) parentB.passives.forEach(p => pool.add(p));
+  const covered = roadmapState.passives.filter(p => pool.has(p));
+  const missing = roadmapState.passives.filter(p => !pool.has(p));
+
+  const parentLine = (asset, inst) => {
+    const label = nameOf(asset);
+    if(!inst) return `<span style="color:var(--danger);">${label}(未所持・パッシブ未確認)</span>`;
+    const passiveList = inst.passives.length ? inst.passives.join('・') : '(パッシブ未登録)';
+    return `<span>${inst.nickname || label}${inst.nickname ? `(${label})` : ''} — ${passiveList}</span>`;
+  };
+
+  let html = `<div class="section" style="margin-top:12px;">
+    <h2>パッシブ厳選チェック(最終配合: ${nameOf(finalStep.a)} × ${nameOf(finalStep.b)})</h2>
+    <p style="font-size:12px;color:var(--parchment-dim);margin-bottom:8px;">${parentLine(finalStep.a, parentA)}</p>
+    <p style="font-size:12px;color:var(--parchment-dim);margin-bottom:10px;">${parentLine(finalStep.b, parentB)}</p>`;
+
+  if(covered.length){
+    html += `<div class="role-grid" style="margin-bottom:8px;">${covered.map(p=>`<span class="role-pill" style="border-color:var(--hp);color:var(--hp);">✔ ${p}</span>`).join('')}</div>`;
+  }
+  if(missing.length){
+    html += `<div class="coverage-warn" style="margin-bottom:8px;">⚠ 親のどちらも持っていないため、このままでは継承候補に入りません: ${missing.join('・')}<br>先にこのパッシブを持つ個体を用意するか、親個体に習得させる必要があります。</div>`;
+  } else {
+    html += `<p style="font-size:12.5px;color:var(--hp);margin-bottom:8px;">目的の${roadmapState.passives.length}パッシブすべてが、この親ペアの継承候補プール(最大8種)に含まれています。</p>`;
+  }
+  html += `<p style="font-size:10.5px;color:var(--parchment-dim);line-height:1.7;">
+    ※ 継承は確率制です。参考値として、複数のwiki情報(gamewith.jp・palsoku.com等、出典間で一致・ただし最新版での検証は未確認)によると
+    「親の合計パッシブから継承枠1〜4個が抽選(4個10%/3個20%/2個30%/1個40%)され、さらに親の持たないパッシブが枠に追加される抽選(0個40%/1個30%/2個20%/3個10%)がある」とされています。
+    プールが少ないほど狙った組み合わせが揃いやすくなるため、余分なパッシブを持つ個体より対象パッシブに近い個体を親にするのがおすすめです。
+  </p></div>`;
+  wrap.innerHTML = html;
+}
+
+function updateRoadmapResult(){
+  if(!roadmapState.targetAsset) return;
+  const owned = ownedAssetSet();
+  const result = findBreedingRoute(roadmapState.targetAsset, owned);
+  renderRoute(result, roadmapState.targetAsset, owned);
+  renderPassiveFit(result, roadmapState.targetAsset);
+}
+
+function renderRoadmapPassivePickList(query){
+  const q = (query||'').toLowerCase();
+  const qKana = toKana(query||'');
+  let pool = PASSIVES_DATA;
+  if(q){
+    pool = pool
+      .filter(p => toKana(p.name).includes(qKana) || p.asset.toLowerCase().includes(q))
+      .sort((a, b) => {
+        const aStarts = toKana(a.name).startsWith(qKana) ? 0 : 1;
+        const bStarts = toKana(b.name).startsWith(qKana) ? 0 : 1;
+        return aStarts - bStarts;
+      });
+  }
+  pool = pool.slice(0, 60);
+  const list = document.getElementById('roadmapPassivePickList');
+  list.innerHTML = pool.map(p => {
+    const checked = roadmapState.passives.includes(p.name);
+    return `<div class="skill-pick-item ${checked?'checked':''}" data-name="${p.name}">
+      <span class="sp-check"></span>
+      <span class="sp-name">${p.name}</span>
+      <span class="sp-tag">Rank${p.rank}</span>
+    </div>`;
+  }).join('');
+  list.querySelectorAll('.skill-pick-item[data-name]').forEach(el => {
+    el.addEventListener('click', () => {
+      const name = el.dataset.name;
+      const idx = roadmapState.passives.indexOf(name);
+      if(idx >= 0){ roadmapState.passives.splice(idx,1); }
+      else {
+        if(roadmapState.passives.length >= 4){ alert('パッシブは最大4つまでです'); return; }
+        roadmapState.passives.push(name);
+      }
+      renderRoadmapPassivePickList(query);
+      renderRoadmapPassiveChips();
+      updateRoadmapResult();
+    });
+  });
+}
+
+function renderRoadmapPassiveChips(){
+  const el = document.getElementById('roadmapPassivePickedChips');
+  el.innerHTML = roadmapState.passives.map(name =>
+    `<span class="picked-chip passive-chip">${name}<span class="chip-x" data-remove="${name}">×</span></span>`
+  ).join('') || '<span style="color:var(--parchment-dim);font-size:11.5px;">未選択(選ばなければ従来通り種族ルートのみ表示)</span>';
+  el.querySelectorAll('[data-remove]').forEach(x => {
+    x.addEventListener('click', () => {
+      roadmapState.passives = roadmapState.passives.filter(p => p !== x.dataset.remove);
+      renderRoadmapPassivePickList(document.getElementById('roadmapPassiveSearch').value);
+      renderRoadmapPassiveChips();
+      updateRoadmapResult();
+    });
+  });
+}
+
+document.getElementById('roadmapPassiveSearch').addEventListener('input', e => renderRoadmapPassivePickList(e.target.value));
+renderRoadmapPassivePickList('');
+renderRoadmapPassiveChips();
+
 setupPicker(
   document.querySelector('#roadmapTargetInput'),
   document.querySelector('#roadmapView .pal-picker-results'),
   asset => {
-    const owned = ownedAssetSet();
-    const result = findBreedingRoute(asset, owned);
-    renderRoute(result, asset, owned);
+    roadmapState.targetAsset = asset;
+    updateRoadmapResult();
   }
 );
 
