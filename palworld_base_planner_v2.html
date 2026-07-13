@@ -36,6 +36,8 @@
   .weight-btns{display:flex;gap:3px;}
   .wbtn{width:26px;height:24px;border-radius:3px;border:1px solid var(--line);background:var(--panel2);color:var(--parchment-dim);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
   .wbtn.active{background:var(--brass-dim);border-color:var(--brass);color:var(--parchment);}
+  .cap-input{width:44px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:3px;padding:3px 4px;font-size:11px;flex-shrink:0;}
+  .cap-input::placeholder{color:var(--parchment-dim);opacity:.6;}
   .compute-btn{width:100%;padding:11px;background:var(--brass-dim);border:1px solid var(--brass);color:var(--parchment);font-size:14px;font-weight:700;border-radius:5px;cursor:pointer;}
   .compute-btn:hover{background:var(--brass);}
   .compute-btn:disabled{opacity:.5;cursor:default;}
@@ -106,7 +108,8 @@
   </div>
 
   <div class="panel">
-    <h2>役職の重要度</h2>
+    <h2>役職の重要度・実働上限</h2>
+    <p class="subtitle" style="margin-top:0;">「無/低/中/高」で重要度を、右の数値欄で「実際に何体まで働かせる意味があるか」の上限を指定できます(施設数・資源ノード数などプレイヤーの拠点固有の事情のため、ゲーム内データに同時作業人数の情報が無く自動判定できません。空欄なら無制限)。</p>
     <div class="roles-grid" id="rolesGrid"></div>
     <p class="subtitle" style="font-size:11px;margin-top:10px;margin-bottom:0;">※ 牧場はLvではなく★による収穫倍率システム(handoff文書3.5参照)で、他役職と同じ実測データが無いため、重要度を上げても計算には反映されません(捏造禁止ルールにより未対応のまま表示)。</p>
   </div>
@@ -165,6 +168,11 @@ const PASSIVE_POOL = {"speed": [{"name": "超絶技巧", "pct": 75.0}, {"name": 
 const ROLES = ["火おこし","水やり","種まき","発電","手作業","採集","伐採","採掘","製薬","冷却","運搬","牧場"];
 const roleWeights = {};
 ROLES.forEach(r => roleWeights[r] = (r==="手作業"||r==="運搬") ? 2 : 1);
+// 役職ごとの実働上限(施設数・資源ノード数などプレイヤーの拠点固有の制約)。
+// ゲーム内データに施設の同時作業人数は存在しない(2026-07に2回確認済み)ため、
+// プレイヤー自身が入力する前提。空欄/0 = 無制限(従来通りの挙動)。
+const roleCaps = {};
+ROLES.forEach(r => roleCaps[r] = 0);
 
 let dayNightBalance = true;
 let generalistPref = true;
@@ -179,7 +187,8 @@ ROLES.forEach(role => {
     <div class="weight-btns" data-role="${role}">
       <div class="wbtn" data-w="0">無</div><div class="wbtn" data-w="1">低</div>
       <div class="wbtn" data-w="2">中</div><div class="wbtn" data-w="3">高</div>
-    </div>`;
+    </div>
+    <input type="number" class="cap-input" data-role="${role}" min="0" placeholder="上限無" title="この役職に実際に割り当てられる上限人数(施設数・ノード数など)。空欄なら無制限">`;
   rolesGrid.appendChild(item);
 });
 function refreshWeightButtons(){
@@ -196,6 +205,12 @@ rolesGrid.addEventListener('click', (e) => {
   const group = btn.closest('.weight-btns');
   roleWeights[group.dataset.role] = parseInt(btn.dataset.w);
   refreshWeightButtons();
+});
+rolesGrid.addEventListener('input', (e) => {
+  const input = e.target.closest('.cap-input');
+  if(!input) return;
+  const v = parseInt(input.value);
+  roleCaps[input.dataset.role] = (Number.isFinite(v) && v > 0) ? v : 0;
 });
 refreshWeightButtons();
 
@@ -286,62 +301,138 @@ function effectiveScoreWithContext(pal, roleLvBonus, excludeFromBonus, extraPctB
 let PAL_BY_NAME = {};
 PAL_DATA.forEach(p => PAL_BY_NAME[p.name] = p);
 
+// パルの実効スコアを「役職ごとの生の寄与度」に分解する。実働上限つきのDPで、
+// 上限に達した役職ぶんだけ寄与を差し引けるようにするため、baseScoreWithBonusとは別に持つ。
+function roleContribBreakdown(pal, roleLvBonus, excludeFromBonus){
+  const contribs = {};
+  let roleCount = 0;
+  for(const r in pal.work){
+    if(r === "牧場") continue;
+    const w = roleWeights[r] || 0;
+    if(w > 0){
+      let bonus = roleLvBonus[r] || 0;
+      if(bonus && excludeFromBonus[pal.name] && excludeFromBonus[pal.name][r]) bonus = 0;
+      contribs[r] = w * relativeWorkValue(r, pal.work[r] + bonus);
+      roleCount++;
+    }
+  }
+  const mult = (generalistPref && roleCount > 1) ? (1 + 0.12*(roleCount-1)) : 1;
+  return { contribs, mult };
+}
+
+// パル1体の役職別生スコア + 掛け算補正(汎用ボーナス・理想パッシブ・シナジー%)をまとめたもの。
+// sum(contribs)*totalMult は effectiveScoreWithContext と数学的に同一の値になる
+// (実働上限が無い場合、bestAssignmentは常にこの合計値をそのまま使うため従来と同じ結果になる)。
+function scoredSpecies(pal, roleLvBonus, excludeFromBonus, extraPctByName){
+  const {contribs, mult} = roleContribBreakdown(pal, roleLvBonus, excludeFromBonus);
+  let passiveMult = 1, loadout = null;
+  if(usePassive){
+    loadout = idealPassiveLoadout(pal, dayNightBalance);
+    passiveMult = 1 + loadout.totalPct/100;
+  }
+  const extra = extraPctByName[pal.name] || 0;
+  const totalMult = mult * passiveMult * (extra ? (1 + extra/100) : 1);
+  return { pal, contribs, totalMult, loadout };
+}
+
 function popcount(x){
   let c = 0;
   while(x){ c += x & 1; x >>= 1; }
   return c;
 }
 
+// activeRoles・roleCapsから、各役職を「上限が無ければ0/1のカバレッジビット」「上限があれば
+// 0..上限のカウンタ」として混合基数(mixed radix)でエンコードするための次元情報を作る。
+function buildRoleDims(activeRoles, roleCaps){
+  return activeRoles.map(r => {
+    const cap = roleCaps && roleCaps[r] > 0 ? roleCaps[r] : 0;
+    return cap > 0 ? {role: r, capped: true, cap, base: cap + 1} : {role: r, capped: false, base: 2};
+  });
+}
+function buildStrides(roleDims){
+  const strides = [];
+  let acc = 1;
+  for(const d of roleDims){ strides.push(acc); acc *= d.base; }
+  return strides;
+}
+function digitOf(state, roleDims, strides, i){
+  return Math.floor(state / strides[i]) % roleDims[i].base;
+}
+function countCoveredDims(state, roleDims, strides){
+  let n = 0;
+  for(let i=0;i<roleDims.length;i++){ if(digitOf(state, roleDims, strides, i) > 0) n++; }
+  return n;
+}
+
+// 状態stateにスコア済みパルspを1体追加したときの「増分スコア」と「更新後の状態」を返す。
+// 上限つきの役職は、既に上限に達していればその役職ぶんの増分を加算しない(その役職の
+// digitも変化しない)。上限の無い役職は常にフルで加算し、未カバーならビットを1にする。
+// このパルがどの役職にも寄与できなければnullを返す。
+function applyPickToState(sp, roleDims, strides, state){
+  let delta = 0, newState = state, changed = false;
+  for(let i=0;i<roleDims.length;i++){
+    const d = roleDims[i];
+    const raw = sp.contribs[d.role];
+    if(!raw) continue;
+    const cur = digitOf(state, roleDims, strides, i);
+    if(d.capped){
+      if(cur < d.cap){ delta += raw; newState += strides[i]; changed = true; }
+    } else {
+      delta += raw;
+      if(cur === 0) newState += strides[i];
+      changed = true;
+    }
+  }
+  if(!changed) return null;
+  return { score: delta * sp.totalMult, newState };
+}
+
 // 枠数slots・対象役職activeRolesが与えられたとき、「各役職を最低1体はカバーしつつ、
-// 合計実効スコアを最大化するパルの組み合わせ」を動的計画法(個数無制限ナップサック+
-// 役職カバレッジ集合の合併)で厳密に求める。同じパル種を何体でも選べる(グランジーラのような
-// 作業適性オール0のパルは、そもそもどの役職の候補にもならないため自然に選ばれない)。
-// scoreFn(pal) は {effective, loadout} を返す関数(既定は素の実効スコア。呼び出し元が
-// シナジー補正込みのものを渡すこともできる)。initialMask は、外側で確定的に確保済みの
-// パル(パートナースキル発動要員など)による役職カバレッジをあらかじめ加味しておくための
-// ビットマスク(通常は0)。
-function bestAssignment(slots, activeRoles, scoreFn, initialMask){
-  scoreFn = scoreFn || (p => effectiveScoreOf(p, dayNightBalance));
-  initialMask = initialMask || 0;
+// (実働上限がある役職はその上限まで)、合計実効スコアを最大化するパルの組み合わせ」を
+// 動的計画法(個数無制限ナップサック+役職カバレッジ/カウンタの合成)で厳密に求める。
+// 同じパル種を何体でも選べる(グランジーラのような作業適性オール0のパルは、そもそも
+// どの役職の候補にもならないため自然に選ばれない)。
+// buildSpeciesFn(pal) は scoredSpecies(...) 相当のオブジェクト({contribs, totalMult, loadout})
+// を返す関数(既定は素の実効スコア)。initialState は、外側で確定的に確保済みのパル
+// (パートナースキル発動要員など)による状態をあらかじめ加味しておくためのエンコード済み状態値
+// (通常は0)。roleCapsを省略/空にすると、実働上限が全く無い場合と完全に同じ挙動になる。
+function bestAssignment(slots, activeRoles, buildSpeciesFn, initialState, roleCaps){
+  buildSpeciesFn = buildSpeciesFn || (p => scoredSpecies(p, {}, {}, {}));
+  initialState = initialState || 0;
+  roleCaps = roleCaps || {};
 
-  const R = activeRoles.length;
-  const roleBit = {};
-  activeRoles.forEach((r,i) => { roleBit[r] = 1 << i; });
-  const fullMask = R > 0 ? (1 << R) - 1 : 0;
-  const maskCount = 1 << R;
+  const roleDims = buildRoleDims(activeRoles, roleCaps);
+  const strides = buildStrides(roleDims);
+  const maskCount = roleDims.length ? strides[strides.length-1] * roleDims[roleDims.length-1].base : 1;
 
-  const species = PAL_DATA.map(pal => {
-    const {effective, loadout} = scoreFn(pal);
-    let mask = 0;
-    for(const r of activeRoles){ if((pal.work[r]||0) > 0) mask |= roleBit[r]; }
-    return {pal, effective, loadout, mask};
-  }).filter(sp => !(sp.effective <= 0 && sp.mask === 0)); // 何の役にも立たないパルは除外(結果不変、高速化)
+  const species = PAL_DATA.map(buildSpeciesFn)
+    .filter(sp => Object.keys(sp.contribs).length > 0); // どの役職の候補にもならないパルは除外(結果不変、高速化)
 
-  // dp[j][m] = j体選び(同じ種の重複可)役職カバレッジ集合がmであるときの最大合計スコア。
+  // dp[j][m] = j体選び(同じ種の重複可)状態がmであるときの最大合計スコア。
   // 個数無制限ナップサックなので、パル種ごとの層を分けて保持する必要が無い
   // (「j-1体使った状態」の表は、j体目を確定させた時点で一切書き換わらず確定するため、
   //  0/1ナップサックのときのような「後から下位層が上書きされて復元が壊れる」問題が起きない)。
   const NEG = -Infinity;
-  const dp = [], bestSpecies = [], bestPrevMask = [];
+  const dp = [], bestSpecies = [], bestPrevState = [];
   for(let j=0;j<=slots;j++){
     dp.push(new Float64Array(maskCount).fill(NEG));
     bestSpecies.push(new Int32Array(maskCount).fill(-1));
-    bestPrevMask.push(new Int32Array(maskCount).fill(-1));
+    bestPrevState.push(new Int32Array(maskCount).fill(-1));
   }
-  dp[0][initialMask] = 0;
+  dp[0][initialState] = 0;
 
   for(let j=1;j<=slots;j++){
     for(let m=0;m<maskCount;m++){
       const base = dp[j-1][m];
       if(base === NEG) continue;
       for(let s=0;s<species.length;s++){
-        const sp = species[s];
-        const m2 = m | sp.mask;
-        const cand = base + sp.effective;
-        if(cand > dp[j][m2]){
-          dp[j][m2] = cand;
-          bestSpecies[j][m2] = s;
-          bestPrevMask[j][m2] = m;
+        const res = applyPickToState(species[s], roleDims, strides, m);
+        if(!res) continue;
+        const cand = base + res.score;
+        if(cand > dp[j][res.newState]){
+          dp[j][res.newState] = cand;
+          bestSpecies[j][res.newState] = s;
+          bestPrevState[j][res.newState] = m;
         }
       }
     }
@@ -349,19 +440,17 @@ function bestAssignment(slots, activeRoles, scoreFn, initialMask){
 
   // 使用枠数はslotsに近いほど良い(スコアは非負なので、有用なパルが揃うなら枠は全部使い切るのが最適)。
   // ただし対象役職に対して有用なパルがslots体に満たない場合は、届く範囲で最大のjを使う。
-  // 各jの中では、全役職カバー(fullMask)を最優先し、それが届かなければカバー役職数が最大のものを選ぶ。
+  // 各jの中では、カバー済み次元数(役職カバー+上限役職の充足)が最大のものを優先し、
+  // 同数ならスコアが最大のものを選ぶ。
   let targetJ = -1, targetM = -1, targetScore = NEG;
   for(let j=slots; j>=0; j--){
     let rowM = -1, rowScore = NEG, rowBits = -1;
-    if(dp[j][fullMask] !== NEG){
-      rowM = fullMask; rowScore = dp[j][fullMask]; rowBits = popcount(fullMask);
-    } else {
-      for(let m=0;m<maskCount;m++){
-        if(dp[j][m] === NEG) continue;
-        const bits = popcount(m);
-        if(bits > rowBits || (bits === rowBits && dp[j][m] > rowScore)){
-          rowBits = bits; rowM = m; rowScore = dp[j][m];
-        }
+    for(let m=0;m<maskCount;m++){
+      const v = dp[j][m];
+      if(v === NEG) continue;
+      const bits = countCoveredDims(m, roleDims, strides);
+      if(bits > rowBits || (bits === rowBits && v > rowScore)){
+        rowBits = bits; rowM = m; rowScore = v;
       }
     }
     if(rowM !== -1){ targetJ = j; targetM = rowM; targetScore = rowScore; break; }
@@ -373,18 +462,20 @@ function bestAssignment(slots, activeRoles, scoreFn, initialMask){
     const s = bestSpecies[j][m];
     if(s === -1) break;
     const sp = species[s];
+    const prevM = bestPrevState[j][m];
+    const res = applyPickToState(sp, roleDims, strides, prevM); // このパルが実際に足した増分スコアを再計算(上限で目減りしていればそれも反映)
     picks.push({
       pal: sp.pal,
-      effective: sp.effective,
+      effective: res ? res.score : 0,
       loadout: sp.loadout,
       reason: activeRoles.filter(r => (sp.pal.work[r]||0) > 0).join('・') || "総合力"
     });
-    m = bestPrevMask[j][m];
+    m = prevM;
     j -= 1;
   }
   picks.reverse();
 
-  return { picks, totalScore: targetScore === NEG ? 0 : targetScore, coveredMask: targetM, maskCount };
+  return { picks, totalScore: targetScore === NEG ? 0 : targetScore, coveredState: targetM, maskCount, roleDims, strides };
 }
 
 // === 拠点パートナースキルの相乗効果(287体全パルのpartner_skill.effectテキストを機械的に
@@ -446,34 +537,36 @@ function buildSynergyToggles(){
 // activeToggles(発動させるシナジーのリスト)を1組固定した上で、そのシナジー要員を
 // 予約枠として確保しつつ残り枠を厳密最適化する。予約枠のパル自身のスコアにも、
 // このブランチで有効なシナジー補正がそのまま反映される。
-function evaluateSynergyBranch(slots, activeRoles, activeToggles){
+function evaluateSynergyBranch(slots, activeRoles, activeToggles, roleCaps){
   const ctx = { roleLvBonus: {}, excludeFromBonus: {}, extraPctByName: {} };
   const reservedNames = [];
   activeToggles.forEach(t => { t.apply(ctx); reservedNames.push(...t.reserve); });
 
   if(reservedNames.length > slots) return null; // この分岐は枠数的に成立しない
 
-  const scoreFn = pal => effectiveScoreWithContext(pal, ctx.roleLvBonus, ctx.excludeFromBonus, ctx.extraPctByName);
+  const buildSpeciesFn = pal => scoredSpecies(pal, ctx.roleLvBonus, ctx.excludeFromBonus, ctx.extraPctByName);
 
-  const roleBit = {};
-  activeRoles.forEach((r,i) => { roleBit[r] = 1 << i; });
+  const roleDims = buildRoleDims(activeRoles, roleCaps);
+  const strides = buildStrides(roleDims);
 
-  let reservedScore = 0, reservedMask = 0;
+  // シナジー要員(予約枠)を1体ずつ順番に状態へ織り込む。実働上限がある役職では、
+  // 予約枠のパル自身も上限にカウントされる(上限3の役職を2体の予約枠だけで
+  // 使い切ってしまうこともあり得る、という現実的な挙動になる)。
+  let reservedScore = 0, reservedState = 0;
   const reservedPicks = reservedNames.map(name => {
-    const pal = PAL_BY_NAME[name];
-    const {effective, loadout} = scoreFn(pal);
-    let mask = 0;
-    for(const r of activeRoles){ if((pal.work[r]||0) > 0) mask |= roleBit[r]; }
-    reservedScore += effective;
-    reservedMask |= mask;
+    const sp = buildSpeciesFn(PAL_BY_NAME[name]);
+    const res = applyPickToState(sp, roleDims, strides, reservedState);
+    const scoreDelta = res ? res.score : 0;
+    if(res) reservedState = res.newState;
+    reservedScore += scoreDelta;
     return {
-      pal, effective, loadout,
-      reason: activeRoles.filter(r => (pal.work[r]||0) > 0).join('・') || "シナジー要員"
+      pal: sp.pal, effective: scoreDelta, loadout: sp.loadout,
+      reason: activeRoles.filter(r => (sp.pal.work[r]||0) > 0).join('・') || "シナジー要員"
     };
   });
 
   const remainingSlots = slots - reservedNames.length;
-  const dpResult = bestAssignment(remainingSlots, activeRoles, scoreFn, reservedMask);
+  const dpResult = bestAssignment(remainingSlots, activeRoles, buildSpeciesFn, reservedState, roleCaps);
 
   return {
     totalScore: reservedScore + dpResult.totalScore,
@@ -485,14 +578,14 @@ function evaluateSynergyBranch(slots, activeRoles, activeToggles){
 // 拠点ブースター系パートナースキルの有効/無効の全組み合わせ(最大2^8通り程度)を総当たりし、
 // それぞれで厳密最適化を行った上で最良のものを採用する。これらのシナジーパルだけは
 // 「そのパルを入れるかどうかで他のパルの価値が変わる」ため、通常のDP1回では扱えない。
-async function runSynergyOptimization(slots, activeRoles, onProgress){
+async function runSynergyOptimization(slots, activeRoles, roleCaps, onProgress){
   const toggles = buildSynergyToggles();
   const totalCombos = 1 << toggles.length;
 
   let best = null;
   for(let combo=0; combo<totalCombos; combo++){
     const activeToggles = toggles.filter((t,i) => (combo & (1<<i)) !== 0);
-    const result = evaluateSynergyBranch(slots, activeRoles, activeToggles);
+    const result = evaluateSynergyBranch(slots, activeRoles, activeToggles, roleCaps);
     if(result && (!best || result.totalScore > best.totalScore)){
       best = result;
     }
@@ -573,9 +666,42 @@ async function runSynergyOptimization(slots, activeRoles, onProgress){
       anubisBoosted, expected);
   }
 
+  // テスト6: 実働上限つきで正しく頭打ちになること(採掘だけ上限2)
+  ROLES.forEach(r => roleWeights[r] = 0);
+  roleWeights["採掘"] = 1;
+  dayNightBalance = false; generalistPref = false; usePassive = false;
+  const { picks: cappedPicks } = bestAssignment(5, ["採掘"], undefined, undefined, {"採掘": 2});
+  const bestMiner = PAL_DATA
+    .map(p => ({pal: p, effective: effectiveScoreOf(p, false).effective}))
+    .filter(c => c.effective > 0)
+    .sort((a,b)=>b.effective-a.effective)[0];
+  console.assert(cappedPicks.length === 2,
+    "[selfTest失敗] 実働上限2のはずなのにピック数が2でない", cappedPicks.length);
+  console.assert(cappedPicks.every(p => p.pal.name === bestMiner.pal.name),
+    "[selfTest失敗] 実働上限ケースで最強の採掘パルが選ばれていない", cappedPicks.map(p=>p.pal.name));
+  console.assert(Math.abs(cappedPicks.reduce((s,p)=>s+p.effective,0) - bestMiner.effective*2) < 1e-6,
+    "[selfTest失敗] 実働上限ケースの合計スコアがズレている");
+
+  // テスト7: 上限に達した役職ぶんは増分から除外され、まだ空いてる別の役職ぶんは
+  // 通常通りカウントされること(マグナイトのような複数役職持ちパルの部分寄与を検証)
+  if(PAL_BY_NAME['マグナイト']){
+    ROLES.forEach(r => roleWeights[r] = 0);
+    roleWeights["火おこし"] = 1; roleWeights["採掘"] = 1; roleWeights["運搬"] = 1;
+    dayNightBalance = false; generalistPref = true; usePassive = false;
+    const magniteSpecies = scoredSpecies(PAL_BY_NAME['マグナイト'], {}, {}, {});
+    const dims = buildRoleDims(["火おこし","採掘","運搬"], {"採掘": 1});
+    const strides = buildStrides(dims);
+    let preloadedState = 0; // 採掘だけ既に上限(1)に達している状態を人工的に作る
+    dims.forEach((d,i) => { if(d.role === "採掘") preloadedState += strides[i]; });
+    const res = applyPickToState(magniteSpecies, dims, strides, preloadedState);
+    const expectedPartial = ((magniteSpecies.contribs["火おこし"]||0) + (magniteSpecies.contribs["運搬"]||0)) * magniteSpecies.totalMult;
+    console.assert(res && Math.abs(res.score - expectedPartial) < 1e-6,
+      "[selfTest失敗] 上限到達済みの役職ぶんが増分スコアから正しく除外されていない", res && res.score, expectedPartial);
+  }
+
   ROLES.forEach(r => roleWeights[r] = savedWeights[r]);
   dayNightBalance = savedDayNight; generalistPref = savedGeneralist; usePassive = savedPassive;
-  console.log("[selfTest] 拠点最適化DP(重複・シナジー対応版)の自己診断完了(上に赤いAssertion failedが無ければOK)");
+  console.log("[selfTest] 拠点最適化DP(重複・シナジー・実働上限対応版)の自己診断完了(上に赤いAssertion failedが無ければOK)");
 })();
 
 function compute(){
@@ -589,8 +715,11 @@ async function runCompute(){
   const slots = parseInt(slotNum.value);
   const activeRoles = ROLES.filter(r => roleWeights[r] > 0 && r !== "牧場").sort((a,b)=>roleWeights[b]-roleWeights[a]);
 
+  const activeRoleCaps = {};
+  activeRoles.forEach(r => { if(roleCaps[r] > 0) activeRoleCaps[r] = roleCaps[r]; });
+
   const t0 = performance.now();
-  const result = await runSynergyOptimization(slots, activeRoles, (done, total) => {
+  const result = await runSynergyOptimization(slots, activeRoles, activeRoleCaps, (done, total) => {
     btn.textContent = `計算中...(${done}/${total}パターン)`;
   });
   const solveMs = Math.round(performance.now() - t0);
@@ -621,6 +750,29 @@ function groupPicks(picks){
     g.totalEffective += p.effective;
   });
   return order.map(k => map.get(k));
+}
+
+const ROLE_ICON = {
+  "火おこし":"🔥","水やり":"💧","種まき":"🌱","発電":"⚡","手作業":"🔨","採集":"🧺",
+  "伐採":"🪓","採掘":"⛏️","製薬":"💊","冷却":"❄️","運搬":"📦","牧場":"🐑",
+};
+
+// グループ済みピックを、各パルの「reasonの先頭役職(=weight順で最優先の担当役職)」で
+// activeRolesの順に区切って並べ、どのカードがどの役職担当なのか一目でわかるようにする。
+function sectionizeGrouped(grouped, activeRoles){
+  const byRole = new Map();
+  activeRoles.forEach(r => byRole.set(r, []));
+  const other = [];
+  grouped.forEach(g => {
+    const primary = (g.reason || '').split('・')[0];
+    if(byRole.has(primary)) byRole.get(primary).push(g);
+    else other.push(g);
+  });
+  const sections = activeRoles
+    .map(r => ({role: r, items: byRole.get(r)}))
+    .filter(s => s.items.length > 0);
+  if(other.length) sections.push({role: null, items: other});
+  return sections;
 }
 
 function renderResult(picks, slots, activeRoles, stats){
@@ -657,9 +809,20 @@ function renderResult(picks, slots, activeRoles, stats){
     html += `<div class="coverage-warn">役職の重要度が全て「無」です。1つ以上「低」以上に設定してください。</div>`;
   }
 
-  html += '<div class="slot-grid">';
   const grouped = groupPicks(picks);
-  grouped.forEach((g,i) => {
+  const sections = sectionizeGrouped(grouped, activeRoles);
+  let cardIndex = 0;
+  sections.forEach(section => {
+    const sectionCount = section.items.reduce((s,g)=>s+g.count, 0);
+    const cap = section.role ? roleCaps[section.role] : 0;
+    const capNote = cap > 0 ? `(実働上限${cap} / ${Math.min(sectionCount, cap)}使用)` : '';
+    const heading = section.role
+      ? `${ROLE_ICON[section.role]||''} ${section.role}担当 ・ ${sectionCount}体 ${capNote}`
+      : `その他(汎用役職)`;
+    html += `<h3 style="font-size:13px;color:var(--brass);margin:16px 0 8px;letter-spacing:.03em;">${heading}</h3>`;
+    html += '<div class="slot-grid">';
+    section.items.forEach(g => {
+    const i = cardIndex++;
     const pal = g.pal;
     const roleBadges = Object.entries(pal.work)
       .filter(([r,lv]) => roleWeights[r] > 0)
@@ -704,11 +867,17 @@ function renderResult(picks, slots, activeRoles, stats){
       ${passiveBadges ? '<div style="margin-top:4px;">'+passiveBadges+'</div>' : ''}
       <div class="pskill">◆ ${pal.pskill}</div>
     </div>`;
+    });
+    html += '</div>';
   });
-  for(let i=picks.length; i<slots; i++){
-    html += `<div class="slot empty-slot">空き枠</div>`;
+
+  if(picks.length < slots){
+    html += `<h3 style="font-size:13px;color:var(--parchment-dim);margin:16px 0 8px;">空き枠</h3><div class="slot-grid">`;
+    for(let i=picks.length; i<slots; i++){
+      html += `<div class="slot empty-slot">空き枠</div>`;
+    }
+    html += '</div>';
   }
-  html += '</div>';
   area.innerHTML = html;
 }
 
