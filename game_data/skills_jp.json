@@ -1,0 +1,1729 @@
+{
+  "active_skills": {
+    "AcidRain": {
+      "jp_name": "アシッドレイン",
+      "en_name": "Acid Rain",
+      "match_status": "wiki確認済み"
+    },
+    "AirBlade": {
+      "jp_name": "エアーブレード",
+      "en_name": "Air Blade",
+      "match_status": "wiki確認済み"
+    },
+    "AirCanon": {
+      "jp_name": "エアーキャノン",
+      "en_name": "Air Cannon",
+      "match_status": "wiki確認済み"
+    },
+    "Apocalypse": {
+      "jp_name": "アポカリプス",
+      "en_name": "Apocalypse",
+      "match_status": "wiki確認済み"
+    },
+    "AquaJet": {
+      "jp_name": "ウォータージェット",
+      "en_name": "Hydro Jet",
+      "match_status": "wiki確認済み"
+    },
+    "BeamSlicer": {
+      "jp_name": "ビームスライサー",
+      "en_name": "Beam Slicer",
+      "match_status": "wiki確認済み"
+    },
+    "BlastCanon": {
+      "jp_name": "ブラストキャノン",
+      "en_name": "Blast Cannon",
+      "match_status": "wiki確認済み"
+    },
+    "BlizzardLance": {
+      "jp_name": null,
+      "en_name": "Iceberg",
+      "match_status": "missing"
+    },
+    "BubbleShot": {
+      "jp_name": "バブルショット",
+      "en_name": "Bubble Blast",
+      "match_status": "wiki確認済み"
+    },
+    "BubbleShower": {
+      "jp_name": "ポイズンシャワー",
+      "en_name": "Poison Shower",
+      "match_status": "wiki確認済み"
+    },
+    "ChargeCanon": {
+      "jp_name": "チャージキャノン",
+      "en_name": "Charge Cannon",
+      "match_status": "wiki確認済み"
+    },
+    "Commet": {
+      "jp_name": "コメット",
+      "en_name": "Comet Strike",
+      "match_status": "wiki確認済み"
+    },
+    "CommetRain": {
+      "jp_name": "メテオレイン",
+      "en_name": "Meteorain",
+      "match_status": "wiki確認済み"
+    },
+    "CreepingBubble": {
+      "jp_name": "バブルマーチ",
+      "en_name": "Creeping Bubbles",
+      "match_status": "wiki確認済み"
+    },
+    "CrossWind": {
+      "jp_name": "クロスウィンド",
+      "en_name": "Crosswind",
+      "match_status": "wiki確認済み"
+    },
+    "DarkArrow": {
+      "jp_name": "ダークアロー",
+      "en_name": "Dark Arrow",
+      "match_status": "wiki確認済み"
+    },
+    "DarkBall": {
+      "jp_name": "ダークボール",
+      "en_name": "Dark Ball",
+      "match_status": "wiki確認済み"
+    },
+    "DarkCanon": {
+      "jp_name": "ダークキャノン",
+      "en_name": "Dark Cannon",
+      "match_status": "wiki確認済み"
+    },
+    "DarkLaser": {
+      "jp_name": "ダークレーザー",
+      "en_name": "Dark Laser",
+      "match_status": "wiki確認済み"
+    },
+    "DarkLegion": {
+      "jp_name": "ダークウィスプ",
+      "en_name": "Dark Whisp",
+      "match_status": "wiki確認済み"
+    },
+    "DarkPulse": {
+      "jp_name": "スプレッドダーク",
+      "en_name": "Umbral Surge",
+      "match_status": "wiki確認済み"
+    },
+    "DarkWave": {
+      "jp_name": "シャドウバースト",
+      "en_name": "Shadow Burst",
+      "match_status": "wiki確認済み"
+    },
+    "DiamondFall": {
+      "jp_name": "ダイアモンドフォール",
+      "en_name": "Diamond Rain",
+      "match_status": "wiki確認済み"
+    },
+    "DiversionLaser": {
+      "jp_name": "高圧水撃",
+      "en_name": "Torrential Blast",
+      "match_status": "wiki確認済み"
+    },
+    "DoubleIcicleThrow": {
+      "jp_name": "ダブルブリザードスパイク",
+      "en_name": "Double Blizzard Spike",
+      "match_status": "wiki確認済み"
+    },
+    "DragonBreath": {
+      "jp_name": "ドラゴンブレス",
+      "en_name": "Dragon Breath",
+      "match_status": "wiki確認済み"
+    },
+    "DragonCanon": {
+      "jp_name": "ドラゴンキャノン",
+      "en_name": "Dragon Cannon",
+      "match_status": "wiki確認済み"
+    },
+    "DragonMeteor": {
+      "jp_name": "ドラゴンメテオ",
+      "en_name": "Dragon Meteor",
+      "match_status": "wiki確認済み"
+    },
+    "DragonWave": {
+      "jp_name": "ドラゴンバースト",
+      "en_name": "Dragon Burst",
+      "match_status": "wiki確認済み"
+    },
+    "ElecWave": {
+      "jp_name": null,
+      "en_name": "Shockwave",
+      "match_status": "missing"
+    },
+    "Eruption": {
+      "jp_name": "ボルカニックレイン",
+      "en_name": "Volcanic Rain",
+      "match_status": "wiki確認済み"
+    },
+    "FireBall": {
+      "jp_name": "ファイアーボール",
+      "en_name": "Fire Ball",
+      "match_status": "wiki確認済み"
+    },
+    "FireBlast": {
+      "jp_name": "ファイアーショット",
+      "en_name": "Ignis Blast",
+      "match_status": "wiki確認済み"
+    },
+    "FireSeed": {
+      "jp_name": "スプリットファイアー",
+      "en_name": "Spirit Fire",
+      "match_status": "wiki確認済み"
+    },
+    "FlameFunnel": {
+      "jp_name": "フレイムファンネル",
+      "en_name": "Flame Funnel",
+      "match_status": "wiki確認済み"
+    },
+    "FlameWall": {
+      "jp_name": "フレイムウォール",
+      "en_name": "Flame Wall",
+      "match_status": "wiki確認済み"
+    },
+    "Flamethrower": {
+      "jp_name": "ファイアーブレス",
+      "en_name": "Ignis Breath",
+      "match_status": "wiki確認済み"
+    },
+    "FlareArrow": {
+      "jp_name": "フレアアロー",
+      "en_name": "Flare Arrow",
+      "match_status": "wiki確認済み"
+    },
+    "FlareTornado": {
+      "jp_name": "フレアストーム",
+      "en_name": "Flare Storm",
+      "match_status": "wiki確認済み"
+    },
+    "FrostBreath": {
+      "jp_name": "コールドブレス",
+      "en_name": "Crystal Breath",
+      "match_status": "wiki確認済み"
+    },
+    "GhostFlame": {
+      "jp_name": "スピリットフレイム",
+      "en_name": "Spirit Flame",
+      "match_status": "wiki確認済み"
+    },
+    "GrassTornado": {
+      "jp_name": "グラストルネード",
+      "en_name": "Grass Tornado",
+      "match_status": "wiki確認済み"
+    },
+    "GravityShot": {
+      "jp_name": "ダークショット",
+      "en_name": "Dark Shot",
+      "match_status": "wiki確認済み"
+    },
+    "HolyBlast": {
+      "jp_name": "ホーリーバースト",
+      "en_name": "Holy Burst",
+      "match_status": "wiki確認済み"
+    },
+    "HydroPump": {
+      "jp_name": "ハイドロストリーム",
+      "en_name": "Hydro Laser",
+      "match_status": "wiki確認済み"
+    },
+    "HydroSlicer": {
+      "jp_name": "ハイドロスライサー",
+      "en_name": "Hydro Slicer",
+      "match_status": "wiki確認済み"
+    },
+    "HyperBeam": {
+      "jp_name": "パルブラスト",
+      "en_name": "Pal Blast",
+      "match_status": "wiki確認済み"
+    },
+    "IceAge": {
+      "jp_name": "フロストアウト",
+      "en_name": "Absolute Frost",
+      "match_status": "wiki確認済み"
+    },
+    "IceBlade": {
+      "jp_name": "アイスカッター",
+      "en_name": "Icicle Cutter",
+      "match_status": "wiki確認済み"
+    },
+    "IceMissile": {
+      "jp_name": null,
+      "en_name": "Ice Missile",
+      "match_status": "missing"
+    },
+    "IceWall": {
+      "jp_name": "フリーズウォール",
+      "en_name": "Freeze Wall",
+      "match_status": "wiki確認済み"
+    },
+    "IcicleLine": {
+      "jp_name": "アイシクルライン",
+      "en_name": "Icicle Line",
+      "match_status": "wiki確認済み"
+    },
+    "IciclePierce": {
+      "jp_name": "アイシクルバレット",
+      "en_name": "Icicle Bullet",
+      "match_status": "wiki確認済み"
+    },
+    "IcicleThrow": {
+      "jp_name": "ブリザードスパイク",
+      "en_name": "Blizzard Spike",
+      "match_status": "wiki確認済み"
+    },
+    "Inferno": {
+      "jp_name": "インフェルノ",
+      "en_name": "Ignis Rage",
+      "match_status": "wiki確認済み"
+    },
+    "LightningStrike": {
+      "jp_name": "ライトニングストライク",
+      "en_name": "Lightning Strike",
+      "match_status": "wiki確認済み"
+    },
+    "LineGeyser": {
+      "jp_name": "ラインスプラッシュ",
+      "en_name": "Splash",
+      "match_status": "wiki確認済み"
+    },
+    "LineThunder": {
+      "jp_name": null,
+      "en_name": "Lightning Streak",
+      "match_status": "missing"
+    },
+    "LockonLaser": {
+      "jp_name": null,
+      "en_name": "Lock-on Laser",
+      "match_status": "missing"
+    },
+    "MudShot": {
+      "jp_name": "マッドシュート",
+      "en_name": "Bog Blast",
+      "match_status": "wiki確認済み"
+    },
+    "PoisonFog": {
+      "jp_name": null,
+      "en_name": "Poison Fog",
+      "match_status": "missing"
+    },
+    "PoisonShot": {
+      "jp_name": "ポイズンシュート",
+      "en_name": "Poison Blast",
+      "match_status": "wiki確認済み"
+    },
+    "PowerBall": {
+      "jp_name": "パワーボム",
+      "en_name": "Power Bomb",
+      "match_status": "wiki確認済み"
+    },
+    "PowerShot": {
+      "jp_name": "パワーショット",
+      "en_name": "Power Shot",
+      "match_status": "wiki確認済み"
+    },
+    "PredatorBeam": {
+      "jp_name": null,
+      "en_name": "Predator Blast",
+      "match_status": "missing"
+    },
+    "PredatorLockon": {
+      "jp_name": null,
+      "en_name": "Predator Mark",
+      "match_status": "missing"
+    },
+    "PredatorWave": {
+      "jp_name": null,
+      "en_name": "Predator Surge",
+      "match_status": "missing"
+    },
+    "Psychokinesis": {
+      "jp_name": "サイコグラビティ",
+      "en_name": "Psycho Gravity",
+      "match_status": "wiki確認済み"
+    },
+    "RadiantBarrage": {
+      "jp_name": "レイディアントバレッジ",
+      "en_name": "Radiant Barrage",
+      "match_status": "wiki確認済み"
+    },
+    "RaidCutter": {
+      "jp_name": "レイドカッター",
+      "en_name": "Raid Cutter",
+      "match_status": "wiki確認済み"
+    },
+    "Railbolt": {
+      "jp_name": "サンダーレール",
+      "en_name": "Railbolt",
+      "match_status": "wiki確認済み"
+    },
+    "RangeThunder": {
+      "jp_name": "オールレンジサンダー",
+      "en_name": "All Range Thunder",
+      "match_status": "wiki確認済み"
+    },
+    "ReflectiveShuriken": {
+      "jp_name": "リフレクトリーフ",
+      "en_name": "Reflect Leaf",
+      "match_status": "wiki確認済み"
+    },
+    "RipTide": {
+      "jp_name": "アクアサージ",
+      "en_name": "Aqua Surge",
+      "match_status": "wiki確認済み"
+    },
+    "RockBeat": {
+      "jp_name": "ストーンビート",
+      "en_name": "Rocky Impact",
+      "match_status": "wiki確認済み"
+    },
+    "RockLance": {
+      "jp_name": null,
+      "en_name": "Rock Lance",
+      "match_status": "missing"
+    },
+    "RootAttack": {
+      "jp_name": "スパインヴァイン",
+      "en_name": "Spine Vine",
+      "match_status": "wiki確認済み"
+    },
+    "RootLance": {
+      "jp_name": "サークルヴァイン",
+      "en_name": "Circle Vine",
+      "match_status": "wiki確認済み"
+    },
+    "SandTornado": {
+      "jp_name": "サンドトルネード",
+      "en_name": "Sand Tornado",
+      "match_status": "wiki確認済み"
+    },
+    "SandTwister": {
+      "jp_name": "サンドツイスター",
+      "en_name": "Sand Twister",
+      "match_status": "wiki確認済み"
+    },
+    "SeaGush": {
+      "jp_name": "水柱噴出",
+      "en_name": "Geyser Gush",
+      "match_status": "wiki確認済み"
+    },
+    "SeedMachinegun": {
+      "jp_name": "シードマシンガン",
+      "en_name": "Seed Machine Gun",
+      "match_status": "wiki確認済み"
+    },
+    "SeedMine": {
+      "jp_name": "シードマイン",
+      "en_name": "Seed Mine",
+      "match_status": "wiki確認済み"
+    },
+    "SelfDestruct": {
+      "jp_name": "自爆",
+      "en_name": "Implode",
+      "match_status": "wiki確認済み"
+    },
+    "SelfDestruct_Bee": {
+      "jp_name": "ビー・クワイエット",
+      "en_name": "Bee Quiet",
+      "match_status": "wiki確認済み"
+    },
+    "SelfExplosion": {
+      "jp_name": "メガトン自爆",
+      "en_name": "Megaton Implode",
+      "match_status": "wiki確認済み"
+    },
+    "ShadowBall": {
+      "jp_name": "ナイトメアボール",
+      "en_name": "Nightmare Ball",
+      "match_status": "wiki確認済み"
+    },
+    "ShokeiLaser": {
+      "jp_name": "エクスキューションレーザー",
+      "en_name": "Lethal Laser",
+      "match_status": "wiki確認済み"
+    },
+    "SolarBeam": {
+      "jp_name": "ソーラーブラスト",
+      "en_name": "Solar Blast",
+      "match_status": "wiki確認済み"
+    },
+    "SpecialCutter": {
+      "jp_name": "マルチカッター",
+      "en_name": "Multicutter",
+      "match_status": "wiki確認済み"
+    },
+    "SpreadPulse": {
+      "jp_name": "スパークショット",
+      "en_name": "Spark Blast",
+      "match_status": "wiki確認済み"
+    },
+    "StarMine": {
+      "jp_name": "スターマイン",
+      "en_name": "Star Mine",
+      "match_status": "wiki確認済み"
+    },
+    "StoneShotgun": {
+      "jp_name": "ストーンブラスト",
+      "en_name": "Stone Blast",
+      "match_status": "wiki確認済み"
+    },
+    "ThreeCommet": {
+      "jp_name": null,
+      "en_name": "Comet Barrage",
+      "match_status": "missing"
+    },
+    "ThreeThunder": {
+      "jp_name": null,
+      "en_name": "Tri-Lightning",
+      "match_status": "missing"
+    },
+    "ThrowRock": {
+      "jp_name": "ストーンキャノン",
+      "en_name": "Stone Cannon",
+      "match_status": "wiki確認済み"
+    },
+    "ThunderBall": {
+      "jp_name": "サンダーボール",
+      "en_name": "Electric Ball",
+      "match_status": "wiki確認済み"
+    },
+    "ThunderFunnel": {
+      "jp_name": "プラズマファンネル",
+      "en_name": "Plasma Funnel",
+      "match_status": "wiki確認済み"
+    },
+    "ThunderRain": {
+      "jp_name": "サンダーレイン",
+      "en_name": "Thunder Rain",
+      "match_status": "wiki確認済み"
+    },
+    "ThunderSpear": {
+      "jp_name": "サンダースピア",
+      "en_name": "Thunder Spear",
+      "match_status": "wiki確認済み"
+    },
+    "ThunderStorm": {
+      "jp_name": "サンダーストーム",
+      "en_name": "Thunderstorm",
+      "match_status": "wiki確認済み"
+    },
+    "Thunderbolt": {
+      "jp_name": null,
+      "en_name": "Lightning Bolt",
+      "match_status": "missing"
+    },
+    "Tremor": {
+      "jp_name": "ロックバースト",
+      "en_name": "Rockburst",
+      "match_status": "wiki確認済み"
+    },
+    "TriSpark": {
+      "jp_name": "トライスパーク",
+      "en_name": "TriSpark",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Alpaca_Tackle": {
+      "jp_name": "ふんわりタックル",
+      "en_name": "Fluffy Tackle",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_AmaterasuWolf_Bite": {
+      "jp_name": "ワイルドファング(炎)",
+      "en_name": "Fierce Fang (Fire)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_AmaterasuWolf_BiteV2": {
+      "jp_name": "ダブルファング(炎)",
+      "en_name": "Double Fang (Fire)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_AmaterasuWolf_Dark_Bite": {
+      "jp_name": "ワイルドファング(闇)",
+      "en_name": "Fierce Fang (Dark)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_AmaterasuWolf_Dark_BiteV2": {
+      "jp_name": "ダブルファング(闇)",
+      "en_name": "Double Fang (Dark)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_AmaterasuWolf_Dark_DarkCharge": {
+      "jp_name": "火陰山雷",
+      "en_name": "Daring Shadowstorm",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_AmaterasuWolf_FireCharge": {
+      "jp_name": "風林火山",
+      "en_name": "Daring Flames",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Anubis_GroundPunch": {
+      "jp_name": "グラウンドスマッシャー",
+      "en_name": "Ground Smash",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Anubis_LowRoundKick": {
+      "jp_name": "スピンレッグスラッシュ",
+      "en_name": "Spinning Roundhouse",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Anubis_Tackle": {
+      "jp_name": null,
+      "en_name": "Forceful Charge",
+      "match_status": "missing"
+    },
+    "Unique_Baphomet_Dark_DarkKite": {
+      "jp_name": "ナイトメアクロー",
+      "en_name": "Nightmare Claw",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Baphomet_SwallowKite": {
+      "jp_name": "ヘルファイアクロー",
+      "en_name": "Hellfire Claw",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_BirdDragon_FireBreath": {
+      "jp_name": "フライングブレス",
+      "en_name": "Flame Breath",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_BirdDragon_Ice_IceBreath": {
+      "jp_name": "フライングブリザード",
+      "en_name": "Tempest Blizzard",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_BlackCentaur_TwoSpearRushes": {
+      "jp_name": "双槍一閃",
+      "en_name": "Twin Spears",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_BlackGriffon_TackleLaser": {
+      "jp_name": "ディザスターディバイン",
+      "en_name": "Divine Disaster",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_BlackGriffon_TackleLaser2": {
+      "jp_name": "ディザスターディバインⅡ",
+      "en_name": "Divine Disaster II",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_BlackMetalDragon_FirePunch": {
+      "jp_name": null,
+      "en_name": "Firefist Breathstorm",
+      "match_status": "missing"
+    },
+    "Unique_BlackPuppy_Bite": {
+      "jp_name": "ワイルドファング(闇)",
+      "en_name": "Fierce Fang (Dark)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_BlackPuppy_BiteV2": {
+      "jp_name": "ダブルファング(闇)",
+      "en_name": "Double Fang (Dark)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_BlueSkyDragon_DrainStorm": {
+      "jp_name": "天変之渦",
+      "en_name": "Celestial Vortex",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_BlueSkyDragon_SweepBreath": {
+      "jp_name": "蒼龍炎",
+      "en_name": "Azure Dracoflare",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_BlueSkyDragon_Tossin": {
+      "jp_name": "水龍突進",
+      "en_name": "Hydra Charge",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_BlueThunderHorse_FlashDash": {
+      "jp_name": "ボルトブリンク",
+      "en_name": "Bolt Blink",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_BlueThunderHorse_Tossin": {
+      "jp_name": "フラッシュチャージ",
+      "en_name": "Flash Charge",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Boar_Tackle": {
+      "jp_name": "猪突猛進",
+      "en_name": "Reckless Charge",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_CaptainPenguin_Black_BodySlide_Electric": {
+      "jp_name": "サンダースライディング",
+      "en_name": "Thunderslide",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_CaptainPenguin_BodySlide": {
+      "jp_name": "キャプテンスライディング",
+      "en_name": "Emperor Slide",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ChickenPal_ChickenPeck": {
+      "jp_name": "チキンタックル",
+      "en_name": "Chicken Rush",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ClownRabbit_TrickShow": {
+      "jp_name": "トリックショー",
+      "en_name": "Trickster Show",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_CubeTurtle_CubePress": {
+      "jp_name": "ストーンプレス",
+      "en_name": "Cube Press",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_CubeTurtle_Neutral_HolyPress": {
+      "jp_name": "ホーリープレス",
+      "en_name": "Holy Press",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_CuteMole_DiggingAttack": {
+      "jp_name": "モグリフト",
+      "en_name": "Fuddler Tunneler",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_DarkAlien_JumpScractch": {
+      "jp_name": "イービルクロー",
+      "en_name": "Evil Slash",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_DarkCrow_TelePoke": {
+      "jp_name": "ファントムアサルト",
+      "en_name": "Phantom Peck",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_DarkMechaDragon_BeamSlash": {
+      "jp_name": null,
+      "en_name": "Beam Slash",
+      "match_status": "missing"
+    },
+    "Unique_DarkMechaDragon_ConvergentBeam": {
+      "jp_name": "アストラルレイ",
+      "en_name": "Astral Ray",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_DarkMechaDragon_FunnelLaser": {
+      "jp_name": "オメガレーザー",
+      "en_name": "Omega Laser",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_DarkMechaDragon_SetFunnel": {
+      "jp_name": "サテライトビット",
+      "en_name": "Satellite Bit",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_DarkMechaDragon_WarpComet": {
+      "jp_name": "コズミックメテオ",
+      "en_name": "Cosmic Meteor",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_DarkScorpion_Pierce": {
+      "jp_name": "ジャンピングスティンガー",
+      "en_name": "Jumping Stinger",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Deer_Ground_DirtyHorn": {
+      "jp_name": "マッドホーン",
+      "en_name": "Mud Horn",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Deer_PushupHorn": {
+      "jp_name": "ホーンアッパー",
+      "en_name": "Antler Uppercut",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_DomeArmorDragon_ExplosiveMissile": {
+      "jp_name": "炸裂ミサイル",
+      "en_name": "Missile Burst",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_DrillGame_ShellAttack": {
+      "jp_name": "シェルスピン",
+      "en_name": "Shell Spin",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Eagle_GlidingNail": {
+      "jp_name": "グライドクロー",
+      "en_name": "Gale Claw",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ElecPanda_ElecScratch": {
+      "jp_name": null,
+      "en_name": "Lightning Claw",
+      "match_status": "missing"
+    },
+    "Unique_ElecPanda_GatlingAttack": {
+      "jp_name": null,
+      "en_name": "Heavy Thunder Tank",
+      "match_status": "missing"
+    },
+    "Unique_ElecPomeranian_Bite": {
+      "jp_name": "ワイルドファング(雷)",
+      "en_name": "Fierce Fang (Electric)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ElecPomeranian_BiteV2": {
+      "jp_name": "ダブルファング(雷)",
+      "en_name": "Double Fang (Electric)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ElecSnail_ShellCharge": {
+      "jp_name": "シェルチャージ",
+      "en_name": "Shell Charge",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_FairyDragon_FairyTornado": {
+      "jp_name": "ミスティックハリケーン",
+      "en_name": "Mystic Whirlwind",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_FeatherOstrich_Tossin": {
+      "jp_name": "アースダッシュ",
+      "en_name": "Earth Dash",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_FengyunDeeper_CloudTempest": {
+      "jp_name": "クラウドテンペスト",
+      "en_name": "Cloud Tempest",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_FengyunDeeper_Electric_ThunderTempest": {
+      "jp_name": "サンダーテンペスト",
+      "en_name": "Thunder Tempest",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_FireKirin_Dark_DarkTossin": {
+      "jp_name": "ダークチャージ",
+      "en_name": "Dark Charge",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_FireKirin_Tackle": {
+      "jp_name": "フレイムチャージ",
+      "en_name": "Ignis Charge",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_FlameBuffalo_FlameHorn": {
+      "jp_name": "ブレイジングホーン",
+      "en_name": "Blazing Horn",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_FlowerDinosaur_Electric_ThunderWhip": {
+      "jp_name": "ライトニングスマッシュ",
+      "en_name": "Lightning Smash",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_FlowerDinosaur_Whip": {
+      "jp_name": "ボタニカルスマッシュ",
+      "en_name": "Botanical Smash",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_FlowerPrince_PoisonGasDance": {
+      "jp_name": "ポイズンダンス",
+      "en_name": "Toxic Dance",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_FlowerPrince_PoisonGasTackle": {
+      "jp_name": "ポイズンプロムナード",
+      "en_name": "Poison Promenade",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Garm_Bite": {
+      "jp_name": "ワイルドファング",
+      "en_name": "Fierce Fang",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Garm_BiteV2": {
+      "jp_name": "ダブルファング",
+      "en_name": "Double Fang",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GhostAnglerfish_Fire_SweepBait_Fire": {
+      "jp_name": "灼熱提灯払い",
+      "en_name": "Scorching Lantern Sweep",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GhostAnglerfish_SweepBait": {
+      "jp_name": "提灯払い",
+      "en_name": "Lantern Sweep",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GhostBeast_Tossin": {
+      "jp_name": "スピリットダッシュ",
+      "en_name": "Spirit Dash",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GhostDragon_PhosphorousBeam": {
+      "jp_name": "ブレイズビーム",
+      "en_name": "Blazing Beam",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GhostDragon_TailSlash": {
+      "jp_name": "テールスラッシュ",
+      "en_name": "Tail Slash",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GoldenHorse_Bite": {
+      "jp_name": "ワイルドファング(地)",
+      "en_name": "Fierce Fang (Ground)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GoldenHorse_BiteV2": {
+      "jp_name": "ダブルファング(地)",
+      "en_name": "Double Fang (Ground)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GoldenHorse_StoneDash": {
+      "jp_name": "クラッシュダッシュ",
+      "en_name": "Crash Dash",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Gorilla_GroundPunch": {
+      "jp_name": "ゴリラウンドコンボ",
+      "en_name": "Ground Pound",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Gorilla_Ground_EarthPunch": {
+      "jp_name": "ゴリランブルコンボ",
+      "en_name": "Rumble Combo",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GrassGolem_ArmCannon": {
+      "jp_name": "ルートキャノン",
+      "en_name": "Root Cannon",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GrassGolem_Dark_DarkArmCannon": {
+      "jp_name": "ダークルート",
+      "en_name": "Dark Root",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GrassGolem_RocketPunch": {
+      "jp_name": "ロケットアーム",
+      "en_name": "Rocket Arm",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GrassMinotaur_BullRush": {
+      "jp_name": "ブルラッシュ・レイジ",
+      "en_name": "Raging Bull Rush",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GrassMinotaur_BullRush_Lower": {
+      "jp_name": "ブルラッシュ",
+      "en_name": "Bull Rush",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GrassMinotaur_Ice_BullRush": {
+      "jp_name": "スノーラッシュ・レイジ",
+      "en_name": "Raging Snow Rush",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GrassMinotaur_Ice_BullRush_Lower": {
+      "jp_name": "スノーラッシュ",
+      "en_name": "Snow Rush",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GrassPanda_Electric_ElectricPunch": {
+      "jp_name": "ブラストパンチ",
+      "en_name": "Blast Punch",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GrassPanda_MusclePunch": {
+      "jp_name": "マッスルパンチ",
+      "en_name": "Crushing Punch",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GrassRabbitMan_GrassRoundKick": {
+      "jp_name": "スピンレッグラッシュ",
+      "en_name": "Leaping Roundhouse",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Grassmammoth_Earthquake": {
+      "jp_name": "アースインパクト",
+      "en_name": "Earth Impact",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GrimGirl_BrutalMachete": {
+      "jp_name": "恨みの連打",
+      "en_name": "Grudge Barrage",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GuardianDog_Bite": {
+      "jp_name": "ワイルドファング",
+      "en_name": "Fierce Fang",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_GuardianDog_BiteV2": {
+      "jp_name": "ダブルファング",
+      "en_name": "Double Fang",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_HawkBird_Storm": {
+      "jp_name": "トルネードアタック",
+      "en_name": "Tornado Attack",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_HerculesBeetle_BeetleTackle": {
+      "jp_name": "ギガホーン",
+      "en_name": "Giga Horn",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Horus_FlareBird": {
+      "jp_name": "鳳凰翔波",
+      "en_name": "Phoenix Flare",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Horus_PerfectStorm": {
+      "jp_name": "炎凰烈波",
+      "en_name": "Raging Flame Wave",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Horus_Water_AquaStorm": {
+      "jp_name": "鳳凰海波",
+      "en_name": "Phoenix Tide",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_IceCrocodile_SpitAttack": {
+      "jp_name": "乱れ吐き",
+      "en_name": "Chaotic Spray",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_IceDeer_IceHorn": {
+      "jp_name": null,
+      "en_name": "Freezing Charge",
+      "match_status": "missing"
+    },
+    "Unique_IceHorse_Dark_DarkBladeAttack": {
+      "jp_name": "ダークウィング",
+      "en_name": "Dark Wing",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_IceHorse_IceBladeAttack": {
+      "jp_name": "クリスタルウィング",
+      "en_name": "Crystal Wing",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_IceNarwhal_JumpingHorn": {
+      "jp_name": "ハイブリーチ",
+      "en_name": "High Breach",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_JetDragon_JumpBeam": {
+      "jp_name": "ビームコメット",
+      "en_name": "Beam Comet",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_KingAlpaca_BodyPress": {
+      "jp_name": "キングプレス",
+      "en_name": "Kingly Slam",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_KingAlpaca_Ice_IcePress": {
+      "jp_name": "キンキンプレス",
+      "en_name": "Frozen Press",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_KingBahamut_AirCrash": {
+      "jp_name": "マグナクラッシュ",
+      "en_name": "Magna Crush",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_KingBahamut_ArmSmash": {
+      "jp_name": "アームインパクト",
+      "en_name": "Brawn Impact",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_KingWhale_AquaBlade": {
+      "jp_name": "マリンブレード",
+      "en_name": "Aqua Blade",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_KingWhale_AquaTornado": {
+      "jp_name": "アクアトルネード",
+      "en_name": "Aqua Tornado",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_KingWhale_Breaching": {
+      "jp_name": "グランドブリーチ",
+      "en_name": "Grand Breach",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_KingWhale_HomingBubble": {
+      "jp_name": "バブルレイン",
+      "en_name": "Bubble Rain",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_KingWhale_Maelstrom": {
+      "jp_name": "メイルストローム",
+      "en_name": "Maelstrom",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_KingWhale_WaveTackle": {
+      "jp_name": "タイダルチャージ",
+      "en_name": "Tidal Charge",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Kirin_Ice_IceTackle": {
+      "jp_name": "疾風氷撃",
+      "en_name": "Ice Gale Strike",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Kirin_LightningTackle": {
+      "jp_name": "疾風雷撃",
+      "en_name": "Lightning Gale",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_LanternButler_LanternFlame": {
+      "jp_name": "ランタンフレイム",
+      "en_name": "Lantern Flame",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_LeafMomonga_SomerSault": {
+      "jp_name": "木の葉返り",
+      "en_name": "Konoha Flip",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_LegendDeer_RadiantPurge_Otomo": {
+      "jp_name": "浄化の光",
+      "en_name": "Purifying Light",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_LegendDeer_RadiantWingRush": {
+      "jp_name": "ディバインウィング",
+      "en_name": "Divine Wing",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_LegendDeer_WarpPillarBurst": {
+      "jp_name": "セイクリッドレイン",
+      "en_name": "Sacred Rain",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_LilyQueen_GYM_Act": {
+      "jp_name": null,
+      "en_name": "Unique_LilyQueen_GYM_Act",
+      "match_status": "missing"
+    },
+    "Unique_LilyQueen_LilyHealing": {
+      "jp_name": null,
+      "en_name": "Bountiful Protection",
+      "match_status": "missing"
+    },
+    "Unique_LilyQueen_LilyHealing_Boss": {
+      "jp_name": null,
+      "en_name": "Unique_LilyQueen_LilyHealing_Boss",
+      "match_status": "missing"
+    },
+    "Unique_LotusDragon_LotusBloom": {
+      "jp_name": "蓮華開咲",
+      "en_name": "Lotus Bloom",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Manticore_InfernoStrike": {
+      "jp_name": "ボルカニックファング",
+      "en_name": "Volcanic Fang",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_MonochromeQueen_BalletJump": {
+      "jp_name": "黒羽根の舞",
+      "en_name": "Black Quilled Ballet",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_MoonQueen_GYM_Act": {
+      "jp_name": null,
+      "en_name": "Unique_MoonQueen_GYM_Act",
+      "match_status": "missing"
+    },
+    "Unique_MoonQueen_GYM_Hard_Act": {
+      "jp_name": null,
+      "en_name": "Unique_MoonQueen_GYM_Hard_Act",
+      "match_status": "missing"
+    },
+    "Unique_MoonQueen_IceMoonBlade": {
+      "jp_name": "青月閃",
+      "en_name": "Seigetsu Flash",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_MoonQueen_MoonBeam": {
+      "jp_name": "ムーンビーム",
+      "en_name": "Moonlight Beam",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_MoonQueen_MoonBlade": {
+      "jp_name": "青月刃",
+      "en_name": "Seigetsu Blade",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Mothman_GiantSpore": {
+      "jp_name": "ジャイアントスポア",
+      "en_name": "Giant Spore",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Mothman_SporeScatter": {
+      "jp_name": "スポアバースト",
+      "en_name": "Spore Burst",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_MummyPal_MummyAttack": {
+      "jp_name": "マミーラッシュ",
+      "en_name": "Mummy Rush",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_MysteryMask_LifeSteal": {
+      "jp_name": "ソウルスティール",
+      "en_name": "Soul Drain",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_NaughtyCat_CatPress": {
+      "jp_name": "キャットプレス",
+      "en_name": "Cat Press",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_NightBlueHorse_DeathStep": {
+      "jp_name": "リーサルステップ",
+      "en_name": "Lethal Step",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_NightBlueHorse_Neutral_AirStep": {
+      "jp_name": "ロイヤルステップ",
+      "en_name": "Royal Step",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_NightBlueHorse_Neutral_Tossin": {
+      "jp_name": "銀馬の疾走",
+      "en_name": "Silver Steed",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_NightBlueHorse_Tossin": {
+      "jp_name": "幽馬の疾走",
+      "en_name": "Spectral Steed",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_NightLady_FlameNightmare": {
+      "jp_name": "フレイムワルツ",
+      "en_name": "Flame Waltz",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_NightLady_WarpBeam": {
+      "jp_name": "ナイトメアレイブルーム",
+      "en_name": "Nightmare Bloom",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_NightLady_WarpBeam_Straight": {
+      "jp_name": "ナイトメアレイ",
+      "en_name": "Nightmare Ray",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_OctopursGirl_InkJet": {
+      "jp_name": "ジェットスモーク",
+      "en_name": "Unique_OctopursGirl_InkJet",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_PandaGirl_RapidKick": {
+      "jp_name": "連続回し蹴り",
+      "en_name": "Rapid Kick",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_PinkCat_CatPunch": {
+      "jp_name": "ツッパンチ",
+      "en_name": "Punch Flurry",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Plesiosaur_LongBreath": {
+      "jp_name": "ロングブレス",
+      "en_name": "Deep Breath",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_PoseidonOrca_TorrentLaser": {
+      "jp_name": "タラソニックレーザー",
+      "en_name": "Thalassonic Laser",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_PurpleSpider_SpiderRaid": {
+      "jp_name": "スパイダーレイド",
+      "en_name": "Webstrike Impact",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_QueenBee_SpinLance": {
+      "jp_name": "スピニングスタッフ",
+      "en_name": "Spinning Staff",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_RedArmorBird_TriplePeck": {
+      "jp_name": "ラッシュビーク",
+      "en_name": "Rush Beak",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_RedFlowerBird_JumpKick": {
+      "jp_name": "フラワースタンプ",
+      "en_name": "Flower Stomp",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_RobinHood_BowSnipe": {
+      "jp_name": "スナイプショット",
+      "en_name": "Focus Shot",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_RockBeast_Ice_IceHorn": {
+      "jp_name": "アイスバースト",
+      "en_name": "Ice Burst",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_RockBeast_RockHorn": {
+      "jp_name": "ホーンバースト",
+      "en_name": "Horn Burst",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Ronin_Iai": {
+      "jp_name": "居合斬り",
+      "en_name": "Iaigiri",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_SaintCentaur_OneSpearRushes": {
+      "jp_name": "一槍一閃",
+      "en_name": "Spear Thrust",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_SakuraSaurus_SideTackle": {
+      "jp_name": "ボディスマッシュ",
+      "en_name": "Muscle Slam",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_SakuraSaurus_Water_SplashTackle": {
+      "jp_name": "スプラッシュタックル",
+      "en_name": "Splash Tackle",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_SamuraiDog_Bite": {
+      "jp_name": "ワイルドファング(地)",
+      "en_name": "Fierce Fang (Ground)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_SamuraiDog_BiteV2": {
+      "jp_name": "ダブルファング(地)",
+      "en_name": "Double Fang (Ground)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_SamuraiDog_DashSlash": {
+      "jp_name": "がんばりスラッシュ",
+      "en_name": "Persistent Slash",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ScorpionMan_Erectric_UpperThunder": {
+      "jp_name": "アッパーサンダー",
+      "en_name": "Thunder Uppercut",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ScorpionMan_Uppercut": {
+      "jp_name": "アッパースマッシュ",
+      "en_name": "Unique_ScorpionMan_Uppercut",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Sekhmet_RollingScratch": {
+      "jp_name": null,
+      "en_name": "Rolling Scratch",
+      "match_status": "missing"
+    },
+    "Unique_Sekhmet_SomersaultScratch": {
+      "jp_name": "サマーソルトスクラッチ",
+      "en_name": "Somersault Scratch",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_SheepBall_Roll": {
+      "jp_name": "コロコロモコロン",
+      "en_name": "Roly Poly",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_SifuDog_Counter": {
+      "jp_name": "渾身の構え",
+      "en_name": "Wholehearted Stance",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_SnakeGirl_SnakeShot": {
+      "jp_name": "ポイズンスキャッター",
+      "en_name": "Poison Scatter",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_SnowTigerBeastman_SnowImpact": {
+      "jp_name": "氷床撃砕",
+      "en_name": "Glacial Impact",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_SnowTigerBeastman_TrampleSlash": {
+      "jp_name": "氷烈爪",
+      "en_name": "Frost Talon",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_SoldierBee_NeedleLance": {
+      "jp_name": "ニードルスピア",
+      "en_name": "Needle Spear",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_StuffedShark_HiddenWeapon": {
+      "jp_name": "トリガーハッピー",
+      "en_name": "Trigger Happy",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_SumoDog_SumoStomp": {
+      "jp_name": "どすこいスタンプ",
+      "en_name": "Sumo Stomp",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_TentacleTurtle_HydroSpin": {
+      "jp_name": "ハイドロスピン",
+      "en_name": "Hydro Spin",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ThunderBird_Ice_SnowStrom": {
+      "jp_name": "アイスダイブ",
+      "en_name": "Glacial Plunge",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ThunderBird_ThunderStorm": {
+      "jp_name": "ライトニングダイブ",
+      "en_name": "Lightning Dive",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ThunderDog_Bite": {
+      "jp_name": "ワイルドファング(雷)",
+      "en_name": "Fierce Fang (Electric)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ThunderDog_BiteV2": {
+      "jp_name": "ダブルファング(雷)",
+      "en_name": "Double Fang (Electric)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ThunderDog_Ice_Bite": {
+      "jp_name": "ワイルドファング(氷)",
+      "en_name": "Fierce Fang (Ice)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ThunderDog_Ice_BiteV2": {
+      "jp_name": "ダブルファング(氷)",
+      "en_name": "Double Fang (Ice)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ThunderDog_Ice_KoriShorai": {
+      "jp_name": "召雪",
+      "en_name": "Frostcall",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ThunderDog_InazumaShorai": {
+      "jp_name": "召雷",
+      "en_name": "Beckon Lightning",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ThunderDragonMan_GYM_Act": {
+      "jp_name": null,
+      "en_name": "Unique_ThunderDragonMan_GYM_Act",
+      "match_status": "missing"
+    },
+    "Unique_ThunderDragonMan_NumerousSwordAttack": {
+      "jp_name": "ポリケラウノス",
+      "en_name": "Polykeraunos",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_ThunderDragonMan_ThunderSwordAttack": {
+      "jp_name": "ケラウノス",
+      "en_name": "Kerauno",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_TropicalOstrich_DashKick": {
+      "jp_name": "ダッシュキック",
+      "en_name": "Dash Kick",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Umihebi_Fire_FireWindingTackle": {
+      "jp_name": "マグマズスネイク",
+      "en_name": "Magma Serpent",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Umihebi_WindingTackle": {
+      "jp_name": "オーシャンズスネイク",
+      "en_name": "Slither Slam",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_VolcanicMonster_Ice_IceAttack": {
+      "jp_name": "フロストバースト",
+      "en_name": "Frost Burst",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_VolcanicMonster_MagmaAttack": {
+      "jp_name": "ボルカニックバースト",
+      "en_name": "Volcanic Burst",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_VolcanoDragon_Ice_IceLaser": {
+      "jp_name": "アイスレーザー",
+      "en_name": "Ice Laser",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_VolcanoDragon_Ice_IcicleSpit": {
+      "jp_name": "アイススピット",
+      "en_name": "Ice Spit",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_VolcanoDragon_MagmaSpit": {
+      "jp_name": "マグマスピット",
+      "en_name": "Magma Spit",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_VolcanoDragon_VolcanicLaser": {
+      "jp_name": "マグマレーザー",
+      "en_name": "Magma Laser",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_WeaselDragon_FlyingTackle": {
+      "jp_name": "ロケットタックル",
+      "en_name": "Rocket Slam",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Werewolf_Ice_SnowScratch": {
+      "jp_name": "スノークロー",
+      "en_name": "Snow Claw",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Werewolf_Scratch": {
+      "jp_name": "ジャンピングクロー",
+      "en_name": "Jumping Claw",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_WhiteDeer_Dark_DarkPillar": {
+      "jp_name": "ダークノヴァ",
+      "en_name": "Dark Nova",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_WhiteDeer_HolyPillar": {
+      "jp_name": "ホーリーノヴァ",
+      "en_name": "Holy Nova",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_WhiteShieldDragon_ShieldTackle": {
+      "jp_name": "イージスチャージ",
+      "en_name": "Aegis Charge",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_WhiteTiger_Ground_IronScratch": {
+      "jp_name": "ストーンクロー",
+      "en_name": "Stone Claw",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_WhiteTiger_IceScratch": {
+      "jp_name": "ブリザードクロー",
+      "en_name": "Blizzard Claw",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_WingGolem_Fire_FlameCutter": {
+      "jp_name": "フレイムカッター",
+      "en_name": "Flame Cutter",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_WingGolem_RoundCutter": {
+      "jp_name": "グラウンドカッター",
+      "en_name": "Ground Cutter",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_WorldTreeDragon_PaldiumCannon": {
+      "jp_name": null,
+      "en_name": "Unique_WorldTreeDragon_PaldiumCannon",
+      "match_status": "missing"
+    },
+    "Unique_WorldTreeDragon_PaldiumExplosion": {
+      "jp_name": null,
+      "en_name": "Unique_WorldTreeDragon_PaldiumExplosion",
+      "match_status": "missing"
+    },
+    "Unique_WorldTreeDragon_PaldiumRain": {
+      "jp_name": null,
+      "en_name": "Unique_WorldTreeDragon_PaldiumRain",
+      "match_status": "missing"
+    },
+    "Unique_WorldTreeDragon_PaldiumShot": {
+      "jp_name": null,
+      "en_name": "Unique_WorldTreeDragon_PaldiumShot",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss001_Green_2_PhantasmalBolt": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss001_Green_2_PhantasmalBolt",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss001_Green_2_PhantasmalDeathray": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss001_Green_2_PhantasmalDeathray",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss001_Green_2_PhantasmalEye": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss001_Green_2_PhantasmalEye",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss001_Green_2_PhantasmalSphere": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss001_Green_2_PhantasmalSphere",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss001_Green_PhantasmalBolt": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss001_Green_PhantasmalBolt",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss001_Green_PhantasmalDeathray": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss001_Green_PhantasmalDeathray",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss001_Green_PhantasmalEye": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss001_Green_PhantasmalEye",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss001_Green_PhantasmalSphere": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss001_Green_PhantasmalSphere",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss001_Small_DemonEyeCharge": {
+      "jp_name": "めだま突進",
+      "en_name": "Ocular Rush",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_YakushimaBoss002_2_PhantasmalBolt": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss002_2_PhantasmalBolt",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss002_2_PhantasmalDeathray": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss002_2_PhantasmalDeathray",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss002_2_PhantasmalEye": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss002_2_PhantasmalEye",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss002_2_PhantasmalSphere": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss002_2_PhantasmalSphere",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss002_PhantasmalBolt": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss002_PhantasmalBolt",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss002_PhantasmalDeathray": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss002_PhantasmalDeathray",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss002_PhantasmalEye": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss002_PhantasmalEye",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaBoss002_PhantasmalSphere": {
+      "jp_name": null,
+      "en_name": "Unique_YakushimaBoss002_PhantasmalSphere",
+      "match_status": "missing"
+    },
+    "Unique_YakushimaMonster001_SlimePress_Dark": {
+      "jp_name": "スライムプレス(闇)",
+      "en_name": "Slime Press (Dark)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_YakushimaMonster001_SlimePress_Fire": {
+      "jp_name": "スライムプレス(炎)",
+      "en_name": "Slime Press (Fire)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_YakushimaMonster001_SlimePress_Leaf": {
+      "jp_name": "スライムプレス(草)",
+      "en_name": "Slime Press (Grass)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_YakushimaMonster001_SlimePress_Normal": {
+      "jp_name": "スライムプレス(無)",
+      "en_name": "Slime Press (Neutral)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_YakushimaMonster001_SlimePress_Rainbow": {
+      "jp_name": "スライムプレス(虹)",
+      "en_name": "Slime Press (Rainbow)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_YakushimaMonster001_SlimePress_Water": {
+      "jp_name": "スライムプレス(水)",
+      "en_name": "Slime Press (Water)",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_YakushimaMonster002_SwordCharge": {
+      "jp_name": "ソードチャージ",
+      "en_name": "Sword Charge",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_YakushimaMonster003_BatCharge": {
+      "jp_name": "こうもりの襲撃",
+      "en_name": "Winged Assault",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Yakushima_EyeTossin": {
+      "jp_name": "凝視の突進",
+      "en_name": "Lock-On Lunge",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Yakushima_SummonServant": {
+      "jp_name": "しもべの召喚",
+      "en_name": "Servant Call",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Yeti_Grass_GrassBall": {
+      "jp_name": "グラスボーリング",
+      "en_name": "Lawn Bowling",
+      "match_status": "wiki確認済み"
+    },
+    "Unique_Yeti_SnowBall": {
+      "jp_name": "スノーボーリング",
+      "en_name": "Snow Bowling",
+      "match_status": "wiki確認済み"
+    },
+    "WallSplash": {
+      "jp_name": "ウォールスプラッシュ",
+      "en_name": "Curtain Splash",
+      "match_status": "wiki確認済み"
+    },
+    "WaterBall": {
+      "jp_name": "スプラッシュボム",
+      "en_name": "Aqua Burst",
+      "match_status": "wiki確認済み"
+    },
+    "WaterGun": {
+      "jp_name": "アクアショット",
+      "en_name": "Aqua Gun",
+      "match_status": "wiki確認済み"
+    },
+    "Weapon_Use": {
+      "jp_name": "武器の使用",
+      "en_name": "Use Weapon",
+      "match_status": "wiki確認済み"
+    },
+    "WindBurst": {
+      "jp_name": "ウィンドブラスト",
+      "en_name": "Wind Burst",
+      "match_status": "wiki確認済み"
+    },
+    "WindCutter": {
+      "jp_name": "ウィンドカッター",
+      "en_name": "Wind Cutter",
+      "match_status": "wiki確認済み"
+    },
+    "WindEdge": {
+      "jp_name": "ウィンドエッジ",
+      "en_name": "Wind Edge",
+      "match_status": "wiki確認済み"
+    }
+  }
+}
