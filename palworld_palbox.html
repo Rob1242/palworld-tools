@@ -765,6 +765,35 @@ function bestParentForPassives(asset, targetSet){
   return best;
 }
 
+// ルート内の各世代について、そのchildが「理論上引き継ぎうる最大パッシブ範囲」を
+// 再帰的に計算する。所持個体がいる種族(=これ以上配合で用意する必要が無い葉ノード)は
+// 実際のパッシブをそのまま使い、ルート内で配合して用意する中間種族(イグニアス等)は
+// さらにその親2体の範囲の合計(再帰)を使う。「範囲」であって保証ではない点に注意
+// (中間世代を挟むほど、狙った組み合わせが実際に出るまで配合をやり直す必要がある)。
+function computeAchievablePools(result, targetSet){
+  const stepByChild = {};
+  result.steps.forEach(s => { stepByChild[s.child] = s; });
+  const resolved = {};
+  function resolve(asset){
+    if(resolved[asset]) return resolved[asset];
+    const step = stepByChild[asset];
+    if(!step){
+      const inst = bestParentForPassives(asset, targetSet);
+      resolved[asset] = { pool: new Set(inst ? inst.passives : []), inst, isIntermediate: false };
+      return resolved[asset];
+    }
+    // 循環参照防止のダミー(このルート生成ロジック上ループは起きないはずだが安全のため)
+    resolved[asset] = { pool: new Set(), isIntermediate: true, step, pending: true };
+    const aRes = resolve(step.a);
+    const bRes = resolve(step.b);
+    const pool = new Set([...aRes.pool, ...bRes.pool]);
+    resolved[asset] = { pool, isIntermediate: true, step, aRes, bRes };
+    return resolved[asset];
+  }
+  result.steps.forEach(s => resolve(s.child));
+  return resolved;
+}
+
 function renderPassiveFit(result, targetAsset){
   const wrap = document.getElementById("roadmapPassiveFit");
   if(!wrap) return;
@@ -772,44 +801,56 @@ function renderPassiveFit(result, targetAsset){
     wrap.innerHTML = "";
     return;
   }
-  const finalStep = result.steps.find(s => s.child === targetAsset);
-  if(!finalStep){ wrap.innerHTML = ""; return; }
-
   const targetSet = new Set(roadmapState.passives);
-  const parentA = bestParentForPassives(finalStep.a, targetSet);
-  const parentB = bestParentForPassives(finalStep.b, targetSet);
-  const pool = new Set();
-  if(parentA) parentA.passives.forEach(p => pool.add(p));
-  if(parentB) parentB.passives.forEach(p => pool.add(p));
-  const covered = roadmapState.passives.filter(p => pool.has(p));
-  const missing = roadmapState.passives.filter(p => !pool.has(p));
+  const resolved = computeAchievablePools(result, targetSet);
 
-  const parentLine = (asset, inst) => {
+  const parentLabel = (asset, res) => {
     const label = nameOf(asset);
-    if(!inst) return `<span style="color:var(--danger);">${label}(未所持・パッシブ未確認)</span>`;
-    const passiveList = inst.passives.length ? inst.passives.join('・') : '(パッシブ未登録)';
-    return `<span>${inst.nickname || label}${inst.nickname ? `(${label})` : ''} — ${passiveList}</span>`;
+    if(res.isIntermediate) return `<span style="color:var(--teal);">${label}(このルート内で配合して用意)</span>`;
+    if(!res.inst) return `<span style="color:var(--danger);">${label}(未所持・パッシブ未確認)</span>`;
+    const passiveList = res.inst.passives.length ? res.inst.passives.join('・') : '(パッシブ未登録)';
+    return `<span>${res.inst.nickname || label}${res.inst.nickname ? `(${label})` : ''} — ${passiveList}</span>`;
   };
 
   let html = `<div class="section" style="margin-top:12px;">
-    <h2>パッシブ厳選チェック(最終配合: ${nameOf(finalStep.a)} × ${nameOf(finalStep.b)})</h2>
-    <p style="font-size:12px;color:var(--parchment-dim);margin-bottom:8px;">${parentLine(finalStep.a, parentA)}</p>
-    <p style="font-size:12px;color:var(--parchment-dim);margin-bottom:10px;">${parentLine(finalStep.b, parentB)}</p>`;
+    <h2>パッシブ厳選チェック(全${result.steps.length}世代)</h2>`;
 
-  if(covered.length){
-    html += `<div class="role-grid" style="margin-bottom:8px;">${covered.map(p=>`<span class="role-pill" style="border-color:var(--hp);color:var(--hp);">✔ ${p}</span>`).join('')}</div>`;
-  }
+  result.steps.forEach(s => {
+    const res = resolved[s.child];
+    const aRes = resolved[s.a] || resolve1(s.a, targetSet);
+    const bRes = resolved[s.b] || resolve1(s.b, targetSet);
+    const gotHere = [...res.pool].filter(p => targetSet.has(p));
+    html += `<div style="border-left:2px solid var(--line);padding:8px 0 8px 12px;margin-bottom:8px;">
+      <div style="font-size:11px;color:var(--brass);margin-bottom:4px;">第${s.generation}世代: ${nameOf(s.child)}</div>
+      <p style="font-size:12px;color:var(--parchment-dim);margin:0 0 4px;">${parentLabel(s.a, aRes)}</p>
+      <p style="font-size:12px;color:var(--parchment-dim);margin:0 0 4px;">${parentLabel(s.b, bRes)}</p>
+      <p style="font-size:11.5px;margin:4px 0 0;">→ ${nameOf(s.child)}が理論上引き継ぎうる目的パッシブ: ${gotHere.length ? gotHere.map(p=>`<span style="color:var(--hp);">✔${p}</span>`).join(' ') : '<span style="color:var(--parchment-dim);">なし</span>'}</p>
+    </div>`;
+  });
+
+  const finalStep = result.steps[result.steps.length - 1];
+  const finalPool = resolved[finalStep.child].pool;
+  const covered = roadmapState.passives.filter(p => finalPool.has(p));
+  const missing = roadmapState.passives.filter(p => !finalPool.has(p));
+
   if(missing.length){
-    html += `<div class="coverage-warn" style="margin-bottom:8px;">⚠ 親のどちらも持っていないため、このままでは継承候補に入りません: ${missing.join('・')}<br>先にこのパッシブを持つ個体を用意するか、親個体に習得させる必要があります。</div>`;
+    html += `<div class="coverage-warn" style="margin-bottom:8px;">⚠ このルート上のどの個体・世代にも無いため、今のままでは最終的に継承候補に入りません: ${missing.join('・')}<br>先にこのパッシブを持つ個体を用意するか、ルート内のどこかの親に習得させる必要があります。</div>`;
   } else {
-    html += `<p style="font-size:12.5px;color:var(--hp);margin-bottom:8px;">目的の${roadmapState.passives.length}パッシブすべてが、この親ペアの継承候補プール(最大8種)に含まれています。</p>`;
+    html += `<p style="font-size:12.5px;color:var(--hp);margin-bottom:8px;">目的の${roadmapState.passives.length}パッシブすべてが、ルートのどこかの世代で継承候補プールに入る可能性があります(下記世代ごとの内訳を参照)。</p>`;
   }
   html += `<p style="font-size:10.5px;color:var(--parchment-dim);line-height:1.7;">
-    ※ 継承は確率制です。参考値として、複数のwiki情報(gamewith.jp・palsoku.com等、出典間で一致・ただし最新版での検証は未確認)によると
+    ※「理論上引き継ぎうる」は保証ではありません。継承は確率制で、中間世代(配合して用意するパル)を挟むほど、
+    その世代で狙ったパッシブが実際に付くまで配合をやり直す必要があります(何世代も挟むほど成功率は下がります)。
+    参考値として、複数のwiki情報(gamewith.jp・palsoku.com等、出典間で一致・ただし最新版での検証は未確認)によると
     「親の合計パッシブから継承枠1〜4個が抽選(4個10%/3個20%/2個30%/1個40%)され、さらに親の持たないパッシブが枠に追加される抽選(0個40%/1個30%/2個20%/3個10%)がある」とされています。
-    プールが少ないほど狙った組み合わせが揃いやすくなるため、余分なパッシブを持つ個体より対象パッシブに近い個体を親にするのがおすすめです。
+    各世代でできるだけ余分なパッシブを持たない個体を親にすると、狙った組み合わせが揃いやすくなります。
   </p></div>`;
   wrap.innerHTML = html;
+
+  function resolve1(asset, tSet){
+    const inst = bestParentForPassives(asset, tSet);
+    return { pool: new Set(inst ? inst.passives : []), inst, isIntermediate: false };
+  }
 }
 
 function updateRoadmapResult(){
