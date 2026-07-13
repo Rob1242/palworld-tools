@@ -179,16 +179,28 @@ let generalistPref = true;
 let usePassive = true;
 let useWorldTree = false;
 
+// palworld.wiki.gg で実際にページを開いて本文を確認した、施設1台あたりの同時作業人数
+// (2026-07時点、巨大な炉・組立ラインII等の上位ティアは正確な人数が見つからず未掲載)。
+const ROLE_CAP_HINT = {
+  "手作業": "組立ライン(生産/武器/スフィア)は1台につき3体まで(palworld.wiki.gg確認済み)。台数×3を目安に入力してください",
+  "火おこし": "通常の炉(旧式/改良/電気)は1台につき1体まで(palworld.wiki.gg確認済み)。巨大な炉は複数体対応ですが正確な人数は未確認",
+  "製薬": "薬品台(旧式/電気)は1台につき1体まで(palworld.wiki.gg確認済み)",
+};
+
 const rolesGrid = document.getElementById('rolesGrid');
 ROLES.forEach(role => {
   const item = document.createElement('div');
   item.className = 'role-item';
-  item.innerHTML = `<span class="role-name">${role}</span>
+  const hint = ROLE_CAP_HINT[role];
+  const capTitle = hint
+    ? `${hint}。空欄なら無制限`
+    : "この役職に実際に割り当てられる上限人数(施設数・ノード数など)。空欄なら無制限";
+  item.innerHTML = `<span class="role-name">${role}${hint ? ' <span title="'+hint+'" style="cursor:help;color:var(--brass);">ℹ️</span>' : ''}</span>
     <div class="weight-btns" data-role="${role}">
       <div class="wbtn" data-w="0">無</div><div class="wbtn" data-w="1">低</div>
       <div class="wbtn" data-w="2">中</div><div class="wbtn" data-w="3">高</div>
     </div>
-    <input type="number" class="cap-input" data-role="${role}" min="0" placeholder="上限無" title="この役職に実際に割り当てられる上限人数(施設数・ノード数など)。空欄なら無制限">`;
+    <input type="number" class="cap-input" data-role="${role}" min="0" placeholder="上限無" title="${capTitle}">`;
   rolesGrid.appendChild(item);
 });
 function refreshWeightButtons(){
