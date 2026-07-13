@@ -414,7 +414,45 @@ function applyPickToState(sp, roleDims, strides, state){
 // を返す関数(既定は素の実効スコア)。initialState は、外側で確定的に確保済みのパル
 // (パートナースキル発動要員など)による状態をあらかじめ加味しておくためのエンコード済み状態値
 // (通常は0)。roleCapsを省略/空にすると、実働上限が全く無い場合と完全に同じ挙動になる。
-function bestAssignment(slots, activeRoles, buildSpeciesFn, initialState, roleCaps){
+// 役職の実働上限を多数同時に設定するとmaskCount(状態数)が上限値の掛け算で膨らみ、
+// 厳密DPが現実的な時間で終わらなくなることがある(2026-07-15に実測: 11役職に上限をかけ
+// maskCount=116,640になったケースで1回のbestAssignment呼び出しだけで約40秒かかった)。
+// これを超えたら厳密解を諦め、貪欲法(各枠を、その時点で増分スコアが最大のパルで埋めていく)
+// にフォールバックする。既知の限界: 貪欲法は近似であり、数学的な最適解を保証しない。
+const MASKCOUNT_EXACT_THRESHOLD = 20000;
+
+async function greedyAssignment(slots, activeRoles, buildSpeciesFn, initialState, roleCaps){
+  const roleDims = buildRoleDims(activeRoles, roleCaps);
+  const strides = buildStrides(roleDims);
+  const maskCount = roleDims.length ? strides[strides.length-1] * roleDims[roleDims.length-1].base : 1;
+  const species = PAL_DATA.map(buildSpeciesFn).filter(sp => Object.keys(sp.contribs).length > 0);
+
+  let state = initialState || 0;
+  let totalScore = 0;
+  const picks = [];
+  let lastYield = performance.now();
+  for(let i=0;i<slots;i++){
+    let bestRes = null, bestSp = null;
+    for(let s=0;s<species.length;s++){
+      const res = applyPickToState(species[s], roleDims, strides, state);
+      if(res && (!bestRes || res.score > bestRes.score)){ bestRes = res; bestSp = species[s]; }
+    }
+    if(!bestRes) break; // これ以上誰を追加しても増分スコアが得られない(全役職が上限か、有用な候補が尽きた)
+    state = bestRes.newState;
+    totalScore += bestRes.score;
+    picks.push({
+      pal: bestSp.pal, effective: bestRes.score, loadout: bestSp.loadout,
+      reason: activeRoles.filter(r => (bestSp.pal.work[r]||0) > 0).join('・') || "総合力"
+    });
+    if(performance.now() - lastYield > 150){
+      await new Promise(r => setTimeout(r, 0));
+      lastYield = performance.now();
+    }
+  }
+  return { picks, totalScore, coveredState: state, maskCount, roleDims, strides, approximate: true };
+}
+
+async function bestAssignment(slots, activeRoles, buildSpeciesFn, initialState, roleCaps){
   buildSpeciesFn = buildSpeciesFn || (p => scoredSpecies(p, {}, {}, {}));
   initialState = initialState || 0;
   roleCaps = roleCaps || {};
@@ -422,6 +460,10 @@ function bestAssignment(slots, activeRoles, buildSpeciesFn, initialState, roleCa
   const roleDims = buildRoleDims(activeRoles, roleCaps);
   const strides = buildStrides(roleDims);
   const maskCount = roleDims.length ? strides[strides.length-1] * roleDims[roleDims.length-1].base : 1;
+
+  if(maskCount > MASKCOUNT_EXACT_THRESHOLD){
+    return await greedyAssignment(slots, activeRoles, buildSpeciesFn, initialState, roleCaps);
+  }
 
   const species = PAL_DATA.map(buildSpeciesFn)
     .filter(sp => Object.keys(sp.contribs).length > 0); // どの役職の候補にもならないパルは除外(結果不変、高速化)
@@ -439,6 +481,11 @@ function bestAssignment(slots, activeRoles, buildSpeciesFn, initialState, roleCa
   }
   dp[0][initialState] = 0;
 
+  // 役職の実働上限を多数同時に設定するとmaskCountが大きくなり、1回のbestAssignment呼び出し
+  // 自体が数十秒かかることがある。呼び出し元(runSynergyOptimization)の分岐間の待避だけでは
+  // このケースをカバーできない(1回の呼び出し内で固まってしまう)ため、内側のループでも
+  // 経過時間ベースで定期的に処理を譲り、タブがフリーズしないようにする。
+  let lastYield = performance.now();
   for(let j=1;j<=slots;j++){
     for(let m=0;m<maskCount;m++){
       const base = dp[j-1][m];
@@ -452,6 +499,10 @@ function bestAssignment(slots, activeRoles, buildSpeciesFn, initialState, roleCa
           bestSpecies[j][res.newState] = s;
           bestPrevState[j][res.newState] = m;
         }
+      }
+      if(performance.now() - lastYield > 150){
+        await new Promise(r => setTimeout(r, 0));
+        lastYield = performance.now();
       }
     }
   }
@@ -493,7 +544,7 @@ function bestAssignment(slots, activeRoles, buildSpeciesFn, initialState, roleCa
   }
   picks.reverse();
 
-  return { picks, totalScore: targetScore === NEG ? 0 : targetScore, coveredState: targetM, maskCount, roleDims, strides };
+  return { picks, totalScore: targetScore === NEG ? 0 : targetScore, coveredState: targetM, maskCount, roleDims, strides, approximate: false };
 }
 
 // === 拠点パートナースキルの相乗効果(287体全パルのpartner_skill.effectテキストを機械的に
@@ -555,7 +606,7 @@ function buildSynergyToggles(){
 // activeToggles(発動させるシナジーのリスト)を1組固定した上で、そのシナジー要員を
 // 予約枠として確保しつつ残り枠を厳密最適化する。予約枠のパル自身のスコアにも、
 // このブランチで有効なシナジー補正がそのまま反映される。
-function evaluateSynergyBranch(slots, activeRoles, activeToggles, roleCaps){
+async function evaluateSynergyBranch(slots, activeRoles, activeToggles, roleCaps){
   const ctx = { roleLvBonus: {}, excludeFromBonus: {}, extraPctByName: {} };
   const reservedNames = [];
   activeToggles.forEach(t => { t.apply(ctx); reservedNames.push(...t.reserve); });
@@ -584,38 +635,62 @@ function evaluateSynergyBranch(slots, activeRoles, activeToggles, roleCaps){
   });
 
   const remainingSlots = slots - reservedNames.length;
-  const dpResult = bestAssignment(remainingSlots, activeRoles, buildSpeciesFn, reservedState, roleCaps);
+  const dpResult = await bestAssignment(remainingSlots, activeRoles, buildSpeciesFn, reservedState, roleCaps);
 
   return {
     totalScore: reservedScore + dpResult.totalScore,
     picks: reservedPicks.concat(dpResult.picks),
     toggleLabels: activeToggles.map(t => t.label),
+    approximate: dpResult.approximate,
   };
+}
+
+// 1ブランチ(bestAssignment 1回)のおおよその内部ループ回数を見積もる。
+// 役職に同時に付ける上限の数が増えるほど状態数(maskCount)が掛け算で膨らむため、
+// 上限が多いケースでは相乗効果256パターン総当たりが現実的な時間で終わらなくなる。
+function estimateBranchCost(slots, activeRoles, roleCaps){
+  const dims = buildRoleDims(activeRoles, roleCaps);
+  const maskCount = dims.length ? dims.reduce((a,d)=>a*d.base, 1) : 1;
+  return slots * maskCount * PAL_DATA.length;
 }
 
 // 拠点ブースター系パートナースキルの有効/無効の全組み合わせ(最大2^8通り程度)を総当たりし、
 // それぞれで厳密最適化を行った上で最良のものを採用する。これらのシナジーパルだけは
 // 「そのパルを入れるかどうかで他のパルの価値が変わる」ため、通常のDP1回では扱えない。
+// ただし役職の実働上限を多数同時に設定すると状態数が爆発するため、見積もり計算量が
+// 現実的な時間(目安60秒)に収まらない場合は、相乗効果の全探索を諦めて「相乗効果無し」の
+// 1パターンだけを厳密計算する(役職配分そのものの上限つき厳密最適化は常に維持する)。
 async function runSynergyOptimization(slots, activeRoles, roleCaps, onProgress){
   const toggles = buildSynergyToggles();
   const totalCombos = 1 << toggles.length;
 
+  const branchCost = estimateBranchCost(slots, activeRoles, roleCaps);
+  // 内部ループ回数/秒の見積もり。実測では上限の掛かり方次第でばらつきが大きく
+  // (20枠・上限無しで約3.1億回/秒、15枠・11役職に上限で約1300万回/秒だった)、
+  // 単純な計算量モデルでは説明しきれない変動があるため、安全側に低めの値を使う。
+  const THROUGHPUT = 1.2e7;
+  const TIME_BUDGET_SEC = 20;
+  const combosToRun = (branchCost * totalCombos / THROUGHPUT > TIME_BUDGET_SEC) ? 1 : totalCombos;
+  const combosSkipped = combosToRun < totalCombos;
+
   let best = null;
-  for(let combo=0; combo<totalCombos; combo++){
+  let lastYield = performance.now();
+  for(let combo=0; combo<combosToRun; combo++){
     const activeToggles = toggles.filter((t,i) => (combo & (1<<i)) !== 0);
-    const result = evaluateSynergyBranch(slots, activeRoles, activeToggles, roleCaps);
+    const result = await evaluateSynergyBranch(slots, activeRoles, activeToggles, roleCaps);
     if(result && (!best || result.totalScore > best.totalScore)){
       best = result;
     }
-    if(combo % 16 === 15){
-      if(onProgress) onProgress(combo+1, totalCombos);
-      await new Promise(r => setTimeout(r, 0)); // UIがフリーズしないように定期的に処理を譲る
+    if(performance.now() - lastYield > 150){ // 経過時間ベースで処理を譲る(重いケースでもタブがフリーズしない)
+      if(onProgress) onProgress(combo+1, combosToRun);
+      await new Promise(r => setTimeout(r, 0));
+      lastYield = performance.now();
     }
   }
-  return { ...best, combosEvaluated: totalCombos };
+  return { ...best, combosEvaluated: combosToRun, combosSkipped, totalCombosPossible: totalCombos };
 }
 
-(function selfTestBestAssignment(){
+(async function selfTestBestAssignment(){
   const savedWeights = Object.assign({}, roleWeights);
   const savedDayNight = dayNightBalance, savedGeneralist = generalistPref, savedPassive = usePassive;
 
@@ -626,7 +701,7 @@ async function runSynergyOptimization(slots, activeRoles, roleCaps, onProgress){
   roleWeights["採掘"] = 1;
   dayNightBalance = false; generalistPref = false; usePassive = false;
   const testSlots = 3;
-  const { picks: dpPicks } = bestAssignment(testSlots, ["採掘"]);
+  const { picks: dpPicks } = await bestAssignment(testSlots, ["採掘"]);
   const best1 = PAL_DATA
     .map(p => ({pal: p, effective: effectiveScoreOf(p, false).effective}))
     .filter(c => c.effective > 0)
@@ -644,7 +719,7 @@ async function runSynergyOptimization(slots, activeRoles, roleCaps, onProgress){
   ROLES.forEach(r => roleWeights[r] = 1);
   dayNightBalance = true; generalistPref = true; usePassive = true;
   const activeRoles = ROLES.filter(r => roleWeights[r] > 0 && r !== "牧場");
-  const { picks: fullPicks } = bestAssignment(20, activeRoles);
+  const { picks: fullPicks } = await bestAssignment(20, activeRoles);
   const coveredByPicks = new Set();
   fullPicks.forEach(p => { for(const r in p.pal.work) coveredByPicks.add(r); });
   const uncoveredNow = activeRoles.filter(r => !coveredByPicks.has(r));
@@ -659,8 +734,8 @@ async function runSynergyOptimization(slots, activeRoles, roleCaps, onProgress){
   roleWeights["採集"] = 1; roleWeights["水やり"] = 1;
   dayNightBalance = true; generalistPref = true; usePassive = true;
   const synergyTestRoles = ["採集","水やり"];
-  const plainResult = bestAssignment(10, synergyTestRoles);
-  const noneActive = evaluateSynergyBranch(10, synergyTestRoles, []);
+  const plainResult = await bestAssignment(10, synergyTestRoles);
+  const noneActive = await evaluateSynergyBranch(10, synergyTestRoles, []);
   console.assert(Math.abs(noneActive.totalScore - plainResult.totalScore) < 1e-6,
     "[selfTest失敗] シナジーを全部オフにした場合、素のDPとスコアが一致しない", noneActive.totalScore, plainResult.totalScore);
 
@@ -688,7 +763,7 @@ async function runSynergyOptimization(slots, activeRoles, roleCaps, onProgress){
   ROLES.forEach(r => roleWeights[r] = 0);
   roleWeights["採掘"] = 1;
   dayNightBalance = false; generalistPref = false; usePassive = false;
-  const { picks: cappedPicks } = bestAssignment(5, ["採掘"], undefined, undefined, {"採掘": 2});
+  const { picks: cappedPicks } = await bestAssignment(5, ["採掘"], undefined, undefined, {"採掘": 2});
   const bestMiner = PAL_DATA
     .map(p => ({pal: p, effective: effectiveScoreOf(p, false).effective}))
     .filter(c => c.effective > 0)
@@ -716,6 +791,59 @@ async function runSynergyOptimization(slots, activeRoles, roleCaps, onProgress){
     console.assert(res && Math.abs(res.score - expectedPartial) < 1e-6,
       "[selfTest失敗] 上限到達済みの役職ぶんが増分スコアから正しく除外されていない", res && res.score, expectedPartial);
   }
+
+  // テスト8: 複数役職に同時に上限をかけた場合、返されたpicks配列を先頭から順に
+  // applyPickToStateで辿り直すと、内部で報告しているcoveredStateと完全に一致すること
+  // (=picks配列が「本当にその状態遷移をたどって作られた妥当な経路」になっているかの検証。
+  //  2026-07-15に実際に長時間フリーズを踏んだ複数上限ケースの再発防止も兼ねる)
+  ROLES.forEach(r => roleWeights[r] = 0);
+  roleWeights["火おこし"] = 1; roleWeights["採掘"] = 1; roleWeights["運搬"] = 1; roleWeights["手作業"] = 1;
+  dayNightBalance = false; generalistPref = true; usePassive = false;
+  const multiCapRoles = ["火おこし","採掘","運搬","手作業"];
+  const multiCaps = {"火おこし":2, "採掘":2, "運搬":2, "手作業":3};
+  const multiCapResult = await bestAssignment(15, multiCapRoles, undefined, undefined, multiCaps);
+  const replayDims = buildRoleDims(multiCapRoles, multiCaps);
+  const replayStrides = buildStrides(replayDims);
+  let replayState = 0, replayScore = 0, replayOk = true;
+  multiCapResult.picks.forEach(p => {
+    const sp = scoredSpecies(p.pal, {}, {}, {});
+    const res = applyPickToState(sp, replayDims, replayStrides, replayState);
+    if(!res){ replayOk = false; return; }
+    replayState = res.newState;
+    replayScore += res.score;
+  });
+  console.assert(replayOk && replayState === multiCapResult.coveredState,
+    "[selfTest失敗] 複数役職同時上限ケースでpicks配列を辿った状態が内部状態と一致しない", replayState, multiCapResult.coveredState);
+  console.assert(Math.abs(replayScore - multiCapResult.totalScore) < 1e-6,
+    "[selfTest失敗] 複数役職同時上限ケースでpicksを辿ったスコア合計が一致しない", replayScore, multiCapResult.totalScore);
+  replayDims.forEach((d,i) => {
+    const finalDigit = digitOf(replayState, replayDims, replayStrides, i);
+    console.assert(finalDigit <= d.cap,
+      `[selfTest失敗] ${d.role}の最終カウント(${finalDigit})が上限(${d.cap})を超えている(理論上あり得ないはず)`, finalDigit, d.cap);
+  });
+
+  // テスト9: maskCountが閾値を超えるケースで、貪欲法フォールバックが短時間で結果を返し、
+  // かつ返された状態のどの役職も上限を超えていないこと(2026-07-15に実測40秒以上かかった
+  // ケースの再発防止。閾値を超えたら数秒未満で終わるはず)
+  ROLES.forEach(r => roleWeights[r] = 1);
+  roleWeights["手作業"] = 2; roleWeights["運搬"] = 2;
+  const heavyRoles = ROLES.filter(r => roleWeights[r] > 0 && r !== "牧場");
+  const heavyCaps = {"火おこし":2,"水やり":2,"種まき":4,"発電":1,"手作業":3,"採集":2,"伐採":2,"採掘":2,"製薬":1,"冷却":1,"運搬":2};
+  dayNightBalance = true; generalistPref = true; usePassive = true;
+  const heavyT0 = performance.now();
+  const heavyResult = await bestAssignment(15, heavyRoles, undefined, undefined, heavyCaps);
+  const heavyMs = performance.now() - heavyT0;
+  console.assert(heavyResult.maskCount > MASKCOUNT_EXACT_THRESHOLD && heavyResult.approximate === true,
+    "[selfTest失敗] 状態数が閾値を超えているのに貪欲法フォールバックが発動していない", heavyResult.maskCount);
+  console.assert(heavyMs < 5000,
+    "[selfTest失敗] 貪欲法フォールバックのはずなのに5秒以上かかっている(閾値判定漏れの疑い)", heavyMs);
+  const heavyDims = buildRoleDims(heavyRoles, heavyCaps);
+  const heavyStrides = buildStrides(heavyDims);
+  heavyDims.forEach((d,i) => {
+    const finalDigit = digitOf(heavyResult.coveredState, heavyDims, heavyStrides, i);
+    console.assert(finalDigit <= d.cap,
+      `[selfTest失敗] 貪欲法フォールバックで${d.role}の最終カウント(${finalDigit})が上限(${d.cap})を超えている`, finalDigit, d.cap);
+  });
 
   ROLES.forEach(r => roleWeights[r] = savedWeights[r]);
   dayNightBalance = savedDayNight; generalistPref = savedGeneralist; usePassive = savedPassive;
@@ -746,7 +874,10 @@ async function runCompute(){
     finalTotal: result.totalScore,
     solveMs,
     combosEvaluated: result.combosEvaluated,
+    combosSkipped: result.combosSkipped,
+    totalCombosPossible: result.totalCombosPossible,
     activeToggleLabels: result.toggleLabels || [],
+    approximate: result.approximate,
   });
 
   btn.disabled = false; btn.textContent = "この条件で最適配置を計算する";
@@ -809,9 +940,17 @@ function renderResult(picks, slots, activeRoles, stats){
     <div class="metric"><div class="num">${Math.round(stats.finalTotal)}</div><div class="lbl">合計実効スコア</div></div>
   </div>`;
 
-  html += `<div class="progress-log">動的計画法による厳密最適解(近似ではありません、同一パルの重複配置・パートナースキル相乗効果を考慮) / 計算時間${stats.solveMs}ms / 相乗効果パターン${(stats.combosEvaluated||1).toLocaleString()}通りを全探索</div>`;
+  const modeText = stats.approximate
+    ? '貪欲法による近似解(役職の実働上限を多数同時に設定したため厳密解は現実的な時間で終わらず、近似に切り替えました)'
+    : '動的計画法による厳密最適解(近似ではありません)';
+  html += `<div class="progress-log">${modeText} / 重複配置・実働上限・パートナースキル相乗効果を考慮 / 計算時間${stats.solveMs}ms / 相乗効果パターン${(stats.combosEvaluated||1).toLocaleString()}通りを探索</div>`;
 
-  if(stats.activeToggleLabels && stats.activeToggleLabels.length){
+  if(stats.approximate){
+    html += `<div class="coverage-warn">⚠️ 役職の実働上限が多く状態数が膨らみすぎたため、今回は数学的に確実な最適解ではなく近似(貪欲法)です。近似度が気になる場合は、実働上限をかける役職を減らして試してください。</div>`;
+  }
+  if(stats.combosSkipped){
+    html += `<div class="coverage-warn">⚠️ 役職の実働上限を多数同時に設定したため状態数が膨らみ、相乗効果の全探索(最大${(stats.totalCombosPossible||0).toLocaleString()}パターン)は現実的な時間で終わらないと判断し省略しました。役職配分そのもの(重複配置・実働上限つき)は今まで通り計算しています。相乗効果も含めたい場合は、実働上限をかける役職を減らすか、より大きな枠数変更をお試しください。</div>`;
+  } else if(stats.activeToggleLabels && stats.activeToggleLabels.length){
     html += `<div class="progress-log">✨ 採用した相乗効果: ${stats.activeToggleLabels.join(' / ')}</div>`;
   }
 
