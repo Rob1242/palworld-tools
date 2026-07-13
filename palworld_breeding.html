@@ -237,9 +237,18 @@ function setupPicker(inputEl, resultsEl, onPick){
     const q = inputEl.value.trim().toLowerCase();
     if(!q){ resultsEl.style.display = "none"; return; }
     const qKana = toKana(q);
-    const matches = PAL_LIST.filter(p =>
-      toKana(p.displayName.toLowerCase()).includes(qKana) || p.asset.toLowerCase().includes(q)
-    ).slice(0, 30);
+    // 前方一致(名前が検索語で始まる)を最優先で上に出す。結果を30件に絞る際、
+    // 単純な五十音順だと「ら行」の名前は絞り込み前に切り捨てられてしまうため
+    // (例: 「る」で検索してもルミカイト等が63件中31位以降になり表示されない)。
+    const matches = PAL_LIST
+      .filter(p => toKana(p.displayName.toLowerCase()).includes(qKana) || p.asset.toLowerCase().includes(q))
+      .sort((a, b) => {
+        const aStarts = toKana(a.displayName.toLowerCase()).startsWith(qKana) ? 0 : 1;
+        const bStarts = toKana(b.displayName.toLowerCase()).startsWith(qKana) ? 0 : 1;
+        if(aStarts !== bStarts) return aStarts - bStarts;
+        return a.displayName.localeCompare(b.displayName, 'ja');
+      })
+      .slice(0, 30);
     if(matches.length === 0){
       resultsEl.innerHTML = `<div class="pal-picker-item">見つかりません</div>`;
     } else {
