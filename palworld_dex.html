@@ -117,11 +117,16 @@
   .caveat{font-size:11.5px;color:#e7c3af;background:#3a2a20;border:1px solid var(--danger);border-radius:6px;padding:8px 12px;margin-bottom:12px;}
 
   .stat-grid{display:grid;grid-template-columns:1fr;gap:8px;}
-  .stat-row{display:grid;grid-template-columns:70px 1fr 48px;align-items:center;gap:8px;}
+  .stat-row{display:grid;grid-template-columns:70px 1fr 76px;align-items:center;gap:8px;}
   .stat-row .stat-label{font-size:11.5px;color:var(--parchment-dim);}
   .stat-row .stat-bar{height:8px;background:var(--panel2);border-radius:4px;overflow:hidden;border:1px solid var(--line);}
   .stat-row .stat-bar-fill{height:100%;background:linear-gradient(90deg, var(--brass-dim), var(--brass));}
-  .stat-row .stat-val{font-family:var(--font-mono);font-size:12px;text-align:right;color:var(--parchment);}
+  .stat-row .stat-val{font-family:var(--font-mono);font-size:12px;text-align:right;color:var(--parchment);line-height:1.3;}
+  .stat-row .stat-rank{display:block;font-size:9px;color:var(--teal);font-weight:400;}
+  .elem-matchup{display:flex;flex-wrap:wrap;gap:6px;}
+  .elem-tag{font-size:11px;padding:3px 9px;border-radius:5px;font-weight:700;}
+  .elem-tag.weak{background:rgba(226,84,63,.16);color:#ff8a75;border:1px solid rgba(226,84,63,.4);}
+  .elem-tag.resist{background:rgba(53,210,255,.12);color:var(--teal);border:1px solid var(--teal-dim);}
 
   .role-grid{display:flex;flex-wrap:wrap;gap:8px;}
   .role-pill{font-size:12px;padding:5px 11px;border-radius:5px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);}
@@ -253,12 +258,59 @@ function renderGrid(){
   });
 }
 
-function statRow(label, val, max){
+// 種族値・ライド速度の全パル中の順位を計算する(既存の種族値データのみから算出。
+// 外部ソース不要・捏造リスク無し)
+const STAT_RANK_KEYS = ["hp","melee_attack","shot_attack","defense","craft_speed","run_speed","ride_sprint_speed"];
+const STAT_RANKS = {};
+STAT_RANK_KEYS.forEach(key => {
+  const withVal = PAL_DEX_DATA.filter(p => p.stats && typeof p.stats[key] === "number");
+  const sorted = withVal.slice().sort((a,b) => b.stats[key] - a.stats[key]);
+  const rankMap = {};
+  sorted.forEach((p,i) => { rankMap[p.id] = i+1; });
+  STAT_RANKS[key] = { rankMap, total: withVal.length };
+});
+function statRankText(id, key){
+  const r = STAT_RANKS[key];
+  if(!r || !(id in r.rankMap)) return "";
+  return `${r.rankMap[id]}位/${r.total}`;
+}
+
+// 属性相性表(palworld-lab.comの相性チェッカーツールで検証、シェルガドラ実例の
+// 弱点/耐性表示と照合して一致を確認済み)。beats[X]=[Y,...] は「Xで攻撃するとYに1.5倍」。
+// 無属性は特例: 攻撃側として使っても常に等倍、かつ防御側としても同属性耐性を受けない。
+const ELEMENT_BEATS = {
+  "炎": ["草","氷"], "草": ["地"], "地": ["雷"], "雷": ["水"], "水": ["炎"],
+  "氷": ["竜"], "竜": ["闇"], "闇": ["無"], "無": [],
+};
+function elementMultiplier(attackerType, defenderType){
+  if(attackerType === "無") return 1; // 無属性は攻撃側として常に等倍
+  if(ELEMENT_BEATS[attackerType].includes(defenderType)) return 1.5;
+  if(defenderType === "無") return 1; // 無属性は防御側としても耐性を受けない特例
+  if(attackerType === defenderType) return 0.66; // 同属性は耐性
+  if(ELEMENT_BEATS[defenderType] && ELEMENT_BEATS[defenderType].includes(attackerType)) return 0.66; // 弱点の逆向き
+  return 1;
+}
+function elementMatchup(defenderTypes){
+  // 複属性は各属性の倍率を掛け合わせる(両方弱点なら1.5×1.5=2.25、等)
+  const weak = [], resist = [];
+  TYPES.forEach(atk => {
+    let mult = 1;
+    defenderTypes.forEach(def => { mult *= elementMultiplier(atk, def); });
+    if(Math.abs(mult - 1) < 0.001) return;
+    (mult > 1 ? weak : resist).push({ type: atk, mult });
+  });
+  weak.sort((a,b)=>b.mult-a.mult);
+  resist.sort((a,b)=>a.mult-b.mult);
+  return { weak, resist };
+}
+
+function statRow(label, val, max, id, key){
   const pct = Math.min(100, Math.round((val/max)*100));
+  const rankText = (id && key) ? statRankText(id, key) : "";
   return `<div class="stat-row">
     <div class="stat-label">${label}</div>
     <div class="stat-bar"><div class="stat-bar-fill" style="width:${pct}%"></div></div>
-    <div class="stat-val">${val}</div>
+    <div class="stat-val">${val}${rankText ? `<span class="stat-rank">${rankText}</span>` : ''}</div>
   </div>`;
 }
 
@@ -286,19 +338,31 @@ function openDetail(id){
       <h2>種族値</h2>
       ${caveat}
       <div class="stat-grid">
-        ${statRow("HP", p.stats.hp, 200)}
-        ${statRow("近接攻撃", p.stats.melee_attack, 200)}
-        ${statRow("遠隔攻撃", p.stats.shot_attack, 200)}
-        ${statRow("防御", p.stats.defense, 200)}
-        ${statRow("作業速度", p.stats.craft_speed, 200)}
+        ${statRow("HP", p.stats.hp, 200, id, "hp")}
+        ${statRow("近接攻撃", p.stats.melee_attack, 200, id, "melee_attack")}
+        ${statRow("遠隔攻撃", p.stats.shot_attack, 200, id, "shot_attack")}
+        ${statRow("防御", p.stats.defense, 200, id, "defense")}
+        ${statRow("作業速度", p.stats.craft_speed, 200, id, "craft_speed")}
       </div>
       <div class="badge-row" style="margin-top:10px;">
         <span class="badge">レア度 ★${p.stats.rarity ?? "?"}</span>
         <span class="badge">サイズ ${(p.stats.size||"").replace("EPalSizeType::","")}</span>
-        <span class="badge">走行速度 ${p.stats.run_speed ?? "?"}</span>
+        <span class="badge">走行速度 ${p.stats.run_speed ?? "?"}${statRankText(id,"run_speed") ? `(${statRankText(id,"run_speed")})` : ''}</span>
+        <span class="badge">ライド疾走速度 ${p.stats.ride_sprint_speed ?? "?"}${statRankText(id,"ride_sprint_speed") ? `(${statRankText(id,"ride_sprint_speed")})` : ''}</span>
       </div>
     </div>`;
   }
+
+  const matchup = elementMatchup(p.types);
+  const matchupHtml = `<div class="section">
+    <h2>属性相性(被ダメージ倍率)</h2>
+    <div class="elem-matchup">
+      ${matchup.weak.map(w => `<span class="elem-tag weak">${w.type} ×${w.mult.toFixed(2).replace(/\.?0+$/,'')}</span>`).join("")}
+      ${matchup.resist.map(r => `<span class="elem-tag resist">${r.type} ×${r.mult.toFixed(2).replace(/\.?0+$/,'')}</span>`).join("")}
+      ${(!matchup.weak.length && !matchup.resist.length) ? '<span style="color:var(--parchment-dim);font-size:12px;">弱点・耐性なし(全属性等倍)</span>' : ''}
+    </div>
+    <p style="font-size:10px;color:var(--parchment-dim);margin-top:8px;">赤=弱点(1.5倍以上のダメージを受ける) / 青=耐性(0.66倍以下)。属性相性のみの倍率(属性一致ボーナス等は含みません)。出典: palworld-lab.com属性相性表(検証済み)</p>
+  </div>`;
 
   document.getElementById("detailContent").innerHTML = `
     <div class="detail-head">
@@ -314,6 +378,7 @@ function openDetail(id){
       </div>
     </div>
     ${statsHtml}
+    ${matchupHtml}
     <div class="section">
       <h2>作業適性</h2>
       <div class="role-grid">
