@@ -322,6 +322,21 @@ document.querySelectorAll(".mode-tab").forEach(tab => {
     document.getElementById("reverseMode").style.display = mode === "reverse" ? "block" : "none";
   });
 });
+
+(function initFromQuery(){
+  const params = new URLSearchParams(location.search);
+  const target = params.get("target");
+  if(!target) return;
+  const asset = Object.keys(BREEDING_DATA.pals || {}).find(a => BREEDING_DATA.pals[a].dex_id === target);
+  if(!asset) return;
+  document.querySelectorAll(".mode-tab").forEach(t => t.classList.remove("active"));
+  document.querySelector('.mode-tab[data-mode="reverse"]').classList.add("active");
+  document.getElementById("forwardMode").style.display = "none";
+  document.getElementById("reverseMode").style.display = "block";
+  const targetInput = document.querySelector('#reverseMode .pal-picker input');
+  if(targetInput) targetInput.value = nameOf(asset);
+  renderReverseResult(asset);
+})();
 </script>
 </body>
 </html>
