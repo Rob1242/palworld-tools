@@ -65,6 +65,30 @@
   .slot-header-text{flex:1;min-width:0;}
   .badge.ride{background:#20343a;color:#8fd0e0;border:1px solid #35606c;}
   .badge.passive.warn{background:#3a2a20;color:#e7c3af;border:1px solid var(--danger);}
+
+  .btn-row{display:flex;gap:8px;}
+  .clear-btn{padding:11px 18px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment-dim);font-size:13px;font-weight:700;border-radius:5px;cursor:pointer;flex-shrink:0;}
+  .clear-btn:hover{background:var(--panel);color:var(--parchment);border-color:var(--danger);}
+
+  .compact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px;}
+  .slot-compact{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px 6px;text-align:center;cursor:pointer;transition:border-color .12s,transform .12s;}
+  .slot-compact:hover{border-color:var(--brass);transform:translateY(-1px);}
+  .role-pill{display:inline-block;font-size:9.5px;padding:2px 7px;border-radius:9px;margin-bottom:5px;color:#1a1a1a;font-weight:700;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .compact-icon-wrap{position:relative;display:inline-block;}
+  .compact-icon-wrap .pal-icon{width:52px;height:52px;}
+  .compact-icon-wrap .pal-icon-empty{width:52px;height:52px;margin:0 auto;}
+  .compact-count-badge{position:absolute;bottom:-3px;right:-6px;background:var(--brass);color:#1a1a1a;font-size:9.5px;font-weight:800;border-radius:8px;padding:1px 5px;border:1px solid var(--bg);}
+  .pname-compact{font-size:11.5px;margin-top:5px;font-weight:700;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+  .modal-overlay{position:fixed;inset:0;background:rgba(10,10,8,.72);display:none;align-items:center;justify-content:center;z-index:200;padding:20px;}
+  .modal-overlay.open{display:flex;}
+  .modal-box{background:var(--panel);border:1px solid var(--brass);border-radius:8px;padding:22px;max-width:440px;width:100%;max-height:85vh;overflow-y:auto;position:relative;}
+  .modal-close{position:absolute;top:10px;right:12px;cursor:pointer;font-size:22px;line-height:1;color:var(--parchment-dim);background:none;border:none;padding:4px 8px;}
+  .modal-close:hover{color:var(--parchment);}
+  .modal-header{display:flex;align-items:center;gap:14px;margin-bottom:12px;padding-right:24px;}
+  .modal-header .pal-icon{width:64px;height:64px;}
+  .modal-title{font-size:17px;font-weight:800;}
+  .modal-subtitle{font-size:11.5px;color:var(--parchment-dim);margin-top:2px;}
 </style>
 </head>
 <body>
@@ -114,9 +138,19 @@
     <p class="subtitle" style="font-size:11px;margin-top:10px;margin-bottom:0;">※ 牧場はLvではなく★による収穫倍率システム(handoff文書3.5参照)で、他役職と同じ実測データが無いため、重要度を上げても計算には反映されません(捏造禁止ルールにより未対応のまま表示)。</p>
   </div>
 
-  <button class="compute-btn" id="computeBtn">この条件で最適配置を計算する</button>
+  <div class="btn-row">
+    <button class="compute-btn" id="computeBtn">この条件で最適配置を計算する</button>
+    <button class="clear-btn" id="clearBtn" title="設定と結果を初期状態に戻します">クリア</button>
+  </div>
 
   <div id="resultArea" style="margin-top:20px;"></div>
+</div>
+
+<div class="modal-overlay" id="palModalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" id="palModalClose">×</button>
+    <div id="palModalBody"></div>
+  </div>
 </div>
 
 <script>
@@ -179,6 +213,38 @@ let generalistPref = true;
 let usePassive = true;
 let useWorldTree = false;
 
+// 設定(役職重要度・実働上限・トグル・枠数)をブラウザに保存し、ページ再読み込み後も
+// 復元する(図鑑ページ等を見て戻ってきたら計算が消えている問題への対応)。計算結果そのものは
+// パルオブジェクトの参照を含み単純にシリアライズできないため、設定を復元した上でページ末尾の
+// 自動計算(compute())に再計算させることで対応する。
+const PLANNER_STATE_KEY = "palworldBasePlannerState";
+function saveState(){
+  try{
+    const slotEl = document.getElementById('slotNum');
+    localStorage.setItem(PLANNER_STATE_KEY, JSON.stringify({
+      roleWeights, roleCaps, dayNightBalance, generalistPref, usePassive, useWorldTree,
+      slots: slotEl ? (parseInt(slotEl.value) || 15) : 15,
+    }));
+  }catch(e){ /* localStorageが使えない環境では何もしない */ }
+}
+let savedSlots = null;
+function loadState(){
+  try{
+    const raw = localStorage.getItem(PLANNER_STATE_KEY);
+    if(!raw) return false;
+    const s = JSON.parse(raw);
+    if(s.roleWeights) ROLES.forEach(r => { if(s.roleWeights[r] !== undefined) roleWeights[r] = s.roleWeights[r]; });
+    if(s.roleCaps) ROLES.forEach(r => { if(s.roleCaps[r] !== undefined) roleCaps[r] = s.roleCaps[r]; });
+    if(s.dayNightBalance !== undefined) dayNightBalance = s.dayNightBalance;
+    if(s.generalistPref !== undefined) generalistPref = s.generalistPref;
+    if(s.usePassive !== undefined) usePassive = s.usePassive;
+    if(s.useWorldTree !== undefined) useWorldTree = s.useWorldTree;
+    if(s.slots) savedSlots = s.slots;
+    return true;
+  }catch(e){ return false; }
+}
+const hadSavedState = loadState();
+
 // 施設1台あたりの同時作業人数のヒント。出典の確度で2種類ある:
 // ・wiki確認済み: palworld.wiki.gg で実際にページを開いて本文(英語原文)を確認したもの
 // ・ユーザー確認: wiki.gg/paldb.cc/OP.GG等を複数当たっても記載が見つからず、
@@ -206,7 +272,7 @@ ROLES.forEach(role => {
       <div class="wbtn" data-w="0">無</div><div class="wbtn" data-w="1">低</div>
       <div class="wbtn" data-w="2">中</div><div class="wbtn" data-w="3">高</div>
     </div>
-    <input type="number" class="cap-input" data-role="${role}" min="0" placeholder="上限無" title="${capTitle}">`;
+    <input type="number" class="cap-input" data-role="${role}" min="0" placeholder="上限無" title="${capTitle}" value="${roleCaps[role] > 0 ? roleCaps[role] : ''}">`;
   rolesGrid.appendChild(item);
 });
 function refreshWeightButtons(){
@@ -223,35 +289,58 @@ rolesGrid.addEventListener('click', (e) => {
   const group = btn.closest('.weight-btns');
   roleWeights[group.dataset.role] = parseInt(btn.dataset.w);
   refreshWeightButtons();
+  saveState();
 });
 rolesGrid.addEventListener('input', (e) => {
   const input = e.target.closest('.cap-input');
   if(!input) return;
   const v = parseInt(input.value);
   roleCaps[input.dataset.role] = (Number.isFinite(v) && v > 0) ? v : 0;
+  saveState();
 });
 refreshWeightButtons();
 
+document.getElementById('toggleDayNight').classList.toggle('on', dayNightBalance);
+document.getElementById('toggleGeneralist').classList.toggle('on', generalistPref);
+document.getElementById('togglePassive').classList.toggle('on', usePassive);
+document.getElementById('toggleWorldTree').classList.toggle('on', useWorldTree);
+
 document.getElementById('toggleDayNight').addEventListener('click', function(){
-  dayNightBalance = !dayNightBalance; this.classList.toggle('on', dayNightBalance);
+  dayNightBalance = !dayNightBalance; this.classList.toggle('on', dayNightBalance); saveState();
 });
 document.getElementById('toggleGeneralist').addEventListener('click', function(){
-  generalistPref = !generalistPref; this.classList.toggle('on', generalistPref);
+  generalistPref = !generalistPref; this.classList.toggle('on', generalistPref); saveState();
 });
 document.getElementById('togglePassive').addEventListener('click', function(){
-  usePassive = !usePassive; this.classList.toggle('on', usePassive);
+  usePassive = !usePassive; this.classList.toggle('on', usePassive); saveState();
 });
 document.getElementById('toggleWorldTree').addEventListener('click', function(){
-  useWorldTree = !useWorldTree; this.classList.toggle('on', useWorldTree);
+  useWorldTree = !useWorldTree; this.classList.toggle('on', useWorldTree); saveState();
 });
 
 const slotRange = document.getElementById('slotRange');
 const slotNum = document.getElementById('slotNum');
-slotRange.addEventListener('input', () => slotNum.value = slotRange.value);
+if(savedSlots){ slotNum.value = savedSlots; slotRange.value = savedSlots; }
+slotRange.addEventListener('input', () => { slotNum.value = slotRange.value; saveState(); });
 slotNum.addEventListener('input', () => {
   let v = parseInt(slotNum.value)||1;
   v = Math.max(1, Math.min(50, v));
   slotNum.value = v; slotRange.value = v;
+  saveState();
+});
+
+document.getElementById('clearBtn').addEventListener('click', () => {
+  try{ localStorage.removeItem(PLANNER_STATE_KEY); }catch(e){}
+  ROLES.forEach(r => { roleWeights[r] = (r==="手作業"||r==="運搬") ? 2 : 1; roleCaps[r] = 0; });
+  dayNightBalance = true; generalistPref = true; usePassive = true; useWorldTree = false;
+  refreshWeightButtons();
+  document.querySelectorAll('.cap-input').forEach(inp => { inp.value = ''; });
+  document.getElementById('toggleDayNight').classList.add('on');
+  document.getElementById('toggleGeneralist').classList.add('on');
+  document.getElementById('togglePassive').classList.add('on');
+  document.getElementById('toggleWorldTree').classList.remove('on');
+  slotNum.value = 15; slotRange.value = 15;
+  document.getElementById('resultArea').innerHTML = '';
 });
 
 function baseScore(pal){
@@ -690,7 +779,7 @@ async function runSynergyOptimization(slots, activeRoles, roleCaps, onProgress){
   return { ...best, combosEvaluated: combosToRun, combosSkipped, totalCombosPossible: totalCombos };
 }
 
-(async function selfTestBestAssignment(){
+const selfTestPromise = (async function selfTestBestAssignment(){
   const savedWeights = Object.assign({}, roleWeights);
   const savedDayNight = dayNightBalance, savedGeneralist = generalistPref, savedPassive = usePassive;
 
@@ -859,6 +948,7 @@ function compute(){
 async function runCompute(){
   const btn = document.getElementById('computeBtn');
   const slots = parseInt(slotNum.value);
+  saveState(); // 計算実行時点の設定を保存しておく(図鑑等を見て戻っても復元できるように)
   const activeRoles = ROLES.filter(r => roleWeights[r] > 0 && r !== "牧場").sort((a,b)=>roleWeights[b]-roleWeights[a]);
 
   const activeRoleCaps = {};
@@ -905,16 +995,27 @@ const ROLE_ICON = {
   "火おこし":"🔥","水やり":"💧","種まき":"🌱","発電":"⚡","手作業":"🔨","採集":"🧺",
   "伐採":"🪓","採掘":"⛏️","製薬":"💊","冷却":"❄️","運搬":"📦","牧場":"🐑",
 };
+const ROLE_COLOR = {
+  "火おこし":"#c9573f","水やり":"#3f7ec9","種まき":"#5fa845","発電":"#c9a53f","手作業":"#8a7a5c",
+  "採集":"#5fa88a","伐採":"#7a5c3f","採掘":"#8a8a8a","製薬":"#8a5cc9","冷却":"#4fb0c9",
+  "運搬":"#c98f4f","牧場":"#c9a06a",
+};
 
-// グループ済みピックを、各パルの「reasonの先頭役職(=weight順で最優先の担当役職)」で
-// activeRolesの順に区切って並べ、どのカードがどの役職担当なのか一目でわかるようにする。
+// グループ済みピックを、各パルが実際に持ってる役職Lvの中で一番高いもの(=そのパル自身の
+// 得意分野)で区切って並べる。役職の重要度(重み)の優先順ではなく、パル自身のステータスで
+// 分類することで「このセクションなのに何のLvも高くない」という違和感を無くす。
+// 重み優先順は、Lvが同点だった場合のタイブレークにのみ使う。
 function sectionizeGrouped(grouped, activeRoles){
   const byRole = new Map();
   activeRoles.forEach(r => byRole.set(r, []));
   const other = [];
   grouped.forEach(g => {
-    const primary = (g.reason || '').split('・')[0];
-    if(byRole.has(primary)) byRole.get(primary).push(g);
+    let primary = null, bestLv = -1;
+    activeRoles.forEach(r => {
+      const lv = g.pal.work[r] || 0;
+      if(lv > bestLv){ bestLv = lv; primary = r; }
+    });
+    if(primary && byRole.has(primary)) byRole.get(primary).push(g);
     else other.push(g);
   });
   const sections = activeRoles
@@ -966,80 +1067,116 @@ function renderResult(picks, slots, activeRoles, stats){
     html += `<div class="coverage-warn">役職の重要度が全て「無」です。1つ以上「低」以上に設定してください。</div>`;
   }
 
+  // モーダル(詳細小窓)表示用に、カードのインデックス→元データの対応を保持しておく。
+  window.__palCardData = [];
+
   const grouped = groupPicks(picks);
   const sections = sectionizeGrouped(grouped, activeRoles);
-  let cardIndex = 0;
   sections.forEach(section => {
     const sectionCount = section.items.reduce((s,g)=>s+g.count, 0);
     const cap = section.role ? roleCaps[section.role] : 0;
     const capNote = cap > 0 ? `(実働上限${cap} / ${Math.min(sectionCount, cap)}使用)` : '';
     const heading = section.role
-      ? `${ROLE_ICON[section.role]||''} ${section.role}担当 ・ ${sectionCount}体 ${capNote}`
+      ? `${ROLE_ICON[section.role]||''} ${section.role}メイン ・ ${sectionCount}体 ${capNote}`
       : `その他(汎用役職)`;
-    html += `<h3 style="font-size:13px;color:var(--brass);margin:16px 0 8px;letter-spacing:.03em;">${heading}</h3>`;
-    html += '<div class="slot-grid">';
+    html += `<h3 style="font-size:13px;color:var(--brass);margin:14px 0 8px;letter-spacing:.03em;">${heading}</h3>`;
+    html += '<div class="compact-grid">';
     section.items.forEach(g => {
-    const i = cardIndex++;
-    const pal = g.pal;
-    const roleBadges = Object.entries(pal.work)
-      .filter(([r,lv]) => roleWeights[r] > 0)
-      .sort((a,b)=>b[1]-a[1])
-      .map(([r,lv]) => `<span class="badge role">${r} Lv${lv}</span>`).join('');
-    const timeBadge = pal.active === "夜" ? '<span class="badge night">夜行性</span>'
-      : pal.active === "両方" ? '<span class="badge day">昼</span><span class="badge night">夜</span>'
-      : '<span class="badge day">昼行性</span>';
-    let passiveBadges = '';
-    if(g.loadout){
-      passiveBadges = g.loadout.chosen.map(ps => {
-        const warn = ps.drawback ? ' warn' : '';
-        const drawbackText = ps.drawback ? ` (${ps.drawback})` : '';
-        return `<span class="badge passive${warn}">${ps.name}${ps.pct?'+'+ps.pct+'%':''}${drawbackText}</span>`;
-      }).join('');
-    }
-    const rideBadges = [
-      pal.ride && pal.ride.rideable ? '<span class="badge ride">乗れる</span>' : '',
-      pal.ride && pal.ride.fly ? '<span class="badge ride">飛べる</span>' : '',
-      pal.ride && pal.ride.swim ? '<span class="badge ride">泳げる</span>' : '',
-    ].join('');
-    const iconImg = pal.icon
-      ? `<img class="pal-icon" src="${pal.icon}" alt="${pal.name}">`
-      : '<div class="pal-icon-empty"></div>';
-    const countBadge = g.count > 1
-      ? `<span class="badge role" style="background:var(--brass);color:#1a1a1a;font-weight:bold;">×${g.count}</span>`
-      : '';
-    const scoreText = g.count > 1
-      ? `1体あたり実効${Math.round(g.totalEffective/g.count)} ・ 合計実効${Math.round(g.totalEffective)}`
-      : `実効${Math.round(g.totalEffective)}`;
-    html += `<div class="slot">
-      <div class="num-badge">#${i+1}</div>
-      <div class="slot-header">
-        ${iconImg}
-        <div class="slot-header-text">
-          <div class="pname">${pal.name} ${countBadge}</div>
-          <div class="ptype">${pal.types.join('/')} ・ ${g.reason} ・ ${scoreText}</div>
-        </div>
-      </div>
-      <div>${timeBadge}${roleBadges}</div>
-      ${rideBadges ? '<div style="margin-top:4px;">'+rideBadges+'</div>' : ''}
-      ${passiveBadges ? '<div style="margin-top:4px;">'+passiveBadges+'</div>' : ''}
-      <div class="pskill">◆ ${pal.pskill}</div>
-    </div>`;
+      const idx = window.__palCardData.length;
+      window.__palCardData.push({pal: g.pal, g, primaryRole: section.role});
+      const pal = g.pal;
+      const iconImg = pal.icon
+        ? `<img class="pal-icon" src="${pal.icon}" alt="${pal.name}">`
+        : '<div class="pal-icon-empty"></div>';
+      const countBadge = g.count > 1 ? `<span class="compact-count-badge">×${g.count}</span>` : '';
+      const pillColor = section.role ? (ROLE_COLOR[section.role] || 'var(--teal)') : 'var(--panel2)';
+      html += `<div class="slot-compact" data-card-idx="${idx}">
+        <div class="role-pill" style="background:${pillColor};">${section.role ? (ROLE_ICON[section.role]||'')+' '+section.role : '総合'}</div>
+        <div class="compact-icon-wrap">${iconImg}${countBadge}</div>
+        <div class="pname-compact">${pal.name}</div>
+      </div>`;
     });
     html += '</div>';
   });
 
   if(picks.length < slots){
-    html += `<h3 style="font-size:13px;color:var(--parchment-dim);margin:16px 0 8px;">空き枠</h3><div class="slot-grid">`;
+    html += `<h3 style="font-size:13px;color:var(--parchment-dim);margin:14px 0 8px;">空き枠</h3><div class="compact-grid">`;
     for(let i=picks.length; i<slots; i++){
-      html += `<div class="slot empty-slot">空き枠</div>`;
+      html += `<div class="slot-compact" style="cursor:default;border-style:dashed;color:var(--parchment-dim);font-size:11px;">空き枠</div>`;
     }
     html += '</div>';
   }
   area.innerHTML = html;
+  area.querySelectorAll('.slot-compact[data-card-idx]').forEach(card => {
+    card.addEventListener('click', () => openPalModal(parseInt(card.dataset.cardIdx)));
+  });
 }
 
+// 計算結果のカードをクリックすると、そのパルの詳細(全役職Lv・パッシブ・パートナースキル等)を
+// ページ遷移せず小窓(モーダル)で表示する。
+function openPalModal(idx){
+  const data = window.__palCardData && window.__palCardData[idx];
+  if(!data) return;
+  const {pal, g, primaryRole} = data;
+  const roleBadges = Object.entries(pal.work)
+    .sort((a,b)=>b[1]-a[1])
+    .map(([r,lv]) => {
+      const isPrimary = r === primaryRole;
+      const style = isPrimary ? 'background:var(--brass-dim);border-color:var(--brass);color:var(--parchment);font-weight:700;' : '';
+      return `<span class="badge role" style="${style}">${r} Lv${lv}${isPrimary ? '(メイン)' : ''}</span>`;
+    }).join('');
+  const timeBadge = pal.active === "夜" ? '<span class="badge night">夜行性</span>'
+    : pal.active === "両方" ? '<span class="badge day">昼</span><span class="badge night">夜</span>'
+    : '<span class="badge day">昼行性</span>';
+  let passiveBadges = '';
+  if(g.loadout){
+    passiveBadges = g.loadout.chosen.map(ps => {
+      const warn = ps.drawback ? ' warn' : '';
+      const drawbackText = ps.drawback ? ` (${ps.drawback})` : '';
+      return `<span class="badge passive${warn}">${ps.name}${ps.pct?'+'+ps.pct+'%':''}${drawbackText}</span>`;
+    }).join('');
+  }
+  const rideBadges = [
+    pal.ride && pal.ride.rideable ? '<span class="badge ride">乗れる</span>' : '',
+    pal.ride && pal.ride.fly ? '<span class="badge ride">飛べる</span>' : '',
+    pal.ride && pal.ride.swim ? '<span class="badge ride">泳げる</span>' : '',
+  ].join('');
+  const iconImg = pal.icon
+    ? `<img class="pal-icon" src="${pal.icon}" alt="${pal.name}">`
+    : '<div class="pal-icon-empty"></div>';
+  const scoreText = g.count > 1
+    ? `1体あたり実効${Math.round(g.totalEffective/g.count)} ・ 合計実効${Math.round(g.totalEffective)}(${g.count}体分)`
+    : `実効${Math.round(g.totalEffective)}`;
+
+  document.getElementById('palModalBody').innerHTML = `
+    <div class="modal-header">
+      ${iconImg}
+      <div>
+        <div class="modal-title">${pal.name}</div>
+        <div class="modal-subtitle">${pal.types.join('/')} ・ ${scoreText}</div>
+      </div>
+    </div>
+    <div>${timeBadge}${roleBadges}</div>
+    ${rideBadges ? '<div style="margin-top:6px;">'+rideBadges+'</div>' : ''}
+    ${passiveBadges ? '<div style="margin-top:6px;">'+passiveBadges+'</div>' : ''}
+    <div class="pskill" style="margin-top:10px;">◆ ${pal.pskill}</div>
+    <div style="margin-top:10px;font-size:11px;color:var(--parchment-dim);">1体あたり食事量: ${pal.meal||0}</div>
+  `;
+  document.getElementById('palModalOverlay').classList.add('open');
+}
+function closePalModal(){
+  document.getElementById('palModalOverlay').classList.remove('open');
+}
+document.getElementById('palModalClose').addEventListener('click', closePalModal);
+document.getElementById('palModalOverlay').addEventListener('click', (e) => {
+  if(e.target.id === 'palModalOverlay') closePalModal();
+});
+
 document.getElementById('computeBtn').addEventListener('click', compute);
-compute();
+// 自己診断テストは一時的にroleWeights等のグローバル状態を書き換えて元に戻すため、
+// 初回の自動計算はテストが完全に終わって状態が復元されてから実行する
+// (自己診断が長引いた場合に、まだテスト用の値のまま計算してしまう競合を避けるため)。
+selfTestPromise.then(() => compute());
 </script>
 </body>
 </html>
