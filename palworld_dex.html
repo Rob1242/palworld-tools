@@ -203,11 +203,17 @@ function renderChips(){
   });
 }
 
+// ひらがな入力でもカタカナのパル名にヒットするよう、ひらがなをカタカナに正規化して比較する
+// (パル名はほぼカタカナ表記のため。「る」で検索→「ル」を含む名前にもヒットする)
+function toKana(str){
+  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
+}
+
 function filteredSorted(){
   let list = PAL_DEX_DATA.filter(p => {
     if(state.query){
       const q = state.query.toLowerCase();
-      const hit = p.name.includes(state.query) || (p.en_name && p.en_name.toLowerCase().includes(q));
+      const hit = toKana(p.name).includes(toKana(state.query)) || (p.en_name && p.en_name.toLowerCase().includes(q));
       if(!hit) return false;
     }
     if(state.activeTypes.size > 0){

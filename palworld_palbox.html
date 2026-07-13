@@ -457,7 +457,8 @@ function renderBoxGrid(){
     if(!boxState.query) return true;
     const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
     const q = boxState.query.toLowerCase();
-    return (p && p.name.includes(boxState.query)) || (inst.nickname && inst.nickname.includes(boxState.query))
+    const qKana = toKana(boxState.query);
+    return (p && toKana(p.name).includes(qKana)) || (inst.nickname && toKana(inst.nickname).includes(qKana))
       || (p && p.en_name && p.en_name.toLowerCase().includes(q));
   });
   document.getElementById("boxCountTag").textContent = `所持${instances.length}体 / 表示${list.length}体`;
@@ -590,12 +591,19 @@ function iconOf(asset){
   return info && info.icon;
 }
 
+// ひらがな入力でもカタカナのパル名・技名・パッシブ名にヒットするよう正規化する
+// (「る」→「ル」を含む名前にもヒット)
+function toKana(str){
+  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
+}
+
 function setupPicker(inputEl, resultsEl, onPick){
   inputEl.addEventListener("input", () => {
     const q = inputEl.value.trim().toLowerCase();
     if(!q){ resultsEl.style.display = "none"; return; }
+    const qKana = toKana(q);
     const matches = PAL_LIST.filter(p =>
-      p.displayName.toLowerCase().includes(q) || p.asset.toLowerCase().includes(q)
+      toKana(p.displayName.toLowerCase()).includes(qKana) || p.asset.toLowerCase().includes(q)
     ).slice(0, 30);
     if(matches.length === 0){
       resultsEl.innerHTML = `<div class="pal-picker-item">見つかりません</div>`;
@@ -773,11 +781,12 @@ function renderSkillPickList(query){
   const asset = pformState.asset;
   const learnset = asset ? (LEARNSET_DATA[asset] || []) : [];
   const q = (query||'').toLowerCase();
+  const qKana = toKana(query||'');
   let pool;
   if(q){
     pool = Object.keys(ALL_SKILLS_MAP).filter(a => {
       const jp = ALL_SKILLS_MAP[a] || '';
-      return jp.includes(query) || a.toLowerCase().includes(q);
+      return toKana(jp).includes(qKana) || a.toLowerCase().includes(q);
     }).slice(0, 40);
   } else {
     pool = learnset.map(e => e.asset);
@@ -814,8 +823,9 @@ function renderSkillPickList(query){
 
 function renderPassivePickList(query){
   const q = (query||'').toLowerCase();
+  const qKana = toKana(query||'');
   let pool = PASSIVES_DATA;
-  if(q){ pool = pool.filter(p => p.name.includes(query) || p.asset.toLowerCase().includes(q)); }
+  if(q){ pool = pool.filter(p => toKana(p.name).includes(qKana) || p.asset.toLowerCase().includes(q)); }
   pool = pool.slice(0, 60);
   const list = document.getElementById('passivePickList');
   list.innerHTML = pool.map(p => {

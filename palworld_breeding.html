@@ -227,12 +227,18 @@ function iconOf(asset){
   return info && info.icon;
 }
 
+// ひらがな入力でもカタカナのパル名にヒットするよう正規化する(「る」→「ル」を含む名前にもヒット)
+function toKana(str){
+  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
+}
+
 function setupPicker(inputEl, resultsEl, onPick){
   inputEl.addEventListener("input", () => {
     const q = inputEl.value.trim().toLowerCase();
     if(!q){ resultsEl.style.display = "none"; return; }
+    const qKana = toKana(q);
     const matches = PAL_LIST.filter(p =>
-      p.displayName.toLowerCase().includes(q) || p.asset.toLowerCase().includes(q)
+      toKana(p.displayName.toLowerCase()).includes(qKana) || p.asset.toLowerCase().includes(q)
     ).slice(0, 30);
     if(matches.length === 0){
       resultsEl.innerHTML = `<div class="pal-picker-item">見つかりません</div>`;
