@@ -1,11 +1,12 @@
 import json
-import re
+
+from js_data_writer import write_js_consts
 
 CLEAN_PATH = "palworld_pals_clean.json"
 NAME_MAP_PATH = "palworld_name_jp_en_map.json"
 COMBAT_PATH = "palworld_combat_stats.json"
 OUTPUT_PATH = "palworld_dex_data.json"
-HTML_PATH = "palworld_dex.html"
+JS_OUTPUT_PATH = "game_data/dex_data.js"
 
 STAT_KEYS = [
     "hp",
@@ -96,20 +97,13 @@ def main():
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(dex, f, ensure_ascii=False, indent=2)
 
-    serialized = json.dumps(dex, ensure_ascii=False, separators=(",", ":"))
-    html = open(HTML_PATH, encoding="utf-8").read()
-    pattern = re.compile(r"const PAL_DEX_DATA = \[\];")
-    if not pattern.search(html):
-        raise ValueError("const PAL_DEX_DATA = []; プレースホルダが見つかりませんでした")
-    html = pattern.sub(lambda m: f"const PAL_DEX_DATA = {serialized};", html, count=1)
-    with open(HTML_PATH, "w", encoding="utf-8") as f:
-        f.write(html)
+    write_js_consts(JS_OUTPUT_PATH, [("PAL_DEX_DATA", dex)])
 
     print(f"total: {len(dex)}")
     print(f"exact combat-stat match: {exact_match}")
     print(f"variant fallback (1.0 elemental variant, using base-form stats, flagged): {variant_fallback}")
     print(f"no match at all: {no_match}")
-    print(f"{OUTPUT_PATH} written, {HTML_PATH} updated")
+    print(f"{OUTPUT_PATH} written, {JS_OUTPUT_PATH} written")
 
 
 if __name__ == "__main__":

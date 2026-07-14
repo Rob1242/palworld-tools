@@ -1,23 +1,20 @@
 import json
 import os
-import re
 
+from js_data_writer import write_js_consts
+
+# DEX_PATH/BREEDING_PATHはこのスクリプト自体の出力ではなく、学習ルート(習得技)を
+# 図鑑収録種族だけに絞り込むための入力データとして読むのみ(PAL_BOX_DATA/BREEDING_DATA
+# 自体はbuild_dex_data.py・build_collab_pals.py・build_breeding_data.pyがgame_data/内の
+# 専用JSファイルとして書き出し、palworld_palbox.htmlはそれらを<script src>で共有する)。
 DEX_PATH = "palworld_dex_data.json"
 BREEDING_PATH = "palworld_breeding_data.json"
 LEARNSET_PATH = "game_data/pals_learnset.json"
 PASSIVES_PATH = "palworld_passives_merged.json"
 SKILLS_JP_PATH = "game_data/skills_jp.json"
-HTML_PATH = "palworld_palbox.html"
-
-
-def inject_const(html, const_name, data):
-    # 各定数は1行に丸ごと注入されるため、プレースホルダ(= {}; / = [];)だけでなく
-    # 既に注入済みの行(再実行時)も同じ1行パターンとして一括で置き換えられる。
-    serialized = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-    pattern = re.compile(r"^const " + re.escape(const_name) + r" = .*$", re.MULTILINE)
-    if not pattern.search(html):
-        raise ValueError(f"{HTML_PATH} に `const {const_name} = ...;` の行が見つかりません")
-    return pattern.sub(lambda m: f"const {const_name} = {serialized};", html, count=1)
+JS_OUTPUT_PATH = "game_data/learnset_data.js"
+PASSIVES_JS_OUTPUT_PATH = "game_data/passives_data.js"
+SKILLS_JP_JS_OUTPUT_PATH = "game_data/skills_jp_data.js"
 
 
 def build_learnset_data(dex, breeding, skills_jp):
@@ -72,26 +69,18 @@ def build_skills_jp_lookup():
 
 
 def main():
-    if not os.path.exists(HTML_PATH):
-        print(f"{HTML_PATH} がまだ存在しません。先にTask 3 Step 2でファイルを作成してください。")
-        return
     dex = json.load(open(DEX_PATH, encoding="utf-8"))
     breeding = json.load(open(BREEDING_PATH, encoding="utf-8"))
     skills_jp = build_skills_jp_lookup()
     learnset = build_learnset_data(dex, breeding, skills_jp)
     passives = build_passives_data()
 
-    html = open(HTML_PATH, encoding="utf-8").read()
-    html = inject_const(html, "PAL_BOX_DATA", dex)
-    html = inject_const(html, "BREEDING_DATA", breeding)
-    html = inject_const(html, "LEARNSET_DATA", learnset)
-    html = inject_const(html, "PASSIVES_DATA", passives)
-    html = inject_const(html, "SKILLS_JP_DATA", skills_jp)
-    open(HTML_PATH, "w", encoding="utf-8").write(html)
+    write_js_consts(JS_OUTPUT_PATH, [("LEARNSET_DATA", learnset)])
+    write_js_consts(PASSIVES_JS_OUTPUT_PATH, [("PASSIVES_DATA", passives)])
+    write_js_consts(SKILLS_JP_JS_OUTPUT_PATH, [("SKILLS_JP_DATA", skills_jp)])
     print(
-        f"PAL_BOX_DATA: {len(dex)}件、BREEDING_DATA: {len(breeding['pals'])}パル、"
         f"LEARNSET_DATA: {len(learnset)}種族、PASSIVES_DATA: {len(passives)}件、"
-        f"SKILLS_JP_DATA: {len(skills_jp)}件を{HTML_PATH}に注入しました"
+        f"SKILLS_JP_DATA: {len(skills_jp)}件を書き出しました"
     )
     if not skills_jp:
         print("  (注意: game_data/skills_jp.json が未生成のため技名は英語のままです。"

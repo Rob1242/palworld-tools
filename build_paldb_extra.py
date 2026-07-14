@@ -1,20 +1,12 @@
 import glob
 import json
-import os
-import re
+
+from js_data_writer import write_js_consts
 
 DEX_PATH = "palworld_dex_data.json"
 RAW_GLOB = "game_data/paldb_raw/*.json"
 OUTPUT_PATH = "game_data/paldb_extra.json"
-HTML_TARGETS = ["palworld_dex.html", "palworld_palbox.html"]
-
-
-def inject_const(html, const_name, data):
-    serialized = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-    pattern = re.compile(r"^const " + re.escape(const_name) + r" = .*$", re.MULTILINE)
-    if not pattern.search(html):
-        raise ValueError(f"`const {const_name} = ...;` の行が見つかりません(先にプレースホルダ行を追加してください)")
-    return pattern.sub(lambda m: f"const {const_name} = {serialized};", html, count=1)
+JS_OUTPUT_PATH = "game_data/paldb_extra_data.js"
 
 
 def main():
@@ -52,14 +44,8 @@ def main():
     json.dump(merged, open(OUTPUT_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     print(f"{OUTPUT_PATH} written ({len(merged)} pals)")
 
-    for html_path in HTML_TARGETS:
-        if not os.path.exists(html_path):
-            print(f"  ({html_path} が見つからないためスキップ)")
-            continue
-        html = open(html_path, encoding="utf-8").read()
-        html = inject_const(html, "PALDB_EXTRA_DATA", merged)
-        open(html_path, "w", encoding="utf-8").write(html)
-        print(f"  {html_path} に PALDB_EXTRA_DATA を注入しました")
+    write_js_consts(JS_OUTPUT_PATH, [("PALDB_EXTRA_DATA", merged)])
+    print(f"{JS_OUTPUT_PATH} written(palworld_dex.html・palworld_palbox.html共有)")
 
 
 if __name__ == "__main__":

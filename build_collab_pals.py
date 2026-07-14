@@ -1,10 +1,11 @@
 import json
 import os
-import re
+
+from js_data_writer import write_js_consts
 
 DEX_PATH = "palworld_dex_data.json"
 COMBAT_PATH = "palworld_combat_stats.json"
-HTML_TARGETS = ["palworld_dex.html", "palworld_palbox.html"]
+JS_OUTPUT_PATH = "game_data/dex_data.js"
 
 STAT_KEYS = [
     "hp", "melee_attack", "shot_attack", "defense", "support", "craft_speed",
@@ -110,20 +111,6 @@ def pick_stats(entry):
     return stats
 
 
-def inject_const(html_path, const_name, data):
-    if not os.path.exists(html_path):
-        print(f"  ({html_path} が見つからないためスキップ)")
-        return
-    serialized = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-    html = open(html_path, encoding="utf-8").read()
-    pattern = re.compile(r"^const " + re.escape(const_name) + r" = .*$", re.MULTILINE)
-    if not pattern.search(html):
-        raise ValueError(f"{html_path} に `const {const_name} = ...;` の行が見つかりません")
-    html = pattern.sub(lambda m: f"const {const_name} = {serialized};", html, count=1)
-    open(html_path, "w", encoding="utf-8").write(html)
-    print(f"  {html_path} に {const_name} を注入しました")
-
-
 def main():
     dex = json.load(open(DEX_PATH, encoding="utf-8"))
     combat = json.load(open(COMBAT_PATH, encoding="utf-8"))
@@ -166,8 +153,8 @@ def main():
     json.dump(dex, open(DEX_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     print(f"{added}体を追加、図鑑合計{len(dex)}体。{DEX_PATH}を更新しました。")
 
-    for target in HTML_TARGETS:
-        inject_const(target, "PAL_DEX_DATA" if target == "palworld_dex.html" else "PAL_BOX_DATA", dex)
+    write_js_consts(JS_OUTPUT_PATH, [("PAL_DEX_DATA", dex)])
+    print(f"{JS_OUTPUT_PATH} を更新しました(palworld_palbox.htmlはPAL_BOX_DATA = PAL_DEX_DATAとしてこのファイルを共有)")
 
 
 if __name__ == "__main__":

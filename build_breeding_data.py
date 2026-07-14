@@ -1,13 +1,11 @@
 import json
-import os
-import re
+
+from js_data_writer import write_js_consts
 
 BREEDING_PATH = "game_data/breedingdata.json"
 DEX_PATH = "palworld_dex_data.json"
 OUTPUT_PATH = "palworld_breeding_data.json"
-# このスクリプトが存在すればBREEDING_DATA定数を注入するHTMLファイル一覧。
-# まだ存在しないファイルは黙ってスキップする(Task 2/3でファイルが増えたらここに追記する)。
-INJECT_TARGETS = ["palworld_breeding.html", "palworld_palbox.html"]
+JS_OUTPUT_PATH = "game_data/breeding_data.js"
 
 # palworld_dex_data.json(287体+コラボ11体)には載っていないが、
 # paldb.cc/ja/<en_name> を直接確認してJP名を検証済みのパル。
@@ -144,20 +142,6 @@ def build_forward_and_reverse(bd):
     return forward, reverse
 
 
-def inject_const(html_path, const_name, data):
-    if not os.path.exists(html_path):
-        print(f"  ({html_path} はまだ存在しないためスキップ)")
-        return
-    serialized = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-    html = open(html_path, encoding="utf-8").read()
-    pattern = re.compile(r"^const " + re.escape(const_name) + r" = .*$", re.MULTILINE)
-    if not pattern.search(html):
-        raise ValueError(f"{html_path} に `const {const_name} = ...;` の行が見つかりません")
-    html = pattern.sub(lambda m: f"const {const_name} = {serialized};", html, count=1)
-    open(html_path, "w", encoding="utf-8").write(html)
-    print(f"  {html_path} に {const_name} を注入しました")
-
-
 def main():
     bd = json.load(open(BREEDING_PATH, encoding="utf-8"))
     dex = json.load(open(DEX_PATH, encoding="utf-8"))
@@ -176,8 +160,8 @@ def main():
     print(f"reverseParents entries (children with known route): {len(reverse)}")
     print(f"{OUTPUT_PATH} written")
 
-    for target in INJECT_TARGETS:
-        inject_const(target, "BREEDING_DATA", out)
+    write_js_consts(JS_OUTPUT_PATH, [("BREEDING_DATA", out)])
+    print(f"{JS_OUTPUT_PATH} written(palworld_breeding.html・palworld_palbox.html共有)")
 
 
 if __name__ == "__main__":

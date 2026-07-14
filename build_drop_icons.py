@@ -1,27 +1,13 @@
 import json
-import os
-import re
+
+from js_data_writer import write_js_consts
 
 DEX_PATH = "palworld_dex_data.json"
 BREEDING_PATH = "game_data/breedingdata.json"
 ITEMS_PATH = "game_data/items.json"
 EXTRA_PATH = "game_data/paldb_extra.json"
 OUTPUT_PATH = "game_data/item_icons.json"
-INJECT_TARGETS = ["palworld_dex.html", "palworld_palbox.html"]
-
-
-def inject_const(html_path, const_name, data):
-    if not os.path.exists(html_path):
-        print(f"  ({html_path} はまだ存在しないためスキップ)")
-        return
-    serialized = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-    html = open(html_path, encoding="utf-8").read()
-    pattern = re.compile(r"^const " + re.escape(const_name) + r" = .*$", re.MULTILINE)
-    if not pattern.search(html):
-        raise ValueError(f"{html_path} に `const {const_name} = ...;` の行が見つかりません(先にプレースホルダ行を追加してください)")
-    html = pattern.sub(lambda m: f"const {const_name} = {serialized};", html, count=1)
-    open(html_path, "w", encoding="utf-8").write(html)
-    print(f"  {html_path} に {const_name} を注入しました")
+JS_OUTPUT_PATH = "game_data/item_icons_data.js"
 
 # paldb.cc/ja/Material, /ja/Consumable, /ja/Food カテゴリページ(ブラウザ経由WebFetch)で
 # JP名と英語名の対応を実在確認済みの、パル固有ではない汎用アイテムの辞書。
@@ -216,8 +202,8 @@ def main():
     json.dump(icon_map, open(OUTPUT_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     print(f"{OUTPUT_PATH} written ({len(icon_map)} entries)")
 
-    for target in INJECT_TARGETS:
-        inject_const(target, "ITEM_ICONS", icon_map)
+    write_js_consts(JS_OUTPUT_PATH, [("ITEM_ICONS", icon_map)])
+    print(f"{JS_OUTPUT_PATH} written(palworld_dex.html・palworld_palbox.html共有)")
 
 
 if __name__ == "__main__":
