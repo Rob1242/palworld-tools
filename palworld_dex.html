@@ -464,6 +464,12 @@ document.getElementById("backBtn").addEventListener("click", closeDetail);
 
 renderChips();
 renderGrid();
+
+const initialParams = new URLSearchParams(location.search);
+const initialId = initialParams.get("id");
+if(initialId && PAL_DEX_DATA.some(p => p.id === initialId)){
+  openDetail(initialId);
+}
 </script>
 </body>
 </html>
