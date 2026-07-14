@@ -238,16 +238,15 @@
   .share-col p{margin:0 0 12px;font-size:11.5px;color:var(--parchment-dim);line-height:1.6;}
   .room-code-box{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--brass-dim);border-radius:6px;padding:10px 12px;margin-bottom:10px;}
   .room-code-box .code{font-family:var(--font-mono);font-size:20px;font-weight:700;letter-spacing:.12em;color:var(--brass);flex:1;}
-  .room-code-box .copy-btn{font-size:11px;padding:5px 10px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;cursor:pointer;font-family:var(--font-body);white-space:nowrap;}
-  .room-code-box .copy-btn:hover{border-color:var(--brass);}
+  .copy-btn{font-size:11px;padding:5px 10px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;cursor:pointer;font-family:var(--font-body);white-space:nowrap;}
+  .copy-btn:hover{border-color:var(--brass);}
   .share-input-row{display:flex;gap:8px;margin-bottom:10px;}
   .share-input-row input{flex:1;background:var(--panel);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:8px 11px;font-size:14px;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;}
   .share-input-row input:focus{outline:none;border-color:var(--brass);}
   .share-status{font-size:11.5px;color:var(--parchment-dim);min-height:16px;line-height:1.6;}
   .share-status.err{color:#ff6f6f;}
   .share-status.ok{color:var(--lime);}
-  .shared-view{margin-top:18px;border-top:1px solid var(--line);padding-top:16px;}
-  .shared-view-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+  .shared-view-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;margin-top:18px;border-top:1px solid var(--line);padding-top:16px;}
   .shared-view-head h3{margin:0;font-size:13.5px;font-family:var(--font-display);}
   .shared-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px;max-height:340px;overflow-y:auto;padding-right:4px;}
   .shared-detail{margin-top:10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:12px;}
@@ -404,41 +403,42 @@
   <div class="pform-overlay" id="shareOverlay">
     <div class="pform-box" style="max-width:680px;">
       <button class="pform-close" id="shareClose">×</button>
-      <p class="pform-title">友達と共有</p>
-      <p class="pform-hint">合言葉(6桁のコード)を知っている人だけがお互いのパルボックスを見られます。パスワードのような強い認証ではないので、合言葉は信頼できる友達にだけ教えてください。</p>
-      <div class="share-columns">
-        <div class="share-col">
-          <h3>自分のボックスを共有する</h3>
-          <p>今のボックスの内容をアップロードして、合言葉を発行します。内容を編集したら「最新の内容を再アップロード」で更新できます。</p>
-          <div id="shareCreateIdle">
-            <button class="add-pal-btn" id="shareCreateBtn">共有を始める</button>
+      <p class="pform-title">友達と共有ボックス</p>
+      <p class="pform-hint">合言葉(6桁のコード)を知っている人同士で、1つの共有ボックスに一緒にパルを追加できます。自分だけのボックスとは別に管理され、追加・削除はリアルタイムでお互いに反映されます。パスワードのような強い認証ではないので、合言葉は信頼できる友達にだけ教えてください。</p>
+
+      <div id="shareJoinView">
+        <div class="share-columns">
+          <div class="share-col">
+            <h3>新しい共有ボックスを作る</h3>
+            <p>空の共有ボックスを作って合言葉を発行します。友達にその合言葉を伝えてください。</p>
+            <button class="add-pal-btn" id="shareCreateBtn">共有ボックスを作る</button>
           </div>
-          <div id="shareCreateActive" style="display:none;">
-            <div class="room-code-box">
-              <span class="code" id="shareCodeText">------</span>
-              <button class="copy-btn" id="shareCopyBtn">コピー</button>
+          <div class="share-col">
+            <h3>合言葉で入る</h3>
+            <p>友達から教えてもらった合言葉を入力してください。</p>
+            <div class="share-input-row">
+              <input type="text" id="shareJoinInput" placeholder="例: K3F9QZ" maxlength="6">
+              <button class="add-pal-btn" id="shareJoinBtn">入る</button>
             </div>
-            <button class="add-pal-btn" id="shareRepublishBtn" style="width:100%;margin-bottom:8px;">最新の内容を再アップロード</button>
           </div>
-          <div class="share-status" id="shareCreateStatus"></div>
-        </div>
-        <div class="share-col">
-          <h3>合言葉でボックスを見る</h3>
-          <p>友達から教えてもらった合言葉を入力すると、そのボックスを閲覧できます(自分のボックスには影響しません)。</p>
-          <div class="share-input-row">
-            <input type="text" id="shareJoinInput" placeholder="例: K3F9QZ" maxlength="6">
-            <button class="add-pal-btn" id="shareJoinBtn">見る</button>
-          </div>
-          <div class="share-status" id="shareJoinStatus"></div>
         </div>
       </div>
-      <div class="shared-view" id="sharedView" style="display:none;">
+
+      <div id="shareRoomView" style="display:none;">
+        <div class="room-code-box">
+          <span class="code" id="shareRoomCodeText">------</span>
+          <button class="copy-btn" id="shareCopyBtn">コピー</button>
+          <button class="copy-btn" id="shareLeaveBtn">退出</button>
+        </div>
         <div class="shared-view-head">
-          <h3 id="sharedViewTitle">友達のパルボックス</h3>
+          <h3>共有ボックス</h3>
+          <button class="add-pal-btn" id="openSharedAddBtn" style="margin-left:auto;">+ パルを追加</button>
         </div>
         <div class="shared-grid" id="sharedGrid"></div>
         <div class="shared-detail" id="sharedDetail" style="display:none;"></div>
       </div>
+
+      <div class="share-status" id="shareStatus" style="margin-top:10px;"></div>
     </div>
   </div>
 
@@ -1066,7 +1066,7 @@ document.querySelectorAll(".mode-tab").forEach(tab => {
 });
 
 // ---- パル登録フォーム(捕まえた個体を1体ずつボックスへ追加/編集) ----
-const pformState = { editUid: null, asset: null, skills: [], passives: [] };
+const pformState = { editUid: null, asset: null, skills: [], passives: [], target: "local" };
 
 function pickSpeciesForPform(asset){
   pformState.asset = asset;
@@ -1089,7 +1089,7 @@ function pickSpeciesForPform(asset){
   document.getElementById('pformSkillSection').style.display = 'block';
   document.getElementById('pformPassiveSection').style.display = 'block';
   document.getElementById('pformSaveBtn').disabled = false;
-  document.getElementById('pformSaveBtn').textContent = pformState.editUid ? '保存する' : 'ボックスに追加';
+  document.getElementById('pformSaveBtn').textContent = pformState.editUid ? '保存する' : (pformState.target === "shared" ? '共有ボックスに追加' : 'ボックスに追加');
   document.getElementById('skillSearchInput').value = '';
   document.getElementById('passiveSearchInput').value = '';
   renderSkillPickList('');
@@ -1210,12 +1210,13 @@ function renderPickedChips(){
   });
 }
 
-function openPform(editUid){
+function openPform(editUid, target){
   pformState.editUid = editUid || null;
+  pformState.target = target || "local";
   pformState.skills = [];
   pformState.passives = [];
   pformState.asset = null;
-  document.getElementById('pformTitle').textContent = editUid ? 'パルを編集' : 'パルを登録';
+  document.getElementById('pformTitle').textContent = editUid ? 'パルを編集' : (pformState.target === "shared" ? '共有ボックスにパルを追加' : 'パルを登録');
   document.getElementById('pformSpeciesInput').value = '';
   document.getElementById('pformSpeciesPicked').style.display = 'none';
   document.getElementById('pformDetailSections').style.display = 'none';
@@ -1280,6 +1281,13 @@ document.getElementById('pformSaveBtn').addEventListener('click', () => {
     passives: pformState.passives.slice(),
     createdAt: Date.now(),
   };
+
+  if(pformState.target === "shared"){
+    saveInstanceToSharedRoom(inst);
+    closePform();
+    return;
+  }
+
   const list = getInstances();
   if(pformState.editUid){
     const idx = list.findIndex(x => x.uid === pformState.editUid);
@@ -1305,13 +1313,14 @@ document.getElementById('pformOverlay').addEventListener('click', e => { if(e.ta
 document.getElementById('skillSearchInput').addEventListener('input', e => renderSkillPickList(e.target.value));
 document.getElementById('passiveSearchInput').addEventListener('input', e => renderPassivePickList(e.target.value));
 
-// ===== 友達と共有(Firebase Firestore) =====
-// 合言葉(6桁のコード)をキーにしたFirestoreドキュメントにボックスの内容をアップロード/閲覧する。
+// ===== 友達と共有ボックス(Firebase Firestore) =====
+// 合言葉(6桁のコード)ごとにFirestoreのサブコレクション(palboxRooms/{code}/pals/{uid})を持ち、
+// 個体1体=1ドキュメントとして扱う。複数人が同時に追加してもお互いの内容を上書きしない。
 // game_data/firebase_config.js が未設定(apiKey空)の間は、共有機能全体を無効として扱う。
 let firebaseApp = null;
 let db = null;
 let currentRoomCode = null;
-let sharedViewUnsubscribe = null;
+let sharedRoomUnsubscribe = null;
 let sharedState = { instances: [] };
 
 function firebaseReady(){
@@ -1324,8 +1333,8 @@ function firebaseReady(){
   return true;
 }
 
-function setShareStatus(elId, msg, cls){
-  const el = document.getElementById(elId);
+function setShareStatus(msg, cls){
+  const el = document.getElementById("shareStatus");
   el.textContent = msg;
   el.className = "share-status" + (cls ? " " + cls : "");
 }
@@ -1337,39 +1346,69 @@ function generateRoomCode(){
   return code;
 }
 
-async function createShareRoom(){
+function roomPalsRef(code){
+  return db.collection("palboxRooms").doc(code).collection("pals");
+}
+
+function enterSharedRoom(code){
   if(!firebaseReady()){
-    setShareStatus("shareCreateStatus", "Firebaseが未設定のため、共有機能はまだ準備中です。", "err");
+    setShareStatus("Firebaseが未設定のため、共有機能はまだ準備中です。", "err");
     return;
   }
-  setShareStatus("shareCreateStatus", "アップロード中…");
+  if(sharedRoomUnsubscribe){ sharedRoomUnsubscribe(); sharedRoomUnsubscribe = null; }
+  currentRoomCode = code;
+  document.getElementById("shareJoinView").style.display = "none";
+  document.getElementById("shareRoomView").style.display = "block";
+  document.getElementById("shareRoomCodeText").textContent = code;
+  setShareStatus("接続中…");
+  sharedRoomUnsubscribe = roomPalsRef(code).onSnapshot(snapshot => {
+    const instances = snapshot.docs.map(d => d.data());
+    setShareStatus(`合言葉「${code}」の共有ボックス(リアルタイム更新中)`, "ok");
+    renderSharedGrid(instances);
+  }, err => {
+    setShareStatus("読み込みに失敗しました: " + err.message, "err");
+  });
+}
+
+function leaveSharedRoom(){
+  if(sharedRoomUnsubscribe){ sharedRoomUnsubscribe(); sharedRoomUnsubscribe = null; }
+  currentRoomCode = null;
+  document.getElementById("shareRoomView").style.display = "none";
+  document.getElementById("shareJoinView").style.display = "block";
+  document.getElementById("shareJoinInput").value = "";
+  document.getElementById("sharedDetail").style.display = "none";
+  setShareStatus("");
+}
+
+function createSharedRoom(){
+  if(!firebaseReady()){
+    setShareStatus("Firebaseが未設定のため、共有機能はまだ準備中です。", "err");
+    return;
+  }
+  enterSharedRoom(generateRoomCode());
+}
+
+function joinSharedRoom(){
+  const code = document.getElementById("shareJoinInput").value.trim().toUpperCase();
+  if(!code){ setShareStatus("合言葉を入力してください。", "err"); return; }
+  enterSharedRoom(code);
+}
+
+async function saveInstanceToSharedRoom(inst){
+  if(!currentRoomCode || !firebaseReady()) return;
   try {
-    const code = generateRoomCode();
-    await db.collection("palboxRooms").doc(code).set({
-      instances: getInstances(),
-      updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-    currentRoomCode = code;
-    document.getElementById("shareCodeText").textContent = code;
-    document.getElementById("shareCreateIdle").style.display = "none";
-    document.getElementById("shareCreateActive").style.display = "block";
-    setShareStatus("shareCreateStatus", "共有を開始しました。この合言葉を友達に伝えてください。", "ok");
+    await roomPalsRef(currentRoomCode).doc(inst.uid).set(inst);
   } catch(e){
-    setShareStatus("shareCreateStatus", "アップロードに失敗しました: " + e.message, "err");
+    setShareStatus("アップロードに失敗しました: " + e.message, "err");
   }
 }
 
-async function republishRoom(){
+async function deleteFromSharedRoom(uid){
   if(!currentRoomCode || !firebaseReady()) return;
-  setShareStatus("shareCreateStatus", "アップロード中…");
   try {
-    await db.collection("palboxRooms").doc(currentRoomCode).set({
-      instances: getInstances(),
-      updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-    setShareStatus("shareCreateStatus", "最新の内容をアップロードしました。", "ok");
+    await roomPalsRef(currentRoomCode).doc(uid).delete();
   } catch(e){
-    setShareStatus("shareCreateStatus", "アップロードに失敗しました: " + e.message, "err");
+    setShareStatus("削除に失敗しました: " + e.message, "err");
   }
 }
 
@@ -1377,7 +1416,7 @@ function renderSharedGrid(instances){
   sharedState.instances = instances;
   const grid = document.getElementById("sharedGrid");
   if(!instances.length){
-    grid.innerHTML = `<div class="empty-box-msg" style="grid-column:1/-1;padding:20px;">まだパルが登録されていません。</div>`;
+    grid.innerHTML = `<div class="empty-box-msg" style="grid-column:1/-1;padding:20px;">まだパルが登録されていません。「+ パルを追加」から登録しましょう。</div>`;
     document.getElementById("sharedDetail").style.display = "none";
     return;
   }
@@ -1422,54 +1461,37 @@ function showSharedDetail(uid){
     <div style="margin-bottom:6px;color:var(--parchment-dim);font-size:11px;">技</div>
     <div style="margin-bottom:10px;">${skillsHtml}</div>
     <div style="margin-bottom:6px;color:var(--parchment-dim);font-size:11px;">パッシブ</div>
-    <div>${passivesHtml}</div>
+    <div style="margin-bottom:12px;">${passivesHtml}</div>
+    <button class="copy-btn" id="sharedDeleteBtn" style="border-color:#7a2e2e;color:#ff8080;">この共有ボックスから削除</button>
   `;
-  detailEl.style.display = "block";
-}
-
-async function viewSharedRoom(){
-  const code = document.getElementById("shareJoinInput").value.trim().toUpperCase();
-  if(!code){ setShareStatus("shareJoinStatus", "合言葉を入力してください。", "err"); return; }
-  if(!firebaseReady()){
-    setShareStatus("shareJoinStatus", "Firebaseが未設定のため、共有機能はまだ準備中です。", "err");
-    return;
-  }
-  if(sharedViewUnsubscribe){ sharedViewUnsubscribe(); sharedViewUnsubscribe = null; }
-  setShareStatus("shareJoinStatus", "読み込み中…");
-  sharedViewUnsubscribe = db.collection("palboxRooms").doc(code).onSnapshot(doc => {
-    if(!doc.exists){
-      setShareStatus("shareJoinStatus", "その合言葉のボックスが見つかりません。", "err");
-      document.getElementById("sharedView").style.display = "none";
-      return;
+  document.getElementById("sharedDeleteBtn").addEventListener("click", () => {
+    if(confirm("このパルを共有ボックスから削除しますか?(元に戻せません)")){
+      deleteFromSharedRoom(uid);
+      detailEl.style.display = "none";
     }
-    setShareStatus("shareJoinStatus", `合言葉「${code}」のボックスを表示中(リアルタイム更新)`, "ok");
-    document.getElementById("sharedViewTitle").textContent = `友達のパルボックス(合言葉: ${code})`;
-    document.getElementById("sharedView").style.display = "block";
-    renderSharedGrid(doc.data().instances || []);
-  }, err => {
-    setShareStatus("shareJoinStatus", "読み込みに失敗しました: " + err.message, "err");
   });
+  detailEl.style.display = "block";
 }
 
 function openShareModal(){ document.getElementById("shareOverlay").classList.add("open"); }
 function closeShareModal(){
   document.getElementById("shareOverlay").classList.remove("open");
-  if(sharedViewUnsubscribe){ sharedViewUnsubscribe(); sharedViewUnsubscribe = null; }
 }
 
 document.getElementById("openShareBtn").addEventListener("click", openShareModal);
 document.getElementById("shareClose").addEventListener("click", closeShareModal);
 document.getElementById("shareOverlay").addEventListener("click", e => { if(e.target.id === "shareOverlay") closeShareModal(); });
-document.getElementById("shareCreateBtn").addEventListener("click", createShareRoom);
-document.getElementById("shareRepublishBtn").addEventListener("click", republishRoom);
-document.getElementById("shareJoinBtn").addEventListener("click", viewSharedRoom);
-document.getElementById("shareJoinInput").addEventListener("keydown", e => { if(e.key === "Enter") viewSharedRoom(); });
+document.getElementById("shareCreateBtn").addEventListener("click", createSharedRoom);
+document.getElementById("shareJoinBtn").addEventListener("click", joinSharedRoom);
+document.getElementById("shareJoinInput").addEventListener("keydown", e => { if(e.key === "Enter") joinSharedRoom(); });
+document.getElementById("shareLeaveBtn").addEventListener("click", leaveSharedRoom);
+document.getElementById("openSharedAddBtn").addEventListener("click", () => openPform(null, "shared"));
 document.getElementById("shareCopyBtn").addEventListener("click", () => {
   if(!currentRoomCode) return;
   navigator.clipboard.writeText(currentRoomCode).then(() => {
-    setShareStatus("shareCreateStatus", "コピーしました。", "ok");
+    setShareStatus("合言葉をコピーしました。", "ok");
   }).catch(() => {
-    setShareStatus("shareCreateStatus", "コピーに失敗しました。手動で選択してコピーしてください。", "err");
+    setShareStatus("コピーに失敗しました。手動で選択してコピーしてください。", "err");
   });
 });
 </script>
