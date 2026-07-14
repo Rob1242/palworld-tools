@@ -6,7 +6,7 @@
 <title>パルボックス | Palworld攻略ツール</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg: #0a0d12; --panel: #131a22; --panel2: #1a222c;
@@ -15,8 +15,10 @@
     --teal: #35d2ff; --teal-dim: #1c6d86;
     --line: rgba(142,183,214,.16); --danger: #e2543f;
     --hp: #7bdb52; --sp: #f0a233;
+    --lime: #e3ff3d; --lime-dim: #96b31f;
+    --magenta: #ff2e7e; --magenta-dim: #a01a52;
     --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
-    --font-display: "Rajdhani", var(--font-body);
+    --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
     --font-mono: "JetBrains Mono", monospace;
     /* element type colors */
     --t-無: #a7aeb8; --t-炎: #ef7148; --t-水: #3f93d6; --t-雷: #ecc23f;
@@ -268,6 +270,46 @@
   .pform-save-btn:hover{box-shadow:0 0 16px rgba(53,210,255,.4);}
   .pform-save-btn:disabled{opacity:.4;cursor:default;box-shadow:none;}
   @media (max-width:760px){ .box-layout{flex-direction:column;} .box-side{width:100%;position:static;} }
+
+  /* ===== v2 signature system: glitch / angular nav / motion (shared across tools) ===== */
+  ::selection{background:var(--lime);color:#0a0d12;}
+  .icon{display:inline-flex;width:1em;height:1em;vertical-align:-0.15em;}
+  .icon svg{width:100%;height:100%;}
+
+  .glitch-hover{position:relative;display:inline-block;cursor:default;}
+  .glitch-hover::before, .glitch-hover::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;height:100%;overflow:hidden;opacity:0;}
+  .glitch-hover:hover::before{opacity:.7;color:var(--lime);clip-path:inset(0 0 55% 0);transform:translate(-2px,-1px);animation:glitchShift .32s steps(2) infinite;}
+  .glitch-hover:hover::after{opacity:.7;color:var(--magenta);clip-path:inset(55% 0 0 0);transform:translate(2px,1px);animation:glitchShift .32s steps(2) infinite reverse;}
+  @keyframes glitchShift{0%{transform:translate(-2px,-1px);}50%{transform:translate(2px,1px);}100%{transform:translate(-1px,1px);}}
+
+  nav.tabs{background:transparent;border:none;padding:0;gap:6px;}
+  nav.tabs a{position:relative;font-size:12.5px;color:var(--parchment-dim);text-decoration:none;padding:9px 18px 9px 20px;font-weight:600;font-family:var(--font-display);letter-spacing:.02em;
+    background:var(--panel2);border:1px solid var(--line);clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
+    transition:color .15s, background .15s, transform .15s;}
+  nav.tabs a span{position:relative;z-index:1;}
+  nav.tabs a::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg, transparent 30%, rgba(227,255,61,.35) 48%, rgba(255,46,126,.35) 52%, transparent 70%);
+    opacity:0;transition:opacity .2s;}
+  nav.tabs a:hover{color:var(--parchment);transform:translateY(-1px);}
+  nav.tabs a:hover::before{opacity:1;}
+  nav.tabs a.current{color:#08111a;background:var(--lime);border-color:var(--lime);font-weight:700;box-shadow:0 0 16px rgba(227,255,61,.45);}
+  nav.tabs a.current::before{display:none;}
+
+  .section h2{position:relative;display:flex;align-items:center;gap:8px;}
+  .section h2::before{content:"";width:9px;height:9px;background:var(--lime);clip-path:polygon(0 20%,80% 0,100% 80%,20% 100%);flex-shrink:0;box-shadow:0 0 8px rgba(227,255,61,.6);}
+
+  .chip, .back-btn, nav.tabs a, button{transition:transform .15s cubic-bezier(.2,.8,.3,1.3), border-color .15s, box-shadow .15s, background .15s;}
+  .chip:active, .back-btn:active, nav.tabs a:active{transform:scale(.96);}
+
+  .back-btn, .btn, button.primary{position:relative;overflow:hidden;}
+  .back-btn::before, .btn::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg, transparent, rgba(227,255,61,.25), transparent);transform:skewX(-20deg);transition:left .4s;pointer-events:none;}
+  .back-btn:hover::before, .btn:hover::before{left:120%;}
+  .back-btn:hover{border-color:var(--lime-dim);box-shadow:0 0 14px rgba(227,255,61,.12);}
+
+  .card{overflow:hidden;}
+  .card::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg, transparent 40%, rgba(227,255,61,.08) 50%, rgba(255,46,126,.08) 58%, transparent 68%);
+    opacity:0;transition:opacity .2s;pointer-events:none;}
+  .card:hover{border-color:var(--lime-dim);box-shadow:0 10px 28px rgba(0,0,0,.35), 0 0 0 1px rgba(227,255,61,.15);}
+  .card:hover::after{opacity:1;}
 </style>
 </head>
 <body>
@@ -275,13 +317,13 @@
   <header class="top">
     <div class="brand">
       <div class="brand-badge">P</div>
-      <h1 class="title"><small>Palworld 攻略ツール</small>パルボックス</h1>
+      <h1 class="title glitch-hover" data-text="パルボックス"><small>Palworld 攻略ツール</small>パルボックス</h1>
     </div>
     <nav class="tabs">
-      <a href="palworld_base_planner_v2.html">拠点プランナー</a>
-      <a href="palworld_dex.html">パル図鑑</a>
-      <a href="palworld_breeding.html">配合検索</a>
-      <a href="palworld_palbox.html" class="current">パルボックス</a>
+      <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
+      <a href="palworld_dex.html"><span>パル図鑑</span></a>
+      <a href="palworld_breeding.html"><span>配合検索</span></a>
+      <a href="palworld_palbox.html" class="current"><span>パルボックス</span></a>
     </nav>
   </header>
 
@@ -462,7 +504,9 @@ function skillDisplayName(asset){
 }
 function passiveByName(name){ return PASSIVES_DATA.find(p => p.name === name); }
 
-const ROLE_ICON = {"火おこし":"🔥","水やり":"💧","種まき":"🌱","発電":"⚡","手作業":"🔧","採集":"🧺","伐採":"🪓","採掘":"⛏️","製薬":"🧪","冷却":"❄️","運搬":"📦","牧場":"🐑"};
+const ICONS = {"flame": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 1.5c1 2.6-.4 3.7-1.6 5-1.3 1.4-2.2 2.8-2.2 4.8a3.8 3.8 0 0 0 7.6 0c0-1.3-.5-2.1-1.1-2.9-.2 1.4-.9 2-1.6 2-1 0-1.5-.8-1.2-1.8.5-1.6 1.7-2.6 1.7-4.4 0-1.1-.6-2-1.6-2.7Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/></svg>", "droplet": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 2.5s5 5.6 5 9.2a5 5 0 1 1-10 0c0-3.6 5-9.2 5-9.2Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/></svg>", "sprout": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 18v-7M10 11C10 7 7 5 3.5 5.5 3.5 9 6 11 10 11ZM10 8c0-4 3-5.5 6.5-5 0 3.6-2.5 6-6.5 6Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></svg>", "bolt": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M11 1.5 3.5 11.5h4.7L8.5 18.5 16.5 8h-5l0.5-6.5Z\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linejoin=\"round\"/></svg>", "wrench": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M13.3 3.2a4 4 0 0 0-5.4 4.9L2.5 13.5l3 3 5.4-5.4a4 4 0 0 0 4.9-5.4l-2.5 2.5-2.2-.4-.4-2.2 2.6-2.8Z\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linejoin=\"round\"/></svg>", "basket": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3 8h14l-1.3 8.2a1 1 0 0 1-1 .8H5.3a1 1 0 0 1-1-.8L3 8Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><path d=\"M6 8 8 3M14 8l-2-5M8 11.5v3.5M12 11.5v3.5\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"/></svg>", "axe": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M4 16 14 6\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\"/><path d=\"M12 4.2c2.2-1 4-1.4 5.3-1 .4 1.3 0 3.1-1 5.3-1.8.6-3.4.3-4.8-1-1.3-1.4-1.6-3-1-4.8.7-.2 1.2-.2 1.5.5Z\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linejoin=\"round\"/></svg>", "pickaxe": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5 15 13 7\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\"/><path d=\"M17 3c-3.4-.6-6.2.2-8.6 2.6C6 7.9 5.2 10.7 5.8 14.1c3.4.6 6.2-.2 8.6-2.6C16.8 9.1 17.6 6.3 17 3Z\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-linejoin=\"round\"/></svg>", "flask": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M8 2h4M8.5 2v4.8L4 14.5a1.6 1.6 0 0 0 1.4 2.4h9.2a1.6 1.6 0 0 0 1.4-2.4l-4.5-7.7V2\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><path d=\"M6 12.5h8\" stroke=\"currentColor\" stroke-width=\"1.3\"/></svg>", "snowflake": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 2v16M3.3 5.5l13.4 9M3.3 14.5l13.4-9\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"/><path d=\"M10 2 8 4.3M10 2l2 2.3M10 18l-2-2.3M10 18l2-2.3M3.3 5.5l3 .3M3.3 5.5l1-2.7M16.7 5.5l-3 .3M16.7 5.5l-1-2.7M3.3 14.5l3-.3M3.3 14.5l1 2.7M16.7 14.5l-3-.3M16.7 14.5l-1 2.7\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-linecap=\"round\"/></svg>", "box": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 2 17.5 6 10 10 2.5 6 10 2Z\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linejoin=\"round\"/><path d=\"M2.5 6v8L10 18l7.5-4V6M10 10v8\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linejoin=\"round\"/></svg>", "paw": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><ellipse cx=\"10\" cy=\"13.2\" rx=\"4.4\" ry=\"3.6\" stroke=\"currentColor\" stroke-width=\"1.4\"/><circle cx=\"4.8\" cy=\"8\" r=\"1.7\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"9.3\" cy=\"5.6\" r=\"1.7\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"14\" cy=\"8\" r=\"1.7\" stroke=\"currentColor\" stroke-width=\"1.3\"/></svg>", "sun": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"10\" cy=\"10\" r=\"3.6\" stroke=\"currentColor\" stroke-width=\"1.5\"/><path d=\"M10 1.8v2.4M10 15.8v2.4M18.2 10h-2.4M4.2 10H1.8M15.6 4.4l-1.7 1.7M6.1 13.9l-1.7 1.7M15.6 15.6l-1.7-1.7M6.1 6.1 4.4 4.4\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linecap=\"round\"/></svg>", "moon": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M16.5 12.8A7.2 7.2 0 1 1 7.2 3.5a6 6 0 0 0 9.3 9.3Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/></svg>", "warning": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 2.5 18 16.5H2L10 2.5Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/><path d=\"M10 8v3.4\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\"/><circle cx=\"10\" cy=\"14\" r=\".9\" fill=\"currentColor\"/></svg>", "sword": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M16.5 2.5 8 11l-1.3 3.3L3 18l1.5-4.3L8 12.3 16.5 2.5Z\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linejoin=\"round\"/><path d=\"M11.5 6 15 9.5\" stroke=\"currentColor\" stroke-width=\"1.3\"/></svg>", "sparkle": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 2c.6 3.4 2 4.8 5.4 5.4-3.4.6-4.8 2-5.4 5.4-.6-3.4-2-4.8-5.4-5.4C8 6.8 9.4 5.4 10 2Z\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-linejoin=\"round\"/><path d=\"M15.8 13.5c.3 1.6.9 2.2 2.4 2.5-1.5.3-2.1.9-2.4 2.5-.3-1.6-.9-2.2-2.4-2.5 1.5-.3 2.1-.9 2.4-2.5Z\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-linejoin=\"round\"/></svg>", "edit": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M13.5 2.5 17 6 6.5 16.5 2.5 17.5l1-4L13.5 2.5Z\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linejoin=\"round\"/></svg>", "trash": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3.5 5.5h13M8 5V3h4v2M5.5 5.5 6.3 17h7.4l.8-11.5\" stroke=\"currentColor\" stroke-width=\"1.4\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/><path d=\"M8.3 8.5v6M11.7 8.5v6\" stroke=\"currentColor\" stroke-width=\"1.2\"/></svg>", "egg": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 18c4 0 6-3.2 6-7.2C16 6 13 2 10 2S4 6 4 10.8C4 14.8 6 18 10 18Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linejoin=\"round\"/></svg>", "target": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"10\" cy=\"10\" r=\"7\" stroke=\"currentColor\" stroke-width=\"1.4\"/><circle cx=\"10\" cy=\"10\" r=\"3.6\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"10\" cy=\"10\" r=\".8\" fill=\"currentColor\"/></svg>", "check": "<svg viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3.5 10.5 8 15l8.5-10.5\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"};
+function ico(name, cls){ return `<span class="icon${cls?' '+cls:''}">${ICONS[name]||''}</span>`; }
+const ROLE_ICON = {"火おこし":"flame","水やり":"droplet","種まき":"sprout","発電":"bolt","手作業":"wrench","採集":"basket","伐採":"axe","採掘":"pickaxe","製薬":"flask","冷却":"snowflake","運搬":"box","牧場":"paw"};
 function typeBadge(t){ return `<span class="type-badge type-${t}">${t}</span>`; }
 function boxStatRow(label, val, max){
   const pct = Math.min(100, Math.round((val/max)*100));
@@ -488,7 +532,7 @@ function renderBoxGrid(){
   document.getElementById("boxCountTag").textContent = `所持${instances.length}体 / 表示${list.length}体`;
   const grid = document.getElementById("boxGrid");
   if(instances.length === 0){
-    grid.innerHTML = `<div class="empty-box-msg"><div class="big">📦</div>まだパルが登録されていません。<br>「+ パルを追加」から、捕まえたパルを1体ずつ記録しましょう。</div>`;
+    grid.innerHTML = `<div class="empty-box-msg"><div class="big">${ico("box")}</div>まだパルが登録されていません。<br>「+ パルを追加」から、捕まえたパルを1体ずつ記録しましょう。</div>`;
     return;
   }
   if(list.length === 0){
@@ -518,9 +562,9 @@ function selectBoxPal(uid){
   const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
   if(!p){ closeDetailPanel(); return; }
   renderBoxGrid();
-  const timeBadge = p.active_time === "夜" ? '<span class="badge night">🌙 夜行性</span>'
-    : p.active_time === "両方" ? '<span class="badge day">☀️ 昼</span><span class="badge night">🌙 夜</span>'
-    : '<span class="badge day">☀️ 昼行性</span>';
+  const timeBadge = p.active_time === "夜" ? `<span class="badge night">${ico("moon")} 夜行性</span>`
+    : p.active_time === "両方" ? `<span class="badge day">${ico("sun")} 昼</span><span class="badge night">${ico("moon")} 夜</span>`
+    : `<span class="badge day">${ico("sun")} 昼行性</span>`;
   let statsHtml = "";
   if(p.stats){
     statsHtml = `<div class="section">
@@ -542,12 +586,12 @@ function selectBoxPal(uid){
         <span class="iv-chip">防御 <b>${inst.ivs.defense}%</b></span>
       </div>`;
   const skillsHtml = inst.activeSkills.length
-    ? inst.activeSkills.map(a => `<span class="role-pill">⚔️ ${skillDisplayName(a)}</span>`).join("")
+    ? inst.activeSkills.map(a => `<span class="role-pill">${ico("sword")} ${skillDisplayName(a)}</span>`).join("")
     : '<span style="color:var(--parchment-dim);font-size:12px;">未登録</span>';
   const passivesHtml = inst.passives.length
     ? inst.passives.map(name => {
         const pd = passiveByName(name);
-        return `<span class="role-pill" style="border-color:var(--brass-dim);">✨ ${name}${pd ? ` <b style="color:var(--brass);">Rank${pd.rank}</b>` : ''}</span>`;
+        return `<span class="role-pill" style="border-color:var(--brass-dim);">${ico('sparkle')} ${name}${pd ? ` <b style="color:var(--brass);">Rank${pd.rank}</b>` : ''}</span>`;
       }).join("")
     : '<span style="color:var(--parchment-dim);font-size:12px;">未登録</span>';
 
@@ -607,8 +651,8 @@ function selectBoxPal(uid){
     ${dropsHtml}
     ${obtainHtml}
     <div class="box-detail-actions">
-      <button class="edit-btn" id="editInstBtn">✏️ 編集</button>
-      <button class="delete-btn" id="deleteInstBtn">🗑 削除</button>
+      <button class="edit-btn" id="editInstBtn">${ico('edit')} 編集</button>
+      <button class="delete-btn" id="deleteInstBtn">${ico('trash')} 削除</button>
     </div>
   `;
   document.getElementById("editInstBtn").addEventListener("click", () => openPform(inst.uid));
@@ -783,14 +827,14 @@ function renderRoute(result, targetAsset, ownedSet){
     const isFinal = s.child === targetAsset;
     html += `<li class="route-pair-item" style="${isFinal ? 'border:1px solid var(--brass);' : ''}">
       <span class="unique-tag" style="background:var(--teal-dim);">第${s.generation}世代</span>
-      ${ownedSet.has(s.a) ? '' : '🥚'}${iconOf(s.a) ? `<img src="${iconOf(s.a)}" alt="">` : ""}${nameOf(s.a)}
+      ${ownedSet.has(s.a) ? '' : ico('egg')}${iconOf(s.a) ? `<img src="${iconOf(s.a)}" alt="">` : ""}${nameOf(s.a)}
       <span style="color:var(--brass);">×</span>
-      ${ownedSet.has(s.b) ? '' : '🥚'}${iconOf(s.b) ? `<img src="${iconOf(s.b)}" alt="">` : ""}${nameOf(s.b)}
+      ${ownedSet.has(s.b) ? '' : ico('egg')}${iconOf(s.b) ? `<img src="${iconOf(s.b)}" alt="">` : ""}${nameOf(s.b)}
       <span style="color:var(--brass);">→</span>
-      ${iconOf(s.child) ? `<img src="${iconOf(s.child)}" alt="">` : ""}${nameOf(s.child)}${isFinal ? ' 🎯' : ''}
+      ${iconOf(s.child) ? `<img src="${iconOf(s.child)}" alt="">` : ""}${nameOf(s.child)}${isFinal ? ' '+ico('target') : ''}
     </li>`;
   });
-  html += `</ol><p style="margin-top:10px;color:var(--parchment-dim);font-size:12px;">🥚 = このルート内で先に配合して用意する必要があるパル(元々の所持パルではない)</p>`;
+  html += `</ol><p style="margin-top:10px;color:var(--parchment-dim);font-size:12px;">${ico('egg')} = このルート内で先に配合して用意する必要があるパル(元々の所持パルではない)</p>`;
   box.innerHTML = html;
 }
 
@@ -875,7 +919,7 @@ function renderPassiveFit(result, targetAsset){
       <div style="font-size:11px;color:var(--brass);margin-bottom:4px;">第${s.generation}世代: ${nameOf(s.child)}</div>
       <p style="font-size:12px;color:var(--parchment-dim);margin:0 0 4px;">${parentLabel(s.a, aRes)}</p>
       <p style="font-size:12px;color:var(--parchment-dim);margin:0 0 4px;">${parentLabel(s.b, bRes)}</p>
-      <p style="font-size:11.5px;margin:4px 0 0;">→ ${nameOf(s.child)}が理論上引き継ぎうる目的パッシブ: ${gotHere.length ? gotHere.map(p=>`<span style="color:var(--hp);">✔${p}</span>`).join(' ') : '<span style="color:var(--parchment-dim);">なし</span>'}</p>
+      <p style="font-size:11.5px;margin:4px 0 0;">→ ${nameOf(s.child)}が理論上引き継ぎうる目的パッシブ: ${gotHere.length ? gotHere.map(p=>`<span style="color:var(--hp);">${ico('check')}${p}</span>`).join(' ') : '<span style="color:var(--parchment-dim);">なし</span>'}</p>
     </div>`;
   });
 
@@ -885,7 +929,7 @@ function renderPassiveFit(result, targetAsset){
   const missing = roadmapState.passives.filter(p => !finalPool.has(p));
 
   if(missing.length){
-    html += `<div class="coverage-warn" style="margin-bottom:8px;">⚠ このルート上のどの個体・世代にも無いため、今のままでは最終的に継承候補に入りません: ${missing.join('・')}<br>先にこのパッシブを持つ個体を用意するか、ルート内のどこかの親に習得させる必要があります。</div>`;
+    html += `<div class="coverage-warn" style="margin-bottom:8px;">${ico("warning")} このルート上のどの個体・世代にも無いため、今のままでは最終的に継承候補に入りません: ${missing.join('・')}<br>先にこのパッシブを持つ個体を用意するか、ルート内のどこかの親に習得させる必要があります。</div>`;
   } else {
     html += `<p style="font-size:12.5px;color:var(--hp);margin-bottom:8px;">目的の${roadmapState.passives.length}パッシブすべてが、ルートのどこかの世代で継承候補プールに入る可能性があります(下記世代ごとの内訳を参照)。</p>`;
   }
