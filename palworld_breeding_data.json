@@ -2874,11 +2874,11 @@
       "jp_name": "クトゥルフのめだま",
       "en_name": "Eye of Cthulhu",
       "icon": "game_data/icons/pals/T_YakushimaBoss001_icon_normal.webp",
-      "dex_id": null,
+      "dex_id": "288",
       "combi_rank": 3100,
       "rarity": 6,
       "ignore_combi": true,
-      "match_status": "extra_jp_name"
+      "match_status": "exact"
     },
     "Yeti": {
       "jp_name": "ヒエティ",
@@ -2904,101 +2904,101 @@
       "jp_name": "あくまのめだま",
       "en_name": "Demon Eye",
       "icon": "game_data/icons/pals/T_YakushimaBoss001_Small_icon_normal.webp",
-      "dex_id": null,
+      "dex_id": "289",
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "extra_jp_name"
+      "match_status": "exact"
     },
     "YakushimaMonster001": {
       "jp_name": "グリーンスライム",
       "en_name": "Green Slime",
       "icon": "game_data/icons/pals/T_YakushimaMonster001_icon_normal.webp",
-      "dex_id": null,
+      "dex_id": "290",
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "extra_jp_name"
+      "match_status": "exact"
     },
     "YakushimaMonster001_Blue": {
       "jp_name": "ブルースライム",
       "en_name": "Blue Slime",
       "icon": "game_data/icons/pals/T_YakushimaMonster001_Blue_icon_normal.webp",
-      "dex_id": null,
+      "dex_id": "291",
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "extra_jp_name"
+      "match_status": "exact"
     },
     "YakushimaMonster001_Pink": {
       "jp_name": "かがやくスライム",
       "en_name": "Illuminant Slime",
       "icon": "game_data/icons/pals/T_YakushimaMonster001_Pink_icon_normal.webp",
-      "dex_id": null,
+      "dex_id": "292",
       "combi_rank": 3100,
       "rarity": 4,
       "ignore_combi": true,
-      "match_status": "extra_jp_name"
+      "match_status": "exact"
     },
     "YakushimaMonster001_Purple": {
       "jp_name": "パープルスライム",
       "en_name": "Purple Slime",
       "icon": "game_data/icons/pals/T_YakushimaMonster001_Purple_icon_normal.webp",
-      "dex_id": null,
+      "dex_id": "293",
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "extra_jp_name"
+      "match_status": "exact"
     },
     "YakushimaMonster001_Rainbow": {
       "jp_name": "レインボースライム",
       "en_name": "Rainbow Slime",
       "icon": "game_data/icons/pals/T_YakushimaMonster001_Rainbow_icon_normal.webp",
-      "dex_id": null,
+      "dex_id": "294",
       "combi_rank": 3100,
       "rarity": 4,
       "ignore_combi": true,
-      "match_status": "extra_jp_name"
+      "match_status": "exact"
     },
     "YakushimaMonster001_Red": {
       "jp_name": "レッドスライム",
       "en_name": "Red Slime",
       "icon": "game_data/icons/pals/T_YakushimaMonster001_Red_icon_normal.webp",
-      "dex_id": null,
+      "dex_id": "295",
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "extra_jp_name"
+      "match_status": "exact"
     },
     "YakushimaMonster002": {
       "jp_name": "まほうのつるぎ",
       "en_name": "Enchanted Sword",
       "icon": "game_data/icons/pals/T_YakushimaMonster002_icon_normal.webp",
-      "dex_id": null,
+      "dex_id": "296",
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "extra_jp_name"
+      "match_status": "exact"
     },
     "YakushimaMonster003": {
       "jp_name": "どうくつコウモリ",
       "en_name": "Cave Bat",
       "icon": "game_data/icons/pals/T_YakushimaMonster003_icon_normal.webp",
-      "dex_id": null,
+      "dex_id": "297",
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "extra_jp_name"
+      "match_status": "exact"
     },
     "YakushimaMonster003_Purple": {
       "jp_name": "かがやくコウモリ",
       "en_name": "Illuminant Bat",
       "icon": "game_data/icons/pals/T_YakushimaMonster003_Purple_icon_normal.webp",
-      "dex_id": null,
+      "dex_id": "298",
       "combi_rank": 3100,
       "rarity": 4,
       "ignore_combi": true,
-      "match_status": "extra_jp_name"
+      "match_status": "exact"
     }
   },
   "forwardPairs": {

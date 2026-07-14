@@ -9,21 +9,13 @@ OUTPUT_PATH = "palworld_breeding_data.json"
 # まだ存在しないファイルは黙ってスキップする(Task 2/3でファイルが増えたらここに追記する)。
 INJECT_TARGETS = ["palworld_breeding.html", "palworld_palbox.html"]
 
-# palworld_dex_data.json(287体のGameWith由来リスト)には載っていないが、
-# paldb.cc/ja/<en_name> を直接確認してJP名を検証済みのパル(Terrariaコラボボス・1.0追加パル等)。
+# palworld_dex_data.json(287体+コラボ11体)には載っていないが、
+# paldb.cc/ja/<en_name> を直接確認してJP名を検証済みのパル。
+# いずれも`partner_skill_desc`が"This Pal is under investigation."という
+# 未実装プレースホルダ文言、または属性/速度が未設定(-1)だったため、図鑑への
+# 正式追加(build_collab_pals.py)は見送ったが、JP名自体はpaldb.ccで実在確認済み。
 # 図鑑側にエントリが無いため dex_id は None のまま。捏造防止のため、必ずpaldb.ccで実在確認したもののみ追加すること。
 EXTRA_JP_NAMES = {
-    "YakushimaBoss001": "クトゥルフのめだま",
-    "YakushimaBoss001_Small": "あくまのめだま",
-    "YakushimaMonster001": "グリーンスライム",
-    "YakushimaMonster001_Blue": "ブルースライム",
-    "YakushimaMonster001_Pink": "かがやくスライム",
-    "YakushimaMonster001_Purple": "パープルスライム",
-    "YakushimaMonster001_Rainbow": "レインボースライム",
-    "YakushimaMonster001_Red": "レッドスライム",
-    "YakushimaMonster002": "まほうのつるぎ",
-    "YakushimaMonster003": "どうくつコウモリ",
-    "YakushimaMonster003_Purple": "かがやくコウモリ",
     "BlackFurDragon": "ドラゴストロフェ",
     "ElecLion": "エレクライオン",
     "WorldTreeDragon": "ゼロヴァース",

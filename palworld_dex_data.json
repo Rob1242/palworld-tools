@@ -12879,5 +12879,478 @@
     },
     "stats_status": "exact",
     "detail_url": "https://gamewith.jp/palworld/567777"
+  },
+  {
+    "id": "288",
+    "name": "クトゥルフのめだま",
+    "en_name": "Eye of Cthulhu",
+    "icon": "game_data/icons/pals/T_YakushimaBoss001_icon_normal.webp",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work": {
+      "運搬": 4
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "クトゥルフのめだまの突進",
+      "effect": "発動すると、狙いを定めた敵に向かってクトゥルフのめだまが突進で攻撃する。"
+    },
+    "stats": {
+      "hp": 110,
+      "melee_attack": 100,
+      "shot_attack": 105,
+      "defense": 95,
+      "support": 100,
+      "craft_speed": 100,
+      "max_full_stomach": 240,
+      "food_amount": 2,
+      "type1": "Dark",
+      "type2": "None",
+      "rarity": 6,
+      "size": "EPalSizeType::L",
+      "run_speed": 900,
+      "ride_sprint_speed": 1200,
+      "partner_skill_desc": "When activated, Eye of Cthulhu charges and attacks targeted enemy. {ReferenceMsgId_DamageUp}"
+    },
+    "stats_status": "exact",
+    "detail_url": "https://paldb.cc/ja/YakushimaBoss001"
+  },
+  {
+    "id": "289",
+    "name": "あくまのめだま",
+    "en_name": "Demon Eye",
+    "icon": "game_data/icons/pals/T_YakushimaBoss001_Small_icon_normal.webp",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": true
+    },
+    "work": {
+      "運搬": 1
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "悪魔の視界",
+      "effect": "手持ちにいる間、闇属性のパルの攻撃力が15%増加する。(重複不可)"
+    },
+    "stats": {
+      "hp": 105,
+      "melee_attack": 100,
+      "shot_attack": 110,
+      "defense": 95,
+      "support": 100,
+      "craft_speed": 100,
+      "max_full_stomach": 220,
+      "food_amount": 2,
+      "type1": "Dark",
+      "type2": "None",
+      "rarity": 3,
+      "size": "EPalSizeType::S",
+      "run_speed": 300,
+      "ride_sprint_speed": 450,
+      "partner_skill_desc": "While in party, increases Attack of [ICON:ElemIcon_Dark][ELEM:Dark] Pals by {Passive1_EffectValue1}%. (Does not stack)"
+    },
+    "stats_status": "exact",
+    "detail_url": "https://paldb.cc/ja/YakushimaBoss001_Small"
+  },
+  {
+    "id": "290",
+    "name": "グリーンスライム",
+    "en_name": "Green Slime",
+    "icon": "game_data/icons/pals/T_YakushimaMonster001_icon_normal.webp",
+    "types": [
+      "草"
+    ],
+    "active_time": "両方",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work": {
+      "運搬": 1
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "スライムボディ",
+      "effect": "背中に乗って移動できる。ライド中、高くジャンプできる。"
+    },
+    "stats": {
+      "hp": 65,
+      "melee_attack": 100,
+      "shot_attack": 70,
+      "defense": 80,
+      "support": 100,
+      "craft_speed": 100,
+      "max_full_stomach": 180,
+      "food_amount": 2,
+      "type1": "Leaf",
+      "type2": "None",
+      "rarity": 3,
+      "size": "EPalSizeType::S",
+      "run_speed": 300,
+      "ride_sprint_speed": 450,
+      "partner_skill_desc": "Can be ridden. Can jump high into the air while mounted."
+    },
+    "stats_status": "exact",
+    "detail_url": "https://paldb.cc/ja/YakushimaMonster001"
+  },
+  {
+    "id": "291",
+    "name": "ブルースライム",
+    "en_name": "Blue Slime",
+    "icon": "game_data/icons/pals/T_YakushimaMonster001_Blue_icon_normal.webp",
+    "types": [
+      "水"
+    ],
+    "active_time": "両方",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work": {
+      "運搬": 1
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "スライムボディ",
+      "effect": "背中に乗って移動できる。ライド中、高くジャンプできる。"
+    },
+    "stats": {
+      "hp": 70,
+      "melee_attack": 100,
+      "shot_attack": 70,
+      "defense": 80,
+      "support": 100,
+      "craft_speed": 100,
+      "max_full_stomach": 210,
+      "food_amount": 2,
+      "type1": "Water",
+      "type2": "None",
+      "rarity": 3,
+      "size": "EPalSizeType::S",
+      "run_speed": 300,
+      "ride_sprint_speed": 450,
+      "partner_skill_desc": "Can be ridden. Can jump high into the air while mounted."
+    },
+    "stats_status": "exact",
+    "detail_url": "https://paldb.cc/ja/YakushimaMonster001_Blue"
+  },
+  {
+    "id": "292",
+    "name": "かがやくスライム",
+    "en_name": "Illuminant Slime",
+    "icon": "game_data/icons/pals/T_YakushimaMonster001_Pink_icon_normal.webp",
+    "types": [
+      "無"
+    ],
+    "active_time": "両方",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work": {
+      "運搬": 1
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "スライムボディ",
+      "effect": "背中に乗って移動できる。ライド中、高くジャンプできる。"
+    },
+    "stats": {
+      "hp": 80,
+      "melee_attack": 100,
+      "shot_attack": 75,
+      "defense": 85,
+      "support": 100,
+      "craft_speed": 100,
+      "max_full_stomach": 300,
+      "food_amount": 3,
+      "type1": "Normal",
+      "type2": "None",
+      "rarity": 4,
+      "size": "EPalSizeType::S",
+      "run_speed": 300,
+      "ride_sprint_speed": 450,
+      "partner_skill_desc": "Can be ridden. Can jump high into the air while mounted."
+    },
+    "stats_status": "exact",
+    "detail_url": "https://paldb.cc/ja/YakushimaMonster001_Pink"
+  },
+  {
+    "id": "293",
+    "name": "パープルスライム",
+    "en_name": "Purple Slime",
+    "icon": "game_data/icons/pals/T_YakushimaMonster001_Purple_icon_normal.webp",
+    "types": [
+      "闇"
+    ],
+    "active_time": "夜",
+    "is_dark_type": true,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work": {
+      "運搬": 1
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "スライムボディ",
+      "effect": "背中に乗って移動できる。ライド中、高くジャンプできる。"
+    },
+    "stats": {
+      "hp": 75,
+      "melee_attack": 100,
+      "shot_attack": 70,
+      "defense": 80,
+      "support": 100,
+      "craft_speed": 100,
+      "max_full_stomach": 270,
+      "food_amount": 3,
+      "type1": "Dark",
+      "type2": "None",
+      "rarity": 3,
+      "size": "EPalSizeType::S",
+      "run_speed": 300,
+      "ride_sprint_speed": 450,
+      "partner_skill_desc": "Can be ridden. Can jump high into the air while mounted."
+    },
+    "stats_status": "exact",
+    "detail_url": "https://paldb.cc/ja/YakushimaMonster001_Purple"
+  },
+  {
+    "id": "294",
+    "name": "レインボースライム",
+    "en_name": "Rainbow Slime",
+    "icon": "game_data/icons/pals/T_YakushimaMonster001_Rainbow_icon_normal.webp",
+    "types": [
+      "無"
+    ],
+    "active_time": "両方",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": true
+    },
+    "work": {
+      "運搬": 1
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "スライムボディ",
+      "effect": "背中に乗って移動できる。ライド中、高くジャンプできる。"
+    },
+    "stats": {
+      "hp": 105,
+      "melee_attack": 100,
+      "shot_attack": 95,
+      "defense": 105,
+      "support": 100,
+      "craft_speed": 100,
+      "max_full_stomach": 330,
+      "food_amount": 3,
+      "type1": "Normal",
+      "type2": "None",
+      "rarity": 4,
+      "size": "EPalSizeType::M",
+      "run_speed": 300,
+      "ride_sprint_speed": 450,
+      "partner_skill_desc": "Can be ridden. Can jump high into the air while mounted."
+    },
+    "stats_status": "exact",
+    "detail_url": "https://paldb.cc/ja/YakushimaMonster001_Rainbow"
+  },
+  {
+    "id": "295",
+    "name": "レッドスライム",
+    "en_name": "Red Slime",
+    "icon": "game_data/icons/pals/T_YakushimaMonster001_Red_icon_normal.webp",
+    "types": [
+      "炎"
+    ],
+    "active_time": "両方",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": true,
+      "fly": false,
+      "swim": false
+    },
+    "work": {
+      "運搬": 1
+    },
+    "meal_amount": 3,
+    "partner_skill": {
+      "name": "スライムボディ",
+      "effect": "背中に乗って移動できる。ライド中、高くジャンプできる。"
+    },
+    "stats": {
+      "hp": 70,
+      "melee_attack": 100,
+      "shot_attack": 75,
+      "defense": 85,
+      "support": 100,
+      "craft_speed": 100,
+      "max_full_stomach": 240,
+      "food_amount": 3,
+      "type1": "Fire",
+      "type2": "None",
+      "rarity": 3,
+      "size": "EPalSizeType::S",
+      "run_speed": 300,
+      "ride_sprint_speed": 450,
+      "partner_skill_desc": "Can be ridden. Can jump high into the air while mounted."
+    },
+    "stats_status": "exact",
+    "detail_url": "https://paldb.cc/ja/YakushimaMonster001_Red"
+  },
+  {
+    "id": "296",
+    "name": "まほうのつるぎ",
+    "en_name": "Enchanted Sword",
+    "icon": "game_data/icons/pals/T_YakushimaMonster002_icon_normal.webp",
+    "types": [
+      "無"
+    ],
+    "active_time": "両方",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": true
+    },
+    "work": {
+      "伐採": 1
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "エンチャント",
+      "effect": "手持ちにいる間、闇属性のパルを倒した際のドロップアイテム獲得量が40%増える。(重複不可)"
+    },
+    "stats": {
+      "hp": 95,
+      "melee_attack": 100,
+      "shot_attack": 105,
+      "defense": 90,
+      "support": 100,
+      "craft_speed": 100,
+      "max_full_stomach": 180,
+      "food_amount": 2,
+      "type1": "Normal",
+      "type2": "None",
+      "rarity": 3,
+      "size": "EPalSizeType::S",
+      "run_speed": 600,
+      "ride_sprint_speed": 900,
+      "partner_skill_desc": "While in party, [ICON:ElemIcon_Dark][ELEM:Dark] Pals drop {Passive1_EffectValue1}% more items when defeated. (Does not stack)"
+    },
+    "stats_status": "exact",
+    "detail_url": "https://paldb.cc/ja/YakushimaMonster002"
+  },
+  {
+    "id": "297",
+    "name": "どうくつコウモリ",
+    "en_name": "Cave Bat",
+    "icon": "game_data/icons/pals/T_YakushimaMonster003_icon_normal.webp",
+    "types": [
+      "無"
+    ],
+    "active_time": "両方",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work": {
+      "採集": 1
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "コウモリサポート",
+      "effect": "手持ちにいる間、プレイヤーの近くに出現する。自動で近くにあるアイテムを拾いに行く。"
+    },
+    "stats": {
+      "hp": 65,
+      "melee_attack": 100,
+      "shot_attack": 75,
+      "defense": 80,
+      "support": 100,
+      "craft_speed": 100,
+      "max_full_stomach": 220,
+      "food_amount": 2,
+      "type1": "Normal",
+      "type2": "None",
+      "rarity": 3,
+      "size": "EPalSizeType::S",
+      "run_speed": 300,
+      "ride_sprint_speed": 450,
+      "partner_skill_desc": "While in party, appears near the player. Automatically picks up nearby items. {ReferenceMsgId_ItemCollectRangeUp}"
+    },
+    "stats_status": "exact",
+    "detail_url": "https://paldb.cc/ja/YakushimaMonster003"
+  },
+  {
+    "id": "298",
+    "name": "かがやくコウモリ",
+    "en_name": "Illuminant Bat",
+    "icon": "game_data/icons/pals/T_YakushimaMonster003_Purple_icon_normal.webp",
+    "types": [
+      "無"
+    ],
+    "active_time": "両方",
+    "is_dark_type": false,
+    "ride": {
+      "rideable": false,
+      "fly": false,
+      "swim": false
+    },
+    "work": {
+      "採集": 1
+    },
+    "meal_amount": 2,
+    "partner_skill": {
+      "name": "コウモリサポート",
+      "effect": "手持ちにいる間、プレイヤーの近くに出現する。自動で近くにあるアイテムを拾いに行く。"
+    },
+    "stats": {
+      "hp": 80,
+      "melee_attack": 100,
+      "shot_attack": 80,
+      "defense": 95,
+      "support": 100,
+      "craft_speed": 100,
+      "max_full_stomach": 220,
+      "food_amount": 2,
+      "type1": "Normal",
+      "type2": "None",
+      "rarity": 4,
+      "size": "EPalSizeType::S",
+      "run_speed": 300,
+      "ride_sprint_speed": 450,
+      "partner_skill_desc": "While in party, appears near the player. Automatically picks up nearby items. {ReferenceMsgId_ItemCollectRangeUp}"
+    },
+    "stats_status": "exact",
+    "detail_url": "https://paldb.cc/ja/YakushimaMonster003_Purple"
   }
 ]
