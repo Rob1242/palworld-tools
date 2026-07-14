@@ -141,14 +141,14 @@
       "match_status": "exact"
     },
     "BlackFurDragon": {
-      "jp_name": null,
+      "jp_name": "ドラゴストロフェ",
       "en_name": "Dragostrophe",
-      "icon": null,
+      "icon": "game_data/icons/pals/BlackFurDragon_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 9999,
       "rarity": 10,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     },
     "BlackGriffon": {
       "jp_name": "ゼノグリフ",
@@ -303,7 +303,7 @@
     "CandleWitch": {
       "jp_name": null,
       "en_name": "Unidentified Pal",
-      "icon": null,
+      "icon": "game_data/icons/pals/CandleWitch_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 9999,
       "rarity": 3,
@@ -631,14 +631,14 @@
       "match_status": "exact"
     },
     "ElecLion": {
-      "jp_name": null,
+      "jp_name": "エレクライオン",
       "en_name": "Boltmane",
-      "icon": null,
+      "icon": "game_data/icons/pals/ElecLion_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 9999,
       "rarity": 0,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     },
     "ElecLizard": {
       "jp_name": "ノンビリリ",
@@ -2673,7 +2673,7 @@
     "VolcanicTurtle": {
       "jp_name": null,
       "en_name": "Unidentified Pal",
-      "icon": null,
+      "icon": "game_data/icons/pals/VolcanicTurtle_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 9999,
       "rarity": 3,
@@ -2861,24 +2861,24 @@
       "match_status": "exact"
     },
     "WorldTreeDragon": {
-      "jp_name": null,
+      "jp_name": "ゼロヴァース",
       "en_name": "Astralym",
-      "icon": null,
+      "icon": "game_data/icons/pals/T_WorldTreeDragon_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 10,
       "rarity": 10,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     },
     "YakushimaBoss001": {
-      "jp_name": null,
+      "jp_name": "クトゥルフのめだま",
       "en_name": "Eye of Cthulhu",
-      "icon": null,
+      "icon": "game_data/icons/pals/T_YakushimaBoss001_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 3100,
       "rarity": 6,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     },
     "Yeti": {
       "jp_name": "ヒエティ",
@@ -2901,104 +2901,104 @@
       "match_status": "variant_fallback"
     },
     "YakushimaBoss001_Small": {
-      "jp_name": null,
+      "jp_name": "あくまのめだま",
       "en_name": "Demon Eye",
-      "icon": null,
+      "icon": "game_data/icons/pals/T_YakushimaBoss001_Small_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     },
     "YakushimaMonster001": {
-      "jp_name": null,
+      "jp_name": "グリーンスライム",
       "en_name": "Green Slime",
-      "icon": null,
+      "icon": "game_data/icons/pals/T_YakushimaMonster001_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     },
     "YakushimaMonster001_Blue": {
-      "jp_name": null,
+      "jp_name": "ブルースライム",
       "en_name": "Blue Slime",
-      "icon": null,
+      "icon": "game_data/icons/pals/T_YakushimaMonster001_Blue_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     },
     "YakushimaMonster001_Pink": {
-      "jp_name": null,
+      "jp_name": "かがやくスライム",
       "en_name": "Illuminant Slime",
-      "icon": null,
+      "icon": "game_data/icons/pals/T_YakushimaMonster001_Pink_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 3100,
       "rarity": 4,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     },
     "YakushimaMonster001_Purple": {
-      "jp_name": null,
+      "jp_name": "パープルスライム",
       "en_name": "Purple Slime",
-      "icon": null,
+      "icon": "game_data/icons/pals/T_YakushimaMonster001_Purple_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     },
     "YakushimaMonster001_Rainbow": {
-      "jp_name": null,
+      "jp_name": "レインボースライム",
       "en_name": "Rainbow Slime",
-      "icon": null,
+      "icon": "game_data/icons/pals/T_YakushimaMonster001_Rainbow_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 3100,
       "rarity": 4,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     },
     "YakushimaMonster001_Red": {
-      "jp_name": null,
+      "jp_name": "レッドスライム",
       "en_name": "Red Slime",
-      "icon": null,
+      "icon": "game_data/icons/pals/T_YakushimaMonster001_Red_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     },
     "YakushimaMonster002": {
-      "jp_name": null,
+      "jp_name": "まほうのつるぎ",
       "en_name": "Enchanted Sword",
-      "icon": null,
+      "icon": "game_data/icons/pals/T_YakushimaMonster002_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     },
     "YakushimaMonster003": {
-      "jp_name": null,
+      "jp_name": "どうくつコウモリ",
       "en_name": "Cave Bat",
-      "icon": null,
+      "icon": "game_data/icons/pals/T_YakushimaMonster003_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 3100,
       "rarity": 3,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     },
     "YakushimaMonster003_Purple": {
-      "jp_name": null,
+      "jp_name": "かがやくコウモリ",
       "en_name": "Illuminant Bat",
-      "icon": null,
+      "icon": "game_data/icons/pals/T_YakushimaMonster003_Purple_icon_normal.webp",
       "dex_id": null,
       "combi_rank": 3100,
       "rarity": 4,
       "ignore_combi": true,
-      "match_status": "missing"
+      "match_status": "extra_jp_name"
     }
   },
   "forwardPairs": {

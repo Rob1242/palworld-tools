@@ -9,6 +9,26 @@ OUTPUT_PATH = "palworld_breeding_data.json"
 # まだ存在しないファイルは黙ってスキップする(Task 2/3でファイルが増えたらここに追記する)。
 INJECT_TARGETS = ["palworld_breeding.html", "palworld_palbox.html"]
 
+# palworld_dex_data.json(287体のGameWith由来リスト)には載っていないが、
+# paldb.cc/ja/<en_name> を直接確認してJP名を検証済みのパル(Terrariaコラボボス・1.0追加パル等)。
+# 図鑑側にエントリが無いため dex_id は None のまま。捏造防止のため、必ずpaldb.ccで実在確認したもののみ追加すること。
+EXTRA_JP_NAMES = {
+    "YakushimaBoss001": "クトゥルフのめだま",
+    "YakushimaBoss001_Small": "あくまのめだま",
+    "YakushimaMonster001": "グリーンスライム",
+    "YakushimaMonster001_Blue": "ブルースライム",
+    "YakushimaMonster001_Pink": "かがやくスライム",
+    "YakushimaMonster001_Purple": "パープルスライム",
+    "YakushimaMonster001_Rainbow": "レインボースライム",
+    "YakushimaMonster001_Red": "レッドスライム",
+    "YakushimaMonster002": "まほうのつるぎ",
+    "YakushimaMonster003": "どうくつコウモリ",
+    "YakushimaMonster003_Purple": "かがやくコウモリ",
+    "BlackFurDragon": "ドラゴストロフェ",
+    "ElecLion": "エレクライオン",
+    "WorldTreeDragon": "ゼロヴァース",
+}
+
 
 def build_jp_index(dex):
     idx = {}
@@ -35,6 +55,13 @@ def match_asset_to_jp(info, jp_idx):
     return None, "missing"
 
 
+def pal_info_icon(info):
+    icon = info.get("icon")
+    if icon and icon.startswith("/"):
+        return "game_data" + icon
+    return icon
+
+
 def build_pals(pal_info, jp_idx):
     pals = {}
     matched = 0
@@ -53,12 +80,24 @@ def build_pals(pal_info, jp_idx):
                 "ignore_combi": bool(info.get("ignore_combi")),
                 "match_status": status,
             }
+        elif asset in EXTRA_JP_NAMES:
+            matched += 1
+            pals[asset] = {
+                "jp_name": EXTRA_JP_NAMES[asset],
+                "en_name": info.get("name"),
+                "icon": pal_info_icon(info),
+                "dex_id": None,
+                "combi_rank": info.get("combi_rank"),
+                "rarity": info.get("rarity"),
+                "ignore_combi": bool(info.get("ignore_combi")),
+                "match_status": "extra_jp_name",
+            }
         else:
             unmatched.append(asset)
             pals[asset] = {
                 "jp_name": None,
                 "en_name": info.get("name"),
-                "icon": None,
+                "icon": pal_info_icon(info),
                 "dex_id": None,
                 "combi_rank": info.get("combi_rank"),
                 "rarity": info.get("rarity"),
@@ -119,9 +158,9 @@ def inject_const(html_path, const_name, data):
         return
     serialized = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     html = open(html_path, encoding="utf-8").read()
-    pattern = re.compile(r"const " + re.escape(const_name) + r" = \{\};|const " + re.escape(const_name) + r" = \[\];")
+    pattern = re.compile(r"^const " + re.escape(const_name) + r" = .*$", re.MULTILINE)
     if not pattern.search(html):
-        raise ValueError(f"{html_path} に `const {const_name} = {{}};` または `[];` のプレースホルダが見つかりません")
+        raise ValueError(f"{html_path} に `const {const_name} = ...;` の行が見つかりません")
     html = pattern.sub(lambda m: f"const {const_name} = {serialized};", html, count=1)
     open(html_path, "w", encoding="utf-8").write(html)
     print(f"  {html_path} に {const_name} を注入しました")
