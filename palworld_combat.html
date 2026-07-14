@@ -90,9 +90,14 @@
   .slider-row .row-top .lbl{color:var(--parchment);font-weight:600;}
   .slider-row .row-top .val{font-family:var(--font-mono);color:var(--lime);font-weight:700;}
   input[type="range"]{width:100%;accent-color:var(--lime);height:4px;}
-  .star-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
-  .star-btn{min-width:28px;height:28px;padding:0 7px;border-radius:5px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment-dim);cursor:pointer;font-size:13px;letter-spacing:-1px;white-space:nowrap;display:flex;align-items:center;justify-content:center;}
-  .star-btn.active{background:var(--brass);border-color:var(--brass);color:#1a1408;}
+  .star-row{display:flex;gap:2px;align-items:center;}
+  .star-icon-btn{background:none;border:none;padding:3px;cursor:pointer;color:var(--brass);opacity:.3;line-height:0;transition:opacity .12s,transform .12s;}
+  .star-icon-btn .icon{width:24px;height:24px;}
+  .star-icon-btn .icon svg{fill:currentColor;}
+  .star-icon-btn.filled{opacity:1;}
+  .star-icon-btn:hover{opacity:.75;transform:scale(1.08);}
+  .star-icon-btn.filled:hover{opacity:1;}
+  .star-row-val{margin-left:8px;font-family:var(--font-mono);color:var(--lime);font-weight:700;font-size:13px;}
   .talent-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
   .talent-col .row-top{justify-content:center;text-align:center;flex-direction:column;gap:2px;}
   .talent-col{text-align:center;}
@@ -211,7 +216,7 @@
             <input type="range" id="lvSlider" min="1" max="80" value="80">
           </div>
           <div class="slider-row">
-            <div class="row-top"><span class="lbl">濃縮(★)</span></div>
+            <div class="row-top"><span class="lbl">濃縮(★)</span><span class="val" id="starVal">0</span></div>
             <div class="star-row" id="starRow"></div>
           </div>
           <div class="slider-row">
@@ -232,7 +237,7 @@
         <button class="auto-btn" data-preset="stable">安定型</button>
         <button class="auto-btn" data-preset="element">属性特化型</button>
       </div>
-      <p class="preset-hint">超火力型: 防御・HPの減少を無視して純粋な攻撃%が高い順に4枠を選択 / 安定型: 防御・HPを削らないパッシブの中から攻撃%が高い順に選択 / 属性特化型: このパルのタイプに一致する属性強化パッシブを優先しつつ攻撃%が高い順に選択</p>
+      <p class="preset-hint">超火力型: 防御・HPの減少を無視して純粋な攻撃%が高い順に4枠を選択 / 安定型: 防御・HPを削らないパッシブの中から攻撃%とクールタイム短縮%が高い順に選択 / 属性特化型: このパルのタイプに一致する属性強化パッシブを優先しつつ攻撃%が高い順に選択</p>
     </div>
 
     <div class="section">
@@ -317,15 +322,25 @@ function renderSummary(){
   ` : "";
 }
 
+function renderStarRow(){
+  document.getElementById("starVal").textContent = state.star;
+  const starRow = document.getElementById("starRow");
+  starRow.innerHTML = [1,2,3,4].map(i => `<button class="star-icon-btn ${i <= state.star ? 'filled' : ''}" data-star="${i}">${ico('star')}</button>`).join("");
+  starRow.querySelectorAll(".star-icon-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const i = parseInt(btn.dataset.star);
+      state.star = (state.star === i) ? i - 1 : i;
+      renderStarRow();
+      renderAll();
+    });
+  });
+}
+
 function renderBasicControls(){
   document.getElementById("lvSlider").value = state.lv;
   document.getElementById("lvVal").textContent = state.lv;
 
-  const starRow = document.getElementById("starRow");
-  starRow.innerHTML = [0,1,2,3,4].map(i => `<button class="star-btn ${i <= state.star ? 'active' : ''}" data-star="${i}">${i === 0 ? '0' : '★'.repeat(i)}</button>`).join("");
-  starRow.querySelectorAll(".star-btn").forEach(btn => {
-    btn.addEventListener("click", () => { state.star = parseInt(btn.dataset.star); renderAll(); });
-  });
+  renderStarRow();
 
   const talentGrid = document.getElementById("talentGrid");
   talentGrid.innerHTML = ["hp","atk","def"].map(k => `
@@ -397,11 +412,12 @@ function pickStablePreset(){
     .map(p => ({
       p,
       atk: passiveEffectValue(p, "ShotAttack"),
+      ct: passiveEffectValue(p, "ActiveSkillCoolTime_Decrease"),
       def: passiveEffectValue(p, "Defense"),
       hp: passiveEffectValue(p, "MaxHP"),
     }))
-    .filter(x => x.atk > 0 && x.def >= 0 && x.hp >= 0)
-    .sort((a,b) => b.atk - a.atk)
+    .filter(x => (x.atk > 0 || x.ct > 0) && x.def >= 0 && x.hp >= 0)
+    .sort((a,b) => (b.atk + b.ct) - (a.atk + a.ct))
     .map(x => x.p.name);
   const picks = safe.slice(0, 4);
   if(picks.length < 4){
@@ -448,13 +464,15 @@ function renderSkillList(){
   const s = currentStats();
   const chosen = getChosenPassives();
   const genericPct = chosen.reduce((sum,ps) => sum + passiveEffectValue(ps, "ShotAttack"), 0);
+  const ctPct = chosen.reduce((sum,ps) => sum + passiveEffectValue(ps, "ActiveSkillCoolTime_Decrease"), 0);
+  const ctMultiplier = Math.max(1 - ctPct/100, 0.1);
 
   const rows = p.skills.map(sk => {
     const stab = p.types_en.includes(sk.element) ? STAB_MULT : 1.0;
     const elementPct = chosen.reduce((sum,ps) => sum + passiveEffectValue(ps, `ElementBoost_${sk.element}`), 0);
     const effectiveAtk = s.atk * (1 + genericPct/100) * (1 + elementPct/100);
     const instant = sk.power * effectiveAtk * stab;
-    const cycle = Math.max(sk.cooldown, MIN_CYCLE_SECONDS);
+    const cycle = Math.max(sk.cooldown * ctMultiplier, MIN_CYCLE_SECONDS);
     const sustained = instant / cycle;
     return { ...sk, stab: stab > 1, elementBoosted: elementPct > 0, instant, sustained };
   });
@@ -464,7 +482,7 @@ function renderSkillList(){
 
   document.getElementById("formulaNote").textContent = state.dpsMode === "instant"
     ? "瞬間火力 = 威力 × 攻撃力 × 属性一致(×1.2) × 属性強化パッシブ"
-    : "継続火力 = 瞬間火力 ÷ max(技のCT, 2.5秒)";
+    : "継続火力 = 瞬間火力 ÷ max(技のCT × (1-クールタイム短縮%), 2.5秒)";
 
   document.getElementById("skillList").innerHTML = rows.map(r => `
     <div class="skill-row">
