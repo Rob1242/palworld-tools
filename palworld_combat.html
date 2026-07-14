@@ -55,6 +55,24 @@
 
   .caveat{font-size:11.5px;color:#e7c3af;background:#3a2a20;border:1px solid var(--danger);border-radius:6px;padding:10px 14px;margin-bottom:16px;line-height:1.7;}
 
+  .picker-box{background:var(--panel);border:1px solid var(--lime-dim);border-radius:10px;padding:18px 20px;margin-bottom:20px;box-shadow:0 8px 24px rgba(0,0,0,.25), 0 0 0 1px rgba(227,255,61,.08);}
+  .picker-label{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--parchment);margin-bottom:10px;}
+  .pal-picker{position:relative;max-width:360px;}
+  .pal-picker input{width:100%;box-sizing:border-box;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:10px 14px;font-size:14px;font-family:var(--font-body);}
+  .pal-picker input::placeholder{color:var(--parchment-dim);}
+  .pal-picker input:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 2px rgba(227,255,61,.2);}
+  .pal-picker-results{position:absolute;top:100%;left:0;right:0;max-height:280px;overflow-y:auto;background:var(--panel2);border:1px solid var(--line);border-radius:0 0 8px 8px;z-index:10;box-shadow:0 12px 24px rgba(0,0,0,.4);}
+  .pal-picker-item{display:flex;align-items:center;gap:8px;padding:7px 12px;cursor:pointer;font-size:13px;}
+  .pal-picker-item:hover{background:var(--panel);color:var(--lime);}
+  .pal-picker-item img{width:26px;height:26px;object-fit:contain;border-radius:50%;}
+
+  .build-passives{display:flex;flex-wrap:wrap;gap:8px;}
+  .build-passive-pill{font-size:12px;padding:6px 12px;border-radius:5px;background:var(--panel2);border:1px solid var(--lime-dim);color:var(--parchment);display:flex;align-items:center;gap:6px;}
+  .build-passive-pill .p-pct{color:var(--lime);font-family:var(--font-mono);font-weight:700;}
+  .build-passive-pill .p-tag{font-size:9px;padding:1px 5px;border-radius:3px;background:rgba(240,184,64,.15);color:var(--brass);border:1px solid rgba(240,184,64,.3);}
+
+  .recommend-tag{font-size:9.5px;padding:1px 6px;border-radius:4px;background:rgba(227,255,61,.16);color:var(--lime);border:1px solid rgba(227,255,61,.4);margin-left:6px;}
+
   .rank-list{display:flex;flex-direction:column;gap:6px;}
   .rank-row{display:grid;grid-template-columns:36px 44px 1fr 140px 100px;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer;position:relative;overflow:hidden;}
   .rank-row::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg, transparent 40%, rgba(227,255,61,.08) 50%, rgba(255,46,126,.08) 58%, transparent 68%);opacity:0;transition:opacity .2s;pointer-events:none;}
@@ -137,6 +155,14 @@
   </div>
 
   <div id="listView">
+    <div class="picker-box">
+      <div class="picker-label">パルを選んで最適ビルドを見る</div>
+      <div class="pal-picker" id="buildPicker">
+        <input type="text" placeholder="パル名で検索…(例: ジェッドラン)">
+        <div class="pal-picker-results" style="display:none;"></div>
+      </div>
+    </div>
+
     <div class="controls">
       <div class="controls-row">
         <input type="text" id="searchBox" placeholder="パル名・英語名で検索…">
@@ -220,14 +246,24 @@ function openDetail(id){
   state.selectedId = id;
   const rankIndex = COMBAT_DATA.findIndex(x => x.dex_id === id) + 1;
 
+  const top3Assets = new Set(r.skills.slice(0, 3).map(s => s.asset));
   const skillsHtml = r.skills.map(s => `
     <div class="skill-row ${s.asset === r.best_skill.asset ? 'is-best' : ''}">
       <div>
-        <div class="skill-name">${s.jp_name || s.en_name}${s.stab ? ' <span class="stab-tag">一致</span>' : ''}</div>
+        <div class="skill-name">${s.jp_name || s.en_name}${s.stab ? ' <span class="stab-tag">一致</span>' : ''}${s.element_boosted ? ' <span class="stab-tag" style="background:rgba(240,184,64,.14);color:var(--brass);border-color:rgba(240,184,64,.35);">属性強化</span>' : ''}${top3Assets.has(s.asset) ? ' <span class="recommend-tag">装備推奨</span>' : ''}</div>
       </div>
       <div class="skill-meta">Lv${s.level ?? '?'}</div>
       <div class="skill-meta">威力${s.power} / CT${s.cooldown}s</div>
       <div class="skill-dps">${s.dps_proxy.toLocaleString()}</div>
+    </div>
+  `).join("");
+
+  const passivesHtml = (r.passives || []).map(p => `
+    <div class="build-passive-pill">
+      <span>${p.name}</span>
+      <span class="p-pct">+${p.pct}%</span>
+      ${p.is_worldtree ? '<span class="p-tag">世界樹</span>' : ''}
+      ${p.kind === "element" ? `<span class="p-tag" style="background:rgba(53,210,255,.12);color:var(--teal);border-color:rgba(53,210,255,.3);">${p.element}属性</span>` : ''}
     </div>
   `).join("");
 
@@ -244,17 +280,50 @@ function openDetail(id){
       </div>
     </div>
     <div class="section">
-      <h2>理想ビルドでの攻撃力</h2>
-      <div class="stat-line"><span class="lbl">攻撃力(Lv80・才能100・濃縮★4・ソウル+60%・攻撃パッシブ4枠理想値)</span><span class="val">${r.ideal_attack.toLocaleString()}</span></div>
+      <h2>おすすめパッシブ(4枠理想値)</h2>
+      <div class="build-passives">${passivesHtml}</div>
+      <div class="stat-line" style="margin-top:10px;"><span class="lbl">合計攻撃力ボーナス</span><span class="val">+${r.passive_pct}%</span></div>
+      <div class="stat-line"><span class="lbl">理想攻撃力(Lv80・才能100・濃縮★4・ソウル+60%)</span><span class="val">${r.ideal_attack.toLocaleString()}</span></div>
     </div>
     <div class="section">
-      <h2>習得技とDPS指数(レベルアップ習得のみ)</h2>
+      <h2>おすすめの技(上位3つ = 装備推奨)</h2>
       <div class="skill-list">${skillsHtml}</div>
     </div>
   `;
   document.getElementById("listView").style.display = "none";
   document.getElementById("detailView").style.display = "block";
   window.scrollTo(0,0);
+}
+
+function setupBuildPicker(){
+  const wrap = document.getElementById("buildPicker");
+  const inputEl = wrap.querySelector("input");
+  const resultsEl = wrap.querySelector(".pal-picker-results");
+  inputEl.addEventListener("input", () => {
+    const q = inputEl.value.trim().toLowerCase();
+    if(!q){ resultsEl.style.display = "none"; return; }
+    const matches = COMBAT_DATA.filter(r =>
+      r.name.toLowerCase().includes(q) || (r.en_name||"").toLowerCase().includes(q)
+    ).slice(0, 20);
+    if(!matches.length){
+      resultsEl.innerHTML = `<div class="pal-picker-item">見つかりません</div>`;
+    } else {
+      resultsEl.innerHTML = matches.map(r => `
+        <div class="pal-picker-item" data-id="${r.dex_id}">
+          ${r.icon ? `<img src="${r.icon}" alt="">` : ""}<span>${r.name}</span>
+        </div>
+      `).join("");
+      resultsEl.querySelectorAll(".pal-picker-item[data-id]").forEach(el => {
+        el.addEventListener("click", () => {
+          inputEl.value = "";
+          resultsEl.style.display = "none";
+          openDetail(el.dataset.id);
+        });
+      });
+    }
+    resultsEl.style.display = "block";
+  });
+  inputEl.addEventListener("blur", () => setTimeout(() => resultsEl.style.display = "none", 150));
 }
 
 function closeDetail(){
@@ -264,6 +333,7 @@ function closeDetail(){
 
 document.getElementById("searchBox").addEventListener("input", e => { state.query = e.target.value; renderList(); });
 document.getElementById("backBtn").addEventListener("click", closeDetail);
+setupBuildPicker();
 
 const initialParams = new URLSearchParams(location.search);
 const initialId = initialParams.get("id");
