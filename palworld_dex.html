@@ -234,16 +234,20 @@
 
   .medallion .ring{transition:box-shadow .2s;}
   .detail-head:hover .medallion .ring{box-shadow:0 0 0 1px rgba(0,0,0,.4), 0 0 22px rgba(227,255,61,.28);}
+
+  .brand-link{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;transition:opacity .15s;}
+  .brand-link:hover{opacity:.82;}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <div class="brand">
+    <a class="brand-link" href="palworld_home.html">
       <div class="brand-badge">P</div>
       <h1 class="title glitch-hover" data-text="パル図鑑"><small>Palworld 攻略ツール</small>パル図鑑</h1>
-    </div>
+    </a>
     <nav class="tabs">
+      <a href="palworld_home.html"><span>ホーム</span></a>
       <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
       <a href="palworld_dex.html" class="current"><span>パル図鑑</span></a>
       <a href="palworld_breeding.html"><span>配合検索</span></a>
@@ -257,9 +261,9 @@
       <div class="hero-scanlines"></div>
       <div class="hero-fade"></div>
       <div class="hero-content">
-        <div class="hero-eyebrow">PALWORLD DATABASE ｜ ALL 298 CONFIRMED</div>
-        <h2 class="hero-title">PAL <span class="accent">図鑑</span></h2>
-        <p class="hero-sub">種族値・作業適性・ドロップ・入手方法。捕獲前に知るべき全データを収録。</p>
+        <div class="hero-eyebrow">CAPTURE INTEL ARCHIVE</div>
+        <h2 class="hero-title">パル<span class="accent">図鑑</span></h2>
+        <p class="hero-sub">種族値、ドロップ率、入手ルート。捕獲前に、丸裸にする。</p>
       </div>
     </div>
     <div class="controls">

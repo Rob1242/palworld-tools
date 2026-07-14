@@ -205,16 +205,20 @@
     opacity:0;transition:opacity .2s;pointer-events:none;}
   .card:hover{border-color:var(--lime-dim);box-shadow:0 10px 28px rgba(0,0,0,.35), 0 0 0 1px rgba(227,255,61,.15);}
   .card:hover::after{opacity:1;}
+
+  .brand-link{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;transition:opacity .15s;}
+  .brand-link:hover{opacity:.82;}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <div class="brand">
+    <a class="brand-link" href="palworld_home.html">
       <div class="brand-badge">P</div>
       <h1 class="title glitch-hover" data-text="配合検索"><small>Palworld 攻略ツール</small>配合検索</h1>
-    </div>
+    </a>
     <nav class="tabs">
+      <a href="palworld_home.html"><span>ホーム</span></a>
       <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
       <a href="palworld_dex.html"><span>パル図鑑</span></a>
       <a href="palworld_breeding.html" class="current"><span>配合検索</span></a>

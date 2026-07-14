@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palworld 攻略ツール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #07090d; --panel: #121822; --panel2: #182030;
+    --parchment: #e9eef4; --parchment-dim: #8592a3;
+    --brass: #f0b840; --brass-dim: #b5852f;
+    --teal: #35d2ff; --teal-dim: #1c6d86;
+    --lime: #e3ff3d; --lime-dim: #96b31f;
+    --magenta: #ff2e7e; --magenta-dim: #a01a52;
+    --line: rgba(142,183,214,.16); --danger: #e2543f;
+    --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
+    --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
+    --font-mono: "JetBrains Mono", monospace;
+  }
+  ::selection{background:var(--lime);color:#0a0d12;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:
+    radial-gradient(circle at 12% -8%, #143241 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(240,184,64,.06) 0%, transparent 42%),
+    var(--bg);
+    color:var(--parchment);font-family:var(--font-body);padding:0;}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
+
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:linear-gradient(160deg, #1c2733, #10151c);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  h1.title{font-family:var(--font-display);font-weight:900;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
+  .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
+
+  .icon{display:inline-flex;width:1em;height:1em;vertical-align:-0.15em;}
+  .icon svg{width:100%;height:100%;}
+
+  nav.tabs{display:flex;gap:6px;background:transparent;border:none;padding:0;}
+  nav.tabs a{position:relative;font-size:12.5px;color:var(--parchment-dim);text-decoration:none;padding:9px 18px 9px 20px;font-weight:600;font-family:var(--font-display);letter-spacing:.02em;
+    background:var(--panel2);border:1px solid var(--line);clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
+    transition:color .15s, background .15s, transform .15s;}
+  nav.tabs a span{position:relative;z-index:1;}
+  nav.tabs a::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg, transparent 30%, rgba(227,255,61,.35) 48%, rgba(255,46,126,.35) 52%, transparent 70%);
+    opacity:0;transition:opacity .2s;}
+  nav.tabs a:hover{color:var(--parchment);transform:translateY(-1px);}
+  nav.tabs a:hover::before{opacity:1;}
+  nav.tabs a.current{color:#08111a;background:var(--lime);border-color:var(--lime);font-weight:700;box-shadow:0 0 16px rgba(227,255,61,.45);}
+  nav.tabs a.current::before{display:none;}
+  nav.tabs a:active{transform:scale(.96);}
+
+  .hero{position:relative;height:300px;border-radius:10px;overflow:hidden;margin-bottom:26px;clip-path:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 40px) 100%,0 100%);
+    border:1px solid var(--line);background:#060809;}
+  .hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 40%;opacity:.85;filter:saturate(1.15) contrast(1.05);}
+  .hero-scanlines{position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.5;
+    background:repeating-linear-gradient(0deg, rgba(255,255,255,.06) 0px, rgba(255,255,255,.06) 1px, transparent 1px, transparent 3px);}
+  .hero-fade{position:absolute;inset:0;
+    background:
+      linear-gradient(100deg, var(--bg) 0%, rgba(7,9,13,.72) 26%, rgba(7,9,13,.15) 52%, transparent 68%),
+      linear-gradient(0deg, var(--bg) 0%, transparent 42%);}
+  .hero-content{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 28px;max-width:600px;}
+  .hero-eyebrow{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;color:var(--lime);margin-bottom:10px;text-shadow:0 0 10px rgba(227,255,61,.5);}
+  .hero-title{font-family:var(--font-display);font-weight:900;font-size:38px;line-height:1.15;color:var(--parchment);letter-spacing:.02em;margin:0 0 10px;text-shadow:0 2px 24px rgba(0,0,0,.6);}
+  .hero-title .accent{color:var(--magenta);text-shadow:0 0 18px rgba(255,46,126,.6);}
+  .hero-sub{font-size:13px;color:var(--parchment-dim);max-width:420px;line-height:1.7;margin:0;}
+  @media (max-width:640px){
+    .hero{height:230px;}
+    .hero-title{font-size:26px;}
+    .hero-sub{display:none;}
+  }
+
+  .tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+  .tool-card{position:relative;display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px 20px;overflow:hidden;
+    transition:transform .15s cubic-bezier(.2,.8,.3,1.3), border-color .15s, box-shadow .15s;}
+  .tool-card::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg, transparent 40%, rgba(227,255,61,.08) 50%, rgba(255,46,126,.08) 58%, transparent 68%);
+    opacity:0;transition:opacity .2s;pointer-events:none;}
+  .tool-card:hover{border-color:var(--lime-dim);transform:translateY(-3px);box-shadow:0 14px 32px rgba(0,0,0,.4), 0 0 0 1px rgba(227,255,61,.15);}
+  .tool-card:hover::after{opacity:1;}
+  .tool-card:active{transform:scale(.98);}
+  .tool-card .tool-icon{width:44px;height:44px;border-radius:8px;background:var(--panel2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--lime);font-size:22px;margin-bottom:16px;}
+  .tool-card .tool-name{font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--parchment);margin-bottom:6px;letter-spacing:.01em;}
+  .tool-card .tool-desc{font-size:12.5px;color:var(--parchment-dim);line-height:1.7;}
+  .tool-card .tool-go{position:relative;z-index:1;margin-top:14px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;color:var(--teal);display:flex;align-items:center;gap:4px;}
+
+  .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:36px;}
+  .footer-note a{color:var(--brass);}
+
+  @media (max-width:520px){
+    .hero-content{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="brand-badge">P</div>
+      <h1 class="title"><small>Palworld 攻略ツール</small>ホーム</h1>
+    </div>
+    <nav class="tabs">
+      <a href="palworld_home.html" class="current"><span>ホーム</span></a>
+      <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
+      <a href="palworld_dex.html"><span>パル図鑑</span></a>
+      <a href="palworld_breeding.html"><span>配合検索</span></a>
+      <a href="palworld_palbox.html"><span>パルボックス</span></a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <img class="hero-media" src="game_data/art/hero_sphere_2.webp" alt="" loading="eager">
+    <div class="hero-scanlines"></div>
+    <div class="hero-fade"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">PALWORLD ｜ UNOFFICIAL TOOLKIT</div>
+      <h2 class="hero-title">攻略の<span class="accent">基地</span>、ここに。</h2>
+      <p class="hero-sub">拠点配置、図鑑、配合、パルボックス。迷ったらここから選ぶ。</p>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <a class="tool-card" href="palworld_base_planner_v2.html">
+      <div class="tool-icon"><span class="icon">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.3 3.2a4 4 0 0 0-5.4 4.9L2.5 13.5l3 3 5.4-5.4a4 4 0 0 0 4.9-5.4l-2.5 2.5-2.2-.4-.4-2.2 2.6-2.8Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </span></div>
+      <div class="tool-name">拠点プランナー</div>
+      <div class="tool-desc">役職の重要度と枠数を入れるだけで、287体の中から拠点に置くべきパルの組み合わせを自動計算。</div>
+      <div class="tool-go">OPEN TOOL →</div>
+    </a>
+
+    <a class="tool-card" href="palworld_dex.html">
+      <div class="tool-icon"><span class="icon">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.4"/><circle cx="10" cy="10" r="3.6" stroke="currentColor" stroke-width="1.3"/><circle cx="10" cy="10" r=".8" fill="currentColor"/></svg>
+      </span></div>
+      <div class="tool-name">パル図鑑</div>
+      <div class="tool-desc">種族値、属性相性、ドロップ、入手方法。298体、捕獲前に知るべき全データを収録。</div>
+      <div class="tool-go">OPEN TOOL →</div>
+    </a>
+
+    <a class="tool-card" href="palworld_breeding.html">
+      <div class="tool-icon"><span class="icon">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 2c0 4 10 4 10 8s-10 4-10 8M15 2c0 4-10 4-10 8s10 4 10 8" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M6 5.5h8M6 14.5h8M5.3 10h9.4" stroke="currentColor" stroke-width="1.2"/></svg>
+      </span></div>
+      <div class="tool-name">配合検索</div>
+      <div class="tool-desc">欲しい子から親候補を逆引き。固定レシピもランク配合ペアも一発で表示。</div>
+      <div class="tool-go">OPEN TOOL →</div>
+    </a>
+
+    <a class="tool-card" href="palworld_palbox.html">
+      <div class="tool-icon"><span class="icon">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18c4 0 6-3.2 6-7.2C16 6 13 2 10 2S4 6 4 10.8C4 14.8 6 18 10 18Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </span></div>
+      <div class="tool-name">パルボックス</div>
+      <div class="tool-desc">所持パルを個体値・技・パッシブごと記録して、目的パルへの配合ロードマップを自動で組む。</div>
+      <div class="tool-go">OPEN TOOL →</div>
+    </a>
+  </div>
+
+  <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。</p>
+</div>
+</body>
+</html>
