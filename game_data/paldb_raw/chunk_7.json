@@ -1,0 +1,466 @@
+[
+  {
+    "dex_id": "8",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "キノコ", "qty": "1", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["丘陵の洞窟", "離島の洞窟"],
+      "egg_type": "新緑のタマゴ",
+      "boss_only": false,
+      "notes": "丘陵の洞窟(Lv.4-9通常/Lv.10-13ボス)、離島の洞窟(同様)。複数のパルリクルーター(Grass、Forest_Volcano、Desert_Snow、Sakurajima、SkyIsland、DarkIsland)。Captured Cage: Grass2(Lv.10-20)。"
+    }
+  },
+  {
+    "dex_id": "18",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "毒腺", "qty": "2-3", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["丘陵の洞窟", "離島の洞窟"],
+      "egg_type": "暗黒タマゴ",
+      "boss_only": false,
+      "notes": "ボス「三徹明けのンダコアラ」丘陵の洞窟・離島の洞窟(Lv.10-13)。その他複数エリア(green_D/K/M、blue_G/H、yellow_F等)。"
+    }
+  },
+  {
+    "dex_id": "28",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "革", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "ルビー", "qty": "1", "rate": "3%", "tier": "normal"},
+      {"item": "金貨", "qty": "10-20", "rate": "3%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["丘陵の洞窟", "離島の洞窟"],
+      "egg_type": "平凡なタマゴ",
+      "boss_only": false,
+      "notes": "ボス「草原の狩人 ガウルフ」丘陵の洞窟・離島の洞窟(Lv.6-9)。狂暴化したガウルフが複数箇所に出現。"
+    }
+  },
+  {
+    "dex_id": "38",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "わたあめ", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "上質なパルオイル", "qty": "1", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["渓谷の洞窟", "IncidentSpawner_Volcano"],
+      "egg_type": "平凡なタマゴ",
+      "boss_only": false,
+      "notes": "渓谷の洞窟(Lv.14-17、Lv.9-10)。ボス「特大わたあめ メリポップ」渓谷の洞窟(Lv.17-19)。IncidentSpawner_Volcano(Lv.35)。"
+    }
+  },
+  {
+    "dex_id": "48",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "骨", "qty": "2-4", "rate": "100%", "tier": "normal"},
+      {"item": "毒腺", "qty": "2", "rate": "100%", "tier": "normal"},
+      {"item": "小さなパルのソウル", "qty": "1", "rate": "1%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["渓谷の洞窟", "砂丘の洞窟"],
+      "egg_type": "暗黒タマゴ",
+      "boss_only": false,
+      "notes": "ボス「暗躍する黒鳥 マスクロウ」渓谷の洞窟(Lv.17-19)、砂丘の洞窟(Lv.37-40)。襲撃(Lv.42、難易度61-80)。"
+    }
+  },
+  {
+    "dex_id": "58",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "上質なパルオイル", "qty": "1-3", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["渓流の洞窟"],
+      "egg_type": "平凡なデカタマゴ",
+      "boss_only": false,
+      "notes": "渓流の洞窟(Lv.20-23、27-29)。レイド(難易度11-20~61-80)。パルリクルーター(Sakurajima Lv.50-55 3.12%等)。敵キャンプ(Lv.35)。"
+    }
+  },
+  {
+    "dex_id": "68",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "発火器官", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "革", "qty": "2-3", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["orange_H地域", "red_A地域", "sanctuary_2_volcano地域"],
+      "egg_type": "熱を帯びたデカタマゴ",
+      "boss_only": false,
+      "notes": "Lv.34-38。トライブボス「Guardian of the Azure Flame Kitsun」、狂暴化個体(Rampaging Kitsun)あり。パルリクルーター(0.09-1.25%)。grass_grade_04、glacier_grade_01/02でタマゴ入手可。"
+    }
+  },
+  {
+    "dex_id": "78",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "発火器官", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "上質なパルオイル", "qty": "1", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["火山の洞窟"],
+      "egg_type": "熱を帯びたタマゴ",
+      "boss_only": false,
+      "notes": "火山の洞窟(Lv.32-35通常/Lv.36-38ボス「溶岩娘 ラヴィ」)。複数の草地・火山・捕獲ケージエリア。パルリクルーター(0.03-1.3%)。"
+    }
+  },
+  {
+    "dex_id": "88",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "上質なパルオイル", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "竜の輝石", "qty": "10-20", "rate": "100%", "tier": "lv80"},
+      {"item": "古代文明の朽ちた遺物", "qty": "30-50", "rate": "100%", "tier": "lv80"},
+      {"item": "古代文明の眠れる遺物", "qty": "10-20", "rate": "100%", "tier": "lv80"},
+      {"item": "古代文明の綺麗な遺物", "qty": "4-8", "rate": "100%", "tier": "lv80"},
+      {"item": "古代文明の光る遺物", "qty": "2-3", "rate": "50%", "tier": "lv80"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "25%", "tier": "lv80"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島(44,-284)", "霊峰の洞窟", "ワールドツリー"],
+      "egg_type": "竜のデカタマゴ",
+      "boss_only": false,
+      "notes": "パルパゴス島(44,-284)Lv.30ボス出現、霊峰の洞窟Lv.42-45、ワールドツリー内Lv.80。パルリクルーター(Lv.15-70、0.03-1.3%)。"
+    }
+  },
+  {
+    "dex_id": "98",
+    "status": "ok",
+    "innate_passives": ["ヘビー級"],
+    "drops": [
+      {"item": "ラブラドンの恐竜肉", "qty": "2", "rate": "100%", "tier": "normal"},
+      {"item": "たまねぎの種", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "草の輝石", "qty": "10-20", "rate": "100%", "tier": "lv80"},
+      {"item": "古代文明の朽ちた遺物", "qty": "30-50", "rate": "100%", "tier": "lv80"},
+      {"item": "古代文明の眠れる遺物", "qty": "10-20", "rate": "100%", "tier": "lv80"},
+      {"item": "古代文明の綺麗な遺物", "qty": "4-8", "rate": "100%", "tier": "lv80"},
+      {"item": "古代文明の光る遺物", "qty": "2-3", "rate": "50%", "tier": "lv80"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "25%", "tier": "lv80"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島(昼7ヶ所/夜7ヶ所)", "ワールドツリー"],
+      "egg_type": "新緑のキョダイタマゴ",
+      "boss_only": false,
+      "notes": "族長「夏を告げる波 スプラドン」Lv.30。Lv.80ボス個体も存在。"
+    }
+  },
+  {
+    "dex_id": "108",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "布", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "小さなパルのソウル", "qty": "1", "rate": "3%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["渓流の洞窟", "yamijima IceLand地域"],
+      "egg_type": "暗黒デカタマゴ",
+      "boss_only": false,
+      "notes": "渓流の洞窟(Lv.20-23)、yamijima IceLand(Lv.63-66)。ボス「宵闇の吸血鬼 ヤミトバリ」渓流の洞窟(Lv.27-29)、tenraku_grade_01。"
+    }
+  },
+  {
+    "dex_id": "118",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "高品質な回復薬", "qty": "1-3", "rate": "100%", "tier": "normal"},
+      {"item": "きれいな花", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "革新的な技術書", "qty": "1", "rate": "10%", "tier": "normal"},
+      {"item": "世界樹の聖水", "qty": "1-3", "rate": "50%", "tier": "normal"},
+      {"item": "雷の輝石", "qty": "1-3", "rate": "50%", "tier": "normal"},
+      {"item": "闇の輝石", "qty": "10-20", "rate": "100%", "tier": "boss"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島", "世界樹"],
+      "egg_type": "暗黒キョダイタマゴ",
+      "boss_only": false,
+      "notes": "Lv.70通常/Lv.80ボス。ボス「深淵の女帝ルナクイン」Lv.49-59。繁殖: リリクイン+デスティング=ルナクイン。古代文明の遺物各種も複数ランクでドロップ(詳細確率は複数あり原文参照)。"
+    }
+  },
+  {
+    "dex_id": "128",
+    "status": "ok",
+    "innate_passives": ["ヘビー級"],
+    "drops": [
+      {"item": "氷結器官", "qty": "3-4", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["霊峰の洞窟", "snow_red_E", "yamijima_IceLand_pink_D", "yamijima_IceLand_pink_F"],
+      "egg_type": "凍てつくデカタマゴ",
+      "boss_only": false,
+      "notes": "霊峰の洞窟(Lv.42-45、ボスも出現)。レイド(Lv.29、難易度61-80)。glacier_grade_02でタマゴ入手可。パルリクルーターで低確率出現。"
+    }
+  },
+  {
+    "dex_id": "138",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "闇の欠片", "qty": "2-3", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島", "世界樹"],
+      "egg_type": "暗黒キョダイタマゴ",
+      "boss_only": false,
+      "notes": "ボス/レイドボス「狂乱の淑女 ベラノワール」として存在。具体的な出現座標はページに記載なし。"
+    }
+  },
+  {
+    "dex_id": "148",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "中くらいのパルのソウル", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "サファイア", "qty": "1", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["sanctuary_3_dessert", "パルパゴス島(-582,317)"],
+      "egg_type": "ゴツゴツしたキョダイタマゴ",
+      "boss_only": false,
+      "notes": "sanctuary_3_dessert(Lv.48-52)。パルパゴス島(-582,317)Lv.55ボス。ボス出現81_4_Sakurajima_FBOSS_1(Lv.54)。ボス襲撃(Lv.35)。パルリクルーター(Sakurajima 3.12%、DarkIsland 1.56%、SkyIsland 0.78%)。"
+    }
+  },
+  {
+    "dex_id": "158",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "革", "qty": "1-2", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["桜花の洞窟", "sakura_purple_B"],
+      "egg_type": "平凡なタマゴ",
+      "boss_only": false,
+      "notes": "桜花の洞窟(Lv.40-45)、sakura_purple_B(Lv.53-56)。ボス「まつろわぬ忠犬 ヤクモ」桜花の洞窟Lv.47-49。パートナースキル「類は友を呼ぶ」あり(パッシブスキルとは別枠)。"
+    }
+  },
+  {
+    "dex_id": "168",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "クロマイト", "qty": "1-2", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島(-879,-1467)", "天落の洞窟", "やみじま各地"],
+      "egg_type": "暗黒タマゴ",
+      "boss_only": false,
+      "notes": "ボス出現: パルパゴス島(-773,-1071)Lv.63、yamijima_rock_BOSS_B Lv.55。"
+    }
+  },
+  {
+    "dex_id": "178",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "革", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "氷結器官", "qty": "1-3", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島(昼44箇所/夜44箇所)", "天落の洞窟", "各種スノーエリア"],
+      "egg_type": "凍てつくタマゴ",
+      "boss_only": false,
+      "notes": "ボス「旅路を彩る氷華 ユキツネ」パルパゴス島(-411,-55)Lv.15、81_5_Yamijima_FBOSS_19 Lv.52、天落の洞窟Lv.56-58。レイド(Lv.13、難易度1-80)。パルリクルーター複数地点。"
+    }
+  },
+  {
+    "dex_id": "188",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "布", "qty": "1-3", "rate": "100%", "tier": "normal"},
+      {"item": "水棲パルの粘液", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "氷結器官", "qty": "1-3", "rate": "100%", "tier": "normal"},
+      {"item": "氷の輝石", "qty": "10-20", "rate": "100%", "tier": "lv80"},
+      {"item": "古代文明の朽ちた遺物", "qty": "30-50", "rate": "100%", "tier": "lv80"},
+      {"item": "古代文明の眠れる遺物", "qty": "10-20", "rate": "100%", "tier": "lv80"},
+      {"item": "古代文明の綺麗な遺物", "qty": "4-8", "rate": "100%", "tier": "lv80"},
+      {"item": "古代文明の光る遺物", "qty": "2-3", "rate": "50%", "tier": "lv80"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "25%", "tier": "lv80"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島", "ワールドツリー"],
+      "egg_type": "凍てつくキョダイタマゴ",
+      "boss_only": false,
+      "notes": "トライブボス「氷湖の女王 アズルーナ」として存在。"
+    }
+  },
+  {
+    "dex_id": "198",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "氷結器官", "qty": "1-2", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["霊峰の洞窟", "skyisland_8_01_A_meadow", "skyisland_8_03_B_meadow", "skyisland_8_13_F_meadow", "SeaBase_Snow_1"],
+      "egg_type": "凍てつくタマゴ",
+      "boss_only": false,
+      "notes": "霊峰の洞窟(Lv.39-41通常/Lv.42-45ボス「雪暦の羽衣 クジャンナ」)。SeaBase_Snow_1(捕獲ケージ、Lv.55-60)。パルリクルーター(Desert_Snow 1.56%、Sakurajima 0.78%等)。"
+    }
+  },
+  {
+    "dex_id": "208",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "革", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "水棲パルの粘液", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "小さなパルのソウル", "qty": "1", "rate": "1%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["砂丘の洞窟", "熱帯島エリア"],
+      "egg_type": "しめったタマゴ",
+      "boss_only": false,
+      "notes": "ボス「深淵から覗く目 ガブルミ」砂丘の洞窟Lv.37-40。大きな釣り堀(Medium 6.67%)。"
+    }
+  },
+  {
+    "dex_id": "218",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "氷結器官", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "世界樹の聖水", "qty": "1-3", "rate": "50%", "tier": "lv70"},
+      {"item": "水の輝石", "qty": "1-3", "rate": "50%", "tier": "lv70"},
+      {"item": "古代文明の朽ちた遺物", "qty": "1-10", "rate": "10%", "tier": "lv70"},
+      {"item": "古代文明の眠れる遺物", "qty": "1-5", "rate": "5%", "tier": "lv70"},
+      {"item": "古代文明の綺麗な遺物", "qty": "1-3", "rate": "3.33%", "tier": "lv70"},
+      {"item": "古代文明の光る遺物", "qty": "1-2", "rate": "2.5%", "tier": "lv70"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "2%", "tier": "lv70"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島", "ワールドツリー"],
+      "egg_type": "凍てつくデカタマゴ",
+      "boss_only": false,
+      "notes": "トライブボス「氷迅の走者 フリーズマ」として存在。"
+    }
+  },
+  {
+    "dex_id": "228",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "革", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "水棲パルの粘液", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "世界樹の聖水", "qty": "1-3", "rate": "50%", "tier": "lv70"},
+      {"item": "地の輝石", "qty": "1-3", "rate": "50%", "tier": "lv70"},
+      {"item": "古代文明の朽ちた遺物", "qty": "1-10", "rate": "10%", "tier": "lv70"},
+      {"item": "古代文明の眠れる遺物", "qty": "1-5", "rate": "5%", "tier": "lv70"},
+      {"item": "古代文明の綺麗な遺物", "qty": "1-3", "rate": "3.33%", "tier": "lv70"},
+      {"item": "古代文明の光る遺物", "qty": "1-2", "rate": "2.5%", "tier": "lv70"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "2%", "tier": "lv70"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島(昼26箇所/夜26箇所)", "desertisland_3"],
+      "egg_type": "凍てつくデカタマゴ",
+      "boss_only": false,
+      "notes": "desertisland_3(通常個体Lv.36-48、ボスLv.55-60)。"
+    }
+  },
+  {
+    "dex_id": "238",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "角", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "革", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "氷結器官", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "世界樹の聖水", "qty": "1-3", "rate": "50%", "tier": "lv70"},
+      {"item": "氷の輝石", "qty": "1-3", "rate": "50%", "tier": "lv70"},
+      {"item": "古代文明の朽ちた遺物", "qty": "1-10", "rate": "10%", "tier": "lv70"},
+      {"item": "古代文明の眠れる遺物", "qty": "1-5", "rate": "5%", "tier": "lv70"},
+      {"item": "古代文明の綺麗な遺物", "qty": "1-3", "rate": "3.33%", "tier": "lv70"},
+      {"item": "古代文明の光る遺物", "qty": "1-2", "rate": "2.5%", "tier": "lv70"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "2%", "tier": "lv70"}
+    ],
+    "obtain": {
+      "locations": ["ワールドツリー(worldtree_9_07_I)"],
+      "egg_type": "凍てつくデカタマゴ",
+      "boss_only": false,
+      "notes": "Lv.75-77。ボス「氷結の猛牛 ユキタロス」、狂暴化したユキタロスも存在。"
+    }
+  },
+  {
+    "dex_id": "248",
+    "status": "ok",
+    "innate_passives": ["ヘビー級"],
+    "drops": [
+      {"item": "金属鉱石", "qty": "4-5", "rate": "100%", "tier": "normal"},
+      {"item": "石炭", "qty": "4-5", "rate": "100%", "tier": "normal"},
+      {"item": "硫黄", "qty": "4-5", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島(昼17箇所/夜17箇所)"],
+      "egg_type": "ゴツゴツしたデカタマゴ",
+      "boss_only": false,
+      "notes": "ボス「歩く大鉱脈 ジオルドン」パルパゴス島(819,467)Lv.50。"
+    }
+  },
+  {
+    "dex_id": "258",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "革", "qty": "1-2", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["skyisland_8_11_E_meadow", "天陽郷の空域"],
+      "egg_type": "平凡なタマゴ",
+      "boss_only": false,
+      "notes": "天陽郷の空域(Lv.63-65通常/Lv.65-69ボス「紅白の縞を揺らす者 ニャルル」)。襲撃(Lv.13、難易度41-60/61-80)。パルリクルーター(SkyIsland 5.57%)。"
+    }
+  },
+  {
+    "dex_id": "268",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "革", "qty": "2-3", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["天陽郷の空域", "skyisland_8_13_F_meadow", "Captured Cage: Skyisland1"],
+      "egg_type": "平凡なタマゴ",
+      "boss_only": false,
+      "notes": "天陽郷の空域(Lv.65-69)。トライブボス「潔癖の長袖 ネモフィ」として存在するが具体的な出現地点の記載なし。"
+    }
+  },
+  {
+    "dex_id": "278",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "キノコ", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "ふしぎなキノコ", "qty": "2-3", "rate": "50%", "tier": "normal"},
+      {"item": "世界樹の聖水", "qty": "1-3", "rate": "50%", "tier": "lv70"},
+      {"item": "地の輝石", "qty": "1-3", "rate": "50%", "tier": "lv70"},
+      {"item": "古代文明の朽ちた遺物", "qty": "1-10", "rate": "10%", "tier": "lv70"},
+      {"item": "古代文明の眠れる遺物", "qty": "1-5", "rate": "5%", "tier": "lv70"},
+      {"item": "古代文明の綺麗な遺物", "qty": "1-3", "rate": "3.33%", "tier": "lv70"},
+      {"item": "古代文明の光る遺物", "qty": "1-2", "rate": "2.5%", "tier": "lv70"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "2%", "tier": "lv70"}
+    ],
+    "obtain": {
+      "locations": ["ワールドツリー"],
+      "egg_type": "新緑のデカタマゴ",
+      "boss_only": false,
+      "notes": "Lv.75-77。ボス「カワイイきのこ マシュリー」ワールドツリー(-35,731)Lv.78。"
+    }
+  }
+]

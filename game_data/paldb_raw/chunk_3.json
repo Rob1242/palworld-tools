@@ -1,0 +1,535 @@
+[
+  {
+    "dex_id": "4",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "小麦の種", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "低品質の医薬品", "qty": "1", "rate": "20%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["丘陵の洞窟 (Hillside Cavern)", "離島の洞窟 (Isolated Island Cavern)", "green_B/J/M/Q・blue_I 各バイオーム"],
+      "egg_type": "新緑のタマゴ",
+      "boss_only": false,
+      "notes": "離島の洞窟は通常Lv.6-9、ボス個体はLv.10-13。各地のパルリクルーター(Forest_Volcano/Desert_Snow/Sakurajima/DarkIsland/SkyIsland)でもLv.30-70で出現。"
+    }
+  },
+  {
+    "dex_id": "17",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "水棲パルの粘液", "qty": "1", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["丘陵の洞窟 (Hillside Cavern) Lv.6-9", "離島の洞窟 (Isolated Island Cavern) Lv.6-9", "河川・草原の green ゾーン Lv.2-4"],
+      "egg_type": "しめったタマゴ",
+      "boss_only": false,
+      "notes": "各地のパルリクルーターでも出現(0.03%-1.3%)。"
+    }
+  },
+  {
+    "dex_id": "191",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "発電器官", "qty": "1-3", "rate": "100%", "tier": "normal"},
+      {"item": "キャプペンの羽飾り", "qty": "1", "rate": "50%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["大きな釣り堀 (Large Fishing Pond) Lv.36-48 (出現率7.33%)"],
+      "egg_type": "しめったデカタマゴ",
+      "boss_only": false,
+      "notes": "配合でも入手可: キャプペン(Penking) + イヌズマ(Rayhound) = ペンキッド"
+    }
+  },
+  {
+    "dex_id": "9",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "発火器官", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "革", "qty": "1", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["丘陵の洞窟 (Hillside Cavern) Lv.6-9", "離島の洞窟 (Isolated Island Cavern) Lv.6-9", "草原バイオーム Lv.4-6", "blue/orangeゾーン", "Volcano1 捕獲ケージ Lv.20-30"],
+      "egg_type": "熱を帯びたタマゴ",
+      "boss_only": false,
+      "notes": "各地のパルリクルーターでも出現(0.03%-1.3%)。"
+    }
+  },
+  {
+    "dex_id": "130",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "ツノガミの鹿肉", "qty": "2", "rate": "100%", "tier": "normal"},
+      {"item": "革", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "角", "qty": "2", "rate": "100%", "tier": "normal"},
+      {"item": "地の輝石", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の朽ちた遺物", "qty": "30-50", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の眠れる遺物", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の綺麗な遺物", "qty": "4-8", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の光る遺物", "qty": "2-3", "rate": "Lv.80 50%", "tier": "normal"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "Lv.80 25%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島 (昼/夜)", "sanctuary_1_forest Lv.20-23", "worldtree_9_55_WorldTreeAura Lv.80", "世界樹"],
+      "egg_type": "ゴツゴツしたデカタマゴ",
+      "boss_only": false,
+      "notes": "配合でも入手可: ツノガミ + シメナワ → ヤマガミ"
+    }
+  },
+  {
+    "dex_id": "38",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "わたあめ", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "上質なパルオイル", "qty": "1", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["渓谷の洞窟 (Ravine Grotto) Lv.14-17 / Lv.9-10", "grass_grade_02 (平凡なタマゴ スポナー)"],
+      "egg_type": "平凡なタマゴ",
+      "boss_only": false,
+      "notes": "各地のパルリクルーター、Volcanoインシデントスポナー(Lv.35)でも出現。部族ボス『特大わたあめ メリポップ』が渓谷の洞窟 Lv.17-19に出現(ドロップ内容はページ上でアイテムとして明記されておらず未記録)。"
+    }
+  },
+  {
+    "dex_id": "206",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "水棲パルの粘液", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "クラランのクラゲ傘", "qty": "1", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["丘陵の洞窟 (Hillside Cavern) Lv.6-9", "離島の洞窟 (Isolated Island Cavern) Lv.12-15"],
+      "egg_type": "しめったタマゴ",
+      "boss_only": false,
+      "notes": "Lv.50-80の高レベル個体はダークアイランド/スカイアイランドのリクルーターや捕獲ケージにも出現。"
+    }
+  },
+  {
+    "dex_id": "62",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "革", "qty": "2", "rate": "100%", "tier": "normal"},
+      {"item": "発電器官", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "角", "qty": "1", "rate": "50%", "tier": "normal"},
+      {"item": "雷の輝石", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の朽ちた遺物", "qty": "30-50", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の眠れる遺物", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の綺麗な遺物", "qty": "4-8", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の光る遺物", "qty": "2-3", "rate": "Lv.80 50%", "tier": "normal"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "Lv.80 25%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["渓谷の洞窟 (Ravine Grotto) Lv.14-17 / Lv.17-19", "パルパゴス島", "世界樹"],
+      "egg_type": "ビリビリのデカタマゴ",
+      "boss_only": false,
+      "notes": "ボス出現: 疾風迅雷 ライコーン Lv.31 (パルパゴス島 -117,-543)"
+    }
+  },
+  {
+    "dex_id": "45",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "ハチミツ", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "レタスの種", "qty": "1", "rate": "75%", "tier": "normal"},
+      {"item": "トマトの種", "qty": "1", "rate": "75%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["渓流の洞窟 (Mountain Stream Grotto) Lv.16-29", "yellow_A バイオーム Lv.16-18"],
+      "egg_type": "新緑のタマゴ",
+      "boss_only": false,
+      "notes": "各地のパルリクルーターでも出現(0.03%-1.3%)。"
+    }
+  },
+  {
+    "dex_id": "77",
+    "status": "ok",
+    "innate_passives": ["アブノーマル"],
+    "drops": [
+      {"item": "キノコ", "qty": "2-4", "rate": "100%", "tier": "normal"},
+      {"item": "ケーキ", "qty": "1", "rate": "1%", "tier": "normal"},
+      {"item": "あやしいジュース", "qty": "1", "rate": "1%", "tier": "normal"},
+      {"item": "おかしなジュース", "qty": "1", "rate": "1%", "tier": "normal"},
+      {"item": "記憶リセット薬", "qty": "1", "rate": "1%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["Cavern of the Dunes", "orange_I", "desert_yellow_A ~ desert_orange_G Lv.30-42"],
+      "egg_type": "暗黒デカタマゴ",
+      "boss_only": false,
+      "notes": "各地のパルリクルーターでも出現(0.03%-1.3%)。パッシブ『アブノーマル』の効果として『無属性ダメージ軽減10%』がページに記載。"
+    }
+  },
+  {
+    "dex_id": "132",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "水棲パルの粘液", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "金属鉱石", "qty": "2-3", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["砂丘の洞窟 (Cavern of the Dunes) ボス個体 Lv.37-40", "desert_orange_C Lv.31-35", "ダークアイランド海岸部 Lv.52-55", "ダークアイランド岩場 Lv.61-63"],
+      "egg_type": "ゴツゴツしたデカタマゴ",
+      "boss_only": false,
+      "notes": "レイド Lv.13、大きな釣り堀(6.67% Lv.16-26)、各地のパルリクルーター、インシデントスポナーでも出現。砂丘の洞窟の個体はボス表記あり。"
+    }
+  },
+  {
+    "dex_id": "237",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "角", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "革", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "世界樹の聖水", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "草の輝石", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "古代文明の遺物(各種、内訳不明瞭)", "qty": "不明瞭", "rate": "Lv.70 10%~2%", "tier": "normal"},
+      {"item": "草の輝石", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の遺物(各種、内訳不明瞭)", "qty": "不明瞭", "rate": "Lv.80 100%/50%/25%", "tier": "normal"},
+      {"item": "角", "qty": "2-3", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "革", "qty": "2-3", "rate": "Lv.80 100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["yellow_F Lv.24-26", "sanctuary_1_forest Lv.24-26", "worldtree_9_55_WorldTreeAura Lv.80"],
+      "egg_type": "新緑のデカタマゴ",
+      "boss_only": false,
+      "notes": "古代文明遺物ドロップの内訳(アイテム別の個別レート)がソースの要約では不明瞭だったため、グループ化して記録。パルリクルーターLv.15-70でも出現。"
+    }
+  },
+  {
+    "dex_id": "102",
+    "status": "ok",
+    "innate_passives": ["ヘビー級"],
+    "drops": [
+      {"item": "上質なパルオイル", "qty": "5-10", "rate": "100%", "tier": "normal"},
+      {"item": "革", "qty": "5-10", "rate": "100%", "tier": "normal"},
+      {"item": "グランモスの巨獣肉", "qty": "2", "rate": "100%", "tier": "normal"},
+      {"item": "草の輝石", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の朽ちた遺物", "qty": "30-50", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の眠れる遺物", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の綺麗な遺物", "qty": "4-8", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の光る遺物", "qty": "2-3", "rate": "Lv.80 50%", "tier": "normal"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "Lv.80 25%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島 各green バイオーム Lv.26-39", "世界樹 Lv.80"],
+      "egg_type": "新緑のキョダイタマゴ",
+      "boss_only": false,
+      "notes": "ボス出現: 荒ぶる双牙 グランモス Lv.38 (パルパゴス島 189,-478)"
+    }
+  },
+  {
+    "dex_id": "183",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "発電器官", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "カミナラシの雲", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "闇の欠片", "qty": "1", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島(昼/夜) Lv.50-66", "フェイブレイクの洞窟 (Feybreak Cavern) Lv.50-58", "各スカイアイランド"],
+      "egg_type": "暗黒タマゴ",
+      "boss_only": false,
+      "notes": "ボス出現: 黒雲の末裔 ヤミナラシ (パルパゴス島 -1201,-855、ボス個体Lv.60/通常Lv.55)、フェイブレイクの洞窟Lv.56-58にも出現。"
+    }
+  },
+  {
+    "dex_id": "67",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "発電器官", "qty": "1-2", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["砂丘の洞窟 (Cavern of the Dunes、アルファ個体) Lv.37-40", "雪原地帯 Lv.31-35", "暗黒の森エリア Lv.52-58", "砂漠の捕獲ケージ Lv.20-30"],
+      "egg_type": "ビリビリのデカタマゴ",
+      "boss_only": false,
+      "notes": "レイド Lv.13/23、各地のパルリクルーター(0.2-1.56%)、砂漠/ダークアイランドのインシデントでも出現。砂丘の洞窟の個体はアルファ表記あり。"
+    }
+  },
+  {
+    "dex_id": "141",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "革", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "発火器官", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "炎の輝石", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の朽ちた遺物", "qty": "30-50", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の眠れる遺物", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の綺麗な遺物", "qty": "4-8", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の光る遺物", "qty": "2-3", "rate": "Lv.80 50%", "tier": "normal"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "Lv.80 25%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["桜花の洞窟 (Cherry Blossom Cave) Lv.40-45(通常)/Lv.51-52(ボス)", "サクラジマ・バイキングエリアの捕獲ケージ Lv.30-40"],
+      "egg_type": "熱を帯びたデカタマゴ",
+      "boss_only": false,
+      "notes": "パルリクルーター(サクラジマ) 3.12% Lv.50-55。"
+    }
+  },
+  {
+    "dex_id": "200",
+    "status": "ok",
+    "innate_passives": ["ヘビー級"],
+    "drops": [
+      {"item": "革", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "赤いベリー", "qty": "1-2", "rate": "60%", "tier": "normal"},
+      {"item": "レタスの種", "qty": "1-2", "rate": "50%", "tier": "normal"},
+      {"item": "トマトの種", "qty": "1", "rate": "50%", "tier": "normal"},
+      {"item": "草の輝石", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の朽ちた遺物", "qty": "30-50", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の眠れる遺物", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の綺麗な遺物", "qty": "4-8", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の光る遺物", "qty": "2-3", "rate": "Lv.80 50%", "tier": "normal"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "Lv.80 25%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["桜花の洞窟 Lv.40-45(通常)/Lv.47-49(ボス)", "各green バイオーム Lv.33-35", "砂漠のオアシス Lv.34-38", "トロピカルアイランド Lv.40-50", "世界樹 Lv.80"],
+      "egg_type": "新緑のキョダイタマゴ",
+      "boss_only": false,
+      "notes": "各地のパルリクルーターでも出現(0.03%-1.3%)。"
+    }
+  },
+  {
+    "dex_id": "220",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "上質な布", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "上質なパルオイル", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "世界樹の聖水", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "無の輝石", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "古代文明の朽ちた遺物", "qty": "1-10", "rate": "Lv.70 10%", "tier": "normal"},
+      {"item": "古代文明の眠れる遺物", "qty": "1-5", "rate": "Lv.70 5%", "tier": "normal"},
+      {"item": "古代文明の綺麗な遺物", "qty": "1-3", "rate": "Lv.70 3.33%", "tier": "normal"},
+      {"item": "古代文明の光る遺物", "qty": "1-2", "rate": "Lv.70 2.5%", "tier": "normal"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "Lv.70 2%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["worldtree_9_10_L", "worldtree_9_11_N (世界樹) Lv.75-78"],
+      "egg_type": null,
+      "boss_only": false,
+      "notes": "タマゴでの入手はページに記載なし。配合でも入手可: シルキーヌ(Sibelyx) + ネモフィ(Lapure) = ソワレーヌ。"
+    }
+  },
+  {
+    "dex_id": "155",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "骨", "qty": "1", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["桜花の洞窟 Lv.31-35, 40-45, 47-49", "砂漠・サクラジマ地域 Lv.31-48"],
+      "egg_type": "ゴツゴツしたデカタマゴ",
+      "boss_only": false,
+      "notes": "各地のパルリクルーターでも出現(0.2%-1.56%)。"
+    }
+  },
+  {
+    "dex_id": "166",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "革", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "闇の欠片", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "Dark Radiant Gem (JP名未確認)", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の朽ちた遺物", "qty": "30-50", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の眠れる遺物", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の綺麗な遺物", "qty": "4-8", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の光る遺物", "qty": "2-3", "rate": "Lv.80 50%", "tier": "normal"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "Lv.80 25%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["ヤミジマ森林・溶岩エリア Lv.50-67", "フェイブレイクの洞窟", "世界樹"],
+      "egg_type": "暗黒デカタマゴ",
+      "boss_only": false,
+      "notes": "ボス個体『深夜の紺毛 ナイトロット』が各地に出現。レイド Lv.35-65。※このページの要約は一部アイテム名が英語表記で返され、JP正式名を確認できなかった項目あり(Dark Radiant Gem)。"
+    }
+  },
+  {
+    "dex_id": "251",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "毒腺", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "繊維", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "世界樹の聖水", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "草の輝石", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "古代文明の朽ちた遺物", "qty": "1-10", "rate": "Lv.70 10%", "tier": "normal"},
+      {"item": "古代文明の眠れる遺物", "qty": "1-5", "rate": "Lv.70 5%", "tier": "normal"},
+      {"item": "古代文明の綺麗な遺物", "qty": "1-3", "rate": "Lv.70 3.33%", "tier": "normal"},
+      {"item": "古代文明の光る遺物", "qty": "1-2", "rate": "Lv.70 2.5%", "tier": "normal"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "Lv.70 2%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["sanctuary_3_dessert Lv.45-48"],
+      "egg_type": "新緑のデカタマゴ",
+      "boss_only": false,
+      "notes": "レイド Lv.13でも遭遇。"
+    }
+  },
+  {
+    "dex_id": "256",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "エメラルド", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "大きなパルのソウル", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "世界樹の聖水", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "無の輝石", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "古代文明の朽ちた遺物", "qty": "1-10", "rate": "Lv.70 10%", "tier": "normal"},
+      {"item": "古代文明の眠れる遺物", "qty": "1-5", "rate": "Lv.70 5%", "tier": "normal"},
+      {"item": "古代文明の綺麗な遺物", "qty": "1-3", "rate": "Lv.70 3.33%", "tier": "normal"},
+      {"item": "古代文明の光る遺物", "qty": "1-2", "rate": "Lv.70 2.5%", "tier": "normal"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "Lv.70 2%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["worldtree_9_11_N Lv.76-78"],
+      "egg_type": "平凡なキョダイタマゴ",
+      "boss_only": false,
+      "notes": "ボス出現: 砂海の守護岩 オシロガメ Lv.60 (パルパゴス島 -1082,-1320)。パルリクルーター: ダークアイランド Lv.60-65 1.85%、スカイアイランド Lv.65-70 0.92%。配合でも入手可: オモシガメ(Tetroise) + セレスディア(Celesdir) = オシロガメ。"
+    }
+  },
+  {
+    "dex_id": "170",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "闇の欠片", "qty": "1-2", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島ヤミジマエリア: ビーチ、岩場、森林、高原、氷地帯 Lv.50-66"],
+      "egg_type": "暗黒タマゴ",
+      "boss_only": false,
+      "notes": "ボス出現: 百面の使徒 オーメン Lv.55-60、フェイブレイクの洞窟にも出現。"
+    }
+  },
+  {
+    "dex_id": "134",
+    "status": "ok",
+    "innate_passives": ["硬い皮膚"],
+    "drops": [
+      {"item": "プラスチール", "qty": "2-3", "rate": "100%", "tier": "normal"},
+      {"item": "大きなパルのソウル", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "竜の輝石", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の朽ちた遺物", "qty": "30-50", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の眠れる遺物", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の綺麗な遺物", "qty": "4-8", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の光る遺物", "qty": "2-3", "rate": "Lv.80 50%", "tier": "normal"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "Lv.80 25%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["worldtree_9_55_WorldTreeAura Lv.80", "パルパゴス島 -689,-110 Lv.55(ボス個体)"],
+      "egg_type": "竜のキョダイタマゴ",
+      "boss_only": false,
+      "notes": "ボス個体名: 鋼鉄の竜王 ジオラーヴァ (パルパゴス島 -689,-110、Lv.55)。"
+    }
+  },
+  {
+    "dex_id": "263",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "小さなパルのソウル", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "角", "qty": "1-2", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["スカイアイランド各所 Lv.65-66(3箇所)", "天陽郷の空域 (Sunreach Skies) Lv.65-69"],
+      "egg_type": "暗黒タマゴ",
+      "boss_only": false,
+      "notes": "レイド Lv.13(難易度21-40/41-60/61-80)、パルリクルーター SkyIsland Lv.65-70 5.57%でも出現。配合限定の記載はなし。"
+    }
+  },
+  {
+    "dex_id": "273",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "革", "qty": "3-4", "rate": "100%", "tier": "normal"},
+      {"item": "発火器官", "qty": "3-4", "rate": "100%", "tier": "normal"},
+      {"item": "世界樹の聖水", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "炎の輝石", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "古代文明の朽ちた遺物", "qty": "1-10", "rate": "Lv.70 10%", "tier": "normal"},
+      {"item": "古代文明の眠れる遺物", "qty": "1-5", "rate": "Lv.70 5%", "tier": "normal"},
+      {"item": "古代文明の綺麗な遺物", "qty": "1-3", "rate": "Lv.70 3.33%", "tier": "normal"},
+      {"item": "古代文明の光る遺物", "qty": "1-2", "rate": "Lv.70 2.5%", "tier": "normal"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "Lv.70 2%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島(昼/夜)", "世界樹(昼/夜)", "捕獲ケージ: Skyisland1 Lv.65-69"],
+      "egg_type": "熱を帯びたデカタマゴ",
+      "boss_only": false,
+      "notes": "部族ボス: パルパゴス島 -244,-1520 Lv.68。レイド Lv.13(難易度21-40/41-60/61-80)。"
+    }
+  },
+  {
+    "dex_id": "283",
+    "status": "ok",
+    "innate_passives": ["ヘビー級"],
+    "drops": [
+      {"item": "超高熱コア", "qty": "1-2", "rate": "100%", "tier": "normal"},
+      {"item": "極まったパルのソウル", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "世界樹の聖水", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "竜の輝石", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "古代文明の遺物(各種、内訳不明瞭)", "qty": "不明瞭", "rate": "Lv.70 10%~2%", "tier": "normal"},
+      {"item": "竜の輝石", "qty": "10-20", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "古代文明の遺物(各種、内訳不明瞭)", "qty": "不明瞭", "rate": "Lv.80 100%~25%", "tier": "normal"},
+      {"item": "超高熱コア", "qty": "1-2", "rate": "Lv.80 100%", "tier": "normal"},
+      {"item": "極まったパルのソウル", "qty": "1", "rate": "Lv.80 100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["世界樹 -59,756"],
+      "egg_type": "竜のキョダイタマゴ",
+      "boss_only": true,
+      "notes": "ページ上に記載された唯一の出現はボス個体『光跡を綴る守護竜 シェルガドラ』Lv.79(世界樹 -59,756)のみで、通常の野生スポーンは記載なし。よってボス限定として記録。古代文明遺物ドロップの個別内訳は要約が不明瞭だったためグループ化。"
+    }
+  },
+  {
+    "dex_id": "284",
+    "status": "ok",
+    "innate_passives": [],
+    "drops": [
+      {"item": "角", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "革", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "大きなパルのソウル", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "世界樹の聖水", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "雷の輝石", "qty": "1-3", "rate": "Lv.70 50%", "tier": "normal"},
+      {"item": "古代文明の朽ちた遺物", "qty": "1-10", "rate": "Lv.70 10%", "tier": "normal"},
+      {"item": "古代文明の眠れる遺物", "qty": "1-5", "rate": "Lv.70 5%", "tier": "normal"},
+      {"item": "古代文明の綺麗な遺物", "qty": "1-3", "rate": "Lv.70 3.33%", "tier": "normal"},
+      {"item": "古代文明の光る遺物", "qty": "1-2", "rate": "Lv.70 2.5%", "tier": "normal"},
+      {"item": "古代文明の輝く遺物", "qty": "1", "rate": "Lv.70 2%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["worldtree_9_09_E Lv.76-78", "世界樹(昼/夜)"],
+      "egg_type": "竜のキョダイタマゴ",
+      "boss_only": false,
+      "notes": ""
+    }
+  },
+  {
+    "dex_id": "137",
+    "status": "ok",
+    "innate_passives": ["伝説", "冥王"],
+    "drops": [
+      {"item": "ダイヤモンド", "qty": "1", "rate": "100%", "tier": "normal"},
+      {"item": "大きなパルのソウル", "qty": "1-2", "rate": "100%", "tier": "normal"}
+    ],
+    "obtain": {
+      "locations": ["パルパゴス島 689,648"],
+      "egg_type": "暗黒キョダイタマゴ",
+      "boss_only": true,
+      "notes": "ページ上の唯一の出現は伝説ボス『伝説の闇天馬 グレイシャドウ』Lv.65(パルパゴス島 689,648)のみで通常野生スポーンの記載なし。ボス限定として記録。パッシブ欄の『伝説』『冥王』が1つの複合名か2つの別スキルかは要約からは断定できず、そのまま2項目として記録(要確認)。"
+    }
+  }
+]
