@@ -90,8 +90,8 @@
   .slider-row .row-top .lbl{color:var(--parchment);font-weight:600;}
   .slider-row .row-top .val{font-family:var(--font-mono);color:var(--lime);font-weight:700;}
   input[type="range"]{width:100%;accent-color:var(--lime);height:4px;}
-  .star-row{display:flex;gap:6px;align-items:center;}
-  .star-btn{width:28px;height:28px;border-radius:5px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment-dim);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  .star-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+  .star-btn{min-width:28px;height:28px;padding:0 7px;border-radius:5px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment-dim);cursor:pointer;font-size:13px;letter-spacing:-1px;white-space:nowrap;display:flex;align-items:center;justify-content:center;}
   .star-btn.active{background:var(--brass);border-color:var(--brass);color:#1a1408;}
   .talent-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
   .talent-col .row-top{justify-content:center;text-align:center;flex-direction:column;gap:2px;}
@@ -104,10 +104,12 @@
   .passive-slot select{width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:9px 12px;font-size:12.5px;font-family:var(--font-body);appearance:none;cursor:pointer;}
   .passive-slot select:focus{outline:none;border-color:var(--lime);}
   .passive-slot .slot-effect{font-size:10.5px;color:var(--parchment-dim);margin-top:4px;min-height:14px;}
+  .preset-row{display:flex;gap:8px;flex-wrap:wrap;}
   .auto-btn{display:inline-flex;align-items:center;gap:6px;background:var(--panel2);border:1px solid var(--lime-dim);color:var(--lime);font-size:12px;padding:7px 14px;border-radius:6px;cursor:pointer;font-family:var(--font-display);font-weight:600;position:relative;overflow:hidden;}
   .auto-btn::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg, transparent, rgba(227,255,61,.25), transparent);transform:skewX(-20deg);transition:left .4s;}
   .auto-btn:hover::before{left:120%;}
   .auto-btn:hover{border-color:var(--lime);}
+  .preset-hint{font-size:11px;color:var(--parchment-dim);margin-top:8px;}
 
   .dps-mode-tabs{display:flex;gap:2px;margin-bottom:14px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
   .dps-mode-tab{padding:7px 16px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:13px;}
@@ -225,7 +227,12 @@
     <div class="section">
       <h2>パッシブスキル(4枠)</h2>
       <div class="passive-slots" id="passiveSlots"></div>
-      <button class="auto-btn" id="autoPassiveBtn">⚡ 攻撃力おすすめを自動選択</button>
+      <div class="preset-row" id="presetRow">
+        <button class="auto-btn" data-preset="power">超火力型</button>
+        <button class="auto-btn" data-preset="stable">安定型</button>
+        <button class="auto-btn" data-preset="element">属性特化型</button>
+      </div>
+      <p class="preset-hint">超火力型: 防御・HPの減少を無視して純粋な攻撃%が高い順に4枠を選択 / 安定型: 防御・HPを削らないパッシブの中から攻撃%が高い順に選択 / 属性特化型: このパルのタイプに一致する属性強化パッシブを優先しつつ攻撃%が高い順に選択</p>
     </div>
 
     <div class="section">
@@ -376,14 +383,62 @@ function updateSlotEffectLabels(){
   });
 }
 
-function autoSelectPassives(){
-  const generic = COMBAT_PASSIVES_DATA
+function pickPowerPreset(){
+  return COMBAT_PASSIVES_DATA
     .map(p => ({ p, val: passiveEffectValue(p, "ShotAttack") }))
     .filter(x => x.val > 0)
     .sort((a,b) => b.val - a.val)
     .slice(0, 4)
     .map(x => x.p.name);
-  state.passiveSlots = [generic[0]||null, generic[1]||null, generic[2]||null, generic[3]||null];
+}
+
+function pickStablePreset(){
+  const safe = COMBAT_PASSIVES_DATA
+    .map(p => ({
+      p,
+      atk: passiveEffectValue(p, "ShotAttack"),
+      def: passiveEffectValue(p, "Defense"),
+      hp: passiveEffectValue(p, "MaxHP"),
+    }))
+    .filter(x => x.atk > 0 && x.def >= 0 && x.hp >= 0)
+    .sort((a,b) => b.atk - a.atk)
+    .map(x => x.p.name);
+  const picks = safe.slice(0, 4);
+  if(picks.length < 4){
+    const defensive = COMBAT_PASSIVES_DATA
+      .map(p => ({
+        p,
+        val: passiveEffectValue(p, "Defense") + passiveEffectValue(p, "MaxHP") + passiveEffectValue(p, "AutoHPRegeneRate"),
+      }))
+      .filter(x => x.val > 0 && !picks.includes(x.p.name))
+      .sort((a,b) => b.val - a.val);
+    for(const d of defensive){
+      if(picks.length >= 4) break;
+      picks.push(d.p.name);
+    }
+  }
+  return picks;
+}
+
+function pickElementPreset(){
+  const elementKeys = state.pal.types_en.map(t => `ElementBoost_${t}`);
+  return COMBAT_PASSIVES_DATA
+    .map(p => {
+      const atk = passiveEffectValue(p, "ShotAttack");
+      const elem = elementKeys.reduce((sum, k) => sum + passiveEffectValue(p, k), 0);
+      return { p, score: atk + elem, hasElem: elem > 0 };
+    })
+    .filter(x => x.score > 0)
+    .sort((a,b) => (b.score + (b.hasElem ? 0.01 : 0)) - (a.score + (a.hasElem ? 0.01 : 0)))
+    .slice(0, 4)
+    .map(x => x.p.name);
+}
+
+function applyPreset(preset){
+  const picks = preset === "stable" ? pickStablePreset()
+    : preset === "element" ? pickElementPreset()
+    : pickPowerPreset();
+  state.passiveSlots = [picks[0]||null, picks[1]||null, picks[2]||null, picks[3]||null];
   renderPassiveSlots();
   renderAll();
 }
@@ -442,7 +497,9 @@ function selectPal(dexId){
 }
 
 document.getElementById("lvSlider").addEventListener("input", e => { state.lv = parseInt(e.target.value); document.getElementById("lvVal").textContent = state.lv; renderAll(); });
-document.getElementById("autoPassiveBtn").addEventListener("click", autoSelectPassives);
+document.querySelectorAll("#presetRow .auto-btn").forEach(btn => {
+  btn.addEventListener("click", () => applyPreset(btn.dataset.preset));
+});
 document.querySelectorAll(".dps-mode-tab").forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".dps-mode-tab").forEach(b => b.classList.remove("active"));
