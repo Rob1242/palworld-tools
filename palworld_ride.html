@@ -78,6 +78,7 @@
 <body>
 <script src="game_data/dex_data.js"></script>
 <script src="game_data/swim_speed_data.js"></script>
+<script src="game_data/mount_stamina_data.js"></script>
 <div class="wrap">
   <header class="top">
     <a class="brand-link" href="palworld_home.html">
@@ -101,7 +102,8 @@
   <p class="caveat">
     陸上/飛行はパル図鑑データ(走行速度・ライド疾走速度)、水上はpaldb.ccの実測データ(泳ぎ速度・泳ぎダッシュ速度、13匹)を使用しています。
     以前は水上タブでも陸上の速度をそのまま流用していたため、陸を走るのが速いだけのパル(クトゥルフのめだま等)が誤って1位に来る不具合がありましたが修正済みです(2026-07-16)。
-    バーは各タブ内で正規化した相対値のため、タブをまたいだ数値比較には使えません。ペア強化パッシブ・環境補正(雪山・砂漠等での速度変化)によるシミュレーションは今後の課題です。
+    バーは各タブ内で正規化した相対値のため、タブをまたいだ数値比較には使えません。スタミナ値もpaldb.ccの実測データ(陸上75匹・飛行29匹・水上13匹)を使用しています。
+    ペア強化パッシブ・環境補正(雪山・砂漠等での速度変化)によるシミュレーションは今後の課題です。
   </p>
 
   <div class="mode-tabs">
@@ -137,9 +139,12 @@
 // 汎用パッシブによる移動速度ボーナス(game_data/combat_data.jsのCOMBAT_PASSIVES_DATAで
 // 確認済みの実効果値。陸上と水上で別枠のパッシブなので、飛行にも陸上の値を流用する
 // (MoveSpeed効果はゲーム内データ上、地上/飛行の区別なく同じ扱いのため)。
-// 速度極振り = デメリットの有無を問わず単純に一番効果が大きい4枠(または全て)を採用。
-// 安定型 = デメリット付きパッシブ(次元跳躍=満腹度減少+15%)を避けた4枠。
-// 水上のパッシブは3種のみ確認できておりいずれもデメリット無しのため、極振り/安定型で差はない。
+// 速度極振り = デメリットの有無を問わず単純に一番速度が上がる4枠(または全て)を採用。
+// 安定型 = 満腹度減少などのデメリット付きパッシブ(次元跳躍)を避け、代わりに「永久機関」
+// (最大スタミナ+75%・ライドパルのみ有効・デメリット無し)を入れて、速度は多少譲っても
+// スタミナ切れでダッシュが止まりにくい編成にする。水上は速度パッシブが3種しか確認できて
+// おらず速度極振りでも4枠目が余るため、安定型ではその余った枠に永久機関を入れる形になる。
+const STAMINA_PCT = 75; // 永久機関の効果値
 const SPEED_BUILDS = {
   none:  { land: [], swim: [] },
   max:   {
@@ -147,8 +152,8 @@ const SPEED_BUILDS = {
     swim: [{name:"波乗り王",pct:50},{name:"泳ぐのが得意",pct:40},{name:"しなやかスイム",pct:30}],
   },
   stable: {
-    land: [{name:"神速",pct:30},{name:"伝説",pct:20},{name:"走るのが得意",pct:20},{name:"すばしこい",pct:10}],
-    swim: [{name:"波乗り王",pct:50},{name:"泳ぐのが得意",pct:40},{name:"しなやかスイム",pct:30}],
+    land: [{name:"神速",pct:30},{name:"伝説",pct:20},{name:"走るのが得意",pct:20},{name:"永久機関",pct:0,stamina:STAMINA_PCT}],
+    swim: [{name:"波乗り王",pct:50},{name:"泳ぐのが得意",pct:40},{name:"しなやかスイム",pct:30},{name:"永久機関",pct:0,stamina:STAMINA_PCT}],
   },
 };
 
@@ -161,9 +166,14 @@ function toKana(str){
   return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
 }
 
-function buildPctFor(mode){
+function speedPctFor(mode){
   const key = mode === "swim" ? "swim" : "land";
   return SPEED_BUILDS[state.build][key].reduce((s,p) => s + p.pct, 0);
+}
+
+function staminaPctFor(mode){
+  const key = mode === "swim" ? "swim" : "land";
+  return SPEED_BUILDS[state.build][key].reduce((s,p) => s + (p.stamina||0), 0);
 }
 
 function updateBuildDetail(){
@@ -171,7 +181,9 @@ function updateBuildDetail(){
   const list = SPEED_BUILDS[state.build][key];
   const el = document.getElementById("buildDetail");
   if(!list.length){ el.textContent = ""; return; }
-  el.textContent = "採用パッシブ: " + list.map(p => `${p.name}(+${p.pct}%)`).join("・") + ` / 合計+${list.reduce((s,p)=>s+p.pct,0)}%`;
+  el.textContent = "採用パッシブ: " + list.map(p => `${p.name}(${p.pct ? `速度+${p.pct}%` : `スタミナ+${p.stamina}%`})`).join("・")
+    + ` / 速度合計+${list.reduce((s,p)=>s+p.pct,0)}%`
+    + (staminaPctFor(state.mode) ? `・スタミナ+${staminaPctFor(state.mode)}%` : "");
 }
 
 function poolFor(mode){
@@ -184,13 +196,22 @@ function poolFor(mode){
 }
 
 function statsFor(p, mode){
-  const bonusPct = buildPctFor(mode);
-  const mult = 1 + bonusPct / 100;
+  const speedMult = 1 + speedPctFor(mode) / 100;
+  const staminaMult = 1 + staminaPctFor(mode) / 100;
   if(mode === "swim"){
     const s = SWIM_BY_DEXID[p.id];
-    return { runLabel: "泳ぎ", sprintLabel: "泳ぎダッシュ", run: Math.round(s.swim_speed * mult), sprint: Math.round(s.swim_dash_speed * mult), stamina: s.stamina };
+    return {
+      runLabel: "泳ぎ", sprintLabel: "泳ぎダッシュ",
+      run: Math.round(s.swim_speed * speedMult), sprint: Math.round(s.swim_dash_speed * speedMult),
+      stamina: Math.round(s.stamina * staminaMult),
+    };
   }
-  return { runLabel: "走行", sprintLabel: "ライド疾走", run: Math.round(p.stats.run_speed * mult), sprint: Math.round(p.stats.ride_sprint_speed * mult), stamina: null };
+  const baseStamina = MOUNT_STAMINA_DATA[p.id];
+  return {
+    runLabel: "走行", sprintLabel: "ライド疾走",
+    run: Math.round(p.stats.run_speed * speedMult), sprint: Math.round(p.stats.ride_sprint_speed * speedMult),
+    stamina: baseStamina != null ? Math.round(baseStamina * staminaMult) : null,
+  };
 }
 
 function render(){
