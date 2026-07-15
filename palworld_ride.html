@@ -38,9 +38,12 @@
 
   .caveat{font-size:11.5px;color:var(--parchment-dim);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-bottom:16px;line-height:1.7;}
 
-  .mode-tabs{display:flex;gap:2px;margin-bottom:16px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
-  .mode-tab{padding:8px 18px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:14px;transition:color .12s,background .12s;}
+  .mode-tabs, .build-tabs{display:flex;gap:2px;margin-bottom:12px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
+  .mode-tab, .build-tab{padding:8px 18px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:14px;transition:color .12s,background .12s;}
   .mode-tab.active{background:var(--teal);color:#08222c;box-shadow:0 0 10px rgba(53,210,255,.4);}
+  .build-tab.active{background:var(--lime);color:#1a1e08;box-shadow:0 0 10px rgba(227,255,61,.4);}
+  .build-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+  .build-detail{font-size:11px;color:var(--parchment-dim);font-family:var(--font-mono);}
 
   .controls{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,.25);}
   .controls-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
@@ -54,7 +57,7 @@
   .count-tag{font-size:12px;color:var(--parchment-dim);font-family:var(--font-mono);white-space:nowrap;margin-left:auto;}
 
   .rank-list{display:flex;flex-direction:column;gap:6px;}
-  .rank-row{display:grid;grid-template-columns:36px 40px 1fr 130px 130px;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 14px;transition:border-color .12s;}
+  .rank-row{display:grid;grid-template-columns:36px 40px 1fr 130px 130px 70px;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 14px;transition:border-color .12s;}
   .rank-row:hover{border-color:var(--teal-dim);}
   .rank-row .rnum{font-family:var(--font-mono);color:var(--brass);font-weight:700;font-size:13px;text-align:center;}
   .rank-row .icon-wrap{width:36px;height:36px;border-radius:50%;background:var(--panel2);border:1px solid var(--line);overflow:hidden;}
@@ -67,12 +70,14 @@
   .stat-bar-fill{height:100%;border-radius:3px;}
   .stat-bar-fill.run{background:linear-gradient(90deg, var(--teal-dim), var(--teal));}
   .stat-bar-fill.sprint{background:linear-gradient(90deg, var(--brass-dim), var(--brass));}
+  .stamina-val{font-size:11px;color:var(--parchment-dim);font-family:var(--font-mono);text-align:right;}
 
   .empty-msg{text-align:center;padding:40px 0;color:var(--parchment-dim);font-size:13px;}
 </style>
 </head>
 <body>
 <script src="game_data/dex_data.js"></script>
+<script src="game_data/swim_speed_data.js"></script>
 <div class="wrap">
   <header class="top">
     <a class="brand-link" href="palworld_home.html">
@@ -94,9 +99,9 @@
   </header>
 
   <p class="caveat">
-    パル図鑑データ(走行速度・ライド疾走速度)を元に、乗騎(ライド)可能なパルを陸上/飛行/水上で分けてランキング表示しています。
-    バーは各タブ内で正規化した相対値のため、タブをまたいだ数値比較(例: 陸上パルと飛行パルの速度差)には使えません。
-    スタミナ値・ペア強化パッシブ・環境補正(雪山・砂漠等での速度変化)によるシミュレーションには対応していません(今後の課題)。
+    陸上/飛行はパル図鑑データ(走行速度・ライド疾走速度)、水上はpaldb.ccの実測データ(泳ぎ速度・泳ぎダッシュ速度、13匹)を使用しています。
+    以前は水上タブでも陸上の速度をそのまま流用していたため、陸を走るのが速いだけのパル(クトゥルフのめだま等)が誤って1位に来る不具合がありましたが修正済みです(2026-07-16)。
+    バーは各タブ内で正規化した相対値のため、タブをまたいだ数値比較には使えません。ペア強化パッシブ・環境補正(雪山・砂漠等での速度変化)によるシミュレーションは今後の課題です。
   </p>
 
   <div class="mode-tabs">
@@ -105,12 +110,21 @@
     <div class="mode-tab" data-mode="swim">水上</div>
   </div>
 
+  <div class="build-row">
+    <div class="build-tabs">
+      <div class="build-tab active" data-build="none">基礎ステータス</div>
+      <div class="build-tab" data-build="max">速度極振りパッシブ</div>
+      <div class="build-tab" data-build="stable">安定型パッシブ</div>
+    </div>
+    <span class="build-detail" id="buildDetail"></span>
+  </div>
+
   <div class="controls">
     <div class="controls-row">
       <input type="text" id="searchBox" placeholder="パル名で検索…">
       <div class="sort-chips" id="sortChips">
-        <div class="chip active" data-sort="sprint">ライド疾走が速い順</div>
-        <div class="chip" data-sort="run">走行が速い順</div>
+        <div class="chip active" data-sort="sprint">2列目が速い順</div>
+        <div class="chip" data-sort="run">1列目が速い順</div>
       </div>
       <span class="count-tag" id="countTag"></span>
     </div>
@@ -120,16 +134,63 @@
 </div>
 
 <script>
-const state = { mode: "ground", query: "", sort: "sprint" };
+// 汎用パッシブによる移動速度ボーナス(game_data/combat_data.jsのCOMBAT_PASSIVES_DATAで
+// 確認済みの実効果値。陸上と水上で別枠のパッシブなので、飛行にも陸上の値を流用する
+// (MoveSpeed効果はゲーム内データ上、地上/飛行の区別なく同じ扱いのため)。
+// 速度極振り = デメリットの有無を問わず単純に一番効果が大きい4枠(または全て)を採用。
+// 安定型 = デメリット付きパッシブ(次元跳躍=満腹度減少+15%)を避けた4枠。
+// 水上のパッシブは3種のみ確認できておりいずれもデメリット無しのため、極振り/安定型で差はない。
+const SPEED_BUILDS = {
+  none:  { land: [], swim: [] },
+  max:   {
+    land: [{name:"次元跳躍",pct:50},{name:"神速",pct:30},{name:"伝説",pct:20},{name:"走るのが得意",pct:20}],
+    swim: [{name:"波乗り王",pct:50},{name:"泳ぐのが得意",pct:40},{name:"しなやかスイム",pct:30}],
+  },
+  stable: {
+    land: [{name:"神速",pct:30},{name:"伝説",pct:20},{name:"走るのが得意",pct:20},{name:"すばしこい",pct:10}],
+    swim: [{name:"波乗り王",pct:50},{name:"泳ぐのが得意",pct:40},{name:"しなやかスイム",pct:30}],
+  },
+};
+
+const SWIM_BY_DEXID = {};
+SWIM_SPEED_DATA.forEach(s => { SWIM_BY_DEXID[s.dexId] = s; });
+
+const state = { mode: "ground", build: "none", query: "", sort: "sprint" };
 
 function toKana(str){
   return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
 }
 
+function buildPctFor(mode){
+  const key = mode === "swim" ? "swim" : "land";
+  return SPEED_BUILDS[state.build][key].reduce((s,p) => s + p.pct, 0);
+}
+
+function updateBuildDetail(){
+  const key = state.mode === "swim" ? "swim" : "land";
+  const list = SPEED_BUILDS[state.build][key];
+  const el = document.getElementById("buildDetail");
+  if(!list.length){ el.textContent = ""; return; }
+  el.textContent = "採用パッシブ: " + list.map(p => `${p.name}(+${p.pct}%)`).join("・") + ` / 合計+${list.reduce((s,p)=>s+p.pct,0)}%`;
+}
+
 function poolFor(mode){
-  if(mode === "ground") return PAL_DEX_DATA.filter(p => p.ride && p.ride.rideable && !p.ride.fly && !p.ride.swim);
+  // 陸上を走れるパルは、水上も泳げるかどうかに関わらず対象にする(両方できるパルもいるため)。
+  if(mode === "ground") return PAL_DEX_DATA.filter(p => p.ride && p.ride.rideable && !p.ride.fly);
   if(mode === "fly") return PAL_DEX_DATA.filter(p => p.ride && p.ride.fly);
-  return PAL_DEX_DATA.filter(p => p.ride && p.ride.swim);
+  // 水上: 陸上ride.swimフラグは信頼性に欠ける項目が複数見つかった(2026-07-16調査)ため使わず、
+  // paldb.cc実測データ(SWIM_SPEED_DATA)に載っている13匹のみを対象にする。
+  return PAL_DEX_DATA.filter(p => SWIM_BY_DEXID[p.id]);
+}
+
+function statsFor(p, mode){
+  const bonusPct = buildPctFor(mode);
+  const mult = 1 + bonusPct / 100;
+  if(mode === "swim"){
+    const s = SWIM_BY_DEXID[p.id];
+    return { runLabel: "泳ぎ", sprintLabel: "泳ぎダッシュ", run: Math.round(s.swim_speed * mult), sprint: Math.round(s.swim_dash_speed * mult), stamina: s.stamina };
+  }
+  return { runLabel: "走行", sprintLabel: "ライド疾走", run: Math.round(p.stats.run_speed * mult), sprint: Math.round(p.stats.ride_sprint_speed * mult), stamina: null };
 }
 
 function render(){
@@ -138,32 +199,35 @@ function render(){
     const q = toKana(state.query.toLowerCase());
     list = list.filter(p => toKana(p.name).includes(q) || (p.en_name && p.en_name.toLowerCase().includes(state.query.toLowerCase())));
   }
-  const key = state.sort === "run" ? "run_speed" : "ride_sprint_speed";
-  list = list.slice().sort((a,b) => b.stats[key] - a.stats[key]);
+  const withStats = list.map(p => ({ p, s: statsFor(p, state.mode) }));
+  const key = state.sort === "run" ? "run" : "sprint";
+  withStats.sort((a,b) => b.s[key] - a.s[key]);
 
-  document.getElementById("countTag").textContent = `${list.length}匹`;
+  updateBuildDetail();
+  document.getElementById("countTag").textContent = `${withStats.length}匹`;
   const box = document.getElementById("rankList");
-  if(!list.length){
+  if(!withStats.length){
     box.innerHTML = `<div class="empty-msg">該当するパルが見つかりません。</div>`;
     return;
   }
-  const maxRun = Math.max(...list.map(p => p.stats.run_speed));
-  const maxSprint = Math.max(...list.map(p => p.stats.ride_sprint_speed));
-  box.innerHTML = list.map((p, i) => {
-    const runPct = Math.round(p.stats.run_speed / maxRun * 100);
-    const sprintPct = Math.round(p.stats.ride_sprint_speed / maxSprint * 100);
+  const maxRun = Math.max(...withStats.map(x => x.s.run));
+  const maxSprint = Math.max(...withStats.map(x => x.s.sprint));
+  box.innerHTML = withStats.map(({p, s}, i) => {
+    const runPct = Math.round(s.run / maxRun * 100);
+    const sprintPct = Math.round(s.sprint / maxSprint * 100);
     return `<div class="rank-row">
       <div class="rnum">#${i+1}</div>
       <div class="icon-wrap"><img src="${p.icon}" loading="lazy" alt=""></div>
       <div><span class="pname">${p.name}</span><span class="pname-en">${p.en_name||''}</span></div>
       <div class="stat-bar-wrap">
-        <div class="stat-bar-label"><span>走行</span><span>${p.stats.run_speed}</span></div>
+        <div class="stat-bar-label"><span>${s.runLabel}</span><span>${s.run}</span></div>
         <div class="stat-bar"><div class="stat-bar-fill run" style="width:${runPct}%"></div></div>
       </div>
       <div class="stat-bar-wrap">
-        <div class="stat-bar-label"><span>ライド疾走</span><span>${p.stats.ride_sprint_speed}</span></div>
+        <div class="stat-bar-label"><span>${s.sprintLabel}</span><span>${s.sprint}</span></div>
         <div class="stat-bar"><div class="stat-bar-fill sprint" style="width:${sprintPct}%"></div></div>
       </div>
+      <div class="stamina-val">${s.stamina != null ? 'スタミナ'+s.stamina : ''}</div>
     </div>`;
   }).join("");
 }
@@ -173,6 +237,14 @@ document.querySelectorAll(".mode-tab").forEach(tab => {
     document.querySelectorAll(".mode-tab").forEach(t => t.classList.remove("active"));
     tab.classList.add("active");
     state.mode = tab.dataset.mode;
+    render();
+  });
+});
+document.querySelectorAll(".build-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".build-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    state.build = tab.dataset.build;
     render();
   });
 });

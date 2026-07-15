@@ -2954,7 +2954,7 @@
     "ride": {
       "rideable": true,
       "fly": true,
-      "swim": false
+      "swim": true
     },
     "work_suitability": {
       "火おこし": 0,
@@ -5224,7 +5224,7 @@
     "ride": {
       "rideable": true,
       "fly": false,
-      "swim": false
+      "swim": true
     },
     "work_suitability": {
       "火おこし": 0,
@@ -7699,7 +7699,7 @@
     "ride": {
       "rideable": true,
       "fly": false,
-      "swim": false
+      "swim": true
     },
     "work_suitability": {
       "火おこし": 0,
@@ -7734,7 +7734,7 @@
     "ride": {
       "rideable": true,
       "fly": false,
-      "swim": false
+      "swim": true
     },
     "work_suitability": {
       "火おこし": 3,
@@ -9308,7 +9308,7 @@
     "is_dark_type": true,
     "ride": {
       "rideable": true,
-      "fly": false,
+      "fly": true,
       "swim": false
     },
     "work_suitability": {

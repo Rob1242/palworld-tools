@@ -3853,7 +3853,7 @@
     "ride": {
       "rideable": true,
       "fly": true,
-      "swim": false
+      "swim": true
     },
     "work": {
       "水やり": 3,
@@ -6847,7 +6847,7 @@
     "ride": {
       "rideable": true,
       "fly": false,
-      "swim": false
+      "swim": true
     },
     "work": {
       "採集": 1,
@@ -10081,7 +10081,7 @@
     "ride": {
       "rideable": true,
       "fly": false,
-      "swim": false
+      "swim": true
     },
     "work": {
       "水やり": 3,
@@ -10126,7 +10126,7 @@
     "ride": {
       "rideable": true,
       "fly": false,
-      "swim": false
+      "swim": true
     },
     "work": {
       "火おこし": 3,
@@ -12182,7 +12182,7 @@
     "is_dark_type": true,
     "ride": {
       "rideable": true,
-      "fly": false,
+      "fly": true,
       "swim": false
     },
     "work": {
