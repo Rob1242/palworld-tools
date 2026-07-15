@@ -94,7 +94,7 @@
 
   <p class="caveat">
     「戦闘」は Lv80・星4・才能100%・ソウル60% を仮定し、そのパルの持ち技の中から最も持続火力(威力×属性一致補正÷クールタイム、汎用パッシブ4枠込み)が高い技を選んだ場合のDPSで評価しています(戦闘最適化ツールの計算式と同じ)。
-    「拠点作業」は作業適性(火おこし・採掘・製薬など)の合計レベルで評価。「マウント」は乗騎速度(ライド疾走)で評価し、非乗騎パルは対象外です。
+    「マウント」は乗騎速度(ライド疾走)で評価し、非乗騎パルは対象外です(水上専用パルの正確な泳ぎ速度は<a href="palworld_ride.html">ライド速度ランキング</a>ページを参照してください)。
     Tierは各カテゴリ内の相対的な順位(上位5%=SS、20%=S、50%=A、80%=B、それ以下=C)によるもので、目安としてご覧ください。
     Terrariaコラボパル11体(クトゥルフのめだま〜かがやくコウモリ)は専用技のクールタイムが1秒という他に例のない値のため、
     DPS計算式に通すと桁外れのスコアになってしまい「戦闘」カテゴリのランキングからは除外しています(実際のゲームプレイ上の値かボス戦AI由来の値か未検証のため)。
@@ -102,7 +102,6 @@
 
   <div class="cat-tabs">
     <div class="cat-tab active" data-cat="combat">戦闘</div>
-    <div class="cat-tab" data-cat="work">拠点作業</div>
     <div class="cat-tab" data-cat="mount">マウント</div>
   </div>
 
@@ -178,18 +177,17 @@ const RANKING_EXCLUDE_DEX_IDS = new Set(Array.from({length: 298-288+1}, (_,i) =>
 function buildEntries(){
   return PAL_DEX_DATA.map(dp => {
     const combatPal = COMBAT_PAL_DATA.find(c => c.dex_id === dp.id);
-    const workSum = Object.values(dp.work || {}).reduce((a,b) => a+b, 0);
-    const topWork = Object.entries(dp.work || {}).sort((a,b) => b[1]-a[1]).slice(0,2);
     const combatBest = (combatPal && !RANKING_EXCLUDE_DEX_IDS.has(dp.id)) ? computeCombatBest(combatPal) : null;
-    const rideable = dp.ride && (dp.ride.rideable || dp.ride.fly || dp.ride.swim);
+    // 陸上/飛行できるパル(=run_speed・ride_sprint_speedが実際の移動速度)だけを対象にする。
+    // 水上専用パルは別データ(泳ぎ速度)が必要なため、このシンプルな指標には含めない
+    // (詳細はライド速度ランキングページの陸上/飛行/水上タブを参照)。
+    const landOrFly = dp.ride && (dp.ride.rideable || dp.ride.fly);
     return {
       id: dp.id, name: dp.name, en_name: dp.en_name, icon: dp.icon,
       combatScore: combatBest ? combatBest.sustained : null,
       combatDetail: combatBest ? `${combatBest.jp_name}(威力${combatBest.power}・CT${combatBest.cooldown}秒)` : null,
-      workScore: workSum,
-      workDetail: topWork.length ? topWork.map(([k,v]) => `${k}Lv${v}`).join('・') : null,
-      mountScore: rideable ? dp.stats.ride_sprint_speed : null,
-      mountDetail: rideable ? `走行${dp.stats.run_speed}・疾走${dp.stats.ride_sprint_speed}` : null,
+      mountScore: landOrFly ? dp.stats.ride_sprint_speed : null,
+      mountDetail: landOrFly ? `走行${dp.stats.run_speed}・疾走${dp.stats.ride_sprint_speed}` : null,
     };
   });
 }
@@ -207,7 +205,6 @@ function tierOf(rank, total){
 
 const CAT_CONFIG = {
   combat: { scoreKey: "combatScore", detailKey: "combatDetail", label: "持続DPS" },
-  work: { scoreKey: "workScore", detailKey: "workDetail", label: "作業適性合計" },
   mount: { scoreKey: "mountScore", detailKey: "mountDetail", label: "ライド疾走速度" },
 };
 
