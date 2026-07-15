@@ -138,6 +138,40 @@
   .badge-row{display:flex;gap:6px;margin-top:4px;}
 
   .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;}
+
+  /* 6体最強パーティ */
+  .mode-tabs{display:flex;gap:2px;margin-bottom:16px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
+  .mode-tab{padding:8px 18px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:14px;transition:color .12s,background .12s;}
+  .mode-tab.active{background:var(--lime);color:#1a1e08;box-shadow:0 0 10px rgba(227,255,61,.4);}
+
+  .compute-btn{display:inline-flex;align-items:center;gap:8px;background:var(--lime);border:1px solid var(--lime);color:#1a1e08;font-family:var(--font-display);font-weight:700;font-size:14px;padding:11px 24px;border-radius:6px;cursor:pointer;box-shadow:0 0 14px rgba(227,255,61,.25);margin-bottom:18px;}
+  .compute-btn:hover{box-shadow:0 0 20px rgba(227,255,61,.4);}
+  .compute-btn:disabled{opacity:.5;cursor:wait;}
+
+  .party-summary{display:flex;gap:28px;flex-wrap:wrap;}
+  .party-summary .metric .num{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--brass);}
+  .party-summary .metric .lbl{font-size:11px;color:var(--parchment-dim);margin-top:2px;}
+
+  .coverage-grid{display:flex;gap:8px;flex-wrap:wrap;}
+  .coverage-chip{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:6px;font-size:12.5px;border:1px solid var(--line);background:var(--panel2);}
+  .coverage-chip.covered{border-color:var(--lime-dim);color:var(--lime);}
+  .coverage-chip.uncovered{opacity:.35;}
+
+  .party-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
+  .party-card{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:14px;}
+  .party-card .pc-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+  .party-card .pc-head img{width:40px;height:40px;border-radius:50%;object-fit:contain;background:var(--panel);border:2px solid var(--brass);flex-shrink:0;}
+  .party-card .pc-name{font-family:var(--font-display);font-weight:700;font-size:15px;}
+  .party-card .pc-name-en{font-size:10.5px;color:var(--parchment-dim);font-family:var(--font-mono);}
+  .party-card .pc-skill{font-size:12px;color:var(--parchment-dim);margin-top:8px;display:flex;justify-content:space-between;gap:8px;}
+  .party-card .pc-dps{font-family:var(--font-mono);color:var(--lime);font-weight:700;font-size:15px;margin-top:4px;text-align:right;}
+
+  .weakness-risk{display:flex;flex-direction:column;gap:6px;}
+  .wr-row{display:flex;gap:10px;align-items:center;font-size:12.5px;}
+  .wr-row .wr-bar{flex:1;height:8px;background:var(--panel2);border-radius:4px;overflow:hidden;}
+  .wr-row .wr-fill{height:100%;background:var(--danger);}
+  .wr-row.safe .wr-fill{background:var(--lime-dim);}
+  .wr-row .wr-count{width:70px;text-align:right;color:var(--parchment-dim);font-family:var(--font-mono);font-size:11px;}
 </style>
 </head>
 <body>
@@ -158,6 +192,12 @@
     </nav>
   </header>
 
+  <div class="mode-tabs">
+    <div class="mode-tab active" data-mode="build">1体最強ビルド</div>
+    <div class="mode-tab" data-mode="party">6体最強パーティ</div>
+  </div>
+
+  <div id="buildMode">
   <div class="caveat">
     Lv・才能値・濃縮★・ソウル強化・パッシブ4枠を自由に調整しながら、技ごとの火力をその場で確認できます。
     「瞬間火力」は技1発あたりのダメージ期待値(威力×攻撃力×属性一致×属性強化)、「継続火力」はそれを
@@ -249,6 +289,37 @@
       </div>
       <div class="dps-formula-note" id="formulaNote"></div>
       <div class="skill-list" id="skillList"></div>
+    </div>
+  </div>
+  </div>
+
+  <div id="partyMode" style="display:none;">
+    <div class="caveat">
+      全パル共通でLv80・濃縮★4・才能値100%・ソウル強化60%を前提とし、各パルが覚える技の中から
+      最もDPSが高い1技を「そのパルの実力」とします。パッシブ4枠は各パルごとに(汎用攻撃%+自分の
+      属性強化パッシブ)が最大になる組み合わせを自動選択します。攻撃技の属性が偏らないよう、動的計画法(DP)で
+      「属性カバレッジ(6体それぞれの得意技の属性が何種類に及ぶか)」を考慮しながら合計火力が最大になる
+      6体を厳密に求めます(近似ではありません)。ただし属性カバレッジには一定の重み付けをしているため、
+      重み次第では純粋な合計火力最大の編成とは異なる場合があります。相手の属性有利・不利やパートナースキルは含めていません。
+    </div>
+    <button class="compute-btn" id="computePartyBtn">6体最強パーティを計算する</button>
+    <div id="partyResult" style="display:none;">
+      <div class="section">
+        <h2>編成サマリー</h2>
+        <div class="party-summary" id="partySummaryBox"></div>
+      </div>
+      <div class="section">
+        <h2>属性カバレッジ(得意技の属性)</h2>
+        <div class="coverage-grid" id="coverageGrid"></div>
+      </div>
+      <div class="section">
+        <h2>選出パル</h2>
+        <div class="party-grid" id="partyGrid"></div>
+      </div>
+      <div class="section">
+        <h2>弱点リスク(参考・選出には影響しません)</h2>
+        <div class="weakness-risk" id="weaknessRiskBox"></div>
+      </div>
     </div>
   </div>
 
@@ -566,6 +637,193 @@ const initialId = initialParams.get("id");
 if(initialId && COMBAT_PAL_DATA.some(p => p.dex_id === initialId)){
   selectPal(initialId);
 }
+
+// ===== 6体最強パーティ =====
+// 全パル共通の固定前提(Lv80・濃縮★4・才能値100%・ソウル強化60%)で各パルの最高DPS技を求め、
+// 動的計画法(DP)で「得意技の属性カバレッジ」を保ちながら合計DPSが最大になる6体を厳密に選ぶ。
+// 部分集合の被覆(属性カバレッジ)+ナップサック(6体選出)を同時に扱う都合上、
+// dp[k][mask] = 「k体を選び、選んだ技の属性の和集合がmaskであるときの最大合計DPS」というテーブルを
+// 291パル分1体ずつ更新する0/1ナップサックDP(状態数 約291×7×512 ≈ 100万、JSで一瞬で計算できる)。
+const PARTY_SIZE = 6;
+const PARTY_LV = 80, PARTY_STAR_PCT = 20, PARTY_TALENT_PCT = 100, PARTY_SOUL_PCT = 60;
+const PARTY_COVERAGE_WEIGHT = 150000; // 属性1種カバーにつきこの値を加点(上位パルのDPSと同程度の重み)
+const ELEMENT_EN_TO_JP = { Fire:"炎", Water:"水", Electricity:"雷", Earth:"地", Leaf:"草", Ice:"氷", Dragon:"竜", Dark:"闇", Normal:"無" };
+const PARTY_ELEMENT_BEATS = { "炎":["草","氷"], "草":["地"], "地":["雷"], "雷":["水"], "水":["炎"], "氷":["竜"], "竜":["闇"], "闇":["無"], "無":[] };
+
+function partyElementMultiplier(attackerType, defenderType){
+  if(attackerType === "無") return 1;
+  if(PARTY_ELEMENT_BEATS[attackerType].includes(defenderType)) return 1.5;
+  if(defenderType === "無") return 1;
+  if(attackerType === defenderType) return 0.66;
+  if(PARTY_ELEMENT_BEATS[defenderType] && PARTY_ELEMENT_BEATS[defenderType].includes(attackerType)) return 0.66;
+  return 1;
+}
+function isWeakTo(defenderTypesJp, attackerType){
+  let mult = 1;
+  defenderTypesJp.forEach(def => { mult *= partyElementMultiplier(attackerType, def); });
+  return mult > 1.01;
+}
+
+function pickBestPresetForTypes(typesEn){
+  const elementKeys = typesEn.map(t => `ElementBoost_${t}`);
+  return COMBAT_PASSIVES_DATA
+    .map(p => {
+      const atk = passiveEffectValue(p, "ShotAttack");
+      const elem = elementKeys.reduce((sum, k) => sum + passiveEffectValue(p, k), 0);
+      return { p, score: atk + elem, hasElem: elem > 0 };
+    })
+    .filter(x => x.score > 0)
+    .sort((a,b) => (b.score + (b.hasElem?0.01:0)) - (a.score + (a.hasElem?0.01:0)))
+    .slice(0, 4)
+    .map(x => x.p.name);
+}
+
+function computePalBestForParty(pal){
+  if(!pal.skills || !pal.skills.length) return null;
+  const atk = computeStat(pal.stats.shot_attack, 100, 0.075, PARTY_LV, PARTY_TALENT_PCT, PARTY_STAR_PCT, PARTY_SOUL_PCT);
+  const passiveNames = pickBestPresetForTypes(pal.types_en);
+  const chosen = passiveNames.map(n => COMBAT_PASSIVES_DATA.find(p => p.name === n)).filter(Boolean);
+  const genericPct = chosen.reduce((s,ps) => s + passiveEffectValue(ps, "ShotAttack"), 0);
+  const ctPct = chosen.reduce((s,ps) => s + passiveEffectValue(ps, "ActiveSkillCoolTime_Decrease"), 0);
+  const ctMultiplier = Math.max(1 - ctPct/100, 0.1);
+
+  let best = null;
+  for(const sk of pal.skills){
+    const stab = pal.types_en.includes(sk.element) ? STAB_MULT : 1.0;
+    const elementPct = chosen.reduce((s,ps) => s + passiveEffectValue(ps, `ElementBoost_${sk.element}`), 0);
+    const effectiveAtk = atk * (1 + genericPct/100) * (1 + elementPct/100);
+    const instant = sk.power * effectiveAtk * stab;
+    const cycle = Math.max(sk.cooldown * ctMultiplier, MIN_CYCLE_SECONDS);
+    const sustained = instant / cycle;
+    if(!best || sustained > best.sustained) best = { ...sk, sustained, instant };
+  }
+  if(!best) return null;
+  return { pal, atk, passiveNames, best, attackElementJp: ELEMENT_EN_TO_JP[best.element] || "無" };
+}
+
+function popcount(x){
+  let c = 0;
+  while(x){ c += x & 1; x >>= 1; }
+  return c;
+}
+
+function selectBestParty(){
+  const candidates = COMBAT_PAL_DATA.map(computePalBestForParty).filter(Boolean);
+  const numMasks = 1 << TYPES.length; // 512
+  const NEG = -Infinity;
+  const bitOf = jp => 1 << TYPES.indexOf(jp);
+
+  let dp = Array.from({length: PARTY_SIZE + 1}, () => new Float64Array(numMasks).fill(NEG));
+  dp[0][0] = 0;
+  const fromMaskAll = [];
+
+  candidates.forEach(cand => {
+    const bit = bitOf(cand.attackElementJp);
+    const fromMask = new Int16Array((PARTY_SIZE + 1) * numMasks).fill(-1);
+    for(let k = PARTY_SIZE - 1; k >= 0; k--){
+      const row = dp[k];
+      const nextRow = dp[k+1];
+      for(let mask = 0; mask < numMasks; mask++){
+        const cur = row[mask];
+        if(cur === NEG) continue;
+        const newMask = mask | bit;
+        const newScore = cur + cand.best.sustained;
+        if(newScore > nextRow[newMask]){
+          nextRow[newMask] = newScore;
+          fromMask[(k+1) * numMasks + newMask] = mask;
+        }
+      }
+    }
+    fromMaskAll.push(fromMask);
+  });
+
+  let bestMask = 0, bestTotal = NEG, bestDps = 0;
+  const finalRow = dp[PARTY_SIZE];
+  for(let mask = 0; mask < numMasks; mask++){
+    if(finalRow[mask] === NEG) continue;
+    const total = finalRow[mask] + popcount(mask) * PARTY_COVERAGE_WEIGHT;
+    if(total > bestTotal){ bestTotal = total; bestMask = mask; bestDps = finalRow[mask]; }
+  }
+
+  const chosenIdx = [];
+  let k = PARTY_SIZE, mask = bestMask;
+  for(let i = candidates.length - 1; i >= 0 && k > 0; i--){
+    const prevMask = fromMaskAll[i][k * numMasks + mask];
+    if(prevMask !== -1){
+      chosenIdx.push(i);
+      mask = prevMask;
+      k -= 1;
+    }
+  }
+  chosenIdx.reverse();
+  return { party: chosenIdx.map(i => candidates[i]), coverageMask: bestMask, totalDps: bestDps };
+}
+
+function renderPartyResult(result){
+  const { party, coverageMask, totalDps } = result;
+  const coveredCount = popcount(coverageMask);
+
+  document.getElementById("partySummaryBox").innerHTML = `
+    <div class="metric"><div class="num">${Math.round(totalDps).toLocaleString()}</div><div class="lbl">合計継続火力</div></div>
+    <div class="metric"><div class="num">${coveredCount} / ${TYPES.length}</div><div class="lbl">カバーしている属性数</div></div>
+  `;
+
+  document.getElementById("coverageGrid").innerHTML = TYPES.map(t => {
+    const covered = (1 << TYPES.indexOf(t)) & coverageMask;
+    return `<span class="coverage-chip ${covered ? "covered" : "uncovered"}">${typeBadge(t)} ${covered ? "対応可" : "非対応"}</span>`;
+  }).join("");
+
+  document.getElementById("partyGrid").innerHTML = party.map(cand => `
+    <div class="party-card">
+      <div class="pc-head">
+        ${cand.pal.icon ? `<img src="${cand.pal.icon}" alt="${cand.pal.name}">` : ""}
+        <div>
+          <div class="pc-name">${cand.pal.name}</div>
+          <div class="pc-name-en">${cand.pal.en_name || ""}</div>
+        </div>
+      </div>
+      <div class="badge-row">${cand.pal.types.map(typeBadge).join("")}</div>
+      <div class="pc-skill"><span>${cand.best.jp_name || cand.best.en_name}${typeBadge(cand.attackElementJp)}</span><span>Lv${cand.best.level ?? "?"}</span></div>
+      <div class="pc-dps">${Math.round(cand.best.sustained).toLocaleString()} <span style="font-size:10px;color:var(--parchment-dim);">継続火力</span></div>
+    </div>
+  `).join("");
+
+  const weakCounts = TYPES.map(t => ({
+    type: t,
+    count: party.filter(cand => isWeakTo(cand.pal.types, t)).length,
+  })).sort((a,b) => b.count - a.count);
+  document.getElementById("weaknessRiskBox").innerHTML = weakCounts.map(w => `
+    <div class="wr-row ${w.count <= 2 ? "safe" : ""}">
+      <span style="width:40px;">${typeBadge(w.type)}</span>
+      <div class="wr-bar"><div class="wr-fill" style="width:${(w.count / party.length) * 100}%"></div></div>
+      <span class="wr-count">${w.count}/${party.length}体弱点</span>
+    </div>
+  `).join("");
+
+  document.getElementById("partyResult").style.display = "block";
+}
+
+document.getElementById("computePartyBtn").addEventListener("click", () => {
+  const btn = document.getElementById("computePartyBtn");
+  btn.disabled = true;
+  btn.textContent = "計算中…";
+  setTimeout(() => {
+    const result = selectBestParty();
+    renderPartyResult(result);
+    btn.disabled = false;
+    btn.textContent = "6体最強パーティを再計算する";
+  }, 30);
+});
+
+document.querySelectorAll(".mode-tabs .mode-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".mode-tabs .mode-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    const mode = tab.dataset.mode;
+    document.getElementById("buildMode").style.display = mode === "build" ? "block" : "none";
+    document.getElementById("partyMode").style.display = mode === "party" ? "block" : "none";
+  });
+});
 </script>
 </body>
 </html>
