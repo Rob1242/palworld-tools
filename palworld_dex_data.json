@@ -11415,7 +11415,7 @@
     "ride": {
       "rideable": true,
       "fly": false,
-      "swim": false
+      "swim": true
     },
     "work": {
       "水やり": 5,

@@ -10,9 +10,14 @@ from js_data_writer import write_js_consts
 # 出典: https://paldb.cc/en/Mounts (Water Mountsタブ、Swim Speed/Swim Dash Speed/Staminaの
 # 実数値テーブル)。調査エージェント経由で取得(2026-07-16)。en_nameで自サイトのdex_idと突き合わせ。
 # Whalaskaの行がpaldb.cc上で2回表示されていた(重複、850/950/stamina200で同一内容)ため1件のみ採用。
-# Rock Paper Shotgunの記事(https://www.rockpapershotgun.com/palworld-fastest-mounts)が
-# 「水上マウントは13種」と明記しており、この13件で全数と考えてよい。
+#
+# Ophydia(ハナミズチ)はこのWater Mountsタブ(手動キュレーションの一覧)には載っていなかったが、
+# ユーザー指摘を受けて調査したところ、paldb.ccの個別ページ(https://paldb.cc/en/Ophydia)には
+# SwimSpeed=1600/SwimDashSpeed=1900/Stamina=100という実測値が存在し、Sportskeeda・palpedia.com・
+# palworld.wiki.gg等の複数の独立ソースでも一致することを確認(2026-07-16)。一覧タブへの反映漏れ
+# と判断し、こちらも追加する。
 SWIM_SPEED_DATA_RAW = [
+    {"en_name": "Ophydia", "swim_speed": 1600, "swim_dash_speed": 1900, "stamina": 100},
     {"en_name": "Chillet", "swim_speed": 1350, "swim_dash_speed": 1890, "stamina": 100},
     {"en_name": "Surfent", "swim_speed": 900, "swim_dash_speed": 1440, "stamina": 100},
     {"en_name": "Azurobe", "swim_speed": 920, "swim_dash_speed": 1000, "stamina": 160},

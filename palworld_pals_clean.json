@@ -8726,7 +8726,7 @@
     "ride": {
       "rideable": true,
       "fly": false,
-      "swim": false
+      "swim": true
     },
     "work_suitability": {
       "火おこし": 0,
