@@ -96,6 +96,8 @@
     「戦闘」は Lv80・星4・才能100%・ソウル60% を仮定し、そのパルの持ち技の中から最も持続火力(威力×属性一致補正÷クールタイム、汎用パッシブ4枠込み)が高い技を選んだ場合のDPSで評価しています(戦闘最適化ツールの計算式と同じ)。
     「拠点作業」は作業適性(火おこし・採掘・製薬など)の合計レベルで評価。「マウント」は乗騎速度(ライド疾走)で評価し、非乗騎パルは対象外です。
     Tierは各カテゴリ内の相対的な順位(上位5%=SS、20%=S、50%=A、80%=B、それ以下=C)によるもので、目安としてご覧ください。
+    Terrariaコラボパル11体(クトゥルフのめだま〜かがやくコウモリ)は専用技のクールタイムが1秒という他に例のない値のため、
+    DPS計算式に通すと桁外れのスコアになってしまい「戦闘」カテゴリのランキングからは除外しています(実際のゲームプレイ上の値かボス戦AI由来の値か未検証のため)。
   </p>
 
   <div class="cat-tabs">
@@ -165,12 +167,20 @@ function toKana(str){
   return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
 }
 
+// Terrariaコラボパル(dex_id 288〜298)は専用技のクールタイムが軒並み1秒(他の291体は
+// 最低でも2秒、高火力技は大抵10〜30秒)という他に例のない値で、そのままDPS計算式に通すと
+// レインボースライム等が桁外れのスコアで「最強」に来てしまう(2026-07-16に発覚)。
+// この値が実際のゲームプレイ上のものかボス戦AI由来かは確認が取れていないため、
+// 検証できるまで戦闘カテゴリのランキングからは除外する(作業適性・ライド速度は別データで
+// 異常が見られないため、そちらのカテゴリでは通常通り表示する)。
+const RANKING_EXCLUDE_DEX_IDS = new Set(Array.from({length: 298-288+1}, (_,i) => String(288+i)));
+
 function buildEntries(){
   return PAL_DEX_DATA.map(dp => {
     const combatPal = COMBAT_PAL_DATA.find(c => c.dex_id === dp.id);
     const workSum = Object.values(dp.work || {}).reduce((a,b) => a+b, 0);
     const topWork = Object.entries(dp.work || {}).sort((a,b) => b[1]-a[1]).slice(0,2);
-    const combatBest = combatPal ? computeCombatBest(combatPal) : null;
+    const combatBest = (combatPal && !RANKING_EXCLUDE_DEX_IDS.has(dp.id)) ? computeCombatBest(combatPal) : null;
     const rideable = dp.ride && (dp.ride.rideable || dp.ride.fly || dp.ride.swim);
     return {
       id: dp.id, name: dp.name, en_name: dp.en_name, icon: dp.icon,

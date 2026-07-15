@@ -304,6 +304,8 @@
       「属性カバレッジ(6体それぞれの得意技の属性が何種類に及ぶか)」を考慮しながら合計火力が最大になる
       6体を厳密に求めます(近似ではありません)。ただし属性カバレッジには一定の重み付けをしているため、
       重み次第では純粋な合計火力最大の編成とは異なる場合があります。相手の属性有利・不利やパートナースキルは含めていません。
+      Terrariaコラボパル11体(クトゥルフのめだま〜かがやくコウモリ)は専用技のクールタイムが1秒という他に例のない値のため、
+      DPS計算式に通すと桁外れのスコアになってしまい候補から除外しています(実際のゲームプレイ上の値かボス戦AI由来の値か未検証のため)。
     </div>
     <button class="compute-btn" id="computePartyBtn">6体最強パーティを計算する</button>
     <div id="partyResult" style="display:none;">
@@ -710,8 +712,19 @@ function popcount(x){
   return c;
 }
 
+// Terrariaコラボパル(dex_id 288〜298、クトゥルフのめだま〜かがやくコウモリ)は専用技の
+// クールタイムが軒並み1秒(他の291体は最低でも2秒、高火力技は大抵10〜30秒)という他に例のない
+// 異常値で、DPS計算式にそのまま通すと実際の強さとかけ離れた桁外れのスコアになる
+// (レインボースライム等が「最強」に出てしまう不具合を確認済み・2026-07-16)。
+// この専用技コールタイムが実際のゲームプレイ上の値なのか、ボス戦AIの攻撃間隔がそのまま
+// 技データとして抽出されたものなのかは確認が取れていないため、確実な検証ができるまで
+// 全パル横断のランキング系機能(6体パーティ・最強Tier表)からは除外する。
+const RANKING_EXCLUDE_DEX_IDS = new Set(Array.from({length: 298-288+1}, (_,i) => String(288+i)));
+
 function selectBestParty(){
-  const candidates = COMBAT_PAL_DATA.map(computePalBestForParty).filter(Boolean);
+  const candidates = COMBAT_PAL_DATA
+    .filter(p => !RANKING_EXCLUDE_DEX_IDS.has(p.dex_id))
+    .map(computePalBestForParty).filter(Boolean);
   const numMasks = 1 << TYPES.length; // 512
   const NEG = -Infinity;
   const bitOf = jp => 1 << TYPES.indexOf(jp);
