@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>出現マップ | Palworld攻略ツール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/design-system.css">
+<style>
+  :root{
+    --bg: #07090d; --panel: #121822; --panel2: #182030;
+    --parchment: #e9eef4; --parchment-dim: #8592a3;
+    --brass: #f0b840; --brass-dim: #b5852f;
+    --teal: #35d2ff; --teal-dim: #1c6d86;
+    --line: rgba(142,183,214,.16); --danger: #e2543f;
+    --lime: #e3ff3d; --lime-dim: #96b31f;
+    --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
+    --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
+    --font-mono: "JetBrains Mono", monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:
+    radial-gradient(circle at 12% -8%, #143241 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(240,184,64,.06) 0%, transparent 42%),
+    var(--bg);
+    color:var(--parchment);font-family:var(--font-body);padding:0;}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
+
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:linear-gradient(160deg, #1c2733, #10151c);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  h1.title{font-family:var(--font-display);font-weight:900;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
+  .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
+
+  .caveat{font-size:11.5px;color:var(--parchment-dim);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-bottom:16px;line-height:1.7;}
+  .caveat a{color:var(--brass);}
+
+  .picker-box{background:var(--panel);border:1px solid var(--lime-dim);border-radius:10px;padding:18px 20px;margin-bottom:16px;box-shadow:0 8px 24px rgba(0,0,0,.25), 0 0 0 1px rgba(227,255,61,.08);}
+  .picker-label{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--parchment);margin-bottom:10px;}
+  .pal-picker{position:relative;max-width:360px;}
+  .pal-picker input{width:100%;box-sizing:border-box;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:10px 14px;font-size:14px;font-family:var(--font-body);}
+  .pal-picker input::placeholder{color:var(--parchment-dim);}
+  .pal-picker input:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 2px rgba(227,255,61,.2);}
+  .pal-picker-results{position:absolute;top:100%;left:0;right:0;max-height:280px;overflow-y:auto;background:var(--panel2);border:1px solid var(--line);border-radius:0 0 8px 8px;z-index:20;box-shadow:0 12px 24px rgba(0,0,0,.4);}
+  .pal-picker-item{display:flex;align-items:center;gap:8px;padding:7px 12px;cursor:pointer;font-size:13px;}
+  .pal-picker-item:hover{background:var(--panel);color:var(--lime);}
+  .pal-picker-item img{width:26px;height:26px;object-fit:contain;border-radius:50%;}
+
+  #mapSection{display:none;}
+
+  .map-toolbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:14px;}
+  .map-toolbar .selected-pal{display:flex;align-items:center;gap:10px;}
+  .map-toolbar .selected-pal img{width:38px;height:38px;object-fit:contain;border-radius:50%;background:var(--panel2);border:2px solid var(--brass);}
+  .map-toolbar .selected-pal .name{font-family:var(--font-display);font-weight:700;font-size:16px;}
+  .toggle-group{display:flex;gap:2px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;}
+  .toggle-btn{border:none;background:none;color:var(--parchment-dim);font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:6px;cursor:pointer;font-family:var(--font-body);white-space:nowrap;}
+  .toggle-btn.active{background:var(--lime);color:#1a1e08;}
+  .toggle-btn:disabled{opacity:.35;cursor:not-allowed;}
+  .map-toolbar .spacer{margin-left:auto;}
+  .zone-count-tag{font-family:var(--font-mono);font-size:11.5px;color:var(--brass);}
+
+  .map-viewport{position:relative;width:100%;aspect-ratio:1/1;max-height:74vh;overflow:hidden;border-radius:10px;border:1px solid var(--line);background:#04060a;cursor:grab;touch-action:none;}
+  .map-viewport.dragging{cursor:grabbing;}
+  .map-world{position:absolute;top:0;left:0;width:100%;height:100%;transform-origin:0 0;will-change:transform;}
+  .map-world img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none;pointer-events:none;}
+  .zone-bubble{position:absolute;transform:translate(-50%,-50%);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;line-height:1.05;cursor:pointer;background:radial-gradient(circle at 35% 30%, rgba(255,255,255,.22), transparent 55%), var(--brass);color:#241a05;font-family:var(--font-display);font-weight:700;border:2px solid rgba(255,255,255,.5);box-shadow:0 2px 10px rgba(0,0,0,.5);}
+  .zone-bubble.alpha{background:radial-gradient(circle at 35% 30%, rgba(255,255,255,.25), transparent 55%), var(--magenta, #ff2e7e);color:#2a0714;}
+  .zone-bubble .zb-count{font-size:1.05em;}
+  .zone-bubble:hover{filter:brightness(1.12);}
+  .zone-bubble.selected{outline:3px solid var(--lime);outline-offset:2px;}
+
+  .map-zoom-controls{position:absolute;right:14px;bottom:14px;display:flex;flex-direction:column;gap:2px;z-index:5;}
+  .map-zoom-controls button{width:32px;height:32px;background:var(--panel);border:1px solid var(--line);color:var(--parchment);font-size:17px;cursor:pointer;font-family:var(--font-body);}
+  .map-zoom-controls button:first-child{border-radius:6px 6px 0 0;}
+  .map-zoom-controls button:last-child{border-radius:0 0 6px 6px;}
+  .map-zoom-controls button:hover{border-color:var(--brass);color:var(--brass);}
+
+  .zone-detail{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 18px;display:none;}
+  .zone-detail .zd-title{font-family:var(--font-display);font-weight:700;font-size:15px;margin-bottom:6px;}
+  .zone-detail .zd-row{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--parchment-dim);}
+  .zone-detail .zd-row b{color:var(--parchment);font-family:var(--font-mono);}
+
+  .empty-hint{padding:60px 20px;text-align:center;color:var(--parchment-dim);font-size:13px;}
+
+  .footer-note{font-size:11px;color:var(--parchment-dim);margin-top:22px;line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand-link" href="palworld_home.html">
+      <div class="brand-badge">P</div>
+      <h1 class="title glitch-hover" data-text="出現マップ"><small>Palworld 攻略ツール</small>出現マップ</h1>
+    </a>
+    <nav class="tabs">
+      <a href="palworld_home.html"><span>ホーム</span></a>
+      <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
+      <a href="palworld_dex.html"><span>パル図鑑</span></a>
+      <a href="palworld_breeding.html"><span>配合検索</span></a>
+      <a href="palworld_palbox.html"><span>パルボックス</span></a>
+      <a href="palworld_combat.html"><span>戦闘最適化</span></a>
+      <a href="palworld_map.html" class="current"><span>出現マップ</span></a>
+    </nav>
+  </header>
+
+  <p class="caveat">
+    出現座標は<a href="https://github.com/Awy64/palworld-atlas-data" target="_blank" rel="noopener">palworld-atlas-data</a>(Palworld専用サーバーの生成テーブルから自動抽出、6時間ごと更新)を、
+    地図画像は<a href="https://github.com/ARXII-13/Palworld-Interactive-Map" target="_blank" rel="noopener">Palworld-Interactive-Map</a>のものを使用しています。近い場所の個別スポーンをまとめて円で表示しているため、円の位置はおおよその中心です。世界樹マップは未対応です。
+  </p>
+
+  <div class="picker-box">
+    <div class="picker-label">パルを選ぶ</div>
+    <div class="pal-picker" id="mapPicker">
+      <input type="text" placeholder="パル名で検索…(例: アヌビス)">
+      <div class="pal-picker-results" style="display:none;"></div>
+    </div>
+  </div>
+
+  <div id="mapSection">
+    <div class="map-toolbar">
+      <div class="selected-pal">
+        <img id="selPalIcon" src="" alt="">
+        <span class="name" id="selPalName"></span>
+      </div>
+      <div class="toggle-group" id="kindToggle">
+        <button class="toggle-btn active" data-kind="wild">野生</button>
+        <button class="toggle-btn" data-kind="alpha">ボス</button>
+      </div>
+      <div class="toggle-group" id="timeToggle">
+        <button class="toggle-btn active" data-time="both">昼夜</button>
+        <button class="toggle-btn" data-time="day">昼</button>
+        <button class="toggle-btn" data-time="night">夜</button>
+      </div>
+      <span class="zone-count-tag spacer" id="zoneCountTag"></span>
+    </div>
+
+    <div class="map-viewport" id="mapViewport">
+      <div class="map-world" id="mapWorld">
+        <img src="game_data/art/world_map_3072.webp" alt="パルワールド 世界地図" draggable="false">
+        <div id="bubbleLayer"></div>
+      </div>
+      <div class="map-zoom-controls">
+        <button id="zoomInBtn">+</button>
+        <button id="zoomOutBtn">−</button>
+      </div>
+    </div>
+
+    <div class="zone-detail" id="zoneDetail"></div>
+  </div>
+  <div class="empty-hint" id="emptyHint">上の検索でパルを選ぶと、出現場所が地図上に表示されます。</div>
+
+  <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。地図画像・出現座標データは上記オープンソースプロジェクトの提供によるものです。</p>
+</div>
+
+<script src="game_data/dex_data.js"></script>
+<script src="game_data/spawn_data.js"></script>
+<script src="shared/icons.js"></script>
+<script>
+const PAL_BY_DEXID = {};
+PAL_DEX_DATA.forEach(p => { PAL_BY_DEXID[p.id] = p; });
+
+const PAL_LIST = SPAWN_DATA.pals
+  .map(s => ({ spawn: s, dex: PAL_BY_DEXID[s.dexId] }))
+  .filter(x => x.dex)
+  .map(x => ({
+    dexId: x.spawn.dexId,
+    name: x.dex.name,
+    enName: x.dex.en_name,
+    icon: x.dex.icon,
+    spawn: x.spawn,
+  }));
+
+const state = {
+  pal: null,
+  kind: "wild",
+  time: "both",
+  view: { x: 0, y: 0, scale: 1 },
+};
+
+function toKana(s){
+  return (s || "").replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
+}
+
+function setupPicker(){
+  const wrap = document.getElementById("mapPicker");
+  const input = wrap.querySelector("input");
+  const results = wrap.querySelector(".pal-picker-results");
+  input.addEventListener("input", () => {
+    const q = input.value.trim().toLowerCase();
+    if(!q){ results.style.display = "none"; return; }
+    const qKana = toKana(q);
+    const matches = PAL_LIST
+      .filter(p => toKana(p.name.toLowerCase()).includes(qKana) || (p.enName || "").toLowerCase().includes(q))
+      .slice(0, 30);
+    results.innerHTML = matches.length
+      ? matches.map(p => `
+          <div class="pal-picker-item" data-dexid="${p.dexId}">
+            ${p.icon ? `<img src="${p.icon}" alt="">` : ""}<span>${p.name}</span>
+          </div>`).join("")
+      : `<div class="pal-picker-item">見つかりません</div>`;
+    results.querySelectorAll(".pal-picker-item[data-dexid]").forEach(el => {
+      el.addEventListener("click", () => {
+        input.value = "";
+        results.style.display = "none";
+        selectPal(el.dataset.dexid);
+      });
+    });
+    results.style.display = "block";
+  });
+  input.addEventListener("blur", () => setTimeout(() => results.style.display = "none", 150));
+}
+
+function selectPal(dexId){
+  const p = PAL_LIST.find(x => x.dexId === dexId);
+  if(!p) return;
+  state.pal = p;
+  document.getElementById("selPalIcon").src = p.icon || "";
+  document.getElementById("selPalName").textContent = p.name;
+  document.getElementById("mapSection").style.display = "block";
+  document.getElementById("emptyHint").style.display = "none";
+  document.getElementById("zoneDetail").style.display = "none";
+
+  const hasAlpha = !!(p.spawn.alphaZones && p.spawn.alphaZones.length);
+  const alphaBtn = document.querySelector('#kindToggle [data-kind="alpha"]');
+  alphaBtn.disabled = !hasAlpha;
+  state.kind = "wild";
+  document.querySelectorAll("#kindToggle .toggle-btn").forEach(b => b.classList.toggle("active", b.dataset.kind === "wild"));
+
+  resetView();
+  renderZones();
+}
+
+function currentZones(){
+  if(!state.pal) return [];
+  const key = state.kind === "alpha" ? "alphaZones" : "wildZones";
+  const zones = state.pal.spawn[key] || [];
+  if(state.time === "both") return zones;
+  return zones.filter(z => z.availability === "both" || z.availability === "mixed" || z.availability === state.time);
+}
+
+function renderZones(){
+  const zones = currentZones();
+  document.getElementById("zoneCountTag").textContent = zones.length
+    ? `${zones.length}エリア / 合計${zones.reduce((s,z)=>s+z.count,0)}体分の記録`
+    : "該当エリアなし";
+
+  const counts = zones.map(z => z.count);
+  const maxCount = counts.length ? Math.max(...counts) : 1;
+
+  const layer = document.getElementById("bubbleLayer");
+  layer.innerHTML = zones.map((z, i) => {
+    const size = Math.round(28 + Math.sqrt(z.count / maxCount) * 46);
+    return `
+    <div class="zone-bubble ${state.kind === "alpha" ? "alpha" : ""}" data-idx="${i}"
+         style="left:${z.x*100}%;top:${z.y*100}%;width:${size}px;height:${size}px;font-size:${Math.max(11, size*0.32)}px;">
+      <span class="zb-count">${z.count}</span>
+    </div>`;
+  }).join("");
+
+  layer.querySelectorAll(".zone-bubble").forEach(el => {
+    el.addEventListener("click", e => {
+      e.stopPropagation();
+      layer.querySelectorAll(".zone-bubble").forEach(b => b.classList.remove("selected"));
+      el.classList.add("selected");
+      showZoneDetail(zones[parseInt(el.dataset.idx)]);
+    });
+  });
+}
+
+function showZoneDetail(z){
+  const detail = document.getElementById("zoneDetail");
+  const timeLabel = { day: "昼のみ", night: "夜のみ", both: "昼夜問わず", mixed: "昼夜混在" }[z.availability] || z.availability;
+  detail.innerHTML = `
+    <div class="zd-title">${state.pal.name} — ${state.kind === "alpha" ? "ボス" : "野生"}スポーン</div>
+    <div class="zd-row">
+      <span>記録数 <b>${z.count}</b></span>
+      <span>レベル <b>${z.minLevel === z.maxLevel ? z.minLevel : `${z.minLevel}〜${z.maxLevel}`}</b></span>
+      <span>出現時間帯 <b>${timeLabel}</b></span>
+    </div>
+  `;
+  detail.style.display = "block";
+}
+
+// ===== パン・ズーム =====
+function applyView(){
+  document.getElementById("mapWorld").style.transform =
+    `translate(${state.view.x}px, ${state.view.y}px) scale(${state.view.scale})`;
+}
+
+function resetView(){
+  state.view = { x: 0, y: 0, scale: 1 };
+  applyView();
+}
+
+function setupPanZoom(){
+  const viewport = document.getElementById("mapViewport");
+  let dragging = false;
+  let lastX = 0, lastY = 0;
+
+  viewport.addEventListener("pointerdown", e => {
+    if(e.target.closest(".zone-bubble")) return; // バブルのクリックを優先し、パン開始しない
+    dragging = true;
+    lastX = e.clientX; lastY = e.clientY;
+    viewport.classList.add("dragging");
+    viewport.setPointerCapture(e.pointerId);
+  });
+  viewport.addEventListener("pointermove", e => {
+    if(!dragging) return;
+    state.view.x += e.clientX - lastX;
+    state.view.y += e.clientY - lastY;
+    lastX = e.clientX; lastY = e.clientY;
+    applyView();
+  });
+  ["pointerup","pointercancel","pointerleave"].forEach(ev => viewport.addEventListener(ev, () => {
+    dragging = false;
+    viewport.classList.remove("dragging");
+  }));
+
+  function zoomAt(factor, clientX, clientY){
+    const rect = viewport.getBoundingClientRect();
+    const px = clientX - rect.left;
+    const py = clientY - rect.top;
+    const newScale = Math.min(8, Math.max(1, state.view.scale * factor));
+    const ratio = newScale / state.view.scale;
+    state.view.x = px - (px - state.view.x) * ratio;
+    state.view.y = py - (py - state.view.y) * ratio;
+    state.view.scale = newScale;
+    applyView();
+  }
+
+  viewport.addEventListener("wheel", e => {
+    e.preventDefault();
+    zoomAt(e.deltaY < 0 ? 1.15 : 1/1.15, e.clientX, e.clientY);
+  }, { passive: false });
+
+  document.getElementById("zoomInBtn").addEventListener("click", () => {
+    const rect = viewport.getBoundingClientRect();
+    zoomAt(1.3, rect.left + rect.width/2, rect.top + rect.height/2);
+  });
+  document.getElementById("zoomOutBtn").addEventListener("click", () => {
+    const rect = viewport.getBoundingClientRect();
+    zoomAt(1/1.3, rect.left + rect.width/2, rect.top + rect.height/2);
+  });
+}
+
+document.getElementById("kindToggle").addEventListener("click", e => {
+  const btn = e.target.closest(".toggle-btn");
+  if(!btn || btn.disabled) return;
+  state.kind = btn.dataset.kind;
+  document.querySelectorAll("#kindToggle .toggle-btn").forEach(b => b.classList.toggle("active", b === btn));
+  document.getElementById("zoneDetail").style.display = "none";
+  renderZones();
+});
+
+document.getElementById("timeToggle").addEventListener("click", e => {
+  const btn = e.target.closest(".toggle-btn");
+  if(!btn) return;
+  state.time = btn.dataset.time;
+  document.querySelectorAll("#timeToggle .toggle-btn").forEach(b => b.classList.toggle("active", b === btn));
+  document.getElementById("zoneDetail").style.display = "none";
+  renderZones();
+});
+
+setupPicker();
+setupPanZoom();
+
+const initialParams = new URLSearchParams(location.search);
+const initialId = initialParams.get("id");
+if(initialId && PAL_LIST.some(p => p.dexId === initialId)){
+  selectPal(initialId);
+}
+</script>
+</body>
+</html>
