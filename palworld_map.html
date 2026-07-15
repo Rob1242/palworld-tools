@@ -60,10 +60,26 @@
   .map-toolbar .spacer{margin-left:auto;}
   .zone-count-tag{font-family:var(--font-mono);font-size:11.5px;color:var(--brass);}
 
+  .region-tabs{display:flex;gap:2px;margin-bottom:16px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
+  .region-tab{padding:8px 18px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:14px;transition:color .12s,background .12s;}
+  .region-tab.active{background:var(--teal);color:#08222c;box-shadow:0 0 10px rgba(53,210,255,.4);}
+
   .map-viewport{position:relative;width:100%;max-width:min(100%, 74vh);aspect-ratio:1/1;margin:0 auto;overflow:hidden;border-radius:10px;border:1px solid var(--line);background:#04060a;cursor:grab;touch-action:none;}
   .map-viewport.dragging{cursor:grabbing;}
   .map-world{position:absolute;top:0;left:0;width:100%;height:100%;transform-origin:0 0;will-change:transform;}
   .map-world img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none;pointer-events:none;}
+  .map-world.schematic{background:
+      repeating-linear-gradient(0deg, rgba(142,183,214,.06) 0, rgba(142,183,214,.06) 1px, transparent 1px, transparent 48px),
+      repeating-linear-gradient(90deg, rgba(142,183,214,.06) 0, rgba(142,183,214,.06) 1px, transparent 1px, transparent 48px),
+      radial-gradient(circle at 30% 25%, rgba(53,210,255,.07), transparent 55%),
+      radial-gradient(circle at 75% 70%, rgba(255,46,126,.05), transparent 55%),
+      #0a0f16;}
+  .landmark{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;pointer-events:none;}
+  .landmark .lm-dot{width:10px;height:10px;border-radius:50%;background:var(--parchment-dim);border:2px solid var(--bg);box-shadow:0 0 6px rgba(0,0,0,.6);}
+  .landmark.boss .lm-dot{background:var(--magenta,#ff2e7e);width:13px;height:13px;box-shadow:0 0 8px rgba(255,46,126,.6);}
+  .landmark.fasttravel .lm-dot{background:var(--brass);}
+  .landmark .lm-label{font-size:9.5px;font-family:var(--font-mono);color:var(--parchment-dim);background:rgba(4,6,10,.7);padding:1px 5px;border-radius:3px;white-space:nowrap;}
+  .landmark.boss .lm-label{color:var(--parchment);}
   .zone-bubble{position:absolute;transform:translate(-50%,-50%);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;line-height:1.05;cursor:pointer;background:radial-gradient(circle at 35% 30%, rgba(255,255,255,.22), transparent 55%), var(--brass);color:#241a05;font-family:var(--font-display);font-weight:700;border:2px solid rgba(255,255,255,.5);box-shadow:0 2px 10px rgba(0,0,0,.5);}
   .zone-bubble.alpha{background:radial-gradient(circle at 35% 30%, rgba(255,255,255,.25), transparent 55%), var(--magenta, #ff2e7e);color:#2a0714;}
   .zone-bubble .zb-count{font-size:1.05em;}
@@ -114,14 +130,23 @@
       <a href="palworld_breeding.html"><span>配合検索</span></a>
       <a href="palworld_palbox.html"><span>パルボックス</span></a>
       <a href="palworld_combat.html"><span>戦闘最適化</span></a>
+      <a href="palworld_items.html"><span>アイテム図鑑</span></a>
+      <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
+      <a href="palworld_ride.html"><span>ライド速度</span></a>
       <a href="palworld_map.html" class="current"><span>出現マップ</span></a>
     </nav>
   </header>
 
   <p class="caveat">
     出現座標は<a href="https://github.com/Awy64/palworld-atlas-data" target="_blank" rel="noopener">palworld-atlas-data</a>(Palworld専用サーバーの生成テーブルから自動抽出、6時間ごと更新)を、
-    地図画像は<a href="https://github.com/ARXII-13/Palworld-Interactive-Map" target="_blank" rel="noopener">Palworld-Interactive-Map</a>のものを使用しています。近い場所の個別スポーンをまとめて円で表示しているため、円の位置はおおよその中心です。世界樹マップは未対応です。
+    本編マップの地図画像は<a href="https://github.com/ARXII-13/Palworld-Interactive-Map" target="_blank" rel="noopener">Palworld-Interactive-Map</a>のものを使用しています。近い場所の個別スポーンをまとめて円で表示しているため、円の位置はおおよその中心です。
+    世界樹エリアは、合法的に再配布可能な背景地図画像が見つからなかったため、ファストトラベル地点・ボスの塔を目印にした座標のみのスキーマティック表示(画像なし)です。地名は現時点でJP名が未確認のため英語表記になります。
   </p>
+
+  <div class="region-tabs">
+    <div class="region-tab active" data-region="palpagos">本編マップ</div>
+    <div class="region-tab" data-region="worldtree">世界樹エリア</div>
+  </div>
 
   <div class="picker-box">
     <div class="picker-label">パルを選ぶ</div>
@@ -151,7 +176,8 @@
 
     <div class="map-viewport" id="mapViewport">
       <div class="map-world" id="mapWorld">
-        <img src="game_data/art/world_map_3072.webp" alt="パルワールド 世界地図" draggable="false">
+        <img id="mapBgImg" src="game_data/art/world_map_3072.webp" alt="パルワールド 世界地図" draggable="false">
+        <div id="landmarkLayer"></div>
         <div id="bubbleLayer"></div>
       </div>
       <div class="map-zoom-controls">
@@ -169,23 +195,34 @@
 
 <script src="game_data/dex_data.js"></script>
 <script src="game_data/spawn_data.js"></script>
+<script src="game_data/worldtree_spawn_data.js"></script>
 <script src="shared/icons.js"></script>
 <script>
 const PAL_BY_DEXID = {};
 PAL_DEX_DATA.forEach(p => { PAL_BY_DEXID[p.id] = p; });
 
-const PAL_LIST = SPAWN_DATA.pals
-  .map(s => ({ spawn: s, dex: PAL_BY_DEXID[s.dexId] }))
-  .filter(x => x.dex)
-  .map(x => ({
-    dexId: x.spawn.dexId,
-    name: x.dex.name,
-    enName: x.dex.en_name,
-    icon: x.dex.icon,
-    spawn: x.spawn,
-  }));
+function buildPalList(spawnData){
+  return spawnData.pals
+    .map(s => ({ spawn: s, dex: PAL_BY_DEXID[s.dexId] }))
+    .filter(x => x.dex)
+    .map(x => ({
+      dexId: x.spawn.dexId,
+      name: x.dex.name,
+      enName: x.dex.en_name,
+      icon: x.dex.icon,
+      spawn: x.spawn,
+    }));
+}
+
+const PAL_LISTS = {
+  palpagos: buildPalList(SPAWN_DATA),
+  worldtree: buildPalList(WORLDTREE_SPAWN_DATA),
+};
+
+const LANDMARK_KIND_LABEL = { boss: "ボスの塔", fasttravel: "ファストトラベル" };
 
 const state = {
+  region: "palpagos",
   pal: null,
   kind: "wild",
   time: "both",
@@ -204,7 +241,7 @@ function setupPicker(){
     const q = input.value.trim().toLowerCase();
     if(!q){ results.style.display = "none"; return; }
     const qKana = toKana(q);
-    const matches = PAL_LIST
+    const matches = PAL_LISTS[state.region]
       .filter(p => toKana(p.name.toLowerCase()).includes(qKana) || (p.enName || "").toLowerCase().includes(q))
       .slice(0, 30);
     results.innerHTML = matches.length
@@ -226,7 +263,7 @@ function setupPicker(){
 }
 
 function selectPal(dexId){
-  const p = PAL_LIST.find(x => x.dexId === dexId);
+  const p = PAL_LISTS[state.region].find(x => x.dexId === dexId);
   if(!p) return;
   state.pal = p;
   document.getElementById("selPalIcon").src = p.icon || "";
@@ -376,12 +413,43 @@ document.getElementById("timeToggle").addEventListener("click", e => {
   renderZones();
 });
 
+function renderLandmarks(){
+  const layer = document.getElementById("landmarkLayer");
+  if(state.region !== "worldtree"){ layer.innerHTML = ""; return; }
+  layer.innerHTML = WORLDTREE_SPAWN_DATA.landmarks.map(lm => `
+    <div class="landmark ${lm.kind}" style="left:${lm.x*100}%;top:${lm.y*100}%;">
+      <div class="lm-dot" title="${LANDMARK_KIND_LABEL[lm.kind]}"></div>
+      <div class="lm-label">${lm.name_en}</div>
+    </div>
+  `).join("");
+}
+
+function switchRegion(region){
+  state.region = region;
+  document.querySelectorAll(".region-tab").forEach(t => t.classList.toggle("active", t.dataset.region === region));
+  document.getElementById("mapBgImg").style.display = region === "worldtree" ? "none" : "";
+  document.getElementById("mapWorld").classList.toggle("schematic", region === "worldtree");
+  state.pal = null;
+  document.getElementById("mapSection").style.display = "none";
+  document.getElementById("emptyHint").style.display = "block";
+  document.getElementById("emptyHint").textContent = region === "worldtree"
+    ? "上の検索で世界樹エリアに出現するパルを選ぶと、スキーマティック図上に表示されます。"
+    : "上の検索でパルを選ぶと、出現場所が地図上に表示されます。";
+  renderLandmarks();
+  resetView();
+}
+
+document.querySelectorAll(".region-tab").forEach(tab => {
+  tab.addEventListener("click", () => switchRegion(tab.dataset.region));
+});
+
 setupPicker();
 setupPanZoom();
+renderLandmarks();
 
 const initialParams = new URLSearchParams(location.search);
 const initialId = initialParams.get("id");
-if(initialId && PAL_LIST.some(p => p.dexId === initialId)){
+if(initialId && PAL_LISTS.palpagos.some(p => p.dexId === initialId)){
   selectPal(initialId);
 }
 </script>

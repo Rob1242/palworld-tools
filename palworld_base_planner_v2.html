@@ -74,6 +74,14 @@
   .metric .lbl{font-size:10.5px;color:var(--parchment-dim);margin-top:2px;}
   .coverage-warn{background:#3a2a20;border:1px solid var(--danger);color:#e7c3af;border-radius:5px;padding:8px 12px;font-size:12px;margin-bottom:12px;}
   .progress-log{font-size:11px;color:var(--parchment-dim);margin-bottom:12px;font-family:var(--font-mono);}
+  .prod-dash-list{display:flex;flex-direction:column;gap:6px;}
+  .prod-dash-row{display:grid;grid-template-columns:120px 1fr 56px;align-items:center;gap:10px;}
+  .prod-dash-label{font-size:12px;color:var(--parchment);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .prod-dash-weak-tag{font-size:9.5px;color:var(--danger);border:1px solid var(--danger);border-radius:3px;padding:0 4px;margin-left:2px;}
+  .prod-dash-bar{height:8px;border-radius:4px;background:var(--panel2);border:1px solid var(--line);overflow:hidden;}
+  .prod-dash-fill{height:100%;border-radius:4px;background:linear-gradient(90deg, var(--teal-dim,#1c6d86), var(--teal,#35d2ff));}
+  .prod-dash-fill.weak{background:linear-gradient(90deg, #7a2e2e, var(--danger));}
+  .prod-dash-value{font-size:11px;color:var(--parchment-dim);font-family:var(--font-mono);text-align:right;}
   .slot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:8px;}
   .slot{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 12px;position:relative;}
   .slot .num-badge{position:absolute;top:8px;right:10px;font-size:10px;color:var(--parchment-dim);}
@@ -145,6 +153,9 @@
       <a href="palworld_breeding.html"><span>配合検索</span></a>
       <a href="palworld_palbox.html"><span>パルボックス</span></a>
       <a href="palworld_combat.html"><span>戦闘最適化</span></a>
+      <a href="palworld_items.html"><span>アイテム図鑑</span></a>
+      <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
+      <a href="palworld_ride.html"><span>ライド速度</span></a>
       <a href="palworld_map.html"><span>出現マップ</span></a>
     </nav>
   </header>
@@ -1072,6 +1083,52 @@ function sectionizeGrouped(grouped, activeRoles){
   return sections;
 }
 
+// ---- 拠点生産力ダッシュボード ----
+// 「配置した面子で、どの役職がどれだけ手薄/潤沢か」を役職別に集計して見せる。
+// 施設の同時作業人数・1時間あたりの実際の産出量はゲーム内データに存在しない(前述の
+// selfTestWorkSpeed付近のコメント参照)ため、あくまで relativeWorkValue(実測済みの
+// 役職Lv別相対速度テーブル)を積み上げた「相対生産力スコア」であり、実個数/時間の見積もりではない。
+function renderProductionDashboard(picks, activeRoles){
+  if(!picks.length || !activeRoles.length) return '';
+  const grouped = groupPicks(picks);
+  const roleTotals = {};
+  activeRoles.forEach(r => { roleTotals[r] = 0; });
+  grouped.forEach(g => {
+    activeRoles.forEach(r => {
+      const lv = g.pal.work[r] || 0;
+      if(lv > 0) roleTotals[r] += relativeWorkValue(r, lv) * g.count;
+    });
+  });
+  const rolesWithWork = activeRoles.filter(r => roleTotals[r] > 0);
+  if(!rolesWithWork.length) return '';
+  const sorted = rolesWithWork.slice().sort((a,b) => roleTotals[a] - roleTotals[b]);
+  const weakest = sorted.slice(0, Math.min(3, sorted.length));
+  // 役職ごとにWORK_SPEED_TABLEのスケール(Lv換算の伸び方)が全く異なり、そのまま最大値で
+  // 正規化すると1つの役職だけが突出してバーが潰れる。役職間の絶対量ではなく「この配置の中での
+  // 相対順位」を見せたいので、各役職の値を対数圧縮してからバー幅にする。
+  const logVals = rolesWithWork.map(r => Math.log10(roleTotals[r] + 1));
+  const maxLog = Math.max(...logVals, 0.001);
+
+  let html = `<div class="section" style="margin-top:16px;">
+    <h3 style="font-size:13px;color:var(--brass);margin:0 0 8px;letter-spacing:.03em;">${ico('gauge') || ''} 拠点生産力ダッシュボード(役職別・相対値)</h3>
+    <p style="font-size:11px;color:var(--parchment-dim);line-height:1.7;margin:0 0 10px;">
+      各役職のLv1パル1体を基準(100%)にした相対速度の合計です(役職ごとに伸び方が違うためバー幅は対数圧縮、右の%が実際の値)。施設の同時作業人数や実際の産出量(個/時間)はゲーム内データに存在しないため含めていません(パッシブ・パートナースキルによる速度ボーナスも未加算です)。
+      配置面子の中で相対的に手薄な役職の把握にお使いください。
+    </p>
+    <div class="prod-dash-list">`;
+  rolesWithWork.forEach(r => {
+    const pct = Math.round(Math.log10(roleTotals[r] + 1) / maxLog * 100);
+    const isWeak = weakest.includes(r);
+    html += `<div class="prod-dash-row">
+      <div class="prod-dash-label">${ROLE_ICON[r]||''} ${r}${isWeak ? ' <span class="prod-dash-weak-tag">手薄</span>' : ''}</div>
+      <div class="prod-dash-bar"><div class="prod-dash-fill${isWeak?' weak':''}" style="width:${pct}%"></div></div>
+      <div class="prod-dash-value">${Math.round(roleTotals[r] * 100)}%</div>
+    </div>`;
+  });
+  html += `</div></div>`;
+  return html;
+}
+
 function renderResult(picks, slots, activeRoles, stats){
   const area = document.getElementById('resultArea');
   const totalMeal = picks.reduce((s,p)=>s+(p.pal.meal||0),0);
@@ -1087,6 +1144,8 @@ function renderResult(picks, slots, activeRoles, stats){
     <div class="metric"><div class="num">${nightCount}</div><div class="lbl">24h稼働可能数</div></div>
     <div class="metric"><div class="num">${Math.round(stats.finalTotal)}</div><div class="lbl">合計実効スコア</div></div>
   </div>`;
+
+  html += renderProductionDashboard(picks, activeRoles);
 
   const modeText = stats.approximate
     ? '貪欲法による近似解(役職の実働上限を多数同時に設定したため厳密解は現実的な時間で終わらず、近似に切り替えました)'

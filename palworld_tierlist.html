@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>最強Tier表 | Palworld攻略ツール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/design-system.css">
+<style>
+  :root{
+    --bg: #07090d; --panel: #121822; --panel2: #182030;
+    --parchment: #e9eef4; --parchment-dim: #8592a3;
+    --brass: #f0b840; --brass-dim: #b5852f;
+    --teal: #35d2ff; --teal-dim: #1c6d86;
+    --lime: #e3ff3d; --lime-dim: #96b31f;
+    --magenta: #ff2e7e; --magenta-dim: #a01a52;
+    --line: rgba(142,183,214,.16); --danger: #e2543f;
+    --hp: #7bdb52; --sp: #f0a233;
+    --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
+    --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
+    --font-mono: "JetBrains Mono", monospace;
+    --tier-ss: #ff2e7e; --tier-s: #f0b840; --tier-a: #e3ff3d; --tier-b: #35d2ff; --tier-c: #8592a3;
+  }
+  ::selection{background:var(--lime);color:#0a0d12;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:
+    radial-gradient(circle at 12% -8%, #143241 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(240,184,64,.06) 0%, transparent 42%),
+    var(--bg);
+    color:var(--parchment);font-family:var(--font-body);padding:0;}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
+
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:linear-gradient(160deg, #1c2733, #10151c);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  h1.title{font-family:var(--font-display);font-weight:900;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
+  .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
+
+  .caveat{font-size:11.5px;color:var(--parchment-dim);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-bottom:16px;line-height:1.7;}
+
+  .cat-tabs{display:flex;gap:2px;margin-bottom:16px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;flex-wrap:wrap;}
+  .cat-tab{padding:8px 18px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:14px;transition:color .12s,background .12s;}
+  .cat-tab.active{background:var(--teal);color:#08222c;box-shadow:0 0 10px rgba(53,210,255,.4);}
+
+  .controls{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+  .controls-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  #searchBox{flex:1;min-width:160px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:8px 12px;font-size:13.5px;font-family:var(--font-body);}
+  #searchBox::placeholder{color:var(--parchment-dim);}
+  #searchBox:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 2px rgba(53,210,255,.2);}
+  .count-tag{font-size:12px;color:var(--parchment-dim);font-family:var(--font-mono);white-space:nowrap;margin-left:auto;}
+
+  .rank-list{display:flex;flex-direction:column;gap:6px;}
+  .rank-row{display:grid;grid-template-columns:36px 40px 1fr 56px 1fr;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:9px 14px;transition:border-color .12s;}
+  .rank-row:hover{border-color:var(--teal-dim);}
+  .rank-row .rnum{font-family:var(--font-mono);color:var(--brass);font-weight:700;font-size:13px;text-align:center;}
+  .rank-row .icon-wrap{width:36px;height:36px;border-radius:50%;background:var(--panel2);border:1px solid var(--line);overflow:hidden;}
+  .rank-row .icon-wrap img{width:100%;height:100%;object-fit:cover;}
+  .rank-row .pname{font-size:13.5px;font-weight:700;color:var(--parchment);}
+  .rank-row .pname-en{font-size:10px;color:var(--parchment-dim);font-family:var(--font-mono);margin-left:6px;}
+  .tier-badge{display:inline-flex;align-items:center;justify-content:center;width:38px;height:26px;border-radius:5px;font-family:var(--font-display);font-weight:900;font-size:14px;color:#08111a;}
+  .tier-badge.SS{background:var(--tier-ss);color:#fff;} .tier-badge.S{background:var(--tier-s);}
+  .tier-badge.A{background:var(--tier-a);} .tier-badge.B{background:var(--tier-b);color:#fff;}
+  .tier-badge.C{background:var(--tier-c);}
+  .detail-text{font-size:11.5px;color:var(--parchment-dim);line-height:1.5;}
+  .detail-text b{color:var(--parchment);font-weight:700;}
+  .na{color:var(--parchment-dim);font-style:italic;font-size:11.5px;}
+
+  .empty-msg{text-align:center;padding:40px 0;color:var(--parchment-dim);font-size:13px;}
+</style>
+</head>
+<body>
+<script src="game_data/dex_data.js"></script>
+<script src="game_data/combat_data.js"></script>
+<div class="wrap">
+  <header class="top">
+    <a class="brand-link" href="palworld_home.html">
+      <div class="brand-badge">P</div>
+      <h1 class="title glitch-hover" data-text="最強Tier表"><small>Palworld 攻略ツール</small>最強Tier表</h1>
+    </a>
+    <nav class="tabs">
+      <a href="palworld_home.html"><span>ホーム</span></a>
+      <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
+      <a href="palworld_dex.html"><span>パル図鑑</span></a>
+      <a href="palworld_items.html"><span>アイテム図鑑</span></a>
+      <a href="palworld_breeding.html"><span>配合検索</span></a>
+      <a href="palworld_palbox.html"><span>パルボックス</span></a>
+      <a href="palworld_combat.html"><span>戦闘最適化</span></a>
+      <a href="palworld_tierlist.html" class="current"><span>最強Tier表</span></a>
+      <a href="palworld_ride.html"><span>ライド速度</span></a>
+      <a href="palworld_map.html"><span>出現マップ</span></a>
+    </nav>
+  </header>
+
+  <p class="caveat">
+    「戦闘」は Lv80・星4・才能100%・ソウル60% を仮定し、そのパルの持ち技の中から最も持続火力(威力×属性一致補正÷クールタイム、汎用パッシブ4枠込み)が高い技を選んだ場合のDPSで評価しています(戦闘最適化ツールの計算式と同じ)。
+    「拠点作業」は作業適性(火おこし・採掘・製薬など)の合計レベルで評価。「マウント」は乗騎速度(ライド疾走)で評価し、非乗騎パルは対象外です。
+    Tierは各カテゴリ内の相対的な順位(上位5%=SS、20%=S、50%=A、80%=B、それ以下=C)によるもので、目安としてご覧ください。
+  </p>
+
+  <div class="cat-tabs">
+    <div class="cat-tab active" data-cat="combat">戦闘</div>
+    <div class="cat-tab" data-cat="work">拠点作業</div>
+    <div class="cat-tab" data-cat="mount">マウント</div>
+  </div>
+
+  <div class="controls">
+    <div class="controls-row">
+      <input type="text" id="searchBox" placeholder="パル名で検索…">
+      <span class="count-tag" id="countTag"></span>
+    </div>
+  </div>
+
+  <div class="rank-list" id="rankList"></div>
+</div>
+
+<script>
+const STAB_MULT = 1.2;
+const MIN_CYCLE_SECONDS = 2.5;
+const TL_LV = 80, TL_STAR_PCT = 20, TL_TALENT_PCT = 100, TL_SOUL_PCT = 60;
+
+function computeStat(speciesVal, base, coef, lv, talentPct, starPct, soulPct){
+  return (base + speciesVal * coef * lv * (1 + talentPct/100)) * (1 + starPct/100) * (1 + soulPct/100);
+}
+function passiveEffectValue(passive, type){
+  if(!passive) return 0;
+  const e = passive.effects.find(x => x.type === type && x.target === "ToSelf");
+  return e ? e.value : 0;
+}
+function pickBestPresetForTypes(typesEn){
+  const elementKeys = typesEn.map(t => `ElementBoost_${t}`);
+  return COMBAT_PASSIVES_DATA
+    .map(p => {
+      const atk = passiveEffectValue(p, "ShotAttack");
+      const elem = elementKeys.reduce((sum, k) => sum + passiveEffectValue(p, k), 0);
+      return { p, score: atk + elem, hasElem: elem > 0 };
+    })
+    .filter(x => x.score > 0)
+    .sort((a,b) => (b.score + (b.hasElem?0.01:0)) - (a.score + (a.hasElem?0.01:0)))
+    .slice(0, 4)
+    .map(x => x.p.name);
+}
+function computeCombatBest(pal){
+  if(!pal.skills || !pal.skills.length) return null;
+  const atk = computeStat(pal.stats.shot_attack, 100, 0.075, TL_LV, TL_TALENT_PCT, TL_STAR_PCT, TL_SOUL_PCT);
+  const passiveNames = pickBestPresetForTypes(pal.types_en);
+  const chosen = passiveNames.map(n => COMBAT_PASSIVES_DATA.find(p => p.name === n)).filter(Boolean);
+  const genericPct = chosen.reduce((s,ps) => s + passiveEffectValue(ps, "ShotAttack"), 0);
+  const ctPct = chosen.reduce((s,ps) => s + passiveEffectValue(ps, "ActiveSkillCoolTime_Decrease"), 0);
+  const ctMultiplier = Math.max(1 - ctPct/100, 0.1);
+  let best = null;
+  for(const sk of pal.skills){
+    const stab = pal.types_en.includes(sk.element) ? STAB_MULT : 1.0;
+    const elementPct = chosen.reduce((s,ps) => s + passiveEffectValue(ps, `ElementBoost_${sk.element}`), 0);
+    const effectiveAtk = atk * (1 + genericPct/100) * (1 + elementPct/100);
+    const instant = sk.power * effectiveAtk * stab;
+    const cycle = Math.max(sk.cooldown * ctMultiplier, MIN_CYCLE_SECONDS);
+    const sustained = instant / cycle;
+    if(!best || sustained > best.sustained) best = { ...sk, sustained };
+  }
+  return best;
+}
+
+function toKana(str){
+  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
+}
+
+function buildEntries(){
+  return PAL_DEX_DATA.map(dp => {
+    const combatPal = COMBAT_PAL_DATA.find(c => c.dex_id === dp.id);
+    const workSum = Object.values(dp.work || {}).reduce((a,b) => a+b, 0);
+    const topWork = Object.entries(dp.work || {}).sort((a,b) => b[1]-a[1]).slice(0,2);
+    const combatBest = combatPal ? computeCombatBest(combatPal) : null;
+    const rideable = dp.ride && (dp.ride.rideable || dp.ride.fly || dp.ride.swim);
+    return {
+      id: dp.id, name: dp.name, en_name: dp.en_name, icon: dp.icon,
+      combatScore: combatBest ? combatBest.sustained : null,
+      combatDetail: combatBest ? `${combatBest.jp_name}(威力${combatBest.power}・CT${combatBest.cooldown}秒)` : null,
+      workScore: workSum,
+      workDetail: topWork.length ? topWork.map(([k,v]) => `${k}Lv${v}`).join('・') : null,
+      mountScore: rideable ? dp.stats.ride_sprint_speed : null,
+      mountDetail: rideable ? `走行${dp.stats.run_speed}・疾走${dp.stats.ride_sprint_speed}` : null,
+    };
+  });
+}
+
+const ENTRIES = buildEntries();
+
+function tierOf(rank, total){
+  const pct = rank / total;
+  if(pct <= 0.05) return "SS";
+  if(pct <= 0.20) return "S";
+  if(pct <= 0.50) return "A";
+  if(pct <= 0.80) return "B";
+  return "C";
+}
+
+const CAT_CONFIG = {
+  combat: { scoreKey: "combatScore", detailKey: "combatDetail", label: "持続DPS" },
+  work: { scoreKey: "workScore", detailKey: "workDetail", label: "作業適性合計" },
+  mount: { scoreKey: "mountScore", detailKey: "mountDetail", label: "ライド疾走速度" },
+};
+
+const state = { cat: "combat", query: "" };
+
+function render(){
+  const cfg = CAT_CONFIG[state.cat];
+  let ranked = ENTRIES.filter(e => e[cfg.scoreKey] != null);
+  ranked.sort((a,b) => b[cfg.scoreKey] - a[cfg.scoreKey]);
+  const total = ranked.length;
+
+  let list = ranked.map((e, i) => ({ ...e, rank: i+1, tier: tierOf(i+1, total) }));
+  if(state.query){
+    const q = toKana(state.query.toLowerCase());
+    list = list.filter(e => toKana(e.name).includes(q) || (e.en_name && e.en_name.toLowerCase().includes(state.query.toLowerCase())));
+  }
+
+  document.getElementById("countTag").textContent = `${list.length} / ${total}匹(対象外: ${PAL_DEX_DATA.length - total}匹)`;
+  const box = document.getElementById("rankList");
+  if(!list.length){
+    box.innerHTML = `<div class="empty-msg">該当するパルが見つかりません。</div>`;
+    return;
+  }
+  box.innerHTML = list.map(e => `
+    <div class="rank-row">
+      <div class="rnum">#${e.rank}</div>
+      <div class="icon-wrap"><img src="${e.icon}" loading="lazy" alt=""></div>
+      <div><span class="pname">${e.name}</span><span class="pname-en">${e.en_name||''}</span></div>
+      <div class="tier-badge ${e.tier}">${e.tier}</div>
+      <div class="detail-text"><b>${cfg.label}: ${Math.round(e[cfg.scoreKey]).toLocaleString()}</b>${e[cfg.detailKey] ? ' / '+e[cfg.detailKey] : ''}</div>
+    </div>
+  `).join("");
+}
+
+document.querySelectorAll(".cat-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".cat-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    state.cat = tab.dataset.cat;
+    render();
+  });
+});
+document.getElementById("searchBox").addEventListener("input", e => { state.query = e.target.value; render(); });
+
+render();
+</script>
+</body>
+</html>

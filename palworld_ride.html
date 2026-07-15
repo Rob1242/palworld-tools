@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ライド速度ランキング | Palworld攻略ツール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/design-system.css">
+<style>
+  :root{
+    --bg: #07090d; --panel: #121822; --panel2: #182030;
+    --parchment: #e9eef4; --parchment-dim: #8592a3;
+    --brass: #f0b840; --brass-dim: #b5852f;
+    --teal: #35d2ff; --teal-dim: #1c6d86;
+    --lime: #e3ff3d; --lime-dim: #96b31f;
+    --magenta: #ff2e7e; --magenta-dim: #a01a52;
+    --line: rgba(142,183,214,.16); --danger: #e2543f;
+    --hp: #7bdb52; --sp: #f0a233;
+    --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
+    --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
+    --font-mono: "JetBrains Mono", monospace;
+  }
+  ::selection{background:var(--lime);color:#0a0d12;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:
+    radial-gradient(circle at 12% -8%, #143241 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(240,184,64,.06) 0%, transparent 42%),
+    var(--bg);
+    color:var(--parchment);font-family:var(--font-body);padding:0;}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
+
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:linear-gradient(160deg, #1c2733, #10151c);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  h1.title{font-family:var(--font-display);font-weight:900;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
+  .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
+
+  .caveat{font-size:11.5px;color:var(--parchment-dim);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-bottom:16px;line-height:1.7;}
+
+  .mode-tabs{display:flex;gap:2px;margin-bottom:16px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
+  .mode-tab{padding:8px 18px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:14px;transition:color .12s,background .12s;}
+  .mode-tab.active{background:var(--teal);color:#08222c;box-shadow:0 0 10px rgba(53,210,255,.4);}
+
+  .controls{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+  .controls-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  #searchBox{flex:1;min-width:160px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:8px 12px;font-size:13.5px;font-family:var(--font-body);}
+  #searchBox::placeholder{color:var(--parchment-dim);}
+  #searchBox:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 2px rgba(53,210,255,.2);}
+  .sort-chips{display:flex;gap:6px;flex-wrap:wrap;}
+  .chip{font-size:12px;padding:6px 12px;border-radius:5px;border:1px solid var(--line);background:var(--panel2);color:var(--parchment-dim);cursor:pointer;user-select:none;transition:transform .1s,border-color .1s;}
+  .chip:hover{transform:translateY(-1px);border-color:var(--teal-dim);}
+  .chip.active{color:#0d1013;font-weight:700;border-color:transparent;background:var(--lime);}
+  .count-tag{font-size:12px;color:var(--parchment-dim);font-family:var(--font-mono);white-space:nowrap;margin-left:auto;}
+
+  .rank-list{display:flex;flex-direction:column;gap:6px;}
+  .rank-row{display:grid;grid-template-columns:36px 40px 1fr 130px 130px;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 14px;transition:border-color .12s;}
+  .rank-row:hover{border-color:var(--teal-dim);}
+  .rank-row .rnum{font-family:var(--font-mono);color:var(--brass);font-weight:700;font-size:13px;text-align:center;}
+  .rank-row .icon-wrap{width:36px;height:36px;border-radius:50%;background:var(--panel2);border:1px solid var(--line);overflow:hidden;}
+  .rank-row .icon-wrap img{width:100%;height:100%;object-fit:cover;}
+  .rank-row .pname{font-size:13.5px;font-weight:700;color:var(--parchment);}
+  .rank-row .pname-en{font-size:10px;color:var(--parchment-dim);font-family:var(--font-mono);margin-left:6px;}
+  .stat-bar-wrap{display:flex;flex-direction:column;gap:2px;}
+  .stat-bar-label{font-size:9.5px;color:var(--parchment-dim);font-family:var(--font-mono);display:flex;justify-content:space-between;}
+  .stat-bar{height:6px;border-radius:3px;background:var(--panel2);overflow:hidden;}
+  .stat-bar-fill{height:100%;border-radius:3px;}
+  .stat-bar-fill.run{background:linear-gradient(90deg, var(--teal-dim), var(--teal));}
+  .stat-bar-fill.sprint{background:linear-gradient(90deg, var(--brass-dim), var(--brass));}
+
+  .empty-msg{text-align:center;padding:40px 0;color:var(--parchment-dim);font-size:13px;}
+</style>
+</head>
+<body>
+<script src="game_data/dex_data.js"></script>
+<div class="wrap">
+  <header class="top">
+    <a class="brand-link" href="palworld_home.html">
+      <div class="brand-badge">P</div>
+      <h1 class="title glitch-hover" data-text="ライド速度ランキング"><small>Palworld 攻略ツール</small>ライド速度ランキング</h1>
+    </a>
+    <nav class="tabs">
+      <a href="palworld_home.html"><span>ホーム</span></a>
+      <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
+      <a href="palworld_dex.html"><span>パル図鑑</span></a>
+      <a href="palworld_items.html"><span>アイテム図鑑</span></a>
+      <a href="palworld_breeding.html"><span>配合検索</span></a>
+      <a href="palworld_palbox.html"><span>パルボックス</span></a>
+      <a href="palworld_combat.html"><span>戦闘最適化</span></a>
+      <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
+      <a href="palworld_ride.html" class="current"><span>ライド速度</span></a>
+      <a href="palworld_map.html"><span>出現マップ</span></a>
+    </nav>
+  </header>
+
+  <p class="caveat">
+    パル図鑑データ(走行速度・ライド疾走速度)を元に、乗騎(ライド)可能なパルを陸上/飛行/水上で分けてランキング表示しています。
+    バーは各タブ内で正規化した相対値のため、タブをまたいだ数値比較(例: 陸上パルと飛行パルの速度差)には使えません。
+    スタミナ値・ペア強化パッシブ・環境補正(雪山・砂漠等での速度変化)によるシミュレーションには対応していません(今後の課題)。
+  </p>
+
+  <div class="mode-tabs">
+    <div class="mode-tab active" data-mode="ground">陸上</div>
+    <div class="mode-tab" data-mode="fly">飛行</div>
+    <div class="mode-tab" data-mode="swim">水上</div>
+  </div>
+
+  <div class="controls">
+    <div class="controls-row">
+      <input type="text" id="searchBox" placeholder="パル名で検索…">
+      <div class="sort-chips" id="sortChips">
+        <div class="chip active" data-sort="sprint">ライド疾走が速い順</div>
+        <div class="chip" data-sort="run">走行が速い順</div>
+      </div>
+      <span class="count-tag" id="countTag"></span>
+    </div>
+  </div>
+
+  <div class="rank-list" id="rankList"></div>
+</div>
+
+<script>
+const state = { mode: "ground", query: "", sort: "sprint" };
+
+function toKana(str){
+  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
+}
+
+function poolFor(mode){
+  if(mode === "ground") return PAL_DEX_DATA.filter(p => p.ride && p.ride.rideable && !p.ride.fly && !p.ride.swim);
+  if(mode === "fly") return PAL_DEX_DATA.filter(p => p.ride && p.ride.fly);
+  return PAL_DEX_DATA.filter(p => p.ride && p.ride.swim);
+}
+
+function render(){
+  let list = poolFor(state.mode);
+  if(state.query){
+    const q = toKana(state.query.toLowerCase());
+    list = list.filter(p => toKana(p.name).includes(q) || (p.en_name && p.en_name.toLowerCase().includes(state.query.toLowerCase())));
+  }
+  const key = state.sort === "run" ? "run_speed" : "ride_sprint_speed";
+  list = list.slice().sort((a,b) => b.stats[key] - a.stats[key]);
+
+  document.getElementById("countTag").textContent = `${list.length}匹`;
+  const box = document.getElementById("rankList");
+  if(!list.length){
+    box.innerHTML = `<div class="empty-msg">該当するパルが見つかりません。</div>`;
+    return;
+  }
+  const maxRun = Math.max(...list.map(p => p.stats.run_speed));
+  const maxSprint = Math.max(...list.map(p => p.stats.ride_sprint_speed));
+  box.innerHTML = list.map((p, i) => {
+    const runPct = Math.round(p.stats.run_speed / maxRun * 100);
+    const sprintPct = Math.round(p.stats.ride_sprint_speed / maxSprint * 100);
+    return `<div class="rank-row">
+      <div class="rnum">#${i+1}</div>
+      <div class="icon-wrap"><img src="${p.icon}" loading="lazy" alt=""></div>
+      <div><span class="pname">${p.name}</span><span class="pname-en">${p.en_name||''}</span></div>
+      <div class="stat-bar-wrap">
+        <div class="stat-bar-label"><span>走行</span><span>${p.stats.run_speed}</span></div>
+        <div class="stat-bar"><div class="stat-bar-fill run" style="width:${runPct}%"></div></div>
+      </div>
+      <div class="stat-bar-wrap">
+        <div class="stat-bar-label"><span>ライド疾走</span><span>${p.stats.ride_sprint_speed}</span></div>
+        <div class="stat-bar"><div class="stat-bar-fill sprint" style="width:${sprintPct}%"></div></div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+document.querySelectorAll(".mode-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".mode-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    state.mode = tab.dataset.mode;
+    render();
+  });
+});
+document.querySelectorAll("#sortChips .chip").forEach(chip => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll("#sortChips .chip").forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+    state.sort = chip.dataset.sort;
+    render();
+  });
+});
+document.getElementById("searchBox").addEventListener("input", e => { state.query = e.target.value; render(); });
+
+render();
+</script>
+</body>
+</html>

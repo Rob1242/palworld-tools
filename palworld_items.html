@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アイテム図鑑 | Palworld攻略ツール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/design-system.css">
+<style>
+  :root{
+    --bg: #07090d; --panel: #121822; --panel2: #182030;
+    --parchment: #e9eef4; --parchment-dim: #8592a3;
+    --brass: #f0b840; --brass-dim: #b5852f;
+    --teal: #35d2ff; --teal-dim: #1c6d86;
+    --lime: #e3ff3d; --lime-dim: #96b31f;
+    --magenta: #ff2e7e; --magenta-dim: #a01a52;
+    --line: rgba(142,183,214,.16); --danger: #e2543f;
+    --hp: #7bdb52; --sp: #f0a233;
+    --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
+    --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
+    --font-mono: "JetBrains Mono", monospace;
+  }
+  ::selection{background:var(--lime);color:#0a0d12;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:
+    radial-gradient(circle at 12% -8%, #143241 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(240,184,64,.06) 0%, transparent 42%),
+    var(--bg);
+    color:var(--parchment);font-family:var(--font-body);padding:0;}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
+
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:linear-gradient(160deg, #1c2733, #10151c);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  h1.title{font-family:var(--font-display);font-weight:900;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
+  .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
+
+  .caveat{font-size:11.5px;color:var(--parchment-dim);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-bottom:16px;line-height:1.7;}
+  .caveat a{color:var(--brass);}
+
+  .controls{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+  .controls-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  #searchBox{flex:1;min-width:160px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:8px 12px;font-size:13.5px;font-family:var(--font-body);}
+  #searchBox::placeholder{color:var(--parchment-dim);}
+  #searchBox:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 2px rgba(53,210,255,.2);}
+  select{background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:8px 10px;font-size:13px;}
+  .count-tag{font-size:12px;color:var(--parchment-dim);font-family:var(--font-mono);white-space:nowrap;}
+  .cat-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+  .chip{font-size:12px;padding:5px 11px;border-radius:5px;border:1px solid var(--line);background:var(--panel2);color:var(--parchment-dim);cursor:pointer;user-select:none;transition:transform .1s,border-color .1s;}
+  .chip:hover{transform:translateY(-1px);border-color:var(--teal-dim);}
+  .chip.active{color:#0d1013;font-weight:700;border-color:transparent;background:var(--lime);}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 10px 10px;cursor:pointer;position:relative;text-align:center;transition:border-color .12s, transform .12s;}
+  .card:hover{border-color:var(--teal-dim);transform:translateY(-2px);}
+  .card .icon-wrap{position:relative;width:56px;height:56px;margin:0 auto 8px;border-radius:10px;background:var(--panel2);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .card .icon-wrap img{width:80%;height:80%;object-fit:contain;}
+  .card .iname{font-size:12.5px;font-weight:700;color:var(--parchment);margin-bottom:2px;line-height:1.3;min-height:2.6em;display:flex;align-items:center;justify-content:center;}
+  .card .iname.en-fallback{font-size:11px;color:var(--parchment-dim);font-family:var(--font-mono);}
+  .card .sub-badge{display:inline-block;font-size:9.5px;padding:2px 7px;border-radius:4px;background:var(--panel2);color:var(--teal);border:1px solid var(--teal-dim);margin-bottom:4px;}
+  .card .price{font-size:10.5px;color:var(--brass);font-family:var(--font-mono);}
+  .card .rarity-dots{display:flex;gap:2px;justify-content:center;margin-top:4px;}
+  .card .rarity-dots span{width:5px;height:5px;border-radius:50%;background:var(--line);}
+  .card .rarity-dots span.on{background:var(--brass);}
+
+  .empty-msg{grid-column:1/-1;text-align:center;padding:40px 0;color:var(--parchment-dim);font-size:13px;}
+
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(4,6,10,.72);backdrop-filter:blur(2px);z-index:50;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto;}
+  .modal-overlay.open{display:flex;}
+  .modal-box{background:var(--panel);border:1px solid var(--line);border-radius:12px;max-width:480px;width:100%;padding:22px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  .modal-close{position:absolute;top:14px;right:14px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment-dim);width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:16px;line-height:1;}
+  .modal-close:hover{color:var(--parchment);border-color:var(--teal-dim);}
+  .modal-head{display:flex;gap:16px;align-items:center;margin-bottom:14px;}
+  .modal-head .icon-wrap{width:72px;height:72px;border-radius:12px;background:var(--panel2);border:2px solid var(--brass);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .modal-head .icon-wrap img{width:78%;height:78%;object-fit:contain;}
+  .modal-head h3{margin:0 0 4px;font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--parchment);}
+  .modal-head .en-name{font-size:11.5px;color:var(--parchment-dim);font-family:var(--font-mono);}
+  .modal-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;font-size:12.5px;margin-bottom:12px;}
+  .modal-stats .k{color:var(--parchment-dim);}
+  .modal-stats .v{color:var(--parchment);font-weight:600;text-align:right;font-family:var(--font-mono);}
+  .modal-desc{font-size:12px;color:var(--parchment-dim);line-height:1.7;background:var(--panel2);border-radius:8px;padding:12px 14px;border:1px solid var(--line);}
+</style>
+</head>
+<body>
+<script src="game_data/items_dex_data.js"></script>
+<div class="wrap">
+  <header class="top">
+    <a class="brand-link" href="palworld_home.html">
+      <div class="brand-badge">P</div>
+      <h1 class="title glitch-hover" data-text="アイテム図鑑"><small>Palworld 攻略ツール</small>アイテム図鑑</h1>
+    </a>
+    <nav class="tabs">
+      <a href="palworld_home.html"><span>ホーム</span></a>
+      <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
+      <a href="palworld_dex.html"><span>パル図鑑</span></a>
+      <a href="palworld_items.html" class="current"><span>アイテム図鑑</span></a>
+      <a href="palworld_breeding.html"><span>配合検索</span></a>
+      <a href="palworld_palbox.html"><span>パルボックス</span></a>
+      <a href="palworld_combat.html"><span>戦闘最適化</span></a>
+      <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
+      <a href="palworld_ride.html"><span>ライド速度</span></a>
+      <a href="palworld_map.html"><span>出現マップ</span></a>
+    </nav>
+  </header>
+
+  <p class="caveat">
+    ゲーム内データ(items.json、全2466件)を元にしたアイテム一覧です。日本語名は、パル図鑑のドロップアイテム欄で既に判明している109件のみ反映しており、残りは英語名(内部アイテム名)での表示になります。設計図(ブループリント)類は自動翻訳ベースの名前で読みづらいものが含まれるため、参考程度にご覧ください。
+  </p>
+
+  <div class="controls">
+    <div class="controls-row">
+      <input type="text" id="searchBox" placeholder="アイテム名で検索…(日本語・英語どちらも可)">
+      <select id="sortSel">
+        <option value="price_desc">売却額が高い順</option>
+        <option value="price_asc">売却額が低い順</option>
+        <option value="name">名前順</option>
+      </select>
+      <span class="count-tag" id="countTag"></span>
+    </div>
+    <div class="cat-chips" id="catChips"></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="modal-overlay" id="itemModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const CATEGORY_ORDER = ["すべて","資源・素材","武器","防具","アクセサリー","食料","消耗品","グライダー・盾","弾薬","設計図","その他"];
+
+const state = { query: "", category: "すべて", sort: "price_desc" };
+
+function toKana(str){
+  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
+}
+
+function displayName(item){
+  return item.name_jp || item.name_en;
+}
+
+function renderChips(){
+  const box = document.getElementById("catChips");
+  box.innerHTML = CATEGORY_ORDER.map(c =>
+    `<div class="chip ${state.category===c?'active':''}" data-cat="${c}">${c}</div>`
+  ).join("");
+  box.querySelectorAll(".chip").forEach(el => {
+    el.addEventListener("click", () => {
+      state.category = el.dataset.cat;
+      renderChips();
+      renderGrid();
+    });
+  });
+}
+
+function filteredSorted(){
+  let list = ITEMS_DEX_DATA.filter(it => {
+    if(state.category !== "すべて" && it.category !== state.category) return false;
+    if(state.query){
+      const q = toKana(state.query.toLowerCase());
+      const hitJp = it.name_jp && toKana(it.name_jp).includes(q);
+      const hitEn = it.name_en.toLowerCase().includes(state.query.toLowerCase());
+      if(!hitJp && !hitEn) return false;
+    }
+    return true;
+  });
+  if(state.sort === "price_desc") list = list.slice().sort((a,b) => b.price - a.price);
+  else if(state.sort === "price_asc") list = list.slice().sort((a,b) => a.price - b.price);
+  else if(state.sort === "name") list = list.slice().sort((a,b) => displayName(a).localeCompare(displayName(b), "ja"));
+  return list;
+}
+
+function renderGrid(){
+  const list = filteredSorted();
+  document.getElementById("countTag").textContent = `${list.length} / ${ITEMS_DEX_DATA.length}件`;
+  const grid = document.getElementById("grid");
+  if(!list.length){
+    grid.innerHTML = `<div class="empty-msg">該当するアイテムが見つかりません。</div>`;
+    return;
+  }
+  grid.innerHTML = list.map(it => {
+    const name = displayName(it);
+    const isEn = !it.name_jp;
+    const dots = Array.from({length:5}, (_,i) => `<span class="${i < it.rarity ? 'on' : ''}"></span>`).join("");
+    return `<div class="card" data-asset="${it.asset}">
+      <div class="icon-wrap"><img src="${it.icon}" onerror="this.src='game_data/icons/T_icon_unknown.webp'" loading="lazy" alt=""></div>
+      ${it.subcategory ? `<div class="sub-badge">${it.subcategory}</div>` : ''}
+      <div class="iname ${isEn ? 'en-fallback' : ''}">${name}</div>
+      <div class="price">₽${it.price.toLocaleString()}</div>
+      <div class="rarity-dots">${dots}</div>
+    </div>`;
+  }).join("");
+  grid.querySelectorAll(".card[data-asset]").forEach(card => {
+    card.addEventListener("click", () => openModal(card.dataset.asset));
+  });
+}
+
+function openModal(asset){
+  const it = ITEMS_DEX_DATA.find(x => x.asset === asset);
+  if(!it) return;
+  const name = displayName(it);
+  const isEn = !it.name_jp;
+  document.getElementById("modalBody").innerHTML = `
+    <div class="modal-head">
+      <div class="icon-wrap"><img src="${it.icon}" onerror="this.src='game_data/icons/T_icon_unknown.webp'" alt=""></div>
+      <div>
+        <h3>${name}</h3>
+        ${!isEn ? `<div class="en-name">${it.name_en}</div>` : `<div class="en-name">(日本語名未判明・英語内部名)</div>`}
+      </div>
+    </div>
+    <div class="modal-stats">
+      <div class="k">カテゴリ</div><div class="v">${it.category}${it.subcategory ? ' / '+it.subcategory : ''}</div>
+      <div class="k">売却額</div><div class="v">₽${it.price.toLocaleString()}</div>
+      <div class="k">重量</div><div class="v">${it.weight}</div>
+      <div class="k">最大スタック数</div><div class="v">${it.max_stack.toLocaleString()}</div>
+    </div>
+    <div class="modal-desc">${it.description_en || "(説明文なし)"}</div>
+  `;
+  document.getElementById("itemModal").classList.add("open");
+}
+
+document.getElementById("modalClose").addEventListener("click", () => {
+  document.getElementById("itemModal").classList.remove("open");
+});
+document.getElementById("itemModal").addEventListener("click", e => {
+  if(e.target.id === "itemModal") document.getElementById("itemModal").classList.remove("open");
+});
+
+document.getElementById("searchBox").addEventListener("input", e => { state.query = e.target.value; renderGrid(); });
+document.getElementById("sortSel").addEventListener("change", e => { state.sort = e.target.value; renderGrid(); });
+
+renderChips();
+renderGrid();
+</script>
+</body>
+</html>
