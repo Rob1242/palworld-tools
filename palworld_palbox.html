@@ -172,6 +172,13 @@
   .route-pair-item{display:flex;align-items:center;gap:8px;padding:6px 10px;background:var(--panel);border-radius:6px;font-family:var(--font-mono);font-size:13px;}
   .route-pair-item img{width:24px;height:24px;object-fit:contain;}
   .unique-tag{display:inline-block;background:var(--brass-dim);color:#1a1408;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:8px;}
+  .coverage-warn{background:rgba(226,84,63,.12);border:1px solid var(--danger);border-radius:6px;padding:10px 12px;font-size:12.5px;color:var(--parchment);line-height:1.6;}
+  .combo-rank-list{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
+  .combo-rank-item{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:12.5px;}
+  .combo-rank-item.best{border-color:var(--brass);}
+  .combo-rank-item .cr-head{display:flex;align-items:center;gap:8px;margin-bottom:4px;font-weight:700;}
+  .combo-rank-item .cr-score{color:var(--hp);font-family:var(--font-mono);}
+  .combo-rank-item .cr-detail{color:var(--parchment-dim);font-size:11.5px;}
   .show-more-btn{margin-top:10px;padding:6px 16px;background:var(--panel);border:1px solid var(--teal-dim);color:var(--parchment);border-radius:6px;cursor:pointer;font-family:var(--font-body);}
   .show-more-btn:hover{border-color:var(--teal);}
   .card.owned{border-color:var(--hp);box-shadow:0 0 0 2px var(--hp) inset;}
@@ -922,6 +929,101 @@ function computeAchievablePools(result, targetSet){
   return resolved;
 }
 
+// ---- 複数の親候補パターンを比較して最良の組み合わせを提案する ----
+// ルート内で「所持個体をそのまま使う」末端種族を集める(中間配合で用意する種族は対象外)。
+function collectLeafSpecies(result){
+  const stepByChild = {};
+  result.steps.forEach(s => { stepByChild[s.child] = s; });
+  const leaves = new Set();
+  const visited = new Set();
+  function visit(asset){
+    if(visited.has(asset)) return;
+    visited.add(asset);
+    const step = stepByChild[asset];
+    if(!step){ leaves.add(asset); return; }
+    visit(step.a); visit(step.b);
+  }
+  result.steps.forEach(s => { visit(s.a); visit(s.b); });
+  return Array.from(leaves);
+}
+
+// computeAchievablePoolsと同じ再帰だが、末端種族にどの所持個体を割り当てるかを
+// assignment(Map: asset -> instance|null)で明示的に指定できるようにしたもの。
+function computePoolsWithAssignment(result, assignment){
+  const stepByChild = {};
+  result.steps.forEach(s => { stepByChild[s.child] = s; });
+  const resolved = {};
+  function resolve(asset){
+    if(resolved[asset]) return resolved[asset];
+    const step = stepByChild[asset];
+    if(!step){
+      const inst = assignment.get(asset) || null;
+      resolved[asset] = { pool: new Set(inst ? inst.passives : []), inst, isIntermediate: false };
+      return resolved[asset];
+    }
+    resolved[asset] = { pool: new Set(), isIntermediate: true, step, pending: true };
+    const aRes = resolve(step.a);
+    const bRes = resolve(step.b);
+    const pool = new Set([...aRes.pool, ...bRes.pool]);
+    resolved[asset] = { pool, isIntermediate: true, step, aRes, bRes };
+    return resolved[asset];
+  }
+  result.steps.forEach(s => resolve(s.child));
+  return resolved;
+}
+
+// 末端種族ごとに所持個体が複数いる場合、その全組み合わせ(直積)を試して
+// 「目的パッシブを何個カバーできるか」「余分なパッシブがどれだけ少ないか(継承枠を圧迫しないか)」
+// でランキングする。組み合わせ数が多すぎる場合(実用上まず起きないが安全のため)は
+// 各末端で単純に最良の1個体だけを使う従来ロジックにフォールバックする。
+function enumerateParentCombinations(result, targetSet, maxCombos = 2000){
+  const leaves = collectLeafSpecies(result);
+  const optionsPerLeaf = leaves.map(asset => {
+    const insts = instancesOfAsset(asset);
+    return insts.length ? insts : [null];
+  });
+
+  const totalCombos = optionsPerLeaf.reduce((a, opts) => a * opts.length, 1);
+  let combos;
+  if(totalCombos > maxCombos){
+    combos = [leaves.map(asset => bestParentForPassives(asset, targetSet))];
+  } else {
+    combos = [[]];
+    optionsPerLeaf.forEach(opts => {
+      const next = [];
+      combos.forEach(c => opts.forEach(o => next.push([...c, o])));
+      combos = next;
+    });
+  }
+
+  const finalStep = result.steps[result.steps.length - 1];
+  const scored = combos.map(combo => {
+    const assignment = new Map();
+    leaves.forEach((asset, i) => assignment.set(asset, combo[i]));
+    const resolved = computePoolsWithAssignment(result, assignment);
+    const finalPool = resolved[finalStep.child].pool;
+    const covered = [...targetSet].filter(p => finalPool.has(p));
+    const excess = [...finalPool].filter(p => !targetSet.has(p)).length;
+    return { assignment, resolved, coveredCount: covered.length, covered, excess };
+  });
+
+  scored.sort((a, b) => b.coveredCount - a.coveredCount || a.excess - b.excess);
+
+  // 個体の組み合わせ(誰と誰を使うか)が同一なものは重複表示しないようにする
+  const seen = new Set();
+  const distinct = [];
+  scored.forEach(s => {
+    const key = leaves.map(asset => {
+      const inst = s.assignment.get(asset);
+      return inst ? inst.uid : `${asset}:none`;
+    }).join(",");
+    if(seen.has(key)) return;
+    seen.add(key);
+    distinct.push(s);
+  });
+  return { leaves, ranked: distinct };
+}
+
 function renderPassiveFit(result, targetAsset){
   const wrap = document.getElementById("roadmapPassiveFit");
   if(!wrap) return;
@@ -930,7 +1032,8 @@ function renderPassiveFit(result, targetAsset){
     return;
   }
   const targetSet = new Set(roadmapState.passives);
-  const resolved = computeAchievablePools(result, targetSet);
+  const { leaves, ranked } = enumerateParentCombinations(result, targetSet);
+  if(!ranked.length){ wrap.innerHTML = ""; return; }
 
   const parentLabel = (asset, res) => {
     const label = nameOf(asset);
@@ -940,31 +1043,56 @@ function renderPassiveFit(result, targetAsset){
     return `<span>${res.inst.nickname || label}${res.inst.nickname ? `(${label})` : ''} — ${passiveList}</span>`;
   };
 
+  const renderComboDetail = (resolved) => {
+    let html = "";
+    result.steps.forEach(s => {
+      const res = resolved[s.child];
+      const aRes = resolved[s.a];
+      const bRes = resolved[s.b];
+      const gotHere = [...res.pool].filter(p => targetSet.has(p));
+      html += `<div style="border-left:2px solid var(--line);padding:8px 0 8px 12px;margin-bottom:8px;">
+        <div style="font-size:11px;color:var(--brass);margin-bottom:4px;">第${s.generation}世代: ${nameOf(s.child)}</div>
+        <p style="font-size:12px;color:var(--parchment-dim);margin:0 0 4px;">${parentLabel(s.a, aRes)}</p>
+        <p style="font-size:12px;color:var(--parchment-dim);margin:0 0 4px;">${parentLabel(s.b, bRes)}</p>
+        <p style="font-size:11.5px;margin:4px 0 0;">→ ${nameOf(s.child)}が理論上引き継ぎうる目的パッシブ: ${gotHere.length ? gotHere.map(p=>`<span style="color:var(--hp);">${ico('check')}${p}</span>`).join(' ') : '<span style="color:var(--parchment-dim);">なし</span>'}</p>
+      </div>`;
+    });
+    return html;
+  };
+
+  const summarizeCombo = (combo) => leaves.map(asset => {
+    const inst = combo.assignment.get(asset);
+    const label = nameOf(asset);
+    if(!inst) return `${label}:未所持`;
+    return `${label}=${inst.nickname || '(名称未設定)'}`;
+  }).join(' / ');
+
+  const best = ranked[0];
+
   let html = `<div class="section" style="margin-top:12px;">
     <h2>パッシブ厳選チェック(全${result.steps.length}世代)</h2>`;
 
-  result.steps.forEach(s => {
-    const res = resolved[s.child];
-    const aRes = resolved[s.a] || resolve1(s.a, targetSet);
-    const bRes = resolved[s.b] || resolve1(s.b, targetSet);
-    const gotHere = [...res.pool].filter(p => targetSet.has(p));
-    html += `<div style="border-left:2px solid var(--line);padding:8px 0 8px 12px;margin-bottom:8px;">
-      <div style="font-size:11px;color:var(--brass);margin-bottom:4px;">第${s.generation}世代: ${nameOf(s.child)}</div>
-      <p style="font-size:12px;color:var(--parchment-dim);margin:0 0 4px;">${parentLabel(s.a, aRes)}</p>
-      <p style="font-size:12px;color:var(--parchment-dim);margin:0 0 4px;">${parentLabel(s.b, bRes)}</p>
-      <p style="font-size:11.5px;margin:4px 0 0;">→ ${nameOf(s.child)}が理論上引き継ぎうる目的パッシブ: ${gotHere.length ? gotHere.map(p=>`<span style="color:var(--hp);">${ico('check')}${p}</span>`).join(' ') : '<span style="color:var(--parchment-dim);">なし</span>'}</p>
-    </div>`;
-  });
+  if(ranked.length > 1){
+    html += `<p style="font-size:11.5px;color:var(--parchment-dim);margin:0 0 8px;">所持個体の組み合わせ${ranked.length}通りを比較し、目的パッシブを最も多くカバーできる順に並べています。</p>
+    <div class="combo-rank-list">`;
+    ranked.slice(0, 3).forEach((combo, i) => {
+      const isBest = i === 0;
+      html += `<div class="combo-rank-item${isBest ? ' best' : ''}">
+        <div class="cr-head"><span>${isBest ? `${ico('check')} 最有力パターン` : `候補${i + 1}`}</span><span class="cr-score">カバー ${combo.coveredCount}/${roadmapState.passives.length}・余分${combo.excess}個</span></div>
+        <div class="cr-detail">${summarizeCombo(combo)}</div>
+      </div>`;
+    });
+    html += `</div>`;
+  }
 
-  const finalStep = result.steps[result.steps.length - 1];
-  const finalPool = resolved[finalStep.child].pool;
-  const covered = roadmapState.passives.filter(p => finalPool.has(p));
-  const missing = roadmapState.passives.filter(p => !finalPool.has(p));
+  html += renderComboDetail(best.resolved);
+
+  const missing = roadmapState.passives.filter(p => !best.covered.includes(p));
 
   if(missing.length){
-    html += `<div class="coverage-warn" style="margin-bottom:8px;">${ico("warning")} このルート上のどの個体・世代にも無いため、今のままでは最終的に継承候補に入りません: ${missing.join('・')}<br>先にこのパッシブを持つ個体を用意するか、ルート内のどこかの親に習得させる必要があります。</div>`;
+    html += `<div class="coverage-warn" style="margin-bottom:8px;">${ico("warning")} 今の所持個体の組み合わせでは、最終的に継承候補に入りません: ${missing.join('・')}<br>先にこのパッシブを持つ個体を用意するか、ルート内のどこかの親に習得させる必要があります。</div>`;
   } else {
-    html += `<p style="font-size:12.5px;color:var(--hp);margin-bottom:8px;">目的の${roadmapState.passives.length}パッシブすべてが、ルートのどこかの世代で継承候補プールに入る可能性があります(下記世代ごとの内訳を参照)。</p>`;
+    html += `<p style="font-size:12.5px;color:var(--hp);margin-bottom:8px;">目的の${roadmapState.passives.length}パッシブすべてが、最有力パターンでルートのどこかの世代で継承候補プールに入る可能性があります(上記世代ごとの内訳を参照)。</p>`;
   }
   html += `<p style="font-size:10.5px;color:var(--parchment-dim);line-height:1.7;">
     ※「理論上引き継ぎうる」は保証ではありません。継承は確率制で、中間世代(配合して用意するパル)を挟むほど、
@@ -974,11 +1102,6 @@ function renderPassiveFit(result, targetAsset){
     各世代でできるだけ余分なパッシブを持たない個体を親にすると、狙った組み合わせが揃いやすくなります。
   </p></div>`;
   wrap.innerHTML = html;
-
-  function resolve1(asset, tSet){
-    const inst = bestParentForPassives(asset, tSet);
-    return { pool: new Set(inst ? inst.passives : []), inst, isIntermediate: false };
-  }
 }
 
 function updateRoadmapResult(){
