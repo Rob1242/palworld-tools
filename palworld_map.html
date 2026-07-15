@@ -60,7 +60,7 @@
   .map-toolbar .spacer{margin-left:auto;}
   .zone-count-tag{font-family:var(--font-mono);font-size:11.5px;color:var(--brass);}
 
-  .map-viewport{position:relative;width:100%;aspect-ratio:1/1;max-height:74vh;overflow:hidden;border-radius:10px;border:1px solid var(--line);background:#04060a;cursor:grab;touch-action:none;}
+  .map-viewport{position:relative;width:100%;max-width:min(100%, 74vh);aspect-ratio:1/1;margin:0 auto;overflow:hidden;border-radius:10px;border:1px solid var(--line);background:#04060a;cursor:grab;touch-action:none;}
   .map-viewport.dragging{cursor:grabbing;}
   .map-world{position:absolute;top:0;left:0;width:100%;height:100%;transform-origin:0 0;will-change:transform;}
   .map-world img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none;pointer-events:none;}
@@ -84,9 +84,23 @@
   .empty-hint{padding:60px 20px;text-align:center;color:var(--parchment-dim);font-size:13px;}
 
   .footer-note{font-size:11px;color:var(--parchment-dim);margin-top:22px;line-height:1.7;}
+
+  /* 図鑑詳細へのiframe埋め込み用(?embed=1) */
+  body.embed-mode{background:var(--bg);}
+  body.embed-mode .wrap{max-width:none;padding:0;}
+  body.embed-mode header.top,
+  body.embed-mode .caveat,
+  body.embed-mode .picker-box,
+  body.embed-mode .footer-note{display:none;}
+  body.embed-mode .map-toolbar{margin-bottom:10px;}
 </style>
 </head>
 <body>
+<script>
+  if(new URLSearchParams(location.search).get("embed") === "1"){
+    document.body.classList.add("embed-mode");
+  }
+</script>
 <div class="wrap">
   <header class="top">
     <a class="brand-link" href="palworld_home.html">

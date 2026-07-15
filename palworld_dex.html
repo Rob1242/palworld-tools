@@ -153,6 +153,11 @@
   .obtain-box .obtain-label{color:var(--brass);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-right:6px;}
   .obtain-box .obtain-notes{margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-style:italic;}
 
+  .spawn-map-embed{margin-top:12px;}
+  .spawn-map-embed iframe{width:100%;height:480px;border:1px solid var(--line);border-radius:8px;background:#04060a;display:block;}
+  .spawn-map-link{display:inline-block;margin-top:8px;font-size:11.5px;color:var(--brass);text-decoration:none;}
+  .spawn-map-link:hover{text-decoration:underline;}
+
   .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;}
   .footer-note a{color:var(--brass);}
 
@@ -295,9 +300,13 @@
 <script src="game_data/dex_data.js"></script>
 <script src="game_data/item_icons_data.js"></script>
 <script src="game_data/paldb_extra_data.js"></script>
+<script src="game_data/spawn_data.js"></script>
 <script src="shared/icons.js"></script>
 
 <script>
+
+const SPAWN_BY_DEXID = {};
+(SPAWN_DATA.pals || []).forEach(p => { SPAWN_BY_DEXID[p.dexId] = p; });
 
 const TYPES = ["無","炎","水","雷","地","草","氷","竜","闇"];
 const ROLE_ICON = {"火おこし":"flame","水やり":"droplet","種まき":"sprout","発電":"bolt","手作業":"wrench","採集":"basket","伐採":"axe","採掘":"pickaxe","製薬":"flask","冷却":"snowflake","運搬":"box","牧場":"paw"};
@@ -486,14 +495,21 @@ function openDetail(id){
   </div>` : "";
 
   const obtain = extra && extra.obtain;
-  const obtainHtml = (obtain && ((obtain.locations && obtain.locations.length) || obtain.egg_type || obtain.notes)) ? `<div class="section">
+  const spawn = SPAWN_BY_DEXID[p.id];
+  const spawnMapHtml = (spawn && ((spawn.wildZones && spawn.wildZones.length) || (spawn.alphaZones && spawn.alphaZones.length))) ? `
+    <div class="spawn-map-embed">
+      <iframe src="palworld_map.html?id=${p.id}&embed=1" loading="lazy" title="${p.name}の出現マップ"></iframe>
+      <a class="spawn-map-link" href="palworld_map.html?id=${p.id}" target="_blank" rel="noopener">出現マップを別タブで開く →</a>
+    </div>` : "";
+  const obtainHtml = (obtain && ((obtain.locations && obtain.locations.length) || obtain.egg_type || obtain.notes)) || spawnMapHtml ? `<div class="section">
     <h2>入手方法</h2>
-    <div class="obtain-box">
+    ${obtain ? `<div class="obtain-box">
       ${obtain.locations && obtain.locations.length ? `<div><span class="obtain-label">生息地</span>${obtain.locations.join(" / ")}</div>` : ""}
       ${obtain.egg_type ? `<div><span class="obtain-label">タマゴ</span>${obtain.egg_type}</div>` : ""}
       ${obtain.boss_only ? `<div><span class="obtain-label">出現</span>ボス個体のみ</div>` : ""}
       ${obtain.notes ? `<div class="obtain-notes">${obtain.notes}</div>` : ""}
-    </div>
+    </div>` : ""}
+    ${spawnMapHtml}
   </div>` : "";
 
   const matchup = elementMatchup(p.types);
