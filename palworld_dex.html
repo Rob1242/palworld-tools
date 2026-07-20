@@ -7,15 +7,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/design-system.css">
 <style>
   :root{
-    --bg: #07090d; --panel: #121822; --panel2: #182030;
-    --parchment: #e9eef4; --parchment-dim: #8592a3;
-    --brass: #f0b840; --brass-dim: #b5852f;
+    --bg: #05080e; --panel: #0e1420; --panel2: #141d2b;
+    --parchment: #e7edf5; --parchment-dim: #7e90a5;
+    --brass: #6ec8ea; --brass-dim: #2f6b85;
     --teal: #35d2ff; --teal-dim: #1c6d86;
-    --lime: #e3ff3d; --lime-dim: #96b31f;
-    --magenta: #ff2e7e; --magenta-dim: #a01a52;
-    --line: rgba(142,183,214,.16); --danger: #e2543f;
+    --lime: #3d7bff; --lime-dim: #1f4a99;
+    --magenta: #8fd6ff; --magenta-dim: #4a7fa3;
+    --line: rgba(120,165,220,.18); --danger: #e2543f;
     --hp: #7bdb52; --sp: #f0a233;
     --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
     --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
@@ -26,17 +27,14 @@
   }
   ::selection{background:var(--lime);color:#0a0d12;}
   *{box-sizing:border-box;}
-  body{margin:0;background:
-    radial-gradient(circle at 12% -8%, #143241 0%, transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(240,184,64,.06) 0%, transparent 42%),
-    var(--bg);
+  body{margin:0;background: var(--bg);
     color:var(--parchment);font-family:var(--font-body);padding:0;}
   .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
 
   /* header */
   header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
   .brand{display:flex;align-items:center;gap:12px;}
-  .brand-badge{width:42px;height:42px;border-radius:8px;background:linear-gradient(160deg, #1c2733, #10151c);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:var(--panel2);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
   h1.title{font-family:var(--font-display);font-weight:700;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
   .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
   nav.tabs{display:flex;gap:2px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;}
@@ -101,7 +99,7 @@
   .back-btn:hover{border-color:var(--teal-dim);color:var(--parchment);}
   .detail-head{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:16px;box-shadow:0 8px 24px rgba(0,0,0,.25);}
   .medallion{position:relative;width:112px;height:112px;flex-shrink:0;}
-  .medallion .ring{width:112px;height:112px;border-radius:50%;background:var(--panel2);border:3px solid var(--brass);overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(0,0,0,.4), 0 0 18px rgba(240,184,64,.18);}
+  .medallion .ring{width:112px;height:112px;border-radius:50%;background:var(--panel2);border:3px solid var(--brass);overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(0,0,0,.4), 0 0 18px rgba(110,200,234,.18);}
   .medallion .ring img{width:100%;height:100%;object-fit:cover;}
   .medallion .rivet{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:inset 0 1px 1px rgba(0,0,0,.4), 0 0 0 2px var(--bg), 0 0 5px rgba(53,210,255,.7);}
   .medallion .rivet.nw{top:2px;left:16px;} .medallion .rivet.ne{top:2px;right:16px;}
@@ -123,7 +121,7 @@
   .stat-row{display:grid;grid-template-columns:70px 1fr 76px;align-items:center;gap:8px;}
   .stat-row .stat-label{font-size:11.5px;color:var(--parchment-dim);}
   .stat-row .stat-bar{height:8px;background:var(--panel2);border-radius:4px;overflow:hidden;border:1px solid var(--line);}
-  .stat-row .stat-bar-fill{height:100%;background:linear-gradient(90deg, var(--brass-dim), var(--brass));}
+  .stat-row .stat-bar-fill{height:100%;background:var(--brass);}
   .stat-row .stat-val{font-family:var(--font-mono);font-size:12px;text-align:right;color:var(--parchment);line-height:1.3;}
   .stat-row .stat-rank{display:block;font-size:9px;color:var(--teal);font-weight:400;}
   .elem-matchup{display:flex;flex-wrap:wrap;gap:6px;}
@@ -183,26 +181,21 @@
     background:var(--panel2);border:1px solid var(--line);clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
     transition:color .15s, background .15s, transform .15s;}
   nav.tabs a span{position:relative;z-index:1;}
-  nav.tabs a::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg, transparent 30%, rgba(227,255,61,.35) 48%, rgba(255,46,126,.35) 52%, transparent 70%);
+  nav.tabs a::before{content:"";position:absolute;inset:0;background:rgba(61,123,255,.22);
     opacity:0;transition:opacity .2s;}
   nav.tabs a:hover{color:var(--parchment);transform:translateY(-1px);}
   nav.tabs a:hover::before{opacity:1;}
-  nav.tabs a.current{color:#08111a;background:var(--lime);border-color:var(--lime);font-weight:700;box-shadow:0 0 16px rgba(227,255,61,.45);}
+  nav.tabs a.current{color:#08111a;background:var(--lime);border-color:var(--lime);font-weight:700;box-shadow:0 0 16px rgba(61,123,255,.45);}
   nav.tabs a.current::before{display:none;}
 
   .hero{position:relative;height:264px;border-radius:10px;overflow:hidden;margin-bottom:20px;clip-path:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 40px) 100%,0 100%);
     border:1px solid var(--line);background:#060809;}
-  .hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 35%;opacity:.85;filter:saturate(1.15) contrast(1.05);}
-  .hero-scanlines{position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.5;
-    background:repeating-linear-gradient(0deg, rgba(255,255,255,.06) 0px, rgba(255,255,255,.06) 1px, transparent 1px, transparent 3px);}
-  .hero-fade{position:absolute;inset:0;
-    background:
-      linear-gradient(100deg, var(--bg) 0%, rgba(7,9,13,.72) 26%, rgba(7,9,13,.15) 52%, transparent 68%),
-      linear-gradient(0deg, var(--bg) 0%, transparent 42%);}
+  .hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 35%;opacity:.6;filter:saturate(1.15) contrast(1.05);}
+  .hero-fade{position:absolute;inset:0;background:rgba(5,8,14,.55);}
   .hero-content{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 28px;max-width:560px;}
-  .hero-eyebrow{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;color:var(--lime);margin-bottom:10px;text-shadow:0 0 10px rgba(227,255,61,.5);}
+  .hero-eyebrow{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;color:var(--lime);margin-bottom:10px;text-shadow:0 0 10px rgba(61,123,255,.5);}
   .hero-title{font-family:var(--font-display);font-size:40px;line-height:1;color:var(--parchment);letter-spacing:.02em;margin:0 0 10px;text-shadow:0 2px 24px rgba(0,0,0,.6);}
-  .hero-title .accent{color:var(--magenta);text-shadow:0 0 18px rgba(255,46,126,.6);}
+  .hero-title .accent{color:var(--magenta);text-shadow:0 0 18px rgba(143,214,255,.6);}
   .hero-sub{font-size:13px;color:var(--parchment-dim);max-width:400px;line-height:1.7;margin:0;}
   @media (max-width:640px){
     .hero{height:200px;}
@@ -211,21 +204,16 @@
   }
 
   .section h2{position:relative;display:flex;align-items:center;gap:8px;}
-  .section h2::before{content:"";width:9px;height:9px;background:var(--lime);clip-path:polygon(0 20%,80% 0,100% 80%,20% 100%);flex-shrink:0;box-shadow:0 0 8px rgba(227,255,61,.6);}
+  .section h2::before{content:"";width:9px;height:9px;background:var(--lime);clip-path:polygon(0 20%,80% 0,100% 80%,20% 100%);flex-shrink:0;box-shadow:0 0 8px rgba(61,123,255,.6);}
 
   .chip, .back-btn, .card, nav.tabs a{transition:transform .15s cubic-bezier(.2,.8,.3,1.3), border-color .15s, box-shadow .15s, background .15s;}
   .chip:active, .back-btn:active, nav.tabs a:active{transform:scale(.96);}
 
   .back-btn{position:relative;overflow:hidden;font-family:var(--font-display);font-weight:600;letter-spacing:.02em;}
-  .back-btn::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg, transparent, rgba(227,255,61,.25), transparent);transform:skewX(-20deg);transition:left .4s;}
-  .back-btn:hover::before{left:120%;}
-  .back-btn:hover{border-color:var(--lime-dim);color:var(--parchment);box-shadow:0 0 14px rgba(227,255,61,.12);}
+  .back-btn:hover{border-color:var(--lime-dim);color:var(--parchment);box-shadow:0 0 14px rgba(61,123,255,.12);background:var(--panel2);}
 
   .card{overflow:hidden;}
-  .card::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg, transparent 40%, rgba(227,255,61,.08) 50%, rgba(255,46,126,.08) 58%, transparent 68%);
-    opacity:0;transition:opacity .2s;pointer-events:none;}
-  .card:hover{border-color:var(--lime-dim);box-shadow:0 10px 28px rgba(0,0,0,.35), 0 0 0 1px rgba(227,255,61,.15);}
-  .card:hover::after{opacity:1;}
+  .card:hover{border-color:var(--lime-dim);box-shadow:0 10px 28px rgba(0,0,0,.35), 0 0 0 1px rgba(61,123,255,.15);}
   .card:hover .icon-wrap::after{background:
       linear-gradient(var(--lime),var(--lime)) top left / 9px 2px no-repeat,
       linear-gradient(var(--lime),var(--lime)) top left / 2px 9px no-repeat,
@@ -238,7 +226,7 @@
   }
 
   .medallion .ring{transition:box-shadow .2s;}
-  .detail-head:hover .medallion .ring{box-shadow:0 0 0 1px rgba(0,0,0,.4), 0 0 22px rgba(227,255,61,.28);}
+  .detail-head:hover .medallion .ring{box-shadow:0 0 0 1px rgba(0,0,0,.4), 0 0 22px rgba(61,123,255,.28);}
 
   .brand-link{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;transition:opacity .15s;}
   .brand-link:hover{opacity:.82;}
@@ -262,6 +250,16 @@
       <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
       <a href="palworld_ride.html"><span>ライド速度</span></a>
       <a href="palworld_map.html"><span>出現マップ</span></a>
+      <a href="palworld_bossguide.html"><span>ボス攻略</span></a>
+      <a href="palworld_achievements.html"><span>実績一覧</span></a>
+      <a href="palworld_passives_guide.html"><span>おすすめパッシブ</span></a>
+      <a href="palworld_reference.html"><span>早見表</span></a>
+      <a href="palworld_technology.html"><span>テクノロジー</span></a>
+      <a href="palworld_missions.html"><span>ミッション</span></a>
+      <a href="palworld_iv_calc.html"><span>素質値計算機</span></a>
+      <a href="palworld_party_guide.html"><span>パーティ編成ガイド</span></a>
+      <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
+      <a href="palworld_changelog.html"><span>更新履歴</span></a>
     </nav>
   </header>
 
@@ -297,13 +295,18 @@
     <div id="detailContent"></div>
   </div>
 
-  <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。データ参照: <a href="https://palworld-lab.com/" target="_blank" rel="noopener">パルワールド配合・攻略ラボ</a> 他</p>
+  <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。</p>
 </div>
 
 <script src="game_data/dex_data.js"></script>
 <script src="game_data/item_icons_data.js"></script>
 <script src="game_data/paldb_extra_data.js"></script>
+<script src="game_data/capture_rate_data.js"></script>
+<script src="game_data/movement_data.js"></script>
+<script src="game_data/level80_stats_data.js"></script>
 <script src="game_data/spawn_data.js"></script>
+<script src="game_data/learnset_data.js"></script>
+<script src="game_data/skills_jp_data.js"></script>
 <script src="shared/icons.js"></script>
 
 <script>
@@ -437,6 +440,11 @@ function statRow(label, val, max, id, key){
   </div>`;
 }
 
+function palAssetFromIcon(icon){
+  const m = /T_(.+?)_icon_normal\.webp/.exec(icon || "");
+  return m ? m[1] : null;
+}
+
 function openDetail(id){
   const p = PAL_DEX_DATA.find(x => x.id === id);
   if(!p) return;
@@ -472,15 +480,57 @@ function openDetail(id){
         <span class="badge">サイズ ${(p.stats.size||"").replace("EPalSizeType::","")}</span>
         <span class="badge">走行速度 ${p.stats.run_speed ?? "?"}${statRankText(id,"run_speed") ? `(${statRankText(id,"run_speed")})` : ''}</span>
         <span class="badge">ライド疾走速度 ${p.stats.ride_sprint_speed ?? "?"}${statRankText(id,"ride_sprint_speed") ? `(${statRankText(id,"ride_sprint_speed")})` : ''}</span>
+        ${p.meal_amount != null ? `<span class="badge">食事量 ${p.meal_amount}/11</span>` : ''}
+        ${p.stats.max_full_stomach != null ? `<span class="badge">満腹度上限 ${p.stats.max_full_stomach}</span>` : ''}
+        ${(() => {
+          const captureAsset = palAssetFromIcon(p.icon);
+          const cr = (typeof CAPTURE_RATE_DATA !== "undefined" && captureAsset) ? CAPTURE_RATE_DATA[captureAsset] : null;
+          return cr ? `<span class="badge">捕獲しやすさ ×${cr.capture_rate}(ボス×${cr.boss_capture_rate})</span>` : "";
+        })()}
       </div>
+      ${(() => {
+        const l80Asset = palAssetFromIcon(p.icon);
+        const l80 = (typeof LEVEL80_STATS_DATA !== "undefined" && l80Asset) ? LEVEL80_STATS_DATA[l80Asset] : null;
+        if(!l80) return "";
+        return `<p style="font-size:11px;color:var(--parchment-dim);margin-top:10px;">Lv80時想定ステータス幅(女神像・パッシブ等の補正なし、素質値0〜100%の幅): HP ${l80.hp.min}〜${l80.hp.max} / 攻撃 ${l80.attack.min}〜${l80.attack.max} / 防御 ${l80.defense.min}〜${l80.defense.max}</p>`;
+      })()}
     </div>`;
   }
+
+  const movementAsset = palAssetFromIcon(p.icon);
+  const movement = (typeof MOVEMENT_DATA !== "undefined" && movementAsset) ? MOVEMENT_DATA[movementAsset] : null;
+  const movementHtml = movement ? `<div class="section">
+    <h2>移動速度</h2>
+    <div class="badge-row">
+      ${movement.walk_speed != null ? `<span class="badge">歩行 ${movement.walk_speed}</span>` : ""}
+      ${movement.slow_walk_speed != null ? `<span class="badge">ゆっくり歩行 ${movement.slow_walk_speed}</span>` : ""}
+      ${movement.transport_speed != null ? `<span class="badge">輸送速度 ${movement.transport_speed}</span>` : ""}
+      ${movement.swim_speed != null ? `<span class="badge">遊泳速度 ${movement.swim_speed}</span>` : ""}
+      ${movement.swim_dash_speed != null ? `<span class="badge">遊泳ダッシュ ${movement.swim_dash_speed}</span>` : ""}
+      ${movement.stamina != null ? `<span class="badge">スタミナ ${movement.stamina}</span>` : ""}
+    </div>
+  </div>` : "";
 
   const extra = PALDB_EXTRA_DATA[id];
   const innatePassivesHtml = (extra && extra.innate_passives && extra.innate_passives.length) ? `<div class="section">
     <h2>最初から持っているパッシブ</h2>
     <div class="role-grid">
       ${extra.innate_passives.map(n => `<span class="role-pill">${n}</span>`).join("")}
+    </div>
+  </div>` : "";
+
+  const palAsset = palAssetFromIcon(p.icon);
+  const learnset = (typeof LEARNSET_DATA !== "undefined" && palAsset) ? LEARNSET_DATA[palAsset] : null;
+  const skillsHtml = (learnset && learnset.length) ? `<div class="section">
+    <h2>習得スキル</h2>
+    <div class="drop-list">
+      ${learnset.slice().sort((a,b)=>a.level-b.level).map(s => `<div class="drop-item" title="${s.effect_jp || ''}">
+        <span class="drop-tier" style="min-width:34px;text-align:center;">Lv${s.level}</span>
+        ${s.element ? typeBadge(s.element) : ""}
+        <span class="drop-name">${s.jp_name || s.asset}</span>
+        ${s.power != null ? `<span class="drop-qty">威力${s.power}</span>` : ""}
+        ${s.cooltime != null ? `<span class="drop-rate">CT${s.cooltime}</span>` : ""}
+      </div>`).join("")}
     </div>
   </div>` : "";
 
@@ -540,6 +590,7 @@ function openDetail(id){
       </div>
     </div>
     ${statsHtml}
+    ${movementHtml}
     ${matchupHtml}
     <div class="section">
       <h2>作業適性</h2>
@@ -555,9 +606,9 @@ function openDetail(id){
       </div>
     </div>
     ${innatePassivesHtml}
+    ${skillsHtml}
     ${dropsHtml}
     ${obtainHtml}
-    <p class="footer-note"><a href="${p.detail_url}" target="_blank" rel="noopener">${p.detail_url.includes("paldb.cc") ? "paldb.ccで詳細を見る →" : "GameWithで詳細を見る →"}</a></p>
     <div style="text-align:center;margin-top:6px;">
       <a href="palworld_breeding.html?target=${p.id}" class="back-btn" style="display:inline-flex;text-decoration:none;margin-bottom:0;">${ico("dna")} 配合を調べる →</a>
     </div>

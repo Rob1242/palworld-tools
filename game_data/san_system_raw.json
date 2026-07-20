@@ -1,0 +1,87 @@
+{
+ "levels": [
+  {
+   "san_threshold": 85,
+   "behavior": "小休憩中…"
+  },
+  {
+   "san_threshold": 65,
+   "behavior": "サボり中…"
+  },
+  {
+   "san_threshold": 60,
+   "behavior": "怠け中…"
+  },
+  {
+   "san_threshold": 50,
+   "behavior": "ドカ食い中！"
+  },
+  {
+   "san_threshold": 50,
+   "behavior": "エサ箱破壊中！"
+  },
+  {
+   "san_threshold": 40,
+   "behavior": "病気中…"
+  },
+  {
+   "san_threshold": 0,
+   "behavior": "反乱中！"
+  }
+ ],
+ "ailments": [
+  {
+   "ailment": "風邪",
+   "effects": [
+    "作業速度-5"
+   ],
+   "medicine": "低品質の医薬品"
+  },
+  {
+   "ailment": "ねんざ",
+   "effects": [
+    "移動速度-5"
+   ],
+   "medicine": "低品質の医薬品"
+  },
+  {
+   "ailment": "過食症",
+   "effects": [
+    "満腹度減少量50"
+   ],
+   "medicine": "低品質の医薬品"
+  },
+  {
+   "ailment": "胃潰瘍",
+   "effects": [
+    "作業速度-10",
+    "移動速度-5"
+   ],
+   "medicine": "医薬品"
+  },
+  {
+   "ailment": "骨折",
+   "effects": [
+    "作業速度-5",
+    "移動速度-10"
+   ],
+   "medicine": "医薬品"
+  },
+  {
+   "ailment": "衰弱",
+   "effects": [
+    "作業速度-10",
+    "移動速度-20"
+   ],
+   "medicine": "高品質な医薬品"
+  },
+  {
+   "ailment": "うつ病",
+   "effects": [
+    "作業速度-20",
+    "移動速度-10"
+   ],
+   "medicine": "高品質な医薬品"
+  }
+ ]
+}

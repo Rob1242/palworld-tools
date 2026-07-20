@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>実績一覧 | Palworld攻略ツール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/design-system.css">
+<style>
+  :root{
+    --bg: #05080e; --panel: #0e1420; --panel2: #141d2b;
+    --parchment: #e7edf5; --parchment-dim: #7e90a5;
+    --brass: #6ec8ea; --brass-dim: #2f6b85;
+    --teal: #35d2ff; --teal-dim: #1c6d86;
+    --line: rgba(120,165,220,.18); --danger: #e2543f;
+    --lime: #3d7bff; --lime-dim: #1f4a99;
+    --magenta: #8fd6ff; --magenta-dim: #4a7fa3;
+    --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
+    --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
+    --font-mono: "JetBrains Mono", monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background: var(--bg);
+    color:var(--parchment);font-family:var(--font-body);padding:0;}
+  .wrap{max-width:900px;margin:0 auto;padding:22px 20px 60px;}
+
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:var(--panel2);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  h1.title{font-family:var(--font-display);font-weight:700;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
+  .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
+
+  .intro{font-size:13px;color:var(--parchment-dim);line-height:1.8;margin:0 0 20px;}
+
+  .ach-list{display:flex;flex-direction:column;gap:8px;}
+  .ach-item{display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;box-shadow:0 6px 18px rgba(0,0,0,.2);}
+  .ach-badge{width:36px;height:36px;border-radius:8px;background:var(--panel2);border:1px solid var(--brass-dim);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;color:var(--brass);flex-shrink:0;font-size:14px;}
+  .ach-name{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--parchment);min-width:140px;}
+  .ach-cond{font-size:13px;color:var(--parchment-dim);}
+
+  .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand-link" href="palworld_home.html">
+      <div class="brand-badge">P</div>
+      <h1 class="title glitch-hover" data-text="実績一覧"><small>Palworld 攻略ツール</small>実績一覧</h1>
+    </a>
+    <nav class="tabs">
+      <a href="palworld_home.html"><span>ホーム</span></a>
+      <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
+      <a href="palworld_dex.html"><span>パル図鑑</span></a>
+      <a href="palworld_breeding.html"><span>配合検索</span></a>
+      <a href="palworld_palbox.html"><span>パルボックス</span></a>
+      <a href="palworld_combat.html"><span>戦闘最適化</span></a>
+      <a href="palworld_items.html"><span>アイテム図鑑</span></a>
+      <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
+      <a href="palworld_ride.html"><span>ライド速度</span></a>
+      <a href="palworld_map.html"><span>出現マップ</span></a>
+      <a href="palworld_bossguide.html"><span>ボス攻略</span></a>
+      <a href="palworld_achievements.html" class="current"><span>実績一覧</span></a>
+      <a href="palworld_passives_guide.html"><span>おすすめパッシブ</span></a>
+      <a href="palworld_reference.html"><span>早見表</span></a>
+      <a href="palworld_technology.html"><span>テクノロジー</span></a>
+      <a href="palworld_missions.html"><span>ミッション</span></a>
+      <a href="palworld_iv_calc.html"><span>素質値計算機</span></a>
+      <a href="palworld_party_guide.html"><span>パーティ編成ガイド</span></a>
+      <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
+      <a href="palworld_changelog.html"><span>更新履歴</span></a>
+    </nav>
+  </header>
+
+  <p class="intro">ゲーム内「実績」タブの一覧と解除条件です。</p>
+
+  <div class="ach-list" id="achList"></div>
+
+  <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。</p>
+</div>
+<script src="game_data/achievements_data.js"></script>
+<script>
+document.getElementById("achList").innerHTML = ACHIEVEMENTS_DATA.map((a, i) => `
+  <div class="ach-item">
+    <div class="ach-badge">${i + 1}</div>
+    <div class="ach-name">${a.name}</div>
+    <div class="ach-cond">${a.condition}</div>
+  </div>
+`).join("");
+</script>
+</body>
+</html>

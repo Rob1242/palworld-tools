@@ -140,6 +140,28 @@ def main():
 
     results.sort(key=lambda r: int(r["dexId"]))
 
+    # 日本語名はpalworld-lab.comの世界樹マップページ(埋め込みJSONデータ、座標付きピン名)
+    # から2026-07-19に特定したもの。The Verdant Rootpath/Alluvion Lakefront/
+    # Remnant Riverside/Boreal Summit/Lacrymal Shoalの5件は単一ソースのみでの確認
+    # (直訳・並び順は他の10件と一致するが、独立した裏取りソースは未発見)。
+    WORLDTREE_JP_NAMES = {
+        "WorldTree_MiddleBoss_1": "腐蝕霧の根源",
+        "WorldTree_MiddleBoss_3": "禁断の研究所",
+        "WorldTree_MiddleBoss_2": "燐光胞子の根源",
+        "WorldTree_A": "聖緑の麓原",
+        "WorldTree_E": "聖瀑の湖畔",
+        "WorldTree_D": "蝕まれた樹洞",
+        "WorldTree_C_2": "亡骸の河辺",
+        "WorldTree_I": "聖氷の山嶺",
+        "WorldTree_lab": "棄てられた研究所",
+        "WorldTree_N": "黄金の廃都",
+        "WorldTree_LastBoss": "封印の間",
+        "WorldTree_L": "胞子の回廊",
+        "WorldTree_M": "聖涙の浅瀬",
+        "WorldTree_C_1": "黄塵の峡谷",
+        "WorldTree_B": "誘い藤の林",
+    }
+
     fast_travel_raw = json.load(open(FAST_TRAVEL_PATH, encoding="utf-8"))
     landmarks = []
     for point in fast_travel_raw.values():
@@ -150,6 +172,7 @@ def main():
         landmarks.append({
             "id": point["id"],
             "name_en": point["localized_name"],
+            "name_jp": WORLDTREE_JP_NAMES.get(point["id"]),
             "x": round(nx, 5),
             "y": round(ny, 5),
             "kind": kind,

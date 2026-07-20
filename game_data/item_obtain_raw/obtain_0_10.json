@@ -1,0 +1,104 @@
+{
+ "Diamond": {
+  "dropped_by": [
+   {
+    "pal_asset": "Necromus",
+    "pal_jp_name": "ベイントール",
+    "qty": "1",
+    "rate": "100%"
+   },
+   {
+    "pal_asset": "Frostallion",
+    "pal_jp_name": "グレイシャル",
+    "qty": "1",
+    "rate": "100%"
+   },
+   {
+    "pal_asset": "Frostallion_Noct",
+    "pal_jp_name": "グレイシャドウ",
+    "qty": "1",
+    "rate": "100%"
+   },
+   {
+    "pal_asset": "Jetragon",
+    "pal_jp_name": "ジェッドラン",
+    "qty": "1",
+    "rate": "30%"
+   },
+   {
+    "pal_asset": "Paladius",
+    "pal_jp_name": "セイントール",
+    "qty": "1",
+    "rate": "100%"
+   },
+   {
+    "pal_asset": "Street_Assassin_Urchin",
+    "pal_jp_name": "辻斬り 賞金首 アーチン",
+    "qty": "1",
+    "rate": "1%"
+   },
+   {
+    "pal_asset": "Neptilius",
+    "pal_jp_name": "ネプティオス",
+    "qty": "1",
+    "rate": "30%"
+   },
+   {
+    "pal_asset": "Panthalus",
+    "pal_jp_name": "グランジーラ",
+    "qty": "1",
+    "rate": "100%"
+   },
+   {
+    "pal_asset": "Panthalus",
+    "pal_jp_name": "グランジーラ",
+    "qty": "1",
+    "rate": "100%"
+   }
+  ]
+ },
+ "Emerald": {
+  "dropped_by": [
+   {
+    "pal_asset": "Tetroise_Primo",
+    "pal_jp_name": "オシロガメ",
+    "qty": "1–2",
+    "rate": "100%"
+   }
+  ]
+ },
+ "Sapphire": {
+  "dropped_by": [
+   {
+    "pal_asset": "Mau_Cryst",
+    "pal_jp_name": "チルテト",
+    "qty": "1",
+    "rate": "1%"
+   },
+   {
+    "pal_asset": "Vanwyrm_Cryst",
+    "pal_jp_name": "シロカバネ",
+    "qty": "1",
+    "rate": "2%"
+   },
+   {
+    "pal_asset": "Relaxaurus_Lux",
+    "pal_jp_name": "パリピドン",
+    "qty": "1",
+    "rate": "5%"
+   },
+   {
+    "pal_asset": "Selyne",
+    "pal_jp_name": "セレムーン",
+    "qty": "2–3",
+    "rate": "100%"
+   },
+   {
+    "pal_asset": "Menasting_Terra",
+    "pal_jp_name": "ゴルディング",
+    "qty": "1",
+    "rate": "100%"
+   }
+  ]
+ }
+}

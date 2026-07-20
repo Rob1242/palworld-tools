@@ -1,0 +1,514 @@
+[
+ {
+  "name": "Modified Pal's Contaminated Core",
+  "slug": "Modified_Pal%27s_Contaminated_Core"
+ },
+ {
+  "name": "Dandilord's Petal",
+  "slug": "Dandilord%27s_Petal"
+ },
+ {
+  "name": "Silvance's Plume",
+  "slug": "Silvance%27s_Plume"
+ },
+ {
+  "name": "Gasoline",
+  "slug": "Gasoline"
+ },
+ {
+  "name": "Champion's Emblem",
+  "slug": "Champion%27s_Emblem"
+ },
+ {
+  "name": "Propellant",
+  "slug": "Propellant"
+ },
+ {
+  "name": "Nyafia's Shotgun",
+  "slug": "Nyafia%27s_Shotgun"
+ },
+ {
+  "name": "Dragostrophe's Shotgun",
+  "slug": "Dragostrophe%27s_Shotgun"
+ },
+ {
+  "name": "Smokie's Harness",
+  "slug": "Smokie%27s_Harness"
+ },
+ {
+  "name": "Smokie Cryst's Harness",
+  "slug": "Smokie_Cryst%27s_Harness"
+ },
+ {
+  "name": "Lifmunk's Submachine Gun",
+  "slug": "Lifmunk%27s_Submachine_Gun"
+ },
+ {
+  "name": "Tocotoco's Gloves",
+  "slug": "Tocotoco%27s_Gloves"
+ },
+ {
+  "name": "en_text's Power Converter",
+  "slug": "en_text%27s_Power_Converter"
+ },
+ {
+  "name": "Daedream's Necklace",
+  "slug": "Daedream%27s_Necklace"
+ },
+ {
+  "name": "Digtoise's Headband",
+  "slug": "Digtoise%27s_Headband"
+ },
+ {
+  "name": "Galeclaw's Gloves",
+  "slug": "Galeclaw%27s_Gloves"
+ },
+ {
+  "name": "Grizzbolt's Minigun",
+  "slug": "Grizzbolt%27s_Minigun"
+ },
+ {
+  "name": "Flopie's Necklace",
+  "slug": "Flopie%27s_Necklace"
+ },
+ {
+  "name": "Celaray's Gloves",
+  "slug": "Celaray%27s_Gloves"
+ },
+ {
+  "name": "Celaray Lux's Gloves",
+  "slug": "Celaray_Lux%27s_Gloves"
+ },
+ {
+  "name": "Direhowl's Saddled Harness",
+  "slug": "Direhowl%27s_Saddled_Harness"
+ },
+ {
+  "name": "Mossanda's Grenade Launcher",
+  "slug": "Mossanda%27s_Grenade_Launcher"
+ },
+ {
+  "name": "Mossanda Lux's Grenade Launcher",
+  "slug": "Mossanda_Lux%27s_Grenade_Launcher"
+ },
+ {
+  "name": "Jolthog's Gloves",
+  "slug": "Jolthog%27s_Gloves"
+ },
+ {
+  "name": "Jolthog Cryst's Gloves",
+  "slug": "Jolthog_Cryst%27s_Gloves"
+ },
+ {
+  "name": "Jetragon's Missile Launcher",
+  "slug": "Jetragon%27s_Missile_Launcher"
+ },
+ {
+  "name": "Foxparks' Harness",
+  "slug": "Foxparks%27_Harness"
+ },
+ {
+  "name": "Foxparks Cryst's Harness",
+  "slug": "Foxparks_Cryst%27s_Harness"
+ },
+ {
+  "name": "Relaxaurus' Missile Launcher",
+  "slug": "Relaxaurus%27_Missile_Launcher"
+ },
+ {
+  "name": "Relaxaurus Lux's Missile Launcher",
+  "slug": "Relaxaurus_Lux%27s_Missile_Launcher"
+ },
+ {
+  "name": "Herbil's Harness",
+  "slug": "Herbil%27s_Harness"
+ },
+ {
+  "name": "Tanzee's Assault Rifle",
+  "slug": "Tanzee%27s_Assault_Rifle"
+ },
+ {
+  "name": "Tanzee Ignis's Assault Rifle",
+  "slug": "Tanzee_Ignis%27s_Assault_Rifle"
+ },
+ {
+  "name": "Killamari's Gloves",
+  "slug": "Killamari%27s_Gloves"
+ },
+ {
+  "name": "Killamari Primo's Gloves",
+  "slug": "Killamari_Primo%27s_Gloves"
+ },
+ {
+  "name": "Pengullet Lux's Rocket Launcher",
+  "slug": "Pengullet_Lux%27s_Rocket_Launcher"
+ },
+ {
+  "name": "Dazzi's Necklace",
+  "slug": "Dazzi%27s_Necklace"
+ },
+ {
+  "name": "Dazzi Noct's Necklace",
+  "slug": "Dazzi_Noct%27s_Necklace"
+ },
+ {
+  "name": "Bastigor's Hammer",
+  "slug": "Bastigor%27s_Hammer"
+ },
+ {
+  "name": "Hangyu's Gloves",
+  "slug": "Hangyu%27s_Gloves"
+ },
+ {
+  "name": "Hangyu Cryst's Glove",
+  "slug": "Hangyu_Cryst%27s_Glove"
+ },
+ {
+  "name": "Enhanced Lily's Spear",
+  "slug": "Enhanced_Lily%27s_Spear"
+ },
+ {
+  "name": "Enhanced Lily's Spear",
+  "slug": "Enhanced_Lily%27s_Spear"
+ },
+ {
+  "name": "FlameThrower_5",
+  "slug": "FlameThrower_5"
+ },
+ {
+  "name": "FlameThrower_4",
+  "slug": "FlameThrower_4"
+ },
+ {
+  "name": "FlameThrower_3",
+  "slug": "FlameThrower_3"
+ },
+ {
+  "name": "FlameThrower_2",
+  "slug": "FlameThrower_2"
+ },
+ {
+  "name": "Lily's Spear",
+  "slug": "Lily%27s_Spear"
+ },
+ {
+  "name": "FlameThrower",
+  "slug": "FlameThrower"
+ },
+ {
+  "name": "Lily's Spear",
+  "slug": "Lily%27s_Spear"
+ },
+ {
+  "name": "Elizabee's Staff",
+  "slug": "Elizabee%27s_Staff"
+ },
+ {
+  "name": "Beegarde's Spear",
+  "slug": "Beegarde%27s_Spear"
+ },
+ {
+  "name": "Monarch's Crown",
+  "slug": "Monarch%27s_Crown"
+ },
+ {
+  "name": "Monarch's Crown",
+  "slug": "Monarch%27s_Crown"
+ },
+ {
+  "name": "Monarch's Crown",
+  "slug": "Monarch%27s_Crown"
+ },
+ {
+  "name": "Monarch's Crown",
+  "slug": "Monarch%27s_Crown"
+ },
+ {
+  "name": "Monarch's Crown",
+  "slug": "Monarch%27s_Crown"
+ },
+ {
+  "name": "Witch's Crown",
+  "slug": "Witch%27s_Crown"
+ },
+ {
+  "name": "Xenolord's head",
+  "slug": "Xenolord%27s_head"
+ },
+ {
+  "name": "Warsect Terra's Belt",
+  "slug": "Warsect_Terra%27s_Belt"
+ },
+ {
+  "name": "Divine Dragon's Baton",
+  "slug": "Divine_Dragon%27s_Baton"
+ },
+ {
+  "name": "Islander's Tool Belt",
+  "slug": "Islander%27s_Tool_Belt"
+ },
+ {
+  "name": "Neptilius's Talisman",
+  "slug": "Neptilius%27s_Talisman"
+ },
+ {
+  "name": "Celestial Emperor's Baton",
+  "slug": "Celestial_Emperor%27s_Baton"
+ },
+ {
+  "name": "Anubis's Talisman",
+  "slug": "Anubis%27s_Talisman"
+ },
+ {
+  "name": "Lord of the Sea's Baton",
+  "slug": "Lord_of_the_Sea%27s_Baton"
+ },
+ {
+  "name": "Jetragon's Talisman",
+  "slug": "Jetragon%27s_Talisman"
+ },
+ {
+  "name": "Pal Tamer's Glasses",
+  "slug": "Pal_Tamer%27s_Glasses"
+ },
+ {
+  "name": "Lord of the Underworld's Baton",
+  "slug": "Lord_of_the_Underworld%27s_Baton"
+ },
+ {
+  "name": "Earth Emperor's Baton",
+  "slug": "Earth_Emperor%27s_Baton"
+ },
+ {
+  "name": "Hartalis's Talisman",
+  "slug": "Hartalis%27s_Talisman"
+ },
+ {
+  "name": "Flame Emperor's Baton",
+  "slug": "Flame_Emperor%27s_Baton"
+ },
+ {
+  "name": "Ice Emperor's Baton",
+  "slug": "Ice_Emperor%27s_Baton"
+ },
+ {
+  "name": "Frostallion's Talisman",
+  "slug": "Frostallion%27s_Talisman"
+ },
+ {
+  "name": "Lord of Lightning's Baton",
+  "slug": "Lord_of_Lightning%27s_Baton"
+ },
+ {
+  "name": "Orserk's Talisman",
+  "slug": "Orserk%27s_Talisman"
+ },
+ {
+  "name": "Spirit Emperor's Baton",
+  "slug": "Spirit_Emperor%27s_Baton"
+ },
+ {
+  "name": "Lyleen's Talisman",
+  "slug": "Lyleen%27s_Talisman"
+ },
+ {
+  "name": "Blazamut's Talisman",
+  "slug": "Blazamut%27s_Talisman"
+ },
+ {
+  "name": "Lyleen Noct's Talisman",
+  "slug": "Lyleen_Noct%27s_Talisman"
+ },
+ {
+  "name": "Ring of Electric Resistance",
+  "slug": "Ring_of_Electric_Resistance"
+ },
+ {
+  "name": "Jelliette's Jiggly Jelly",
+  "slug": "Jelliette%27s_Jiggly_Jelly"
+ },
+ {
+  "name": "Rushoar Bacon 'n' Eggs",
+  "slug": "Rushoar_Bacon_%27n%27_Eggs"
+ },
+ {
+  "name": "Jellroy's Jolly Jelly",
+  "slug": "Jellroy%27s_Jolly_Jelly"
+ },
+ {
+  "name": "Meat",
+  "slug": "Meat"
+ },
+ {
+  "name": "Grass Skill Fruit: Crosswind",
+  "slug": "Grass_Skill_Fruit%3A_Crosswind"
+ },
+ {
+  "name": "Electric Skill Fruit: Lightning Bolt",
+  "slug": "Electric_Skill_Fruit%3A_Lightning_Bolt"
+ },
+ {
+  "name": "Zoe's Halloween Costume",
+  "slug": "Zoe%27s_Halloween_Costume"
+ },
+ {
+  "name": "Ice Skill Fruit: Icicle Cutter",
+  "slug": "Ice_Skill_Fruit%3A_Icicle_Cutter"
+ },
+ {
+  "name": "Disposable Implant: World Tree's Bounty",
+  "slug": "Disposable_Implant%3A_World_Tree%27s_Bounty"
+ },
+ {
+  "name": "Bellanoir's Slab",
+  "slug": "Bellanoir%27s_Slab"
+ },
+ {
+  "name": "Bellanoir Libero's Slab",
+  "slug": "Bellanoir_Libero%27s_Slab"
+ },
+ {
+  "name": "Breeder's Precious Pal",
+  "slug": "Breeder%27s_Precious_Pal"
+ },
+ {
+  "name": "Farmer's Special Dish",
+  "slug": "Farmer%27s_Special_Dish"
+ },
+ {
+  "name": "Zoe's Tattered Memento",
+  "slug": "Zoe%27s_Tattered_Memento"
+ },
+ {
+  "name": "EnergyDrink",
+  "slug": "EnergyDrink"
+ },
+ {
+  "name": "Warsect Terra's Belt Schematic",
+  "slug": "Warsect_Terra%27s_Belt_Schematic"
+ },
+ {
+  "name": "Ring of Ice Resistance Schematic",
+  "slug": "Ring_of_Ice_Resistance_Schematic"
+ },
+ {
+  "name": "Pal Tamer's Glasses Schematic",
+  "slug": "Pal_Tamer%27s_Glasses_Schematic"
+ },
+ {
+  "name": "Islander's Tool Belt Schematic",
+  "slug": "Islander%27s_Tool_Belt_Schematic"
+ },
+ {
+  "name": "Lord of the Underworld's Baton Schematic",
+  "slug": "Lord_of_the_Underworld%27s_Baton_Schematic"
+ },
+ {
+  "name": "Divine Dragon's Baton Schematic",
+  "slug": "Divine_Dragon%27s_Baton_Schematic"
+ },
+ {
+  "name": "Earth Emperor's Baton Schematic",
+  "slug": "Earth_Emperor%27s_Baton_Schematic"
+ },
+ {
+  "name": "Lord of Lightning's Baton Schematic",
+  "slug": "Lord_of_Lightning%27s_Baton_Schematic"
+ },
+ {
+  "name": "Flame Emperor's Baton Schematic",
+  "slug": "Flame_Emperor%27s_Baton_Schematic"
+ },
+ {
+  "name": "Ice Emperor's Baton Schematic",
+  "slug": "Ice_Emperor%27s_Baton_Schematic"
+ },
+ {
+  "name": "Spirit Emperor's Baton Schematic",
+  "slug": "Spirit_Emperor%27s_Baton_Schematic"
+ },
+ {
+  "name": "Celestial Emperor's Baton Schematic",
+  "slug": "Celestial_Emperor%27s_Baton_Schematic"
+ },
+ {
+  "name": "Lord of the Sea's Baton Schematic",
+  "slug": "Lord_of_the_Sea%27s_Baton_Schematic"
+ },
+ {
+  "name": "Lyleen Noct's Talisman Schematic",
+  "slug": "Lyleen_Noct%27s_Talisman_Schematic"
+ },
+ {
+  "name": "Jetragon's Talisman Schematic",
+  "slug": "Jetragon%27s_Talisman_Schematic"
+ },
+ {
+  "name": "Anubis's Talisman Schematic",
+  "slug": "Anubis%27s_Talisman_Schematic"
+ },
+ {
+  "name": "Orserk's Talisman Schematic",
+  "slug": "Orserk%27s_Talisman_Schematic"
+ },
+ {
+  "name": "Blazamut's Talisman Schematic",
+  "slug": "Blazamut%27s_Talisman_Schematic"
+ },
+ {
+  "name": "Frostallion's Talisman Schematic",
+  "slug": "Frostallion%27s_Talisman_Schematic"
+ },
+ {
+  "name": "Lyleen's Talisman Schematic",
+  "slug": "Lyleen%27s_Talisman_Schematic"
+ },
+ {
+  "name": "Hartalis's Talisman Schematic",
+  "slug": "Hartalis%27s_Talisman_Schematic"
+ },
+ {
+  "name": "Neptilius's Talisman Schematic",
+  "slug": "Neptilius%27s_Talisman_Schematic"
+ },
+ {
+  "name": "Enhanced Lily's Spear Schematic 4",
+  "slug": "Enhanced_Lily%27s_Spear_Schematic_4"
+ },
+ {
+  "name": "Lily's Spear Schematic 4",
+  "slug": "Lily%27s_Spear_Schematic_4"
+ },
+ {
+  "name": "Blueprint of the King's Crown 5",
+  "slug": "Blueprint_of_the_King%27s_Crown_5"
+ },
+ {
+  "name": "Monarch's Crown Schematic 4",
+  "slug": "Monarch%27s_Crown_Schematic_4"
+ },
+ {
+  "name": "Monarch's Crown Schematic 3",
+  "slug": "Monarch%27s_Crown_Schematic_3"
+ },
+ {
+  "name": "Monarch's Crown Schematic 2",
+  "slug": "Monarch%27s_Crown_Schematic_2"
+ },
+ {
+  "name": "Monarch's Crown Schematic 1",
+  "slug": "Monarch%27s_Crown_Schematic_1"
+ },
+ {
+  "name": "Zoe's Halloween Costume Schematic",
+  "slug": "Zoe%27s_Halloween_Costume_Schematic"
+ },
+ {
+  "name": "Bellanoir Libero's Slab Fragment",
+  "slug": "Bellanoir_Libero%27s_Slab_Fragment"
+ },
+ {
+  "name": "Bellanoir's Slab Fragment",
+  "slug": "Bellanoir%27s_Slab_Fragment"
+ }
+]

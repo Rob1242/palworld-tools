@@ -10,38 +10,35 @@
 <link rel="stylesheet" href="shared/design-system.css">
 <style>
   :root{
-    --bg: #07090d; --panel: #121822; --panel2: #182030;
-    --parchment: #e9eef4; --parchment-dim: #8592a3;
-    --brass: #f0b840; --brass-dim: #b5852f;
+    --bg: #05080e; --panel: #0e1420; --panel2: #141d2b;
+    --parchment: #e7edf5; --parchment-dim: #7e90a5;
+    --brass: #6ec8ea; --brass-dim: #2f6b85;
     --teal: #35d2ff; --teal-dim: #1c6d86;
-    --line: rgba(142,183,214,.16); --danger: #e2543f;
-    --lime: #e3ff3d; --lime-dim: #96b31f;
+    --line: rgba(120,165,220,.18); --danger: #e2543f;
+    --lime: #3d7bff; --lime-dim: #1f4a99;
     --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
     --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
     --font-mono: "JetBrains Mono", monospace;
   }
   *{box-sizing:border-box;}
-  body{margin:0;background:
-    radial-gradient(circle at 12% -8%, #143241 0%, transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(240,184,64,.06) 0%, transparent 42%),
-    var(--bg);
+  body{margin:0;background: var(--bg);
     color:var(--parchment);font-family:var(--font-body);padding:0;}
   .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
 
   header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
-  .brand-badge{width:42px;height:42px;border-radius:8px;background:linear-gradient(160deg, #1c2733, #10151c);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:var(--panel2);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
   h1.title{font-family:var(--font-display);font-weight:900;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
   .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
 
   .caveat{font-size:11.5px;color:var(--parchment-dim);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-bottom:16px;line-height:1.7;}
   .caveat a{color:var(--brass);}
 
-  .picker-box{background:var(--panel);border:1px solid var(--lime-dim);border-radius:10px;padding:18px 20px;margin-bottom:16px;box-shadow:0 8px 24px rgba(0,0,0,.25), 0 0 0 1px rgba(227,255,61,.08);}
+  .picker-box{background:var(--panel);border:1px solid var(--lime-dim);border-radius:10px;padding:18px 20px;margin-bottom:16px;box-shadow:0 8px 24px rgba(0,0,0,.25), 0 0 0 1px rgba(61,123,255,.08);}
   .picker-label{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--parchment);margin-bottom:10px;}
   .pal-picker{position:relative;max-width:360px;}
   .pal-picker input{width:100%;box-sizing:border-box;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:10px 14px;font-size:14px;font-family:var(--font-body);}
   .pal-picker input::placeholder{color:var(--parchment-dim);}
-  .pal-picker input:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 2px rgba(227,255,61,.2);}
+  .pal-picker input:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 2px rgba(61,123,255,.2);}
   .pal-picker-results{position:absolute;top:100%;left:0;right:0;max-height:280px;overflow-y:auto;background:var(--panel2);border:1px solid var(--line);border-radius:0 0 8px 8px;z-index:20;box-shadow:0 12px 24px rgba(0,0,0,.4);}
   .pal-picker-item{display:flex;align-items:center;gap:8px;padding:7px 12px;cursor:pointer;font-size:13px;}
   .pal-picker-item:hover{background:var(--panel);color:var(--lime);}
@@ -68,23 +65,39 @@
   .map-viewport.dragging{cursor:grabbing;}
   .map-world{position:absolute;top:0;left:0;width:100%;height:100%;transform-origin:0 0;will-change:transform;}
   .map-world img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none;pointer-events:none;}
-  .map-world.schematic{background:
-      repeating-linear-gradient(0deg, rgba(142,183,214,.06) 0, rgba(142,183,214,.06) 1px, transparent 1px, transparent 48px),
-      repeating-linear-gradient(90deg, rgba(142,183,214,.06) 0, rgba(142,183,214,.06) 1px, transparent 1px, transparent 48px),
-      radial-gradient(circle at 30% 25%, rgba(53,210,255,.07), transparent 55%),
-      radial-gradient(circle at 75% 70%, rgba(255,46,126,.05), transparent 55%),
-      #0a0f16;}
+  .map-world.schematic{background:#0a0f16;}
+  #densityCanvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;}
   .landmark{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;pointer-events:none;}
   .landmark .lm-dot{width:10px;height:10px;border-radius:50%;background:var(--parchment-dim);border:2px solid var(--bg);box-shadow:0 0 6px rgba(0,0,0,.6);}
-  .landmark.boss .lm-dot{background:var(--magenta,#ff2e7e);width:13px;height:13px;box-shadow:0 0 8px rgba(255,46,126,.6);}
+  .landmark.boss .lm-dot{background:var(--magenta,#8fd6ff);width:13px;height:13px;box-shadow:0 0 8px rgba(143,214,255,.6);}
   .landmark.fasttravel .lm-dot{background:var(--brass);}
   .landmark .lm-label{font-size:9.5px;font-family:var(--font-mono);color:var(--parchment-dim);background:rgba(4,6,10,.7);padding:1px 5px;border-radius:3px;white-space:nowrap;}
   .landmark.boss .lm-label{color:var(--parchment);}
-  .zone-bubble{position:absolute;transform:translate(-50%,-50%);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;line-height:1.05;cursor:pointer;background:radial-gradient(circle at 35% 30%, rgba(255,255,255,.22), transparent 55%), var(--brass);color:#241a05;font-family:var(--font-display);font-weight:700;border:2px solid rgba(255,255,255,.5);box-shadow:0 2px 10px rgba(0,0,0,.5);}
-  .zone-bubble.alpha{background:radial-gradient(circle at 35% 30%, rgba(255,255,255,.25), transparent 55%), var(--magenta, #ff2e7e);color:#2a0714;}
-  .zone-bubble .zb-count{font-size:1.05em;}
-  .zone-bubble:hover{filter:brightness(1.12);}
-  .zone-bubble.selected{outline:3px solid var(--lime);outline-offset:2px;}
+
+  .coord-readout{position:absolute;left:14px;bottom:14px;z-index:5;font-family:var(--font-mono);font-size:11px;color:var(--parchment-dim);background:rgba(4,6,10,.7);border:1px solid var(--line);border-radius:6px;padding:5px 10px;pointer-events:none;}
+
+  .curated-toggle-panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-bottom:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .curated-chip{font-size:12px;padding:5px 11px;border-radius:5px;border:1px solid var(--line);background:var(--panel2);color:var(--parchment-dim);cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px;}
+  .curated-chip .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .curated-chip.active{color:var(--parchment);font-weight:700;border-color:var(--teal-dim);background:rgba(53,210,255,.12);}
+  .curated-marker{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;}
+  .curated-marker .cd-dot{width:9px;height:9px;border-radius:50%;border:1.5px solid rgba(0,0,0,.5);box-shadow:0 0 5px rgba(0,0,0,.6);cursor:pointer;}
+  .curated-marker .cd-dot:hover{outline:2px solid #fff;}
+  .custom-marker{position:absolute;transform:translate(-50%,-100%);pointer-events:auto;cursor:pointer;display:flex;flex-direction:column;align-items:center;}
+  .custom-marker .cm-pin{width:14px;height:14px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--lime);border:1.5px solid rgba(255,255,255,.7);box-shadow:0 2px 6px rgba(0,0,0,.5);}
+  .custom-marker:hover .cm-pin{background:var(--danger);}
+  .map-viewport.marker-mode{cursor:crosshair;}
+  /* 出現エリアは「ここだ」と地図を覆い隠す固い円ではなく、半透明でふわっと滲むグロー(周辺)+
+     中央の小さな件数バッジ、の2層構成にしている(2026-07-16、ユーザー指摘によりソリッドな円から変更)。 */
+  .zone-bubble{position:absolute;transform:translate(-50%,-50%);border-radius:50%;pointer-events:auto;cursor:pointer;}
+  .zone-bubble::before{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(110,200,234,.38);filter:blur(9px);transition:filter .12s;}
+  .zone-bubble.alpha::before{background:rgba(143,214,255,.38);}
+  .zone-bubble:hover::before{filter:blur(9px) brightness(1.3);}
+  .zone-bubble.selected{outline:2px solid var(--lime);outline-offset:1px;}
+  .zone-bubble .zb-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:var(--brass);color:#241a05;font-family:var(--font-display);font-weight:700;border:1.5px solid rgba(255,255,255,.6);box-shadow:0 2px 8px rgba(0,0,0,.5);}
+  .zone-bubble.alpha .zb-core{background:var(--magenta, #8fd6ff);color:#2a0714;}
+  .zone-bubble .zb-count{line-height:1;}
 
   .map-zoom-controls{position:absolute;right:14px;bottom:14px;display:flex;flex-direction:column;gap:2px;z-index:5;}
   .map-zoom-controls button{width:32px;height:32px;background:var(--panel);border:1px solid var(--line);color:var(--parchment);font-size:17px;cursor:pointer;font-family:var(--font-body);}
@@ -134,13 +147,23 @@
       <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
       <a href="palworld_ride.html"><span>ライド速度</span></a>
       <a href="palworld_map.html" class="current"><span>出現マップ</span></a>
+      <a href="palworld_bossguide.html"><span>ボス攻略</span></a>
+      <a href="palworld_achievements.html"><span>実績一覧</span></a>
+      <a href="palworld_passives_guide.html"><span>おすすめパッシブ</span></a>
+      <a href="palworld_reference.html"><span>早見表</span></a>
+      <a href="palworld_technology.html"><span>テクノロジー</span></a>
+      <a href="palworld_missions.html"><span>ミッション</span></a>
+      <a href="palworld_iv_calc.html"><span>素質値計算機</span></a>
+      <a href="palworld_party_guide.html"><span>パーティ編成ガイド</span></a>
+      <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
+      <a href="palworld_changelog.html"><span>更新履歴</span></a>
     </nav>
   </header>
 
   <p class="caveat">
-    出現座標は<a href="https://github.com/Awy64/palworld-atlas-data" target="_blank" rel="noopener">palworld-atlas-data</a>(Palworld専用サーバーの生成テーブルから自動抽出、6時間ごと更新)を、
-    本編マップの地図画像は<a href="https://github.com/ARXII-13/Palworld-Interactive-Map" target="_blank" rel="noopener">Palworld-Interactive-Map</a>のものを使用しています。近い場所の個別スポーンをまとめて円で表示しているため、円の位置はおおよその中心です。
-    世界樹エリアは、合法的に再配布可能な背景地図画像が見つからなかったため、ファストトラベル地点・ボスの塔を目印にした座標のみのスキーマティック表示(画像なし)です。地名は現時点でJP名が未確認のため英語表記になります。
+    出現座標はpalworld-atlas-data(Palworld専用サーバーの生成テーブルから自動抽出、6時間ごと更新)を、
+    本編マップの地図画像はPalworld-Interactive-Mapのものを使用しています。近い場所の個別スポーンをまとめて円で表示しているため、円の位置はおおよその中心です。
+    世界樹エリアは、合法的に再配布可能な背景地図画像が見つからなかったため、ファストトラベル地点・ボスの塔を目印にした座標のみのスキーマティック表示(画像なし)です。地名はパルワールド配合・攻略ラボの実データで確認した日本語名です(一部は単一ソースでの確認のため、今後の情報更新で変わる可能性があります)。
   </p>
 
   <div class="region-tabs">
@@ -155,6 +178,8 @@
       <div class="pal-picker-results" style="display:none;"></div>
     </div>
   </div>
+
+  <div class="curated-toggle-panel" id="curatedTogglePanel"></div>
 
   <div id="mapSection">
     <div class="map-toolbar">
@@ -171,6 +196,14 @@
         <button class="toggle-btn" data-time="day">昼</button>
         <button class="toggle-btn" data-time="night">夜</button>
       </div>
+      <div class="toggle-group" id="viewModeToggle">
+        <button class="toggle-btn active" data-viewmode="cluster">エリア集計</button>
+        <button class="toggle-btn" data-viewmode="density">分布</button>
+      </div>
+      <div class="toggle-group" id="markerModeToggle">
+        <button class="toggle-btn" id="markerModeBtn">マーカー追加</button>
+        <button class="toggle-btn" id="markerClearBtn">全消去</button>
+      </div>
       <span class="zone-count-tag spacer" id="zoneCountTag"></span>
     </div>
 
@@ -179,11 +212,15 @@
         <img id="mapBgImg" src="game_data/art/world_map_3072.webp" alt="パルワールド 世界地図" draggable="false">
         <div id="landmarkLayer"></div>
         <div id="bubbleLayer"></div>
+        <div id="customMarkerLayer"></div>
+        <div id="curatedLandmarkLayer"></div>
+        <canvas id="densityCanvas" style="display:none;"></canvas>
       </div>
       <div class="map-zoom-controls">
         <button id="zoomInBtn">+</button>
         <button id="zoomOutBtn">−</button>
       </div>
+      <div class="coord-readout" id="coordReadout">X: — Y: —</div>
     </div>
 
     <div class="zone-detail" id="zoneDetail"></div>
@@ -196,6 +233,7 @@
 <script src="game_data/dex_data.js"></script>
 <script src="game_data/spawn_data.js"></script>
 <script src="game_data/worldtree_spawn_data.js"></script>
+<script src="game_data/curated_landmarks_data.js"></script>
 <script src="shared/icons.js"></script>
 <script>
 const PAL_BY_DEXID = {};
@@ -220,12 +258,22 @@ const PAL_LISTS = {
 };
 
 const LANDMARK_KIND_LABEL = { boss: "ボスの塔", fasttravel: "ファストトラベル" };
+const CURATED_TYPE_LABEL = {
+  "Alpha Pal": "フィールドボス", "Dungeon": "ダンジョン", "Ancient Ruin": "古代遺跡",
+  "Lifmunk Effigy": "パル像", "NPC": "NPC", "Bounty": "懸賞金対象", "City": "集落・拠点", "Incident": "遭遇イベント",
+};
+const CURATED_TYPE_COLOR = {
+  "Alpha Pal": "#e2543f", "Dungeon": "#6ec8ea", "Ancient Ruin": "#c9a86a",
+  "Lifmunk Effigy": "#8fd6ff", "NPC": "#3d7bff", "Bounty": "#f0a233", "City": "#7bdb52", "Incident": "#8064b8",
+};
+const curatedState = { active: new Set() };
 
 const state = {
   region: "palpagos",
   pal: null,
   kind: "wild",
   time: "both",
+  viewMode: "cluster", // "cluster"=集計バブル(既定) / "density"=生座標を点群で描くCanvas表示
   view: { x: 0, y: 0, scale: 1 },
 };
 
@@ -278,7 +326,6 @@ function selectPal(dexId){
   state.kind = "wild";
   document.querySelectorAll("#kindToggle .toggle-btn").forEach(b => b.classList.toggle("active", b.dataset.kind === "wild"));
 
-  resetView();
   renderZones();
 }
 
@@ -290,22 +337,49 @@ function currentZones(){
   return zones.filter(z => z.availability === "both" || z.availability === "mixed" || z.availability === state.time);
 }
 
+// availCode: 0=昼夜問わず, 1=昼のみ, 2=夜のみ, 3=昼夜混在(build_spawn_data.pyのAVAILABILITY_CODEと対応)
+const AVAILABILITY_BY_CODE = ["both", "day", "night", "mixed"];
+function currentPoints(){
+  if(!state.pal) return [];
+  const key = state.kind === "alpha" ? "alphaPoints" : "wildPoints";
+  const flat = state.pal.spawn[key] || [];
+  const points = [];
+  for(let i = 0; i < flat.length; i += 3){
+    const availability = AVAILABILITY_BY_CODE[flat[i+2]] || "mixed";
+    if(state.time !== "both" && availability !== "both" && availability !== "mixed" && availability !== state.time) continue;
+    points.push({ x: flat[i], y: flat[i+1] });
+  }
+  return points;
+}
+
 function renderZones(){
   const zones = currentZones();
   document.getElementById("zoneCountTag").textContent = zones.length
     ? `${zones.length}エリア / 合計${zones.reduce((s,z)=>s+z.count,0)}体分の記録`
     : "該当エリアなし";
+  fitViewToZones(zones);
 
-  const counts = zones.map(z => z.count);
-  const maxCount = counts.length ? Math.max(...counts) : 1;
+  const isDensity = state.viewMode === "density";
+  document.getElementById("bubbleLayer").style.display = isDensity ? "none" : "";
+  document.getElementById("densityCanvas").style.display = isDensity ? "" : "none";
+  if(isDensity){ renderDensity(currentPoints()); return; }
 
+  // グロー(外側のふわっとした半透明の輪)のサイズは「今表示中のパルの中での最大件数」比ではなく、
+  // 件数そのものの絶対値で決める。相対値だとエレパンダのように記録が1エリアしかないパルの場合、
+  // その1件が(自分自身が最大なので)常に最大サイズになってしまい、逆にどこにあるか分かりにくかった
+  // (2026-07-16、ユーザー指摘)。さらに、地図を覆い隠す固いソリッド円だと下の地形が見えず場所が
+  // 分かりにくいという指摘も受けたため、半透明でフェードするグロー+中央の小さな件数バッジの
+  // 2層構成に変更した(ユーザー提示の参考画像の見た目に合わせた)。
   const layer = document.getElementById("bubbleLayer");
   layer.innerHTML = zones.map((z, i) => {
-    const size = Math.round(28 + Math.sqrt(z.count / maxCount) * 46);
+    const glowSize = Math.round(40 + Math.min(70, Math.log2(z.count + 1) * 16));
+    const coreSize = Math.round(14 + Math.min(18, Math.log2(z.count + 1) * 4));
     return `
     <div class="zone-bubble ${state.kind === "alpha" ? "alpha" : ""}" data-idx="${i}"
-         style="left:${z.x*100}%;top:${z.y*100}%;width:${size}px;height:${size}px;font-size:${Math.max(11, size*0.32)}px;">
-      <span class="zb-count">${z.count}</span>
+         style="left:${z.x*100}%;top:${z.y*100}%;width:${glowSize}px;height:${glowSize}px;">
+      <div class="zb-core" style="width:${coreSize}px;height:${coreSize}px;font-size:${Math.max(10, coreSize*0.42)}px;">
+        <span class="zb-count">${z.count}</span>
+      </div>
     </div>`;
   }).join("");
 
@@ -316,6 +390,35 @@ function renderZones(){
       el.classList.add("selected");
       showZoneDetail(zones[parseInt(el.dataset.idx)]);
     });
+  });
+}
+
+// 「集計バブル」は件数を数字で正確に読めるが、密集地では円同士が重なって場所の形が
+// 分かりにくい。逆にこちらは生の座標を1点=1個体として全部そのまま点描することで、
+// 出現エリアの「形」が一目で分かるようにする(2026-07-18、ユーザーが密な点群の参考画像を提示)。
+// 個体数が多いパル(MimicDog等は野生だけで5000件近い)をDOM要素で描くと重いため、
+// Canvas 1枚に全点をまとめて描画する。
+function renderDensity(points){
+  const canvas = document.getElementById("densityCanvas");
+  const viewport = document.getElementById("mapViewport");
+  const rect = viewport.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  const w = Math.max(1, Math.round(rect.width * dpr));
+  const h = Math.max(1, Math.round(rect.height * dpr));
+  if(canvas.width !== w) canvas.width = w;
+  if(canvas.height !== h) canvas.height = h;
+
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if(!points.length) return;
+
+  const color = state.kind === "alpha" ? "143,214,255" : "110,200,234";
+  const radius = Math.max(3, 5 * dpr);
+  ctx.fillStyle = `rgba(${color},.35)`;
+  points.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x * canvas.width, p.y * canvas.height, radius, 0, Math.PI * 2);
+    ctx.fill();
   });
 }
 
@@ -344,26 +447,76 @@ function resetView(){
   applyView();
 }
 
+// 出現エリアが密集していると円が重なって件数バッジが読み取れなくなるため
+// (2026-07-18、ユーザー指摘)、そのパルの出現エリアの分布範囲だけを見て
+// 自動でズーム・パンする。範囲が狭い(1エリアだけ等)場合はズームしすぎないよう
+// 上限を設け、常に周辺の地形が見える程度の余白を残す。
+function fitViewToZones(zones){
+  if(!zones.length){ resetView(); return; }
+  const viewport = document.getElementById("mapViewport");
+  const rect = viewport.getBoundingClientRect();
+  const vw = rect.width, vh = rect.height;
+  if(!vw || !vh){ resetView(); return; }
+  // ページ読み込み直後は初回レイアウトがまだ確定しておらず、getBoundingClientRect()が
+  // 実際より小さい値を返すことがあった(2026-07-18、初回表示のズーム量が不安定になる不具合)。
+  // レイアウト確定後に再計算して、ズレを補正する。
+  requestAnimationFrame(() => {
+    const r2 = viewport.getBoundingClientRect();
+    if(Math.abs(r2.width - vw) > 1 || Math.abs(r2.height - vh) > 1) fitViewToZones(zones);
+  });
+
+  let xMin = Math.min(...zones.map(z => z.x));
+  let xMax = Math.max(...zones.map(z => z.x));
+  let yMin = Math.min(...zones.map(z => z.y));
+  let yMax = Math.max(...zones.map(z => z.y));
+
+  // 1点しかない/極端に狭い場合に無限大ズームにならないよう最小スプレッドを確保する
+  const MIN_SPREAD = 0.12;
+  if(xMax - xMin < MIN_SPREAD){ const c = (xMin+xMax)/2; xMin = c - MIN_SPREAD/2; xMax = c + MIN_SPREAD/2; }
+  if(yMax - yMin < MIN_SPREAD){ const c = (yMin+yMax)/2; yMin = c - MIN_SPREAD/2; yMax = c + MIN_SPREAD/2; }
+
+  const PADDING = 1.7; // 円のグローがはみ出さないよう、範囲の周囲に余白を残す倍率
+  const spanX = (xMax - xMin) * PADDING;
+  const spanY = (yMax - yMin) * PADDING;
+
+  const scale = Math.min(6, Math.max(1, Math.min(vw / (spanX * vw), vh / (spanY * vh))));
+  const centerX = (xMin + xMax) / 2 * vw;
+  const centerY = (yMin + yMax) / 2 * vh;
+
+  state.view.scale = scale;
+  state.view.x = vw / 2 - centerX * scale;
+  state.view.y = vh / 2 - centerY * scale;
+  applyView();
+}
+
 function setupPanZoom(){
   const viewport = document.getElementById("mapViewport");
   let dragging = false;
   let lastX = 0, lastY = 0;
 
+  let downX = 0, downY = 0, moved = 0;
   viewport.addEventListener("pointerdown", e => {
-    if(e.target.closest(".zone-bubble")) return; // バブルのクリックを優先し、パン開始しない
+    if(e.target.closest(".zone-bubble") || e.target.closest(".custom-marker")) return; // 既存要素のクリックを優先し、パン開始しない
     dragging = true;
     lastX = e.clientX; lastY = e.clientY;
+    downX = e.clientX; downY = e.clientY; moved = 0;
     viewport.classList.add("dragging");
     viewport.setPointerCapture(e.pointerId);
   });
   viewport.addEventListener("pointermove", e => {
+    updateCoordReadout(e);
     if(!dragging) return;
+    moved += Math.abs(e.clientX - lastX) + Math.abs(e.clientY - lastY);
     state.view.x += e.clientX - lastX;
     state.view.y += e.clientY - lastY;
     lastX = e.clientX; lastY = e.clientY;
     applyView();
   });
-  ["pointerup","pointercancel","pointerleave"].forEach(ev => viewport.addEventListener(ev, () => {
+  ["pointerup","pointercancel","pointerleave"].forEach(ev => viewport.addEventListener(ev, e => {
+    // ドラッグ(パン)とクリック(マーカー配置)を移動量で区別する。5px未満ならクリック扱い。
+    if(ev === "pointerup" && dragging && moved < 5 && markerModeState.active){
+      addCustomMarker(e.clientX, e.clientY);
+    }
     dragging = false;
     viewport.classList.remove("dragging");
   }));
@@ -395,6 +548,83 @@ function setupPanZoom(){
   });
 }
 
+// ユーザーが任意の場所に自由にマーカーを置ける機能(2026-07-20追加)。
+// region(本島/世界樹)ごとにlocalStorageへ保存し、リロードしても残る。
+const markerModeState = { active: false };
+const CUSTOM_MARKERS_KEY = "palworld_map_custom_markers";
+
+function loadCustomMarkers(){
+  try{
+    return JSON.parse(localStorage.getItem(CUSTOM_MARKERS_KEY) || "{}");
+  }catch(e){ return {}; }
+}
+function saveCustomMarkers(all){
+  localStorage.setItem(CUSTOM_MARKERS_KEY, JSON.stringify(all));
+}
+function currentRegionMarkers(){
+  const all = loadCustomMarkers();
+  return all[state.region] || [];
+}
+
+function screenToMapCoord(clientX, clientY){
+  const viewport = document.getElementById("mapViewport");
+  const rect = viewport.getBoundingClientRect();
+  const x = (clientX - rect.left - state.view.x) / (rect.width * state.view.scale);
+  const y = (clientY - rect.top - state.view.y) / (rect.height * state.view.scale);
+  return { x, y };
+}
+
+function addCustomMarker(clientX, clientY){
+  const { x, y } = screenToMapCoord(clientX, clientY);
+  const all = loadCustomMarkers();
+  const list = all[state.region] || (all[state.region] = []);
+  list.push({ x, y });
+  saveCustomMarkers(all);
+  renderCustomMarkers();
+}
+
+function removeCustomMarker(idx){
+  const all = loadCustomMarkers();
+  const list = all[state.region] || [];
+  list.splice(idx, 1);
+  saveCustomMarkers(all);
+  renderCustomMarkers();
+}
+
+function renderCustomMarkers(){
+  const layer = document.getElementById("customMarkerLayer");
+  layer.innerHTML = currentRegionMarkers().map((m, i) => `
+    <div class="custom-marker" style="left:${m.x*100}%;top:${m.y*100}%;" data-idx="${i}" title="クリックで削除">
+      <div class="cm-pin"></div>
+    </div>
+  `).join("");
+  layer.querySelectorAll(".custom-marker").forEach(el => {
+    el.addEventListener("click", e => {
+      e.stopPropagation();
+      removeCustomMarker(Number(el.dataset.idx));
+    });
+  });
+}
+
+function updateCoordReadout(e){
+  const { x, y } = screenToMapCoord(e.clientX, e.clientY);
+  const el = document.getElementById("coordReadout");
+  if(x < 0 || x > 1 || y < 0 || y > 1){ el.textContent = "X: — Y: —"; return; }
+  el.textContent = `X: ${x.toFixed(3)} Y: ${y.toFixed(3)}`;
+}
+
+document.getElementById("markerModeBtn").addEventListener("click", () => {
+  markerModeState.active = !markerModeState.active;
+  document.getElementById("markerModeBtn").classList.toggle("active", markerModeState.active);
+  document.getElementById("mapViewport").classList.toggle("marker-mode", markerModeState.active);
+});
+document.getElementById("markerClearBtn").addEventListener("click", () => {
+  const all = loadCustomMarkers();
+  all[state.region] = [];
+  saveCustomMarkers(all);
+  renderCustomMarkers();
+});
+
 document.getElementById("kindToggle").addEventListener("click", e => {
   const btn = e.target.closest(".toggle-btn");
   if(!btn || btn.disabled) return;
@@ -413,13 +643,69 @@ document.getElementById("timeToggle").addEventListener("click", e => {
   renderZones();
 });
 
+document.getElementById("viewModeToggle").addEventListener("click", e => {
+  const btn = e.target.closest(".toggle-btn");
+  if(!btn) return;
+  state.viewMode = btn.dataset.viewmode;
+  document.querySelectorAll("#viewModeToggle .toggle-btn").forEach(b => b.classList.toggle("active", b === btn));
+  document.getElementById("zoneDetail").style.display = "none";
+  renderZones();
+});
+
+// 本島マップ限定のランドマークレイヤー(フィールドボス/ダンジョン/古代遺跡/パル像/NPC/
+// 懸賞金対象/集落/遭遇イベント、計890件)。paldb.cc本島マップの生データ(pos.X/Y)を、
+// 自前spawn_data.jsの実測済み座標(ボス81体)との最小二乗フィットで正規化座標に変換したもの
+// (2026-07-20、build_curated_landmarks.py参照)。パルを選択していなくても
+// トグルをONにすればマップが表示される(既存の「パル未選択なら地図を隠す」仕様の例外)。
+function renderCuratedTogglePanel(){
+  const panel = document.getElementById("curatedTogglePanel");
+  const types = Object.keys(CURATED_TYPE_LABEL);
+  panel.innerHTML = types.map(t => `
+    <div class="curated-chip" data-type="${t}">
+      <span class="dot" style="background:${CURATED_TYPE_COLOR[t]}"></span>${CURATED_TYPE_LABEL[t]}
+    </div>
+  `).join("");
+  panel.querySelectorAll(".curated-chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      const t = chip.dataset.type;
+      if(curatedState.active.has(t)) curatedState.active.delete(t);
+      else curatedState.active.add(t);
+      chip.classList.toggle("active");
+      if(curatedState.active.size > 0 && state.region === "palpagos"){
+        const wasHidden = document.getElementById("mapSection").style.display !== "block";
+        document.getElementById("mapSection").style.display = "block";
+        document.getElementById("emptyHint").style.display = "none";
+        if(wasHidden && !state.pal) resetView();
+      } else if(curatedState.active.size === 0 && !state.pal){
+        document.getElementById("mapSection").style.display = "none";
+        document.getElementById("emptyHint").style.display = "block";
+      }
+      renderCuratedLandmarks();
+    });
+  });
+}
+
+function renderCuratedLandmarks(){
+  const layer = document.getElementById("curatedLandmarkLayer");
+  if(state.region !== "palpagos" || curatedState.active.size === 0 || typeof CURATED_LANDMARKS_DATA === "undefined"){
+    layer.innerHTML = "";
+    return;
+  }
+  const points = CURATED_LANDMARKS_DATA.filter(p => curatedState.active.has(p.type));
+  layer.innerHTML = points.map(p => `
+    <div class="curated-marker" style="left:${p.x*100}%;top:${p.y*100}%;">
+      <div class="cd-dot" style="background:${CURATED_TYPE_COLOR[p.type]}" title="${CURATED_TYPE_LABEL[p.type]}: ${p.name || ''}${p.lv ? ' (Lv'+p.lv+')' : ''}"></div>
+    </div>
+  `).join("");
+}
+
 function renderLandmarks(){
   const layer = document.getElementById("landmarkLayer");
   if(state.region !== "worldtree"){ layer.innerHTML = ""; return; }
   layer.innerHTML = WORLDTREE_SPAWN_DATA.landmarks.map(lm => `
     <div class="landmark ${lm.kind}" style="left:${lm.x*100}%;top:${lm.y*100}%;">
       <div class="lm-dot" title="${LANDMARK_KIND_LABEL[lm.kind]}"></div>
-      <div class="lm-label">${lm.name_en}</div>
+      <div class="lm-label">${lm.name_jp || lm.name_en}</div>
     </div>
   `).join("");
 }
@@ -430,12 +716,15 @@ function switchRegion(region){
   document.getElementById("mapBgImg").style.display = region === "worldtree" ? "none" : "";
   document.getElementById("mapWorld").classList.toggle("schematic", region === "worldtree");
   state.pal = null;
-  document.getElementById("mapSection").style.display = "none";
-  document.getElementById("emptyHint").style.display = "block";
+  const showForCurated = region === "palpagos" && curatedState.active.size > 0;
+  document.getElementById("mapSection").style.display = showForCurated ? "block" : "none";
+  document.getElementById("emptyHint").style.display = showForCurated ? "none" : "block";
   document.getElementById("emptyHint").textContent = region === "worldtree"
     ? "上の検索で世界樹エリアに出現するパルを選ぶと、スキーマティック図上に表示されます。"
     : "上の検索でパルを選ぶと、出現場所が地図上に表示されます。";
   renderLandmarks();
+  renderCustomMarkers();
+  renderCuratedLandmarks();
   resetView();
 }
 
@@ -446,6 +735,9 @@ document.querySelectorAll(".region-tab").forEach(tab => {
 setupPicker();
 setupPanZoom();
 renderLandmarks();
+renderCustomMarkers();
+renderCuratedTogglePanel();
+renderCuratedLandmarks();
 
 const initialParams = new URLSearchParams(location.search);
 const initialId = initialParams.get("id");

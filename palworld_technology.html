@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>テクノロジーツリー | Palworld攻略ツール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/design-system.css">
+<style>
+  :root{
+    --bg: #05080e; --panel: #0e1420; --panel2: #141d2b;
+    --parchment: #e7edf5; --parchment-dim: #7e90a5;
+    --brass: #6ec8ea; --brass-dim: #2f6b85;
+    --teal: #35d2ff; --teal-dim: #1c6d86;
+    --line: rgba(120,165,220,.18); --danger: #e2543f;
+    --lime: #3d7bff; --lime-dim: #1f4a99;
+    --magenta: #8fd6ff; --magenta-dim: #4a7fa3;
+    --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
+    --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
+    --font-mono: "JetBrains Mono", monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background: var(--bg);
+    color:var(--parchment);font-family:var(--font-body);padding:0;}
+  .wrap{max-width:1000px;margin:0 auto;padding:22px 20px 60px;}
+
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:var(--panel2);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  h1.title{font-family:var(--font-display);font-weight:700;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
+  .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
+
+  .intro{font-size:13px;color:var(--parchment-dim);line-height:1.8;margin:0 0 20px;}
+
+  .controls{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+  .controls-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  #searchBox{flex:1;min-width:160px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:8px 12px;font-size:13.5px;font-family:var(--font-body);}
+  #searchBox::placeholder{color:var(--parchment-dim);}
+  #searchBox:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 2px rgba(53,210,255,.2);}
+  .count-tag{font-size:12px;color:var(--parchment-dim);font-family:var(--font-mono);white-space:nowrap;}
+  .cat-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+  .chip{font-size:12px;padding:5px 11px;border-radius:5px;border:1px solid var(--line);background:var(--panel2);color:var(--parchment-dim);cursor:pointer;user-select:none;}
+  .chip.active{color:#0d1013;font-weight:700;border-color:transparent;background:var(--lime);}
+
+  .level-group{margin-bottom:16px;}
+  .level-header{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--brass);margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid var(--line);}
+  .tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;}
+  .tech-card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 10px;display:flex;align-items:center;gap:8px;}
+  .tech-card img{width:28px;height:28px;object-fit:contain;flex-shrink:0;border-radius:4px;background:var(--panel2);}
+  .tech-card .tname{font-size:12px;color:var(--parchment);line-height:1.3;}
+  .tech-card .tcat{font-size:9.5px;color:var(--parchment-dim);}
+  .tech-card .tcost{margin-left:auto;font-family:var(--font-mono);font-size:11px;color:var(--brass);flex-shrink:0;}
+
+  .empty-msg{text-align:center;padding:40px 0;color:var(--parchment-dim);font-size:13px;}
+
+  .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand-link" href="palworld_home.html">
+      <div class="brand-badge">P</div>
+      <h1 class="title glitch-hover" data-text="テクノロジーツリー"><small>Palworld 攻略ツール</small>テクノロジーツリー</h1>
+    </a>
+    <nav class="tabs">
+      <a href="palworld_home.html"><span>ホーム</span></a>
+      <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
+      <a href="palworld_dex.html"><span>パル図鑑</span></a>
+      <a href="palworld_breeding.html"><span>配合検索</span></a>
+      <a href="palworld_palbox.html"><span>パルボックス</span></a>
+      <a href="palworld_combat.html"><span>戦闘最適化</span></a>
+      <a href="palworld_items.html"><span>アイテム図鑑</span></a>
+      <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
+      <a href="palworld_ride.html"><span>ライド速度</span></a>
+      <a href="palworld_map.html"><span>出現マップ</span></a>
+      <a href="palworld_bossguide.html"><span>ボス攻略</span></a>
+      <a href="palworld_achievements.html"><span>実績一覧</span></a>
+      <a href="palworld_passives_guide.html"><span>おすすめパッシブ</span></a>
+      <a href="palworld_reference.html"><span>早見表</span></a>
+      <a href="palworld_technology.html" class="current"><span>テクノロジー</span></a>
+      <a href="palworld_missions.html"><span>ミッション</span></a>
+      <a href="palworld_iv_calc.html"><span>素質値計算機</span></a>
+      <a href="palworld_party_guide.html"><span>パーティ編成ガイド</span></a>
+      <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
+      <a href="palworld_changelog.html"><span>更新履歴</span></a>
+    </nav>
+  </header>
+
+  <p class="intro">レベルアップで解放される技術(建築物・アイテム)の一覧です。Lv1〜80、537件。</p>
+
+  <div class="controls">
+    <div class="controls-row">
+      <input type="text" id="searchBox" placeholder="技術名で検索…">
+      <span class="count-tag" id="countTag"></span>
+    </div>
+    <div class="cat-chips" id="catChips">
+      <div class="chip active" data-cat="すべて">すべて</div>
+      <div class="chip" data-cat="建築物">建築物</div>
+      <div class="chip" data-cat="アイテム">アイテム</div>
+    </div>
+  </div>
+
+  <div id="techList"></div>
+
+  <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。</p>
+</div>
+<script src="game_data/technology_data.js"></script>
+<script>
+const state = { query: "", category: "すべて" };
+
+function render(){
+  const q = state.query.trim().toLowerCase();
+  const filtered = TECHNOLOGY_DATA.filter(t => {
+    if(state.category !== "すべて" && t.category !== state.category) return false;
+    if(q && !t.name_jp.toLowerCase().includes(q)) return false;
+    return true;
+  });
+  document.getElementById("countTag").textContent = `${filtered.length}件`;
+
+  if(!filtered.length){
+    document.getElementById("techList").innerHTML = `<div class="empty-msg">該当する技術がありません</div>`;
+    return;
+  }
+
+  const byLevel = new Map();
+  filtered.forEach(t => {
+    if(!byLevel.has(t.level)) byLevel.set(t.level, []);
+    byLevel.get(t.level).push(t);
+  });
+  const levels = Array.from(byLevel.keys()).sort((a,b) => a-b);
+
+  document.getElementById("techList").innerHTML = levels.map(lv => `
+    <div class="level-group">
+      <div class="level-header">Lv${lv}</div>
+      <div class="tech-grid">
+        ${byLevel.get(lv).map(t => `
+          <div class="tech-card">
+            <img src="${t.icon}" onerror="this.src='game_data/icons/T_icon_unknown.webp'" alt="">
+            <div>
+              <div class="tname">${t.name_jp}</div>
+              <div class="tcat">${t.category}</div>
+            </div>
+            <div class="tcost">${t.cost}</div>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `).join("");
+}
+
+document.getElementById("searchBox").addEventListener("input", e => { state.query = e.target.value; render(); });
+document.getElementById("catChips").addEventListener("click", e => {
+  const chip = e.target.closest(".chip");
+  if(!chip) return;
+  document.querySelectorAll("#catChips .chip").forEach(c => c.classList.remove("active"));
+  chip.classList.add("active");
+  state.category = chip.dataset.cat;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

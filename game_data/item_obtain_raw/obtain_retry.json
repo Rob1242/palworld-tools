@@ -1,0 +1,1651 @@
+{
+ "Nyafia's Shotgun": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "50"
+     },
+     {
+      "item_asset": "Dark_Fragment",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Polymer",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "85"
+     }
+    ]
+   }
+  ]
+ },
+ "Smokie's Harness": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Leather",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "50"
+     },
+     {
+      "item_asset": "Dark_Fragment",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "40"
+     }
+    ]
+   }
+  ]
+ },
+ "Lifmunk's Submachine Gun": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Stone",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Wood",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Tocotoco's Gloves": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Cloth",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "15"
+     },
+     {
+      "item_asset": "Flame_Organ",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "15"
+     }
+    ]
+   }
+  ]
+ },
+ "Daedream's Necklace": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Leather",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Digtoise's Headband": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Leather",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Ingot",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Stone",
+      "qty": "50"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "20"
+     }
+    ]
+   }
+  ]
+ },
+ "Galeclaw's Gloves": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Cloth",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "30"
+     }
+    ]
+   }
+  ]
+ },
+ "Grizzbolt's Minigun": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "50"
+     },
+     {
+      "item_asset": "Polymer",
+      "qty": "20"
+     },
+     {
+      "item_asset": "High_Quality_Pal_Oil",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "75"
+     }
+    ]
+   }
+  ]
+ },
+ "Flopie's Necklace": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Leather",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Ingot",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "15"
+     }
+    ]
+   }
+  ]
+ },
+ "Celaray's Gloves": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Cloth",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Aquatic_Pal_Fluids",
+      "qty": "3"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "5"
+     }
+    ]
+   }
+  ]
+ },
+ "Celaray Lux's Gloves": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Cloth",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Electric_Organ",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "6"
+     }
+    ]
+   }
+  ]
+ },
+ "Direhowl's Saddled Harness": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Leather",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Wood",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "15"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Mossanda's Grenade Launcher": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "50"
+     },
+     {
+      "item_asset": "High_Quality_Pal_Oil",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "40"
+     }
+    ]
+   }
+  ]
+ },
+ "Mossanda Lux's Grenade Launcher": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "60"
+     },
+     {
+      "item_asset": "High_Quality_Pal_Oil",
+      "qty": "24"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "48"
+     }
+    ]
+   }
+  ]
+ },
+ "Jolthog's Gloves": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Cloth",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Electric_Organ",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "5"
+     }
+    ]
+   }
+  ]
+ },
+ "Jolthog Cryst's Gloves": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Cloth",
+      "qty": "6"
+     },
+     {
+      "item_asset": "Ice_Organ",
+      "qty": "6"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "6"
+     }
+    ]
+   }
+  ]
+ },
+ "Jetragon's Missile Launcher": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Leather",
+      "qty": "70"
+     },
+     {
+      "item_asset": "Paloxite_Ingot",
+      "qty": "60"
+     },
+     {
+      "item_asset": "AI_Core",
+      "qty": "24"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "210"
+     }
+    ]
+   }
+  ]
+ },
+ "Foxparks' Harness": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Leather",
+      "qty": "3"
+     },
+     {
+      "item_asset": "Flame_Organ",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "5"
+     }
+    ]
+   }
+  ]
+ },
+ "Foxparks Cryst's Harness": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Leather",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Ice_Organ",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "20"
+     }
+    ]
+   }
+  ]
+ },
+ "Relaxaurus' Missile Launcher": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "100"
+     },
+     {
+      "item_asset": "Polymer",
+      "qty": "35"
+     },
+     {
+      "item_asset": "Ingot",
+      "qty": "100"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "85"
+     }
+    ]
+   }
+  ]
+ },
+ "Relaxaurus Lux's Missile Launcher": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "120"
+     },
+     {
+      "item_asset": "Polymer",
+      "qty": "42"
+     },
+     {
+      "item_asset": "Ingot",
+      "qty": "120"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "102"
+     }
+    ]
+   }
+  ]
+ },
+ "Herbil's Harness": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Leather",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "40"
+     },
+     {
+      "item_asset": "Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "25"
+     }
+    ]
+   }
+  ]
+ },
+ "Tanzee's Assault Rifle": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Stone",
+      "qty": "15"
+     },
+     {
+      "item_asset": "Wood",
+      "qty": "15"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Tanzee Ignis's Assault Rifle": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "6"
+     },
+     {
+      "item_asset": "Stone",
+      "qty": "18"
+     },
+     {
+      "item_asset": "Wood",
+      "qty": "18"
+     },
+     {
+      "item_asset": "Flame_Organ",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "20"
+     }
+    ]
+   }
+  ]
+ },
+ "Killamari's Gloves": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Cloth",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Venom_Gland",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Killamari Primo's Gloves": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Cloth",
+      "qty": "6"
+     },
+     {
+      "item_asset": "Aquatic_Pal_Fluids",
+      "qty": "4"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "12"
+     }
+    ]
+   }
+  ]
+ },
+ "Pengullet Lux's Rocket Launcher": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "24"
+     },
+     {
+      "item_asset": "Stone",
+      "qty": "24"
+     },
+     {
+      "item_asset": "Wooden_Board",
+      "qty": "3"
+     },
+     {
+      "item_asset": "Electric_Organ",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "24"
+     }
+    ]
+   }
+  ]
+ },
+ "Dazzi's Necklace": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Leather",
+      "qty": "15"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "15"
+     },
+     {
+      "item_asset": "Ingot",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "20"
+     }
+    ]
+   }
+  ]
+ },
+ "Dazzi Noct's Necklace": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Leather",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Dark_Fragment",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "40"
+     }
+    ]
+   }
+  ]
+ },
+ "Bastigor's Hammer": {
+  "production": [
+   {
+    "workbench_asset": "Pal_Gear_Workbench",
+    "materials": [
+     {
+      "item_asset": "Soralite_Ingot",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Ice_Organ",
+      "qty": "50"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "140"
+     }
+    ]
+   }
+  ]
+ },
+ "Hangyu's Gloves": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Cloth",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "3"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Ingot",
+      "qty": "3"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Hangyu Cryst's Glove": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Cloth",
+      "qty": "6"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "3"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "12"
+     },
+     {
+      "item_asset": "Ingot",
+      "qty": "3"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "12"
+     }
+    ]
+   }
+  ]
+ },
+ "Enhanced Lily's Spear": {
+  "production": [
+   {
+    "workbench_asset": "Advanced_Workshop",
+    "materials": [
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Soralite_Ingot",
+      "qty": "30"
+     },
+     {
+      "item_asset": "High_Quality_Cloth",
+      "qty": "20"
+     },
+     {
+      "item_asset": "High_Quality_Wooden_Board",
+      "qty": "20"
+     }
+    ]
+   },
+   {
+    "workbench_asset": "Advanced_Workshop",
+    "materials": [
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "40"
+     },
+     {
+      "item_asset": "Soralite_Ingot",
+      "qty": "60"
+     },
+     {
+      "item_asset": "High_Quality_Cloth",
+      "qty": "30"
+     },
+     {
+      "item_asset": "High_Quality_Wooden_Board",
+      "qty": "40"
+     }
+    ]
+   }
+  ]
+ },
+ "Lily's Spear": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "30"
+     },
+     {
+      "item_asset": "High_Quality_Cloth",
+      "qty": "20"
+     },
+     {
+      "item_asset": "High_Quality_Wooden_Board",
+      "qty": "3"
+     }
+    ]
+   },
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "40"
+     },
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "60"
+     },
+     {
+      "item_asset": "High_Quality_Cloth",
+      "qty": "30"
+     },
+     {
+      "item_asset": "High_Quality_Wooden_Board",
+      "qty": "6"
+     }
+    ]
+   }
+  ]
+ },
+ "Elizabee's Staff": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Wood",
+      "qty": "1"
+     },
+     {
+      "item_asset": "Honey",
+      "qty": "1"
+     }
+    ]
+   }
+  ],
+  "dropped_by": [
+   {
+    "pal_asset": "Elizabee",
+    "pal_jp_name": "クインビーナ",
+    "qty": "1",
+    "rate": "3%"
+   }
+  ]
+ },
+ "Beegarde's Spear": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Wood",
+      "qty": "1"
+     },
+     {
+      "item_asset": "Honey",
+      "qty": "1"
+     }
+    ]
+   }
+  ]
+ },
+ "Monarch's Crown": {
+  "production": [
+   {
+    "workbench_asset": "High_Quality_Workbench",
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Cloth",
+      "qty": "3"
+     }
+    ]
+   },
+   {
+    "workbench_asset": "High_Quality_Workbench",
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Cloth",
+      "qty": "4"
+     }
+    ]
+   },
+   {
+    "workbench_asset": "High_Quality_Workbench",
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "45"
+     },
+     {
+      "item_asset": "Cloth",
+      "qty": "6"
+     }
+    ]
+   },
+   {
+    "workbench_asset": "High_Quality_Workbench",
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "67"
+     },
+     {
+      "item_asset": "Cloth",
+      "qty": "9"
+     }
+    ]
+   },
+   {
+    "workbench_asset": "High_Quality_Workbench",
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "100"
+     },
+     {
+      "item_asset": "Cloth",
+      "qty": "13"
+     }
+    ]
+   }
+  ]
+ },
+ "Witch's Crown": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "1"
+     }
+    ]
+   }
+  ]
+ },
+ "Xenolord's head": {
+  "production": [
+   {
+    "workbench_asset": null,
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "1"
+     }
+    ]
+   }
+  ]
+ },
+ "Warsect Terra's Belt": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "40"
+     },
+     {
+      "item_asset": "Honey",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "35"
+     },
+     {
+      "item_asset": "Ancient_Lava",
+      "qty": "30"
+     }
+    ]
+   }
+  ]
+ },
+ "Divine Dragon's Baton": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Polymer",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Pure_Quartz",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Core",
+      "qty": "5"
+     }
+    ]
+   }
+  ]
+ },
+ "Islander's Tool Belt": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "40"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "35"
+     },
+     {
+      "item_asset": "Ancient_Bark",
+      "qty": "30"
+     }
+    ]
+   }
+  ]
+ },
+ "Neptilius's Talisman": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Carbon_Fiber",
+      "qty": "15"
+     },
+     {
+      "item_asset": "Aquatic_Pal_Fluids",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Parts",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Celestial Emperor's Baton": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Horn",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Pal_Metal_Ingot",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Core",
+      "qty": "5"
+     }
+    ]
+   }
+  ]
+ },
+ "Anubis's Talisman": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Bone",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Meteorite_Fragment",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Parts",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Lord of the Sea's Baton": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Horn",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Aquatic_Pal_Fluids",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Core",
+      "qty": "5"
+     }
+    ]
+   }
+  ]
+ },
+ "Jetragon's Talisman": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "30"
+     },
+     {
+      "item_asset": "High_Quality_Pal_Oil",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Parts",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Pal Tamer's Glasses": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Parts",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Ancient_Bark",
+      "qty": "15"
+     }
+    ]
+   }
+  ]
+ },
+ "Lord of the Underworld's Baton": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Horn",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Pure_Quartz",
+      "qty": "15"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Core",
+      "qty": "5"
+     }
+    ]
+   }
+  ]
+ },
+ "Earth Emperor's Baton": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Horn",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Bone",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Core",
+      "qty": "5"
+     }
+    ]
+   }
+  ]
+ },
+ "Hartalis's Talisman": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Horn",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Parts",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Flame Emperor's Baton": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Horn",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Flame_Organ",
+      "qty": "15"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Core",
+      "qty": "5"
+     }
+    ]
+   }
+  ]
+ },
+ "Ice Emperor's Baton": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Horn",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Ice_Organ",
+      "qty": "15"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Core",
+      "qty": "5"
+     }
+    ]
+   }
+  ]
+ },
+ "Frostallion's Talisman": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Bone",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Ice_Organ",
+      "qty": "15"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Parts",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Lord of Lightning's Baton": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Horn",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Electric_Organ",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Core",
+      "qty": "5"
+     }
+    ]
+   }
+  ]
+ },
+ "Orserk's Talisman": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Bone",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Electric_Organ",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Parts",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Spirit Emperor's Baton": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Horn",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Beautiful_Flower",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Core",
+      "qty": "5"
+     }
+    ]
+   }
+  ]
+ },
+ "Lyleen's Talisman": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Bone",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Beautiful_Flower",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Parts",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Blazamut's Talisman": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Coal",
+      "qty": "15"
+     },
+     {
+      "item_asset": "Flame_Organ",
+      "qty": "15"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Parts",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Lyleen Noct's Talisman": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Refined_Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Beautiful_Flower",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Venom_Gland",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Parts",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Ring of Electric Resistance": {
+  "production": [
+   {
+    "workbench_asset": "High_Quality_Workbench",
+    "materials": [
+     {
+      "item_asset": "Ingot",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Bone",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Electric_Organ",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Paldium_Fragment",
+      "qty": "30"
+     }
+    ]
+   }
+  ]
+ },
+ "Jelliette's Jiggly Jelly": {
+  "production": [
+   {
+    "workbench_asset": "Cooking_Pot",
+    "materials": [
+     {
+      "item_asset": "Jelliette_Bell_Flesh",
+      "qty": "2"
+     },
+     {
+      "item_asset": "Aquatic_Pal_Fluids",
+      "qty": "2"
+     }
+    ]
+   }
+  ]
+ },
+ "Rushoar Bacon 'n' Eggs": {
+  "production": [
+   {
+    "workbench_asset": "Cooking_Pot",
+    "materials": [
+     {
+      "item_asset": "Rushoar_Pork",
+      "qty": "2"
+     },
+     {
+      "item_asset": "Egg",
+      "qty": "2"
+     }
+    ]
+   }
+  ]
+ },
+ "Jellroy's Jolly Jelly": {
+  "production": [
+   {
+    "workbench_asset": "Cooking_Pot",
+    "materials": [
+     {
+      "item_asset": "Jellroy_Bell_Flesh",
+      "qty": "2"
+     },
+     {
+      "item_asset": "Red_Berries",
+      "qty": "2"
+     }
+    ]
+   }
+  ]
+ },
+ "Zoe's Halloween Costume": {
+  "production": [
+   {
+    "workbench_asset": "High_Quality_Workbench",
+    "materials": [
+     {
+      "item_asset": "Cloth",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "5"
+     }
+    ]
+   }
+  ]
+ },
+ "Bellanoir's Slab": {
+  "production": [
+   {
+    "workbench_asset": "High_Quality_Workbench",
+    "materials": [
+     {
+      "item_asset": "Bellanoirs_Slab_Fragment",
+      "qty": "4"
+     }
+    ]
+   }
+  ]
+ },
+ "Bellanoir Libero's Slab": {
+  "production": [
+   {
+    "workbench_asset": "High_Quality_Workbench",
+    "materials": [
+     {
+      "item_asset": "Bellanoir_Liberos_Slab_Fragment",
+      "qty": "4"
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -10,16 +10,37 @@ from js_data_writer import write_js_consts
 DEX_PATH = "palworld_dex_data.json"
 BREEDING_PATH = "palworld_breeding_data.json"
 LEARNSET_PATH = "game_data/pals_learnset.json"
+SKILLS_PATH = "game_data/skills.json"
+SKILL_DETAILS_PATH = "game_data/skill_details_raw.json"
 PASSIVES_PATH = "palworld_passives_merged.json"
 SKILLS_JP_PATH = "game_data/skills_jp.json"
+ELEMENT_EN_TO_JP = {"Fire": "炎", "Water": "水", "Electricity": "雷", "Earth": "地", "Leaf": "草", "Ice": "氷", "Dragon": "竜", "Dark": "闇", "Normal": "無"}
 JS_OUTPUT_PATH = "game_data/learnset_data.js"
 PASSIVES_JS_OUTPUT_PATH = "game_data/passives_data.js"
 SKILLS_JP_JS_OUTPUT_PATH = "game_data/skills_jp_data.js"
 
 
-def build_learnset_data(dex, breeding, skills_jp):
+def build_skills_raw_lookup():
+    if not os.path.exists(SKILLS_PATH):
+        return {}
+    return {s["asset"]: s for s in json.load(open(SKILLS_PATH, encoding="utf-8"))["skills"]}
+
+
+def build_skill_details_lookup():
+    # paldb.cc /ja/Active_Skills の一括スクレイピング結果(scripts/scrape_skill_details.py)。
+    # 技1つにつき威力・冷却時間・属性・効果文はパルに依らず共通なので、パルごとではなく
+    # 技(WazaID)ごとに1件のみ保持する軽量な参照テーブルとして別途読み込む。
+    if not os.path.exists(SKILL_DETAILS_PATH):
+        return {}
+    return json.load(open(SKILL_DETAILS_PATH, encoding="utf-8"))
+
+
+def build_learnset_data(dex, breeding, skills_jp, skill_details, skills_raw):
     # dex(図鑑)に載っている種族だけに絞り込み、WazaID(EPalWazaID::接頭辞)を
     # skills_jp.json用のasset形式(接頭辞無し)に正規化する。
+    # 威力・冷却時間・属性は game_data/skills.json(実ゲームデータダンプ、数値型で正確)を
+    # 正として使い、paldb.ccスクレイピング分(skill_details)は日本語の効果文(英語しか
+    # 無いskills.jsonでは補えない)のためだけに使う(2026-07-20、両ソースの役割分担を整理)。
     dex_ids = {p["id"] for p in dex}
     assets = {a for a, info in breeding["pals"].items() if info.get("dex_id") in dex_ids}
     raw = json.load(open(LEARNSET_PATH, encoding="utf-8"))["learnset"]
@@ -36,11 +57,17 @@ def build_learnset_data(dex, breeding, skills_jp):
                 continue
             seen.add(waza_asset)
             jp = skills_jp.get(waza_asset) if skills_jp else None
+            detail = skill_details.get(waza_asset)
+            skill = skills_raw.get(waza_asset)
             cleaned.append({
                 "asset": waza_asset,
                 "source": e["source"],
                 "level": e.get("level"),
-                "jp_name": jp["jp_name"] if jp else None,
+                "jp_name": jp["jp_name"] if jp else (detail["jp_name"] if detail else None),
+                "power": skill["power"] if skill else (detail["power"] if detail else None),
+                "cooltime": skill["cooldown"] if skill else (detail["cooltime"] if detail else None),
+                "element": ELEMENT_EN_TO_JP.get(skill["element"]) if skill else (detail["element"] if detail else None),
+                "effect_jp": detail["effect_jp"] if detail else None,
             })
         out[asset] = cleaned
     return out
@@ -72,7 +99,9 @@ def main():
     dex = json.load(open(DEX_PATH, encoding="utf-8"))
     breeding = json.load(open(BREEDING_PATH, encoding="utf-8"))
     skills_jp = build_skills_jp_lookup()
-    learnset = build_learnset_data(dex, breeding, skills_jp)
+    skill_details = build_skill_details_lookup()
+    skills_raw = build_skills_raw_lookup()
+    learnset = build_learnset_data(dex, breeding, skills_jp, skill_details, skills_raw)
     passives = build_passives_data()
 
     write_js_consts(JS_OUTPUT_PATH, [("LEARNSET_DATA", learnset)])

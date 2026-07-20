@@ -1,0 +1,7927 @@
+{
+ "DomeArmorDragon": {
+  "movement": {
+   "SlowWalkSpeed": "115",
+   "WalkSpeed": "230",
+   "RunSpeed": "850",
+   "RideSprintSpeed": "1100",
+   "TransportSpeed": "360",
+   "GravityScale": "1.5",
+   "JumpZVelocity": "600",
+   "SwimSpeed": "255",
+   "SwimDashSpeed": "330",
+   "Stamina": "300"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 850,
+    "max": 1075
+   },
+   "防御": {
+    "min": 890,
+    "max": 1142
+   }
+  }
+ },
+ "ClioneTwins": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "450",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "150",
+   "SwimSpeed": "450",
+   "SwimDashSpeed": "450",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3500,
+    "max": 4280
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 440,
+    "max": 557
+   }
+  }
+ },
+ "Anubis": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "160",
+   "RunSpeed": "800",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "480",
+   "SwimSpeed": "240",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 880,
+    "max": 1114
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "FlameBuffalo": {
+  "movement": {
+   "SlowWalkSpeed": "87",
+   "WalkSpeed": "87",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1050",
+   "TransportSpeed": "343",
+   "GravityScale": "2.5",
+   "JumpZVelocity": "700",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "315",
+   "Stamina": "120"
+  },
+  "level80": {
+   "HP": {
+    "min": 4300,
+    "max": 5320
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 620,
+    "max": 791
+   }
+  }
+ },
+ "BlackMetalDragon": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1100",
+   "TransportSpeed": "375",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "330",
+   "Stamina": "300"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 850,
+    "max": 1075
+   },
+   "防御": {
+    "min": 800,
+    "max": 1025
+   }
+  }
+ },
+ "WorldTreeDragon": {
+  "movement": {
+   "SlowWalkSpeed": "-1",
+   "WalkSpeed": "400",
+   "RunSpeed": "-1",
+   "RideSprintSpeed": "-1",
+   "TransportSpeed": "-1",
+   "SwimSpeed": "-1",
+   "SwimDashSpeed": "-1",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 8900,
+    "max": 11300
+   },
+   "攻撃": {
+    "min": 1300,
+    "max": 1660
+   },
+   "防御": {
+    "min": 1250,
+    "max": 1610
+   }
+  }
+ },
+ "BlueThunderHorse": {
+  "movement": {
+   "SlowWalkSpeed": "90",
+   "WalkSpeed": "180",
+   "RunSpeed": "900",
+   "RideSprintSpeed": "1260",
+   "TransportSpeed": "-1",
+   "GravityScale": "3",
+   "JumpZVelocity": "1500",
+   "SwimSpeed": "270",
+   "SwimDashSpeed": "378",
+   "Stamina": "220"
+  },
+  "level80": {
+   "HP": {
+    "min": 6100,
+    "max": 7660
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "BlueDragon": {
+  "movement": {
+   "SlowWalkSpeed": "75",
+   "WalkSpeed": "150",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "350",
+   "JumpZVelocity": "550",
+   "SwimSpeed": "920",
+   "SwimDashSpeed": "1000",
+   "Stamina": "160"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "BlueDragon_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "75",
+   "WalkSpeed": "150",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "350",
+   "JumpZVelocity": "550",
+   "SwimSpeed": "920",
+   "SwimDashSpeed": "1000",
+   "Stamina": "160"
+  },
+  "level80": {
+   "HP": {
+    "min": 5500,
+    "max": 6880
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "OniGhostGirl": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "300",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "SnowTigerBeastman": {
+  "movement": {
+   "SlowWalkSpeed": "120",
+   "WalkSpeed": "225",
+   "RunSpeed": "750",
+   "RideSprintSpeed": "1100",
+   "TransportSpeed": "-1",
+   "SwimSpeed": "225",
+   "SwimDashSpeed": "330",
+   "Stamina": "270"
+  },
+  "level80": {
+   "HP": {
+    "min": 6500,
+    "max": 8180
+   },
+   "攻撃": {
+    "min": 880,
+    "max": 1114
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "ThunderBird": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "750",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "375",
+   "SwimSpeed": "750",
+   "SwimDashSpeed": "750",
+   "Stamina": "160"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "ThunderBird_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "750",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "375",
+   "SwimSpeed": "750",
+   "SwimDashSpeed": "750",
+   "Stamina": "160"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "SoldierBee": {
+  "movement": {
+   "SlowWalkSpeed": "125",
+   "WalkSpeed": "250",
+   "RunSpeed": "450",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "350",
+   "SwimSpeed": "450",
+   "SwimDashSpeed": "450",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "NightLady": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "400",
+   "SwimSpeed": "600",
+   "SwimDashSpeed": "600",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 1000,
+    "max": 1270
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "NightLady_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "400",
+   "SwimSpeed": "600",
+   "SwimDashSpeed": "600",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 1000,
+    "max": 1270
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "KingBahamut": {
+  "movement": {
+   "SlowWalkSpeed": "150",
+   "WalkSpeed": "400",
+   "RunSpeed": "800",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "500",
+   "GravityScale": "4",
+   "JumpZVelocity": "1500",
+   "SwimSpeed": "100",
+   "SwimDashSpeed": "100",
+   "Stamina": "190"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 850,
+    "max": 1075
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "KingBahamut_Dragon": {
+  "movement": {
+   "SlowWalkSpeed": "150",
+   "WalkSpeed": "400",
+   "RunSpeed": "800",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "500",
+   "GravityScale": "4",
+   "JumpZVelocity": "1500",
+   "SwimSpeed": "100",
+   "SwimDashSpeed": "100",
+   "Stamina": "190"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 880,
+    "max": 1114
+   },
+   "防御": {
+    "min": 800,
+    "max": 1025
+   }
+  }
+ },
+ "Manticore": {
+  "movement": {
+   "SlowWalkSpeed": "90",
+   "WalkSpeed": "180",
+   "RunSpeed": "800",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "465",
+   "GravityScale": "3",
+   "JumpZVelocity": "1300",
+   "SwimSpeed": "240",
+   "SwimDashSpeed": "360",
+   "Stamina": "150"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "Manticore_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "60",
+   "WalkSpeed": "90",
+   "RunSpeed": "800",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "420",
+   "GravityScale": "3",
+   "JumpZVelocity": "1300",
+   "SwimSpeed": "240",
+   "SwimDashSpeed": "360",
+   "Stamina": "150"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "YakushimaMonster001_Blue": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "50",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "200",
+   "JumpZVelocity": "1160",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "Plesiosaur": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "95",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "1020",
+   "TransportSpeed": "-1",
+   "GravityScale": "2.1",
+   "JumpZVelocity": "640",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "306",
+   "Stamina": "270"
+  },
+  "level80": {
+   "HP": {
+    "min": 6100,
+    "max": 7660
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "LittleBriarRose": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "250",
+   "SwimSpeed": "120",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "SakuraSaurus": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "75",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "1020",
+   "TransportSpeed": "200",
+   "GravityScale": "2.5",
+   "JumpZVelocity": "700",
+   "SwimSpeed": "165",
+   "SwimDashSpeed": "306",
+   "Stamina": "150"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "SakuraSaurus_Water": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "75",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "1020",
+   "TransportSpeed": "200",
+   "GravityScale": "2.5",
+   "JumpZVelocity": "700",
+   "SwimSpeed": "550",
+   "SwimDashSpeed": "1020",
+   "Stamina": "150"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "SumoDog": {
+  "movement": {
+   "SlowWalkSpeed": "60",
+   "WalkSpeed": "120",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "810",
+   "TransportSpeed": "120",
+   "JumpZVelocity": "460",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "243",
+   "Stamina": "110"
+  },
+  "level80": {
+   "HP": {
+    "min": 5500,
+    "max": 6880
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "Ronin": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "160",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "320",
+   "SwimSpeed": "50",
+   "SwimDashSpeed": "50",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 850,
+    "max": 1075
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "Ronin_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "160",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "320",
+   "SwimSpeed": "50",
+   "SwimDashSpeed": "50",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 880,
+    "max": 1114
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "BerryGoat": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "70",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "235",
+   "SwimSpeed": "120",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "BerryGoat_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "70",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "235",
+   "SwimSpeed": "120",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "VenusFlytrap": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "750",
+   "TransportSpeed": "330",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "225",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4300,
+    "max": 5320
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "PinkCat": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "60",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "160",
+   "SwimSpeed": "50",
+   "SwimDashSpeed": "50",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "YakushimaMonster003": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "150",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "275",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3500,
+    "max": 4280
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "DarkCrow": {
+  "movement": {
+   "SlowWalkSpeed": "85",
+   "WalkSpeed": "170",
+   "RunSpeed": "920",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "545",
+   "SwimSpeed": "276",
+   "SwimDashSpeed": "360",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "FlyingManta": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "150",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "350",
+   "SwimSpeed": "550",
+   "SwimDashSpeed": "550",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "FlyingManta_Thunder": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "150",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "350",
+   "SwimSpeed": "550",
+   "SwimDashSpeed": "550",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "WhiteDeer": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "140",
+   "RunSpeed": "800",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "400",
+   "GravityScale": "2",
+   "JumpZVelocity": "1500",
+   "SwimSpeed": "240",
+   "SwimDashSpeed": "360",
+   "Stamina": "260"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "WhiteDeer_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "140",
+   "RunSpeed": "800",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "400",
+   "GravityScale": "2",
+   "JumpZVelocity": "1500",
+   "SwimSpeed": "240",
+   "SwimDashSpeed": "360",
+   "Stamina": "260"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "ChickenPal": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "50",
+   "RunSpeed": "375",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "212",
+   "GravityScale": "0.8",
+   "SwimSpeed": "50",
+   "SwimDashSpeed": "50",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3300,
+    "max": 4020
+   },
+   "攻撃": {
+    "min": 460,
+    "max": 568
+   },
+   "防御": {
+    "min": 410,
+    "max": 518
+   }
+  }
+ },
+ "WeaselDragon": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "180",
+   "RunSpeed": "750",
+   "RideSprintSpeed": "1050",
+   "TransportSpeed": "390",
+   "GravityScale": "1.8",
+   "JumpZVelocity": "900",
+   "SwimSpeed": "1350",
+   "SwimDashSpeed": "1890",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "WeaselDragon_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "180",
+   "RunSpeed": "750",
+   "RideSprintSpeed": "1050",
+   "TransportSpeed": "390",
+   "GravityScale": "1.8",
+   "JumpZVelocity": "900",
+   "SwimSpeed": "750",
+   "SwimDashSpeed": "1050",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "CuteButterfly": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "150",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "350",
+   "SwimSpeed": "550",
+   "SwimDashSpeed": "550",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "CloverFairy": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "200",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 490,
+    "max": 607
+   },
+   "防御": {
+    "min": 440,
+    "max": 557
+   }
+  }
+ },
+ "WoolFox": {
+  "movement": {
+   "SlowWalkSpeed": "20",
+   "WalkSpeed": "40",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "170",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "135",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 500,
+    "max": 635
+   }
+  }
+ },
+ "KendoFrog": {
+  "movement": {
+   "SlowWalkSpeed": "33",
+   "WalkSpeed": "66",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "300",
+   "SwimSpeed": "540",
+   "SwimDashSpeed": "810",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "KendoFrog_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "33",
+   "WalkSpeed": "66",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "300",
+   "SwimSpeed": "540",
+   "SwimDashSpeed": "810",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4300,
+    "max": 5320
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "WhiteTiger": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "280",
+   "RunSpeed": "720",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "460",
+   "SwimSpeed": "100",
+   "SwimDashSpeed": "100",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "WhiteTiger_Ground": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "280",
+   "RunSpeed": "720",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "460",
+   "SwimSpeed": "50",
+   "SwimDashSpeed": "50",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "DreamDemon": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "140",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "220",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 410,
+    "max": 518
+   }
+  }
+ },
+ "FlowerPrince": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "160",
+   "RunSpeed": "1000",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "300",
+   "SwimSpeed": "1000",
+   "SwimDashSpeed": "1000",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5900,
+    "max": 7400
+   },
+   "攻撃": {
+    "min": 910,
+    "max": 1153
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "FeatherOstrich": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "160",
+   "RunSpeed": "900",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "-1",
+   "GravityScale": "0.85",
+   "JumpZVelocity": "800",
+   "SwimSpeed": "270",
+   "SwimDashSpeed": "360",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "RaijinDaughter": {
+  "movement": {
+   "SlowWalkSpeed": "120",
+   "WalkSpeed": "200",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "300",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "RaijinDaughter_Water": {
+  "movement": {
+   "SlowWalkSpeed": "120",
+   "WalkSpeed": "200",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "300",
+   "SwimSpeed": "720",
+   "SwimDashSpeed": "990",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 500,
+    "max": 635
+   }
+  }
+ },
+ "YakushimaBoss001_Small": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "150",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "275",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 620,
+    "max": 791
+   }
+  }
+ },
+ "NegativeKoala": {
+  "movement": {
+   "SlowWalkSpeed": "20",
+   "WalkSpeed": "20",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "400",
+   "TransportSpeed": "100",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "120",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "DrillGame": {
+  "movement": {
+   "SlowWalkSpeed": "75",
+   "WalkSpeed": "120",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "420",
+   "TransportSpeed": "190",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "126",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "FlowerDinosaur": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "120",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1030",
+   "TransportSpeed": "335",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "309",
+   "Stamina": "130"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "FlowerDinosaur_Electric": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "120",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1030",
+   "TransportSpeed": "335",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "309",
+   "Stamina": "130"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "Garm": {
+  "movement": {
+   "SlowWalkSpeed": "90",
+   "WalkSpeed": "180",
+   "RunSpeed": "800",
+   "RideSprintSpeed": "1050",
+   "TransportSpeed": "460",
+   "GravityScale": "2",
+   "JumpZVelocity": "800",
+   "SwimSpeed": "240",
+   "SwimDashSpeed": "315",
+   "Stamina": "70"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 500,
+    "max": 635
+   }
+  }
+ },
+ "SifuDog": {
+  "movement": {
+   "SlowWalkSpeed": "45",
+   "WalkSpeed": "75",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "187",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "GrassGolem": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "350",
+   "GravityScale": "1.2",
+   "JumpZVelocity": "450",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "240",
+   "Stamina": "210"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 800,
+    "max": 1025
+   }
+  }
+ },
+ "GrassGolem_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "350",
+   "GravityScale": "1.2",
+   "JumpZVelocity": "450",
+   "SwimSpeed": "600",
+   "SwimDashSpeed": "600",
+   "Stamina": "210"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 800,
+    "max": 1025
+   }
+  }
+ },
+ "LazyCatfish": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "450",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "300",
+   "SwimSpeed": "810",
+   "SwimDashSpeed": "1080",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 620,
+    "max": 791
+   }
+  }
+ },
+ "LazyCatfish_Gold": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "450",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "300",
+   "SwimSpeed": "810",
+   "SwimDashSpeed": "1080",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "ClownRabbit": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "750",
+   "TransportSpeed": "350",
+   "SwimSpeed": "500",
+   "SwimDashSpeed": "500",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "ThunderFluffyBird": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "300",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "300",
+   "Stamina": "140"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "GhostDragon": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "1400",
+   "RideSprintSpeed": "2750",
+   "TransportSpeed": "400",
+   "SwimSpeed": "1400",
+   "SwimDashSpeed": "1400",
+   "Stamina": "130"
+  },
+  "level80": {
+   "HP": {
+    "min": 5500,
+    "max": 6880
+   },
+   "攻撃": {
+    "min": 850,
+    "max": 1075
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "GhostDragon_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "1400",
+   "RideSprintSpeed": "2750",
+   "TransportSpeed": "400",
+   "SwimSpeed": "1400",
+   "SwimDashSpeed": "1400",
+   "Stamina": "130"
+  },
+  "level80": {
+   "HP": {
+    "min": 5500,
+    "max": 6880
+   },
+   "攻撃": {
+    "min": 880,
+    "max": 1114
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "Deer": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "120",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "390",
+   "GravityScale": "2.5",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "270",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "Deer_Ground": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "120",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "390",
+   "GravityScale": "2.5",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "105",
+   "SwimDashSpeed": "135",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "GrassMinotaur": {
+  "movement": {
+   "SlowWalkSpeed": "75",
+   "WalkSpeed": "150",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "200",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "GrassMinotaur_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "75",
+   "WalkSpeed": "150",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "200",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "QueenBee": {
+  "movement": {
+   "SlowWalkSpeed": "150",
+   "WalkSpeed": "250",
+   "RunSpeed": "450",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "350",
+   "SwimSpeed": "450",
+   "SwimDashSpeed": "450",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "FairyDragon": {
+  "movement": {
+   "SlowWalkSpeed": "83",
+   "WalkSpeed": "83",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "456",
+   "SwimSpeed": "189",
+   "SwimDashSpeed": "240",
+   "Stamina": "130"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "FairyDragon_Water": {
+  "movement": {
+   "SlowWalkSpeed": "83",
+   "WalkSpeed": "83",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "456",
+   "SwimSpeed": "1134",
+   "SwimDashSpeed": "1440",
+   "Stamina": "130"
+  },
+  "level80": {
+   "HP": {
+    "min": 5500,
+    "max": 6880
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 620,
+    "max": 791
+   }
+  }
+ },
+ "YakushimaMonster002": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "300",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "450",
+   "SwimSpeed": "600",
+   "SwimDashSpeed": "600",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "YakushimaBoss001": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "450",
+   "RunSpeed": "900",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "600",
+   "SwimSpeed": "900",
+   "SwimDashSpeed": "900",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 620,
+    "max": 791
+   }
+  }
+ },
+ "Horus": {
+  "movement": {
+   "SlowWalkSpeed": "150",
+   "WalkSpeed": "200",
+   "RunSpeed": "1000",
+   "RideSprintSpeed": "1400",
+   "TransportSpeed": "500",
+   "SwimSpeed": "1000",
+   "SwimDashSpeed": "1000",
+   "Stamina": "230"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 740,
+    "max": 947
+   }
+  }
+ },
+ "Horus_Water": {
+  "movement": {
+   "SlowWalkSpeed": "150",
+   "WalkSpeed": "200",
+   "RunSpeed": "1000",
+   "RideSprintSpeed": "1400",
+   "TransportSpeed": "500",
+   "SwimSpeed": "1800",
+   "SwimDashSpeed": "2520",
+   "Stamina": "230"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 740,
+    "max": 947
+   }
+  }
+ },
+ "CatVampire": {
+  "movement": {
+   "SlowWalkSpeed": "60",
+   "WalkSpeed": "100",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "325",
+   "SwimSpeed": "550",
+   "SwimDashSpeed": "550",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "FengyunDeeper": {
+  "movement": {
+   "SlowWalkSpeed": "85",
+   "WalkSpeed": "100",
+   "RunSpeed": "750",
+   "RideSprintSpeed": "1050",
+   "TransportSpeed": "417",
+   "GravityScale": "2",
+   "JumpZVelocity": "1300",
+   "SwimSpeed": "225",
+   "SwimDashSpeed": "315",
+   "Stamina": "140"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "FengyunDeeper_Electric": {
+  "movement": {
+   "SlowWalkSpeed": "85",
+   "WalkSpeed": "100",
+   "RunSpeed": "750",
+   "RideSprintSpeed": "1050",
+   "TransportSpeed": "417",
+   "GravityScale": "2",
+   "JumpZVelocity": "1300",
+   "SwimSpeed": "225",
+   "SwimDashSpeed": "315",
+   "Stamina": "140"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "StuffedShark": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "50",
+   "RunSpeed": "250",
+   "RideSprintSpeed": "400",
+   "TransportSpeed": "250",
+   "SwimSpeed": "450",
+   "SwimDashSpeed": "720",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "StuffedShark_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "50",
+   "RunSpeed": "250",
+   "RideSprintSpeed": "400",
+   "TransportSpeed": "250",
+   "SwimSpeed": "250",
+   "SwimDashSpeed": "250",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "LavaGirl": {
+  "movement": {
+   "SlowWalkSpeed": "65",
+   "WalkSpeed": "98",
+   "RunSpeed": "250",
+   "RideSprintSpeed": "375",
+   "TransportSpeed": "140",
+   "SwimSpeed": "46",
+   "SwimDashSpeed": "46",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3300,
+    "max": 4020
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "FoxExorcist": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "130",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "300",
+   "SwimSpeed": "150",
+   "SwimDashSpeed": "180",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 850,
+    "max": 1075
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "FlowerRabbit": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "100",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "250",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 490,
+    "max": 607
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "IceFox": {
+  "movement": {
+   "SlowWalkSpeed": "65",
+   "WalkSpeed": "130",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "750",
+   "TransportSpeed": "315",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "225",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "Kitsunebi": {
+  "movement": {
+   "SlowWalkSpeed": "40",
+   "WalkSpeed": "80",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "240",
+   "SwimSpeed": "120",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3500,
+    "max": 4280
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "Kitsunebi_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "40",
+   "WalkSpeed": "80",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "240",
+   "SwimSpeed": "120",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3500,
+    "max": 4280
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "IceHorse": {
+  "movement": {
+   "SlowWalkSpeed": "120",
+   "WalkSpeed": "120",
+   "RunSpeed": "1200",
+   "RideSprintSpeed": "1800",
+   "TransportSpeed": "440",
+   "JumpZVelocity": "800",
+   "SwimSpeed": "360",
+   "SwimDashSpeed": "540",
+   "Stamina": "300"
+  },
+  "level80": {
+   "HP": {
+    "min": 6500,
+    "max": 8180
+   },
+   "攻撃": {
+    "min": 940,
+    "max": 1192
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "IceHorse_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "120",
+   "WalkSpeed": "120",
+   "RunSpeed": "1200",
+   "RideSprintSpeed": "1800",
+   "TransportSpeed": "440",
+   "JumpZVelocity": "800",
+   "SwimSpeed": "360",
+   "SwimDashSpeed": "540",
+   "Stamina": "300"
+  },
+  "level80": {
+   "HP": {
+    "min": 6500,
+    "max": 8180
+   },
+   "攻撃": {
+    "min": 940,
+    "max": 1192
+   },
+   "防御": {
+    "min": 860,
+    "max": 1103
+   }
+  }
+ },
+ "SnowPeafowl": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "750",
+   "TransportSpeed": "-1",
+   "SwimSpeed": "150",
+   "SwimDashSpeed": "225",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "BluePlatypus": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "105",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "400",
+   "TransportSpeed": "202",
+   "SwimSpeed": "540",
+   "SwimDashSpeed": "720",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3300,
+    "max": 4020
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 410,
+    "max": 518
+   }
+  }
+ },
+ "BluePlatypus_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "105",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "400",
+   "TransportSpeed": "202",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3300,
+    "max": 4020
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 410,
+    "max": 518
+   }
+  }
+ },
+ "CuteMole": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "60",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "240",
+   "SwimSpeed": "50",
+   "SwimDashSpeed": "50",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3500,
+    "max": 4280
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 350,
+    "max": 440
+   }
+  }
+ },
+ "Eagle": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "400",
+   "GravityScale": "0.1",
+   "SwimSpeed": "600",
+   "SwimDashSpeed": "600",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 410,
+    "max": 518
+   }
+  }
+ },
+ "GhostAnglerfish": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "300",
+   "SwimSpeed": "1200",
+   "SwimDashSpeed": "1350",
+   "Stamina": "320"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 850,
+    "max": 1075
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "GhostAnglerfish_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "300",
+   "SwimSpeed": "1200",
+   "SwimDashSpeed": "1350",
+   "Stamina": "320"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 880,
+    "max": 1114
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "GoldenHorse": {
+  "movement": {
+   "SlowWalkSpeed": "170",
+   "WalkSpeed": "270",
+   "RunSpeed": "840",
+   "RideSprintSpeed": "1260",
+   "TransportSpeed": "-1",
+   "GravityScale": "2.5",
+   "JumpZVelocity": "1300",
+   "SwimSpeed": "252",
+   "SwimDashSpeed": "378",
+   "Stamina": "200"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "MummyPal": {
+  "movement": {
+   "SlowWalkSpeed": "75",
+   "WalkSpeed": "150",
+   "RunSpeed": "480",
+   "RideSprintSpeed": "720",
+   "TransportSpeed": "350",
+   "SwimSpeed": "144",
+   "SwimDashSpeed": "216",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "OctopusGirl": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "120",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "500",
+   "TransportSpeed": "210",
+   "GravityScale": "0.5",
+   "SwimSpeed": "540",
+   "SwimDashSpeed": "900",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "OctopusGirl_Neutral": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "120",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "500",
+   "TransportSpeed": "210",
+   "GravityScale": "0.5",
+   "SwimSpeed": "540",
+   "SwimDashSpeed": "900",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "SharkKid": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "80",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "500",
+   "TransportSpeed": "120",
+   "SwimSpeed": "720",
+   "SwimDashSpeed": "900",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 500,
+    "max": 635
+   }
+  }
+ },
+ "SharkKid_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "80",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "500",
+   "TransportSpeed": "120",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "500",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 500,
+    "max": 635
+   }
+  }
+ },
+ "Gorilla": {
+  "movement": {
+   "SlowWalkSpeed": "66",
+   "WalkSpeed": "100",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "720",
+   "TransportSpeed": "250",
+   "SwimSpeed": "165",
+   "SwimDashSpeed": "216",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "Gorilla_Ground": {
+  "movement": {
+   "SlowWalkSpeed": "66",
+   "WalkSpeed": "100",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "720",
+   "TransportSpeed": "250",
+   "SwimSpeed": "82",
+   "SwimDashSpeed": "108",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "YakushimaMonster001": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "50",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "200",
+   "JumpZVelocity": "1160",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3500,
+    "max": 4280
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "NaughtyCat": {
+  "movement": {
+   "SlowWalkSpeed": "32",
+   "WalkSpeed": "64",
+   "RunSpeed": "650",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "332",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "195",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "ElecPanda": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "140",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "210",
+   "GravityScale": "3",
+   "JumpZVelocity": "1500",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "300",
+   "Stamina": "180"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "PlantSlime": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "50",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "400",
+   "TransportSpeed": "175",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "120",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "WindChimes": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "250",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "WindChimes_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "250",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "LegendDeer": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "900",
+   "RideSprintSpeed": "1900",
+   "TransportSpeed": "450",
+   "GravityScale": "2",
+   "JumpZVelocity": "1500",
+   "SwimSpeed": "360",
+   "SwimDashSpeed": "540",
+   "Stamina": "400"
+  },
+  "level80": {
+   "HP": {
+    "min": 6300,
+    "max": 7920
+   },
+   "攻撃": {
+    "min": 880,
+    "max": 1114
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "HadesBird": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "100",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1100",
+   "TransportSpeed": "450",
+   "SwimSpeed": "700",
+   "SwimDashSpeed": "700",
+   "Stamina": "170"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 850,
+    "max": 1075
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "HadesBird_Electric": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "100",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1100",
+   "TransportSpeed": "450",
+   "SwimSpeed": "700",
+   "SwimDashSpeed": "700",
+   "Stamina": "170"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 850,
+    "max": 1075
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "LeafMomonga": {
+  "movement": {
+   "SlowWalkSpeed": "15",
+   "WalkSpeed": "30",
+   "RunSpeed": "350",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "350",
+   "GravityScale": "0.2",
+   "JumpZVelocity": "210",
+   "SwimSpeed": "105",
+   "SwimDashSpeed": "180",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 500,
+    "max": 635
+   }
+  }
+ },
+ "WizardOwl": {
+  "movement": {
+   "SlowWalkSpeed": "26",
+   "WalkSpeed": "70",
+   "RunSpeed": "380",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "225",
+   "SwimSpeed": "100",
+   "SwimDashSpeed": "100",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "HoodGhost": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "200",
+   "SwimSpeed": "120",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "IceWitch": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "200",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "YakushimaMonster003_Purple": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "150",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "275",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 620,
+    "max": 791
+   }
+  }
+ },
+ "YakushimaMonster001_Pink": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "50",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "200",
+   "JumpZVelocity": "1160",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "Baphomet": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "160",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "960",
+   "TransportSpeed": "320",
+   "GravityScale": "3",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "75",
+   "SwimDashSpeed": "75",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "Baphomet_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "160",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "960",
+   "TransportSpeed": "320",
+   "GravityScale": "3",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "75",
+   "SwimDashSpeed": "75",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "JellyfishFairy": {
+  "movement": {
+   "SlowWalkSpeed": "40",
+   "WalkSpeed": "80",
+   "RunSpeed": "240",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "160",
+   "GravityScale": "0.5",
+   "SwimSpeed": "432",
+   "SwimDashSpeed": "810",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "JellyfishGhost": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "300",
+   "SwimSpeed": "720",
+   "SwimDashSpeed": "1080",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 500,
+    "max": 635
+   }
+  }
+ },
+ "JetDragon": {
+  "movement": {
+   "SlowWalkSpeed": "200",
+   "WalkSpeed": "800",
+   "RunSpeed": "1700",
+   "RideSprintSpeed": "3300",
+   "TransportSpeed": "1250",
+   "JumpZVelocity": "600",
+   "SwimSpeed": "510",
+   "SwimDashSpeed": "990",
+   "Stamina": "110"
+  },
+  "level80": {
+   "HP": {
+    "min": 5500,
+    "max": 6880
+   },
+   "攻撃": {
+    "min": 940,
+    "max": 1192
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "Hedgehog": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "60",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "215",
+   "SwimSpeed": "120",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "Hedgehog_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "60",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "215",
+   "SwimSpeed": "120",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "Umihebi": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "175",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "350",
+   "SwimSpeed": "1080",
+   "SwimDashSpeed": "1800",
+   "Stamina": "150"
+  },
+  "level80": {
+   "HP": {
+    "min": 6100,
+    "max": 7660
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "Umihebi_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "175",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "350",
+   "SwimSpeed": "600",
+   "SwimDashSpeed": "1000",
+   "Stamina": "150"
+  },
+  "level80": {
+   "HP": {
+    "min": 6100,
+    "max": 7660
+   },
+   "攻撃": {
+    "min": 880,
+    "max": 1114
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "CatMage": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "145",
+   "RunSpeed": "440",
+   "RideSprintSpeed": "620",
+   "TransportSpeed": "292",
+   "SwimSpeed": "440",
+   "SwimDashSpeed": "620",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "CatMage_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "145",
+   "RunSpeed": "440",
+   "RideSprintSpeed": "620",
+   "TransportSpeed": "292",
+   "SwimSpeed": "440",
+   "SwimDashSpeed": "620",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "Kelpie": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "400",
+   "SwimSpeed": "1260",
+   "SwimDashSpeed": "1620",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "Kelpie_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "400",
+   "SwimSpeed": "700",
+   "SwimDashSpeed": "700",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "SmallArmadillo": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "800",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "300",
+   "SwimSpeed": "100",
+   "SwimDashSpeed": "100",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "NegativeOctopus": {
+  "movement": {
+   "SlowWalkSpeed": "60",
+   "WalkSpeed": "120",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "260",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "550",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3300,
+    "max": 4020
+   },
+   "攻撃": {
+    "min": 460,
+    "max": 568
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "NegativeOctopus_Neutral": {
+  "movement": {
+   "SlowWalkSpeed": "60",
+   "WalkSpeed": "120",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "260",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 460,
+    "max": 568
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "KingAlpaca": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "80",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1040",
+   "TransportSpeed": "290",
+   "GravityScale": "3",
+   "JumpZVelocity": "1750",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "312",
+   "Stamina": "170"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "KingAlpaca_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "80",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1040",
+   "TransportSpeed": "290",
+   "GravityScale": "3",
+   "JumpZVelocity": "1750",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "312",
+   "Stamina": "170"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "AmaterasuWolf": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "130",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1100",
+   "TransportSpeed": "415",
+   "GravityScale": "2",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "330",
+   "Stamina": "140"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "AmaterasuWolf_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "130",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1100",
+   "TransportSpeed": "415",
+   "GravityScale": "2",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "330",
+   "Stamina": "140"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "WingGolem": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "190",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "400",
+   "SwimSpeed": "165",
+   "SwimDashSpeed": "210",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 860,
+    "max": 1103
+   }
+  }
+ },
+ "WingGolem_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "190",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "400",
+   "SwimSpeed": "165",
+   "SwimDashSpeed": "210",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 860,
+    "max": 1103
+   }
+  }
+ },
+ "SheepBall": {
+  "movement": {
+   "SlowWalkSpeed": "23",
+   "WalkSpeed": "40",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "160",
+   "SwimSpeed": "120",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "BrownRabbit": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "480",
+   "RideSprintSpeed": "720",
+   "TransportSpeed": "220",
+   "SwimSpeed": "864",
+   "SwimDashSpeed": "1296",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "SleeveRabbit": {
+  "movement": {
+   "SlowWalkSpeed": "40",
+   "WalkSpeed": "40",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "100",
+   "SwimSpeed": "600",
+   "SwimDashSpeed": "600",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "PandaGirl": {
+  "movement": {
+   "SlowWalkSpeed": "60",
+   "WalkSpeed": "120",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "750",
+   "TransportSpeed": "300",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "225",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 620,
+    "max": 791
+   }
+  }
+ },
+ "LizardMan": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "140",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "270",
+   "SwimSpeed": "150",
+   "SwimDashSpeed": "150",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 350,
+    "max": 440
+   }
+  }
+ },
+ "LizardMan_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "140",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "270",
+   "SwimSpeed": "75",
+   "SwimDashSpeed": "75",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 350,
+    "max": 440
+   }
+  }
+ },
+ "Carbunclo": {
+  "movement": {
+   "SlowWalkSpeed": "20",
+   "WalkSpeed": "40",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "250",
+   "JumpZVelocity": "400",
+   "SwimSpeed": "120",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "LanternButler": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "50",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "175",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 620,
+    "max": 791
+   }
+  }
+ },
+ "Werewolf": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "175",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "375",
+   "SwimSpeed": "75",
+   "SwimDashSpeed": "75",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "Werewolf_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "175",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "375",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "240",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "PinkLizard": {
+  "movement": {
+   "SlowWalkSpeed": "90",
+   "WalkSpeed": "170",
+   "RunSpeed": "750",
+   "RideSprintSpeed": "850",
+   "TransportSpeed": "460",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "LeafPrincess": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "250",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "Mutant": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "130",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "650",
+   "TransportSpeed": "315",
+   "SwimSpeed": "500",
+   "SwimDashSpeed": "500",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "LilyQueen": {
+  "movement": {
+   "SlowWalkSpeed": "60",
+   "WalkSpeed": "100",
+   "RunSpeed": "450",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "275",
+   "SwimSpeed": "450",
+   "SwimDashSpeed": "450",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "LilyQueen_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "60",
+   "WalkSpeed": "100",
+   "RunSpeed": "450",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "275",
+   "SwimSpeed": "450",
+   "SwimDashSpeed": "450",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5500,
+    "max": 6880
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 740,
+    "max": 947
+   }
+  }
+ },
+ "DarkFlameFox": {
+  "movement": {
+   "SlowWalkSpeed": "75",
+   "WalkSpeed": "150",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "750",
+   "TransportSpeed": "150",
+   "SwimSpeed": "150",
+   "SwimDashSpeed": "225",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "GrassMammoth": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "135",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "1030",
+   "TransportSpeed": "282",
+   "GravityScale": "3",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "309",
+   "Stamina": "180"
+  },
+  "level80": {
+   "HP": {
+    "min": 6900,
+    "max": 8700
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "GrassMammoth_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "135",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "1030",
+   "TransportSpeed": "282",
+   "GravityScale": "3",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "309",
+   "Stamina": "180"
+  },
+  "level80": {
+   "HP": {
+    "min": 6900,
+    "max": 8700
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "GhostBeast": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "160",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1100",
+   "TransportSpeed": "365",
+   "JumpZVelocity": "800",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "330",
+   "Stamina": "130"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "Bastet": {
+  "movement": {
+   "SlowWalkSpeed": "52",
+   "WalkSpeed": "105",
+   "RunSpeed": "475",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "317",
+   "SwimSpeed": "142",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 460,
+    "max": 568
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "Bastet_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "52",
+   "WalkSpeed": "105",
+   "RunSpeed": "475",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "317",
+   "SwimSpeed": "142",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 490,
+    "max": 607
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "Alpaca": {
+  "movement": {
+   "SlowWalkSpeed": "62",
+   "WalkSpeed": "62",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "261",
+   "GravityScale": "2",
+   "JumpZVelocity": "700",
+   "SwimSpeed": "150",
+   "SwimDashSpeed": "270",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "DarkScorpion": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "1000",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "600",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "360",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 830,
+    "max": 1064
+   }
+  }
+ },
+ "DarkScorpion_Ground": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "1000",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "600",
+   "SwimSpeed": "150",
+   "SwimDashSpeed": "180",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 830,
+    "max": 1064
+   }
+  }
+ },
+ "MimicDog": {
+  "movement": {
+   "SlowWalkSpeed": "40",
+   "WalkSpeed": "80",
+   "RunSpeed": "2000",
+   "RideSprintSpeed": "-1",
+   "TransportSpeed": "450",
+   "SwimSpeed": "600",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3300,
+    "max": 4020
+   },
+   "攻撃": {
+    "min": 460,
+    "max": 568
+   },
+   "防御": {
+    "min": 830,
+    "max": 1064
+   }
+  }
+ },
+ "VolcanoDragon": {
+  "movement": {
+   "SlowWalkSpeed": "55",
+   "WalkSpeed": "220",
+   "RunSpeed": "650",
+   "RideSprintSpeed": "850",
+   "TransportSpeed": "-1",
+   "GravityScale": "1.5",
+   "JumpZVelocity": "500",
+   "SwimSpeed": "195",
+   "SwimDashSpeed": "255",
+   "Stamina": "270"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 850,
+    "max": 1075
+   },
+   "防御": {
+    "min": 740,
+    "max": 947
+   }
+  }
+ },
+ "VolcanoDragon_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "55",
+   "WalkSpeed": "220",
+   "RunSpeed": "650",
+   "RideSprintSpeed": "850",
+   "TransportSpeed": "-1",
+   "GravityScale": "1.5",
+   "JumpZVelocity": "500",
+   "SwimSpeed": "195",
+   "SwimDashSpeed": "255",
+   "Stamina": "270"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 850,
+    "max": 1075
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "GrassPanda": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "275",
+   "GravityScale": "0.25",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "300",
+   "Stamina": "130"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "GrassPanda_Electric": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "275",
+   "GravityScale": "0.25",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "300",
+   "Stamina": "130"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "CowPal": {
+  "movement": {
+   "SlowWalkSpeed": "55",
+   "WalkSpeed": "55",
+   "RunSpeed": "580",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "317",
+   "GravityScale": "3",
+   "JumpZVelocity": "600",
+   "SwimSpeed": "174",
+   "SwimDashSpeed": "210",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 400,
+    "max": 490
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "FluffyBird": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "110",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "75",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "135",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3300,
+    "max": 4020
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 380,
+    "max": 479
+   }
+  }
+ },
+ "IceCrocodile": {
+  "movement": {
+   "SlowWalkSpeed": "20",
+   "WalkSpeed": "40",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "40",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "135",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "MushroomLady": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "50",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "100",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "180",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "BlackCentaur": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "350",
+   "RunSpeed": "1300",
+   "RideSprintSpeed": "1900",
+   "TransportSpeed": "625",
+   "GravityScale": "2.5",
+   "JumpZVelocity": "900",
+   "SwimSpeed": "390",
+   "SwimDashSpeed": "570",
+   "Stamina": "350"
+  },
+  "level80": {
+   "HP": {
+    "min": 6100,
+    "max": 7660
+   },
+   "攻撃": {
+    "min": 970,
+    "max": 1231
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "CactusDoll": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "525",
+   "RideSprintSpeed": "630",
+   "TransportSpeed": "200",
+   "SwimSpeed": "157",
+   "SwimDashSpeed": "189",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "CactusDoll_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "525",
+   "RideSprintSpeed": "630",
+   "TransportSpeed": "200",
+   "SwimSpeed": "157",
+   "SwimDashSpeed": "189",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "PoseidonOrca": {
+  "movement": {
+   "SlowWalkSpeed": "150",
+   "WalkSpeed": "300",
+   "RunSpeed": "750",
+   "RideSprintSpeed": "1120",
+   "TransportSpeed": "450",
+   "GravityScale": "1.4",
+   "JumpZVelocity": "1120",
+   "SwimSpeed": "1800",
+   "SwimDashSpeed": "2000",
+   "Stamina": "410"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 970,
+    "max": 1231
+   },
+   "防御": {
+    "min": 800,
+    "max": 1025
+   }
+  }
+ },
+ "GhostRabbit": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "130",
+   "RunSpeed": "380",
+   "RideSprintSpeed": "500",
+   "TransportSpeed": "180",
+   "SwimSpeed": "380",
+   "SwimDashSpeed": "380",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "GhostRabbit_Grass": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "130",
+   "RunSpeed": "380",
+   "RideSprintSpeed": "500",
+   "TransportSpeed": "180",
+   "SwimSpeed": "380",
+   "SwimDashSpeed": "380",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "HawkBird": {
+  "movement": {
+   "SlowWalkSpeed": "150",
+   "WalkSpeed": "150",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "750",
+   "TransportSpeed": "450",
+   "SwimSpeed": "600",
+   "SwimDashSpeed": "600",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "NightFox": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "60",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "500",
+   "TransportSpeed": "164",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "150",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "BadCatgirl": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "400",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "600",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "MysteryMask": {
+  "movement": {
+   "SlowWalkSpeed": "40",
+   "WalkSpeed": "70",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "520",
+   "TransportSpeed": "-1",
+   "SwimSpeed": "720",
+   "SwimDashSpeed": "936",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "LotusDragon": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "175",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1500",
+   "TransportSpeed": "200",
+   "JumpZVelocity": "550",
+   "SwimSpeed": "1600",
+   "SwimDashSpeed": "1900",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 6100,
+    "max": 7660
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "ThunderDragonMan": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "185",
+   "RunSpeed": "900",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "250",
+   "SwimSpeed": "1620",
+   "SwimDashSpeed": "2160",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 880,
+    "max": 1114
+   },
+   "防御": {
+    "min": 740,
+    "max": 947
+   }
+  }
+ },
+ "SaintCentaur": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "800",
+   "RideSprintSpeed": "1800",
+   "TransportSpeed": "450",
+   "GravityScale": "2.5",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "240",
+   "SwimDashSpeed": "540",
+   "Stamina": "400"
+  },
+  "level80": {
+   "HP": {
+    "min": 6100,
+    "max": 7660
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 920,
+    "max": 1181
+   }
+  }
+ },
+ "TropicalOstrich": {
+  "movement": {
+   "SlowWalkSpeed": "150",
+   "WalkSpeed": "180",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "400",
+   "JumpZVelocity": "610",
+   "SwimSpeed": "165",
+   "SwimDashSpeed": "300",
+   "Stamina": "180"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 740,
+    "max": 947
+   }
+  }
+ },
+ "KingWhale": {
+  "movement": {
+   "SlowWalkSpeed": "3000",
+   "WalkSpeed": "3000",
+   "RunSpeed": "3000",
+   "RideSprintSpeed": "3000",
+   "TransportSpeed": "3000",
+   "SwimSpeed": "3000",
+   "SwimDashSpeed": "3000",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 8100,
+    "max": 10260
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 1250,
+    "max": 1610
+   }
+  }
+ },
+ "Penguin": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "60",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "650",
+   "TransportSpeed": "265",
+   "SwimSpeed": "900",
+   "SwimDashSpeed": "1170",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "Penguin_Electric": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "60",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "650",
+   "TransportSpeed": "265",
+   "SwimSpeed": "500",
+   "SwimDashSpeed": "650",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "CaptainPenguin": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "110",
+   "RunSpeed": "450",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "280",
+   "SwimSpeed": "810",
+   "SwimDashSpeed": "1080",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 620,
+    "max": 791
+   }
+  }
+ },
+ "CaptainPenguin_Black": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "110",
+   "RunSpeed": "450",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "280",
+   "SwimSpeed": "810",
+   "SwimDashSpeed": "1080",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "FlowerDoll": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "350",
+   "SwimSpeed": "550",
+   "SwimDashSpeed": "550",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "FlowerDoll_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "350",
+   "SwimSpeed": "550",
+   "SwimDashSpeed": "550",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "RockBeast": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "140",
+   "RunSpeed": "350",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "230",
+   "SwimSpeed": "105",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "RockBeast_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "140",
+   "RunSpeed": "350",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "230",
+   "SwimSpeed": "350",
+   "SwimDashSpeed": "350",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "IceSeal": {
+  "movement": {
+   "SlowWalkSpeed": "20",
+   "WalkSpeed": "45",
+   "RunSpeed": "250",
+   "RideSprintSpeed": "375",
+   "TransportSpeed": "250",
+   "SwimSpeed": "450",
+   "SwimDashSpeed": "675",
+   "Stamina": "120"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "IceSeal_Ground": {
+  "movement": {
+   "SlowWalkSpeed": "20",
+   "WalkSpeed": "45",
+   "RunSpeed": "250",
+   "RideSprintSpeed": "375",
+   "TransportSpeed": "250",
+   "SwimSpeed": "450",
+   "SwimDashSpeed": "675",
+   "Stamina": "120"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "ScorpionMan": {
+  "movement": {
+   "SlowWalkSpeed": "90",
+   "WalkSpeed": "180",
+   "RunSpeed": "720",
+   "RideSprintSpeed": "-1",
+   "TransportSpeed": "-1",
+   "SwimSpeed": "50",
+   "SwimDashSpeed": "50",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "ScorpionMan_Electric": {
+  "movement": {
+   "SlowWalkSpeed": "90",
+   "WalkSpeed": "180",
+   "RunSpeed": "720",
+   "RideSprintSpeed": "-1",
+   "TransportSpeed": "-1",
+   "SwimSpeed": "50",
+   "SwimDashSpeed": "50",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "BlueberryFairy": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "350",
+   "SwimSpeed": "550",
+   "SwimDashSpeed": "550",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "ElecPomeranian": {
+  "movement": {
+   "SlowWalkSpeed": "35",
+   "WalkSpeed": "70",
+   "RunSpeed": "200",
+   "RideSprintSpeed": "400",
+   "TransportSpeed": "200",
+   "SwimSpeed": "200",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "SamuraiDog": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "45",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "200",
+   "SwimSpeed": "120",
+   "SwimDashSpeed": "180",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "YakushimaMonster001_Purple": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "50",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "200",
+   "JumpZVelocity": "1160",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "FireKirin": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "850",
+   "RideSprintSpeed": "1300",
+   "TransportSpeed": "500",
+   "GravityScale": "3",
+   "JumpZVelocity": "1500",
+   "SwimSpeed": "255",
+   "SwimDashSpeed": "390",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "FireKirin_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "850",
+   "RideSprintSpeed": "1300",
+   "TransportSpeed": "500",
+   "GravityScale": "3",
+   "JumpZVelocity": "1500",
+   "SwimSpeed": "255",
+   "SwimDashSpeed": "390",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "SkyDragon": {
+  "movement": {
+   "SlowWalkSpeed": "120",
+   "WalkSpeed": "240",
+   "RunSpeed": "900",
+   "RideSprintSpeed": "1400",
+   "TransportSpeed": "470",
+   "SwimSpeed": "240",
+   "SwimDashSpeed": "285",
+   "Stamina": "220"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "SkyDragon_Grass": {
+  "movement": {
+   "SlowWalkSpeed": "120",
+   "WalkSpeed": "240",
+   "RunSpeed": "900",
+   "RideSprintSpeed": "1400",
+   "TransportSpeed": "470",
+   "SwimSpeed": "240",
+   "SwimDashSpeed": "285",
+   "Stamina": "220"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "RedArmorBird": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "800",
+   "RideSprintSpeed": "1300",
+   "TransportSpeed": "375",
+   "SwimSpeed": "800",
+   "SwimDashSpeed": "800",
+   "Stamina": "150"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "YakushimaMonster001_Rainbow": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "50",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "200",
+   "JumpZVelocity": "1160",
+   "SwimSpeed": "540",
+   "SwimDashSpeed": "810",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "ThunderDog": {
+  "movement": {
+   "SlowWalkSpeed": "110",
+   "WalkSpeed": "210",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1150",
+   "TransportSpeed": "455",
+   "GravityScale": "2.5",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "345",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "ThunderDog_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "110",
+   "WalkSpeed": "210",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1150",
+   "TransportSpeed": "455",
+   "GravityScale": "2.5",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "345",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "YakushimaMonster001_Red": {
+  "movement": {
+   "SlowWalkSpeed": "25",
+   "WalkSpeed": "50",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "200",
+   "JumpZVelocity": "1160",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "IceDeer": {
+  "movement": {
+   "SlowWalkSpeed": "35",
+   "WalkSpeed": "70",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1070",
+   "TransportSpeed": "310",
+   "GravityScale": "2.2",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "321",
+   "Stamina": "140"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "LazyDragon": {
+  "movement": {
+   "SlowWalkSpeed": "40",
+   "WalkSpeed": "60",
+   "RunSpeed": "650",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "150",
+   "SwimSpeed": "1170",
+   "SwimDashSpeed": "1800",
+   "Stamina": "200"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "LazyDragon_Electric": {
+  "movement": {
+   "SlowWalkSpeed": "40",
+   "WalkSpeed": "60",
+   "RunSpeed": "650",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "150",
+   "SwimSpeed": "650",
+   "SwimDashSpeed": "1000",
+   "Stamina": "200"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "KabukiMan": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "500",
+   "TransportSpeed": "250",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "500",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "VolcanicMonster": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "80",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "235",
+   "GravityScale": "3",
+   "JumpZVelocity": "600",
+   "SwimSpeed": "165",
+   "SwimDashSpeed": "300",
+   "Stamina": "220"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "VolcanicMonster_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "80",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "235",
+   "GravityScale": "3",
+   "JumpZVelocity": "600",
+   "SwimSpeed": "165",
+   "SwimDashSpeed": "300",
+   "Stamina": "220"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 830,
+    "max": 1064
+   }
+  }
+ },
+ "PinkRabbit": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "245",
+   "RideSprintSpeed": "350",
+   "TransportSpeed": "172",
+   "SwimSpeed": "73",
+   "SwimDashSpeed": "105",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 490,
+    "max": 607
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "PinkRabbit_Grass": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "245",
+   "RideSprintSpeed": "350",
+   "TransportSpeed": "172",
+   "SwimSpeed": "73",
+   "SwimDashSpeed": "105",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 490,
+    "max": 607
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "RobinHood": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "100",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "750",
+   "TransportSpeed": "400",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "225",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "RobinHood_Ground": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "100",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "750",
+   "TransportSpeed": "400",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "112",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "FlameBambi": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "100",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "-1",
+   "SwimSpeed": "120",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 500,
+    "max": 635
+   }
+  }
+ },
+ "ThiefBird": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "170",
+   "RunSpeed": "950",
+   "RideSprintSpeed": "1350",
+   "TransportSpeed": "450",
+   "SwimSpeed": "950",
+   "SwimDashSpeed": "950",
+   "Stamina": "200"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 620,
+    "max": 791
+   }
+  }
+ },
+ "Boar": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "150",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "300",
+   "GravityScale": "3",
+   "JumpZVelocity": "600",
+   "SwimSpeed": "150",
+   "SwimDashSpeed": "240",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "Sekhmet": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "375",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "270",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "MoonQueen": {
+  "movement": {
+   "SlowWalkSpeed": "60",
+   "WalkSpeed": "150",
+   "RunSpeed": "1000",
+   "RideSprintSpeed": "1600",
+   "TransportSpeed": "275",
+   "SwimSpeed": "1000",
+   "SwimDashSpeed": "1000",
+   "Stamina": "300"
+  },
+  "level80": {
+   "HP": {
+    "min": 6100,
+    "max": 7660
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "BlackGriffon": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "80",
+   "RunSpeed": "1100",
+   "RideSprintSpeed": "1600",
+   "TransportSpeed": "465",
+   "JumpZVelocity": "700",
+   "SwimSpeed": "255",
+   "SwimDashSpeed": "360",
+   "Stamina": "250"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 890,
+    "max": 1142
+   }
+  }
+ },
+ "BlueSkyDragon": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "300",
+   "RunSpeed": "1400",
+   "RideSprintSpeed": "2800",
+   "TransportSpeed": "450",
+   "SwimSpeed": "1400",
+   "SwimDashSpeed": "1400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 6500,
+    "max": 8180
+   },
+   "攻撃": {
+    "min": 910,
+    "max": 1153
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "MushroomDragon": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "80",
+   "RunSpeed": "740",
+   "RideSprintSpeed": "1050",
+   "TransportSpeed": "-1",
+   "GravityScale": "0.75",
+   "JumpZVelocity": "525",
+   "SwimSpeed": "222",
+   "SwimDashSpeed": "315",
+   "Stamina": "220"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "MushroomDragon_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "80",
+   "RunSpeed": "740",
+   "RideSprintSpeed": "1050",
+   "TransportSpeed": "-1",
+   "GravityScale": "0.75",
+   "JumpZVelocity": "525",
+   "SwimSpeed": "222",
+   "SwimDashSpeed": "315",
+   "Stamina": "220"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "WhiteMoth": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "250",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "WhiteMoth_Neutral": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "250",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5500,
+    "max": 6880
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "Mothman": {
+  "movement": {
+   "SlowWalkSpeed": "60",
+   "WalkSpeed": "120",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "750",
+   "TransportSpeed": "500",
+   "SwimSpeed": "500",
+   "SwimDashSpeed": "500",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 6500,
+    "max": 8180
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "WhiteShieldDragon": {
+  "movement": {
+   "SlowWalkSpeed": "90",
+   "WalkSpeed": "150",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "1050",
+   "TransportSpeed": "-1",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "315",
+   "Stamina": "280"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 740,
+    "max": 947
+   }
+  }
+ },
+ "SwordCutlassfish": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "300",
+   "GravityScale": "0.75",
+   "SwimSpeed": "900",
+   "SwimDashSpeed": "1440",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "SwordCutlassfish_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "300",
+   "GravityScale": "0.75",
+   "SwimSpeed": "900",
+   "SwimDashSpeed": "1440",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "ElecLizard": {
+  "movement": {
+   "SlowWalkSpeed": "55",
+   "WalkSpeed": "110",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "390",
+   "TransportSpeed": "-1",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "117",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "BlackPuppy": {
+  "movement": {
+   "SlowWalkSpeed": "40",
+   "WalkSpeed": "80",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "-1",
+   "SwimSpeed": "100",
+   "SwimDashSpeed": "100",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4300,
+    "max": 5320
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "BlackPuppy_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "40",
+   "WalkSpeed": "80",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "-1",
+   "SwimSpeed": "100",
+   "SwimDashSpeed": "100",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4300,
+    "max": 5320
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "ElecSnail": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "50",
+   "RunSpeed": "360",
+   "RideSprintSpeed": "945",
+   "TransportSpeed": "120",
+   "SwimSpeed": "50",
+   "SwimDashSpeed": "50",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3500,
+    "max": 4280
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 500,
+    "max": 635
+   }
+  }
+ },
+ "ElecSnail_Ground": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "50",
+   "RunSpeed": "360",
+   "RideSprintSpeed": "945",
+   "TransportSpeed": "120",
+   "SwimSpeed": "50",
+   "SwimDashSpeed": "50",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3500,
+    "max": 4280
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "SmallYeti": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "85",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "100",
+   "SwimSpeed": "120",
+   "SwimDashSpeed": "180",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "MonochromeQueen": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "450",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "250",
+   "SwimSpeed": "450",
+   "SwimDashSpeed": "450",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 740,
+    "max": 947
+   }
+  }
+ },
+ "KingSunfish": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "50",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "150",
+   "GravityScale": "0.8",
+   "JumpZVelocity": "450",
+   "SwimSpeed": "1100",
+   "SwimDashSpeed": "1300",
+   "Stamina": "220"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "KingSunfish_Thunder": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "50",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "150",
+   "GravityScale": "0.8",
+   "JumpZVelocity": "450",
+   "SwimSpeed": "1100",
+   "SwimDashSpeed": "1300",
+   "Stamina": "220"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "CandleGhost": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "250",
+   "RunSpeed": "800",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "450",
+   "SwimSpeed": "800",
+   "SwimDashSpeed": "1000",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 850,
+    "max": 1075
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "DandelionGirl": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "50",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 410,
+    "max": 518
+   }
+  }
+ },
+ "ElecCat": {
+  "movement": {
+   "SlowWalkSpeed": "40",
+   "WalkSpeed": "80",
+   "RunSpeed": "350",
+   "RideSprintSpeed": "500",
+   "TransportSpeed": "270",
+   "SwimSpeed": "105",
+   "SwimDashSpeed": "150",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3300,
+    "max": 4020
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "GrimGirl": {
+  "movement": {
+   "SlowWalkSpeed": "60",
+   "WalkSpeed": "120",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "660",
+   "TransportSpeed": "180",
+   "SwimSpeed": "165",
+   "SwimDashSpeed": "198",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "NightBlueHorse": {
+  "movement": {
+   "SlowWalkSpeed": "150",
+   "WalkSpeed": "150",
+   "RunSpeed": "900",
+   "RideSprintSpeed": "1250",
+   "TransportSpeed": "-1",
+   "GravityScale": "3",
+   "JumpZVelocity": "1500",
+   "SwimSpeed": "270",
+   "SwimDashSpeed": "375",
+   "Stamina": "230"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "NightBlueHorse_Neutral": {
+  "movement": {
+   "SlowWalkSpeed": "150",
+   "WalkSpeed": "150",
+   "RunSpeed": "900",
+   "RideSprintSpeed": "1250",
+   "TransportSpeed": "-1",
+   "GravityScale": "3",
+   "JumpZVelocity": "1500",
+   "SwimSpeed": "270",
+   "SwimDashSpeed": "375",
+   "Stamina": "230"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "Serpent": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "350",
+   "JumpZVelocity": "550",
+   "SwimSpeed": "900",
+   "SwimDashSpeed": "1440",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "Serpent_Ground": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "800",
+   "TransportSpeed": "350",
+   "JumpZVelocity": "550",
+   "SwimSpeed": "500",
+   "SwimDashSpeed": "500",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "Suzaku": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "850",
+   "RideSprintSpeed": "1100",
+   "TransportSpeed": "450",
+   "SwimSpeed": "850",
+   "SwimDashSpeed": "850",
+   "Stamina": "350"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "Suzaku_Water": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "850",
+   "RideSprintSpeed": "1100",
+   "TransportSpeed": "450",
+   "SwimSpeed": "850",
+   "SwimDashSpeed": "850",
+   "Stamina": "350"
+  },
+  "level80": {
+   "HP": {
+    "min": 5900,
+    "max": 7400
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "MopBaby": {
+  "movement": {
+   "SlowWalkSpeed": "55",
+   "WalkSpeed": "100",
+   "RunSpeed": "250",
+   "RideSprintSpeed": "400",
+   "TransportSpeed": "175",
+   "SwimSpeed": "75",
+   "SwimDashSpeed": "120",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3300,
+    "max": 4020
+   },
+   "攻撃": {
+    "min": 460,
+    "max": 568
+   },
+   "防御": {
+    "min": 410,
+    "max": 518
+   }
+  }
+ },
+ "MopKing": {
+  "movement": {
+   "SlowWalkSpeed": "60",
+   "WalkSpeed": "120",
+   "RunSpeed": "650",
+   "RideSprintSpeed": "1020",
+   "TransportSpeed": "210",
+   "JumpZVelocity": "550",
+   "SwimSpeed": "195",
+   "SwimDashSpeed": "306",
+   "Stamina": "120"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "Monkey": {
+  "movement": {
+   "SlowWalkSpeed": "48",
+   "WalkSpeed": "48",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "400",
+   "TransportSpeed": "174",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "120",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "Monkey_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "48",
+   "WalkSpeed": "48",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "400",
+   "TransportSpeed": "174",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "120",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "PurpleSpider": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "160",
+   "RunSpeed": "640",
+   "RideSprintSpeed": "1000",
+   "TransportSpeed": "200",
+   "GravityScale": "1.5",
+   "JumpZVelocity": "600",
+   "SwimSpeed": "192",
+   "SwimDashSpeed": "300",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "Ganesha": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "60",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "400",
+   "TransportSpeed": "180",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "120",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 460,
+    "max": 568
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "CubeTurtle": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "80",
+   "RunSpeed": "360",
+   "RideSprintSpeed": "540",
+   "TransportSpeed": "360",
+   "GravityScale": "1.2",
+   "JumpZVelocity": "450",
+   "SwimSpeed": "360",
+   "SwimDashSpeed": "360",
+   "Stamina": "200"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 860,
+    "max": 1103
+   }
+  }
+ },
+ "CubeTurtle_Neutral": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "80",
+   "RunSpeed": "360",
+   "RideSprintSpeed": "540",
+   "TransportSpeed": "360",
+   "GravityScale": "1.2",
+   "JumpZVelocity": "450",
+   "SwimSpeed": "360",
+   "SwimDashSpeed": "360",
+   "Stamina": "200"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 890,
+    "max": 1142
+   }
+  }
+ },
+ "ColorfulBird": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "60",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "170",
+   "SwimSpeed": "90",
+   "SwimDashSpeed": "165",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3300,
+    "max": 4020
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "CatBat": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "140",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "270",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4700,
+    "max": 5840
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "RedFlowerBird": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "150",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "200",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "180",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4300,
+    "max": 5320
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "TentacleTurtle": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "320",
+   "RideSprintSpeed": "500",
+   "TransportSpeed": "190",
+   "SwimSpeed": "320",
+   "SwimDashSpeed": "320",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 550,
+    "max": 685
+   },
+   "防御": {
+    "min": 740,
+    "max": 947
+   }
+  }
+ },
+ "TentacleTurtle_Ground": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "320",
+   "RideSprintSpeed": "500",
+   "TransportSpeed": "190",
+   "SwimSpeed": "320",
+   "SwimDashSpeed": "320",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4300,
+    "max": 5320
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 800,
+    "max": 1025
+   }
+  }
+ },
+ "Kirin": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "130",
+   "RunSpeed": "720",
+   "RideSprintSpeed": "1100",
+   "TransportSpeed": "425",
+   "GravityScale": "2",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "216",
+   "SwimDashSpeed": "330",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 680,
+    "max": 869
+   }
+  }
+ },
+ "Kirin_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "80",
+   "WalkSpeed": "130",
+   "RunSpeed": "720",
+   "RideSprintSpeed": "1100",
+   "TransportSpeed": "425",
+   "GravityScale": "2",
+   "JumpZVelocity": "1000",
+   "SwimSpeed": "216",
+   "SwimDashSpeed": "330",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "VioletFairy": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "150",
+   "RunSpeed": "400",
+   "RideSprintSpeed": "550",
+   "TransportSpeed": "275",
+   "SwimSpeed": "400",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4900,
+    "max": 6100
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "LongCat": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "70",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "900",
+   "TransportSpeed": "150",
+   "SwimSpeed": "210",
+   "SwimDashSpeed": "270",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3900,
+    "max": 4800
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "BirdDragon": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "350",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "850",
+   "TransportSpeed": "475",
+   "SwimSpeed": "700",
+   "SwimDashSpeed": "700",
+   "Stamina": "150"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "BirdDragon_Ice": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "350",
+   "RunSpeed": "700",
+   "RideSprintSpeed": "850",
+   "TransportSpeed": "475",
+   "SwimSpeed": "700",
+   "SwimDashSpeed": "700",
+   "Stamina": "150"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 620,
+    "max": 791
+   }
+  }
+ },
+ "SnakeGirl": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "450",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "200",
+   "SwimSpeed": "450",
+   "SwimDashSpeed": "450",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "GrassRabbitMan": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "195",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "275",
+   "SwimSpeed": "500",
+   "SwimDashSpeed": "700",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "CuteFox": {
+  "movement": {
+   "SlowWalkSpeed": "30",
+   "WalkSpeed": "60",
+   "RunSpeed": "350",
+   "RideSprintSpeed": "450",
+   "TransportSpeed": "190",
+   "SwimSpeed": "105",
+   "SwimDashSpeed": "135",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "HerculesBeetle": {
+  "movement": {
+   "SlowWalkSpeed": "55",
+   "WalkSpeed": "110",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "110",
+   "SwimSpeed": "500",
+   "SwimDashSpeed": "500",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 700,
+    "max": 880
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "HerculesBeetle_Ground": {
+  "movement": {
+   "SlowWalkSpeed": "55",
+   "WalkSpeed": "110",
+   "RunSpeed": "500",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "110",
+   "SwimSpeed": "500",
+   "SwimDashSpeed": "500",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 5700,
+    "max": 7140
+   },
+   "攻撃": {
+    "min": 730,
+    "max": 919
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "IceNarwhal": {
+  "movement": {
+   "SlowWalkSpeed": "125",
+   "WalkSpeed": "250",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "750",
+   "TransportSpeed": "400",
+   "JumpZVelocity": "820",
+   "SwimSpeed": "850",
+   "SwimDashSpeed": "950",
+   "Stamina": "200"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 790,
+    "max": 997
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "IceNarwhal_Fire": {
+  "movement": {
+   "SlowWalkSpeed": "125",
+   "WalkSpeed": "250",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "750",
+   "TransportSpeed": "400",
+   "JumpZVelocity": "820",
+   "SwimSpeed": "850",
+   "SwimDashSpeed": "950",
+   "Stamina": "200"
+  },
+  "level80": {
+   "HP": {
+    "min": 5100,
+    "max": 6360
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "GhostBlackCat": {
+  "movement": {
+   "SlowWalkSpeed": "60",
+   "WalkSpeed": "120",
+   "RunSpeed": "360",
+   "RideSprintSpeed": "540",
+   "TransportSpeed": "240",
+   "SwimSpeed": "108",
+   "SwimDashSpeed": "162",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4300,
+    "max": 5320
+   },
+   "攻撃": {
+    "min": 670,
+    "max": 841
+   },
+   "防御": {
+    "min": 470,
+    "max": 596
+   }
+  }
+ },
+ "MoonChild": {
+  "movement": {
+   "SlowWalkSpeed": "90",
+   "WalkSpeed": "130",
+   "RunSpeed": "450",
+   "RideSprintSpeed": "600",
+   "TransportSpeed": "300",
+   "SwimSpeed": "450",
+   "SwimDashSpeed": "450",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4100,
+    "max": 5060
+   },
+   "攻撃": {
+    "min": 640,
+    "max": 802
+   },
+   "防御": {
+    "min": 410,
+    "max": 518
+   }
+  }
+ },
+ "FoxMage": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "145",
+   "RunSpeed": "440",
+   "RideSprintSpeed": "620",
+   "TransportSpeed": "292",
+   "SwimSpeed": "440",
+   "SwimDashSpeed": "620",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 530,
+    "max": 674
+   }
+  }
+ },
+ "FoxMage_Dark": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "145",
+   "RunSpeed": "440",
+   "RideSprintSpeed": "620",
+   "TransportSpeed": "292",
+   "SwimSpeed": "440",
+   "SwimDashSpeed": "620",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 760,
+    "max": 958
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "SweetsSheep": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "400",
+   "TransportSpeed": "200",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 590,
+    "max": 752
+   }
+  }
+ },
+ "SweetsSheep_Ground": {
+  "movement": {
+   "SlowWalkSpeed": "50",
+   "WalkSpeed": "100",
+   "RunSpeed": "300",
+   "RideSprintSpeed": "400",
+   "TransportSpeed": "200",
+   "SwimSpeed": "300",
+   "SwimDashSpeed": "400",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 3700,
+    "max": 4540
+   },
+   "攻撃": {
+    "min": 520,
+    "max": 646
+   },
+   "防御": {
+    "min": 620,
+    "max": 791
+   }
+  }
+ },
+ "Yeti": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "100",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "1050",
+   "TransportSpeed": "150",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "315",
+   "Stamina": "240"
+  },
+  "level80": {
+   "HP": {
+    "min": 6500,
+    "max": 8180
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 650,
+    "max": 830
+   }
+  }
+ },
+ "Yeti_Grass": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "100",
+   "RunSpeed": "600",
+   "RideSprintSpeed": "1050",
+   "TransportSpeed": "150",
+   "SwimSpeed": "180",
+   "SwimDashSpeed": "315",
+   "Stamina": "240"
+  },
+  "level80": {
+   "HP": {
+    "min": 6500,
+    "max": 8180
+   },
+   "攻撃": {
+    "min": 580,
+    "max": 724
+   },
+   "防御": {
+    "min": 710,
+    "max": 908
+   }
+  }
+ },
+ "WhiteAlienDragon": {
+  "movement": {
+   "SlowWalkSpeed": "115",
+   "WalkSpeed": "230",
+   "RunSpeed": "790",
+   "RideSprintSpeed": "1200",
+   "TransportSpeed": "500",
+   "SwimSpeed": "237",
+   "SwimDashSpeed": "360",
+   "Stamina": "250"
+  },
+  "level80": {
+   "HP": {
+    "min": 5300,
+    "max": 6620
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 830,
+    "max": 1064
+   }
+  }
+ },
+ "DarkMechaDragon": {
+  "movement": {
+   "SlowWalkSpeed": "100",
+   "WalkSpeed": "200",
+   "RunSpeed": "1700",
+   "RideSprintSpeed": "2700",
+   "TransportSpeed": "-1",
+   "SwimSpeed": "165",
+   "SwimDashSpeed": "198",
+   "Stamina": "300"
+  },
+  "level80": {
+   "HP": {
+    "min": 6100,
+    "max": 7660
+   },
+   "攻撃": {
+    "min": 820,
+    "max": 1036
+   },
+   "防御": {
+    "min": 770,
+    "max": 986
+   }
+  }
+ },
+ "DarkAlien": {
+  "movement": {
+   "SlowWalkSpeed": "125",
+   "WalkSpeed": "245",
+   "RunSpeed": "550",
+   "RideSprintSpeed": "700",
+   "TransportSpeed": "400",
+   "SwimSpeed": "990",
+   "SwimDashSpeed": "1260",
+   "Stamina": "100"
+  },
+  "level80": {
+   "HP": {
+    "min": 4500,
+    "max": 5580
+   },
+   "攻撃": {
+    "min": 850,
+    "max": 1075
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ },
+ "GuardianDog": {
+  "movement": {
+   "SlowWalkSpeed": "70",
+   "WalkSpeed": "110",
+   "RunSpeed": "750",
+   "RideSprintSpeed": "1080",
+   "TransportSpeed": "165",
+   "SwimSpeed": "225",
+   "SwimDashSpeed": "324",
+   "Stamina": "140"
+  },
+  "level80": {
+   "HP": {
+    "min": 4300,
+    "max": 5320
+   },
+   "攻撃": {
+    "min": 610,
+    "max": 763
+   },
+   "防御": {
+    "min": 560,
+    "max": 713
+   }
+  }
+ }
+}

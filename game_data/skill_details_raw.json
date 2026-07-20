@@ -1,0 +1,3458 @@
+{
+ "PoisonFog": {
+  "asset": "PoisonFog",
+  "jp_name": "ポイズンフォグ",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "0",
+  "aggregate": null,
+  "effect_jp": "前方に毒の霧を発生させ、\r\n相手を毒状態にする。"
+ },
+ "PoisonShot": {
+  "asset": "PoisonShot",
+  "jp_name": "ポイズンシュート",
+  "element": "闇",
+  "cooltime": "2",
+  "power": "30",
+  "aggregate": null,
+  "effect_jp": "毒の力がこもったヘドロを\r\n敵めがけて発射する。"
+ },
+ "GravityShot": {
+  "asset": "GravityShot",
+  "jp_name": "ダークショット",
+  "element": "闇",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "徐々に加速して飛んでゆく\r\n暗黒のエネルギー弾を発射する。"
+ },
+ "Unique_AmaterasuWolf_Dark_BiteV2": {
+  "asset": "Unique_AmaterasuWolf_Dark_BiteV2",
+  "jp_name": "ダブルファング(闇)",
+  "element": "闇",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く連続で噛みついて攻撃する。"
+ },
+ "Unique_BlackPuppy_BiteV2": {
+  "asset": "Unique_BlackPuppy_BiteV2",
+  "jp_name": "ダブルファング(闇)",
+  "element": "闇",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く連続で噛みついて攻撃する。"
+ },
+ "DarkBall": {
+  "asset": "DarkBall",
+  "jp_name": "ダークボール",
+  "element": "闇",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "ゆっくりと敵を追いかける\r\n闇の球を発射する。"
+ },
+ "Unique_YakushimaMonster001_SlimePress_Dark": {
+  "asset": "Unique_YakushimaMonster001_SlimePress_Dark",
+  "jp_name": "スライムプレス(闇)",
+  "element": "闇",
+  "cooltime": "1",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "パープルスライムの専用スキル。\r\n敵に向かってジャンプして攻撃する。"
+ },
+ "Unique_AmaterasuWolf_Dark_Bite": {
+  "asset": "Unique_AmaterasuWolf_Dark_Bite",
+  "jp_name": "ワイルドファング(闇)",
+  "element": "闇",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く飛び掛かり、噛みついて攻撃する。"
+ },
+ "Unique_BlackPuppy_Bite": {
+  "asset": "Unique_BlackPuppy_Bite",
+  "jp_name": "ワイルドファング(闇)",
+  "element": "闇",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く飛び掛かり、噛みついて攻撃する。"
+ },
+ "DarkPulse": {
+  "asset": "DarkPulse",
+  "jp_name": "スプレッドダーク",
+  "element": "闇",
+  "cooltime": "4",
+  "power": "60",
+  "aggregate": null,
+  "effect_jp": "扇状に広がる\r\n高速の闇の球を発射する。"
+ },
+ "Unique_YakushimaBoss001_Small_DemonEyeCharge": {
+  "asset": "Unique_YakushimaBoss001_Small_DemonEyeCharge",
+  "jp_name": "めだま突進",
+  "element": "闇",
+  "cooltime": "1",
+  "power": "60",
+  "aggregate": null,
+  "effect_jp": "あくまのめだまの専用スキル。\r\n敵めがけて突進する。地面や壁に当たると跳ねる。"
+ },
+ "Unique_DarkCrow_TelePoke": {
+  "asset": "Unique_DarkCrow_TelePoke",
+  "jp_name": "ファントムアサルト",
+  "element": "闇",
+  "cooltime": "4",
+  "power": "70",
+  "aggregate": null,
+  "effect_jp": "マスクロウの専用スキル。\r\n敵のそばに瞬間移動した後、\r\nくちばしによる攻撃を行う。"
+ },
+ "DarkCanon": {
+  "asset": "DarkCanon",
+  "jp_name": "ダークキャノン",
+  "element": "闇",
+  "cooltime": "4",
+  "power": "70",
+  "aggregate": null,
+  "effect_jp": "闇の力がこもった高速のエネルギー弾を\r\n敵めがけて発射する。"
+ },
+ "DarkWave": {
+  "asset": "DarkWave",
+  "jp_name": "シャドウバースト",
+  "element": "闇",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "素早く闇の力を放出し\r\n周囲に衝撃を与える。"
+ },
+ "Unique_Werewolf_Scratch": {
+  "asset": "Unique_Werewolf_Scratch",
+  "jp_name": "ジャンピングクロー",
+  "element": "闇",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "ツキカゲの専用スキル。\r\n前方に跳び上がり、素早く2回引っかく。\r\nその斬撃には闇属性の力が込められている。"
+ },
+ "DarkArrow": {
+  "asset": "DarkArrow",
+  "jp_name": "ダークアロー",
+  "element": "闇",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "闇の力で敵を追尾する複数の矢を\r\n連続かつ高速で発射する。"
+ },
+ "BubbleShower": {
+  "asset": "BubbleShower",
+  "jp_name": "ポイズンシャワー",
+  "element": "闇",
+  "cooltime": "8",
+  "power": "160",
+  "aggregate": null,
+  "effect_jp": "体に力を込め\r\n全方位に毒の球をまき散らす。"
+ },
+ "GhostFlame": {
+  "asset": "GhostFlame",
+  "jp_name": "スピリットフレイム",
+  "element": "闇",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "執念深く敵を追いかける\r\n3つの怨念を発射する。"
+ },
+ "Unique_AmaterasuWolf_Dark_DarkCharge": {
+  "asset": "Unique_AmaterasuWolf_Dark_DarkCharge",
+  "jp_name": "火陰山雷",
+  "element": "闇",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "カゲヌイの専用スキル。\r\n全身に紫色の炎をまとい、勢いをつけて突進する。"
+ },
+ "Unique_PurpleSpider_SpiderRaid": {
+  "asset": "Unique_PurpleSpider_SpiderRaid",
+  "jp_name": "スパイダーレイド",
+  "element": "闇",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "モモンチュラの専用スキル。\r\n糸玉を吐き、当たった獲物を絡めとる。\r\nその後、獲物のところまで全速力で駆け寄り、\r\n３回引っかいてとどめを刺す。"
+ },
+ "Unique_FireKirin_Dark_DarkTossin": {
+  "asset": "Unique_FireKirin_Dark_DarkTossin",
+  "jp_name": "ダークチャージ",
+  "element": "闇",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "サラブラックの専用スキル。\r\n暗黒の炎をまといながら突進する。\r\nその軌道上には火が燃え残る。"
+ },
+ "ShadowBall": {
+  "asset": "ShadowBall",
+  "jp_name": "ナイトメアボール",
+  "element": "闇",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "大きな闇の球を作り出し\r\n敵めがけて高速で発射する。"
+ },
+ "Unique_GhostBeast_Tossin": {
+  "asset": "Unique_GhostBeast_Tossin",
+  "jp_name": "スピリットダッシュ",
+  "element": "闇",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "ソルレイスの専用スキル。\r\nゆっくりと走りながら、揺らめく炎の玉を\r\n敵に向かって飛ばし続ける。"
+ },
+ "Unique_Yakushima_EyeTossin": {
+  "asset": "Unique_Yakushima_EyeTossin",
+  "jp_name": "凝視の突進",
+  "element": "闇",
+  "cooltime": "15",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "クトゥルフのめだまの専用スキル。\r\n敵に向かって何度か突進する。"
+ },
+ "Unique_Yakushima_SummonServant": {
+  "asset": "Unique_Yakushima_SummonServant",
+  "jp_name": "しもべの召喚",
+  "element": "闇",
+  "cooltime": "10",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "クトゥルフのめだまの専用スキル。\r\n４体のしもべを召喚する。しもべは敵に向かっていき、ぶつかってダメージを与える。しもべは攻撃されるか一定時間が経過すると消滅する。"
+ },
+ "Unique_DarkAlien_JumpScractch": {
+  "asset": "Unique_DarkAlien_JumpScractch",
+  "jp_name": "イービルクロー",
+  "element": "闇",
+  "cooltime": "16",
+  "power": "350",
+  "aggregate": null,
+  "effect_jp": "ゼノベーダの専用スキル。\r\n素早く跳びかかり、左手で切り裂く。"
+ },
+ "Unique_ScorpionMan_Uppercut": {
+  "asset": "Unique_ScorpionMan_Uppercut",
+  "jp_name": "アッパースマッシュ",
+  "element": "闇",
+  "cooltime": "16",
+  "power": "350",
+  "aggregate": null,
+  "effect_jp": "ブッサソリの専用スキル。\r\n敵との距離を高速で詰め、\r\n思い切りハサミを振り上げる。"
+ },
+ "Unique_BlackGriffon_TackleLaser": {
+  "asset": "Unique_BlackGriffon_TackleLaser",
+  "jp_name": "ディザスターディバイン",
+  "element": "闇",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "ゼノグリフの専用スキル。\r\n突進しながら、光の球体を出現させる。\r\n光球は敵を自動で捕捉し、無数のレーザーを放つ。"
+ },
+ "Apocalypse": {
+  "asset": "Apocalypse",
+  "jp_name": "アポカリプス",
+  "element": "闇",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "敵の周囲にいくつもの暗黒の竜巻を発生させる。"
+ },
+ "Unique_MysteryMask_LifeSteal": {
+  "asset": "Unique_MysteryMask_LifeSteal",
+  "jp_name": "ソウルスティール",
+  "element": "闇",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "オーメンの専用スキル。\r\n急に敵の近くに現れて両腕でがっちり拘束し、\r\n拘束された敵のHPを吸収する。"
+ },
+ "Unique_Baphomet_Dark_DarkKite": {
+  "asset": "Unique_Baphomet_Dark_DarkKite",
+  "jp_name": "ナイトメアクロー",
+  "element": "闇",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "アビスゴートの専用スキル。\r\n接近しながら左手の闇爪で切り上げつつ跳躍し、\r\n続けざまに右手の闇爪を素早く切り下ろす。"
+ },
+ "DarkLaser": {
+  "asset": "DarkLaser",
+  "jp_name": "ダークレーザー",
+  "element": "闇",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "闇の力をチャージし\r\n敵めがけて強力なビームを発射する。"
+ },
+ "Unique_NightLady_FlameNightmare": {
+  "asset": "Unique_NightLady_FlameNightmare",
+  "jp_name": "フレイムワルツ",
+  "element": "闇",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "ベラルージュの専用スキル。\r\nゆらりと舞いながら\r\n周囲に広がる炎の輪を発生させる。\r\nさらに敵を追尾する妖しい炎を発射する。"
+ },
+ "Unique_NightBlueHorse_Tossin": {
+  "asset": "Unique_NightBlueHorse_Tossin",
+  "jp_name": "幽馬の疾走",
+  "element": "闇",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "ナイトロットの専用スキル。\r\n揺らめく炎をまといながら、敵に突進する。"
+ },
+ "Unique_DarkMechaDragon_ConvergentBeam": {
+  "asset": "Unique_DarkMechaDragon_ConvergentBeam",
+  "jp_name": "アストラルレイ",
+  "element": "闇",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "ゼノドランの専用スキル。\r\n暗黒に満ちたエネルギーを収束させ、\r\n直線状に一気に放出する。"
+ },
+ "Unique_GrimGirl_BrutalMachete": {
+  "asset": "Unique_GrimGirl_BrutalMachete",
+  "jp_name": "恨みの連打",
+  "element": "闇",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "ヤンデリナの専用スキル。\r\nその場から瞬間移動して斬撃を飛ばす。\r\nさらに敵の頭上に瞬間移動し、\r\n得物を突き立てて闇の波動を発生させる。"
+ },
+ "Unique_MonochromeQueen_BalletJump": {
+  "asset": "Unique_MonochromeQueen_BalletJump",
+  "jp_name": "黒羽根の舞",
+  "element": "闇",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "モノクローナの専用スキル。\r\n斜め方向にジャンプし、黒く鋭い羽根を投げつける。"
+ },
+ "Unique_MummyPal_MummyAttack": {
+  "asset": "Unique_MummyPal_MummyAttack",
+  "jp_name": "マミーラッシュ",
+  "element": "闇",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "ヨミーラの専用スキル。\r\n手から包帯を伸ばし、連続攻撃を行う。"
+ },
+ "Unique_NightBlueHorse_DeathStep": {
+  "asset": "Unique_NightBlueHorse_DeathStep",
+  "jp_name": "リーサルステップ",
+  "element": "闇",
+  "cooltime": "24",
+  "power": "550",
+  "aggregate": null,
+  "effect_jp": "ナイトロットの専用スキル。\r\n揺らめくステップで敵を翻弄しながら、\r\n鋭利な角で斬撃を飛ばす。"
+ },
+ "DarkLegion": {
+  "asset": "DarkLegion",
+  "jp_name": "ダークウィスプ",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "敵を追いかける闇の球をいくつも発射する。"
+ },
+ "Unique_NightLady_WarpBeam": {
+  "asset": "Unique_NightLady_WarpBeam",
+  "jp_name": "ナイトメアレイブルーム",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "ベラルージュの専用スキル。\r\n不意に姿を消し、現れた瞬間に無数の光線を放つ。\r\n光線は花開くかのごとく拡散する。"
+ },
+ "Unique_NightLady_WarpBeam_Straight": {
+  "asset": "Unique_NightLady_WarpBeam_Straight",
+  "jp_name": "ナイトメアレイ",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "ベラノワールの専用スキル。\r\n不意に姿を消し、現れた瞬間に無数の光線を放つ。"
+ },
+ "Unique_BlackGriffon_TackleLaser2": {
+  "asset": "Unique_BlackGriffon_TackleLaser2",
+  "jp_name": "ディザスターディバインⅡ",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "ゼノグリフの専用スキル。\r\n突進しつつ、体の光輪から無数の青い光線を放つ。\r\n光線は敵を自動で捕捉し、追尾する。"
+ },
+ "Unique_SnakeGirl_SnakeShot": {
+  "asset": "Unique_SnakeGirl_SnakeShot",
+  "jp_name": "ポイズンスキャッター",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "メドゥーナの専用スキル。\r\n頭部の蛇が放物線状に飛ぶ毒玉を吐き散らす。\r\n着弾地点に広がる毒の沼は、触れた者を毒状態にする。"
+ },
+ "Unique_LanternButler_LanternFlame": {
+  "asset": "Unique_LanternButler_LanternFlame",
+  "jp_name": "ランタンフレイム",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "650",
+  "aggregate": null,
+  "effect_jp": "ヴィランタンの専用スキル。\r\nランタンを掲げ、執念深く敵を追いかける\r\n怨念をいくつも呼び出す。"
+ },
+ "Unique_BlackCentaur_TwoSpearRushes": {
+  "asset": "Unique_BlackCentaur_TwoSpearRushes",
+  "jp_name": "双槍一閃",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "ベイントールの専用スキル。\r\n旋風をまとった両腕の槍を\r\n左右交互に突き出しながら突進する。"
+ },
+ "Unique_IceHorse_Dark_DarkBladeAttack": {
+  "asset": "Unique_IceHorse_Dark_DarkBladeAttack",
+  "jp_name": "ダークウィング",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "グレイシャドウの専用スキル。\r\n闇のエネルギーを翼にまとわせ\r\n疾走しながら翼で敵を切り裂く。\r\n最後に闇のエネルギーが追尾する弾に変化する。"
+ },
+ "Unique_GrassGolem_Dark_DarkArmCannon": {
+  "asset": "Unique_GrassGolem_Dark_DarkArmCannon",
+  "jp_name": "ダークルート",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "ノロウゾーの専用スキル。\r\n腕から闇属性のエネルギー弾を発射する。\r\n弾は着弾後しつこく敵を追う根となり、足元から貫く。"
+ },
+ "Unique_WhiteDeer_Dark_DarkPillar": {
+  "asset": "Unique_WhiteDeer_Dark_DarkPillar",
+  "jp_name": "ダークノヴァ",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "コスモディアの専用スキル。\r\n前方広範囲に闇属性の爆発を引き起こした後、\r\n歩きながら、自身の周囲に闇の柱を発生させる。"
+ },
+ "Unique_FlowerPrince_PoisonGasTackle": {
+  "asset": "Unique_FlowerPrince_PoisonGasTackle",
+  "jp_name": "ポイズンプロムナード",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "ノクサージュの専用スキル。\r\n腐蝕霧を噴射しながら、地面を滑るように突進する。\r\n噴射された腐蝕霧は、一定時間その場に残留する。"
+ },
+ "Unique_FlowerPrince_PoisonGasDance": {
+  "asset": "Unique_FlowerPrince_PoisonGasDance",
+  "jp_name": "ポイズンダンス",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "800",
+  "aggregate": null,
+  "effect_jp": "ノクサージュの専用スキル。\r\n踊りながら腐蝕霧を噴射する。\r\n噴射された腐蝕霧は、一定時間その場に残留する。"
+ },
+ "DragonCanon": {
+  "asset": "DragonCanon",
+  "jp_name": "ドラゴンキャノン",
+  "element": "竜",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "竜の力がこもったエネルギー弾を\r\n敵めがけて発射する。"
+ },
+ "DragonWave": {
+  "asset": "DragonWave",
+  "jp_name": "ドラゴンバースト",
+  "element": "竜",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "素早く竜の力を放出し\r\n周囲に衝撃を与える。"
+ },
+ "Unique_WeaselDragon_FlyingTackle": {
+  "asset": "Unique_WeaselDragon_FlyingTackle",
+  "jp_name": "ロケットタックル",
+  "element": "竜",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "オコチョ種の専用スキル。\r\n少し力を溜めた後、前方に飛びかかる。\r\n着地の瞬間はいつも怖くて目を瞑ってしまうようだ。"
+ },
+ "Unique_FairyDragon_FairyTornado": {
+  "asset": "Unique_FairyDragon_FairyTornado",
+  "jp_name": "ミスティックハリケーン",
+  "element": "竜",
+  "cooltime": "8",
+  "power": "150",
+  "aggregate": null,
+  "effect_jp": "シルフィア種の専用スキル。\r\n不思議な力が込められた竜巻を2つ発射し、\r\n敵を追いかける。"
+ },
+ "DragonBreath": {
+  "asset": "DragonBreath",
+  "jp_name": "ドラゴンブレス",
+  "element": "竜",
+  "cooltime": "8",
+  "power": "160",
+  "aggregate": null,
+  "effect_jp": "竜の力がこもった息吹を\r\n前方に吹き付け、継続的にダメージを与える。"
+ },
+ "Commet": {
+  "asset": "Commet",
+  "jp_name": "コメット",
+  "element": "竜",
+  "cooltime": "8",
+  "power": "180",
+  "aggregate": null,
+  "effect_jp": "隕石を垂直に落とし、\r\n周囲に衝撃波を発生させる。"
+ },
+ "BlastCanon": {
+  "asset": "BlastCanon",
+  "jp_name": "ブラストキャノン",
+  "element": "竜",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "敵のいる地点に竜の力がこもったエネルギー弾を発射する。\r\nエネルギー弾は着弾時に拡散し、\r\n前方広範囲に爆発を起こす。"
+ },
+ "BeamSlicer": {
+  "asset": "BeamSlicer",
+  "jp_name": "ビームスライサー",
+  "element": "竜",
+  "cooltime": "16",
+  "power": "350",
+  "aggregate": null,
+  "effect_jp": "竜の力がこもった光線で前方をなぎ払う。\r\nなぎ払われた場所は時間差で爆発する。"
+ },
+ "ChargeCanon": {
+  "asset": "ChargeCanon",
+  "jp_name": "チャージキャノン",
+  "element": "竜",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "竜の力を溜めたエネルギー弾を\r\n敵めがけて発射する。弾は着弾時に\r\n広範囲の爆発を起こす。"
+ },
+ "Unique_DarkMechaDragon_SetFunnel": {
+  "asset": "Unique_DarkMechaDragon_SetFunnel",
+  "jp_name": "サテライトビット",
+  "element": "竜",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "ゼノドランの専用スキル。\r\n自動攻撃機能を持つ衛星型の羽を４本生成する。\r\nこの羽は次の攻撃を放つ時に\r\n自動で敵を追尾して攻撃する。"
+ },
+ "ThreeCommet": {
+  "asset": "ThreeCommet",
+  "jp_name": "コメットフォール",
+  "element": "竜",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "隕石を続けざまに落とし、\r\n周囲に衝撃波を発生させる。"
+ },
+ "Unique_BlackMetalDragon_FirePunch": {
+  "asset": "Unique_BlackMetalDragon_FirePunch",
+  "jp_name": "パンチブレス",
+  "element": "竜",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "ジオラーヴァの専用スキル。\r\n前方に2回パンチを繰り出した後、\r\n下に向かって竜属性のブレスを吐きつける。"
+ },
+ "Unique_DarkMechaDragon_BeamSlash": {
+  "asset": "Unique_DarkMechaDragon_BeamSlash",
+  "jp_name": "ビームスラッシュ",
+  "element": "竜",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "ゼノドランの専用スキル。\r\n右手で高出力の剣を生成し、\r\n高速で移動しながら２回切りつける。"
+ },
+ "Unique_GhostDragon_TailSlash": {
+  "asset": "Unique_GhostDragon_TailSlash",
+  "jp_name": "テールスラッシュ",
+  "element": "竜",
+  "cooltime": "24",
+  "power": "550",
+  "aggregate": null,
+  "effect_jp": "レイバーン種の専用スキル。\r\n敵に高速で接近し、尻尾で切り裂くように攻撃する。"
+ },
+ "DragonMeteor": {
+  "asset": "DragonMeteor",
+  "jp_name": "ドラゴンメテオ",
+  "element": "竜",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "小さな隕石をたくさん呼び出して\r\n敵めがけて発射する。"
+ },
+ "Unique_DarkMechaDragon_WarpComet": {
+  "asset": "Unique_DarkMechaDragon_WarpComet",
+  "jp_name": "コズミックメテオ",
+  "element": "竜",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "ゼノドランの専用スキル。\r\n光の速さで宙に舞い上がり、無数の流星弾を放つ。\r\nその後、自ら彗星となって突進し、\r\n衝突した場所に大爆発を引き起こす。"
+ },
+ "Unique_WhiteShieldDragon_ShieldTackle": {
+  "asset": "Unique_WhiteShieldDragon_ShieldTackle",
+  "jp_name": "イージスチャージ",
+  "element": "竜",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "アイギルガの専用スキル。\r\n前方にあらゆる攻撃を軽減するシールドを展開し、\r\n突進しながら敵を圧し潰す。"
+ },
+ "Unique_BlueSkyDragon_SweepBreath": {
+  "asset": "Unique_BlueSkyDragon_SweepBreath",
+  "jp_name": "蒼龍炎",
+  "element": "竜",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "シャオロンの専用スキル。\r\n竜属性の炎をなぎ払うように吐き、\r\n一帯を焦土と化す。"
+ },
+ "Unique_JetDragon_JumpBeam": {
+  "asset": "Unique_JetDragon_JumpBeam",
+  "jp_name": "ビームコメット",
+  "element": "竜",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "ジェッドランの専用スキル。\r\n翼を光らせ、敵めがけて飛んでいく\r\n無数のビームを発射する。\r\nビームは着弾時に爆発を引き起こす。"
+ },
+ "Unique_KingBahamut_AirCrash": {
+  "asset": "Unique_KingBahamut_AirCrash",
+  "jp_name": "マグナクラッシュ",
+  "element": "竜",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "ボルドラゴの専用スキル。\r\n大きく跳び上がった後、空中を高速で移動しつつ\r\n力を溜め、渾身のパンチを繰り出す。"
+ },
+ "CommetRain": {
+  "asset": "CommetRain",
+  "jp_name": "メテオレイン",
+  "element": "竜",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "無数の隕石を落とし、\r\n周囲に衝撃波を発生させる。"
+ },
+ "Unique_DarkMechaDragon_FunnelLaser": {
+  "asset": "Unique_DarkMechaDragon_FunnelLaser",
+  "jp_name": "オメガレーザー",
+  "element": "竜",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "ゼノドランの専用スキル。\r\n亜空間から呼び寄せた破滅の光を\r\n縦横無尽に放ち続け、\r\nその目に映る全てを焼き尽くす。"
+ },
+ "Unique_GhostDragon_PhosphorousBeam": {
+  "asset": "Unique_GhostDragon_PhosphorousBeam",
+  "jp_name": "ブレイズビーム",
+  "element": "竜",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "レイバーン種の専用スキル。\r\n高熱の光線を一定時間吐き続ける。\r\n最後の瞬間、光線を吐いていた地点に大爆発を起こす。"
+ },
+ "MudShot": {
+  "asset": "MudShot",
+  "jp_name": "マッドシュート",
+  "element": "地",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "ベタベタの泥を\r\n敵めがけて発射する。"
+ },
+ "Unique_GoldenHorse_BiteV2": {
+  "asset": "Unique_GoldenHorse_BiteV2",
+  "jp_name": "ダブルファング(地)",
+  "element": "地",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く連続で噛みついて攻撃する。"
+ },
+ "Unique_SamuraiDog_BiteV2": {
+  "asset": "Unique_SamuraiDog_BiteV2",
+  "jp_name": "ダブルファング(地)",
+  "element": "地",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く連続で噛みついて攻撃する。"
+ },
+ "Unique_GoldenHorse_Bite": {
+  "asset": "Unique_GoldenHorse_Bite",
+  "jp_name": "ワイルドファング(地)",
+  "element": "地",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く飛び掛かり、噛みついて攻撃する。"
+ },
+ "Unique_SamuraiDog_Bite": {
+  "asset": "Unique_SamuraiDog_Bite",
+  "jp_name": "ワイルドファング(地)",
+  "element": "地",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く飛び掛かり、噛みついて攻撃する。"
+ },
+ "Unique_Boar_Tackle": {
+  "asset": "Unique_Boar_Tackle",
+  "jp_name": "猪突猛進",
+  "element": "地",
+  "cooltime": "4",
+  "power": "60",
+  "aggregate": null,
+  "effect_jp": "イノボウの専用スキル。\r\n敵に狙いを定め、猛烈な勢いで猛進する。"
+ },
+ "Unique_CuteMole_DiggingAttack": {
+  "asset": "Unique_CuteMole_DiggingAttack",
+  "jp_name": "モグリフト",
+  "element": "地",
+  "cooltime": "4",
+  "power": "60",
+  "aggregate": null,
+  "effect_jp": "モグルンの専用スキル。\r\n地中に潜り、敵の足元から勢い良く飛び出す。"
+ },
+ "StoneShotgun": {
+  "asset": "StoneShotgun",
+  "jp_name": "ストーンブラスト",
+  "element": "地",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "無数の小さな石のつぶてを\r\n前方に発射する。"
+ },
+ "Unique_SamuraiDog_DashSlash": {
+  "asset": "Unique_SamuraiDog_DashSlash",
+  "jp_name": "がんばりスラッシュ",
+  "element": "地",
+  "cooltime": "4",
+  "power": "90",
+  "aggregate": null,
+  "effect_jp": "ポチムネの専用スキル。\r\n全力で走りながら、口にくわえた棒で敵を斬りつける。\r\nこれを2連続で行う。"
+ },
+ "Unique_DrillGame_ShellAttack": {
+  "asset": "Unique_DrillGame_ShellAttack",
+  "jp_name": "シェルスピン",
+  "element": "地",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "ドリタスの専用スキル。\r\n全身を高速で回転させながら移動する。\r\n敵をドリルで削り、連続でダメージを与える。"
+ },
+ "ThrowRock": {
+  "asset": "ThrowRock",
+  "jp_name": "ストーンキャノン",
+  "element": "地",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "目の前の地面から岩を取り出し\r\n敵めがけて発射する。"
+ },
+ "Unique_Deer_Ground_DirtyHorn": {
+  "asset": "Unique_Deer_Ground_DirtyHorn",
+  "jp_name": "マッドホーン",
+  "element": "地",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "ヤマガミの専用スキル。\r\n敵に向かって突進し、角で泥を巻き上げて攻撃する。\r\nライド中に発動すると、進行方向を操作できる。"
+ },
+ "SandTornado": {
+  "asset": "SandTornado",
+  "jp_name": "サンドトルネード",
+  "element": "地",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "左右に砂の竜巻を発生させ\r\n敵にけしかける。"
+ },
+ "Unique_HerculesBeetle_BeetleTackle": {
+  "asset": "Unique_HerculesBeetle_BeetleTackle",
+  "jp_name": "ギガホーン",
+  "element": "地",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "グラクレス種の専用スキル。\r\n4本の堅牢な角で敵を串刺しにする。"
+ },
+ "Unique_FeatherOstrich_Tossin": {
+  "asset": "Unique_FeatherOstrich_Tossin",
+  "jp_name": "アースダッシュ",
+  "element": "地",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "トリステップの専用スキル。\r\n一気に加速し、前方に高速突進する。"
+ },
+ "Unique_Anubis_LowRoundKick": {
+  "asset": "Unique_Anubis_LowRoundKick",
+  "jp_name": "スピンレッグスラッシュ",
+  "element": "地",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "アヌビスの専用スキル。\r\n強靭な脚で回し蹴りをして、周囲を広範囲に薙ぎ払う。"
+ },
+ "Unique_Grassmammoth_Earthquake": {
+  "asset": "Unique_Grassmammoth_Earthquake",
+  "jp_name": "アースインパクト",
+  "element": "地",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "グランモス種の専用スキル。\r\nその巨体で大地を揺るがし、\r\n自身を中心に広範囲へダメージを与える。"
+ },
+ "Tremor": {
+  "asset": "Tremor",
+  "jp_name": "ロックバースト",
+  "element": "地",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "地面を揺らし\r\n大きな岩の塊を周囲に飛ばす。"
+ },
+ "Unique_WhiteTiger_Ground_IronScratch": {
+  "asset": "Unique_WhiteTiger_Ground_IronScratch",
+  "jp_name": "ストーンクロー",
+  "element": "地",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "グランドラーの専用スキル。\r\n1撃、2撃と爪で切り裂き、最後に全身を\r\n使って大きく切り裂く。爪を振るう際、\r\n前方に岩石を3本扇状に飛ばす。"
+ },
+ "Unique_Gorilla_Ground_EarthPunch": {
+  "asset": "Unique_Gorilla_Ground_EarthPunch",
+  "jp_name": "ゴリランブルコンボ",
+  "element": "地",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "ゴリガイアの専用スキル。\r\n地面を2度たたきつけたあとに飛び上がり、\r\n大地の力を込めたパンチをお見舞いする。"
+ },
+ "Unique_Sekhmet_SomersaultScratch": {
+  "asset": "Unique_Sekhmet_SomersaultScratch",
+  "jp_name": "サマーソルトスクラッチ",
+  "element": "地",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "セクメトの専用スキル。\r\n敵を引っかきつつ後ろへ宙返りして距離を取る。"
+ },
+ "Unique_DarkScorpion_Pierce": {
+  "asset": "Unique_DarkScorpion_Pierce",
+  "jp_name": "ジャンピングスティンガー",
+  "element": "地",
+  "cooltime": "16",
+  "power": "350",
+  "aggregate": null,
+  "effect_jp": "デスティング種の専用スキル。\r\n高く跳び上がり、尻尾で勢いよく獲物を突き刺す。\r\n尻尾には毒が含まれている。"
+ },
+ "Unique_Anubis_Tackle": {
+  "asset": "Unique_Anubis_Tackle",
+  "jp_name": "フォースドライブ",
+  "element": "地",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "アヌビスの専用スキル。\r\n敵を追いかけるように高速で移動し、\r\nエネルギーを放出しながら強力なパンチを繰り出す。"
+ },
+ "RockLance": {
+  "asset": "RockLance",
+  "jp_name": "ロックランス",
+  "element": "地",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "敵の足元から\r\n鋭い岩の槍を出現させる。"
+ },
+ "Unique_Sekhmet_RollingScratch": {
+  "asset": "Unique_Sekhmet_RollingScratch",
+  "jp_name": "ローリングスクラッチ",
+  "element": "地",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "セクメトの専用スキル。\r\n回転しながら敵との距離を一気に詰め、引っかく。"
+ },
+ "Unique_WingGolem_RoundCutter": {
+  "asset": "Unique_WingGolem_RoundCutter",
+  "jp_name": "グラウンドカッター",
+  "element": "地",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "テラナイトの専用スキル。\r\n大きく振りかぶって背中の輪を投げる。\r\n輪は円を描くような軌道で飛んでいく。"
+ },
+ "Unique_Anubis_GroundPunch": {
+  "asset": "Unique_Anubis_GroundPunch",
+  "jp_name": "グラウンドスマッシャー",
+  "element": "地",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "アヌビスの専用スキル。\r\n空高く跳び上がり、地面に向かってパンチする。\r\n地面に衝撃が広がり、広範囲にダメージを与える。"
+ },
+ "SandTwister": {
+  "asset": "SandTwister",
+  "jp_name": "サンドツイスター",
+  "element": "地",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "複数の砂の竜巻を発生させる。\r\n竜巻は円を描くようにグルグルと回り続ける。"
+ },
+ "Unique_GoldenHorse_StoneDash": {
+  "asset": "Unique_GoldenHorse_StoneDash",
+  "jp_name": "クラッシュダッシュ",
+  "element": "地",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "キンガゼルの専用スキル。\r\n勢い良く左右に岩を飛ばしながら突進する。"
+ },
+ "Unique_SumoDog_SumoStomp": {
+  "asset": "Unique_SumoDog_SumoStomp",
+  "jp_name": "どすこいスタンプ",
+  "element": "地",
+  "cooltime": "24",
+  "power": "550",
+  "aggregate": null,
+  "effect_jp": "ドスコイヌの専用スキル。\r\n右後脚を大きく振りかぶって踏みしだき、\r\n衝撃波で前方扇状を攻撃する。"
+ },
+ "RockBeat": {
+  "asset": "RockBeat",
+  "jp_name": "ストーンビート",
+  "element": "地",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "地面を震わせ\r\n巨大な岩塊を浮き上がらせる。"
+ },
+ "Unique_GrassGolem_RocketPunch": {
+  "asset": "Unique_GrassGolem_RocketPunch",
+  "jp_name": "ロケットアーム",
+  "element": "地",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "ウゴクゾー種の専用スキル。\r\n左腕を本体から切り離し、敵をなぎ払う。\r\nその後、右腕を射出する。"
+ },
+ "Unique_CubeTurtle_CubePress": {
+  "asset": "Unique_CubeTurtle_CubePress",
+  "jp_name": "ストーンプレス",
+  "element": "地",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "オモシガメの専用スキル。\r\n空中に浮かぶように跳躍し、\r\n圧倒的な重量で敵を圧し潰す。"
+ },
+ "Unique_RockBeast_RockHorn": {
+  "asset": "Unique_RockBeast_RockHorn",
+  "jp_name": "ホーンバースト",
+  "element": "地",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "ジオルドンの専用スキル。\r\n角で地面をえぐりつつ振り上げ、\r\n敵に向かって岩石弾を飛ばす。"
+ },
+ "Unique_DomeArmorDragon_ExplosiveMissile": {
+  "asset": "Unique_DomeArmorDragon_ExplosiveMissile",
+  "jp_name": "炸裂ミサイル",
+  "element": "地",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "シェルガドラの専用スキル。\r\n羽から無数の炸裂ミサイルを発射して攻撃する。"
+ },
+ "ThunderSpear": {
+  "asset": "ThunderSpear",
+  "jp_name": "サンダースピア",
+  "element": "雷",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "直線状に飛んでいく雷の槍を\r\n敵めがけて高速で発射する。"
+ },
+ "Unique_ThunderDog_BiteV2": {
+  "asset": "Unique_ThunderDog_BiteV2",
+  "jp_name": "ダブルファング(雷)",
+  "element": "雷",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く連続で噛みついて攻撃する。"
+ },
+ "Unique_ElecPomeranian_BiteV2": {
+  "asset": "Unique_ElecPomeranian_BiteV2",
+  "jp_name": "ダブルファング(雷)",
+  "element": "雷",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く連続で噛みついて攻撃する。"
+ },
+ "SpreadPulse": {
+  "asset": "SpreadPulse",
+  "jp_name": "スパークショット",
+  "element": "雷",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "扇状に広がる\r\n雷の球を発射する。"
+ },
+ "Unique_ThunderDog_Bite": {
+  "asset": "Unique_ThunderDog_Bite",
+  "jp_name": "ワイルドファング(雷)",
+  "element": "雷",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く飛び掛かり、噛みついて攻撃する。"
+ },
+ "Unique_ElecPomeranian_Bite": {
+  "asset": "Unique_ElecPomeranian_Bite",
+  "jp_name": "ワイルドファング(雷)",
+  "element": "雷",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く飛び掛かり、噛みついて攻撃する。"
+ },
+ "ElecWave": {
+  "asset": "ElecWave",
+  "jp_name": "ショックウェーブ",
+  "element": "雷",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "素早く放電し\r\n周囲に衝撃を与える。"
+ },
+ "ThunderBall": {
+  "asset": "ThunderBall",
+  "jp_name": "サンダーボール",
+  "element": "雷",
+  "cooltime": "8",
+  "power": "100",
+  "aggregate": null,
+  "effect_jp": "ゆっくりと敵を追いかける\r\n雷の球を発射する。"
+ },
+ "Unique_ThunderDog_InazumaShorai": {
+  "asset": "Unique_ThunderDog_InazumaShorai",
+  "jp_name": "召雷",
+  "element": "雷",
+  "cooltime": "8",
+  "power": "100",
+  "aggregate": null,
+  "effect_jp": "イヌズマの専用スキル。\r\n前方に次々と稲妻を呼び寄せ、\r\n降り注いだ稲妻の間を高速で突進していく。"
+ },
+ "ThunderFunnel": {
+  "asset": "ThunderFunnel",
+  "jp_name": "プラズマファンネル",
+  "element": "雷",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "雷エネルギーをもつ2つの球を作り出し\r\nそこから、敵めがけて無数の雷球を発射する。"
+ },
+ "Unique_Kirin_LightningTackle": {
+  "asset": "Unique_Kirin_LightningTackle",
+  "jp_name": "疾風雷撃",
+  "element": "雷",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "ライコーンの専用スキル。\r\n自身の周囲に落雷を発生させながら、\r\n敵に向かって突進する。"
+ },
+ "LockonLaser": {
+  "asset": "LockonLaser",
+  "jp_name": "ロックオンレーザー",
+  "element": "雷",
+  "cooltime": "8",
+  "power": "140",
+  "aggregate": null,
+  "effect_jp": "敵に狙いを定めたあとに\r\n超高速な雷のレーザーを発射する。"
+ },
+ "Unique_ElecPanda_ElecScratch": {
+  "asset": "Unique_ElecPanda_ElecScratch",
+  "jp_name": "ライトニングクロー",
+  "element": "雷",
+  "cooltime": "8",
+  "power": "150",
+  "aggregate": null,
+  "effect_jp": "エレパンダの専用スキル。\r\n敵に向かって飛び掛かり、電気を纏った爪で切り裂く。\r\n2回飛び掛かった後、最後は地面に向かって爪をたて、\r\n広範囲に電撃を拡げる。"
+ },
+ "LineThunder": {
+  "asset": "LineThunder",
+  "jp_name": "ラインサンダー",
+  "element": "雷",
+  "cooltime": "8",
+  "power": "160",
+  "aggregate": null,
+  "effect_jp": "一直線に進む雷撃を発生させる。"
+ },
+ "Unique_GrassPanda_Electric_ElectricPunch": {
+  "asset": "Unique_GrassPanda_Electric_ElectricPunch",
+  "jp_name": "ブラストパンチ",
+  "element": "雷",
+  "cooltime": "8",
+  "power": "180",
+  "aggregate": null,
+  "effect_jp": "ライゾーの専用スキル。\r\n右腕をグルグル回し、前方に電撃のパンチを繰り出す。"
+ },
+ "Unique_ThunderBird_ThunderStorm": {
+  "asset": "Unique_ThunderBird_ThunderStorm",
+  "jp_name": "ライトニングダイブ",
+  "element": "雷",
+  "cooltime": "8",
+  "power": "180",
+  "aggregate": null,
+  "effect_jp": "ライバードの専用スキル。\r\nまず、敵のいる地点に雷を落とす。\r\nそして滑空突進しながら左右に雷を落としていく。"
+ },
+ "ThreeThunder": {
+  "asset": "ThreeThunder",
+  "jp_name": "トライサンダー",
+  "element": "雷",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "敵の頭上から、3度の落雷を発生させる。"
+ },
+ "Unique_ThunderDragonMan_ThunderSwordAttack": {
+  "asset": "Unique_ThunderDragonMan_ThunderSwordAttack",
+  "jp_name": "ケラウノス",
+  "element": "雷",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "ボルゼクスの専用スキル。\r\n飛び上がって雷槍を召喚し、\r\n敵に向かって投げつける。"
+ },
+ "TriSpark": {
+  "asset": "TriSpark",
+  "jp_name": "トライスパーク",
+  "element": "雷",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "直線状に飛ぶ高速の雷球と\r\n敵を追尾する遅めの雷球を同時に発射する。"
+ },
+ "LightningStrike": {
+  "asset": "LightningStrike",
+  "jp_name": "ライトニングストライク",
+  "element": "雷",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "自らを避雷針として雷を落とし、\r\nその場に放電爆発を引き起こす。"
+ },
+ "Unique_FengyunDeeper_Electric_ThunderTempest": {
+  "asset": "Unique_FengyunDeeper_Electric_ThunderTempest",
+  "jp_name": "サンダーテンペスト",
+  "element": "雷",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "ムラサメの専用スキル。\r\n大気を操作し、雷雲を纏いながら突進する。"
+ },
+ "Unique_FlowerDinosaur_Electric_ThunderWhip": {
+  "asset": "Unique_FlowerDinosaur_Electric_ThunderWhip",
+  "jp_name": "ライトニングスマッシュ",
+  "element": "雷",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "ビリビリューの専用スキル。\r\n大きな尻尾を使って前方の地面をたたきつけ、\r\n直線状に雷撃を与える。"
+ },
+ "ThunderRain": {
+  "asset": "ThunderRain",
+  "jp_name": "サンダーレイン",
+  "element": "雷",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "雷を呼んで\r\n一定時間後にたくさんの落雷を起こす。"
+ },
+ "Unique_CaptainPenguin_Black_BodySlide_Electric": {
+  "asset": "Unique_CaptainPenguin_Black_BodySlide_Electric",
+  "jp_name": "サンダースライディング",
+  "element": "雷",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "ペンキッドの専用スキル。\r\n地面にお腹をつけ、全身から電気を発して\r\n滑りながら敵にぶつかっていく。"
+ },
+ "Thunderbolt": {
+  "asset": "Thunderbolt",
+  "jp_name": "ライトニングボルト",
+  "element": "雷",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "雷の力をチャージして\r\n敵めがけて強力な電撃を放出する。"
+ },
+ "RangeThunder": {
+  "asset": "RangeThunder",
+  "jp_name": "オールレンジサンダー",
+  "element": "雷",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "一直線に進む雷撃を全方位に発生させる。"
+ },
+ "Unique_BlueThunderHorse_Tossin": {
+  "asset": "Unique_BlueThunderHorse_Tossin",
+  "jp_name": "フラッシュチャージ",
+  "element": "雷",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "オーマサンダの専用スキル。\r\n雷をまといながら、敵に向かって高速で突進する。"
+ },
+ "Unique_ElecSnail_ShellCharge": {
+  "asset": "Unique_ElecSnail_ShellCharge",
+  "jp_name": "シェルチャージ",
+  "element": "雷",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "デンツム種の専用スキル。\r\n殻にこもってダメージを軽減し、電気エネルギーをチャージする。\r\nチャージが完了すると放電し、周囲の敵にダメージを与える。\r\n放電後、一定時間このパルが使う雷属性スキルの攻撃力が増加する。"
+ },
+ "Unique_ElecPanda_GatlingAttack": {
+  "asset": "Unique_ElecPanda_GatlingAttack",
+  "jp_name": "雷撃の重戦車",
+  "element": "雷",
+  "cooltime": "24",
+  "power": "550",
+  "aggregate": null,
+  "effect_jp": "エレパンダの専用スキル。\r\nどこからか取り出したミニガンをぶっ放す。\r\n最後に少しチャージした後、強力な弾を1発放つ。"
+ },
+ "Unique_ThunderDragonMan_NumerousSwordAttack": {
+  "asset": "Unique_ThunderDragonMan_NumerousSwordAttack",
+  "jp_name": "ポリケラウノス",
+  "element": "雷",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "ボルゼクスの専用スキル。\r\n数多の雷槍を召喚し、敵に向かって投げつける。\r\n最初の1本は雷の力を溜め込み、数秒後に爆発する。"
+ },
+ "ThunderStorm": {
+  "asset": "ThunderStorm",
+  "jp_name": "サンダーストーム",
+  "element": "雷",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "巨大な雷の竜巻を発生させる。\r\n竜巻は敵に向かってゆっくりと移動する。"
+ },
+ "Railbolt": {
+  "asset": "Railbolt",
+  "jp_name": "サンダーレール",
+  "element": "雷",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "限界まで雷の力をチャージして\r\n敵めがけて強力な電撃を複数同時発射する。"
+ },
+ "ShokeiLaser": {
+  "asset": "ShokeiLaser",
+  "jp_name": "エクスキューションレーザー",
+  "element": "雷",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "敵に狙いを定めたあと、\r\n超高速な雷のレーザーを複数発射する。"
+ },
+ "Unique_BlueThunderHorse_FlashDash": {
+  "asset": "Unique_BlueThunderHorse_FlashDash",
+  "jp_name": "ボルトブリンク",
+  "element": "雷",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "オーマサンダの専用スキル。\r\n雷のごとき速さで移動し、\r\n軌道上に存在するもの全てを巻き込む。"
+ },
+ "Unique_ScorpionMan_Erectric_UpperThunder": {
+  "asset": "Unique_ScorpionMan_Erectric_UpperThunder",
+  "jp_name": "アッパーサンダー",
+  "element": "雷",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "ブッサンダーの専用スキル。\r\n超電導により敵との距離を一気に詰め、\r\n思い切りハサミを振り上げる。"
+ },
+ "FireBlast": {
+  "asset": "FireBlast",
+  "jp_name": "ファイアーショット",
+  "element": "炎",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "敵をめがけて、一直線に飛んでゆく\r\n炎の弾を発射する。"
+ },
+ "Unique_AmaterasuWolf_BiteV2": {
+  "asset": "Unique_AmaterasuWolf_BiteV2",
+  "jp_name": "ダブルファング(炎)",
+  "element": "炎",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く連続で噛みついて攻撃する。"
+ },
+ "Unique_YakushimaMonster001_SlimePress_Fire": {
+  "asset": "Unique_YakushimaMonster001_SlimePress_Fire",
+  "jp_name": "スライムプレス(炎)",
+  "element": "炎",
+  "cooltime": "1",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "レッドスライムの専用スキル。\r\n敵に向かってジャンプして攻撃する。"
+ },
+ "Unique_AmaterasuWolf_Bite": {
+  "asset": "Unique_AmaterasuWolf_Bite",
+  "jp_name": "ワイルドファング(炎)",
+  "element": "炎",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く飛び掛かり、噛みついて攻撃する。"
+ },
+ "FireSeed": {
+  "asset": "FireSeed",
+  "jp_name": "スプリットファイアー",
+  "element": "炎",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "敵に向かって火の玉を発射する。\r\n少し進むと破裂して\r\n小さな火の玉が前方に広がる。"
+ },
+ "Unique_FlameBuffalo_FlameHorn": {
+  "asset": "Unique_FlameBuffalo_FlameHorn",
+  "jp_name": "ブレイジングホーン",
+  "element": "炎",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "ブルフェルノの専用スキル。\r\n敵に狙いを定めた後、\r\n猛烈な勢いで突進しながら角を振り上げる。"
+ },
+ "FlareArrow": {
+  "asset": "FlareArrow",
+  "jp_name": "フレアアロー",
+  "element": "炎",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "敵を追尾する、高速な火の矢を\r\n3本連続で発射する。"
+ },
+ "Unique_Ronin_Iai": {
+  "asset": "Unique_Ronin_Iai",
+  "jp_name": "居合斬り",
+  "element": "炎",
+  "cooltime": "8",
+  "power": "160",
+  "aggregate": null,
+  "effect_jp": "ツジギリ種の専用スキル。\r\n刀を構えた後、一瞬で敵の目の前に現れて\r\n超高速の抜刀攻撃を放つ。"
+ },
+ "Flamethrower": {
+  "asset": "Flamethrower",
+  "jp_name": "ファイアーブレス",
+  "element": "炎",
+  "cooltime": "8",
+  "power": "160",
+  "aggregate": null,
+  "effect_jp": "敵に向かって火炎を放出し、\r\n継続的にダメージを与える。"
+ },
+ "Unique_Baphomet_SwallowKite": {
+  "asset": "Unique_Baphomet_SwallowKite",
+  "jp_name": "ヘルファイアクロー",
+  "element": "炎",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "ヘルゴート種の専用スキル。\r\n接近しながら左手の爪で切り上げつつ跳躍し、\r\n続けざまに右手の爪を素早く切り下ろす。"
+ },
+ "Unique_AmaterasuWolf_FireCharge": {
+  "asset": "Unique_AmaterasuWolf_FireCharge",
+  "jp_name": "風林火山",
+  "element": "炎",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "シラヌイの専用スキル。\r\n全身に青い炎をまとい、勢いをつけて突進する。"
+ },
+ "FlareTornado": {
+  "asset": "FlareTornado",
+  "jp_name": "フレアストーム",
+  "element": "炎",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "左右に灼熱の竜巻を発生させ\r\n敵にけしかける。"
+ },
+ "Unique_RedArmorBird_TriplePeck": {
+  "asset": "Unique_RedArmorBird_TriplePeck",
+  "jp_name": "ラッシュビーク",
+  "element": "炎",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "イグニクスの専用スキル。\r\n前方に羽ばたきながら正面、右、左と\r\nくちばしを突き立てて着火し、\r\n小規模な爆発を起こす。"
+ },
+ "Unique_BirdDragon_FireBreath": {
+  "asset": "Unique_BirdDragon_FireBreath",
+  "jp_name": "フライングブレス",
+  "element": "炎",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "カバネドリの専用スキル。\r\n口から炎を吐きながら前進する。"
+ },
+ "FlameWall": {
+  "asset": "FlameWall",
+  "jp_name": "フレイムウォール",
+  "element": "炎",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "敵のいる地点に燃え上がる炎の壁を発生させる。\r\n炎の壁はしばらく残り続け、\r\n触れた敵にダメージを与える。"
+ },
+ "Unique_FireKirin_Tackle": {
+  "asset": "Unique_FireKirin_Tackle",
+  "jp_name": "フレイムチャージ",
+  "element": "炎",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "サラブレイズの専用スキル。\r\n炎をまといながら突進する。\r\nその軌道上には火が燃え残る。"
+ },
+ "Unique_VolcanicMonster_MagmaAttack": {
+  "asset": "Unique_VolcanicMonster_MagmaAttack",
+  "jp_name": "ボルカニックバースト",
+  "element": "炎",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "ボルカノンの専用スキル。\r\n前足を振り上げて地面に叩きつけ\r\n敵のいる地点を噴火させる。\r\n噴火時、周囲に火山弾が降りかかる。"
+ },
+ "FlameFunnel": {
+  "asset": "FlameFunnel",
+  "jp_name": "フレイムファンネル",
+  "element": "炎",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "炎エネルギーをもつ球を複数作り出し、\r\nそこから敵に向かっていく無数の火球を発射する。"
+ },
+ "Unique_Horus_FlareBird": {
+  "asset": "Unique_Horus_FlareBird",
+  "jp_name": "鳳凰翔波",
+  "element": "炎",
+  "cooltime": "16",
+  "power": "320",
+  "aggregate": null,
+  "effect_jp": "ホルスの専用スキル。\r\n灼熱の竜巻を巻き起こしたあと、\r\n身体に獄炎を纏い、滑空しながら突進する。"
+ },
+ "Unique_Manticore_InfernoStrike": {
+  "asset": "Unique_Manticore_InfernoStrike",
+  "jp_name": "ボルカニックファング",
+  "element": "炎",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "ゴクエンオ種の専用スキル。\r\n勢いをつけながら敵に容赦なく飛びかかり、\r\n飛びかかった先で炎を炸裂させる。"
+ },
+ "Unique_Umihebi_Fire_FireWindingTackle": {
+  "asset": "Unique_Umihebi_Fire_FireWindingTackle",
+  "jp_name": "マグマズスネイク",
+  "element": "炎",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "アグニドラの専用スキル。\r\n雄たけびを上げ、炎をまとった体をくねらせながら敵に向かって突進していく。"
+ },
+ "Eruption": {
+  "asset": "Eruption",
+  "jp_name": "ボルカニックレイン",
+  "element": "炎",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "上空に向かって無数の火山弾を発射する。\r\nしばらく経つと発射された火山弾が\r\n発動者の周囲に降り注ぐ。"
+ },
+ "Unique_GhostAnglerfish_Fire_SweepBait_Fire": {
+  "asset": "Unique_GhostAnglerfish_Fire_SweepBait_Fire",
+  "jp_name": "灼熱提灯払い",
+  "element": "炎",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "メラドーンの専用スキル。\r\n頭部にある炎をまとった提灯で前方を大きくなぎ払う。"
+ },
+ "Inferno": {
+  "asset": "Inferno",
+  "jp_name": "インフェルノ",
+  "element": "炎",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "敵の周囲の地面を活性化させ\r\n一定時間後に爆裂させる。"
+ },
+ "FireBall": {
+  "asset": "FireBall",
+  "jp_name": "ファイアーボール",
+  "element": "炎",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "頭上に巨大な火球を作り出し、敵に向かって発射する。\r\n着弾すると爆発し、広範囲に爆風が広がる。"
+ },
+ "Unique_KingBahamut_ArmSmash": {
+  "asset": "Unique_KingBahamut_ArmSmash",
+  "jp_name": "アームインパクト",
+  "element": "炎",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "ボルカイザー種の専用スキル。\r\n腕を振りかぶり、大きく膨らませた後に\r\n叩き合わせて周囲に大爆発を起こす。"
+ },
+ "Unique_VolcanoDragon_MagmaSpit": {
+  "asset": "Unique_VolcanoDragon_MagmaSpit",
+  "jp_name": "マグマスピット",
+  "element": "炎",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "マグマンダーの専用スキル。\r\n口からマグマの塊を吐いて飛ばす。\r\n着弾地点にはマグマ溜まりができ、\r\n触れた敵にダメージを与える。"
+ },
+ "Unique_Horus_PerfectStorm": {
+  "asset": "Unique_Horus_PerfectStorm",
+  "jp_name": "炎凰烈波",
+  "element": "炎",
+  "cooltime": "30",
+  "power": "650",
+  "aggregate": null,
+  "effect_jp": "ホルスの専用スキル。\r\n複数の灼熱の竜巻を巻き起こしたあと、滑空しながら突進する。\r\n竜巻は中央に集まっていき、最後は一つの巨大な竜巻になる。"
+ },
+ "Unique_VolcanoDragon_VolcanicLaser": {
+  "asset": "Unique_VolcanoDragon_VolcanicLaser",
+  "jp_name": "マグマレーザー",
+  "element": "炎",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "マグマンダーの専用スキル。\r\n口からあふれ出る熱線で大地を焼き尽くす。\r\n熱された地面にはマグマ溜まりができ、\r\n触れた敵にダメージを与える。"
+ },
+ "Unique_ClownRabbit_TrickShow": {
+  "asset": "Unique_ClownRabbit_TrickShow",
+  "jp_name": "トリックショー",
+  "element": "炎",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "ラピエールの専用スキル。\r\n2体の幻影を作り出して敵を翻弄し、\r\n本体がシルクハットから炎の鳥を飛ばして攻撃する。"
+ },
+ "Unique_WingGolem_Fire_FlameCutter": {
+  "asset": "Unique_WingGolem_Fire_FlameCutter",
+  "jp_name": "フレイムカッター",
+  "element": "炎",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "マグナイトの専用スキル。\r\n大きく振りかぶって背中の炎輪を投げる。\r\n炎輪は円を描くような軌道で飛んでいく。"
+ },
+ "IceMissile": {
+  "asset": "IceMissile",
+  "jp_name": "アイスミサイル",
+  "element": "氷",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "上空に尖った氷を生成し\r\n敵めがけてそれらを発射する。"
+ },
+ "Unique_ThunderDog_Ice_BiteV2": {
+  "asset": "Unique_ThunderDog_Ice_BiteV2",
+  "jp_name": "ダブルファング(氷)",
+  "element": "氷",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く連続で噛みついて攻撃する。"
+ },
+ "Unique_ThunderDog_Ice_Bite": {
+  "asset": "Unique_ThunderDog_Ice_Bite",
+  "jp_name": "ワイルドファング(氷)",
+  "element": "氷",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く飛び掛かり、噛みついて攻撃する。"
+ },
+ "IceBlade": {
+  "asset": "IceBlade",
+  "jp_name": "アイスカッター",
+  "element": "氷",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "三日月状の氷の刃を作り出し\r\n前方に発射する。"
+ },
+ "Unique_IceDeer_IceHorn": {
+  "asset": "Unique_IceDeer_IceHorn",
+  "jp_name": "アイスホーンラッシュ",
+  "element": "氷",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "ツララジカの専用スキル。\r\n突進しながら荘厳な氷の角で敵を突き上げる。"
+ },
+ "BlizzardLance": {
+  "asset": "BlizzardLance",
+  "jp_name": "アイスバーグ",
+  "element": "氷",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "敵の足元から\r\n鋭い氷の刃を出現させる。"
+ },
+ "Unique_CaptainPenguin_BodySlide": {
+  "asset": "Unique_CaptainPenguin_BodySlide",
+  "jp_name": "キャプテンスライディング",
+  "element": "氷",
+  "cooltime": "8",
+  "power": "140",
+  "aggregate": null,
+  "effect_jp": "キャプペンの専用スキル。\r\n地面にお腹をつけ、全身から冷気を発して\r\n滑りながら敵にぶつかっていく。"
+ },
+ "FrostBreath": {
+  "asset": "FrostBreath",
+  "jp_name": "コールドブレス",
+  "element": "氷",
+  "cooltime": "8",
+  "power": "160",
+  "aggregate": null,
+  "effect_jp": "敵に向かって冷気を放出し\r\n継続的にダメージを与える。"
+ },
+ "Unique_Werewolf_Ice_SnowScratch": {
+  "asset": "Unique_Werewolf_Ice_SnowScratch",
+  "jp_name": "スノークロー",
+  "element": "氷",
+  "cooltime": "8",
+  "power": "160",
+  "aggregate": null,
+  "effect_jp": "ユキカゲの専用スキル。\r\n前方に跳び上がり、素早く2回引っかく。\r\nその斬撃には氷属性の力が込められている。"
+ },
+ "Unique_IceCrocodile_SpitAttack": {
+  "asset": "Unique_IceCrocodile_SpitAttack",
+  "jp_name": "乱れ吐き",
+  "element": "氷",
+  "cooltime": "8",
+  "power": "180",
+  "aggregate": null,
+  "effect_jp": "コチワニの専用スキル。\r\n体内で消化されず冷やされていたグレネードを\r\n3つポンポン吐いて攻撃する。\r\nたまにもっと危険なものを吐くことも…？"
+ },
+ "Unique_BirdDragon_Ice_IceBreath": {
+  "asset": "Unique_BirdDragon_Ice_IceBreath",
+  "jp_name": "フライングブリザード",
+  "element": "氷",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "シロカバネの専用スキル。\r\n口から冷気を吐きながら前進する。"
+ },
+ "IceWall": {
+  "asset": "IceWall",
+  "jp_name": "フリーズウォール",
+  "element": "氷",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "地面から氷の壁を出現させる。\r\n氷の壁はしばらく残り続け、\r\n一定ダメージを受けると壊れる。"
+ },
+ "IciclePierce": {
+  "asset": "IciclePierce",
+  "jp_name": "アイシクルバレット",
+  "element": "氷",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "上空に尖った氷を複数生成し\r\n敵めがけてそれらを発射する。"
+ },
+ "Unique_GrassMinotaur_Ice_BullRush_Lower": {
+  "asset": "Unique_GrassMinotaur_Ice_BullRush_Lower",
+  "jp_name": "スノーラッシュ",
+  "element": "氷",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "ユキタロスの専用スキル。\r\n荒々しく身を奮い立たせ、\r\n２連続で氷属性の突進を行う。"
+ },
+ "IcicleLine": {
+  "asset": "IcicleLine",
+  "jp_name": "アイシクルライン",
+  "element": "氷",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "一直線に進む氷柱を三方向に発生させる。"
+ },
+ "Unique_WhiteTiger_IceScratch": {
+  "asset": "Unique_WhiteTiger_IceScratch",
+  "jp_name": "ブリザードクロー",
+  "element": "氷",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "ツンドラーの専用スキル。\r\n1撃、2撃と爪で切り裂き、最後に全身を\r\n使って大きく切り裂く。爪を振るう際、\r\n前方に氷柱を3本扇状に飛ばす。"
+ },
+ "Unique_SnowTigerBeastman_TrampleSlash": {
+  "asset": "Unique_SnowTigerBeastman_TrampleSlash",
+  "jp_name": "氷烈爪",
+  "element": "氷",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "ヒョウガオーの専用スキル。\r\n地面を踏みしだき、\r\n前方に氷の裂け目を発生させる。\r\nその後一気に近づき、右手で切り裂く。"
+ },
+ "Unique_ThunderDog_Ice_KoriShorai": {
+  "asset": "Unique_ThunderDog_Ice_KoriShorai",
+  "jp_name": "召雪",
+  "element": "氷",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "フリーズマの専用スキル。\r\n前方に次々と氷柱を生成し、\r\n生成した氷柱の間を高速で突進していく。"
+ },
+ "Unique_VolcanicMonster_Ice_IceAttack": {
+  "asset": "Unique_VolcanicMonster_Ice_IceAttack",
+  "jp_name": "フロストバースト",
+  "element": "氷",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "フロスカノンの専用スキル。\r\n前足を振り上げて地面に叩きつけ\r\n敵のいる地点に雪を噴出させる。\r\n噴出時、周囲に雪の玉が降りかかる。"
+ },
+ "Unique_Yeti_SnowBall": {
+  "asset": "Unique_Yeti_SnowBall",
+  "jp_name": "スノーボーリング",
+  "element": "氷",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "ヒエティの専用スキル。\r\n雪でつくった玉を転がしながら進んでいき、\r\n大きくなりきったところで投げつけて炸裂させる。"
+ },
+ "Unique_KingAlpaca_Ice_IcePress": {
+  "asset": "Unique_KingAlpaca_Ice_IcePress",
+  "jp_name": "キンキンプレス",
+  "element": "氷",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "アオパオーの専用スキル。\r\n大きく跳び上がった後、\r\nその巨体と氷で敵を押しつぶす。"
+ },
+ "IcicleThrow": {
+  "asset": "IcicleThrow",
+  "jp_name": "ブリザードスパイク",
+  "element": "氷",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "巨大な氷塊を作り出し\r\n敵めがけて高速で発射する。\r\n着弾すると、周囲にも衝撃を与える。"
+ },
+ "DiamondFall": {
+  "asset": "DiamondFall",
+  "jp_name": "ダイアモンドフォール",
+  "element": "氷",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "敵の頭上に氷の塊を生成し\r\n次々と降らせる。"
+ },
+ "Unique_IceNarwhal_JumpingHorn": {
+  "asset": "Unique_IceNarwhal_JumpingHorn",
+  "jp_name": "ハイブリーチ",
+  "element": "氷",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "コゴエール種の専用スキル。\r\n直進して一瞬潜った後、\r\n天高く飛び出して攻撃する。\r\n飛び出す際、氷属性の爆発が起きる。"
+ },
+ "Unique_Kirin_Ice_IceTackle": {
+  "asset": "Unique_Kirin_Ice_IceTackle",
+  "jp_name": "疾風氷撃",
+  "element": "氷",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "レイコーンの専用スキル。\r\n自身の周囲に氷柱を発生させながら、\r\n敵に向かって突進する。"
+ },
+ "Unique_RockBeast_Ice_IceHorn": {
+  "asset": "Unique_RockBeast_Ice_IceHorn",
+  "jp_name": "アイスバースト",
+  "element": "氷",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "フロスドンの専用スキル。\r\n角で地面をえぐりつつ振り上げ、\r\n敵に向かって雪塊を飛ばす。"
+ },
+ "Unique_VolcanoDragon_Ice_IcicleSpit": {
+  "asset": "Unique_VolcanoDragon_Ice_IcicleSpit",
+  "jp_name": "アイススピット",
+  "element": "氷",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "ブリザンダーの専用スキル。\r\n口から氷の塊を吐いて飛ばす。\r\n凍てついた地面には霜溜まりができ、\r\n触れた敵を凍らせてダメージを与える。"
+ },
+ "Unique_ThunderBird_Ice_SnowStrom": {
+  "asset": "Unique_ThunderBird_Ice_SnowStrom",
+  "jp_name": "アイスダイブ",
+  "element": "氷",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "チルバードの専用スキル。\r\nまず、敵のいる地点から氷を突き上げる。\r\nそして滑空突進しながら左右に氷を突き上げていく。"
+ },
+ "Unique_SnowTigerBeastman_SnowImpact": {
+  "asset": "Unique_SnowTigerBeastman_SnowImpact",
+  "jp_name": "氷床撃砕",
+  "element": "氷",
+  "cooltime": "30",
+  "power": "650",
+  "aggregate": null,
+  "effect_jp": "ヒョウガオーの専用スキル。\r\n大きく咆哮して跳び上がった後、\r\n両腕を地面に埋め込んで巨大な氷の亀裂を作る。\r\nそのまま地面に力を込め続け、\r\n最終的に氷属性の大爆発を起こす。"
+ },
+ "Unique_GrassMinotaur_Ice_BullRush": {
+  "asset": "Unique_GrassMinotaur_Ice_BullRush",
+  "jp_name": "スノーラッシュ・レイジ",
+  "element": "氷",
+  "cooltime": "30",
+  "power": "650",
+  "aggregate": null,
+  "effect_jp": "ユキタロスの専用スキル。\r\n激しく身を奮い立たせ、\r\n４連続で怒りの氷属性突進を行う。"
+ },
+ "Unique_IceHorse_IceBladeAttack": {
+  "asset": "Unique_IceHorse_IceBladeAttack",
+  "jp_name": "クリスタルウィング",
+  "element": "氷",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "グレイシャル種の専用スキル。\r\n冷気を凝縮して翼に氷をまとわせ\r\n疾走しながら氷翼で敵を切り裂く。"
+ },
+ "DoubleIcicleThrow": {
+  "asset": "DoubleIcicleThrow",
+  "jp_name": "ダブルブリザードスパイク",
+  "element": "氷",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "巨大な氷塊を2つ作り出し\r\n敵めがけて続けざまに発射する。\r\n着弾すると、周囲にも衝撃を与える。"
+ },
+ "IceAge": {
+  "asset": "IceAge",
+  "jp_name": "フロストアウト",
+  "element": "氷",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "敵の足元から広範囲に氷柱を突き立てる。"
+ },
+ "Unique_VolcanoDragon_Ice_IceLaser": {
+  "asset": "Unique_VolcanoDragon_Ice_IceLaser",
+  "jp_name": "アイスレーザー",
+  "element": "氷",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "ブリザンダーの専用スキル。\r\n口から凍結光線を吐き、大地を凍てつかせる。\r\n凍てついた地面には霜溜まりができ、\r\n触れた敵を凍らせてダメージを与える。"
+ },
+ "Unique_LilyQueen_LilyHealing": {
+  "asset": "Unique_LilyQueen_LilyHealing",
+  "jp_name": "豊穣の加護",
+  "element": "草",
+  "cooltime": "240",
+  "power": "0",
+  "aggregate": null,
+  "effect_jp": "リリクインの専用スキル。\r\n癒しの力により、範囲内にいる味方全員のHPを回復する。"
+ },
+ "WindCutter": {
+  "asset": "WindCutter",
+  "jp_name": "ウィンドカッター",
+  "element": "草",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "敵をめがけて、一直線に飛んでゆく\r\n超高速な風の刃を発射する。"
+ },
+ "Unique_YakushimaMonster001_SlimePress_Leaf": {
+  "asset": "Unique_YakushimaMonster001_SlimePress_Leaf",
+  "jp_name": "スライムプレス(草)",
+  "element": "草",
+  "cooltime": "1",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "グリーンスライムの専用スキル。\r\n敵に向かってジャンプして攻撃する。"
+ },
+ "SeedMachinegun": {
+  "asset": "SeedMachinegun",
+  "jp_name": "シードマシンガン",
+  "element": "草",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "たくさんの固い種を放出し\r\n前方の敵を攻撃する。"
+ },
+ "Unique_FlowerDinosaur_Whip": {
+  "asset": "Unique_FlowerDinosaur_Whip",
+  "jp_name": "ボタニカルスマッシュ",
+  "element": "草",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "アロアリュー種の専用スキル。\r\n大きな尻尾を使って前方の地面をたたきつけ、\r\n直線状に衝撃を与える。"
+ },
+ "Unique_SakuraSaurus_SideTackle": {
+  "asset": "Unique_SakuraSaurus_SideTackle",
+  "jp_name": "ボディスマッシュ",
+  "element": "草",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "ラブラドン種の専用スキル。\r\n体を横向きに構え、\r\n前方にタックルをかまして敵を吹き飛ばす。"
+ },
+ "SeedMine": {
+  "asset": "SeedMine",
+  "jp_name": "シードマイン",
+  "element": "草",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "危険なタネを発射する。\r\n敵に当たると弾けて爆発する。"
+ },
+ "Unique_RobinHood_BowSnipe": {
+  "asset": "Unique_RobinHood_BowSnipe",
+  "jp_name": "スナイプショット",
+  "element": "草",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "フェザーロ種の専用スキル。\r\n弓を引き絞って敵に狙いを定め\r\n敵に射撃を行う。"
+ },
+ "Unique_GrassPanda_MusclePunch": {
+  "asset": "Unique_GrassPanda_MusclePunch",
+  "jp_name": "マッスルパンチ",
+  "element": "草",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "ササゾーの専用スキル。\r\n右腕をグルグル回し、前方に強烈なパンチを繰り出す。"
+ },
+ "Unique_SoldierBee_NeedleLance": {
+  "asset": "Unique_SoldierBee_NeedleLance",
+  "jp_name": "ニードルスピア",
+  "element": "草",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "ビーナイトの専用スキル。\r\n敵に向かって高速で突進する。\r\n最後にダメ押しで槍を突く。"
+ },
+ "SpecialCutter": {
+  "asset": "SpecialCutter",
+  "jp_name": "マルチカッター",
+  "element": "草",
+  "cooltime": "8",
+  "power": "160",
+  "aggregate": null,
+  "effect_jp": "敵をめがけて一直線に飛んでゆく\r\n超高速な風の刃を3発発射する。"
+ },
+ "Unique_QueenBee_SpinLance": {
+  "asset": "Unique_QueenBee_SpinLance",
+  "jp_name": "スピニングスタッフ",
+  "element": "草",
+  "cooltime": "8",
+  "power": "160",
+  "aggregate": null,
+  "effect_jp": "クインビーナの専用スキル。\r\n杖にパワーを集め、回転しながら解き放つ。"
+ },
+ "GrassTornado": {
+  "asset": "GrassTornado",
+  "jp_name": "グラストルネード",
+  "element": "草",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "左右に竜巻を発生させ\r\n敵にけしかける。"
+ },
+ "WindEdge": {
+  "asset": "WindEdge",
+  "jp_name": "ウィンドエッジ",
+  "element": "草",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "鋭利な風の刃を扇状に飛ばす。"
+ },
+ "RootAttack": {
+  "asset": "RootAttack",
+  "jp_name": "スパインヴァイン",
+  "element": "草",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "地中の鋭い根が敵を追いかけ\r\n足元から敵を貫く。"
+ },
+ "Unique_GrassRabbitMan_GrassRoundKick": {
+  "asset": "Unique_GrassRabbitMan_GrassRoundKick",
+  "jp_name": "スピンレッグラッシュ",
+  "element": "草",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "ラベロットの専用スキル。\r\n前方にジャンプしながら高速回転キックで\r\n周囲を薙ぎ払う。"
+ },
+ "Unique_LeafMomonga_SomerSault": {
+  "asset": "Unique_LeafMomonga_SomerSault",
+  "jp_name": "木の葉返り",
+  "element": "草",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "モモンパの専用スキル。\r\n一瞬身構えた後、\r\n敵に高速でぶつかって行きながら宙返りする。"
+ },
+ "Unique_GrassMinotaur_BullRush_Lower": {
+  "asset": "Unique_GrassMinotaur_BullRush_Lower",
+  "jp_name": "ブルラッシュ",
+  "element": "草",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "モリタロスの専用スキル。\r\n荒々しく身を奮い立たせ、\r\n２連続で草属性の突進を行う。"
+ },
+ "Unique_PandaGirl_RapidKick": {
+  "asset": "Unique_PandaGirl_RapidKick",
+  "jp_name": "連続回し蹴り",
+  "element": "草",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "リーファンの専用スキル。\r\n素早く連続で回し蹴りを行い、最後に気功の波動を飛ばす。"
+ },
+ "SelfDestruct_Bee": {
+  "asset": "SelfDestruct_Bee",
+  "jp_name": "ビー・クワイエット",
+  "element": "草",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "命をかけて爆散する。\r\n自身も殉職する名誉の技。"
+ },
+ "RootLance": {
+  "asset": "RootLance",
+  "jp_name": "サークルヴァイン",
+  "element": "草",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "敵のいる地点とその周囲に\r\n鋭い根を突き出す。"
+ },
+ "Unique_TropicalOstrich_DashKick": {
+  "asset": "Unique_TropicalOstrich_DashKick",
+  "jp_name": "ダッシュキック",
+  "element": "草",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "ココヤンバの専用スキル。\r\nダッシュで勢いをつけながら、\r\n敵に強烈な飛び蹴りを浴びせる。"
+ },
+ "RaidCutter": {
+  "asset": "RaidCutter",
+  "jp_name": "レイドカッター",
+  "element": "草",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "敵をめがけて飛んでいく\r\n無数の風の刃を発射する。"
+ },
+ "Unique_Yeti_Grass_GrassBall": {
+  "asset": "Unique_Yeti_Grass_GrassBall",
+  "jp_name": "グラスボーリング",
+  "element": "草",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "トロピティの専用スキル。\r\n草でつくった玉を転がしながら進んでいき、\r\n大きくなりきったところで投げつけて炸裂させる。"
+ },
+ "ReflectiveShuriken": {
+  "asset": "ReflectiveShuriken",
+  "jp_name": "リフレクトリーフ",
+  "element": "草",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "敵や木に当たると跳ね返って連続攻撃になる\r\n風の刃を飛ばす。\r\n最大4回まで跳ね返る。"
+ },
+ "Unique_Plesiosaur_LongBreath": {
+  "asset": "Unique_Plesiosaur_LongBreath",
+  "jp_name": "ロングブレス",
+  "element": "草",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "トコナッツの専用スキル。\r\nその長い首元から首先にかけ、\r\n徐々に草属性の息吹を拡散させていく。"
+ },
+ "SolarBeam": {
+  "asset": "SolarBeam",
+  "jp_name": "ソーラーブラスト",
+  "element": "草",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "太陽の力をチャージして\r\n敵めがけて強力なビームを発射する。"
+ },
+ "CrossWind": {
+  "asset": "CrossWind",
+  "jp_name": "クロスウィンド",
+  "element": "草",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "敵の前方に生成した風の刃を\r\nクロスさせて攻撃する。"
+ },
+ "Unique_RedFlowerBird_JumpKick": {
+  "asset": "Unique_RedFlowerBird_JumpKick",
+  "jp_name": "フラワースタンプ",
+  "element": "草",
+  "cooltime": "24",
+  "power": "550",
+  "aggregate": null,
+  "effect_jp": "フラペックの専用スキル。\r\nふわりと宙に浮きあがり、鋭い爪を勢いよく地面に叩きつける。"
+ },
+ "WindBurst": {
+  "asset": "WindBurst",
+  "jp_name": "ウィンドブラスト",
+  "element": "草",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "自身の周りに巨大な風の渦を呼び起こし、\r\n大威力の攻撃を行う。"
+ },
+ "Unique_GrassMinotaur_BullRush": {
+  "asset": "Unique_GrassMinotaur_BullRush",
+  "jp_name": "ブルラッシュ・レイジ",
+  "element": "草",
+  "cooltime": "30",
+  "power": "650",
+  "aggregate": null,
+  "effect_jp": "モリタロスの専用スキル。\r\n激しく身を奮い立たせ、\r\n４連続で怒りの草属性突進を行う。"
+ },
+ "Unique_GrassGolem_ArmCannon": {
+  "asset": "Unique_GrassGolem_ArmCannon",
+  "jp_name": "ルートキャノン",
+  "element": "草",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "ウゴクゾーの専用スキル。\r\n腕から草属性のエネルギー弾を発射する。\r\n弾は着弾後しつこく敵を追う根となり、足元から貫く。"
+ },
+ "Unique_Mothman_GiantSpore": {
+  "asset": "Unique_Mothman_GiantSpore",
+  "jp_name": "ジャイアントスポア",
+  "element": "草",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "モスローンの専用スキル。\r\n敵を追尾する巨大な胞子を発射する。\r\n着弾すると爆発し、広範囲に爆風が広がる。"
+ },
+ "Unique_LotusDragon_LotusBloom": {
+  "asset": "Unique_LotusDragon_LotusBloom",
+  "jp_name": "蓮華開咲",
+  "element": "草",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "ハナミズチの専用スキル。\r\n地面に潜って姿をくらます。\r\nつぼみとなって地表に現れた後、花開いて広範囲を攻撃する。"
+ },
+ "Unique_Mothman_SporeScatter": {
+  "asset": "Unique_Mothman_SporeScatter",
+  "jp_name": "スポアバースト",
+  "element": "草",
+  "cooltime": "30",
+  "power": "800",
+  "aggregate": null,
+  "effect_jp": "モスローンの専用スキル。\r\n爆発する胞子を広範囲にばら撒き、\r\n一定時間後に一気に起爆する。"
+ },
+ "Unique_ChickenPal_ChickenPeck": {
+  "asset": "Unique_ChickenPal_ChickenPeck",
+  "jp_name": "チキンタックル",
+  "element": "無",
+  "cooltime": "2",
+  "power": "30",
+  "aggregate": null,
+  "effect_jp": "タマコッコの専用スキル。\r\n敵を目がけて飛び掛かり、尖ったくちばしで突撃する。"
+ },
+ "AirCanon": {
+  "asset": "AirCanon",
+  "jp_name": "エアーキャノン",
+  "element": "無",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "高速で飛ぶ空気の塊を発射する。"
+ },
+ "Unique_SheepBall_Roll": {
+  "asset": "Unique_SheepBall_Roll",
+  "jp_name": "コロコロモコロン",
+  "element": "無",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "モコロンの専用スキル。\r\nコロコロと転がりながら、敵を追いかける。\r\n攻撃後は目が回って動けなくなってしまう。"
+ },
+ "Unique_PinkCat_CatPunch": {
+  "asset": "Unique_PinkCat_CatPunch",
+  "jp_name": "ツッパンチ",
+  "element": "無",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "ツッパニャンの専用スキル。\r\n敵を追いかけながら両腕を振り回し、\r\n連続でパンチを繰り出す。"
+ },
+ "Unique_Garm_BiteV2": {
+  "asset": "Unique_Garm_BiteV2",
+  "jp_name": "ダブルファング",
+  "element": "無",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く連続で噛みついて攻撃する。"
+ },
+ "Unique_GuardianDog_BiteV2": {
+  "asset": "Unique_GuardianDog_BiteV2",
+  "jp_name": "ダブルファング",
+  "element": "無",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く連続で噛みついて攻撃する。"
+ },
+ "Unique_Alpaca_Tackle": {
+  "asset": "Unique_Alpaca_Tackle",
+  "jp_name": "ふんわりタックル",
+  "element": "無",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "メルパカの専用スキル。\r\nかわいいオーラをまといながら突進する。"
+ },
+ "Unique_Garm_Bite": {
+  "asset": "Unique_Garm_Bite",
+  "jp_name": "ワイルドファング",
+  "element": "無",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く飛び掛かり、噛みついて攻撃する。"
+ },
+ "Unique_YakushimaMonster001_SlimePress_Normal": {
+  "asset": "Unique_YakushimaMonster001_SlimePress_Normal",
+  "jp_name": "スライムプレス(無)",
+  "element": "無",
+  "cooltime": "1",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "かがやくスライムの専用スキル。\r\n敵に向かってジャンプして攻撃する。"
+ },
+ "Unique_GuardianDog_Bite": {
+  "asset": "Unique_GuardianDog_Bite",
+  "jp_name": "ワイルドファング",
+  "element": "無",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "敵に向かって素早く飛び掛かり、噛みついて攻撃する。"
+ },
+ "Unique_YakushimaMonster003_BatCharge": {
+  "asset": "Unique_YakushimaMonster003_BatCharge",
+  "jp_name": "こうもりの襲撃",
+  "element": "無",
+  "cooltime": "1",
+  "power": "70",
+  "aggregate": null,
+  "effect_jp": "どうくつコウモリの専用スキル。\r\n全身を使い、敵に襲いかかる。地面や壁に当たると跳ねる。"
+ },
+ "PowerShot": {
+  "asset": "PowerShot",
+  "jp_name": "パワーショット",
+  "element": "無",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "エネルギーをチャージし\r\n弾丸にして発射する。"
+ },
+ "Unique_Eagle_GlidingNail": {
+  "asset": "Unique_Eagle_GlidingNail",
+  "jp_name": "グライドクロー",
+  "element": "無",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "エアムルグの専用スキル。\r\n足爪を前に出しながら\r\n勢い良く滑空突進を行う。"
+ },
+ "Unique_HawkBird_Storm": {
+  "asset": "Unique_HawkBird_Storm",
+  "jp_name": "トルネードアタック",
+  "element": "無",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "ホークウィンの専用スキル。\r\n前方に竜巻を発生させた後、\r\n滑空しながら敵に突進する。"
+ },
+ "Unique_YakushimaMonster002_SwordCharge": {
+  "asset": "Unique_YakushimaMonster002_SwordCharge",
+  "jp_name": "ソードチャージ",
+  "element": "無",
+  "cooltime": "1",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "まほうのつるぎの専用スキル。\r\n敵めがけて突き攻撃を行う。"
+ },
+ "Unique_Deer_PushupHorn": {
+  "asset": "Unique_Deer_PushupHorn",
+  "jp_name": "ホーンアッパー",
+  "element": "無",
+  "cooltime": "4",
+  "power": "90",
+  "aggregate": null,
+  "effect_jp": "ツノガミ種の専用スキル。\r\n敵に向かって突進し、角を振り上げて攻撃する。\r\nライド中に発動すると、進行方向を操作できる。"
+ },
+ "Unique_YakushimaMonster001_SlimePress_Rainbow": {
+  "asset": "Unique_YakushimaMonster001_SlimePress_Rainbow",
+  "jp_name": "スライムプレス(虹)",
+  "element": "無",
+  "cooltime": "1",
+  "power": "100",
+  "aggregate": null,
+  "effect_jp": "レインボースライムの専用スキル。\r\n敵に向かってジャンプして攻撃する。"
+ },
+ "Unique_NaughtyCat_CatPress": {
+  "asset": "Unique_NaughtyCat_CatPress",
+  "jp_name": "キャットプレス",
+  "element": "無",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "ニャンギマリの専用スキル。\r\n不敵な笑みを浮かべながら跳び上がり、\r\n全身で敵を押しつぶす。"
+ },
+ "PowerBall": {
+  "asset": "PowerBall",
+  "jp_name": "パワーボム",
+  "element": "無",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "大量のエネルギーをチャージし\r\n巨大な球体にして発射する。"
+ },
+ "Unique_Gorilla_GroundPunch": {
+  "asset": "Unique_Gorilla_GroundPunch",
+  "jp_name": "ゴリラウンドコンボ",
+  "element": "無",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "ゴリレイジ種の専用スキル。\r\n地面を2度たたきつけたあとに飛び上がり、\r\n最後に強烈なパンチをお見舞いする。"
+ },
+ "Unique_FengyunDeeper_CloudTempest": {
+  "asset": "Unique_FengyunDeeper_CloudTempest",
+  "jp_name": "クラウドテンペスト",
+  "element": "無",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "ムラクモの専用スキル。\r\n大気を操作し、風圧を纏いながら突進する。"
+ },
+ "AirBlade": {
+  "asset": "AirBlade",
+  "jp_name": "エアーブレード",
+  "element": "無",
+  "cooltime": "8",
+  "power": "160",
+  "aggregate": null,
+  "effect_jp": "鋭い空気の刃を扇状に飛ばす。"
+ },
+ "Unique_KingAlpaca_BodyPress": {
+  "asset": "Unique_KingAlpaca_BodyPress",
+  "jp_name": "キングプレス",
+  "element": "無",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "アルパオー種の専用スキル。\r\n大きく跳び上がった後、\r\nふくよかな巨体で敵を押しつぶす。"
+ },
+ "Unique_LegendDeer_RadiantPurge_Otomo": {
+  "asset": "Unique_LegendDeer_RadiantPurge_Otomo",
+  "jp_name": "浄化の光",
+  "element": "無",
+  "cooltime": "100",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "レジェンディアの専用スキル。\r\n上空に跳びあがり、莫大なエネルギーを凝縮して地面へと放つ。\r\n舞い降りた光球は、地上の全てを浄化する"
+ },
+ "SelfDestruct": {
+  "asset": "SelfDestruct",
+  "jp_name": "自爆",
+  "element": "無",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "命をかけて爆散する。\r\n自身は戦闘不能になる。"
+ },
+ "Unique_MoonQueen_MoonBlade": {
+  "asset": "Unique_MoonQueen_MoonBlade",
+  "jp_name": "青月刃",
+  "element": "無",
+  "cooltime": "16",
+  "power": "350",
+  "aggregate": null,
+  "effect_jp": "セレムーンの専用スキル。\r\n月光の力を宿した高速の刃を2連続で飛ばす。"
+ },
+ "StarMine": {
+  "asset": "StarMine",
+  "jp_name": "スターマイン",
+  "element": "無",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "触れると爆発する星を敵の周囲に生成する。\r\n星は時間経過によっても爆発する。"
+ },
+ "HyperBeam": {
+  "asset": "HyperBeam",
+  "jp_name": "パルブラスト",
+  "element": "無",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "破壊エネルギーをチャージし\r\n前方広範囲に超強力なビームを発射する。"
+ },
+ "Unique_SifuDog_Counter": {
+  "asset": "Unique_SifuDog_Counter",
+  "jp_name": "渾身の構え",
+  "element": "無",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "ワンフーの専用スキル。\r\n合気の構えをとる。構え中は攻撃を受けても無効化し、\r\nさらに一瞬で敵に迫って渾身の掌底を放つ。"
+ },
+ "Unique_MoonQueen_MoonBeam": {
+  "asset": "Unique_MoonQueen_MoonBeam",
+  "jp_name": "ムーンビーム",
+  "element": "無",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "セレムーンの専用スキル。\r\n背中の月にエネルギーを溜め、\r\n前方に三日月型のビームを発射する。"
+ },
+ "Unique_SaintCentaur_OneSpearRushes": {
+  "asset": "Unique_SaintCentaur_OneSpearRushes",
+  "jp_name": "一槍一閃",
+  "element": "無",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "セイントールの専用スキル。\r\n聖なる力をその身にまとい\r\n左手の槍を前に突き出しながら突進する。\r\n突進中、右手の盾はあらゆる攻撃を防ぐ。"
+ },
+ "HolyBlast": {
+  "asset": "HolyBlast",
+  "jp_name": "ホーリーバースト",
+  "element": "無",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "敵のいる地点とその周囲に\r\n広範囲の光の爆発を起こす。"
+ },
+ "Unique_MoonQueen_IceMoonBlade": {
+  "asset": "Unique_MoonQueen_IceMoonBlade",
+  "jp_name": "青月閃",
+  "element": "無",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "セレムーンの専用スキル。\r\n月光の力を宿した高速の刃を3連続で飛ばす。"
+ },
+ "Unique_WhiteDeer_HolyPillar": {
+  "asset": "Unique_WhiteDeer_HolyPillar",
+  "jp_name": "ホーリーノヴァ",
+  "element": "無",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "セレスディアの専用スキル。\r\n前方広範囲に聖なる光の爆発を引き起こした後、\r\n歩きながら、自身の周囲に聖なる光を発生させる。"
+ },
+ "Unique_LegendDeer_RadiantWingRush": {
+  "asset": "Unique_LegendDeer_RadiantWingRush",
+  "jp_name": "ディバインウィング",
+  "element": "無",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "レジェンディアの専用スキル。\r\n後方へ跳び上がって背中に光翼を生み出し、\r\n空中から敵に向かって突進する。"
+ },
+ "RadiantBarrage": {
+  "asset": "RadiantBarrage",
+  "jp_name": "レイディアントバレッジ",
+  "element": "無",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "ゆっくりと敵を追いかける光球を発射する。\r\n光球は対象に近づくと無数の光弾へと分裂し、襲いかかる。"
+ },
+ "Unique_NightBlueHorse_Neutral_Tossin": {
+  "asset": "Unique_NightBlueHorse_Neutral_Tossin",
+  "jp_name": "銀馬の疾走",
+  "element": "無",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "ライトロットの専用スキル。\r\n輝く炎をまといながら、敵に突進する。"
+ },
+ "Unique_CubeTurtle_Neutral_HolyPress": {
+  "asset": "Unique_CubeTurtle_Neutral_HolyPress",
+  "jp_name": "ホーリープレス",
+  "element": "無",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "オシロガメの専用スキル。\r\n空中に浮かぶように跳躍して敵を圧し潰す。\r\nそこから光が広がっていき、光の柱で追撃する。"
+ },
+ "Unique_LegendDeer_WarpPillarBurst": {
+  "asset": "Unique_LegendDeer_WarpPillarBurst",
+  "jp_name": "セイクリッドレイン",
+  "element": "無",
+  "cooltime": "30",
+  "power": "800",
+  "aggregate": null,
+  "effect_jp": "レジェンディアの専用スキル。\r\n一瞬姿を消したのち、自身を中心とした広範囲に大量の光柱が降り注ぐ。"
+ },
+ "Unique_NightBlueHorse_Neutral_AirStep": {
+  "asset": "Unique_NightBlueHorse_Neutral_AirStep",
+  "jp_name": "ロイヤルステップ",
+  "element": "無",
+  "cooltime": "30",
+  "power": "800",
+  "aggregate": null,
+  "effect_jp": "ライトロットの専用スキル。\r\n華麗なステップで敵を翻弄しながら、\r\n鋭利な角で斬撃を飛ばす。"
+ },
+ "SelfExplosion": {
+  "asset": "SelfExplosion",
+  "jp_name": "メガトン自爆",
+  "element": "無",
+  "cooltime": "60",
+  "power": "1200",
+  "aggregate": null,
+  "effect_jp": "命をかけた大爆発を起こす。\r\n自身は命を散らし、夜空に輝く星となる。"
+ },
+ "AquaJet": {
+  "asset": "AquaJet",
+  "jp_name": "ウォータージェット",
+  "element": "水",
+  "cooltime": "2",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": "敵に向かって\r\n高速の水弾を発射する。"
+ },
+ "WaterGun": {
+  "asset": "WaterGun",
+  "jp_name": "アクアショット",
+  "element": "水",
+  "cooltime": "2",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "対象に向かって一直線に飛んでゆく\r\n水の弾を発射する。"
+ },
+ "Unique_YakushimaMonster001_SlimePress_Water": {
+  "asset": "Unique_YakushimaMonster001_SlimePress_Water",
+  "jp_name": "スライムプレス(水)",
+  "element": "水",
+  "cooltime": "1",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "ブルースライムの専用スキル。\r\n敵に向かってジャンプして攻撃する。"
+ },
+ "BubbleShot": {
+  "asset": "BubbleShot",
+  "jp_name": "バブルショット",
+  "element": "水",
+  "cooltime": "4",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": "敵をゆっくりと追尾する\r\nたくさんの泡を発射する。"
+ },
+ "AcidRain": {
+  "asset": "AcidRain",
+  "jp_name": "アシッドレイン",
+  "element": "水",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "酸性の雲を作り出し\r\n敵の頭上から酸の雨を降らせる。"
+ },
+ "Unique_OctopursGirl_InkJet": {
+  "asset": "Unique_OctopursGirl_InkJet",
+  "jp_name": "ジェットスモーク",
+  "element": "水",
+  "cooltime": "8",
+  "power": "120",
+  "aggregate": null,
+  "effect_jp": "ヒメンダコ種の専用スキル。\r\n前方にスモークを発生させて自身の姿を隠し、\r\n見えない状態から頭突きで強襲をかける。"
+ },
+ "LineGeyser": {
+  "asset": "LineGeyser",
+  "jp_name": "ラインスプラッシュ",
+  "element": "水",
+  "cooltime": "8",
+  "power": "160",
+  "aggregate": null,
+  "effect_jp": "一直線に進む水の柱を発生させる。"
+ },
+ "Unique_TentacleTurtle_HydroSpin": {
+  "asset": "Unique_TentacleTurtle_HydroSpin",
+  "jp_name": "ハイドロスピン",
+  "element": "水",
+  "cooltime": "8",
+  "power": "160",
+  "aggregate": null,
+  "effect_jp": "ヘルメッコ種の専用スキル。\r\nジェット噴射による推進力を利用し、\r\n高速回転しながら敵に向かって飛んでいく。"
+ },
+ "WaterBall": {
+  "asset": "WaterBall",
+  "jp_name": "スプラッシュボム",
+  "element": "水",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "頭上に巨大な水球を作り出し\r\n敵めがけて発射する。"
+ },
+ "Unique_KingWhale_HomingBubble": {
+  "asset": "Unique_KingWhale_HomingBubble",
+  "jp_name": "バブルレイン",
+  "element": "水",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "グランジーラの専用スキル。\r\n追尾する泡を大量に発射する。\r\n泡は着弾後もその場に留まる。\r\n泡は触れるか数秒経つと弾け、ダメージを与える。"
+ },
+ "CreepingBubble": {
+  "asset": "CreepingBubble",
+  "jp_name": "バブルマーチ",
+  "element": "水",
+  "cooltime": "12",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": "グランジーラの専用スキル。\r\n敵の周りに大量の泡を生成し、取り囲んで攻撃する。"
+ },
+ "DiversionLaser": {
+  "asset": "DiversionLaser",
+  "jp_name": "高圧水撃",
+  "element": "水",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "前方に高圧水流を発射する。\r\n水流は少し時間をおいて左右に分岐する。"
+ },
+ "Unique_SakuraSaurus_Water_SplashTackle": {
+  "asset": "Unique_SakuraSaurus_Water_SplashTackle",
+  "jp_name": "スプラッシュタックル",
+  "element": "水",
+  "cooltime": "12",
+  "power": "250",
+  "aggregate": null,
+  "effect_jp": "スプラドンの専用スキル。\r\n体を横向きに構えて前方にタックルし、\r\n水しぶきを上げながら敵を吹き飛ばす。"
+ },
+ "WallSplash": {
+  "asset": "WallSplash",
+  "jp_name": "ウォールスプラッシュ",
+  "element": "水",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "水柱でできた壁を敵のいる地点に連続で発生させる。"
+ },
+ "Unique_StuffedShark_HiddenWeapon": {
+  "asset": "Unique_StuffedShark_HiddenWeapon",
+  "jp_name": "トリガーハッピー",
+  "element": "水",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "ガブルミ種の専用スキル。\r\n口の中から二丁の水鉄砲を取り出し、\r\n左右交互に水弾を6発撃つ。\r\n最後は二丁を合わせ、強力な1発を放つ。"
+ },
+ "Unique_KingWhale_AquaBlade": {
+  "asset": "Unique_KingWhale_AquaBlade",
+  "jp_name": "マリンブレード",
+  "element": "水",
+  "cooltime": "16",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "グランジーラの専用スキル。\r\n鋭い水の刃を飛ばして攻撃する。"
+ },
+ "Unique_Horus_Water_AquaStorm": {
+  "asset": "Unique_Horus_Water_AquaStorm",
+  "jp_name": "鳳凰海波",
+  "element": "水",
+  "cooltime": "16",
+  "power": "320",
+  "aggregate": null,
+  "effect_jp": "イシスの専用スキル。\r\n大渦の竜巻を巻き起こしたあと、\r\n身体に水を纏い、滑空しながら突進する。"
+ },
+ "HydroSlicer": {
+  "asset": "HydroSlicer",
+  "jp_name": "ハイドロスライサー",
+  "element": "水",
+  "cooltime": "16",
+  "power": "350",
+  "aggregate": null,
+  "effect_jp": "圧縮された水流で前方をなぎ払う。\r\nなぎ払われた場所からは時間差で水が噴出する。"
+ },
+ "Unique_Umihebi_WindingTackle": {
+  "asset": "Unique_Umihebi_WindingTackle",
+  "jp_name": "オーシャンズスネイク",
+  "element": "水",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "レヴィドラの専用スキル。\r\n雄たけびを上げ、水をまとった体をくねらせながら敵に向かって突進していく。"
+ },
+ "Unique_KingWhale_WaveTackle": {
+  "asset": "Unique_KingWhale_WaveTackle",
+  "jp_name": "タイダルチャージ",
+  "element": "水",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": "グランジーラの専用スキル。\r\n全身を敵にぶつけ、波を発生させる。"
+ },
+ "HydroPump": {
+  "asset": "HydroPump",
+  "jp_name": "ハイドロストリーム",
+  "element": "水",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "すごい勢いで水を放出し\r\n前方広範囲を薙ぎ払う。"
+ },
+ "Unique_GhostAnglerfish_SweepBait": {
+  "asset": "Unique_GhostAnglerfish_SweepBait",
+  "jp_name": "提灯払い",
+  "element": "水",
+  "cooltime": "20",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": "アンドーンの専用スキル。\r\n頭部にある長い提灯で前方を大きくなぎ払う。"
+ },
+ "RipTide": {
+  "asset": "RipTide",
+  "jp_name": "アクアサージ",
+  "element": "水",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "敵の周囲から押し寄せる波を発生させる。\r\n波は最後、中心点で爆発して水柱を上げる。"
+ },
+ "Unique_KingWhale_Maelstrom": {
+  "asset": "Unique_KingWhale_Maelstrom",
+  "jp_name": "メイルストローム",
+  "element": "水",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "グランジーラの専用スキル。\r\n敵の周りに、渦を生成する。\r\n渦は敵を引き寄せながら中心に向かって収縮していき、\r\n最後は爆発して水柱を上げる。"
+ },
+ "Unique_BlueSkyDragon_Tossin": {
+  "asset": "Unique_BlueSkyDragon_Tossin",
+  "jp_name": "水龍突進",
+  "element": "水",
+  "cooltime": "24",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": "シャオロンの専用スキル。\r\n全身に水をまとい、真っすぐ突進する。"
+ },
+ "SeaGush": {
+  "asset": "SeaGush",
+  "jp_name": "水柱噴出",
+  "element": "水",
+  "cooltime": "30",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": "敵のいる地点とその周囲に\r\n大量の水柱を噴出させる。"
+ },
+ "Unique_PoseidonOrca_TorrentLaser": {
+  "asset": "Unique_PoseidonOrca_TorrentLaser",
+  "jp_name": "タラソニックレーザー",
+  "element": "水",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "ネプティオスの専用スキル。\r\n少し浮き上がりながら、口元に水を集める。\r\nその後、高圧水流を縦横に三度なぎ払う。\r\nなぎ払われた地点には裂け目ができ、水が噴出する。"
+ },
+ "Unique_KingWhale_Breaching": {
+  "asset": "Unique_KingWhale_Breaching",
+  "jp_name": "グランドブリーチ",
+  "element": "水",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "グランジーラの専用スキル。\r\n水中に潜り、少し経った後に大きく飛び出す。\r\n飛び出した勢いで、周囲に広がる波紋が発生する。"
+ },
+ "Unique_BlueSkyDragon_DrainStorm": {
+  "asset": "Unique_BlueSkyDragon_DrainStorm",
+  "jp_name": "天変之渦",
+  "element": "水",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "シャオロンの専用スキル。\r\n天まで届く巨大な渦を呼び起こす。\r\n渦は周囲の敵を呑み込み、一網打尽にする。"
+ },
+ "Unique_KingWhale_AquaTornado": {
+  "asset": "Unique_KingWhale_AquaTornado",
+  "jp_name": "アクアトルネード",
+  "element": "水",
+  "cooltime": "40",
+  "power": "800",
+  "aggregate": null,
+  "effect_jp": "グランジーラの専用スキル。\r\n天に向かって飛翔し、複数の巨大な竜巻を発生させる。\r\n竜巻はゆっくりと敵を追尾していく。"
+ },
+ "Psychokinesis": {
+  "asset": "Psychokinesis",
+  "jp_name": "サイコグラビティ",
+  "element": "闇",
+  "cooltime": "30",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": "重力を操って敵の自由を奪い\r\n高い所から地面に叩きつける。"
+ },
+ "PredatorWave": {
+  "asset": "PredatorWave",
+  "jp_name": "プレデターウェーブ",
+  "element": "無",
+  "cooltime": "20",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "PredatorBeam": {
+  "asset": "PredatorBeam",
+  "jp_name": "プレデタービーム",
+  "element": "無",
+  "cooltime": "20",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "PredatorLockon": {
+  "asset": "PredatorLockon",
+  "jp_name": "プレデターロックオン",
+  "element": "無",
+  "cooltime": "20",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss002_PhantasmalDeathray": {
+  "asset": "Unique_YakushimaBoss002_PhantasmalDeathray",
+  "jp_name": "Unique_YakushimaBoss002_PhantasmalDeathray",
+  "element": null,
+  "cooltime": "45",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss002_PhantasmalEye": {
+  "asset": "Unique_YakushimaBoss002_PhantasmalEye",
+  "jp_name": "Unique_YakushimaBoss002_PhantasmalEye",
+  "element": null,
+  "cooltime": "45",
+  "power": "25",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss002_PhantasmalBolt": {
+  "asset": "Unique_YakushimaBoss002_PhantasmalBolt",
+  "jp_name": "Unique_YakushimaBoss002_PhantasmalBolt",
+  "element": null,
+  "cooltime": "45",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss002_PhantasmalSphere": {
+  "asset": "Unique_YakushimaBoss002_PhantasmalSphere",
+  "jp_name": "Unique_YakushimaBoss002_PhantasmalSphere",
+  "element": null,
+  "cooltime": "45",
+  "power": "180",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss001_Green_PhantasmalBolt": {
+  "asset": "Unique_YakushimaBoss001_Green_PhantasmalBolt",
+  "jp_name": "Unique_YakushimaBoss001_Green_PhantasmalBolt",
+  "element": null,
+  "cooltime": "45",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss001_Green_PhantasmalEye": {
+  "asset": "Unique_YakushimaBoss001_Green_PhantasmalEye",
+  "jp_name": "Unique_YakushimaBoss001_Green_PhantasmalEye",
+  "element": null,
+  "cooltime": "45",
+  "power": "10",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss001_Green_PhantasmalSphere": {
+  "asset": "Unique_YakushimaBoss001_Green_PhantasmalSphere",
+  "jp_name": "Unique_YakushimaBoss001_Green_PhantasmalSphere",
+  "element": null,
+  "cooltime": "45",
+  "power": "90",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss001_Green_PhantasmalDeathray": {
+  "asset": "Unique_YakushimaBoss001_Green_PhantasmalDeathray",
+  "jp_name": "Unique_YakushimaBoss001_Green_PhantasmalDeathray",
+  "element": null,
+  "cooltime": "45",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Weapon_Use": {
+  "asset": "Weapon_Use",
+  "jp_name": "武器の使用",
+  "element": "無",
+  "cooltime": "5",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": "所持している武器を使って攻撃する。"
+ },
+ "Unique_YakushimaBoss002_2_PhantasmalDeathray": {
+  "asset": "Unique_YakushimaBoss002_2_PhantasmalDeathray",
+  "jp_name": "Unique_YakushimaBoss002_2_PhantasmalDeathray",
+  "element": null,
+  "cooltime": "45",
+  "power": "450",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss002_2_PhantasmalEye": {
+  "asset": "Unique_YakushimaBoss002_2_PhantasmalEye",
+  "jp_name": "Unique_YakushimaBoss002_2_PhantasmalEye",
+  "element": null,
+  "cooltime": "45",
+  "power": "25",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss002_2_PhantasmalBolt": {
+  "asset": "Unique_YakushimaBoss002_2_PhantasmalBolt",
+  "jp_name": "Unique_YakushimaBoss002_2_PhantasmalBolt",
+  "element": null,
+  "cooltime": "45",
+  "power": "80",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss002_2_PhantasmalSphere": {
+  "asset": "Unique_YakushimaBoss002_2_PhantasmalSphere",
+  "jp_name": "Unique_YakushimaBoss002_2_PhantasmalSphere",
+  "element": null,
+  "cooltime": "45",
+  "power": "180",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss001_Green_2_PhantasmalBolt": {
+  "asset": "Unique_YakushimaBoss001_Green_2_PhantasmalBolt",
+  "jp_name": "Unique_YakushimaBoss001_Green_2_PhantasmalBolt",
+  "element": null,
+  "cooltime": "45",
+  "power": "40",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss001_Green_2_PhantasmalEye": {
+  "asset": "Unique_YakushimaBoss001_Green_2_PhantasmalEye",
+  "jp_name": "Unique_YakushimaBoss001_Green_2_PhantasmalEye",
+  "element": null,
+  "cooltime": "45",
+  "power": "10",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss001_Green_2_PhantasmalSphere": {
+  "asset": "Unique_YakushimaBoss001_Green_2_PhantasmalSphere",
+  "jp_name": "Unique_YakushimaBoss001_Green_2_PhantasmalSphere",
+  "element": null,
+  "cooltime": "45",
+  "power": "90",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_YakushimaBoss001_Green_2_PhantasmalDeathray": {
+  "asset": "Unique_YakushimaBoss001_Green_2_PhantasmalDeathray",
+  "jp_name": "Unique_YakushimaBoss001_Green_2_PhantasmalDeathray",
+  "element": null,
+  "cooltime": "45",
+  "power": "200",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_ThunderDragonMan_GYM_Act": {
+  "asset": "Unique_ThunderDragonMan_GYM_Act",
+  "jp_name": "Unique_ThunderDragonMan_GYM_Act",
+  "element": "雷",
+  "cooltime": "30",
+  "power": "1",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_LilyQueen_GYM_Act": {
+  "asset": "Unique_LilyQueen_GYM_Act",
+  "jp_name": "Unique_LilyQueen_GYM_Act",
+  "element": "草",
+  "cooltime": "60",
+  "power": "1",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_MoonQueen_GYM_Act": {
+  "asset": "Unique_MoonQueen_GYM_Act",
+  "jp_name": "Unique_MoonQueen_GYM_Act",
+  "element": "無",
+  "cooltime": "300",
+  "power": "1",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_WorldTreeDragon_PaldiumShot": {
+  "asset": "Unique_WorldTreeDragon_PaldiumShot",
+  "jp_name": "Unique_WorldTreeDragon_PaldiumShot",
+  "element": null,
+  "cooltime": "5",
+  "power": "400",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_WorldTreeDragon_PaldiumCannon": {
+  "asset": "Unique_WorldTreeDragon_PaldiumCannon",
+  "jp_name": "Unique_WorldTreeDragon_PaldiumCannon",
+  "element": null,
+  "cooltime": "20",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_WorldTreeDragon_PaldiumRain": {
+  "asset": "Unique_WorldTreeDragon_PaldiumRain",
+  "jp_name": "Unique_WorldTreeDragon_PaldiumRain",
+  "element": null,
+  "cooltime": "5",
+  "power": "500",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_WorldTreeDragon_PaldiumExplosion": {
+  "asset": "Unique_WorldTreeDragon_PaldiumExplosion",
+  "jp_name": "Unique_WorldTreeDragon_PaldiumExplosion",
+  "element": null,
+  "cooltime": "60",
+  "power": "800",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_LilyQueen_LilyHealing_Boss": {
+  "asset": "Unique_LilyQueen_LilyHealing_Boss",
+  "jp_name": "Unique_LilyQueen_LilyHealing_Boss",
+  "element": "草",
+  "cooltime": "300",
+  "power": "0",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_MoonQueen_GYM_Hard_Act": {
+  "asset": "Unique_MoonQueen_GYM_Hard_Act",
+  "jp_name": "Unique_MoonQueen_GYM_Hard_Act",
+  "element": "無",
+  "cooltime": "300",
+  "power": "1",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "TidalWave": {
+  "asset": "TidalWave",
+  "jp_name": "-",
+  "element": "水",
+  "cooltime": "15",
+  "power": "1",
+  "aggregate": null,
+  "effect_jp": "広範囲に小さな波を起こし\r\n敵の動きを遅くしたあとに\r\n大きな波で敵を攻撃する。"
+ },
+ "WaterWave": {
+  "asset": "WaterWave",
+  "jp_name": "WaterWave",
+  "element": "水",
+  "cooltime": "5",
+  "power": "1",
+  "aggregate": null,
+  "effect_jp": "水の竜巻で前方に壁を作りだし\r\nゆっくりと前進させる。"
+ },
+ "Unique_BluePlatypus_Toboggan": {
+  "asset": "Unique_BluePlatypus_Toboggan",
+  "jp_name": "サーフィンタックル",
+  "element": "水",
+  "cooltime": "120",
+  "power": "100",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Intimidate": {
+  "asset": "Intimidate",
+  "jp_name": "-",
+  "element": "無",
+  "cooltime": "1",
+  "power": "1",
+  "aggregate": null,
+  "effect_jp": "-"
+ },
+ "Human_Punch": {
+  "asset": "Human_Punch",
+  "jp_name": "パンチ",
+  "element": "無",
+  "cooltime": "1",
+  "power": "12",
+  "aggregate": null,
+  "effect_jp": "己の拳を信じて、パンチする。"
+ },
+ "Throw": {
+  "asset": "Throw",
+  "jp_name": "-",
+  "element": "無",
+  "cooltime": "1",
+  "power": "60",
+  "aggregate": null,
+  "effect_jp": "-"
+ },
+ "Scratch": {
+  "asset": "Scratch",
+  "jp_name": "-",
+  "element": "無",
+  "cooltime": "2",
+  "power": "100",
+  "aggregate": null,
+  "effect_jp": "-"
+ },
+ "WorkAttack": {
+  "asset": "WorkAttack",
+  "jp_name": "WorkAttack",
+  "element": "無",
+  "cooltime": "1",
+  "power": "100",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "SnowStorm": {
+  "asset": "SnowStorm",
+  "jp_name": "-",
+  "element": "氷",
+  "cooltime": "5",
+  "power": "1",
+  "aggregate": null,
+  "effect_jp": "凍える力を周囲に集めて\r\n近くの者を攻撃したあとで\r\n敵めがけて吹雪を放出する。"
+ },
+ "EnergyShot": {
+  "asset": "EnergyShot",
+  "jp_name": "-",
+  "element": "氷",
+  "cooltime": "5",
+  "power": "1",
+  "aggregate": null,
+  "effect_jp": "-"
+ },
+ "CrossThunder": {
+  "asset": "CrossThunder",
+  "jp_name": "クロスサンダー",
+  "element": "雷",
+  "cooltime": "7",
+  "power": "1",
+  "aggregate": null,
+  "effect_jp": "敵の左右をふさぐように\r\n2方向に進む雷撃を発生させる。"
+ },
+ "Funnel_RaijinDaughter": {
+  "asset": "Funnel_RaijinDaughter",
+  "jp_name": "Funnel_RaijinDaughter",
+  "element": "雷",
+  "cooltime": "8",
+  "power": "30",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Funnel_DreamDemon": {
+  "asset": "Funnel_DreamDemon",
+  "jp_name": "Funnel_DreamDemon",
+  "element": "闇",
+  "cooltime": "5",
+  "power": "20",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "WaterBalloon": {
+  "asset": "WaterBalloon",
+  "jp_name": "WaterBalloon",
+  "element": "水",
+  "cooltime": "4",
+  "power": "90",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "FlareTwister": {
+  "asset": "FlareTwister",
+  "jp_name": "-",
+  "element": "炎",
+  "cooltime": "8",
+  "power": "130",
+  "aggregate": null,
+  "effect_jp": "-"
+ },
+ "Unique_LilyQueen_WindBarrier": {
+  "asset": "Unique_LilyQueen_WindBarrier",
+  "jp_name": "-",
+  "element": "草",
+  "cooltime": "4",
+  "power": "60",
+  "aggregate": null,
+  "effect_jp": "-"
+ },
+ "Funnel_RaijinDaughter_Water": {
+  "asset": "Funnel_RaijinDaughter_Water",
+  "jp_name": "Funnel_RaijinDaughter_Water",
+  "element": "闇",
+  "cooltime": "8",
+  "power": "30",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "BlueThunderHorse_PartnerSkill": {
+  "asset": "BlueThunderHorse_PartnerSkill",
+  "jp_name": "BlueThunderHorse_PartnerSkill",
+  "element": "雷",
+  "cooltime": "55",
+  "power": "30",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "HealingTree": {
+  "asset": "HealingTree",
+  "jp_name": "HealingTree",
+  "element": "草",
+  "cooltime": "2",
+  "power": "1",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_Yakushima_MouthTossin": {
+  "asset": "Unique_Yakushima_MouthTossin",
+  "jp_name": "高速突進",
+  "element": "闇",
+  "cooltime": "15",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": "クトゥルフのめだまの専用スキル。\r\n敵に向かって猛スピードで何度も突進する。"
+ },
+ "Unique_BluePlatypus_Toboggan_Fire": {
+  "asset": "Unique_BluePlatypus_Toboggan_Fire",
+  "jp_name": "ファイアータックル",
+  "element": "炎",
+  "cooltime": "120",
+  "power": "115",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "PoseidonOrca_PartnerSkill": {
+  "asset": "PoseidonOrca_PartnerSkill",
+  "jp_name": "PoseidonOrca_PartnerSkill",
+  "element": "水",
+  "cooltime": "55",
+  "power": "60",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "PoseidonOrca_PartnerSkill_SpearBullet": {
+  "asset": "PoseidonOrca_PartnerSkill_SpearBullet",
+  "jp_name": "PoseidonOrca_PartnerSkill_SpearBullet",
+  "element": "水",
+  "cooltime": "55",
+  "power": "50",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Human_Rolling": {
+  "asset": "Human_Rolling",
+  "jp_name": "Human_Rolling",
+  "element": "無",
+  "cooltime": "1",
+  "power": "0",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_LegendDeer_BarrierRelease_Normal": {
+  "asset": "Unique_LegendDeer_BarrierRelease_Normal",
+  "jp_name": "Unique_LegendDeer_BarrierRelease_Normal",
+  "element": "無",
+  "cooltime": "1",
+  "power": "300",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_LegendDeer_BarrierRelease_Grass": {
+  "asset": "Unique_LegendDeer_BarrierRelease_Grass",
+  "jp_name": "Unique_LegendDeer_BarrierRelease_Grass",
+  "element": "草",
+  "cooltime": "1",
+  "power": "220",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_LegendDeer_BarrierRelease_Water": {
+  "asset": "Unique_LegendDeer_BarrierRelease_Water",
+  "jp_name": "Unique_LegendDeer_BarrierRelease_Water",
+  "element": "水",
+  "cooltime": "1",
+  "power": "220",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_LegendDeer_RadiantPurge": {
+  "asset": "Unique_LegendDeer_RadiantPurge",
+  "jp_name": "Unique_LegendDeer_RadiantPurge",
+  "element": "無",
+  "cooltime": "1",
+  "power": "1250",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_KingWhale_TidalBore": {
+  "asset": "Unique_KingWhale_TidalBore",
+  "jp_name": "Unique_KingWhale_TidalBore",
+  "element": "水",
+  "cooltime": "30",
+  "power": "1000",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_Ronin_Iai_PartnerSkill": {
+  "asset": "Unique_Ronin_Iai_PartnerSkill",
+  "jp_name": "居合斬り",
+  "element": "炎",
+  "cooltime": "12",
+  "power": "160",
+  "aggregate": null,
+  "effect_jp": "ツジギリ種の専用スキル。\r\n刀を構えた後、一瞬で敵の目の前に現れて\r\n超高速の抜刀攻撃を放つ。"
+ },
+ "Unique_KingWhale_SuperTidalBore": {
+  "asset": "Unique_KingWhale_SuperTidalBore",
+  "jp_name": "Unique_KingWhale_SuperTidalBore",
+  "element": "水",
+  "cooltime": "30",
+  "power": "1000",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "GrassGolem_PartnerSkill": {
+  "asset": "GrassGolem_PartnerSkill",
+  "jp_name": "GrassGolem_PartnerSkill",
+  "element": "草",
+  "cooltime": "0",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_BlueSkyDragon_GYM_Act": {
+  "asset": "Unique_BlueSkyDragon_GYM_Act",
+  "jp_name": "Unique_BlueSkyDragon_GYM_Act",
+  "element": "水",
+  "cooltime": "0",
+  "power": "700",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_WorldTreeDragon_Supernova": {
+  "asset": "Unique_WorldTreeDragon_Supernova",
+  "jp_name": "Unique_WorldTreeDragon_Supernova",
+  "element": null,
+  "cooltime": "99",
+  "power": "1000",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_WorldTreeDragon_HaloBeam": {
+  "asset": "Unique_WorldTreeDragon_HaloBeam",
+  "jp_name": "Unique_WorldTreeDragon_HaloBeam",
+  "element": null,
+  "cooltime": "20",
+  "power": "750",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_WorldTreeDragon_LaserGliding": {
+  "asset": "Unique_WorldTreeDragon_LaserGliding",
+  "jp_name": "Unique_WorldTreeDragon_LaserGliding",
+  "element": null,
+  "cooltime": "5",
+  "power": "550",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_WorldTreeDragon_HaloCutter": {
+  "asset": "Unique_WorldTreeDragon_HaloCutter",
+  "jp_name": "Unique_WorldTreeDragon_HaloCutter",
+  "element": null,
+  "cooltime": "10",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "GrassGolem_Dark_PartnerSkill": {
+  "asset": "GrassGolem_Dark_PartnerSkill",
+  "jp_name": "GrassGolem_Dark_PartnerSkill",
+  "element": "闇",
+  "cooltime": "0",
+  "power": "600",
+  "aggregate": null,
+  "effect_jp": ""
+ },
+ "Unique_WorldTreeDragon_BigBang": {
+  "asset": "Unique_WorldTreeDragon_BigBang",
+  "jp_name": "Unique_WorldTreeDragon_BigBang",
+  "element": null,
+  "cooltime": "60",
+  "power": "900",
+  "aggregate": null,
+  "effect_jp": ""
+ }
+}

@@ -1,0 +1,152 @@
+[
+ {
+  "name_jp": "消火",
+  "code": "ExtinguishBurn",
+  "detail_jp": "炎上した建材の消火",
+  "priority": 2
+ },
+ {
+  "name_jp": "建築",
+  "code": "Architecture",
+  "detail_jp": "建物の建築作業",
+  "priority": 3
+ },
+ {
+  "name_jp": "放牧",
+  "code": "MonsterFarm",
+  "detail_jp": "牧場でのパルの世話",
+  "priority": 5
+ },
+ {
+  "name_jp": "発電",
+  "code": "GenerateEnergy",
+  "detail_jp": "発電施設の稼働",
+  "priority": 6
+ },
+ {
+  "name_jp": "修理",
+  "code": "RepairBuildObject",
+  "detail_jp": "壊れた建材の修理",
+  "priority": 7
+ },
+ {
+  "name_jp": "製錬",
+  "code": "Smelting",
+  "detail_jp": "製錬炉での製錬",
+  "priority": 8
+ },
+ {
+  "name_jp": "点火",
+  "code": "Ignition",
+  "detail_jp": "かまど等への点火",
+  "priority": 8
+ },
+ {
+  "name_jp": "料理",
+  "code": "Cooking",
+  "detail_jp": "調理器具での調理",
+  "priority": 9
+ },
+ {
+  "name_jp": "収穫",
+  "code": "FarmHarvest",
+  "detail_jp": "農園作物の収穫",
+  "priority": 10
+ },
+ {
+  "name_jp": "運搬",
+  "code": "TransportFoodItemInBaseCamp",
+  "detail_jp": "拠点内の食料アイテムの運搬",
+  "priority": 10
+ },
+ {
+  "name_jp": "種まき",
+  "code": "Seeding",
+  "detail_jp": "農園への種まき",
+  "priority": 11
+ },
+ {
+  "name_jp": "水やり",
+  "code": "Watering_Farm",
+  "detail_jp": "農園への水やり",
+  "priority": 11
+ },
+ {
+  "name_jp": "製薬",
+  "code": "ProductMedicine",
+  "detail_jp": "薬棚での医薬品の生産",
+  "priority": 12
+ },
+ {
+  "name_jp": "水やり",
+  "code": "Watering",
+  "detail_jp": "通常の水やり作業",
+  "priority": 12
+ },
+ {
+  "name_jp": "手作業",
+  "code": "ConvertItem",
+  "detail_jp": "作業台などでのアイテム加工",
+  "priority": 13
+ },
+ {
+  "name_jp": "生産",
+  "code": "ProductItem",
+  "detail_jp": "生産設備でのアイテム生産",
+  "priority": 13
+ },
+ {
+  "name_jp": "採掘",
+  "code": "ProductResource_Mining",
+  "detail_jp": "野外の鉱石の採掘",
+  "priority": 14
+ },
+ {
+  "name_jp": "伐採",
+  "code": "ProductResource_Deforest",
+  "detail_jp": "野外の木材の伐採",
+  "priority": 14
+ },
+ {
+  "name_jp": "採掘",
+  "code": "ProductResource_Mining_OnFacility",
+  "detail_jp": "採掘施設内での採掘",
+  "priority": 15
+ },
+ {
+  "name_jp": "伐採",
+  "code": "ProductResource_Deforest_OnFacility",
+  "detail_jp": "伐採施設内での伐採",
+  "priority": 15
+ },
+ {
+  "name_jp": "運搬",
+  "code": "TransportDisposableItemInBaseCamp",
+  "detail_jp": "拠点内の消耗品アイテムの運搬",
+  "priority": 16
+ },
+ {
+  "name_jp": "運搬",
+  "code": "TransportItemInBaseCamp",
+  "detail_jp": "拠点内アイテム全般の運搬",
+  "priority": 17
+ },
+ {
+  "name_jp": "採集",
+  "code": "CollectResourcePickable",
+  "detail_jp": "地面に落ちているアイテムの採集",
+  "priority": 18
+ },
+ {
+  "name_jp": "収穫",
+  "code": "HarvestLevelObject",
+  "detail_jp": "採取可能オブジェクトからの収穫",
+  "priority": 18
+ },
+ {
+  "name_jp": "冷却",
+  "code": "Cool",
+  "detail_jp": "冷却施設の稼働",
+  "priority": 19
+ }
+]

@@ -1,0 +1,53 @@
+[
+ {
+  "group_key": "火炎放射器",
+  "name_en": "FlameThrower",
+  "slug": "FlameThrower",
+  "reason": "fetch_failed"
+ },
+ {
+  "group_key": "上級釣り竿（ンダコアラ）",
+  "name_en": "Advanced Fishing Rod (Depresso)",
+  "slug": "Advanced_Fishing_Rod_(Depresso)",
+  "reason": "fetch_failed"
+ },
+ {
+  "group_key": "上級釣り竿（ペンタマ）",
+  "name_en": "Advanced Fishing Rod (Pengullet)",
+  "slug": "Advanced_Fishing_Rod_(Pengullet)",
+  "reason": "fetch_failed"
+ },
+ {
+  "group_key": "中級釣り竿（ブシガエル）",
+  "name_en": "Intermediate Fishing Rod (Croajiro)",
+  "slug": "Intermediate_Fishing_Rod_(Croajiro)",
+  "reason": "fetch_failed"
+ },
+ {
+  "group_key": "初級釣り竿（ナエモチ）",
+  "name_en": "Beginner Fishing Rod (Gumoss)",
+  "slug": "Beginner_Fishing_Rod_(Gumoss)",
+  "reason": "fetch_failed"
+ },
+ {
+  "group_key": "中級釣り竿（ツッパニャン）",
+  "name_en": "Intermediate Fishing Rod (Cattiva)",
+  "slug": "Intermediate_Fishing_Rod_(Cattiva)",
+  "reason": "fetch_failed"
+ },
+ {
+  "group_key": "初級釣り竿（オコチョ）",
+  "name_en": "Beginner Fishing Rod (Chillet)",
+  "slug": "Beginner_Fishing_Rod_(Chillet)",
+  "reason": "fetch_failed"
+ },
+ {
+  "group_key": "Glider_Legendary",
+  "name_en": "Hyper Glider",
+  "slug": "Hyper_Glider",
+  "reason": "no_matching_code",
+  "found_codes": [
+   "Glider_Tera"
+  ]
+ }
+]

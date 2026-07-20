@@ -5,10 +5,10 @@
 // (Firebase Web設定値はFirestoreのセキュリティルールで保護するものなので、
 //  このファイルをそのままコミットしても問題ありません)。
 const FIREBASE_CONFIG = {
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: "",
+  apiKey: "AIzaSyBjT4kzzNd6UiVZReTsKAc_-91CWCFHHjA",
+  authDomain: "palworld-tool.firebaseapp.com",
+  projectId: "palworld-tool",
+  storageBucket: "palworld-tool.firebasestorage.app",
+  messagingSenderId: "471870157239",
+  appId: "1:471870157239:web:581a0108f3a20d02f7f832",
 };

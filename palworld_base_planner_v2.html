@@ -10,31 +10,28 @@
 <link rel="stylesheet" href="shared/design-system.css">
 <style>
   :root{
-    --bg: #07090d; --panel: #121822; --panel2: #182030;
-    --parchment: #e9eef4; --parchment-dim: #8592a3;
-    --brass: #f0b840; --brass-dim: #b5852f;
+    --bg: #05080e; --panel: #0e1420; --panel2: #141d2b;
+    --parchment: #e7edf5; --parchment-dim: #7e90a5;
+    --brass: #6ec8ea; --brass-dim: #2f6b85;
     --teal: #35d2ff; --teal-dim: #1c6d86;
-    --line: rgba(142,183,214,.16); --danger: #e2543f;
+    --line: rgba(120,165,220,.18); --danger: #e2543f;
     --hp: #7bdb52; --sp: #f0a233;
-    --lime: #e3ff3d; --lime-dim: #96b31f;
-    --magenta: #ff2e7e; --magenta-dim: #a01a52;
+    --lime: #3d7bff; --lime-dim: #1f4a99;
+    --magenta: #8fd6ff; --magenta-dim: #4a7fa3;
     --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
     --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
     --font-mono: "JetBrains Mono", monospace;
     font-family: var(--font-body);
   }
   *{box-sizing:border-box;}
-  body{margin:0;background:
-    radial-gradient(circle at 12% -8%, #143241 0%, transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(240,184,64,.06) 0%, transparent 42%),
-    var(--bg);
+  body{margin:0;background: var(--bg);
     color:var(--parchment);}
   .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
 
   /* header */
   header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
   .brand{display:flex;align-items:center;gap:12px;}
-  .brand-badge{width:42px;height:42px;border-radius:8px;background:linear-gradient(160deg, #1c2733, #10151c);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:var(--panel2);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
   h1.brand-title{font-family:var(--font-display);font-weight:700;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
   .brand-title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
 
@@ -55,6 +52,17 @@
   .switch.on{background:var(--teal-dim);border-color:var(--teal);}
   .switch .knob{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--parchment-dim);transition:left .15s;}
   .switch.on .knob{left:20px;background:var(--parchment);}
+  .mini-tabs{display:flex;gap:2px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
+  .mini-tab{padding:7px 16px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:13px;transition:color .12s,background .12s;}
+  .mini-tab.active{background:var(--teal);color:#08222c;box-shadow:0 0 10px rgba(53,210,255,.4);}
+  .pal-source-row{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:6px 0;}
+  .pal-source-join{display:flex;gap:8px;align-items:center;}
+  .pal-source-join input{background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:7px 10px;font-size:13px;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;width:140px;}
+  .pal-source-join input:focus{outline:none;border-color:var(--brass);}
+  .pal-source-join button{font-size:12px;padding:7px 14px;background:var(--teal-dim);border:1px solid var(--teal);color:var(--parchment);border-radius:5px;cursor:pointer;font-family:var(--font-body);white-space:nowrap;}
+  .pal-source-status{font-size:11.5px;color:var(--parchment-dim);}
+  .pal-source-status.err{color:#ff6f6f;}
+  .pal-source-status.ok{color:var(--lime);}
   .roles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 20px;}
   .role-item{display:flex;align-items:center;justify-content:space-between;gap:8px;}
   .role-name{font-size:12.5px;min-width:56px;}
@@ -65,6 +73,10 @@
   .cap-input{width:44px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:3px;padding:3px 4px;font-size:11px;flex-shrink:0;}
   .cap-input::placeholder{color:var(--parchment-dim);opacity:.6;}
   .cap-input:focus{outline:none;border-color:var(--teal);}
+  @media (max-width:600px){
+    .roles-grid{grid-template-columns:1fr;}
+    .wrap{padding:16px 14px 40px;}
+  }
   .compute-btn{width:100%;padding:11px;background:var(--teal);border:1px solid var(--teal);color:#08222c;font-size:14px;font-family:var(--font-display);font-weight:700;letter-spacing:.03em;border-radius:6px;cursor:pointer;box-shadow:0 0 14px rgba(53,210,255,.25);transition:box-shadow .12s;}
   .compute-btn:hover{box-shadow:0 0 20px rgba(53,210,255,.45);}
   .compute-btn:disabled{opacity:.5;cursor:default;box-shadow:none;}
@@ -79,8 +91,8 @@
   .prod-dash-label{font-size:12px;color:var(--parchment);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .prod-dash-weak-tag{font-size:9.5px;color:var(--danger);border:1px solid var(--danger);border-radius:3px;padding:0 4px;margin-left:2px;}
   .prod-dash-bar{height:8px;border-radius:4px;background:var(--panel2);border:1px solid var(--line);overflow:hidden;}
-  .prod-dash-fill{height:100%;border-radius:4px;background:linear-gradient(90deg, var(--teal-dim,#1c6d86), var(--teal,#35d2ff));}
-  .prod-dash-fill.weak{background:linear-gradient(90deg, #7a2e2e, var(--danger));}
+  .prod-dash-fill{height:100%;border-radius:4px;background:var(--teal,#35d2ff);}
+  .prod-dash-fill.weak{background:var(--danger);}
   .prod-dash-value{font-size:11px;color:var(--parchment-dim);font-family:var(--font-mono);text-align:right;}
   .slot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:8px;}
   .slot{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 12px;position:relative;}
@@ -157,6 +169,16 @@
       <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
       <a href="palworld_ride.html"><span>ライド速度</span></a>
       <a href="palworld_map.html"><span>出現マップ</span></a>
+      <a href="palworld_bossguide.html"><span>ボス攻略</span></a>
+      <a href="palworld_achievements.html"><span>実績一覧</span></a>
+      <a href="palworld_passives_guide.html"><span>おすすめパッシブ</span></a>
+      <a href="palworld_reference.html"><span>早見表</span></a>
+      <a href="palworld_technology.html"><span>テクノロジー</span></a>
+      <a href="palworld_missions.html"><span>ミッション</span></a>
+      <a href="palworld_iv_calc.html"><span>素質値計算機</span></a>
+      <a href="palworld_party_guide.html"><span>パーティ編成ガイド</span></a>
+      <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
+      <a href="palworld_changelog.html"><span>更新履歴</span></a>
     </nav>
   </header>
   <p class="title">拠点配置プランナー v2</p>
@@ -186,6 +208,19 @@
       <div><div class="toggle-label">世界樹パッシブも考慮</div><div class="toggle-desc">悪魔の手(作業速度+90%、デメリット:SAN値減少+15%)を選択肢に含める。手術台での移植が前提の上級者向け機能</div></div>
       <div class="switch" id="toggleWorldTree"><div class="knob"></div></div>
     </div>
+    <div class="pal-source-row">
+      <div><div class="toggle-label">計算に使うパルの範囲</div><div class="toggle-desc">「理想値」は全パルを対象にした理論値(従来通り)。「自分のボックス」「共有ボックス」は実際に登録されている個体だけを対象にし、各個体は1体まで(同じ種でも所持数を超えて重複選出しません)。パッシブも理論値ではなく、その個体に実際に登録されているものだけを使います。</div></div>
+      <div class="mini-tabs" id="palSourceTabs">
+        <div class="mini-tab active" data-source="ideal">理想値(全パル)</div>
+        <div class="mini-tab" data-source="local">自分のボックス</div>
+        <div class="mini-tab" data-source="shared">共有ボックス</div>
+      </div>
+      <div class="pal-source-join" id="plannerShareJoinRow" style="display:none;">
+        <input type="text" id="plannerShareCodeInput" placeholder="合言葉(例: K3F9QZ)" maxlength="6">
+        <button type="button" id="plannerShareLoadBtn">読み込む</button>
+      </div>
+      <div class="pal-source-status" id="palSourceStatus"></div>
+    </div>
   </div>
 
   <div class="panel">
@@ -211,7 +246,11 @@
 </div>
 
 <script src="game_data/base_planner_data.js"></script>
+<script src="game_data/dex_data.js"></script>
 <script src="shared/icons.js"></script>
+<script src="game_data/firebase_config.js"></script>
+<script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script>
 
@@ -694,6 +733,219 @@ async function bestAssignment(slots, activeRoles, buildSpeciesFn, initialState, 
   return { picks, totalScore: targetScore === NEG ? 0 : targetScore, coveredState: targetM, maskCount, roleDims, strides, approximate: false };
 }
 
+// ---- 所持パル限定モード(自分のボックス/共有ボックス) ----
+// 通常モード(理想値)は「同じ種を何体でも選べる」個数無制限ナップサックだが、
+// 所持パル限定モードでは「実際に持っている個体は1体ずつしか使えない」という制約になるため、
+// 0/1ナップサックとして別関数で解く。状態(j,m)テーブルを1つだけ使い回し、
+// 1個体ぶんの更新のたびにjを大きい方から小さい方へ処理することで、
+// 同じ個体を同じ枠数のうちに2回使ってしまう(0/1のはずが個数無制限になる)事故を防いでいる
+// (古典的な0/1ナップサックで「容量を降順に更新する」のと全く同じ理屈)。
+const palSourceState = { mode: "ideal", instances: [], roomCode: null };
+
+let plannerFirebaseApp = null, plannerDb = null;
+function plannerFirebaseReady(){
+  if(typeof FIREBASE_CONFIG === "undefined" || !FIREBASE_CONFIG.apiKey) return false;
+  if(typeof firebase === "undefined") return false;
+  if(!plannerFirebaseApp){
+    plannerFirebaseApp = firebase.initializeApp(FIREBASE_CONFIG, "plannerApp");
+    plannerDb = plannerFirebaseApp.firestore();
+  }
+  return true;
+}
+
+function setPalSourceStatus(msg, cls){
+  const el = document.getElementById("palSourceStatus");
+  el.textContent = msg;
+  el.className = "pal-source-status" + (cls ? " " + cls : "");
+}
+
+// 個体(dexId基準)をこのページのPAL_DATA(名前基準)に紐づける。図鑑側に存在しない
+// (=作業適性データがそもそも無いTerraria系コラボパル等)は自然に除外される。
+function resolveOwnedInstances(instances){
+  const items = [];
+  instances.forEach(inst => {
+    const dexEntry = (typeof PAL_DEX_DATA !== "undefined") ? PAL_DEX_DATA.find(p => p.id === inst.dexId) : null;
+    const pal = dexEntry ? PAL_BY_NAME[dexEntry.name] : null;
+    if(pal) items.push({ instance: inst, pal });
+  });
+  return items;
+}
+
+function loadLocalOwnedInstances(){
+  try {
+    const raw = localStorage.getItem("palworldBoxInstances");
+    return raw ? JSON.parse(raw) : [];
+  } catch(e){
+    return [];
+  }
+}
+
+// 個体に実際に登録されているパッシブの中から、作業速度に関係するもの(PASSIVE_POOL.speed/
+// worldtree_speed/night)だけを拾って合計%を出す。理論値(idealPassiveLoadout)と違い、
+// 「そもそもそのパッシブを持っていなければ0%」になる(捏造しない)。
+function actualPassiveLoadout(instance){
+  const speedPool = useWorldTree ? PASSIVE_POOL.speed.concat(PASSIVE_POOL.worldtree_speed) : PASSIVE_POOL.speed;
+  const names = instance.passives || [];
+  const chosen = names.map(n => speedPool.find(p => p.name === n)).filter(Boolean);
+  const totalPct = chosen.reduce((s,c)=>s+(c.pct||0),0);
+  const isNightActive = names.some(n => PASSIVE_POOL.night.some(p => p.name === n));
+  return { chosen, totalPct, isNightActive };
+}
+
+// scoredSpecies相当だが、パッシブは理論値でなくactualPassiveLoadout(個体の実登録分)を使う。
+function scoredInstanceItem(item, roleLvBonus, excludeFromBonus, extraPctByName){
+  const { contribs, mult } = roleContribBreakdown(item.pal, roleLvBonus, excludeFromBonus);
+  let passiveMult = 1, loadout = null;
+  if(usePassive){
+    loadout = actualPassiveLoadout(item.instance);
+    passiveMult = 1 + loadout.totalPct/100;
+  }
+  const extra = extraPctByName[item.pal.name] || 0;
+  const totalMult = mult * passiveMult * (extra ? (1 + extra/100) : 1);
+  return { item, pal: item.pal, contribs, totalMult, loadout };
+}
+
+// bestAssignmentの0/1版。items(所持個体)は1体につき最大1回しか選べない。
+// 1個体につき何層(items+1)ぶんのdpテーブルを保持する。単一テーブルを使い回す実装だと、
+// 後から処理した個体がバックトラック用ポインタ(どの個体をどの状態遷移に使ったか)を
+// 上書きしてしまい、「同じ個体を2回使った」という矛盾した復元結果になるバグがあった
+// (2026-07-16、実装直後のNode自己テストで発覚・修正済み)。層ごとに保持することで、
+// 標準的な0/1ナップサックの復元法(dp[i][*]とdp[i-1][*]を比較し、値が変わっていれば
+// 個体iを使ったと判定する)が安全に使える。
+// 個体数が多く層のメモリ量が現実的でない場合は貪欲法にフォールバックする。
+const ITEM01_EXACT_CELL_THRESHOLD = 20000000;
+
+async function bestAssignment01(slots, activeRoles, items, roleCaps){
+  const roleDims = buildRoleDims(activeRoles, roleCaps);
+  const strides = buildStrides(roleDims);
+  const maskCount = roleDims.length ? strides[strides.length-1] * roleDims[roleDims.length-1].base : 1;
+
+  const scoredItems = items
+    .map(it => scoredInstanceItem(it, {}, {}, {}))
+    .filter(sp => Object.keys(sp.contribs).length > 0);
+  const n = scoredItems.length;
+
+  if(maskCount > MASKCOUNT_EXACT_THRESHOLD || n === 0 || (n+1)*(slots+1)*maskCount > ITEM01_EXACT_CELL_THRESHOLD){
+    return greedyAssignment01(slots, activeRoles, scoredItems, roleDims, strides);
+  }
+
+  const NEG = -Infinity;
+  const dp = [];
+  for(let i=0;i<=n;i++){
+    const layer = [];
+    for(let j=0;j<=slots;j++) layer.push(new Float64Array(maskCount).fill(NEG));
+    dp.push(layer);
+  }
+  dp[0][0][0] = 0;
+
+  let lastYield = performance.now();
+  for(let i=1;i<=n;i++){
+    const sp = scoredItems[i-1];
+    for(let j=0;j<=slots;j++) dp[i][j].set(dp[i-1][j]); // 個体iを使わない場合(そのまま引き継ぐ)
+    const maxJ = Math.min(slots, i);
+    for(let j=1;j<=maxJ;j++){
+      const prevLayer = dp[i-1][j-1];
+      const curLayer = dp[i][j];
+      for(let m=0;m<maskCount;m++){
+        const base = prevLayer[m];
+        if(base === NEG) continue;
+        const res = applyPickToState(sp, roleDims, strides, m);
+        if(!res) continue;
+        const cand = base + res.score;
+        if(cand > curLayer[res.newState]) curLayer[res.newState] = cand;
+      }
+    }
+    if(performance.now() - lastYield > 150){
+      await new Promise(r => setTimeout(r, 0));
+      lastYield = performance.now();
+    }
+  }
+
+  let targetJ = -1, targetM = -1, targetScore = NEG;
+  for(let j=slots; j>=0; j--){
+    let rowM = -1, rowScore = NEG, rowBits = -1;
+    for(let m=0;m<maskCount;m++){
+      const v = dp[n][j][m];
+      if(v === NEG) continue;
+      const bits = countCoveredDims(m, roleDims, strides);
+      if(bits > rowBits || (bits === rowBits && v > rowScore)){
+        rowBits = bits; rowM = m; rowScore = v;
+      }
+    }
+    if(rowM !== -1){ targetJ = j; targetM = rowM; targetScore = rowScore; break; }
+  }
+
+  const picks = [];
+  let j = targetJ, m = targetM;
+  for(let i=n; i>=1 && j>=0 && m>=0; i--){
+    if(dp[i][j][m] === dp[i-1][j][m]) continue; // 個体iは使われていない(状態が変化していない)
+    const sp = scoredItems[i-1];
+    const prevLayer = dp[i-1][j-1];
+    let foundM = -1;
+    for(let mp=0; mp<maskCount; mp++){
+      const base = prevLayer[mp];
+      if(base === NEG) continue;
+      const res = applyPickToState(sp, roleDims, strides, mp);
+      if(!res || res.newState !== m) continue;
+      if(Math.abs(base + res.score - dp[i][j][m]) < 1e-6){
+        foundM = mp;
+        picks.push({
+          pal: sp.pal,
+          instance: sp.item.instance,
+          effective: res.score,
+          loadout: sp.loadout,
+          reason: activeRoles.filter(r => (sp.pal.work[r]||0) > 0).join('・') || "総合力"
+        });
+        break;
+      }
+    }
+    if(foundM === -1) break; // 到達しないはずの安全弁
+    j -= 1; m = foundM;
+  }
+  picks.reverse();
+
+  return { picks, totalScore: targetScore === NEG ? 0 : targetScore, approximate: false };
+}
+
+async function greedyAssignment01(slots, activeRoles, scoredItems, roleDims, strides){
+  let state = 0, totalScore = 0;
+  const picks = [];
+  const remaining = scoredItems.slice();
+  let lastYield = performance.now();
+  for(let i=0;i<slots && remaining.length;i++){
+    let bestRes = null, bestIdx = -1;
+    for(let s=0;s<remaining.length;s++){
+      const res = applyPickToState(remaining[s], roleDims, strides, state);
+      if(res && (!bestRes || res.score > bestRes.score)){ bestRes = res; bestIdx = s; }
+    }
+    if(!bestRes) break;
+    const sp = remaining[bestIdx];
+    state = bestRes.newState;
+    totalScore += bestRes.score;
+    picks.push({
+      pal: sp.pal,
+      instance: sp.item.instance,
+      effective: bestRes.score,
+      loadout: sp.loadout,
+      reason: activeRoles.filter(r => (sp.pal.work[r]||0) > 0).join('・') || "総合力"
+    });
+    remaining.splice(bestIdx, 1); // 0/1: 使った個体はもう使えない
+    if(performance.now() - lastYield > 150){
+      await new Promise(r => setTimeout(r, 0));
+      lastYield = performance.now();
+    }
+  }
+  return { picks, totalScore, approximate: true };
+}
+
+// 所持パル限定モードでの最適化のエントリポイント。相乗効果(セクメト等の相互バフ)は
+// 探索対象を絞ると挙動が複雑になるため、このモードでは非対応(素の役職スコアのみ)。
+async function runOwnedModeOptimization(slots, activeRoles, roleCaps){
+  const items = resolveOwnedInstances(palSourceState.instances);
+  const result = await bestAssignment01(slots, activeRoles, items, roleCaps);
+  return { ...result, combosEvaluated: 1, combosSkipped: false, totalCombosPossible: 1, toggleLabels: [] };
+}
+
 // === 拠点パートナースキルの相乗効果(287体全パルのpartner_skill.effectテキストを機械的に
 // 走査して洗い出し済み、2026-07時点)。数値の出典はgame_data/characters.jsonが参照する
 // passives IDをgame_data/skills.jsonで実測した値。 ===
@@ -1013,9 +1265,11 @@ async function runCompute(){
   activeRoles.forEach(r => { if(roleCaps[r] > 0) activeRoleCaps[r] = roleCaps[r]; });
 
   const t0 = performance.now();
-  const result = await runSynergyOptimization(slots, activeRoles, activeRoleCaps, (done, total) => {
-    btn.textContent = `計算中...(${done}/${total}パターン)`;
-  });
+  const result = (palSourceState.mode === "ideal")
+    ? await runSynergyOptimization(slots, activeRoles, activeRoleCaps, (done, total) => {
+        btn.textContent = `計算中...(${done}/${total}パターン)`;
+      })
+    : await runOwnedModeOptimization(slots, activeRoles, activeRoleCaps);
   const solveMs = Math.round(performance.now() - t0);
 
   renderResult(result.picks, slots, activeRoles, {
@@ -1279,6 +1533,66 @@ document.getElementById('palModalOverlay').addEventListener('click', (e) => {
 });
 
 document.getElementById('computeBtn').addEventListener('click', compute);
+
+// ---- パルソース切り替え(理想値/自分のボックス/共有ボックス) ----
+function updatePalSourceCount(){
+  if(palSourceState.mode === "ideal"){ setPalSourceStatus(""); return; }
+  const n = resolveOwnedInstances(palSourceState.instances).length;
+  const label = palSourceState.mode === "local" ? "自分のボックス" : `共有ボックス「${palSourceState.roomCode || ""}」`;
+  setPalSourceStatus(n > 0 ? `${label}: ${n}体を計算対象にします。` : `${label}にはまだ拠点向けに使えるパルがいません。`, n > 0 ? "ok" : "err");
+}
+
+// パルボックスページ(palworld_palbox.html)と同じキーを使い、直近に入っていた
+// 共有ボックスの合言葉を覚えておく(他のツールを見て戻ってきても打ち直さなくて済むように)。
+const SHARED_ROOM_CODE_KEY = "palworldSharedRoomCode";
+
+async function loadSharedRoomByCode(code){
+  if(!code){ setPalSourceStatus("合言葉を入力してください。", "err"); return; }
+  if(!plannerFirebaseReady()){ setPalSourceStatus("Firebaseが未設定のため、共有ボックスは読み込めません。", "err"); return; }
+  setPalSourceStatus("読み込み中…");
+  try {
+    const snapshot = await plannerDb.collection("palboxRooms").doc(code).collection("pals").get();
+    palSourceState.instances = snapshot.docs.map(d => d.data());
+    palSourceState.roomCode = code;
+    localStorage.setItem(SHARED_ROOM_CODE_KEY, code);
+    document.getElementById('plannerShareCodeInput').value = code;
+    updatePalSourceCount();
+  } catch(e){
+    setPalSourceStatus("読み込みに失敗しました: " + e.message, "err");
+  }
+}
+
+document.querySelectorAll('#palSourceTabs .mini-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('#palSourceTabs .mini-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    palSourceState.mode = tab.dataset.source;
+    document.getElementById('plannerShareJoinRow').style.display = palSourceState.mode === "shared" ? "flex" : "none";
+    if(palSourceState.mode === "local"){
+      palSourceState.instances = loadLocalOwnedInstances();
+      updatePalSourceCount();
+    } else if(palSourceState.mode === "ideal"){
+      palSourceState.instances = [];
+      setPalSourceStatus("");
+    } else {
+      const savedCode = localStorage.getItem(SHARED_ROOM_CODE_KEY);
+      if(savedCode && !palSourceState.roomCode){
+        loadSharedRoomByCode(savedCode);
+      } else {
+        palSourceState.instances = [];
+        updatePalSourceCount();
+      }
+    }
+  });
+});
+
+document.getElementById('plannerShareLoadBtn').addEventListener('click', () => {
+  loadSharedRoomByCode(document.getElementById('plannerShareCodeInput').value.trim().toUpperCase());
+});
+document.getElementById('plannerShareCodeInput').addEventListener('keydown', e => {
+  if(e.key === 'Enter') document.getElementById('plannerShareLoadBtn').click();
+});
+
 // 自己診断テストは一時的にroleWeights等のグローバル状態を書き換えて元に戻すため、
 // 初回の自動計算はテストが完全に終わって状態が復元されてから実行する
 // (自己診断が長引いた場合に、まだテスト用の値のまま計算してしまう競合を避けるため)。

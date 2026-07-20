@@ -1,0 +1,3013 @@
+{
+ "BeamLauncher": {
+  "tech_level": 80
+ },
+ "ElectricArcAssaultRifle": {
+  "tech_level": 78
+ },
+ "DroneLauncher": {
+  "tech_level": 77
+ },
+ "WidePenetrateShotgun": {
+  "tech_level": 75
+ },
+ "SkyAssaultRifle": {
+  "tech_level": 70
+ },
+ "SkyGrenadeLauncher": {
+  "tech_level": 72
+ },
+ "SkyShotgun": {
+  "tech_level": 69
+ },
+ "EnergyShotgun": {
+  "tech_level": 63
+ },
+ "ChargeLaserRifle": {
+  "tech_level": 65
+ },
+ "OverheatRifle": {
+  "tech_level": 64
+ },
+ "SkySubmachineGun": {
+  "tech_level": 68
+ },
+ "SkyBeamSword": {
+  "tech_level": 73
+ },
+ "SkyBow": {
+  "tech_level": 67
+ },
+ "EnergyRocketLauncher": {
+  "tech_level": 61
+ },
+ "LaserGatlingGun": {
+  "tech_level": 59
+ },
+ "PalDopingShot_2": {
+  "tech_level": 63
+ },
+ "Launcher_Default": {
+  "tech_level": 65
+ },
+ "GatlingGun": {
+  "tech_level": 54
+ },
+ "Spear_ForestBoss2": {
+  "tech_level": 68
+ },
+ "GuidedMissileLauncher": {
+  "tech_level": 56
+ },
+ "OctaviaShotgun": {
+  "tech_level": 56
+ },
+ "GrenadeLauncher": {
+  "tech_level": 53
+ },
+ "LaserRifle": {
+  "tech_level": 51
+ },
+ "LaserMiningTool": {
+  "tech_level": 54,
+  "item_effects": [
+   "採掘・伐採量増加"
+  ]
+ },
+ "MetalDetector": {
+  "tech_level": 58
+ },
+ "BeamSword": {
+  "tech_level": 57
+ },
+ "GrapplingGun5": {
+  "tech_level": 63
+ },
+ "SFBow": {
+  "tech_level": 57
+ },
+ "Launcher_Meteor": {
+  "tech_level": 38
+ },
+ "HomingSphereLauncher": {
+  "tech_level": 55
+ },
+ "Spear_ForestBoss": {
+  "tech_level": 55
+ },
+ "SemiAutoShotgun": {
+  "tech_level": 47
+ },
+ "PumpActionShotgun": {
+  "tech_level": 43
+ },
+ "AssaultRifle_Default1": {
+  "tech_level": 45
+ },
+ "Katana": {
+  "tech_level": 44
+ },
+ "OctaviaRevolver": {
+  "tech_level": 32
+ },
+ "Axe_Steal": {
+  "tech_level": 44,
+  "item_effects": [
+   "伐採量増加Lv4"
+  ]
+ },
+ "Pickaxe_Steal": {
+  "tech_level": 44,
+  "item_effects": [
+   "採掘量増加Lv4"
+  ]
+ },
+ "SphereLauncher": {
+  "tech_level": 38
+ },
+ "CompoundBow": {
+  "tech_level": 42
+ },
+ "SemiAutoRifle": {
+  "tech_level": 41
+ },
+ "GrapplingGun4": {
+  "tech_level": 49
+ },
+ "DoubleBarrelShotgun": {
+  "tech_level": 39
+ },
+ "SubmachineGun": {
+  "tech_level": 37
+ },
+ "MakeshiftAssaultRifle": {
+  "tech_level": 31
+ },
+ "SingleShotRifle": {
+  "tech_level": 36
+ },
+ "OldRevolver": {
+  "tech_level": 33
+ },
+ "MakeshiftShotgun": {
+  "tech_level": 30
+ },
+ "HandGun_Default": {
+  "tech_level": 28
+ },
+ "Bat3": {
+  "tech_level": 40
+ },
+ "MakeshiftSubmachineGun": {
+  "tech_level": 26
+ },
+ "MakeshiftHandgun": {
+  "tech_level": 24
+ },
+ "DecalGun_1": {
+  "tech_level": 45
+ },
+ "DecalGun_2": {
+  "tech_level": 45
+ },
+ "DecalGun_3": {
+  "tech_level": 45
+ },
+ "DecalGun_4": {
+  "tech_level": 45
+ },
+ "DecalGun_5": {
+  "tech_level": 45
+ },
+ "SphereLauncher_Once": {
+  "tech_level": 26
+ },
+ "Musket": {
+  "tech_level": 21
+ },
+ "Sword": {
+  "tech_level": 29
+ },
+ "GrapplingGun3": {
+  "tech_level": 31
+ },
+ "PalDopingShot": {
+  "tech_level": 25
+ },
+ "YakushimaBlade": {
+  "tech_level": 30
+ },
+ "ElecBaton": {
+  "tech_level": 22
+ },
+ "GrapplingGun2": {
+  "tech_level": 17
+ },
+ "Axe_Tier_02": {
+  "tech_level": 34,
+  "item_effects": [
+   "伐採量増加Lv2"
+  ]
+ },
+ "Pickaxe_Tier_02": {
+  "tech_level": 34,
+  "item_effects": [
+   "採掘量増加Lv2"
+  ]
+ },
+ "BowGun": {
+  "tech_level": 13
+ },
+ "Spear_3": {
+  "tech_level": 34
+ },
+ "FragGrenade_Super": {
+  "tech_level": 53
+ },
+ "GrapplingGun": {
+  "tech_level": 12
+ },
+ "BronzeSword": {
+  "tech_level": 17
+ },
+ "Axe_Tier_01": {
+  "tech_level": 11,
+  "item_effects": [
+   "伐採量増加Lv1"
+  ]
+ },
+ "Pickaxe_Tier_01": {
+  "tech_level": 11,
+  "item_effects": [
+   "採掘量増加Lv1"
+  ]
+ },
+ "PalHealingGrenade": {
+  "tech_level": 32
+ },
+ "Spear_2": {
+  "tech_level": 13
+ },
+ "WeakerBow": {
+  "tech_level": 3
+ },
+ "MeatCutterKnife": {
+  "tech_level": 12
+ },
+ "FragGrenade_Dark": {
+  "tech_level": 40
+ },
+ "FragGrenade_Water": {
+  "tech_level": 33
+ },
+ "Bow_Triple": {
+  "tech_level": 10
+ },
+ "FragGrenade_Elec": {
+  "tech_level": 27
+ },
+ "FragGrenade_Fire": {
+  "tech_level": 31
+ },
+ "FragGrenade_Ice": {
+  "tech_level": 29
+ },
+ "FragGrenade_Dragon": {
+  "tech_level": 42
+ },
+ "FragGrenade_Ground": {
+  "tech_level": 38
+ },
+ "FragGrenade": {
+  "tech_level": 25
+ },
+ "FragGrenade_Leaf": {
+  "tech_level": 35
+ },
+ "Bat2": {
+  "tech_level": 7
+ },
+ "Spear": {
+  "tech_level": 3
+ },
+ "Axe_Tier_00": {
+  "tech_level": 1
+ },
+ "Pickaxe_Tier_00": {
+  "tech_level": 1
+ },
+ "Bat": {
+  "tech_level": 1
+ },
+ "Torch": {
+  "tech_level": 1
+ },
+ "AncientArmorWeight": {
+  "tech_level": 79,
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "最大所持重量増加Lv4"
+  ]
+ },
+ "AncientArmorWeight_2": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "最大所持重量増加Lv4",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "AncientArmorWeight_3": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "最大所持重量増加Lv4",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "AncientArmorWeight_4": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "最大所持重量増加Lv4",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "AncientArmorWeight_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "最大所持重量増加Lv4",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "AncientArmorHeat": {
+  "tech_level": 75,
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv3",
+   "炎属性ダメージ軽減Lv1"
+  ]
+ },
+ "AncientArmorHeat_2": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv3",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "AncientArmorHeat_3": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv3",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "AncientArmorHeat_4": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv3",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "AncientArmorHeat_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv3",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "AncientArmorCold": {
+  "tech_level": 77,
+  "item_effects": [
+   "耐寒Lv3",
+   "耐熱Lv2",
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "AncientArmorCold_2": {
+  "item_effects": [
+   "耐寒Lv3",
+   "耐熱Lv2",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "AncientArmorCold_3": {
+  "item_effects": [
+   "耐寒Lv3",
+   "耐熱Lv2",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "AncientArmorCold_4": {
+  "item_effects": [
+   "耐寒Lv3",
+   "耐熱Lv2",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "AncientArmorCold_5": {
+  "item_effects": [
+   "耐寒Lv3",
+   "耐熱Lv2",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "AncientArmor": {
+  "tech_level": 68,
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2"
+  ]
+ },
+ "AncientArmor_2": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "AncientArmor_3": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "AncientArmor_4": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "AncientArmor_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "Shield_07": {
+  "tech_level": 71
+ },
+ "AncientHelmet": {
+  "tech_level": 68,
+  "item_effects": [
+   "無属性ダメージ軽減Lv1",
+   "竜属性ダメージ軽減Lv1"
+  ]
+ },
+ "AncientHelmet_2": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1",
+   "竜属性ダメージ軽減Lv1"
+  ]
+ },
+ "AncientHelmet_3": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1",
+   "竜属性ダメージ軽減Lv1"
+  ]
+ },
+ "AncientHelmet_4": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1",
+   "竜属性ダメージ軽減Lv1"
+  ]
+ },
+ "AncientHelmet_5": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1",
+   "竜属性ダメージ軽減Lv1"
+  ]
+ },
+ "Octavia002_Armor": {
+  "tech_level": 56,
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2"
+  ]
+ },
+ "Octavia002_Armor_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "SFArmorWeight": {
+  "tech_level": 65,
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "最大所持重量増加Lv3"
+  ]
+ },
+ "SFArmorWeight_2": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "最大所持重量増加Lv3",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "SFArmorWeight_3": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "最大所持重量増加Lv3",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "SFArmorWeight_4": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "最大所持重量増加Lv3",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "SFArmorWeight_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "最大所持重量増加Lv3",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "SFArmorHeat": {
+  "tech_level": 63,
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv3",
+   "炎属性ダメージ軽減Lv1"
+  ]
+ },
+ "SFArmorHeat_2": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv3",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "SFArmorHeat_3": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv3",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "SFArmorHeat_4": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv3",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "SFArmorHeat_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv3",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "SFArmorCold": {
+  "tech_level": 64,
+  "item_effects": [
+   "耐寒Lv3",
+   "耐熱Lv2",
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "SFArmorCold_2": {
+  "item_effects": [
+   "耐寒Lv3",
+   "耐熱Lv2",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "SFArmorCold_3": {
+  "item_effects": [
+   "耐寒Lv3",
+   "耐熱Lv2",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "SFArmorCold_4": {
+  "item_effects": [
+   "耐寒Lv3",
+   "耐熱Lv2",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "SFArmorCold_5": {
+  "item_effects": [
+   "耐寒Lv3",
+   "耐熱Lv2",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "SFArmor": {
+  "tech_level": 59,
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2"
+  ]
+ },
+ "SFArmor_2": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "SFArmor_3": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "SFArmor_4": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "SFArmor_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "Shield_SF": {
+  "tech_level": 60
+ },
+ "SFHelmet": {
+  "tech_level": 60
+ },
+ "PlasticArmorCold": {
+  "tech_level": 54,
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "PlasticArmorCold_2": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "PlasticArmorCold_3": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "PlasticArmorCold_4": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "PlasticArmorCold_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "PlasticArmorHeat": {
+  "tech_level": 53,
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv2",
+   "炎属性ダメージ軽減Lv1"
+  ]
+ },
+ "PlasticArmorHeat_2": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv2",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "PlasticArmorHeat_3": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv2",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "PlasticArmorHeat_4": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv2",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "PlasticArmorHeat_5": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv2",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "PlasticArmorWeight": {
+  "tech_level": 55,
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "最大所持重量増加Lv3"
+  ]
+ },
+ "PlasticArmorWeight_2": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "最大所持重量増加Lv3",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "PlasticArmorWeight_3": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "最大所持重量増加Lv3",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "PlasticArmorWeight_4": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "最大所持重量増加Lv3",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "PlasticArmorWeight_5": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "最大所持重量増加Lv3",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "PlasticArmor": {
+  "tech_level": 51,
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1"
+  ]
+ },
+ "PlasticArmor_2": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "PlasticArmor_3": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "PlasticArmor_4": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "PlasticArmor_5": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "Shield_Ultra": {
+  "tech_level": 55
+ },
+ "PlasticHelmet": {
+  "tech_level": 51
+ },
+ "StealArmorHeat": {
+  "tech_level": 48,
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1"
+  ]
+ },
+ "StealArmorHeat_2": {
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "StealArmorHeat_3": {
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "StealArmorHeat_4": {
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "StealArmorHeat_5": {
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "StealArmorCold": {
+  "tech_level": 50,
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "StealArmorCold_2": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "StealArmorCold_3": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "StealArmorCold_4": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "StealArmorCold_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "Octavia001_Armor": {
+  "tech_level": 32,
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "ブラッドフュエル"
+  ]
+ },
+ "Octavia001_Armor_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv2",
+   "ブラッドフュエル",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "IronArmorHeat": {
+  "tech_level": 40,
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1"
+  ]
+ },
+ "IronArmorHeat_2": {
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "IronArmorHeat_3": {
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "IronArmorHeat_4": {
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "IronArmorHeat_5": {
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "IronArmorCold": {
+  "tech_level": 41,
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "IronArmorCold_2": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "IronArmorCold_3": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "IronArmorCold_4": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "IronArmorCold_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "StealArmor": {
+  "tech_level": 46,
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1"
+  ]
+ },
+ "StealArmor_2": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "StealArmor_3": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "StealArmor_4": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "StealArmor_5": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "YakushimaArmor001": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "神聖なる守護"
+  ]
+ },
+ "YakushimaArmor001_2": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "神聖なる守護",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "YakushimaArmor001_3": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "神聖なる守護",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "YakushimaArmor001_4": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "神聖なる守護",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "YakushimaArmor001_5": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "神聖なる守護",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "YakushimaHeadEquip001": {
+  "item_effects": [
+   "神聖なる力・近接"
+  ]
+ },
+ "YakushimaHeadEquip001_2": {
+  "item_effects": [
+   "神聖なる力・近接"
+  ]
+ },
+ "YakushimaHeadEquip001_3": {
+  "item_effects": [
+   "神聖なる力・近接"
+  ]
+ },
+ "YakushimaHeadEquip001_4": {
+  "item_effects": [
+   "神聖なる力・近接"
+  ]
+ },
+ "YakushimaHeadEquip001_5": {
+  "item_effects": [
+   "神聖なる力・近接"
+  ]
+ },
+ "YakushimaHeadEquip002": {
+  "item_effects": [
+   "神聖なる力・魔法"
+  ]
+ },
+ "YakushimaHeadEquip002_2": {
+  "item_effects": [
+   "神聖なる力・魔法"
+  ]
+ },
+ "YakushimaHeadEquip002_3": {
+  "item_effects": [
+   "神聖なる力・魔法"
+  ]
+ },
+ "YakushimaHeadEquip002_4": {
+  "item_effects": [
+   "神聖なる力・魔法"
+  ]
+ },
+ "YakushimaHeadEquip002_5": {
+  "item_effects": [
+   "神聖なる力・魔法"
+  ]
+ },
+ "YakushimaHeadEquip003": {
+  "item_effects": [
+   "神聖なる力・遠距離"
+  ]
+ },
+ "YakushimaHeadEquip003_2": {
+  "item_effects": [
+   "神聖なる力・遠距離"
+  ]
+ },
+ "YakushimaHeadEquip003_3": {
+  "item_effects": [
+   "神聖なる力・遠距離"
+  ]
+ },
+ "YakushimaHeadEquip003_4": {
+  "item_effects": [
+   "神聖なる力・遠距離"
+  ]
+ },
+ "YakushimaHeadEquip003_5": {
+  "item_effects": [
+   "神聖なる力・遠距離"
+  ]
+ },
+ "YakushimaHeadEquip004": {
+  "item_effects": [
+   "神聖なる力・召喚"
+  ]
+ },
+ "YakushimaHeadEquip004_2": {
+  "item_effects": [
+   "神聖なる力・召喚"
+  ]
+ },
+ "YakushimaHeadEquip004_3": {
+  "item_effects": [
+   "神聖なる力・召喚"
+  ]
+ },
+ "YakushimaHeadEquip004_4": {
+  "item_effects": [
+   "神聖なる力・召喚"
+  ]
+ },
+ "YakushimaHeadEquip004_5": {
+  "item_effects": [
+   "神聖なる力・召喚"
+  ]
+ },
+ "IronArmor": {
+  "tech_level": 37,
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1"
+  ]
+ },
+ "IronArmor_2": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "IronArmor_3": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "IronArmor_4": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "IronArmor_5": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "Player_Outfit_Kigurumi001": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1"
+  ]
+ },
+ "StealHelmet": {
+  "tech_level": 46
+ },
+ "CopperArmorCold": {
+  "tech_level": 27,
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "CopperArmorCold_2": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "CopperArmorCold_3": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "CopperArmorCold_4": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "CopperArmorCold_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "耐熱Lv1",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "CopperArmorHeat": {
+  "tech_level": 25,
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1"
+  ]
+ },
+ "CopperArmorHeat_2": {
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "CopperArmorHeat_3": {
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "CopperArmorHeat_4": {
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "CopperArmorHeat_5": {
+  "item_effects": [
+   "耐熱Lv2",
+   "耐寒Lv1",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "IronHelmet": {
+  "tech_level": 37
+ },
+ "Shield_04": {
+  "tech_level": 43
+ },
+ "CopperArmor": {
+  "tech_level": 23,
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1"
+  ]
+ },
+ "CopperArmor_2": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "CopperArmor_3": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "CopperArmor_4": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "CopperArmor_5": {
+  "item_effects": [
+   "耐寒Lv1",
+   "耐熱Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "HeadEquip045": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "Shield_03": {
+  "tech_level": 29
+ },
+ "FurArmorCold": {
+  "tech_level": 18,
+  "item_effects": [
+   "耐寒Lv2",
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "FurArmorCold_2": {
+  "item_effects": [
+   "耐寒Lv2",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "FurArmorCold_3": {
+  "item_effects": [
+   "耐寒Lv2",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "FurArmorCold_4": {
+  "item_effects": [
+   "耐寒Lv2",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "FurArmorCold_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "氷属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "FurArmorHeat": {
+  "tech_level": 16,
+  "item_effects": [
+   "耐熱Lv2",
+   "炎属性ダメージ軽減Lv1"
+  ]
+ },
+ "FurArmorHeat_2": {
+  "item_effects": [
+   "耐熱Lv2",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "FurArmorHeat_3": {
+  "item_effects": [
+   "耐熱Lv2",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "FurArmorHeat_4": {
+  "item_effects": [
+   "耐熱Lv2",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "FurArmorHeat_5": {
+  "item_effects": [
+   "耐熱Lv2",
+   "炎属性ダメージ軽減Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "CopperHelmet": {
+  "tech_level": 23
+ },
+ "FurArmor": {
+  "tech_level": 12,
+  "item_effects": [
+   "耐寒Lv1"
+  ]
+ },
+ "FurArmor_2": {
+  "item_effects": [
+   "耐寒Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "FurArmor_3": {
+  "item_effects": [
+   "耐寒Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "FurArmor_4": {
+  "item_effects": [
+   "耐寒Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "FurArmor_5": {
+  "item_effects": [
+   "耐寒Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "Shield_02": {
+  "tech_level": 16
+ },
+ "Head007": {
+  "item_effects": [
+   "炎属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head007_2": {
+  "item_effects": [
+   "炎属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head007_3": {
+  "item_effects": [
+   "炎属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head007_4": {
+  "item_effects": [
+   "炎属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head007_5": {
+  "item_effects": [
+   "炎属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head012": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head012_2": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head012_3": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head012_4": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head012_5": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head001": {
+  "item_effects": [
+   "竜属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head001_2": {
+  "item_effects": [
+   "竜属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head001_3": {
+  "item_effects": [
+   "竜属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head001_4": {
+  "item_effects": [
+   "竜属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head001_5": {
+  "item_effects": [
+   "竜属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head003": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head003_2": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head003_3": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head003_4": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head003_5": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv1"
+  ]
+ },
+ "ClothArmorCold": {
+  "tech_level": 9,
+  "item_effects": [
+   "耐寒Lv2"
+  ]
+ },
+ "ClothArmorCold_2": {
+  "item_effects": [
+   "耐寒Lv2",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "ClothArmorCold_3": {
+  "item_effects": [
+   "耐寒Lv2",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "ClothArmorCold_4": {
+  "item_effects": [
+   "耐寒Lv2",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "ClothArmorCold_5": {
+  "item_effects": [
+   "耐寒Lv2",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "ClothArmorHeat": {
+  "tech_level": 9,
+  "item_effects": [
+   "耐熱Lv2"
+  ]
+ },
+ "ClothArmorHeat_2": {
+  "item_effects": [
+   "耐熱Lv2",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "ClothArmorHeat_3": {
+  "item_effects": [
+   "耐熱Lv2",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "ClothArmorHeat_4": {
+  "item_effects": [
+   "耐熱Lv2",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "ClothArmorHeat_5": {
+  "item_effects": [
+   "耐熱Lv2",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "Head002": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head002_2": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head002_3": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head002_4": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head002_5": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head006": {
+  "item_effects": [
+   "雷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head006_2": {
+  "item_effects": [
+   "雷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head006_3": {
+  "item_effects": [
+   "雷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head006_4": {
+  "item_effects": [
+   "雷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head006_5": {
+  "item_effects": [
+   "雷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head005": {
+  "item_effects": [
+   "地属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head005_2": {
+  "item_effects": [
+   "地属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head005_3": {
+  "item_effects": [
+   "地属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head005_4": {
+  "item_effects": [
+   "地属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head005_5": {
+  "item_effects": [
+   "地属性ダメージ軽減Lv1"
+  ]
+ },
+ "ClothArmor": {
+  "tech_level": 4,
+  "item_effects": [
+   "耐寒Lv1"
+  ]
+ },
+ "ClothArmor_2": {
+  "item_effects": [
+   "耐寒Lv1",
+   "攻撃増加(小)Lv1"
+  ]
+ },
+ "ClothArmor_3": {
+  "item_effects": [
+   "耐寒Lv1",
+   "攻撃増加(小)Lv2"
+  ]
+ },
+ "ClothArmor_4": {
+  "item_effects": [
+   "耐寒Lv1",
+   "攻撃増加(小)Lv3"
+  ]
+ },
+ "ClothArmor_5": {
+  "item_effects": [
+   "耐寒Lv1",
+   "攻撃増加(小)Lv4"
+  ]
+ },
+ "HeadEquip025": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip025_2": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip025_3": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip025_4": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip025_5": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip028": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip028_2": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip028_3": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip028_4": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip028_5": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "FurHelmet": {
+  "tech_level": 10,
+  "item_effects": [
+   "最大所持重量増加Lv1"
+  ]
+ },
+ "FurHelmet_2": {
+  "item_effects": [
+   "最大所持重量増加Lv1"
+  ]
+ },
+ "FurHelmet_3": {
+  "item_effects": [
+   "最大所持重量増加Lv1"
+  ]
+ },
+ "FurHelmet_4": {
+  "item_effects": [
+   "最大所持重量増加Lv1"
+  ]
+ },
+ "FurHelmet_5": {
+  "item_effects": [
+   "最大所持重量増加Lv1"
+  ]
+ },
+ "Shield_01": {
+  "tech_level": 4
+ },
+ "Head004": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head004_2": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head004_3": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head004_4": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head004_5": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head008": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head008_2": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head008_3": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head008_4": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head008_5": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head009": {
+  "item_effects": [
+   "耐熱Lv1"
+  ]
+ },
+ "Head009_2": {
+  "item_effects": [
+   "耐熱Lv1"
+  ]
+ },
+ "Head009_3": {
+  "item_effects": [
+   "耐熱Lv1"
+  ]
+ },
+ "Head009_4": {
+  "item_effects": [
+   "耐熱Lv1"
+  ]
+ },
+ "Head009_5": {
+  "item_effects": [
+   "耐熱Lv1"
+  ]
+ },
+ "Head010": {
+  "item_effects": [
+   "高速作業Lv1"
+  ]
+ },
+ "Head010_2": {
+  "item_effects": [
+   "高速作業Lv1"
+  ]
+ },
+ "Head010_3": {
+  "item_effects": [
+   "高速作業Lv1"
+  ]
+ },
+ "Head010_4": {
+  "item_effects": [
+   "高速作業Lv1"
+  ]
+ },
+ "Head010_5": {
+  "item_effects": [
+   "高速作業Lv1"
+  ]
+ },
+ "Head011": {
+  "item_effects": [
+   "耐熱Lv1"
+  ]
+ },
+ "Head011_2": {
+  "item_effects": [
+   "耐熱Lv1"
+  ]
+ },
+ "Head011_3": {
+  "item_effects": [
+   "耐熱Lv1"
+  ]
+ },
+ "Head011_4": {
+  "item_effects": [
+   "耐熱Lv1"
+  ]
+ },
+ "Head011_5": {
+  "item_effects": [
+   "耐熱Lv1"
+  ]
+ },
+ "Head013": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head013_2": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head013_3": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head013_4": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head013_5": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head014": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head014_2": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head014_3": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head014_4": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head014_5": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head015": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head015_2": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head015_3": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head015_4": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head015_5": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head016": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head016_2": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head016_3": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head016_4": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head016_5": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head017": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head017_2": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head017_3": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head017_4": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "Head017_5": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip026": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip026_2": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip026_3": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip026_4": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip026_5": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip031": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip031_2": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip031_3": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip031_4": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip031_5": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip032": {
+  "item_effects": [
+   "雷属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip032_2": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip032_3": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip032_4": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip032_5": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip055": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip056": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip057": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip058": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip059": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip060": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip061": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip062": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip029": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip030": {
+  "item_effects": [
+   "地属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip023": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip024": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip027": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip033": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip050": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip051": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip052": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip053": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip054": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip001_purple": {
+  "item_effects": [
+   "竜属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip041": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip044": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv1"
+  ]
+ },
+ "HeadEquip046": {
+  "item_effects": [
+   "雷属性ダメージ軽減Lv1"
+  ]
+ },
+ "Accessory_JumpCount_Increase3": {
+  "item_effects": [
+   "ジャンプ回数増加+3"
+  ]
+ },
+ "Accessory_SuperJumpAir_2": {
+  "item_effects": [
+   "ジャンプ回数増加+2",
+   "空中ダッシュ+2"
+  ]
+ },
+ "Accessory_AirDash3": {
+  "tech_level": 65,
+  "item_effects": [
+   "空中ダッシュ+3"
+  ]
+ },
+ "Accessory_SuperJumpAir_1": {
+  "item_effects": [
+   "ジャンプ回数増加+2",
+   "空中ダッシュ+1"
+  ]
+ },
+ "Accessory_JumpCount_Increase2": {
+  "tech_level": 70,
+  "item_effects": [
+   "ジャンプ回数増加+2"
+  ]
+ },
+ "Accessory_JumpAir_2": {
+  "item_effects": [
+   "ジャンプ回数増加+1",
+   "空中ダッシュ+2"
+  ]
+ },
+ "GasMask": {
+  "tech_level": 76,
+  "item_effects": [
+   "毒ガスダメージ無効"
+  ]
+ },
+ "Accessory_HeatColdResist_1": {
+  "item_effects": [
+   "耐熱Lv3 / 耐寒Lv3"
+  ]
+ },
+ "Accessory_HeatColdResist_2": {
+  "item_effects": [
+   "耐熱Lv3 / 耐寒Lv3"
+  ]
+ },
+ "Accessory_HeatColdResist_3": {
+  "item_effects": [
+   "耐熱Lv3 / 耐寒Lv3"
+  ]
+ },
+ "Accessory_ColdIce_1": {
+  "item_effects": [
+   "耐寒Lv3",
+   "氷属性ダメージ軽減Lv4"
+  ]
+ },
+ "Accessory_AirDash2": {
+  "tech_level": 61,
+  "item_effects": [
+   "空中ダッシュ+2"
+  ]
+ },
+ "Accessory_JumpAir_1": {
+  "item_effects": [
+   "ジャンプ回数増加+1",
+   "空中ダッシュ+1"
+  ]
+ },
+ "Accessory_Avoid_1": {
+  "item_effects": [
+   "回避時の無敵時間延長"
+  ]
+ },
+ "Accessory_ExplosionResist": {
+  "tech_level": 76,
+  "item_effects": [
+   "爆発ダメージ無効"
+  ]
+ },
+ "Accessory_HCHP_1": {
+  "item_effects": [
+   "耐熱Lv3 / 耐寒Lv3",
+   "HP増加Lv4"
+  ]
+ },
+ "Accessory_HCMW_1": {
+  "item_effects": [
+   "耐熱Lv3 / 耐寒Lv3",
+   "最大所持重量増加Lv4"
+  ]
+ },
+ "Accessory_HeatFire_1": {
+  "item_effects": [
+   "耐熱Lv3",
+   "炎属性ダメージ軽減Lv4"
+  ]
+ },
+ "Accessory_PPDF_1": {
+  "item_effects": [
+   "防御増加Lv4",
+   "パルの防御増加Lv4"
+  ]
+ },
+ "Accessory_DFHP_1": {
+  "item_effects": [
+   "防御増加Lv4",
+   "HP増加Lv4"
+  ]
+ },
+ "Accessory_PPAT_1": {
+  "item_effects": [
+   "攻撃増加Lv4",
+   "パルの攻撃増加Lv4"
+  ]
+ },
+ "Otomo_ATDragon_ElementBoost_1": {
+  "item_effects": [
+   "パルの攻撃増加Lv4",
+   "パルの竜属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_PalConfidence_Increase_1": {
+  "item_effects": [
+   "手持ちパルの信頼度上昇量増加"
+  ]
+ },
+ "Accessory_WKMC_1": {
+  "item_effects": [
+   "最大所持重量増加Lv4",
+   "高速作業Lv4"
+  ]
+ },
+ "Otomo_DFWater_ElementBoost_1": {
+  "item_effects": [
+   "パルの防御増加Lv4",
+   "パルの水属性ダメージ強化Lv4"
+  ]
+ },
+ "Accessory_AirDash1": {
+  "tech_level": 35,
+  "item_effects": [
+   "空中ダッシュ+1"
+  ]
+ },
+ "Accessory_JumpCount_Increase1": {
+  "tech_level": 40,
+  "item_effects": [
+   "ジャンプ回数増加+1"
+  ]
+ },
+ "Accessory_TalentChecker": {
+  "tech_level": 34
+ },
+ "Otomo_ATNormal_ElementBoost_1": {
+  "item_effects": [
+   "パルの攻撃増加Lv4",
+   "パルの無属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_DFEarth_ElementBoost_1": {
+  "item_effects": [
+   "パルの防御増加Lv4",
+   "パルの地属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_ATWater_ElementBoost_1": {
+  "item_effects": [
+   "パルの攻撃増加Lv4",
+   "パルの水属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_DFDragon_ElementBoost_1": {
+  "item_effects": [
+   "パルの防御増加Lv4",
+   "パルの竜属性ダメージ強化Lv4"
+  ]
+ },
+ "Accessory_NonkChecker_1": {
+  "item_effects": [
+   "手加減"
+  ]
+ },
+ "Otomo_ATDark_ElementBoost_1": {
+  "item_effects": [
+   "パルの攻撃増加Lv4",
+   "パルの闇属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_ATEarth_ElementBoost_1": {
+  "item_effects": [
+   "パルの攻撃増加Lv4",
+   "パルの地属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_DFNormal_ElementBoost_1": {
+  "item_effects": [
+   "パルの防御増加Lv4",
+   "パルの無属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_ATFire_ElementBoost_1": {
+  "item_effects": [
+   "パルの攻撃増加Lv4",
+   "パルの炎属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_ATIce_ElementBoost_1": {
+  "item_effects": [
+   "パルの攻撃増加Lv4",
+   "パルの氷属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_DFIce_ElementBoost_1": {
+  "item_effects": [
+   "パルの防御増加Lv4",
+   "パルの氷属性ダメージ強化Lv4"
+  ]
+ },
+ "Accessory_Otomo_Earth_1": {
+  "item_effects": [
+   "雷属性ダメージ軽減Lv4",
+   "パルの地属性ダメージ強化Lv4"
+  ]
+ },
+ "Accessory_Otomo_Ice_1": {
+  "item_effects": [
+   "竜属性ダメージ軽減Lv4",
+   "パルの氷属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_ATElectricity_ElementBoost_1": {
+  "item_effects": [
+   "パルの攻撃増加Lv4",
+   "パルの雷属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_DFElectricity_ElementBoost_1": {
+  "item_effects": [
+   "パルの防御増加Lv4",
+   "パルの雷属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_ATLeaf_ElementBoost_1": {
+  "item_effects": [
+   "パルの攻撃増加Lv4",
+   "パルの草属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_DFLeaf_ElementBoost_1": {
+  "item_effects": [
+   "パルの防御増加Lv4",
+   "パルの草属性ダメージ強化Lv4"
+  ]
+ },
+ "Accessory_Otomo_Electricity_1": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv4",
+   "パルの雷属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_DFFire_ElementBoost_1": {
+  "item_effects": [
+   "パルの防御増加Lv4",
+   "パルの炎属性ダメージ強化Lv4"
+  ]
+ },
+ "Accessory_Otomo_Water_1": {
+  "item_effects": [
+   "炎属性ダメージ軽減Lv4",
+   "パルの水属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_DFDark_ElementBoost_1": {
+  "item_effects": [
+   "パルの防御増加Lv4",
+   "パルの闇属性ダメージ強化Lv4"
+  ]
+ },
+ "Accessory_Otomo_Dargon_1": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv4",
+   "パルの竜属性ダメージ強化Lv4"
+  ]
+ },
+ "Accessory_Otomo_Dark_1": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv4",
+   "パルの闇属性ダメージ強化Lv4"
+  ]
+ },
+ "Accessory_Otomo_Fire_2": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv4",
+   "パルの炎属性ダメージ強化Lv4"
+  ]
+ },
+ "Otomo_Defense_up1": {
+  "item_effects": [
+   "パルの防御増加Lv3"
+  ]
+ },
+ "Otomo_Defense_up2": {
+  "item_effects": [
+   "パルの防御増加Lv3"
+  ]
+ },
+ "Otomo_Defense_up3": {
+  "item_effects": [
+   "パルの防御増加Lv3"
+  ]
+ },
+ "Accessory_Otomo_Fire_1": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv4",
+   "パルの炎属性ダメージ強化Lv4"
+  ]
+ },
+ "Accessory_DragonResist_1": {
+  "item_effects": [
+   "竜属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_DragonResist_2": {
+  "item_effects": [
+   "竜属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_DragonResist_3": {
+  "item_effects": [
+   "竜属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_EarthResist_1": {
+  "item_effects": [
+   "地属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_EarthResist_2": {
+  "item_effects": [
+   "地属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_EarthResist_3": {
+  "item_effects": [
+   "地属性ダメージ軽減Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Dragon_1": {
+  "item_effects": [
+   "パルの竜属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Dragon_2": {
+  "item_effects": [
+   "パルの竜属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Dragon_3": {
+  "item_effects": [
+   "パルの竜属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Earth_1": {
+  "item_effects": [
+   "パルの地属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Earth_2": {
+  "item_effects": [
+   "パルの地属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Earth_3": {
+  "item_effects": [
+   "パルの地属性ダメージ強化Lv3"
+  ]
+ },
+ "Accessory_Otomo_Leaf_1": {
+  "item_effects": [
+   "地属性ダメージ軽減Lv4",
+   "パルの草属性ダメージ強化Lv4"
+  ]
+ },
+ "Accessory_AquaResist_1": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_AquaResist_2": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_AquaResist_3": {
+  "item_effects": [
+   "水属性ダメージ軽減Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Water_1": {
+  "item_effects": [
+   "パルの水属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Water_2": {
+  "item_effects": [
+   "パルの水属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Water_3": {
+  "item_effects": [
+   "パルの水属性ダメージ強化Lv3"
+  ]
+ },
+ "Accessory_JumpPower_Increase": {
+  "tech_level": 28,
+  "item_effects": [
+   "ジャンプ力強化"
+  ]
+ },
+ "Otomo_PalExp_Increase_1": {
+  "item_effects": [
+   "パルの経験値量増加Lv3"
+  ]
+ },
+ "Otomo_PalExp_Increase_2": {
+  "item_effects": [
+   "パルの経験値量増加Lv3"
+  ]
+ },
+ "Otomo_PalExp_Increase_3": {
+  "item_effects": [
+   "パルの経験値量増加Lv3"
+  ]
+ },
+ "Accessory_CoolResist_1": {
+  "item_effects": [
+   "耐寒Lv3"
+  ]
+ },
+ "Accessory_CoolResist_2": {
+  "item_effects": [
+   "耐寒Lv3"
+  ]
+ },
+ "Accessory_CoolResist_3": {
+  "item_effects": [
+   "耐寒Lv3"
+  ]
+ },
+ "Otomo_Attack_up1": {
+  "item_effects": [
+   "パルの攻撃増加Lv3"
+  ]
+ },
+ "Otomo_Attack_up2": {
+  "item_effects": [
+   "パルの攻撃増加Lv3"
+  ]
+ },
+ "Otomo_Attack_up3": {
+  "item_effects": [
+   "パルの攻撃増加Lv3"
+  ]
+ },
+ "Accessory_MaxWeightUp_01": {
+  "item_effects": [
+   "最大所持重量増加Lv3"
+  ]
+ },
+ "Accessory_MaxWeightUp_02": {
+  "item_effects": [
+   "最大所持重量増加Lv2"
+  ]
+ },
+ "Accessory_MaxWeightUp_03": {
+  "item_effects": [
+   "最大所持重量増加Lv3"
+  ]
+ },
+ "Accessory_FireResist_1": {
+  "item_effects": [
+   "炎属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_FireResist_2": {
+  "item_effects": [
+   "炎属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_FireResist_3": {
+  "item_effects": [
+   "炎属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_IceResist_1": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_IceResist_3": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_IceResist_2": {
+  "item_effects": [
+   "氷属性ダメージ軽減Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Fire_1": {
+  "item_effects": [
+   "パルの炎属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Fire_2": {
+  "item_effects": [
+   "パルの炎属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Fire_3": {
+  "item_effects": [
+   "パルの炎属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Ice_1": {
+  "item_effects": [
+   "パルの氷属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Ice_2": {
+  "item_effects": [
+   "パルの氷属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Ice_3": {
+  "item_effects": [
+   "パルの氷属性ダメージ強化Lv3"
+  ]
+ },
+ "Accessory_DarkResist_1": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_DarkResist_2": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_DarkResist_3": {
+  "item_effects": [
+   "闇属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_ThunderResist_1": {
+  "item_effects": [
+   "雷属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_ThunderResist_2": {
+  "item_effects": [
+   "雷属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_ThunderResist_3": {
+  "item_effects": [
+   "雷属性ダメージ軽減Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Dark_1": {
+  "item_effects": [
+   "パルの闇属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Dark_2": {
+  "item_effects": [
+   "パルの闇属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Dark_3": {
+  "item_effects": [
+   "パルの闇属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Electricity_1": {
+  "item_effects": [
+   "パルの雷属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Electricity_2": {
+  "item_effects": [
+   "パルの雷属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Electricity_3": {
+  "item_effects": [
+   "パルの雷属性ダメージ強化Lv3"
+  ]
+ },
+ "Accessory_HeatResist_1": {
+  "item_effects": [
+   "耐熱Lv3"
+  ]
+ },
+ "Accessory_HeatResist_2": {
+  "item_effects": [
+   "耐熱Lv3"
+  ]
+ },
+ "Accessory_HeatResist_3": {
+  "item_effects": [
+   "耐熱Lv3"
+  ]
+ },
+ "Accessory_AT_1": {
+  "item_effects": [
+   "攻撃増加Lv3"
+  ]
+ },
+ "Accessory_AT_2": {
+  "item_effects": [
+   "攻撃増加Lv3"
+  ]
+ },
+ "Accessory_AT_3": {
+  "item_effects": [
+   "攻撃増加Lv3"
+  ]
+ },
+ "Accessory_HP_1": {
+  "item_effects": [
+   "HP増加Lv3"
+  ]
+ },
+ "Accessory_HP_2": {
+  "item_effects": [
+   "HP増加Lv3"
+  ]
+ },
+ "Accessory_HP_3": {
+  "item_effects": [
+   "HP増加Lv3"
+  ]
+ },
+ "Accessory_WorkSpeed_1": {
+  "item_effects": [
+   "高速作業Lv3"
+  ]
+ },
+ "Accessory_WorkSpeed_2": {
+  "item_effects": [
+   "高速作業Lv3"
+  ]
+ },
+ "Accessory_WorkSpeed_3": {
+  "item_effects": [
+   "高速作業Lv3"
+  ]
+ },
+ "Accessory_Nonkilling": {
+  "tech_level": 18,
+  "item_effects": [
+   "手加減"
+  ]
+ },
+ "Accessory_LeafResist_1": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_LeafResist_2": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_LeafResist_3": {
+  "item_effects": [
+   "草属性ダメージ軽減Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Leaf_1": {
+  "item_effects": [
+   "パルの草属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Leaf_2": {
+  "item_effects": [
+   "パルの草属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Leaf_3": {
+  "item_effects": [
+   "パルの草属性ダメージ強化Lv3"
+  ]
+ },
+ "Accessory_defense_1": {
+  "item_effects": [
+   "防御増加Lv3"
+  ]
+ },
+ "Accessory_defense_2": {
+  "item_effects": [
+   "防御増加Lv3"
+  ]
+ },
+ "Accessory_defense_3": {
+  "item_effects": [
+   "防御増加Lv3"
+  ]
+ },
+ "Accessory_NormalResist_1": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_NormalResist_2": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv3"
+  ]
+ },
+ "Accessory_NormalResist_3": {
+  "item_effects": [
+   "無属性ダメージ軽減Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Normal_1": {
+  "item_effects": [
+   "パルの無属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Normal_2": {
+  "item_effects": [
+   "パルの無属性ダメージ強化Lv3"
+  ]
+ },
+ "Otomo_ElementBoost_Normal_3": {
+  "item_effects": [
+   "パルの無属性ダメージ強化Lv3"
+  ]
+ },
+ "WingGlider": {
+  "tech_level": 80
+ },
+ "Glider_Tera": {
+  "tech_level": 52
+ },
+ "Glider_Super": {
+  "tech_level": 40
+ },
+ "Glider_Good": {
+  "tech_level": 18
+ },
+ "Glider_Old": {
+  "tech_level": 5
+ },
+ "FishingRod_03_1": {
+  "tech_level": 45
+ },
+ "FishingRod_02_1": {
+  "tech_level": 29
+ },
+ "FishingRod_01_1": {
+  "tech_level": 15
+ }
+}

@@ -1,0 +1,582 @@
+{
+ "PalPassiveSkillChange_AutoHPRegeneRate_Passive": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Arena_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_CoolTimeReduction_Up_1": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Arena_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_CraftSpeed_up2": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Bounty_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_Deffence_up2": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Bounty_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_MoveSpeed_up_2": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Arena_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_Noukin": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Bounty_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_PlayerSP_DecreaseRate_Passive": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Bounty_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_ReloadSpeedUp_Passive": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Arena_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_SalePrice_Up_1": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Arena_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_Stamina_Up_1": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Arena_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_SwimSpeed_up_2": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Arena_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_TrainerATK_UP_1": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Bounty_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_TrainerDEF_UP_1": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Bounty_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_TrainerWorkSpeed_UP_1": [
+  {
+   "type": "Wandering Merchant",
+   "source": "Bounty_Shop_1",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_CraftSpeed_up3": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_Deffence_up3": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_MoveSpeed_up_3": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "Ancient Ruin",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_MutationPal_Babysitter": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "3.888%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_MutationPal_ExplosionResist": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "3.888%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_MutationPal_Immortal": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "3.888%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_MutationPal_Mutant": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "3.888%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_PAL_ALLAttack_up3": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_PAL_FullStomach_Down_3": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "Ancient Ruin",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_PAL_Sanity_Down_3": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "Ancient Ruin",
+   "rate": null
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_RideJumpCount_Increase2": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "3.888%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_Stamina_Up_3": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_SwimSpeed_up_3": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_Vampire": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_WorldTree_ATK": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_WorldTree_ATK_DEF": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_WorldTree_CraftSpeed": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_WorldTree_DEF": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_WorldTree_FullStomach": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_WorldTree_MoveSpeed": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  }
+ ],
+ "PalPassiveSkillChange_Consumable_WorldTree_Sanity": [
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_01",
+   "rate": "0.051%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_02",
+   "rate": "0.102%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_03",
+   "rate": "0.203%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_04",
+   "rate": "0.406%"
+  },
+  {
+   "type": "Treasure Box",
+   "source": "AncientRelicRecycler_WorldTreeRelic_05",
+   "rate": "0.813%"
+  }
+ ]
+}

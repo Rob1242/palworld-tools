@@ -1,0 +1,5252 @@
+{
+ "Aegidron": {
+  "slug": "Aegidron",
+  "asset": "DomeArmorDragon",
+  "combi_rank": "30",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Amione": {
+  "slug": "Amione",
+  "asset": "ClioneTwins",
+  "combi_rank": "2520",
+  "male_probability": "40",
+  "unique_combo": null
+ },
+ "Anubis": {
+  "slug": "Anubis",
+  "asset": "Anubis",
+  "combi_rank": "480",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Arsox": {
+  "slug": "Arsox",
+  "asset": "FlameBuffalo",
+  "combi_rank": "2320",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Astegon": {
+  "slug": "Astegon",
+  "asset": "BlackMetalDragon",
+  "combi_rank": "490",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Astralym": {
+  "slug": "Astralym",
+  "asset": "WorldTreeDragon",
+  "combi_rank": "10",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Astralym",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Astralym",
+    "gender": null
+   },
+   "child": {
+    "asset": "Astralym",
+    "gender": null
+   }
+  }
+ },
+ "Azurmane": {
+  "slug": "Azurmane",
+  "asset": "BlueThunderHorse",
+  "combi_rank": "420",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Azurobe": {
+  "slug": "Azurobe",
+  "asset": "BlueDragon",
+  "combi_rank": "1830",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Azurobe Cryst": {
+  "slug": "Azurobe_Cryst",
+  "asset": "BlueDragon_Ice",
+  "combi_rank": "1220",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Azurobe",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Frostplume",
+    "gender": null
+   },
+   "child": {
+    "asset": "Azurobe_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Azurobe_Cryst": {
+  "slug": "Azurobe_Cryst",
+  "asset": "BlueDragon_Ice",
+  "combi_rank": "1220",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Azurobe",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Frostplume",
+    "gender": null
+   },
+   "child": {
+    "asset": "Azurobe_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Bakemi": {
+  "slug": "Bakemi",
+  "asset": "OniGhostGirl",
+  "combi_rank": "1540",
+  "male_probability": "40",
+  "unique_combo": null
+ },
+ "Bastigor": {
+  "slug": "Bastigor",
+  "asset": "SnowTigerBeastman",
+  "combi_rank": "50",
+  "male_probability": "60",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Bastigor",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Bastigor",
+    "gender": null
+   },
+   "child": {
+    "asset": "Bastigor",
+    "gender": null
+   }
+  }
+ },
+ "Beakon": {
+  "slug": "Beakon",
+  "asset": "ThunderBird",
+  "combi_rank": "1690",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Beakon Cryst": {
+  "slug": "Beakon_Cryst",
+  "asset": "ThunderBird_Ice",
+  "combi_rank": "580",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Beakon",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Frostplume",
+    "gender": null
+   },
+   "child": {
+    "asset": "Beakon_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Beakon_Cryst": {
+  "slug": "Beakon_Cryst",
+  "asset": "ThunderBird_Ice",
+  "combi_rank": "580",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Beakon",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Frostplume",
+    "gender": null
+   },
+   "child": {
+    "asset": "Beakon_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Beegarde": {
+  "slug": "Beegarde",
+  "asset": "SoldierBee",
+  "combi_rank": "2350",
+  "male_probability": "10",
+  "unique_combo": null
+ },
+ "Bellanoir": {
+  "slug": "Bellanoir",
+  "asset": "NightLady",
+  "combi_rank": "620",
+  "male_probability": "10",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Bellanoir",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Bellanoir_Libero",
+    "gender": null
+   },
+   "child": {
+    "asset": "Bellanoir",
+    "gender": null
+   }
+  }
+ },
+ "Bellanoir Libero": {
+  "slug": "Bellanoir_Libero",
+  "asset": "NightLady_Dark",
+  "combi_rank": "130",
+  "male_probability": "10",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Bellanoir_Libero",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Bellanoir_Libero",
+    "gender": null
+   },
+   "child": {
+    "asset": "Bellanoir_Libero",
+    "gender": null
+   }
+  }
+ },
+ "Bellanoir_Libero": {
+  "slug": "Bellanoir_Libero",
+  "asset": "NightLady_Dark",
+  "combi_rank": "130",
+  "male_probability": "10",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Bellanoir_Libero",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Bellanoir_Libero",
+    "gender": null
+   },
+   "child": {
+    "asset": "Bellanoir_Libero",
+    "gender": null
+   }
+  }
+ },
+ "Blazamut": {
+  "slug": "Blazamut",
+  "asset": "KingBahamut",
+  "combi_rank": "410",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Blazamut Ryu": {
+  "slug": "Blazamut_Ryu",
+  "asset": "KingBahamut_Dragon",
+  "combi_rank": "100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Blazamut_Ryu",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Blazamut_Ryu",
+    "gender": null
+   },
+   "child": {
+    "asset": "Blazamut_Ryu",
+    "gender": null
+   }
+  }
+ },
+ "Blazamut_Ryu": {
+  "slug": "Blazamut_Ryu",
+  "asset": "KingBahamut_Dragon",
+  "combi_rank": "100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Blazamut_Ryu",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Blazamut_Ryu",
+    "gender": null
+   },
+   "child": {
+    "asset": "Blazamut_Ryu",
+    "gender": null
+   }
+  }
+ },
+ "Blazehowl": {
+  "slug": "Blazehowl",
+  "asset": "Manticore",
+  "combi_rank": "1360",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Blazehowl Noct": {
+  "slug": "Blazehowl_Noct",
+  "asset": "Manticore_Dark",
+  "combi_rank": "1270",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Blazehowl",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Felbat",
+    "gender": null
+   },
+   "child": {
+    "asset": "Blazehowl_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Blazehowl_Noct": {
+  "slug": "Blazehowl_Noct",
+  "asset": "Manticore_Dark",
+  "combi_rank": "1270",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Blazehowl",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Felbat",
+    "gender": null
+   },
+   "child": {
+    "asset": "Blazehowl_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Blue Slime": {
+  "slug": "Blue_Slime",
+  "asset": "YakushimaMonster001_Blue",
+  "combi_rank": "3100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Green_Slime",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Blue_Slime",
+    "gender": null
+   },
+   "child": {
+    "asset": "Blue_Slime",
+    "gender": null
+   }
+  }
+ },
+ "Boltmane": {
+  "slug": "Boltmane",
+  "asset": null,
+  "combi_rank": "9999",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Braloha": {
+  "slug": "Braloha",
+  "asset": "Plesiosaur",
+  "combi_rank": "1030",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Bristla": {
+  "slug": "Bristla",
+  "asset": "LittleBriarRose",
+  "combi_rank": "2690",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Broncherry": {
+  "slug": "Broncherry",
+  "asset": "SakuraSaurus",
+  "combi_rank": "1380",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Broncherry Aqua": {
+  "slug": "Broncherry_Aqua",
+  "asset": "SakuraSaurus_Water",
+  "combi_rank": "1080",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Broncherry",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Fuack",
+    "gender": null
+   },
+   "child": {
+    "asset": "Broncherry_Aqua",
+    "gender": null
+   }
+  }
+ },
+ "Broncherry_Aqua": {
+  "slug": "Broncherry_Aqua",
+  "asset": "SakuraSaurus_Water",
+  "combi_rank": "1080",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Broncherry",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Fuack",
+    "gender": null
+   },
+   "child": {
+    "asset": "Broncherry_Aqua",
+    "gender": null
+   }
+  }
+ },
+ "Bulldosu": {
+  "slug": "Bulldosu",
+  "asset": "SumoDog",
+  "combi_rank": "1190",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Bushi": {
+  "slug": "Bushi",
+  "asset": "Ronin",
+  "combi_rank": "1560",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Bushi Noct": {
+  "slug": "Bushi_Noct",
+  "asset": "Ronin_Dark",
+  "combi_rank": "840",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Bushi",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Sootseer",
+    "gender": null
+   },
+   "child": {
+    "asset": "Bushi_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Bushi_Noct": {
+  "slug": "Bushi_Noct",
+  "asset": "Ronin_Dark",
+  "combi_rank": "840",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Bushi",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Sootseer",
+    "gender": null
+   },
+   "child": {
+    "asset": "Bushi_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Caprity": {
+  "slug": "Caprity",
+  "asset": "BerryGoat",
+  "combi_rank": "2610",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Caprity Noct": {
+  "slug": "Caprity_Noct",
+  "asset": "BerryGoat_Dark",
+  "combi_rank": "1940",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Caprity",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Tarantriss",
+    "gender": null
+   },
+   "child": {
+    "asset": "Caprity_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Caprity_Noct": {
+  "slug": "Caprity_Noct",
+  "asset": "BerryGoat_Dark",
+  "combi_rank": "1940",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Caprity",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Tarantriss",
+    "gender": null
+   },
+   "child": {
+    "asset": "Caprity_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Carnibora": {
+  "slug": "Carnibora",
+  "asset": "VenusFlytrap",
+  "combi_rank": "1700",
+  "male_probability": "40",
+  "unique_combo": null
+ },
+ "Cattiva": {
+  "slug": "Cattiva",
+  "asset": "PinkCat",
+  "combi_rank": "2760",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Cave Bat": {
+  "slug": "Cave_Bat",
+  "asset": "YakushimaMonster003",
+  "combi_rank": "3100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Cave_Bat",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Cave_Bat",
+    "gender": null
+   },
+   "child": {
+    "asset": "Cave_Bat",
+    "gender": null
+   }
+  }
+ },
+ "Cawgnito": {
+  "slug": "Cawgnito",
+  "asset": "DarkCrow",
+  "combi_rank": "2370",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Celaray": {
+  "slug": "Celaray",
+  "asset": "FlyingManta",
+  "combi_rank": "2740",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Celaray Lux": {
+  "slug": "Celaray_Lux",
+  "asset": "FlyingManta_Thunder",
+  "combi_rank": "2380",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Celaray",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Univolt",
+    "gender": null
+   },
+   "child": {
+    "asset": "Celaray_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Celaray_Lux": {
+  "slug": "Celaray_Lux",
+  "asset": "FlyingManta_Thunder",
+  "combi_rank": "2380",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Celaray",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Univolt",
+    "gender": null
+   },
+   "child": {
+    "asset": "Celaray_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Celesdir": {
+  "slug": "Celesdir",
+  "asset": "WhiteDeer",
+  "combi_rank": "570",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Gildane",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Eikthyrdeer_Terra",
+    "gender": null
+   },
+   "child": {
+    "asset": "Celesdir",
+    "gender": null
+   }
+  }
+ },
+ "Celesdir Noct": {
+  "slug": "Celesdir_Noct",
+  "asset": "WhiteDeer_Dark",
+  "combi_rank": "270",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Celesdir",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Kitsun_Noct",
+    "gender": null
+   },
+   "child": {
+    "asset": "Celesdir_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Celesdir_Noct": {
+  "slug": "Celesdir_Noct",
+  "asset": "WhiteDeer_Dark",
+  "combi_rank": "270",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Celesdir",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Kitsun_Noct",
+    "gender": null
+   },
+   "child": {
+    "asset": "Celesdir_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Chikipi": {
+  "slug": "Chikipi",
+  "asset": "ChickenPal",
+  "combi_rank": "3080",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Chillet": {
+  "slug": "Chillet",
+  "asset": "WeaselDragon",
+  "combi_rank": "2330",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Chillet Ignis": {
+  "slug": "Chillet_Ignis",
+  "asset": "WeaselDragon_Fire",
+  "combi_rank": "1950",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Chillet",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Arsox",
+    "gender": null
+   },
+   "child": {
+    "asset": "Chillet_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Chillet_Ignis": {
+  "slug": "Chillet_Ignis",
+  "asset": "WeaselDragon_Fire",
+  "combi_rank": "1950",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Chillet",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Arsox",
+    "gender": null
+   },
+   "child": {
+    "asset": "Chillet_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Cinnamoth": {
+  "slug": "Cinnamoth",
+  "asset": "CuteButterfly",
+  "combi_rank": "2620",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Clovee": {
+  "slug": "Clovee",
+  "asset": "CloverFairy",
+  "combi_rank": "2970",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Cremis": {
+  "slug": "Cremis",
+  "asset": "WoolFox",
+  "combi_rank": "2890",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Croajiro": {
+  "slug": "Croajiro",
+  "asset": "KendoFrog",
+  "combi_rank": "2600",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Croajiro Noct": {
+  "slug": "Croajiro_Noct",
+  "asset": "KendoFrog_Dark",
+  "combi_rank": "1860",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Croajiro",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Bushi_Noct",
+    "gender": null
+   },
+   "child": {
+    "asset": "Croajiro_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Croajiro_Noct": {
+  "slug": "Croajiro_Noct",
+  "asset": "KendoFrog_Dark",
+  "combi_rank": "1860",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Croajiro",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Bushi_Noct",
+    "gender": null
+   },
+   "child": {
+    "asset": "Croajiro_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Cryolinx": {
+  "slug": "Cryolinx",
+  "asset": "WhiteTiger",
+  "combi_rank": "1040",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Cryolinx Terra": {
+  "slug": "Cryolinx_Terra",
+  "asset": "WhiteTiger_Ground",
+  "combi_rank": "470",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Cryolinx",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Dazemu",
+    "gender": null
+   },
+   "child": {
+    "asset": "Cryolinx_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Cryolinx_Terra": {
+  "slug": "Cryolinx_Terra",
+  "asset": "WhiteTiger_Ground",
+  "combi_rank": "470",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Cryolinx",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Dazemu",
+    "gender": null
+   },
+   "child": {
+    "asset": "Cryolinx_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Daedream": {
+  "slug": "Daedream",
+  "asset": "DreamDemon",
+  "combi_rank": "2910",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Dandilord": {
+  "slug": "Dandilord",
+  "asset": "FlowerPrince",
+  "combi_rank": "60",
+  "male_probability": "60",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Dandilord",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Dandilord",
+    "gender": null
+   },
+   "child": {
+    "asset": "Dandilord",
+    "gender": null
+   }
+  }
+ },
+ "Dazemu": {
+  "slug": "Dazemu",
+  "asset": "FeatherOstrich",
+  "combi_rank": "2210",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Dazzi": {
+  "slug": "Dazzi",
+  "asset": "RaijinDaughter",
+  "combi_rank": "2400",
+  "male_probability": "20",
+  "unique_combo": null
+ },
+ "Dazzi Noct": {
+  "slug": "Dazzi_Noct",
+  "asset": "RaijinDaughter_Water",
+  "combi_rank": "1910",
+  "male_probability": "20",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Dazzi",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Omascul",
+    "gender": null
+   },
+   "child": {
+    "asset": "Dazzi_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Dazzi_Noct": {
+  "slug": "Dazzi_Noct",
+  "asset": "RaijinDaughter_Water",
+  "combi_rank": "1910",
+  "male_probability": "20",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Dazzi",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Omascul",
+    "gender": null
+   },
+   "child": {
+    "asset": "Dazzi_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Demon Eye": {
+  "slug": "Demon_Eye",
+  "asset": "YakushimaBoss001_Small",
+  "combi_rank": "3100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Green_Slime",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Demon_Eye",
+    "gender": null
+   },
+   "child": {
+    "asset": "Demon_Eye",
+    "gender": null
+   }
+  }
+ },
+ "Depresso": {
+  "slug": "Depresso",
+  "asset": "NegativeKoala",
+  "combi_rank": "3000",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Digtoise": {
+  "slug": "Digtoise",
+  "asset": "DrillGame",
+  "combi_rank": "1550",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Dinossom": {
+  "slug": "Dinossom",
+  "asset": "FlowerDinosaur",
+  "combi_rank": "2100",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Dinossom Lux": {
+  "slug": "Dinossom_Lux",
+  "asset": "FlowerDinosaur_Electric",
+  "combi_rank": "1890",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Dinossom",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Rayhound",
+    "gender": null
+   },
+   "child": {
+    "asset": "Dinossom_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Dinossom_Lux": {
+  "slug": "Dinossom_Lux",
+  "asset": "FlowerDinosaur_Electric",
+  "combi_rank": "1890",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Dinossom",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Rayhound",
+    "gender": null
+   },
+   "child": {
+    "asset": "Dinossom_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Direhowl": {
+  "slug": "Direhowl",
+  "asset": "Garm",
+  "combi_rank": "2680",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Dogen": {
+  "slug": "Dogen",
+  "asset": "SifuDog",
+  "combi_rank": "1460",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Dragostrophe": {
+  "slug": "Dragostrophe",
+  "asset": null,
+  "combi_rank": "9999",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Dualith": {
+  "slug": "Dualith",
+  "asset": "GrassGolem",
+  "combi_rank": "510",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Dualith Noct": {
+  "slug": "Dualith_Noct",
+  "asset": "GrassGolem_Dark",
+  "combi_rank": "250",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Dualith",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Sootseer",
+    "gender": null
+   },
+   "child": {
+    "asset": "Dualith_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Dualith_Noct": {
+  "slug": "Dualith_Noct",
+  "asset": "GrassGolem_Dark",
+  "combi_rank": "250",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Dualith",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Sootseer",
+    "gender": null
+   },
+   "child": {
+    "asset": "Dualith_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Dumud": {
+  "slug": "Dumud",
+  "asset": "LazyCatfish",
+  "combi_rank": "2290",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Dumud Gild": {
+  "slug": "Dumud_Gild",
+  "asset": "LazyCatfish_Gold",
+  "combi_rank": "1620",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Dumud",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Eikthyrdeer_Terra",
+    "gender": null
+   },
+   "child": {
+    "asset": "Dumud_Gild",
+    "gender": null
+   }
+  }
+ },
+ "Dumud_Gild": {
+  "slug": "Dumud_Gild",
+  "asset": "LazyCatfish_Gold",
+  "combi_rank": "1620",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Dumud",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Eikthyrdeer_Terra",
+    "gender": null
+   },
+   "child": {
+    "asset": "Dumud_Gild",
+    "gender": null
+   }
+  }
+ },
+ "Dupin": {
+  "slug": "Dupin",
+  "asset": "ClownRabbit",
+  "combi_rank": "520",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Dynamoff": {
+  "slug": "Dynamoff",
+  "asset": "ThunderFluffyBird",
+  "combi_rank": "1400",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Eidrolon": {
+  "slug": "Eidrolon",
+  "asset": "GhostDragon",
+  "combi_rank": "300",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Eidrolon Ignis": {
+  "slug": "Eidrolon_Ignis",
+  "asset": "GhostDragon_Fire",
+  "combi_rank": "140",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Eidrolon",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Suzaku",
+    "gender": null
+   },
+   "child": {
+    "asset": "Eidrolon_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Eidrolon_Ignis": {
+  "slug": "Eidrolon_Ignis",
+  "asset": "GhostDragon_Fire",
+  "combi_rank": "140",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Eidrolon",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Suzaku",
+    "gender": null
+   },
+   "child": {
+    "asset": "Eidrolon_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Eikthyrdeer": {
+  "slug": "Eikthyrdeer",
+  "asset": "Deer",
+  "combi_rank": "2710",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Eikthyrdeer Terra": {
+  "slug": "Eikthyrdeer_Terra",
+  "asset": "Deer_Ground",
+  "combi_rank": "2580",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Eikthyrdeer",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Hangyu",
+    "gender": null
+   },
+   "child": {
+    "asset": "Eikthyrdeer_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Eikthyrdeer_Terra": {
+  "slug": "Eikthyrdeer_Terra",
+  "asset": "Deer_Ground",
+  "combi_rank": "2580",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Eikthyrdeer",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Hangyu",
+    "gender": null
+   },
+   "child": {
+    "asset": "Eikthyrdeer_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Elgrove": {
+  "slug": "Elgrove",
+  "asset": "GrassMinotaur",
+  "combi_rank": "2020",
+  "male_probability": "60",
+  "unique_combo": null
+ },
+ "Elgrove Cryst": {
+  "slug": "Elgrove_Cryst",
+  "asset": "GrassMinotaur_Ice",
+  "combi_rank": "440",
+  "male_probability": "60",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Elgrove",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Pierdon_Cryst",
+    "gender": null
+   },
+   "child": {
+    "asset": "Elgrove_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Elgrove_Cryst": {
+  "slug": "Elgrove_Cryst",
+  "asset": "GrassMinotaur_Ice",
+  "combi_rank": "440",
+  "male_probability": "60",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Elgrove",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Pierdon_Cryst",
+    "gender": null
+   },
+   "child": {
+    "asset": "Elgrove_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Elizabee": {
+  "slug": "Elizabee",
+  "asset": "QueenBee",
+  "combi_rank": "1790",
+  "male_probability": "10",
+  "unique_combo": null
+ },
+ "Elphidran": {
+  "slug": "Elphidran",
+  "asset": "FairyDragon",
+  "combi_rank": "2280",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Elphidran Aqua": {
+  "slug": "Elphidran_Aqua",
+  "asset": "FairyDragon_Water",
+  "combi_rank": "1640",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Elphidran",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Surfent",
+    "gender": null
+   },
+   "child": {
+    "asset": "Elphidran_Aqua",
+    "gender": null
+   }
+  }
+ },
+ "Elphidran_Aqua": {
+  "slug": "Elphidran_Aqua",
+  "asset": "FairyDragon_Water",
+  "combi_rank": "1640",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Elphidran",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Surfent",
+    "gender": null
+   },
+   "child": {
+    "asset": "Elphidran_Aqua",
+    "gender": null
+   }
+  }
+ },
+ "Enchanted Sword": {
+  "slug": "Enchanted_Sword",
+  "asset": "YakushimaMonster002",
+  "combi_rank": "3100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Green_Slime",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Enchanted_Sword",
+    "gender": null
+   },
+   "child": {
+    "asset": "Enchanted_Sword",
+    "gender": null
+   }
+  }
+ },
+ "Eye of Cthulhu": {
+  "slug": "Eye_of_Cthulhu",
+  "asset": "YakushimaBoss001",
+  "combi_rank": "3100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Green_Slime",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Eye_of_Cthulhu",
+    "gender": null
+   },
+   "child": {
+    "asset": "Eye_of_Cthulhu",
+    "gender": null
+   }
+  }
+ },
+ "Faleris": {
+  "slug": "Faleris",
+  "asset": "Horus",
+  "combi_rank": "500",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Faleris",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Faleris",
+    "gender": null
+   },
+   "child": {
+    "asset": "Faleris",
+    "gender": null
+   }
+  }
+ },
+ "Faleris Aqua": {
+  "slug": "Faleris_Aqua",
+  "asset": "Horus_Water",
+  "combi_rank": "450",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Faleris",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Jormuntide",
+    "gender": null
+   },
+   "child": {
+    "asset": "Faleris_Aqua",
+    "gender": null
+   }
+  }
+ },
+ "Faleris_Aqua": {
+  "slug": "Faleris_Aqua",
+  "asset": "Horus_Water",
+  "combi_rank": "450",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Faleris",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Jormuntide",
+    "gender": null
+   },
+   "child": {
+    "asset": "Faleris_Aqua",
+    "gender": null
+   }
+  }
+ },
+ "Felbat": {
+  "slug": "Felbat",
+  "asset": "CatVampire",
+  "combi_rank": "1570",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Fenglope": {
+  "slug": "Fenglope",
+  "asset": "FengyunDeeper",
+  "combi_rank": "1960",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Fenglope Lux": {
+  "slug": "Fenglope_Lux",
+  "asset": "FengyunDeeper_Electric",
+  "combi_rank": "900",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Fenglope",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Azurmane",
+    "gender": null
+   },
+   "child": {
+    "asset": "Fenglope_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Fenglope_Lux": {
+  "slug": "Fenglope_Lux",
+  "asset": "FengyunDeeper_Electric",
+  "combi_rank": "900",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Fenglope",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Azurmane",
+    "gender": null
+   },
+   "child": {
+    "asset": "Fenglope_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Finsider": {
+  "slug": "Finsider",
+  "asset": "StuffedShark",
+  "combi_rank": "2450",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Finsider Ignis": {
+  "slug": "Finsider_Ignis",
+  "asset": "StuffedShark_Fire",
+  "combi_rank": "2240",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Finsider",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Gobfin_Ignis",
+    "gender": null
+   },
+   "child": {
+    "asset": "Finsider_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Finsider_Ignis": {
+  "slug": "Finsider_Ignis",
+  "asset": "StuffedShark_Fire",
+  "combi_rank": "2240",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Finsider",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Gobfin_Ignis",
+    "gender": null
+   },
+   "child": {
+    "asset": "Finsider_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Flambelle": {
+  "slug": "Flambelle",
+  "asset": "LavaGirl",
+  "combi_rank": "2700",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Flaracle": {
+  "slug": "Flaracle",
+  "asset": "FoxExorcist",
+  "combi_rank": "390",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Flopie": {
+  "slug": "Flopie",
+  "asset": "FlowerRabbit",
+  "combi_rank": "2660",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Foxcicle": {
+  "slug": "Foxcicle",
+  "asset": "IceFox",
+  "combi_rank": "1970",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Foxparks": {
+  "slug": "Foxparks",
+  "asset": "Kitsunebi",
+  "combi_rank": "2990",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Foxparks Cryst": {
+  "slug": "Foxparks_Cryst",
+  "asset": "Kitsunebi_Ice",
+  "combi_rank": "2500",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Foxparks",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Foxcicle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Foxparks_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Foxparks_Cryst": {
+  "slug": "Foxparks_Cryst",
+  "asset": "Kitsunebi_Ice",
+  "combi_rank": "2500",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Foxparks",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Foxcicle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Foxparks_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Frostallion": {
+  "slug": "Frostallion",
+  "asset": "IceHorse",
+  "combi_rank": "150",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Frostallion",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Frostallion",
+    "gender": null
+   },
+   "child": {
+    "asset": "Frostallion",
+    "gender": null
+   }
+  }
+ },
+ "Frostallion Noct": {
+  "slug": "Frostallion_Noct",
+  "asset": "IceHorse_Dark",
+  "combi_rank": "110",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Frostallion",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Helzephyr",
+    "gender": null
+   },
+   "child": {
+    "asset": "Frostallion_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Frostallion_Noct": {
+  "slug": "Frostallion_Noct",
+  "asset": "IceHorse_Dark",
+  "combi_rank": "110",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Frostallion",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Helzephyr",
+    "gender": null
+   },
+   "child": {
+    "asset": "Frostallion_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Frostplume": {
+  "slug": "Frostplume",
+  "asset": "SnowPeafowl",
+  "combi_rank": "860",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Fuack": {
+  "slug": "Fuack",
+  "asset": "BluePlatypus",
+  "combi_rank": "2980",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Fuack Ignis": {
+  "slug": "Fuack_Ignis",
+  "asset": "BluePlatypus_Fire",
+  "combi_rank": "2300",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Fuack",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Flambelle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Fuack_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Fuack_Ignis": {
+  "slug": "Fuack_Ignis",
+  "asset": "BluePlatypus_Fire",
+  "combi_rank": "2300",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Fuack",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Flambelle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Fuack_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Fuddler": {
+  "slug": "Fuddler",
+  "asset": "CuteMole",
+  "combi_rank": "2790",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Galeclaw": {
+  "slug": "Galeclaw",
+  "asset": "Eagle",
+  "combi_rank": "2570",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Ghangler": {
+  "slug": "Ghangler",
+  "asset": "GhostAnglerfish",
+  "combi_rank": "880",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Ghangler Ignis": {
+  "slug": "Ghangler_Ignis",
+  "asset": "GhostAnglerfish_Fire",
+  "combi_rank": "720",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Ghangler",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Sootseer",
+    "gender": null
+   },
+   "child": {
+    "asset": "Ghangler_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Ghangler_Ignis": {
+  "slug": "Ghangler_Ignis",
+  "asset": "GhostAnglerfish_Fire",
+  "combi_rank": "720",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Ghangler",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Sootseer",
+    "gender": null
+   },
+   "child": {
+    "asset": "Ghangler_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Gildane": {
+  "slug": "Gildane",
+  "asset": "GoldenHorse",
+  "combi_rank": "730",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Gildra": {
+  "slug": "Gildra",
+  "asset": "MummyPal",
+  "combi_rank": "1170",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Gloopie": {
+  "slug": "Gloopie",
+  "asset": "OctopusGirl",
+  "combi_rank": "2530",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Gloopie Primo": {
+  "slug": "Gloopie_Primo",
+  "asset": "OctopusGirl_Neutral",
+  "combi_rank": "1630",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Gloopie",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Valentail",
+    "gender": null
+   },
+   "child": {
+    "asset": "Gloopie_Primo",
+    "gender": null
+   }
+  }
+ },
+ "Gloopie_Primo": {
+  "slug": "Gloopie_Primo",
+  "asset": "OctopusGirl_Neutral",
+  "combi_rank": "1630",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Gloopie",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Valentail",
+    "gender": null
+   },
+   "child": {
+    "asset": "Gloopie_Primo",
+    "gender": null
+   }
+  }
+ },
+ "Gobfin": {
+  "slug": "Gobfin",
+  "asset": "SharkKid",
+  "combi_rank": "2550",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Gobfin Ignis": {
+  "slug": "Gobfin_Ignis",
+  "asset": "SharkKid_Fire",
+  "combi_rank": "2430",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Gobfin",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Rooby",
+    "gender": null
+   },
+   "child": {
+    "asset": "Gobfin_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Gobfin_Ignis": {
+  "slug": "Gobfin_Ignis",
+  "asset": "SharkKid_Fire",
+  "combi_rank": "2430",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Gobfin",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Rooby",
+    "gender": null
+   },
+   "child": {
+    "asset": "Gobfin_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Gorirat": {
+  "slug": "Gorirat",
+  "asset": "Gorilla",
+  "combi_rank": "2140",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Gorirat Terra": {
+  "slug": "Gorirat_Terra",
+  "asset": "Gorilla_Ground",
+  "combi_rank": "1880",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Gorirat",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Kikit",
+    "gender": null
+   },
+   "child": {
+    "asset": "Gorirat_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Gorirat_Terra": {
+  "slug": "Gorirat_Terra",
+  "asset": "Gorilla_Ground",
+  "combi_rank": "1880",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Gorirat",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Kikit",
+    "gender": null
+   },
+   "child": {
+    "asset": "Gorirat_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Green Slime": {
+  "slug": "Green_Slime",
+  "asset": "YakushimaMonster001",
+  "combi_rank": "3100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Green_Slime",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Green_Slime",
+    "gender": null
+   },
+   "child": {
+    "asset": "Green_Slime",
+    "gender": null
+   }
+  }
+ },
+ "Grintale": {
+  "slug": "Grintale",
+  "asset": "NaughtyCat",
+  "combi_rank": "2120",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Grizzbolt": {
+  "slug": "Grizzbolt",
+  "asset": "ElecPanda",
+  "combi_rank": "1020",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Grizzbolt",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Grizzbolt",
+    "gender": null
+   },
+   "child": {
+    "asset": "Grizzbolt",
+    "gender": null
+   }
+  }
+ },
+ "Gumoss": {
+  "slug": "Gumoss",
+  "asset": "PlantSlime",
+  "combi_rank": "2950",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Hangyu": {
+  "slug": "Hangyu",
+  "asset": "WindChimes",
+  "combi_rank": "2780",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Hangyu_Cryst": {
+  "slug": "Hangyu_Cryst",
+  "asset": "WindChimes_Ice",
+  "combi_rank": "2510",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Hangyu",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Swee",
+    "gender": null
+   },
+   "child": {
+    "asset": "Hangyu_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Hartalis": {
+  "slug": "Hartalis",
+  "asset": "LegendDeer",
+  "combi_rank": "90",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Hartalis",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Hartalis",
+    "gender": null
+   },
+   "child": {
+    "asset": "Hartalis",
+    "gender": null
+   }
+  }
+ },
+ "Helzephyr": {
+  "slug": "Helzephyr",
+  "asset": "HadesBird",
+  "combi_rank": "1130",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Helzephyr Lux": {
+  "slug": "Helzephyr_Lux",
+  "asset": "HadesBird_Electric",
+  "combi_rank": "960",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Helzephyr",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Beakon",
+    "gender": null
+   },
+   "child": {
+    "asset": "Helzephyr_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Helzephyr_Lux": {
+  "slug": "Helzephyr_Lux",
+  "asset": "HadesBird_Electric",
+  "combi_rank": "960",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Helzephyr",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Beakon",
+    "gender": null
+   },
+   "child": {
+    "asset": "Helzephyr_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Herbil": {
+  "slug": "Herbil",
+  "asset": "LeafMomonga",
+  "combi_rank": "2630",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Hoocrates": {
+  "slug": "Hoocrates",
+  "asset": "WizardOwl",
+  "combi_rank": "2940",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Hoodle": {
+  "slug": "Hoodle",
+  "asset": "HoodGhost",
+  "combi_rank": "1770",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Icelyn": {
+  "slug": "Icelyn",
+  "asset": "IceWitch",
+  "combi_rank": "1260",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Illuminant Bat": {
+  "slug": "Illuminant_Bat",
+  "asset": "YakushimaMonster003_Purple",
+  "combi_rank": "3100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Purple_Slime",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Cave_Bat",
+    "gender": null
+   },
+   "child": {
+    "asset": "Illuminant_Bat",
+    "gender": null
+   }
+  }
+ },
+ "Illuminant Slime": {
+  "slug": "Illuminant_Slime",
+  "asset": "YakushimaMonster001_Pink",
+  "combi_rank": "3100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Green_Slime",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Illuminant_Slime",
+    "gender": null
+   },
+   "child": {
+    "asset": "Illuminant_Slime",
+    "gender": null
+   }
+  }
+ },
+ "Incineram": {
+  "slug": "Incineram",
+  "asset": "Baphomet",
+  "combi_rank": "1470",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Incineram Noct": {
+  "slug": "Incineram_Noct",
+  "asset": "Baphomet_Dark",
+  "combi_rank": "1310",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Incineram",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Maraith",
+    "gender": null
+   },
+   "child": {
+    "asset": "Incineram_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Incineram_Noct": {
+  "slug": "Incineram_Noct",
+  "asset": "Baphomet_Dark",
+  "combi_rank": "1310",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Incineram",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Maraith",
+    "gender": null
+   },
+   "child": {
+    "asset": "Incineram_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Jelliette": {
+  "slug": "Jelliette",
+  "asset": "JellyfishFairy",
+  "combi_rank": "2650",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Jellroy": {
+  "slug": "Jellroy",
+  "asset": "JellyfishGhost",
+  "combi_rank": "2590",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Jetragon": {
+  "slug": "Jetragon",
+  "asset": "JetDragon",
+  "combi_rank": "70",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Jetragon",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Jetragon",
+    "gender": null
+   },
+   "child": {
+    "asset": "Jetragon",
+    "gender": null
+   }
+  }
+ },
+ "Jolthog": {
+  "slug": "Jolthog",
+  "asset": "Hedgehog",
+  "combi_rank": "3030",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Jolthog Cryst": {
+  "slug": "Jolthog_Cryst",
+  "asset": "Hedgehog_Ice",
+  "combi_rank": "2850",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Jolthog",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Pengullet",
+    "gender": null
+   },
+   "child": {
+    "asset": "Jolthog_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Jolthog_Cryst": {
+  "slug": "Jolthog_Cryst",
+  "asset": "Hedgehog_Ice",
+  "combi_rank": "2850",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Jolthog",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Pengullet",
+    "gender": null
+   },
+   "child": {
+    "asset": "Jolthog_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Jormuntide": {
+  "slug": "Jormuntide",
+  "asset": "Umihebi",
+  "combi_rank": "590",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Jormuntide Ignis": {
+  "slug": "Jormuntide_Ignis",
+  "asset": "Umihebi_Fire",
+  "combi_rank": "170",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Jormuntide",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Blazehowl",
+    "gender": null
+   },
+   "child": {
+    "asset": "Jormuntide_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Jormuntide_Ignis": {
+  "slug": "Jormuntide_Ignis",
+  "asset": "Umihebi_Fire",
+  "combi_rank": "170",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Jormuntide",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Blazehowl",
+    "gender": null
+   },
+   "child": {
+    "asset": "Jormuntide_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Katress": {
+  "slug": "Katress",
+  "asset": "CatMage",
+  "combi_rank": "2040",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Katress Ignis": {
+  "slug": "Katress_Ignis",
+  "asset": "CatMage_Fire",
+  "combi_rank": "1800",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Katress",
+    "gender": "female"
+   },
+   "parent_b": {
+    "asset": "Wixen",
+    "gender": "male"
+   },
+   "child": {
+    "asset": "Katress_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Katress_Ignis": {
+  "slug": "Katress_Ignis",
+  "asset": "CatMage_Fire",
+  "combi_rank": "1800",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Katress",
+    "gender": "female"
+   },
+   "parent_b": {
+    "asset": "Wixen",
+    "gender": "male"
+   },
+   "child": {
+    "asset": "Katress_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Kelpsea": {
+  "slug": "Kelpsea",
+  "asset": "Kelpie",
+  "combi_rank": "2810",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Kelpsea Ignis": {
+  "slug": "Kelpsea_Ignis",
+  "asset": "Kelpie_Fire",
+  "combi_rank": "2470",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Kelpsea_Ignis": {
+  "slug": "Kelpsea_Ignis",
+  "asset": "Kelpie_Fire",
+  "combi_rank": "2470",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Kikit": {
+  "slug": "Kikit",
+  "asset": "SmallArmadillo",
+  "combi_rank": "2310",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Killamari": {
+  "slug": "Killamari",
+  "asset": "NegativeOctopus",
+  "combi_rank": "2770",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Killamari Primo": {
+  "slug": "Killamari_Primo",
+  "asset": "NegativeOctopus_Neutral",
+  "combi_rank": "2540",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Killamari",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Ribbuny",
+    "gender": null
+   },
+   "child": {
+    "asset": "Killamari_Primo",
+    "gender": null
+   }
+  }
+ },
+ "Killamari_Primo": {
+  "slug": "Killamari_Primo",
+  "asset": "NegativeOctopus_Neutral",
+  "combi_rank": "2540",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Killamari",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Ribbuny",
+    "gender": null
+   },
+   "child": {
+    "asset": "Killamari_Primo",
+    "gender": null
+   }
+  }
+ },
+ "Kingpaca": {
+  "slug": "Kingpaca",
+  "asset": "KingAlpaca",
+  "combi_rank": "2220",
+  "male_probability": "90",
+  "unique_combo": null
+ },
+ "Kingpaca Cryst": {
+  "slug": "Kingpaca_Cryst",
+  "asset": "KingAlpaca_Ice",
+  "combi_rank": "1530",
+  "male_probability": "90",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Kingpaca",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Reindrix",
+    "gender": null
+   },
+   "child": {
+    "asset": "Kingpaca_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Kingpaca_Cryst": {
+  "slug": "Kingpaca_Cryst",
+  "asset": "KingAlpaca_Ice",
+  "combi_rank": "1530",
+  "male_probability": "90",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Kingpaca",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Reindrix",
+    "gender": null
+   },
+   "child": {
+    "asset": "Kingpaca_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Kitsun": {
+  "slug": "Kitsun",
+  "asset": "AmaterasuWolf",
+  "combi_rank": "1670",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Kitsun Noct": {
+  "slug": "Kitsun_Noct",
+  "asset": "AmaterasuWolf_Dark",
+  "combi_rank": "800",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Kitsun",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Nyafia",
+    "gender": null
+   },
+   "child": {
+    "asset": "Kitsun_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Kitsun_Noct": {
+  "slug": "Kitsun_Noct",
+  "asset": "AmaterasuWolf_Dark",
+  "combi_rank": "800",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Kitsun",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Nyafia",
+    "gender": null
+   },
+   "child": {
+    "asset": "Kitsun_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Knocklem": {
+  "slug": "Knocklem",
+  "asset": "WingGolem",
+  "combi_rank": "260",
+  "male_probability": "70",
+  "unique_combo": null
+ },
+ "Knocklem Ignis": {
+  "slug": "Knocklem_Ignis",
+  "asset": "WingGolem_Fire",
+  "combi_rank": "210",
+  "male_probability": "70",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Knocklem",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Ragnahawk",
+    "gender": null
+   },
+   "child": {
+    "asset": "Knocklem_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Knocklem_Ignis": {
+  "slug": "Knocklem_Ignis",
+  "asset": "WingGolem_Fire",
+  "combi_rank": "210",
+  "male_probability": "70",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Knocklem",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Ragnahawk",
+    "gender": null
+   },
+   "child": {
+    "asset": "Knocklem_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Lamball": {
+  "slug": "Lamball",
+  "asset": "SheepBall",
+  "combi_rank": "3050",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Lapiron": {
+  "slug": "Lapiron",
+  "asset": "BrownRabbit",
+  "combi_rank": "1680",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Lapure": {
+  "slug": "Lapure",
+  "asset": "SleeveRabbit",
+  "combi_rank": "810",
+  "male_probability": "40",
+  "unique_combo": null
+ },
+ "Leafan": {
+  "slug": "Leafan",
+  "asset": "PandaGirl",
+  "combi_rank": "1410",
+  "male_probability": "40",
+  "unique_combo": null
+ },
+ "Leezpunk": {
+  "slug": "Leezpunk",
+  "asset": "LizardMan",
+  "combi_rank": "2670",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Leezpunk Ignis": {
+  "slug": "Leezpunk_Ignis",
+  "asset": "LizardMan_Fire",
+  "combi_rank": "2640",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Leezpunk",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Flambelle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Leezpunk_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Leezpunk_Ignis": {
+  "slug": "Leezpunk_Ignis",
+  "asset": "LizardMan_Fire",
+  "combi_rank": "2640",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Leezpunk",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Flambelle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Leezpunk_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Lifmunk": {
+  "slug": "Lifmunk",
+  "asset": "Carbunclo",
+  "combi_rank": "3020",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Loomen": {
+  "slug": "Loomen",
+  "asset": "LanternButler",
+  "combi_rank": "890",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Loupmoon": {
+  "slug": "Loupmoon",
+  "asset": "Werewolf",
+  "combi_rank": "2110",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Loupmoon Cryst": {
+  "slug": "Loupmoon_Cryst",
+  "asset": "Werewolf_Ice",
+  "combi_rank": "1290",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Loupmoon",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Sweepa",
+    "gender": null
+   },
+   "child": {
+    "asset": "Loupmoon_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Loupmoon_Cryst": {
+  "slug": "Loupmoon_Cryst",
+  "asset": "Werewolf_Ice",
+  "combi_rank": "1290",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Loupmoon",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Sweepa",
+    "gender": null
+   },
+   "child": {
+    "asset": "Loupmoon_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Lovander": {
+  "slug": "Lovander",
+  "asset": "PinkLizard",
+  "combi_rank": "2090",
+  "male_probability": "30",
+  "unique_combo": null
+ },
+ "Lullu": {
+  "slug": "Lullu",
+  "asset": "LeafPrincess",
+  "combi_rank": "1990",
+  "male_probability": "30",
+  "unique_combo": null
+ },
+ "Lunaris": {
+  "slug": "Lunaris",
+  "asset": "Mutant",
+  "combi_rank": "2010",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Lyleen": {
+  "slug": "Lyleen",
+  "asset": "LilyQueen",
+  "combi_rank": "240",
+  "male_probability": "30",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Lyleen",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Lyleen",
+    "gender": null
+   },
+   "child": {
+    "asset": "Lyleen",
+    "gender": null
+   }
+  }
+ },
+ "Lyleen Noct": {
+  "slug": "Lyleen_Noct",
+  "asset": "LilyQueen_Dark",
+  "combi_rank": "220",
+  "male_probability": "30",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Lyleen",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Menasting",
+    "gender": null
+   },
+   "child": {
+    "asset": "Lyleen_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Lyleen_Noct": {
+  "slug": "Lyleen_Noct",
+  "asset": "LilyQueen_Dark",
+  "combi_rank": "220",
+  "male_probability": "30",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Lyleen",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Menasting",
+    "gender": null
+   },
+   "child": {
+    "asset": "Lyleen_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Majex": {
+  "slug": "Majex",
+  "asset": "DarkFlameFox",
+  "combi_rank": "1010",
+  "male_probability": "40",
+  "unique_combo": null
+ },
+ "Mammorest": {
+  "slug": "Mammorest",
+  "asset": "GrassMammoth",
+  "combi_rank": "1340",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Mammorest Cryst": {
+  "slug": "Mammorest_Cryst",
+  "asset": "GrassMammoth_Ice",
+  "combi_rank": "1070",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Mammorest",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Wumpo",
+    "gender": null
+   },
+   "child": {
+    "asset": "Mammorest_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Mammorest_Cryst": {
+  "slug": "Mammorest_Cryst",
+  "asset": "GrassMammoth_Ice",
+  "combi_rank": "1070",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Mammorest",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Wumpo",
+    "gender": null
+   },
+   "child": {
+    "asset": "Mammorest_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Maraith": {
+  "slug": "Maraith",
+  "asset": "GhostBeast",
+  "combi_rank": "1710",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Mau": {
+  "slug": "Mau",
+  "asset": "Bastet",
+  "combi_rank": "3040",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Mau Cryst": {
+  "slug": "Mau_Cryst",
+  "asset": "Bastet_Ice",
+  "combi_rank": "2750",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Mau",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Pengullet",
+    "gender": null
+   },
+   "child": {
+    "asset": "Mau_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Mau_Cryst": {
+  "slug": "Mau_Cryst",
+  "asset": "Bastet_Ice",
+  "combi_rank": "2750",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Mau",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Pengullet",
+    "gender": null
+   },
+   "child": {
+    "asset": "Mau_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Melpaca": {
+  "slug": "Melpaca",
+  "asset": "Alpaca",
+  "combi_rank": "2720",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Menasting": {
+  "slug": "Menasting",
+  "asset": "DarkScorpion",
+  "combi_rank": "1120",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Menasting Terra": {
+  "slug": "Menasting_Terra",
+  "asset": "DarkScorpion_Ground",
+  "combi_rank": "640",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Menasting",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Knocklem",
+    "gender": null
+   },
+   "child": {
+    "asset": "Menasting_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Menasting_Terra": {
+  "slug": "Menasting_Terra",
+  "asset": "DarkScorpion_Ground",
+  "combi_rank": "640",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Menasting",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Knocklem",
+    "gender": null
+   },
+   "child": {
+    "asset": "Menasting_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Mimog": {
+  "slug": "Mimog",
+  "asset": "MimicDog",
+  "combi_rank": "1740",
+  "male_probability": "80",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Mimog",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Mimog",
+    "gender": null
+   },
+   "child": {
+    "asset": "Mimog",
+    "gender": null
+   }
+  }
+ },
+ "Moldron": {
+  "slug": "Moldron",
+  "asset": "VolcanoDragon",
+  "combi_rank": "750",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Moldron Cryst": {
+  "slug": "Moldron_Cryst",
+  "asset": "VolcanoDragon_Ice",
+  "combi_rank": "380",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Moldron",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Reptyro_Cryst",
+    "gender": null
+   },
+   "child": {
+    "asset": "Moldron_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Moldron_Cryst": {
+  "slug": "Moldron_Cryst",
+  "asset": "VolcanoDragon_Ice",
+  "combi_rank": "380",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Moldron",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Reptyro_Cryst",
+    "gender": null
+   },
+   "child": {
+    "asset": "Moldron_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Mossanda": {
+  "slug": "Mossanda",
+  "asset": "GrassPanda",
+  "combi_rank": "2060",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Mossanda Lux": {
+  "slug": "Mossanda_Lux",
+  "asset": "GrassPanda_Electric",
+  "combi_rank": "1440",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Mossanda",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Grizzbolt",
+    "gender": null
+   },
+   "child": {
+    "asset": "Mossanda_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Mossanda_Lux": {
+  "slug": "Mossanda_Lux",
+  "asset": "GrassPanda_Electric",
+  "combi_rank": "1440",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Mossanda",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Grizzbolt",
+    "gender": null
+   },
+   "child": {
+    "asset": "Mossanda_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Mozzarina": {
+  "slug": "Mozzarina",
+  "asset": "CowPal",
+  "combi_rank": "2800",
+  "male_probability": "20",
+  "unique_combo": null
+ },
+ "Muffly": {
+  "slug": "Muffly",
+  "asset": "FluffyBird",
+  "combi_rank": "2480",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Munchill": {
+  "slug": "Munchill",
+  "asset": "IceCrocodile",
+  "combi_rank": "2130",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Mycora": {
+  "slug": "Mycora",
+  "asset": "MushroomLady",
+  "combi_rank": "760",
+  "male_probability": "30",
+  "unique_combo": null
+ },
+ "Necromus": {
+  "slug": "Necromus",
+  "asset": "BlackCentaur",
+  "combi_rank": "190",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Necromus",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Necromus",
+    "gender": null
+   },
+   "child": {
+    "asset": "Necromus",
+    "gender": null
+   }
+  }
+ },
+ "Needoll": {
+  "slug": "Needoll",
+  "asset": "CactusDoll",
+  "combi_rank": "2420",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Needoll Noct": {
+  "slug": "Needoll_Noct",
+  "asset": "CactusDoll_Dark",
+  "combi_rank": "1580",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Needoll",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Prunelia",
+    "gender": null
+   },
+   "child": {
+    "asset": "Needoll_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Needoll_Noct": {
+  "slug": "Needoll_Noct",
+  "asset": "CactusDoll_Dark",
+  "combi_rank": "1580",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Needoll",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Prunelia",
+    "gender": null
+   },
+   "child": {
+    "asset": "Needoll_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Neptilius": {
+  "slug": "Neptilius",
+  "asset": "PoseidonOrca",
+  "combi_rank": "160",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Neptilius",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Neptilius",
+    "gender": null
+   },
+   "child": {
+    "asset": "Neptilius",
+    "gender": null
+   }
+  }
+ },
+ "Nitemary": {
+  "slug": "Nitemary",
+  "asset": "GhostRabbit",
+  "combi_rank": "1230",
+  "male_probability": "40",
+  "unique_combo": null
+ },
+ "Nitemary Botan": {
+  "slug": "Nitemary_Botan",
+  "asset": "GhostRabbit_Grass",
+  "combi_rank": "1320",
+  "male_probability": "40",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Nitemary",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Petallia",
+    "gender": null
+   },
+   "child": {
+    "asset": "Nitemary_Botan",
+    "gender": null
+   }
+  }
+ },
+ "Nitemary_Botan": {
+  "slug": "Nitemary_Botan",
+  "asset": "GhostRabbit_Grass",
+  "combi_rank": "1320",
+  "male_probability": "40",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Nitemary",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Petallia",
+    "gender": null
+   },
+   "child": {
+    "asset": "Nitemary_Botan",
+    "gender": null
+   }
+  }
+ },
+ "Nitewing": {
+  "slug": "Nitewing",
+  "asset": "HawkBird",
+  "combi_rank": "2560",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Nox": {
+  "slug": "Nox",
+  "asset": "NightFox",
+  "combi_rank": "2920",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Nyafia": {
+  "slug": "Nyafia",
+  "asset": "BadCatgirl",
+  "combi_rank": "1250",
+  "male_probability": "40",
+  "unique_combo": null
+ },
+ "Omascul": {
+  "slug": "Omascul",
+  "asset": "MysteryMask",
+  "combi_rank": "1140",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Ophydia": {
+  "slug": "Ophydia",
+  "asset": "LotusDragon",
+  "combi_rank": "230",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Orserk": {
+  "slug": "Orserk",
+  "asset": "ThunderDragonMan",
+  "combi_rank": "120",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Orserk",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Orserk",
+    "gender": null
+   },
+   "child": {
+    "asset": "Orserk",
+    "gender": null
+   }
+  }
+ },
+ "Paladius": {
+  "slug": "Paladius",
+  "asset": "SaintCentaur",
+  "combi_rank": "180",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Paladius",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Paladius",
+    "gender": null
+   },
+   "child": {
+    "asset": "Paladius",
+    "gender": null
+   }
+  }
+ },
+ "Palumba": {
+  "slug": "Palumba",
+  "asset": "TropicalOstrich",
+  "combi_rank": "1240",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Panthalus": {
+  "slug": "Panthalus",
+  "asset": "KingWhale",
+  "combi_rank": "20",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Panthalus",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Panthalus",
+    "gender": null
+   },
+   "child": {
+    "asset": "Panthalus",
+    "gender": null
+   }
+  }
+ },
+ "Pengullet": {
+  "slug": "Pengullet",
+  "asset": "Penguin",
+  "combi_rank": "2960",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Pengullet Lux": {
+  "slug": "Pengullet_Lux",
+  "asset": "Penguin_Electric",
+  "combi_rank": "2490",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Pengullet",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Sparkit",
+    "gender": null
+   },
+   "child": {
+    "asset": "Pengullet_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Pengullet_Lux": {
+  "slug": "Pengullet_Lux",
+  "asset": "Penguin_Electric",
+  "combi_rank": "2490",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Pengullet",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Sparkit",
+    "gender": null
+   },
+   "child": {
+    "asset": "Pengullet_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Penking": {
+  "slug": "Penking",
+  "asset": "CaptainPenguin",
+  "combi_rank": "2070",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Penking Lux": {
+  "slug": "Penking_Lux",
+  "asset": "CaptainPenguin_Black",
+  "combi_rank": "1850",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Penking",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Rayhound",
+    "gender": null
+   },
+   "child": {
+    "asset": "Penking_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Penking_Lux": {
+  "slug": "Penking_Lux",
+  "asset": "CaptainPenguin_Black",
+  "combi_rank": "1850",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Penking",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Rayhound",
+    "gender": null
+   },
+   "child": {
+    "asset": "Penking_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Petallia": {
+  "slug": "Petallia",
+  "asset": "FlowerDoll",
+  "combi_rank": "1720",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Petallia Ignis": {
+  "slug": "Petallia_Ignis",
+  "asset": "FlowerDoll_Fire",
+  "combi_rank": "820",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Petallia",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Bushi",
+    "gender": null
+   },
+   "child": {
+    "asset": "Petallia_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Petallia_Ignis": {
+  "slug": "Petallia_Ignis",
+  "asset": "FlowerDoll_Fire",
+  "combi_rank": "820",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Petallia",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Bushi",
+    "gender": null
+   },
+   "child": {
+    "asset": "Petallia_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Pierdon": {
+  "slug": "Pierdon",
+  "asset": "RockBeast",
+  "combi_rank": "1110",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Pierdon Cryst": {
+  "slug": "Pierdon_Cryst",
+  "asset": "RockBeast_Ice",
+  "combi_rank": "460",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Pierdon",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Wumpo",
+    "gender": null
+   },
+   "child": {
+    "asset": "Pierdon_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Pierdon_Cryst": {
+  "slug": "Pierdon_Cryst",
+  "asset": "RockBeast_Ice",
+  "combi_rank": "460",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Pierdon",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Wumpo",
+    "gender": null
+   },
+   "child": {
+    "asset": "Pierdon_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Polapup": {
+  "slug": "Polapup",
+  "asset": "IceSeal",
+  "combi_rank": "1660",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Polapup Terra": {
+  "slug": "Polapup_Terra",
+  "asset": "IceSeal_Ground",
+  "combi_rank": "1100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Polapup",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Surfent_Terra",
+    "gender": null
+   },
+   "child": {
+    "asset": "Polapup_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Polapup_Terra": {
+  "slug": "Polapup_Terra",
+  "asset": "IceSeal_Ground",
+  "combi_rank": "1100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Polapup",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Surfent_Terra",
+    "gender": null
+   },
+   "child": {
+    "asset": "Polapup_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Prixter": {
+  "slug": "Prixter",
+  "asset": "ScorpionMan",
+  "combi_rank": "1510",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Prixter Lux": {
+  "slug": "Prixter_Lux",
+  "asset": "ScorpionMan_Electric",
+  "combi_rank": "850",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Prixter",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Helzephyr_Lux",
+    "gender": null
+   },
+   "child": {
+    "asset": "Prixter_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Prixter_Lux": {
+  "slug": "Prixter_Lux",
+  "asset": "ScorpionMan_Electric",
+  "combi_rank": "850",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Prixter",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Helzephyr_Lux",
+    "gender": null
+   },
+   "child": {
+    "asset": "Prixter_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Prunelia": {
+  "slug": "Prunelia",
+  "asset": "BlueberryFairy",
+  "combi_rank": "1390",
+  "male_probability": "40",
+  "unique_combo": null
+ },
+ "Puffolt": {
+  "slug": "Puffolt",
+  "asset": "ElecPomeranian",
+  "combi_rank": "2360",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Pupperai": {
+  "slug": "Pupperai",
+  "asset": "SamuraiDog",
+  "combi_rank": "2930",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Purple Slime": {
+  "slug": "Purple_Slime",
+  "asset": "YakushimaMonster001_Purple",
+  "combi_rank": "3100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Green_Slime",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Purple_Slime",
+    "gender": null
+   },
+   "child": {
+    "asset": "Purple_Slime",
+    "gender": null
+   }
+  }
+ },
+ "Pyrin": {
+  "slug": "Pyrin",
+  "asset": "FireKirin",
+  "combi_rank": "1980",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Pyrin Noct": {
+  "slug": "Pyrin_Noct",
+  "asset": "FireKirin_Dark",
+  "combi_rank": "1870",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Pyrin",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Katress",
+    "gender": null
+   },
+   "child": {
+    "asset": "Pyrin_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Pyrin_Noct": {
+  "slug": "Pyrin_Noct",
+  "asset": "FireKirin_Dark",
+  "combi_rank": "1870",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Pyrin",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Katress",
+    "gender": null
+   },
+   "child": {
+    "asset": "Pyrin_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Quivern": {
+  "slug": "Quivern",
+  "asset": "SkyDragon",
+  "combi_rank": "1210",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Quivern Botan": {
+  "slug": "Quivern_Botan",
+  "asset": "SkyDragon_Grass",
+  "combi_rank": "1300",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Quivern",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Lullu",
+    "gender": null
+   },
+   "child": {
+    "asset": "Quivern_Botan",
+    "gender": null
+   }
+  }
+ },
+ "Quivern_Botan": {
+  "slug": "Quivern_Botan",
+  "asset": "SkyDragon_Grass",
+  "combi_rank": "1300",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Quivern",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Lullu",
+    "gender": null
+   },
+   "child": {
+    "asset": "Quivern_Botan",
+    "gender": null
+   }
+  }
+ },
+ "Ragnahawk": {
+  "slug": "Ragnahawk",
+  "asset": "RedArmorBird",
+  "combi_rank": "1050",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Rainbow Slime": {
+  "slug": "Rainbow_Slime",
+  "asset": "YakushimaMonster001_Rainbow",
+  "combi_rank": "3100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Green_Slime",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Rainbow_Slime",
+    "gender": null
+   },
+   "child": {
+    "asset": "Rainbow_Slime",
+    "gender": null
+   }
+  }
+ },
+ "Rayhound": {
+  "slug": "Rayhound",
+  "asset": "ThunderDog",
+  "combi_rank": "1920",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Rayhound Cryst": {
+  "slug": "Rayhound_Cryst",
+  "asset": "ThunderDog_Ice",
+  "combi_rank": "1600",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Rayhound",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Foxcicle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Rayhound_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Rayhound_Cryst": {
+  "slug": "Rayhound_Cryst",
+  "asset": "ThunderDog_Ice",
+  "combi_rank": "1600",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Rayhound",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Foxcicle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Rayhound_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Red Slime": {
+  "slug": "Red_Slime",
+  "asset": "YakushimaMonster001_Red",
+  "combi_rank": "3100",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Green_Slime",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Red_Slime",
+    "gender": null
+   },
+   "child": {
+    "asset": "Red_Slime",
+    "gender": null
+   }
+  }
+ },
+ "Reindrix": {
+  "slug": "Reindrix",
+  "asset": "IceDeer",
+  "combi_rank": "1930",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Relaxaurus": {
+  "slug": "Relaxaurus",
+  "asset": "LazyDragon",
+  "combi_rank": "1090",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Relaxaurus Lux": {
+  "slug": "Relaxaurus_Lux",
+  "asset": "LazyDragon_Electric",
+  "combi_rank": "770",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Relaxaurus",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Sparkit",
+    "gender": null
+   },
+   "child": {
+    "asset": "Relaxaurus_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Relaxaurus_Lux": {
+  "slug": "Relaxaurus_Lux",
+  "asset": "LazyDragon_Electric",
+  "combi_rank": "770",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Relaxaurus",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Sparkit",
+    "gender": null
+   },
+   "child": {
+    "asset": "Relaxaurus_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Renjishi": {
+  "slug": "Renjishi",
+  "asset": "KabukiMan",
+  "combi_rank": "290",
+  "male_probability": "60",
+  "unique_combo": null
+ },
+ "Reptyro": {
+  "slug": "Reptyro",
+  "asset": "VolcanicMonster",
+  "combi_rank": "1060",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Reptyro Cryst": {
+  "slug": "Reptyro_Cryst",
+  "asset": "VolcanicMonster_Ice",
+  "combi_rank": "600",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Reptyro",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Foxcicle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Reptyro_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Reptyro_Cryst": {
+  "slug": "Reptyro_Cryst",
+  "asset": "VolcanicMonster_Ice",
+  "combi_rank": "600",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Reptyro",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Foxcicle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Reptyro_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Ribbuny": {
+  "slug": "Ribbuny",
+  "asset": "PinkRabbit",
+  "combi_rank": "2860",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Ribbuny Botan": {
+  "slug": "Ribbuny_Botan",
+  "asset": "PinkRabbit_Grass",
+  "combi_rank": "2460",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Ribbuny",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Bristla",
+    "gender": null
+   },
+   "child": {
+    "asset": "Ribbuny_Botan",
+    "gender": null
+   }
+  }
+ },
+ "Ribbuny_Botan": {
+  "slug": "Ribbuny_Botan",
+  "asset": "PinkRabbit_Grass",
+  "combi_rank": "2460",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Ribbuny",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Bristla",
+    "gender": null
+   },
+   "child": {
+    "asset": "Ribbuny_Botan",
+    "gender": null
+   }
+  }
+ },
+ "Robinquill": {
+  "slug": "Robinquill",
+  "asset": "RobinHood",
+  "combi_rank": "2260",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Robinquill Terra": {
+  "slug": "Robinquill_Terra",
+  "asset": "RobinHood_Ground",
+  "combi_rank": "2050",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Robinquill",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Fuddler",
+    "gender": null
+   },
+   "child": {
+    "asset": "Robinquill_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Robinquill_Terra": {
+  "slug": "Robinquill_Terra",
+  "asset": "RobinHood_Ground",
+  "combi_rank": "2050",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Robinquill",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Fuddler",
+    "gender": null
+   },
+   "child": {
+    "asset": "Robinquill_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Rooby": {
+  "slug": "Rooby",
+  "asset": "FlameBambi",
+  "combi_rank": "2870",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Roujay": {
+  "slug": "Roujay",
+  "asset": "ThiefBird",
+  "combi_rank": "530",
+  "male_probability": "60",
+  "unique_combo": null
+ },
+ "Rushoar": {
+  "slug": "Rushoar",
+  "asset": "Boar",
+  "combi_rank": "2880",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Sekhmet": {
+  "slug": "Sekhmet",
+  "asset": "Sekhmet",
+  "combi_rank": "870",
+  "male_probability": "30",
+  "unique_combo": null
+ },
+ "Selyne": {
+  "slug": "Selyne",
+  "asset": "MoonQueen",
+  "combi_rank": "360",
+  "male_probability": "20",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Selyne",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Selyne",
+    "gender": null
+   },
+   "child": {
+    "asset": "Selyne",
+    "gender": null
+   }
+  }
+ },
+ "Shadowbeak": {
+  "slug": "Shadowbeak",
+  "asset": "BlackGriffon",
+  "combi_rank": "550",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Shadowbeak",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Shadowbeak",
+    "gender": null
+   },
+   "child": {
+    "asset": "Shadowbeak",
+    "gender": null
+   }
+  }
+ },
+ "Shaolong": {
+  "slug": "Shaolong",
+  "asset": "BlueSkyDragon",
+  "combi_rank": "40",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Shaolong",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Shaolong",
+    "gender": null
+   },
+   "child": {
+    "asset": "Shaolong",
+    "gender": null
+   }
+  }
+ },
+ "Shroomer": {
+  "slug": "Shroomer",
+  "asset": "MushroomDragon",
+  "combi_rank": "1520",
+  "male_probability": "55",
+  "unique_combo": null
+ },
+ "Shroomer Noct": {
+  "slug": "Shroomer_Noct",
+  "asset": "MushroomDragon_Dark",
+  "combi_rank": "1450",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Shroomer_Noct": {
+  "slug": "Shroomer_Noct",
+  "asset": "MushroomDragon_Dark",
+  "combi_rank": "1450",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Sibelyx": {
+  "slug": "Sibelyx",
+  "asset": "WhiteMoth",
+  "combi_rank": "1810",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Sibelyx Primo": {
+  "slug": "Sibelyx_Primo",
+  "asset": "WhiteMoth_Neutral",
+  "combi_rank": "650",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Sibelyx",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Lapure",
+    "gender": null
+   },
+   "child": {
+    "asset": "Sibelyx_Primo",
+    "gender": null
+   }
+  }
+ },
+ "Sibelyx_Primo": {
+  "slug": "Sibelyx_Primo",
+  "asset": "WhiteMoth_Neutral",
+  "combi_rank": "650",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Sibelyx",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Lapure",
+    "gender": null
+   },
+   "child": {
+    "asset": "Sibelyx_Primo",
+    "gender": null
+   }
+  }
+ },
+ "Silvance": {
+  "slug": "Silvance",
+  "asset": "Mothman",
+  "combi_rank": "80",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Silvance",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Silvance",
+    "gender": null
+   },
+   "child": {
+    "asset": "Silvance",
+    "gender": null
+   }
+  }
+ },
+ "Silvegis": {
+  "slug": "Silvegis",
+  "asset": "WhiteShieldDragon",
+  "combi_rank": "560",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Skutlass": {
+  "slug": "Skutlass",
+  "asset": "SwordCutlassfish",
+  "combi_rank": "1420",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Skutlass Ignis": {
+  "slug": "Skutlass_Ignis",
+  "asset": "SwordCutlassfish_Fire",
+  "combi_rank": "1590",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Skutlass",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Gobfin_Ignis",
+    "gender": null
+   },
+   "child": {
+    "asset": "Skutlass_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Skutlass_Ignis": {
+  "slug": "Skutlass_Ignis",
+  "asset": "SwordCutlassfish_Fire",
+  "combi_rank": "1590",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Skutlass",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Gobfin_Ignis",
+    "gender": null
+   },
+   "child": {
+    "asset": "Skutlass_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Slowatt": {
+  "slug": "Slowatt",
+  "asset": "ElecLizard",
+  "combi_rank": "1750",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Smokie": {
+  "slug": "Smokie",
+  "asset": "BlackPuppy",
+  "combi_rank": "1760",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Smokie Cryst": {
+  "slug": "Smokie_Cryst",
+  "asset": "BlackPuppy_Ice",
+  "combi_rank": "1610",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Smokie",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Munchill",
+    "gender": null
+   },
+   "child": {
+    "asset": "Smokie_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Smokie_Cryst": {
+  "slug": "Smokie_Cryst",
+  "asset": "BlackPuppy_Ice",
+  "combi_rank": "1610",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Smokie",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Munchill",
+    "gender": null
+   },
+   "child": {
+    "asset": "Smokie_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Snock": {
+  "slug": "Snock",
+  "asset": "ElecSnail",
+  "combi_rank": "1780",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Snock Lux": {
+  "slug": "Snock_Lux",
+  "asset": "ElecSnail_Ground",
+  "combi_rank": "1500",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Snock",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Turtacle_Terra",
+    "gender": null
+   },
+   "child": {
+    "asset": "Snock_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Snock_Lux": {
+  "slug": "Snock_Lux",
+  "asset": "ElecSnail_Ground",
+  "combi_rank": "1500",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Snock",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Turtacle_Terra",
+    "gender": null
+   },
+   "child": {
+    "asset": "Snock_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Snugloo": {
+  "slug": "Snugloo",
+  "asset": "SmallYeti",
+  "combi_rank": "2390",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Solenne": {
+  "slug": "Solenne",
+  "asset": "MonochromeQueen",
+  "combi_rank": "280",
+  "male_probability": "30",
+  "unique_combo": null
+ },
+ "Solmora": {
+  "slug": "Solmora",
+  "asset": "KingSunfish",
+  "combi_rank": "1370",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Solmora Lux": {
+  "slug": "Solmora_Lux",
+  "asset": "KingSunfish_Thunder",
+  "combi_rank": "1000",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Solmora",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Slowatt",
+    "gender": null
+   },
+   "child": {
+    "asset": "Solmora_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Solmora_Lux": {
+  "slug": "Solmora_Lux",
+  "asset": "KingSunfish_Thunder",
+  "combi_rank": "1000",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Solmora",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Slowatt",
+    "gender": null
+   },
+   "child": {
+    "asset": "Solmora_Lux",
+    "gender": null
+   }
+  }
+ },
+ "Sootseer": {
+  "slug": "Sootseer",
+  "asset": "CandleGhost",
+  "combi_rank": "980",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Souffline": {
+  "slug": "Souffline",
+  "asset": "DandelionGirl",
+  "combi_rank": "2000",
+  "male_probability": "40",
+  "unique_combo": null
+ },
+ "Sparkit": {
+  "slug": "Sparkit",
+  "asset": "ElecCat",
+  "combi_rank": "3010",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Splatterina": {
+  "slug": "Splatterina",
+  "asset": "GrimGirl",
+  "combi_rank": "780",
+  "male_probability": "38",
+  "unique_combo": null
+ },
+ "Starryon": {
+  "slug": "Starryon",
+  "asset": "NightBlueHorse",
+  "combi_rank": "1150",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Starryon Primo": {
+  "slug": "Starryon_Primo",
+  "asset": "NightBlueHorse_Neutral",
+  "combi_rank": "430",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Starryon",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Celesdir",
+    "gender": null
+   },
+   "child": {
+    "asset": "Starryon_Primo",
+    "gender": null
+   }
+  }
+ },
+ "Starryon_Primo": {
+  "slug": "Starryon_Primo",
+  "asset": "NightBlueHorse_Neutral",
+  "combi_rank": "430",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Starryon",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Celesdir",
+    "gender": null
+   },
+   "child": {
+    "asset": "Starryon_Primo",
+    "gender": null
+   }
+  }
+ },
+ "Surfent": {
+  "slug": "Surfent",
+  "asset": "Serpent",
+  "combi_rank": "2440",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Surfent Terra": {
+  "slug": "Surfent_Terra",
+  "asset": "Serpent_Ground",
+  "combi_rank": "1840",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Surfent",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Dumud",
+    "gender": null
+   },
+   "child": {
+    "asset": "Surfent_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Surfent_Terra": {
+  "slug": "Surfent_Terra",
+  "asset": "Serpent_Ground",
+  "combi_rank": "1840",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Surfent",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Dumud",
+    "gender": null
+   },
+   "child": {
+    "asset": "Surfent_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Suzaku": {
+  "slug": "Suzaku",
+  "asset": "Suzaku",
+  "combi_rank": "1200",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Suzaku Aqua": {
+  "slug": "Suzaku_Aqua",
+  "asset": "Suzaku_Water",
+  "combi_rank": "740",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Suzaku",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Jormuntide",
+    "gender": null
+   },
+   "child": {
+    "asset": "Suzaku_Aqua",
+    "gender": null
+   }
+  }
+ },
+ "Suzaku_Aqua": {
+  "slug": "Suzaku_Aqua",
+  "asset": "Suzaku_Water",
+  "combi_rank": "740",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Suzaku",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Jormuntide",
+    "gender": null
+   },
+   "child": {
+    "asset": "Suzaku_Aqua",
+    "gender": null
+   }
+  }
+ },
+ "Swee": {
+  "slug": "Swee",
+  "asset": "MopBaby",
+  "combi_rank": "2840",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Sweepa": {
+  "slug": "Sweepa",
+  "asset": "MopKing",
+  "combi_rank": "2150",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Tanzee": {
+  "slug": "Tanzee",
+  "asset": "Monkey",
+  "combi_rank": "2900",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Tanzee Ignis": {
+  "slug": "Tanzee_Ignis",
+  "asset": "Monkey_Fire",
+  "combi_rank": "2830",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Tanzee",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Flambelle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Tanzee_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Tanzee_Ignis": {
+  "slug": "Tanzee_Ignis",
+  "asset": "Monkey_Fire",
+  "combi_rank": "2830",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Tanzee",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Flambelle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Tanzee_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Tarantriss": {
+  "slug": "Tarantriss",
+  "asset": "PurpleSpider",
+  "combi_rank": "1730",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Teafant": {
+  "slug": "Teafant",
+  "asset": "Ganesha",
+  "combi_rank": "3070",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Tetroise": {
+  "slug": "Tetroise",
+  "asset": "CubeTurtle",
+  "combi_rank": "790",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Tetroise ": {
+  "slug": "Tetroise",
+  "asset": "CubeTurtle",
+  "combi_rank": "790",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Tetroise Primo": {
+  "slug": "Tetroise_Primo",
+  "asset": "CubeTurtle_Neutral",
+  "combi_rank": "200",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Tetroise",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Celesdir",
+    "gender": null
+   },
+   "child": {
+    "asset": "Tetroise_Primo",
+    "gender": null
+   }
+  }
+ },
+ "Tetroise_Primo": {
+  "slug": "Tetroise_Primo",
+  "asset": "CubeTurtle_Neutral",
+  "combi_rank": "200",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Tetroise",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Celesdir",
+    "gender": null
+   },
+   "child": {
+    "asset": "Tetroise_Primo",
+    "gender": null
+   }
+  }
+ },
+ "Tocotoco": {
+  "slug": "Tocotoco",
+  "asset": "ColorfulBird",
+  "combi_rank": "2730",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Tombat": {
+  "slug": "Tombat",
+  "asset": "CatBat",
+  "combi_rank": "2340",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Tropicaw": {
+  "slug": "Tropicaw",
+  "asset": "RedFlowerBird",
+  "combi_rank": "1350",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Turtacle": {
+  "slug": "Turtacle",
+  "asset": "TentacleTurtle",
+  "combi_rank": "2410",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Turtacle Terra": {
+  "slug": "Turtacle_Terra",
+  "asset": "TentacleTurtle_Ground",
+  "combi_rank": "1330",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Turtacle",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Digtoise",
+    "gender": null
+   },
+   "child": {
+    "asset": "Turtacle_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Turtacle_Terra": {
+  "slug": "Turtacle_Terra",
+  "asset": "TentacleTurtle_Ground",
+  "combi_rank": "1330",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Turtacle",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Digtoise",
+    "gender": null
+   },
+   "child": {
+    "asset": "Turtacle_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Unidentified Pal": {
+  "slug": "Unidentified_Pal",
+  "asset": null,
+  "combi_rank": "9999",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Univolt": {
+  "slug": "Univolt",
+  "asset": "Kirin",
+  "combi_rank": "2270",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Univolt Cryst": {
+  "slug": "Univolt_Cryst",
+  "asset": "Kirin_Ice",
+  "combi_rank": "540",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Univolt",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Frostplume",
+    "gender": null
+   },
+   "child": {
+    "asset": "Univolt_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Univolt_Cryst": {
+  "slug": "Univolt_Cryst",
+  "asset": "Kirin_Ice",
+  "combi_rank": "540",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Univolt",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Frostplume",
+    "gender": null
+   },
+   "child": {
+    "asset": "Univolt_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Vaelet": {
+  "slug": "Vaelet",
+  "asset": "VioletFairy",
+  "combi_rank": "1480",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Valentail": {
+  "slug": "Valentail",
+  "asset": "LongCat",
+  "combi_rank": "1900",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Vanwyrm": {
+  "slug": "Vanwyrm",
+  "asset": "BirdDragon",
+  "combi_rank": "1650",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Vanwyrm Cryst": {
+  "slug": "Vanwyrm_Cryst",
+  "asset": "BirdDragon_Ice",
+  "combi_rank": "1430",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Vanwyrm",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Foxcicle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Vanwyrm_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Vanwyrm_Cryst": {
+  "slug": "Vanwyrm_Cryst",
+  "asset": "BirdDragon_Ice",
+  "combi_rank": "1430",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Vanwyrm",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Foxcicle",
+    "gender": null
+   },
+   "child": {
+    "asset": "Vanwyrm_Cryst",
+    "gender": null
+   }
+  }
+ },
+ "Venusa": {
+  "slug": "Venusa",
+  "asset": "SnakeGirl",
+  "combi_rank": "970",
+  "male_probability": "40",
+  "unique_combo": null
+ },
+ "Verdash": {
+  "slug": "Verdash",
+  "asset": "GrassRabbitMan",
+  "combi_rank": "1160",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Vixy": {
+  "slug": "Vixy",
+  "asset": "CuteFox",
+  "combi_rank": "3060",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Warsect": {
+  "slug": "Warsect",
+  "asset": "HerculesBeetle",
+  "combi_rank": "1280",
+  "male_probability": "85",
+  "unique_combo": null
+ },
+ "Warsect Terra": {
+  "slug": "Warsect_Terra",
+  "asset": "HerculesBeetle_Ground",
+  "combi_rank": "630",
+  "male_probability": "85",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Warsect",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Digtoise",
+    "gender": null
+   },
+   "child": {
+    "asset": "Warsect_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Warsect_Terra": {
+  "slug": "Warsect_Terra",
+  "asset": "HerculesBeetle_Ground",
+  "combi_rank": "630",
+  "male_probability": "85",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Warsect",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Digtoise",
+    "gender": null
+   },
+   "child": {
+    "asset": "Warsect_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Whalaska": {
+  "slug": "Whalaska",
+  "asset": "IceNarwhal",
+  "combi_rank": "710",
+  "male_probability": "58",
+  "unique_combo": null
+ },
+ "Whalaska Ignis": {
+  "slug": "Whalaska_Ignis",
+  "asset": "IceNarwhal_Fire",
+  "combi_rank": "370",
+  "male_probability": "42",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Whalaska",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Chillet_Ignis",
+    "gender": null
+   },
+   "child": {
+    "asset": "Whalaska_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Whalaska_Ignis": {
+  "slug": "Whalaska_Ignis",
+  "asset": "IceNarwhal_Fire",
+  "combi_rank": "370",
+  "male_probability": "42",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Whalaska",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Chillet_Ignis",
+    "gender": null
+   },
+   "child": {
+    "asset": "Whalaska_Ignis",
+    "gender": null
+   }
+  }
+ },
+ "Wispaw": {
+  "slug": "Wispaw",
+  "asset": "GhostBlackCat",
+  "combi_rank": "2250",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Wistella": {
+  "slug": "Wistella",
+  "asset": "MoonChild",
+  "combi_rank": "1180",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Wixen": {
+  "slug": "Wixen",
+  "asset": "FoxMage",
+  "combi_rank": "2080",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Wixen Noct": {
+  "slug": "Wixen_Noct",
+  "asset": "FoxMage_Dark",
+  "combi_rank": "1490",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Katress",
+    "gender": "male"
+   },
+   "parent_b": {
+    "asset": "Wixen",
+    "gender": "female"
+   },
+   "child": {
+    "asset": "Wixen_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Wixen_Noct": {
+  "slug": "Wixen_Noct",
+  "asset": "FoxMage_Dark",
+  "combi_rank": "1490",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Katress",
+    "gender": "male"
+   },
+   "parent_b": {
+    "asset": "Wixen",
+    "gender": "female"
+   },
+   "child": {
+    "asset": "Wixen_Noct",
+    "gender": null
+   }
+  }
+ },
+ "Woolipop": {
+  "slug": "Woolipop",
+  "asset": "SweetsSheep",
+  "combi_rank": "2820",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Woolipop Terra": {
+  "slug": "Woolipop_Terra",
+  "asset": "SweetsSheep_Ground",
+  "combi_rank": "2030",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Woolipop",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Kikit",
+    "gender": null
+   },
+   "child": {
+    "asset": "Woolipop_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Woolipop_Terra": {
+  "slug": "Woolipop_Terra",
+  "asset": "SweetsSheep_Ground",
+  "combi_rank": "2030",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Woolipop",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Kikit",
+    "gender": null
+   },
+   "child": {
+    "asset": "Woolipop_Terra",
+    "gender": null
+   }
+  }
+ },
+ "Wumpo": {
+  "slug": "Wumpo",
+  "asset": "Yeti",
+  "combi_rank": "830",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Wumpo Botan": {
+  "slug": "Wumpo_Botan",
+  "asset": "Yeti_Grass",
+  "combi_rank": "610",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Wumpo_Botan": {
+  "slug": "Wumpo_Botan",
+  "asset": "Yeti_Grass",
+  "combi_rank": "610",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Xenogard": {
+  "slug": "Xenogard",
+  "asset": "WhiteAlienDragon",
+  "combi_rank": "990",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Xenogard",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Xenogard",
+    "gender": null
+   },
+   "child": {
+    "asset": "Xenogard",
+    "gender": null
+   }
+  }
+ },
+ "Xenolord": {
+  "slug": "Xenolord",
+  "asset": "DarkMechaDragon",
+  "combi_rank": "400",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Xenolord",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Xenolord",
+    "gender": null
+   },
+   "child": {
+    "asset": "Xenolord",
+    "gender": null
+   }
+  }
+ },
+ "Xenovader": {
+  "slug": "Xenovader",
+  "asset": "DarkAlien",
+  "combi_rank": "1820",
+  "male_probability": "50",
+  "unique_combo": {
+   "parent_a": {
+    "asset": "Xenovader",
+    "gender": null
+   },
+   "parent_b": {
+    "asset": "Xenovader",
+    "gender": null
+   },
+   "child": {
+    "asset": "Xenovader",
+    "gender": null
+   }
+  }
+ },
+ "Yakumo": {
+  "slug": "Yakumo",
+  "asset": "GuardianDog",
+  "combi_rank": "2230",
+  "male_probability": "50",
+  "unique_combo": null
+ }
+}

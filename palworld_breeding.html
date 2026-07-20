@@ -10,14 +10,14 @@
 <link rel="stylesheet" href="shared/design-system.css">
 <style>
   :root{
-    --bg: #07090d; --panel: #121822; --panel2: #182030;
-    --parchment: #e9eef4; --parchment-dim: #8592a3;
-    --brass: #f0b840; --brass-dim: #b5852f;
+    --bg: #05080e; --panel: #0e1420; --panel2: #141d2b;
+    --parchment: #e7edf5; --parchment-dim: #7e90a5;
+    --brass: #6ec8ea; --brass-dim: #2f6b85;
     --teal: #35d2ff; --teal-dim: #1c6d86;
-    --line: rgba(142,183,214,.16); --danger: #e2543f;
+    --line: rgba(120,165,220,.18); --danger: #e2543f;
     --hp: #7bdb52; --sp: #f0a233;
-    --lime: #e3ff3d; --lime-dim: #96b31f;
-    --magenta: #ff2e7e; --magenta-dim: #a01a52;
+    --lime: #3d7bff; --lime-dim: #1f4a99;
+    --magenta: #8fd6ff; --magenta-dim: #4a7fa3;
     --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
     --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
     --font-mono: "JetBrains Mono", monospace;
@@ -26,17 +26,14 @@
     --t-地: #b98a4e; --t-草: #6dbf4f; --t-氷: #63d9e3; --t-竜: #9a6ff0; --t-闇: #8064b8;
   }
   *{box-sizing:border-box;}
-  body{margin:0;background:
-    radial-gradient(circle at 12% -8%, #143241 0%, transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(240,184,64,.06) 0%, transparent 42%),
-    var(--bg);
+  body{margin:0;background: var(--bg);
     color:var(--parchment);font-family:var(--font-body);padding:0;}
   .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
 
   /* header */
   header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
   .brand{display:flex;align-items:center;gap:12px;}
-  .brand-badge{width:42px;height:42px;border-radius:8px;background:linear-gradient(160deg, #1c2733, #10151c);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:var(--panel2);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
   h1.title{font-family:var(--font-display);font-weight:700;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
   .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
 
@@ -97,7 +94,7 @@
   .back-btn:hover{border-color:var(--lime-dim);color:var(--parchment);}
   .detail-head{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:16px;box-shadow:0 8px 24px rgba(0,0,0,.25);}
   .medallion{position:relative;width:112px;height:112px;flex-shrink:0;}
-  .medallion .ring{width:112px;height:112px;border-radius:50%;background:var(--panel2);border:3px solid var(--brass);overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(0,0,0,.4), 0 0 18px rgba(240,184,64,.18);}
+  .medallion .ring{width:112px;height:112px;border-radius:50%;background:var(--panel2);border:3px solid var(--brass);overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(0,0,0,.4), 0 0 18px rgba(110,200,234,.18);}
   .medallion .ring img{width:100%;height:100%;object-fit:cover;}
   .medallion .rivet{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:inset 0 1px 1px rgba(0,0,0,.4), 0 0 0 2px var(--bg), 0 0 5px rgba(53,210,255,.7);}
   .medallion .rivet.nw{top:2px;left:16px;} .medallion .rivet.ne{top:2px;right:16px;}
@@ -119,7 +116,7 @@
   .stat-row{display:grid;grid-template-columns:70px 1fr 48px;align-items:center;gap:8px;}
   .stat-row .stat-label{font-size:11.5px;color:var(--parchment-dim);}
   .stat-row .stat-bar{height:8px;background:var(--panel2);border-radius:4px;overflow:hidden;border:1px solid var(--line);}
-  .stat-row .stat-bar-fill{height:100%;background:linear-gradient(90deg, var(--brass-dim), var(--brass));}
+  .stat-row .stat-bar-fill{height:100%;background:var(--brass);}
   .stat-row .stat-val{font-family:var(--font-mono);font-size:12px;text-align:right;color:var(--parchment);}
 
   .role-grid{display:flex;flex-wrap:wrap;gap:8px;}
@@ -183,12 +180,23 @@
       <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
       <a href="palworld_ride.html"><span>ライド速度</span></a>
       <a href="palworld_map.html"><span>出現マップ</span></a>
+      <a href="palworld_bossguide.html"><span>ボス攻略</span></a>
+      <a href="palworld_achievements.html"><span>実績一覧</span></a>
+      <a href="palworld_passives_guide.html"><span>おすすめパッシブ</span></a>
+      <a href="palworld_reference.html"><span>早見表</span></a>
+      <a href="palworld_technology.html"><span>テクノロジー</span></a>
+      <a href="palworld_missions.html"><span>ミッション</span></a>
+      <a href="palworld_iv_calc.html"><span>素質値計算機</span></a>
+      <a href="palworld_party_guide.html"><span>パーティ編成ガイド</span></a>
+      <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
+      <a href="palworld_changelog.html"><span>更新履歴</span></a>
     </nav>
   </header>
 
   <div class="mode-tabs">
     <div class="mode-tab active" data-mode="forward">2体から生まれる子を調べる</div>
     <div class="mode-tab" data-mode="reverse">欲しい子から親候補を調べる</div>
+    <div class="mode-tab" data-mode="roadmap">配合ルートを探す(多世代)</div>
   </div>
 
   <div id="forwardMode">
@@ -214,9 +222,20 @@
     <div id="reverseResult" class="result-box empty">パルを選んでください</div>
   </div>
 
+  <div id="roadmapMode" style="display:none;">
+    <div class="caveat">野生・ボスとして捕獲できるパルはすべて手元にある前提で、目標のパルまでの配合世代数が最も少ないルートを探します(所持パルを登録する機能ではありません。特定パッシブの継承を狙った探索には対応していません)。生息マップのデータ収集が追いついていないパル(既知で約50種)は、実際は野生入手可能でも配合ルートとして提案されることがあります。</div>
+    <div class="pal-picker" style="width:320px;">
+      <input type="text" placeholder="目標のパルを検索…" data-slot="roadmapTarget">
+      <div class="pal-picker-results" style="display:none;"></div>
+    </div>
+    <div id="roadmapResult" class="result-box empty">パルを選んでください</div>
+  </div>
+
   <p class="footer-note">配合データは内部データマイン実測値(<code>game_data/breedingdata.json</code>)に基づきます。1.0で追加されたパルの一部はパル図鑑側とのJP名紐付けが取れていない場合があります(その場合「(JP名未確認)」と表示)。</p>
 </div>
 <script src="game_data/breeding_data.js"></script>
+<script src="game_data/spawn_data.js"></script>
+<script src="game_data/worldtree_spawn_data.js"></script>
 
 <script>
 
@@ -377,8 +396,120 @@ document.querySelectorAll(".mode-tab").forEach(tab => {
     const mode = tab.dataset.mode;
     document.getElementById("forwardMode").style.display = mode === "forward" ? "block" : "none";
     document.getElementById("reverseMode").style.display = mode === "reverse" ? "block" : "none";
+    document.getElementById("roadmapMode").style.display = mode === "roadmap" ? "block" : "none";
   });
 });
+
+// 「配合ルートを探す(多世代)」用: 野生/ボスとして出現するパルは全て手元にある前提の
+// 最少世代数ルート探索(所持ボックス機能は無く、palworld_palbox.htmlの配合ロードマップ機能
+// から「所持パル管理」抜きの汎用版として移植したもの。アルゴリズム自体はそちらで
+// 自己診断テスト済み)。
+const CATCHABLE_ASSETS = (() => {
+  const set = new Set();
+  [typeof SPAWN_DATA !== "undefined" ? SPAWN_DATA : null, typeof WORLDTREE_SPAWN_DATA !== "undefined" ? WORLDTREE_SPAWN_DATA : null]
+    .forEach(data => {
+      if(!data) return;
+      (data.pals || []).forEach(p => {
+        if((p.wildZones && p.wildZones.length) || (p.alphaZones && p.alphaZones.length)) set.add(p.asset);
+      });
+    });
+  return set;
+})();
+
+const REVERSE_FORWARD_PAIRS_RM = (() => {
+  const rev = {};
+  Object.entries(BREEDING_DATA.forwardPairs).forEach(([key, child]) => {
+    const sep = key.indexOf("|");
+    const a = key.slice(0, sep), b = key.slice(sep + 1);
+    (rev[child] = rev[child] || []).push([a, b]);
+  });
+  return rev;
+})();
+
+function computeShortestGen(asset, cache, visiting){
+  if(cache.has(asset)) return cache.get(asset);
+  if(visiting.has(asset)) return null;
+  if(CATCHABLE_ASSETS.has(asset)){
+    const result = { gen: 0, pair: null };
+    cache.set(asset, result);
+    return result;
+  }
+  visiting.add(asset);
+  const candidates = REVERSE_FORWARD_PAIRS_RM[asset] || [];
+  let best = null;
+  for(const [a, b] of candidates){
+    const ra = computeShortestGen(a, cache, visiting);
+    if(!ra) continue;
+    const rb = computeShortestGen(b, cache, visiting);
+    if(!rb) continue;
+    const gen = Math.max(ra.gen, rb.gen) + 1;
+    if(!best || gen < best.gen) best = { gen, pair: [a, b] };
+  }
+  visiting.delete(asset);
+  cache.set(asset, best);
+  return best;
+}
+
+function reconstructRoadmapSteps(targetAsset, producedBy){
+  const needed = new Set();
+  const stack = [targetAsset];
+  while(stack.length){
+    const cur = stack.pop();
+    if(needed.has(cur)) continue;
+    if(cur !== targetAsset && CATCHABLE_ASSETS.has(cur)) continue;
+    needed.add(cur);
+    const rec = producedBy[cur];
+    if(rec){ stack.push(rec.a); stack.push(rec.b); }
+  }
+  return Array.from(needed)
+    .filter(a => producedBy[a])
+    .map(a => ({ child: a, ...producedBy[a] }))
+    .sort((x, y) => x.generation - y.generation);
+}
+
+function findRoadmapRoute(targetAsset){
+  if(CATCHABLE_ASSETS.has(targetAsset)) return { found: true, wildOnly: true, steps: [] };
+  const cache = new Map();
+  const rec = computeShortestGen(targetAsset, cache, new Set());
+  if(!rec) return { found: false };
+  const producedBy = {};
+  cache.forEach((r, asset) => { if(r && r.pair) producedBy[asset] = { a: r.pair[0], b: r.pair[1], generation: r.gen }; });
+  return { found: true, wildOnly: false, steps: reconstructRoadmapSteps(targetAsset, producedBy) };
+}
+
+function renderRoadmapResult(targetAsset){
+  const box = document.getElementById("roadmapResult");
+  box.className = "result-box";
+  const result = findRoadmapRoute(targetAsset);
+  if(!result.found){
+    box.innerHTML = `<p>「${nameOf(targetAsset)}」への配合ルートが見つかりませんでした(最大20世代以内では到達できません)。</p>`;
+    return;
+  }
+  if(result.wildOnly){
+    box.innerHTML = `<p>「${nameOf(targetAsset)}」は野生・ボスとして直接捕獲できます(配合は不要です)。</p>`;
+    return;
+  }
+  let html = `<h3 style="font-family:var(--font-display);margin-top:0;">${nameOf(targetAsset)} への配合ルート(${result.steps.length}ステップ)</h3><ol class="route-pair-list" style="list-style:none;padding:0;">`;
+  result.steps.forEach(s => {
+    const isFinal = s.child === targetAsset;
+    html += `<li class="route-pair-item" style="${isFinal ? 'border:1px solid var(--brass);' : ''}">
+      <span class="unique-tag" style="background:var(--teal-dim);">第${s.generation}世代</span>
+      ${palLink(s.a)}
+      <span style="color:var(--brass);">×</span>
+      ${palLink(s.b)}
+      <span style="color:var(--brass);">→</span>
+      ${palLink(s.child)}
+    </li>`;
+  });
+  html += `</ol>`;
+  box.innerHTML = html;
+}
+
+setupPicker(
+  document.querySelector('#roadmapMode .pal-picker input'),
+  document.querySelector('#roadmapMode .pal-picker-results'),
+  asset => renderRoadmapResult(asset)
+);
 
 (function initFromQuery(){
   const params = new URLSearchParams(location.search);

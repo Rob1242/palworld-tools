@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>更新履歴 | Palworld攻略ツール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/design-system.css">
+<style>
+  :root{
+    --bg: #05080e; --panel: #0e1420; --panel2: #141d2b;
+    --parchment: #e7edf5; --parchment-dim: #7e90a5;
+    --brass: #6ec8ea; --brass-dim: #2f6b85;
+    --teal: #35d2ff; --teal-dim: #1c6d86;
+    --line: rgba(120,165,220,.18); --danger: #e2543f;
+    --lime: #3d7bff; --lime-dim: #1f4a99;
+    --magenta: #8fd6ff; --magenta-dim: #4a7fa3;
+    --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
+    --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
+    --font-mono: "JetBrains Mono", monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background: var(--bg);
+    color:var(--parchment);font-family:var(--font-body);padding:0;}
+  .wrap{max-width:900px;margin:0 auto;padding:22px 20px 60px;}
+
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:var(--panel2);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  h1.title{font-family:var(--font-display);font-weight:700;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
+  .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
+
+  .intro{font-size:13px;color:var(--parchment-dim);line-height:1.8;margin:0 0 20px;}
+
+  .timeline{position:relative;padding-left:26px;}
+  .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line);}
+  .entry{position:relative;margin-bottom:22px;}
+  .entry::before{content:"";position:absolute;left:-26px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px rgba(61,123,255,.6);}
+  .entry-date{font-family:var(--font-mono);font-size:11.5px;color:var(--brass);letter-spacing:.06em;margin-bottom:6px;}
+  .entry-box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 18px;box-shadow:0 6px 18px rgba(0,0,0,.2);}
+  .entry-box ul{margin:0;padding-left:18px;}
+  .entry-box li{font-size:13px;color:var(--parchment);line-height:1.8;}
+  .entry-box li b{color:var(--brass);font-weight:700;}
+
+  .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand-link" href="palworld_home.html">
+      <div class="brand-badge">P</div>
+      <h1 class="title glitch-hover" data-text="更新履歴"><small>Palworld 攻略ツール</small>更新履歴</h1>
+    </a>
+    <nav class="tabs">
+      <a href="palworld_home.html"><span>ホーム</span></a>
+      <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
+      <a href="palworld_dex.html"><span>パル図鑑</span></a>
+      <a href="palworld_breeding.html"><span>配合検索</span></a>
+      <a href="palworld_palbox.html"><span>パルボックス</span></a>
+      <a href="palworld_combat.html"><span>戦闘最適化</span></a>
+      <a href="palworld_items.html"><span>アイテム図鑑</span></a>
+      <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
+      <a href="palworld_ride.html"><span>ライド速度</span></a>
+      <a href="palworld_map.html"><span>出現マップ</span></a>
+      <a href="palworld_bossguide.html"><span>ボス攻略</span></a>
+      <a href="palworld_achievements.html"><span>実績一覧</span></a>
+      <a href="palworld_passives_guide.html"><span>おすすめパッシブ</span></a>
+      <a href="palworld_reference.html"><span>早見表</span></a>
+      <a href="palworld_technology.html"><span>テクノロジー</span></a>
+      <a href="palworld_missions.html"><span>ミッション</span></a>
+      <a href="palworld_iv_calc.html"><span>素質値計算機</span></a>
+      <a href="palworld_party_guide.html"><span>パーティ編成ガイド</span></a>
+      <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
+      <a href="palworld_changelog.html" class="current"><span>更新履歴</span></a>
+    </nav>
+  </header>
+
+  <p class="intro">このツール群に加えた主な変更をまとめています。細かい内部修正は省略し、実際に使い勝手が変わったものだけ載せています。</p>
+
+  <div class="timeline" id="timeline"></div>
+
+  <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。</p>
+</div>
+<script>
+const CHANGELOG = [
+  { date: "2026-07-20", items: [
+    "<b>ボス攻略に「フィールドボス」タブを追加</b>: アルファ個体83体の一覧をLv・ドロップ品つきで掲載",
+    "<b>最強Tier表を拡張</b>: 「戦闘(属性別)」「拠点作業」「配合牧場」の3カテゴリを追加し、ランクを5段階(SS〜C)から6段階(SS〜D)に変更",
+    "<b>「パーティ編成ガイド」ページを新規追加</b>: 序盤・拠点作業班・終盤6体編成を実データの計算からおすすめ",
+    "<b>「拠点位置ガイド」ページを新規追加</b>: 資源・地形・安全性つきのおすすめ拠点候補地を紹介(拠点プランナーとは別ツール)",
+    "出現マップのデータ元(spawn_data.js)を再取得し、欠落していたカモノスケ・シメナワ・オバケナワの野生出現データを復旧",
+    "早見表(作業優先度)で内部コード名がそのまま表示されていた箇所を、日本語の説明文に修正",
+    "ホームのツール一覧に上記の新規ページ、および実績一覧・おすすめパッシブ・早見表・テクノロジー・ミッション一覧・素質値計算機のカードを追加(ナビには追加済みだったがホーム画面に未掲載だったもの)",
+  ]},
+  { date: "2026-07-17", items: [
+    "<b>配合ロードマップに成功率シミュレーター追加</b>: 目的パッシブが全部揃う確率と、期待孵化回数の概算を表示",
+    "<b>パルボックスに個人用バックアップ/復元コード追加</b>: 端末を変えても所持データを復元できるように",
+    "<b>ボス攻略ページから戦闘最適化への連携リンク追加</b>: 推奨パルのDPSをその場で確認可能に",
+    "更新履歴ページ(このページ)を新規追加",
+  ]},
+  { date: "2026-07-16", items: [
+    "<b>「ボス攻略」ページを新規追加</b>: 塔ボス全10体+レイドボス5系統の弱点・固有技の回避法・おすすめパル編成をまとめて解説",
+    "配合ロードマップとの連携: ボス攻略の推奨パルから「配合ロードマップで検索」ボタンで直接ジャンプ可能に",
+    "パルボックスの配合ロードマップで、<b>所持済みのパルでも配合ルートを提示</b>するよう改善(以前は所持済みだと即終了していた)",
+    "全ページのスマホ表示を修正(ナビの横スクロール対応、ランキング表の折り返し崩れなど)",
+    "アイテム図鑑を日本語化(2466件中2450件、99.4%)。デバッグ用アイテムを一覧から除外、カテゴリ分類の誤りも修正",
+    "パルボックスの「パルを追加」「配合ロードマップ」で一部パル(カモノスケ・シメナワ・オバケナワ)が選択できなかった不具合を修正",
+    "図鑑に実在しないゴーストデータ(ゼロヴァース等5体)を配合表から除外",
+  ]},
+  { date: "2026-07-15", items: [
+    "戦闘最適化(DPSランキング)ツールを新規実装",
+    "出現マップツールを新規実装",
+    "サイト全体に統一デザイン(ダーク×真鍮×ネオン)を適用",
+  ]},
+  { date: "2026-07-14", items: [
+    "パッシブスキルの日英データを統合、拠点プランナーの理論値計算に反映",
+    "配合データのJP名未マッチ問題を解消",
+  ]},
+  { date: "2026-07-13", items: [
+    "拠点プランナーv2のUI改善(パルアイコン表示、作業速度スコア精度向上)",
+  ]},
+];
+
+document.getElementById("timeline").innerHTML = CHANGELOG.map(group => `
+  <div class="entry">
+    <div class="entry-date">${group.date}</div>
+    <div class="entry-box"><ul>${group.items.map(i => `<li>${i}</li>`).join("")}</ul></div>
+  </div>
+`).join("");
+</script>
+</body>
+</html>

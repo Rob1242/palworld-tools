@@ -1,0 +1,7122 @@
+[
+ {
+  "type": "Alpha Pal",
+  "name": "イシス",
+  "x": 0.20495,
+  "y": 0.91107,
+  "lv": 66,
+  "asset": "Sentinel_of_the_Tides_Faleris_Aqua"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ヤンデリナ",
+  "x": 0.27702,
+  "y": 0.85849,
+  "lv": 65,
+  "asset": "Crimson_Butcher_Splatterina"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ゴルクレス",
+  "x": 0.29604,
+  "y": 0.78858,
+  "lv": 64,
+  "asset": "Gold-Armored_Warrior_Warsect_Terra"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "キンガゼル",
+  "x": 0.32103,
+  "y": 0.84483,
+  "lv": 63,
+  "asset": "Guardian_Beast_of_Twilight_Gildane"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "オーメン",
+  "x": 0.39483,
+  "y": 0.69084,
+  "lv": 60,
+  "asset": "Hundred-Faced_Apostle_Omascul"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "グランドラー",
+  "x": 0.2114,
+  "y": 0.8097,
+  "lv": 62,
+  "asset": "Predator_of_the_Earth_Cryolinx_Terra"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ナイトロット",
+  "x": 0.33609,
+  "y": 0.80687,
+  "lv": 63,
+  "asset": "Midnight_Blue_Mane_Starryon"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ヤミナラシ",
+  "x": 0.23829,
+  "y": 0.66694,
+  "lv": 60,
+  "asset": "Born_of_the_Thunderclouds_Dazzi_Noct"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "カゲヌイ",
+  "x": 0.35048,
+  "y": 0.81119,
+  "lv": 65,
+  "asset": "Guardian_of_the_Dark_Flame_Kitsun_Noct"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "オーマサンダ",
+  "x": 0.26033,
+  "y": 0.92627,
+  "lv": 66,
+  "asset": "Blue_Lightning_Steed_Azurmane"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "セレスディア",
+  "x": 0.31312,
+  "y": 0.76818,
+  "lv": 65,
+  "asset": "Beast_of_Salvation_Celesdir"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ニャニミテ",
+  "x": 0.32757,
+  "y": 0.68694,
+  "lv": 60,
+  "asset": "Night_Shade_Hunter_Nyafia"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "アイギルガ",
+  "x": 0.30686,
+  "y": 0.7205,
+  "lv": 62,
+  "asset": "Guardian_Dragon_of_Ironclad_Silvegis"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ムラサメ",
+  "x": 0.34728,
+  "y": 0.75981,
+  "lv": 60,
+  "asset": "Drifting_Thundercloud_Fenglope_Lux"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ユキカゲ",
+  "x": 0.25551,
+  "y": 0.8454,
+  "lv": 66,
+  "asset": "Enraptured_by_the_Frozen_Moonlight_Loupmoon_Cryst"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ビリビリュー",
+  "x": 0.71961,
+  "y": 0.34039,
+  "lv": 47,
+  "asset": "Guardian_of_Lightning_Dinossom_Lux"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "スザク",
+  "x": 0.72304,
+  "y": 0.24047,
+  "lv": 45,
+  "asset": "Ruler_of_the_Crimson_Dawn_Suzaku"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "デスティング",
+  "x": 0.73079,
+  "y": 0.22307,
+  "lv": 44,
+  "asset": "Unstoppable_Stinger_Menasting"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "オモシガメ",
+  "x": 0.75781,
+  "y": 0.27323,
+  "lv": 55,
+  "asset": "Sandsea_Monolith_Tetroise"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "セイントール",
+  "x": 0.75929,
+  "y": 0.17794,
+  "lv": 60,
+  "asset": "Holy_Knight_of_Legend_Paladius"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "マグマンダー",
+  "x": 0.26209,
+  "y": 1.02625,
+  "lv": 70,
+  "asset": "Scorched_Wanderer_Moldron"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ジオルドン",
+  "x": 0.87975,
+  "y": 0.24559,
+  "lv": 50,
+  "asset": "Shambling_Vein_Pierdon"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ハグミー",
+  "x": 0.75721,
+  "y": 0.62123,
+  "lv": 40,
+  "asset": "Prickly_Welcome_Needoll"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ブッサンダー",
+  "x": 0.20248,
+  "y": 0.58956,
+  "lv": 70,
+  "asset": "Thunderboy_Prixter_Lux"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ノロウゾー",
+  "x": 0.0817,
+  "y": 0.69662,
+  "lv": 70,
+  "asset": "Twinhearted_Violet_Construct_Dualith_Noct"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ウゴクゾー",
+  "x": 0.90858,
+  "y": 0.42586,
+  "lv": 55,
+  "asset": "Twinhearted_Azure_Construct_Dualith"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "アオパオー",
+  "x": 0.49731,
+  "y": 0.28104,
+  "lv": 46,
+  "asset": "Azure_Fluff_Commander_Kingpaca_Cryst"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "コゴエール",
+  "x": 0.56269,
+  "y": 0.12583,
+  "lv": 55,
+  "asset": "Gentle_Ice_Lance_Whalaska"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "グレイシャル",
+  "x": 0.50623,
+  "y": 0.23208,
+  "lv": 60,
+  "asset": "Legendary_Steed_of_Ice_Frostallion"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "リリクイン",
+  "x": 0.41892,
+  "y": 0.29816,
+  "lv": 58,
+  "asset": "Empress_of_Lilies_Lyleen"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ゴルディング",
+  "x": 0.43488,
+  "y": 0.29325,
+  "lv": 55,
+  "asset": "Gold-Piercing_Spear_Menasting_Terra"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ルナクイン",
+  "x": 0.42009,
+  "y": 0.29735,
+  "lv": 58,
+  "asset": "Empress_of_the_Abyss_Lyleen_Noct"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "センコ",
+  "x": 0.54221,
+  "y": 0.87911,
+  "lv": 68,
+  "asset": "Self-Serving_Seer_Flaracle"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "レイバーン",
+  "x": 0.46435,
+  "y": 0.87943,
+  "lv": 69,
+  "asset": "Wings_of_Freedom_Eidrolon"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ジェッドラン",
+  "x": 0.44392,
+  "y": 0.81928,
+  "lv": 70,
+  "asset": "Legendary_Celestial_Dragon_Jetragon"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ダイナモフ",
+  "x": 0.52188,
+  "y": 0.87999,
+  "lv": 67,
+  "asset": "Buzzy_Bundle_Dynamoff"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ノンビリリ",
+  "x": 0.50291,
+  "y": 0.82721,
+  "lv": 66,
+  "asset": "Shockingly_Laid-Back_Slowatt"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ハナミズチ",
+  "x": 0.43238,
+  "y": 0.86582,
+  "lv": 69,
+  "asset": "Pure_Bloom_Dragon_Ophydia"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "デンツム",
+  "x": 0.50256,
+  "y": 0.84527,
+  "lv": 65,
+  "asset": "Sluggish_Blue_Bolt_Snock"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "アヌビス",
+  "x": 0.57701,
+  "y": 0.42454,
+  "lv": 55,
+  "asset": "Guardian_of_the_Dark_Sun_Anubis"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "グランモス",
+  "x": 0.67951,
+  "y": 0.54676,
+  "lv": 38,
+  "asset": "King_of_the_Forest_Mammorest"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "オコチョ",
+  "x": 0.67434,
+  "y": 0.5276,
+  "lv": 11,
+  "asset": "Dancer_on_the_Steppe_Chillet"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ムラクモ",
+  "x": 0.5377,
+  "y": 0.54035,
+  "lv": 25,
+  "asset": "Drifting_Cloud_Fenglope"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ライコーン",
+  "x": 0.58252,
+  "y": 0.56746,
+  "lv": 31,
+  "asset": "Swift_Deity_Univolt"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ライバード",
+  "x": 0.6497,
+  "y": 0.387,
+  "lv": 37,
+  "asset": "Wings_of_Thunderbolt_Beakon"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "アズレーン",
+  "x": 0.5637,
+  "y": 0.47933,
+  "lv": 40,
+  "asset": "Lady_of_the_Lake_Azurobe"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ニャンギマリ",
+  "x": 0.73259,
+  "y": 0.47282,
+  "lv": 17,
+  "asset": "Marshmallow_Body_Grintale"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "アルパオー",
+  "x": 0.63534,
+  "y": 0.54125,
+  "lv": 23,
+  "asset": "Supreme_Fluff_Commander_Kingpaca"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ラブラドン",
+  "x": 0.54914,
+  "y": 0.60782,
+  "lv": 23,
+  "asset": "Winds_of_Spring_Broncherry"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "レヴィドラ",
+  "x": 0.7308,
+  "y": 0.42154,
+  "lv": 55,
+  "asset": "Emperor_of_the_Sea_Jormuntide"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "シルフィア",
+  "x": 0.63348,
+  "y": 0.48486,
+  "lv": 30,
+  "asset": "Gentle_Sky_Dragon_Elphidran"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "トドドドン",
+  "x": 0.52123,
+  "y": 0.39316,
+  "lv": 14,
+  "asset": "Perpetual_Procrastinator_Dumud"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ホークウィン",
+  "x": 0.53192,
+  "y": 0.4167,
+  "lv": 18,
+  "asset": "Wings_of_the_Firmament_Nitewing"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "モモンチュラ",
+  "x": 0.51053,
+  "y": 0.4747,
+  "lv": 35,
+  "asset": "Tactician_of_the_Thread_Realm_Tarantriss"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ナエモチ",
+  "x": 0.5838,
+  "y": 0.59476,
+  "lv": 11,
+  "asset": "Suddenly_Transformed_Gumoss"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ドンモップ",
+  "x": 0.5475,
+  "y": 0.58347,
+  "lv": 11,
+  "asset": "King_of_the_Floof_Sweepa"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ライゾー",
+  "x": 0.762,
+  "y": 0.45215,
+  "lv": 31,
+  "asset": "Inheritor_of_the_Storm_Mossanda_Lux"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "トロピティ",
+  "x": 0.76214,
+  "y": 0.41074,
+  "lv": 38,
+  "asset": "Guardian_of_the_Grassy_Fields_Wumpo_Botan"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "クインビーナ",
+  "x": 0.67158,
+  "y": 0.42124,
+  "lv": 39,
+  "asset": "Empress_of_the_Hive_Elizabee"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "テラナイト",
+  "x": 0.43385,
+  "y": 0.47427,
+  "lv": 55,
+  "asset": "Suit_of_Armor_Knocklem"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ボルカノン",
+  "x": 0.44565,
+  "y": 0.53263,
+  "lv": 50,
+  "asset": "Lava-Devouring_Juggernaut_Reptyro"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ボルカイザー",
+  "x": 0.3857,
+  "y": 0.50015,
+  "lv": 52,
+  "asset": "Cursed_Tyrant_Blazamut"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ジオラーヴァ",
+  "x": 0.40083,
+  "y": 0.42964,
+  "lv": 55,
+  "asset": "Draconic_Monarch_of_Steel_Astegon"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "エレパンダ",
+  "x": 0.63738,
+  "y": 0.61672,
+  "lv": 30,
+  "asset": "Claws_of_Lightning_Grizzbolt"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "グレイシャドウ",
+  "x": 0.83844,
+  "y": 0.18779,
+  "lv": 65,
+  "asset": "Legendary_Steed_of_Darkness_Frostallion_Noct"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ネプティオス",
+  "x": 0.6636,
+  "y": 0.18668,
+  "lv": 60,
+  "asset": "Legend_of_the_Seas_Neptilius"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ラベロット",
+  "x": 0.71021,
+  "y": 0.39125,
+  "lv": 35,
+  "asset": "Gale_of_the_Forest_Verdash"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "キャプペン",
+  "x": 0.6557,
+  "y": 0.50658,
+  "lv": 15,
+  "asset": "Pioneer_of_the_Frozen_Sea_Penking"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ベノゴート",
+  "x": 0.57302,
+  "y": 0.60472,
+  "lv": 23,
+  "asset": "Tainted_Farm_Caprity_Noct"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ナイトメアリ",
+  "x": 0.32635,
+  "y": 0.71773,
+  "lv": 60,
+  "asset": "Soul_of_the_Dark_Rabbit_Nitemary"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "クロマル",
+  "x": 0.34052,
+  "y": 0.86231,
+  "lv": 60,
+  "asset": "Jet-Black_Little_Hero_Smokie"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "フォレーナ",
+  "x": 0.6708,
+  "y": 0.46562,
+  "lv": 28,
+  "asset": "Fire-Licked_Furball_Wixen"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "フブキツネ",
+  "x": 0.6964,
+  "y": 0.50027,
+  "lv": 15,
+  "asset": "Frostbound_Fox_Foxcicle"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ミステリア",
+  "x": 0.66069,
+  "y": 0.4105,
+  "lv": 35,
+  "asset": "Extraterrestrial_Lunaris"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "シルキーヌ",
+  "x": 0.69968,
+  "y": 0.37231,
+  "lv": 40,
+  "asset": "Pallid_Lady_Sibelyx"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ヴィオレッタ",
+  "x": 0.61346,
+  "y": 0.47888,
+  "lv": 27,
+  "asset": "Voice_of_the_Violets_Vaelet"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ホシノコ",
+  "x": 0.54592,
+  "y": 0.84574,
+  "lv": 66,
+  "asset": "Mantle_of_the_Night_Sky_Wistella"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ツジギリ",
+  "x": 0.55523,
+  "y": 0.50486,
+  "lv": 25,
+  "asset": "Vagrant_Warrior_Bushi"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "オシロガメ",
+  "x": 0.27608,
+  "y": 0.81536,
+  "lv": 60,
+  "asset": "Sandsea_Wardenstone_Tetroise_Primo"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ゴクエンオ",
+  "x": 0.53842,
+  "y": 0.43606,
+  "lv": 30,
+  "asset": "Crimson_Goliath_Blazehowl"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ブルフェルノ",
+  "x": 0.58262,
+  "y": 0.55087,
+  "lv": 15,
+  "asset": "Blazing_Brute_Arsox"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "プラムルリム",
+  "x": 0.18917,
+  "y": 0.70298,
+  "lv": 63,
+  "asset": "Indigo_Handmaiden_Prunelia"
+ },
+ {
+  "type": "Alpha Pal",
+  "name": "ユキツネ",
+  "x": 0.48916,
+  "y": 0.41191,
+  "lv": 15,
+  "asset": "Icy_Blossom_Voyager_Foxparks_Cryst"
+ },
+ {
+  "type": "Bounty",
+  "name": "承認欲求モンスター 賞金首 ダズル",
+  "x": 0.3512,
+  "y": 0.80303,
+  "lv": 56,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "食い逃げ常習犯 賞金首 スクート",
+  "x": 0.61316,
+  "y": 0.54156,
+  "lv": 10,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "食人鬼 賞金首 ナア",
+  "x": 0.38461,
+  "y": 0.71421,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "パワハラ常習犯 賞金首 ウィップ",
+  "x": 0.72129,
+  "y": 0.27646,
+  "lv": 40,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "隙あらば自分語り 賞金首 エゴ",
+  "x": 0.61584,
+  "y": 0.42241,
+  "lv": 23,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "圧迫面接官 賞金首 グリル",
+  "x": 0.53535,
+  "y": 0.47672,
+  "lv": 20,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "チョンボマスター 賞金首 ファンブル",
+  "x": 0.67115,
+  "y": 0.39494,
+  "lv": 28,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "人間コレクター 賞金首 キャッシュ",
+  "x": 0.17926,
+  "y": 0.86782,
+  "lv": 58,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "押し入り強盗 賞金首 ラム",
+  "x": 0.22666,
+  "y": 0.77156,
+  "lv": 59,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "馬泥棒 賞金首 ビリー",
+  "x": 0.27668,
+  "y": 0.68269,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "暴力的愛護 賞金首 ブリック",
+  "x": 0.64359,
+  "y": 0.36366,
+  "lv": 30,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "トリガーハッピー 賞金首 クリント",
+  "x": 0.50452,
+  "y": 0.29318,
+  "lv": 49,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "牛泥棒 賞金首 ラッソ",
+  "x": 0.59822,
+  "y": 0.45919,
+  "lv": 21,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "人さらい 賞金首 ウィスク",
+  "x": 0.61669,
+  "y": 0.30126,
+  "lv": 45,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "借りパク常習犯 賞金首 ピンチ",
+  "x": 0.24721,
+  "y": 0.78531,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "バウンティハンターハンター 賞金首 タンコ",
+  "x": 0.61906,
+  "y": 0.51744,
+  "lv": 15,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "お団子泥棒 賞金首 ニンブル",
+  "x": 0.45335,
+  "y": 0.36101,
+  "lv": 52,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "中抜き常習犯 賞金首 スキム",
+  "x": 0.59084,
+  "y": 0.34834,
+  "lv": 42,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "脱獄のプロ 賞金首 ファントム",
+  "x": 0.78872,
+  "y": 0.35187,
+  "lv": 36,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "ネタバレ常習犯 賞金首 ウィスパー",
+  "x": 0.7507,
+  "y": 0.20615,
+  "lv": 37,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "黒魔術愛好家 賞金首 シャドウ",
+  "x": 0.48234,
+  "y": 0.53879,
+  "lv": 41,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "辻斬り 賞金首 アーチン",
+  "x": 0.40555,
+  "y": 0.32097,
+  "lv": 53,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "初心者狩り 賞金首 ホーク",
+  "x": 0.63602,
+  "y": 0.5579,
+  "lv": 12,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "双子の爆弾魔 賞金首 ダイナ",
+  "x": 0.73046,
+  "y": 0.3963,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "歩きタバコ 賞金首 ダート",
+  "x": 0.7024,
+  "y": 0.46406,
+  "lv": 23,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "善良な無免許医師 賞金首 クイル",
+  "x": 0.55763,
+  "y": 0.2409,
+  "lv": 43,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "当たり屋 賞金首 クラッシュ",
+  "x": 0.52747,
+  "y": 0.5928,
+  "lv": 15,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "放火魔 賞金首 フレア",
+  "x": 0.45446,
+  "y": 0.63533,
+  "lv": 38,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "地面師 賞金首 ジェイド",
+  "x": 0.51711,
+  "y": 0.43159,
+  "lv": 19,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "パイナップルピザ愛好家 賞金首 アロハ",
+  "x": 0.43155,
+  "y": 0.4693,
+  "lv": 39,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "二十股 賞金首 サイレン",
+  "x": 0.53502,
+  "y": 0.51993,
+  "lv": 16,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "偽造貨幣鋳造人 賞金首 ミミック",
+  "x": 0.24066,
+  "y": 0.9387,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "双子の爆弾魔 賞金首 マイト",
+  "x": 0.73034,
+  "y": 0.39503,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "承認欲求モンスター 賞金首 ダズル",
+  "x": 0.3512,
+  "y": 0.80303,
+  "lv": 56,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "食い逃げ常習犯 賞金首 スクート",
+  "x": 0.61316,
+  "y": 0.54156,
+  "lv": 10,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "パワハラ常習犯 賞金首 ウィップ",
+  "x": 0.72129,
+  "y": 0.27646,
+  "lv": 40,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "隙あらば自分語り 賞金首 エゴ",
+  "x": 0.61584,
+  "y": 0.42241,
+  "lv": 23,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "チョンボマスター 賞金首 ファンブル",
+  "x": 0.67115,
+  "y": 0.39494,
+  "lv": 28,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "押し入り強盗 賞金首 ラム",
+  "x": 0.22666,
+  "y": 0.77156,
+  "lv": 59,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "馬泥棒 賞金首 ビリー",
+  "x": 0.27668,
+  "y": 0.68269,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "暴力的愛護 賞金首 ブリック",
+  "x": 0.64359,
+  "y": 0.36366,
+  "lv": 30,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "トリガーハッピー 賞金首 クリント",
+  "x": 0.50452,
+  "y": 0.29318,
+  "lv": 49,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "牛泥棒 賞金首 ラッソ",
+  "x": 0.59822,
+  "y": 0.45919,
+  "lv": 21,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "借りパク常習犯 賞金首 ピンチ",
+  "x": 0.24721,
+  "y": 0.78531,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "バウンティハンターハンター 賞金首 タンコ",
+  "x": 0.61906,
+  "y": 0.51744,
+  "lv": 15,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "お団子泥棒 賞金首 ニンブル",
+  "x": 0.45335,
+  "y": 0.36101,
+  "lv": 52,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "中抜き常習犯 賞金首 スキム",
+  "x": 0.59084,
+  "y": 0.34834,
+  "lv": 42,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "脱獄のプロ 賞金首 ファントム",
+  "x": 0.78872,
+  "y": 0.35187,
+  "lv": 36,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "ネタバレ常習犯 賞金首 ウィスパー",
+  "x": 0.7507,
+  "y": 0.20615,
+  "lv": 37,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "黒魔術愛好家 賞金首 シャドウ",
+  "x": 0.48234,
+  "y": 0.53879,
+  "lv": 41,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "辻斬り 賞金首 アーチン",
+  "x": 0.40555,
+  "y": 0.32097,
+  "lv": 53,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "初心者狩り 賞金首 ホーク",
+  "x": 0.63602,
+  "y": 0.5579,
+  "lv": 12,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "双子の爆弾魔 賞金首 ダイナ",
+  "x": 0.73046,
+  "y": 0.3963,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "歩きタバコ 賞金首 ダート",
+  "x": 0.7024,
+  "y": 0.46406,
+  "lv": 23,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "善良な無免許医師 賞金首 クイル",
+  "x": 0.55763,
+  "y": 0.2409,
+  "lv": 43,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "当たり屋 賞金首 クラッシュ",
+  "x": 0.52747,
+  "y": 0.5928,
+  "lv": 15,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "放火魔 賞金首 フレア",
+  "x": 0.45446,
+  "y": 0.63533,
+  "lv": 38,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "パイナップルピザ愛好家 賞金首 アロハ",
+  "x": 0.43155,
+  "y": 0.4693,
+  "lv": 39,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "二十股 賞金首 サイレン",
+  "x": 0.53502,
+  "y": 0.51993,
+  "lv": 16,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "偽造貨幣鋳造人 賞金首 ミミック",
+  "x": 0.24066,
+  "y": 0.9387,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "双子の爆弾魔 賞金首 マイト",
+  "x": 0.73034,
+  "y": 0.39503,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "食人鬼 賞金首 ナア",
+  "x": 0.38461,
+  "y": 0.71421,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "圧迫面接官 賞金首 グリル",
+  "x": 0.53535,
+  "y": 0.47672,
+  "lv": 20,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "人間コレクター 賞金首 キャッシュ",
+  "x": 0.17926,
+  "y": 0.86782,
+  "lv": 58,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "人さらい 賞金首 ウィスク",
+  "x": 0.61669,
+  "y": 0.30126,
+  "lv": 45,
+  "asset": null
+ },
+ {
+  "type": "Bounty",
+  "name": "地面師 賞金首 ジェイド",
+  "x": 0.51711,
+  "y": 0.43159,
+  "lv": 19,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "承認欲求モンスター 賞金首 ダズル",
+  "x": 0.3512,
+  "y": 0.80303,
+  "lv": 56,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "借りパク常習犯 賞金首 ピンチ",
+  "x": 0.24721,
+  "y": 0.78531,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "押し入り強盗 賞金首 ラム",
+  "x": 0.22666,
+  "y": 0.77156,
+  "lv": 59,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "偽造貨幣鋳造人 賞金首 ミミック",
+  "x": 0.24066,
+  "y": 0.9387,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "馬泥棒 賞金首 ビリー",
+  "x": 0.27668,
+  "y": 0.68269,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "古代文明の研究者",
+  "x": 0.56464,
+  "y": 0.38361,
+  "lv": 25,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "物静かな砂漠の民",
+  "x": 0.73074,
+  "y": 0.28281,
+  "lv": 44,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "天陽郷の民",
+  "x": 0.52952,
+  "y": 0.86215,
+  "lv": 73,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "初心者狩り 賞金首 ホーク",
+  "x": 0.63602,
+  "y": 0.5579,
+  "lv": 12,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "バウンティハンターハンター 賞金首 タンコ",
+  "x": 0.61906,
+  "y": 0.51744,
+  "lv": 15,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "二十股 賞金首 サイレン",
+  "x": 0.53502,
+  "y": 0.51993,
+  "lv": 16,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "牛泥棒 賞金首 ラッソ",
+  "x": 0.59822,
+  "y": 0.45919,
+  "lv": 21,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "隙あらば自分語り 賞金首 エゴ",
+  "x": 0.61584,
+  "y": 0.42241,
+  "lv": 23,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "暴力的愛護 賞金首 ブリック",
+  "x": 0.64359,
+  "y": 0.36366,
+  "lv": 30,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "チョンボマスター 賞金首 ファンブル",
+  "x": 0.67115,
+  "y": 0.39494,
+  "lv": 28,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "双子の爆弾魔 賞金首 マイト",
+  "x": 0.73034,
+  "y": 0.39503,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "当たり屋 賞金首 クラッシュ",
+  "x": 0.52747,
+  "y": 0.5928,
+  "lv": 15,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "黒魔術愛好家 賞金首 シャドウ",
+  "x": 0.48234,
+  "y": 0.53879,
+  "lv": 41,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "パイナップルピザ愛好家 賞金首 アロハ",
+  "x": 0.43155,
+  "y": 0.4693,
+  "lv": 39,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "放火魔 賞金首 フレア",
+  "x": 0.45446,
+  "y": 0.63533,
+  "lv": 38,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "お団子泥棒 賞金首 ニンブル",
+  "x": 0.45335,
+  "y": 0.36101,
+  "lv": 52,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "辻斬り 賞金首 アーチン",
+  "x": 0.40555,
+  "y": 0.32097,
+  "lv": 53,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "賞金首の情報屋",
+  "x": 0.64307,
+  "y": 0.5464,
+  "lv": 10,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "自警団の指名手配係",
+  "x": 0.64322,
+  "y": 0.54659,
+  "lv": 13,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "賞金首の情報屋",
+  "x": 0.59806,
+  "y": 0.52959,
+  "lv": 16,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "賞金首の情報屋",
+  "x": 0.61492,
+  "y": 0.51246,
+  "lv": 15,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "賞金首の情報屋",
+  "x": 0.66671,
+  "y": 0.46103,
+  "lv": 35,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "賞金首の情報屋",
+  "x": 0.72955,
+  "y": 0.27964,
+  "lv": 44,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "自警団の指名手配係",
+  "x": 0.7293,
+  "y": 0.27922,
+  "lv": 45,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "賞金首の情報屋",
+  "x": 0.46815,
+  "y": 0.63272,
+  "lv": 34,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "自警団の指名手配係",
+  "x": 0.46758,
+  "y": 0.63303,
+  "lv": 39,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "賞金首の情報屋",
+  "x": 0.60555,
+  "y": 0.39084,
+  "lv": 41,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "賞金首の情報屋",
+  "x": 0.47232,
+  "y": 0.35224,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "賞金首の情報屋",
+  "x": 0.33437,
+  "y": 0.71799,
+  "lv": 61,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "賞金首の情報屋",
+  "x": 0.26483,
+  "y": 0.83695,
+  "lv": 62,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "ネタバレ常習犯 賞金首 ウィスパー",
+  "x": 0.7507,
+  "y": 0.20615,
+  "lv": 37,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "パワハラ常習犯 賞金首 ウィップ",
+  "x": 0.72129,
+  "y": 0.27646,
+  "lv": 40,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "脱獄のプロ 賞金首 ファントム",
+  "x": 0.78872,
+  "y": 0.35187,
+  "lv": 36,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "歩きタバコ 賞金首 ダート",
+  "x": 0.7024,
+  "y": 0.46406,
+  "lv": 23,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "中抜き常習犯 賞金首 スキム",
+  "x": 0.59084,
+  "y": 0.34834,
+  "lv": 42,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "善良な無免許医師 賞金首 クイル",
+  "x": 0.55763,
+  "y": 0.2409,
+  "lv": 43,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "トリガーハッピー 賞金首 クリント",
+  "x": 0.50452,
+  "y": 0.29318,
+  "lv": 49,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "警告する自警団",
+  "x": 0.75704,
+  "y": 0.50493,
+  "lv": 13,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "双子の爆弾魔 賞金首 ダイナ",
+  "x": 0.73046,
+  "y": 0.3963,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "食い逃げ常習犯 賞金首 スクート",
+  "x": 0.61316,
+  "y": 0.54156,
+  "lv": 10,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "闘技場の商人",
+  "x": 0.82001,
+  "y": 0.38932,
+  "lv": 46,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "親切なパルテイマー",
+  "x": 0.28685,
+  "y": 0.82739,
+  "lv": 61,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "警告する自警団",
+  "x": 0.66231,
+  "y": 0.49724,
+  "lv": 16,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "警告する自警団",
+  "x": 0.16386,
+  "y": 0.86473,
+  "lv": 67,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "闇商人",
+  "x": 0.78629,
+  "y": 0.28834,
+  "lv": 54,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "流浪の挑戦者",
+  "x": 0.44622,
+  "y": 0.39966,
+  "lv": 9,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "砂漠からの逃亡者",
+  "x": 0.7933,
+  "y": 0.43111,
+  "lv": 11,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "怖がりの遭難者",
+  "x": 0.75455,
+  "y": 0.50475,
+  "lv": 8,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "臆病な島民",
+  "x": 0.60116,
+  "y": 0.58705,
+  "lv": 9,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "膝を怪我した元傭兵",
+  "x": 0.58544,
+  "y": 0.62117,
+  "lv": 8,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "釣り好きの村人",
+  "x": 0.46507,
+  "y": 0.63561,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "世話焼きな村人",
+  "x": 0.46807,
+  "y": 0.63448,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "星好きな村人",
+  "x": 0.46863,
+  "y": 0.63342,
+  "lv": 29,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "火を信奉する村人",
+  "x": 0.46922,
+  "y": 0.63328,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "不真面目な自警団",
+  "x": 0.46755,
+  "y": 0.63244,
+  "lv": 41,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "鼻の利く自警団",
+  "x": 0.46581,
+  "y": 0.63359,
+  "lv": 45,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "パル商人",
+  "x": 0.46821,
+  "y": 0.6343,
+  "lv": 27,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "パル商人",
+  "x": 0.72819,
+  "y": 0.28026,
+  "lv": 43,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "困り果てた農民",
+  "x": 0.64659,
+  "y": 0.54903,
+  "lv": 11,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "料理好きの農民",
+  "x": 0.62356,
+  "y": 0.53698,
+  "lv": 16,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "世話焼きの農民",
+  "x": 0.66956,
+  "y": 0.54289,
+  "lv": 6,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛パル家の農民",
+  "x": 0.65124,
+  "y": 0.51055,
+  "lv": 18,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "伝説を追い求める研究員",
+  "x": 0.63869,
+  "y": 0.49786,
+  "lv": 21,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "古代文明研究会の研究員",
+  "x": 0.60521,
+  "y": 0.36626,
+  "lv": 46,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "カモノスケマニアの研究員",
+  "x": 0.69347,
+  "y": 0.4977,
+  "lv": 21,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "石ころオタクの研究員",
+  "x": 0.17632,
+  "y": 0.72995,
+  "lv": 69,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "竹林の民",
+  "x": 0.54875,
+  "y": 0.43847,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "パル育成初心者のブリーダー",
+  "x": 0.58472,
+  "y": 0.54523,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "竹林の民",
+  "x": 0.54964,
+  "y": 0.43754,
+  "lv": 21,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "高所恐怖症のブリーダー",
+  "x": 0.70964,
+  "y": 0.34191,
+  "lv": 46,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "熱心なパル繁殖家のブリーダー",
+  "x": 0.2872,
+  "y": 0.79271,
+  "lv": 66,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "毎日が狩り日和の狩人",
+  "x": 0.79121,
+  "y": 0.28816,
+  "lv": 48,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "天落の研究者",
+  "x": 0.29208,
+  "y": 0.69212,
+  "lv": 64,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "天落の研究者",
+  "x": 0.2947,
+  "y": 0.69084,
+  "lv": 64,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "ゾーイ",
+  "x": 0.64023,
+  "y": 0.52565,
+  "lv": 15,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "大物狙いの狩人",
+  "x": 0.22409,
+  "y": 0.90086,
+  "lv": 66,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "いい香りのする狩人",
+  "x": 0.67467,
+  "y": 0.43458,
+  "lv": 28,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "片道全力の流浪民",
+  "x": 0.57543,
+  "y": 0.2465,
+  "lv": 51,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "キラめき求めて三千里の流浪民",
+  "x": 0.35738,
+  "y": 0.66353,
+  "lv": 60,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "三度の飯より冒険派の流浪民",
+  "x": 0.66486,
+  "y": 0.56405,
+  "lv": 8,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "スローライフ満喫中の釣り人",
+  "x": 0.74238,
+  "y": 0.53878,
+  "lv": 12,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "ンダコアラになりたい島民",
+  "x": 0.62632,
+  "y": 0.46786,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "頼りになりそうな自警団",
+  "x": 0.64494,
+  "y": 0.54947,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "傲慢な美食家",
+  "x": 0.7286,
+  "y": 0.27737,
+  "lv": 47,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "パル生態調査員",
+  "x": 0.64409,
+  "y": 0.54809,
+  "lv": 23,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "ベテランパルハンター",
+  "x": 0.64479,
+  "y": 0.54581,
+  "lv": 35,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "賢い猟師",
+  "x": 0.4678,
+  "y": 0.63368,
+  "lv": 36,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "ベテランパルテイマー",
+  "x": 0.67473,
+  "y": 0.54637,
+  "lv": 11,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "天陽郷の民",
+  "x": 0.48635,
+  "y": 0.83287,
+  "lv": 75,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "かけだしパルテイマー",
+  "x": 0.65881,
+  "y": 0.58801,
+  "lv": 14,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.36978,
+  "y": 0.75321,
+  "lv": 61,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.29184,
+  "y": 0.7604,
+  "lv": 62,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.42226,
+  "y": 0.48508,
+  "lv": 42,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.39521,
+  "y": 0.59727,
+  "lv": 41,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.44407,
+  "y": 0.39346,
+  "lv": 27,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.53071,
+  "y": 0.44795,
+  "lv": 25,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.59901,
+  "y": 0.46696,
+  "lv": 31,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.63272,
+  "y": 0.42555,
+  "lv": 27,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.68046,
+  "y": 0.47436,
+  "lv": 38,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.63236,
+  "y": 0.37949,
+  "lv": 36,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.81633,
+  "y": 0.33713,
+  "lv": 45,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.62166,
+  "y": 0.56743,
+  "lv": 14,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.63821,
+  "y": 0.53409,
+  "lv": 9,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "不遜なパル品評家",
+  "x": 0.64288,
+  "y": 0.54894,
+  "lv": 24,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "不遜なパル品評家",
+  "x": 0.59792,
+  "y": 0.52967,
+  "lv": 21,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "不遜なパル品評家",
+  "x": 0.60577,
+  "y": 0.39078,
+  "lv": 38,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "不遜なパル品評家",
+  "x": 0.66684,
+  "y": 0.46112,
+  "lv": 34,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "不遜なパル品評家",
+  "x": 0.33449,
+  "y": 0.7179,
+  "lv": 63,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "不遜なパル品評家",
+  "x": 0.64207,
+  "y": 0.47256,
+  "lv": 31,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "不遜なパル品評家",
+  "x": 0.73381,
+  "y": 0.28601,
+  "lv": 51,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "不遜なパル品評家",
+  "x": 0.44861,
+  "y": 0.59776,
+  "lv": 45,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "不遜なパル品評家",
+  "x": 0.47246,
+  "y": 0.3522,
+  "lv": 54,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "絶望した仕入れ商人",
+  "x": 0.40619,
+  "y": 0.69478,
+  "lv": 60,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "天落軍の脱走兵",
+  "x": 0.37428,
+  "y": 0.73579,
+  "lv": 63,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "聡明な地質学者",
+  "x": 0.27556,
+  "y": 0.80489,
+  "lv": 61,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "楽しそうな鉱石研究者",
+  "x": 0.28204,
+  "y": 0.84954,
+  "lv": 64,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "先遣隊の生き残り",
+  "x": 0.69616,
+  "y": 0.55673,
+  "lv": 22,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "手練れの島民",
+  "x": 0.66968,
+  "y": 0.54298,
+  "lv": 9,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "メダル商人",
+  "x": 0.63977,
+  "y": 0.5259,
+  "lv": 50,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "メダル商人",
+  "x": 0.47541,
+  "y": 0.39836,
+  "lv": 50,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "メダル商人",
+  "x": 0.7468,
+  "y": 0.48146,
+  "lv": 50,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "メダル商人",
+  "x": 0.59953,
+  "y": 0.56457,
+  "lv": 50,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "頼りになりそうな自警団",
+  "x": 0.29118,
+  "y": 0.6936,
+  "lv": 63,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "フィア",
+  "x": 0.40843,
+  "y": 0.63137,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "フィア",
+  "x": 0.72866,
+  "y": 0.28218,
+  "lv": 43,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "フィア",
+  "x": 0.40632,
+  "y": 0.3508,
+  "lv": 71,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "ガデル",
+  "x": 0.40831,
+  "y": 0.63126,
+  "lv": 33,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "ガデル",
+  "x": 0.72871,
+  "y": 0.28228,
+  "lv": 54,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "火山の荷運び",
+  "x": 0.44845,
+  "y": 0.60909,
+  "lv": 25,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "ハロルド",
+  "x": 0.61462,
+  "y": 0.54695,
+  "lv": 70,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "寒がりの砂漠の民",
+  "x": 0.7283,
+  "y": 0.27921,
+  "lv": 42,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "怖がりの砂漠の民",
+  "x": 0.72931,
+  "y": 0.28184,
+  "lv": 47,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "優しい砂漠の民",
+  "x": 0.72829,
+  "y": 0.28013,
+  "lv": 44,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "自警団のしたっぱ",
+  "x": 0.72978,
+  "y": 0.28037,
+  "lv": 49,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "従順な自警団",
+  "x": 0.72946,
+  "y": 0.28037,
+  "lv": 53,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "焚火好きの自警団",
+  "x": 0.73366,
+  "y": 0.28608,
+  "lv": 53,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "密猟団 クラッシャー",
+  "x": 0.71351,
+  "y": 0.3272,
+  "lv": 40,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "密猟団 ソードマン",
+  "x": 0.71293,
+  "y": 0.3271,
+  "lv": 35,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "密猟団 クリーナー",
+  "x": 0.46801,
+  "y": 0.56635,
+  "lv": 40,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "地面師 賞金首 ジェイド",
+  "x": 0.51711,
+  "y": 0.43159,
+  "lv": 19,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "圧迫面接官 賞金首 グリル",
+  "x": 0.53535,
+  "y": 0.47672,
+  "lv": 20,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "人さらい 賞金首 ウィスク",
+  "x": 0.61669,
+  "y": 0.30126,
+  "lv": 45,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "人間コレクター 賞金首 キャッシュ",
+  "x": 0.17926,
+  "y": 0.86782,
+  "lv": 58,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "食人鬼 賞金首 ナア",
+  "x": 0.38461,
+  "y": 0.71421,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "天陽郷の民",
+  "x": 0.51225,
+  "y": 0.83762,
+  "lv": 74,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "諦観した島民",
+  "x": 0.50757,
+  "y": 0.36905,
+  "lv": 11,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "極寒の民",
+  "x": 0.58794,
+  "y": 0.29753,
+  "lv": 52,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "極寒の民",
+  "x": 0.58798,
+  "y": 0.29767,
+  "lv": 44,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "桜島の民",
+  "x": 0.42582,
+  "y": 0.32003,
+  "lv": 68,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "桜島の民",
+  "x": 0.42684,
+  "y": 0.31902,
+  "lv": 60,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "相棒思いのブリーダー",
+  "x": 0.41651,
+  "y": 0.31816,
+  "lv": 66,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "正義感の強い狩人",
+  "x": 0.50572,
+  "y": 0.55185,
+  "lv": 37,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "風まかせの流浪民",
+  "x": 0.41929,
+  "y": 0.32247,
+  "lv": 59,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.76075,
+  "y": 0.29334,
+  "lv": 46,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.60955,
+  "y": 0.3265,
+  "lv": 51,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.40752,
+  "y": 0.32399,
+  "lv": 57,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "愛の伝道師",
+  "x": 0.43852,
+  "y": 0.30976,
+  "lv": 58,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "集落の長",
+  "x": 0.64373,
+  "y": 0.54632,
+  "lv": 20,
+  "asset": null
+ },
+ {
+  "type": "NPC",
+  "name": "密猟団 エリート",
+  "x": 0.71472,
+  "y": 0.32656,
+  "lv": 35,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ネモフィ",
+  "x": 0.51153,
+  "y": 0.83745,
+  "lv": 72,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ダイナモフ",
+  "x": 0.51247,
+  "y": 0.839,
+  "lv": 70,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "パチマル",
+  "x": 0.51343,
+  "y": 0.83581,
+  "lv": 71,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ブシガエル",
+  "x": 0.42633,
+  "y": 0.3199,
+  "lv": 62,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "チルテト",
+  "x": 0.58786,
+  "y": 0.2976,
+  "lv": 41,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ンダコアラ",
+  "x": 0.4164,
+  "y": 0.31811,
+  "lv": 64,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "スナペント",
+  "x": 0.7097,
+  "y": 0.34171,
+  "lv": 45,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ヒメウサ",
+  "x": 0.28713,
+  "y": 0.79282,
+  "lv": 62,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ツッパニャン",
+  "x": 0.58463,
+  "y": 0.54524,
+  "lv": 24,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ヤクモマル",
+  "x": 0.42664,
+  "y": 0.32095,
+  "lv": 64,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "タマコッコ",
+  "x": 0.64654,
+  "y": 0.54894,
+  "lv": 9,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "モグルン",
+  "x": 0.17632,
+  "y": 0.72983,
+  "lv": 64,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "クルリス",
+  "x": 0.54861,
+  "y": 0.43849,
+  "lv": 18,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "モモンパ",
+  "x": 0.54969,
+  "y": 0.43761,
+  "lv": 19,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ホウロック",
+  "x": 0.60523,
+  "y": 0.36609,
+  "lv": 40,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "クレメーナ",
+  "x": 0.29489,
+  "y": 0.69082,
+  "lv": 62,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "カバネドリ",
+  "x": 0.2936,
+  "y": 0.69188,
+  "lv": 61,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "クレメーオ",
+  "x": 0.29138,
+  "y": 0.693,
+  "lv": 61,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ルナティ",
+  "x": 0.29361,
+  "y": 0.69182,
+  "lv": 48,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ホウロック",
+  "x": 0.63882,
+  "y": 0.49779,
+  "lv": 19,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ナエモチ",
+  "x": 0.62353,
+  "y": 0.5371,
+  "lv": 14,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "タマコッコ",
+  "x": 0.66959,
+  "y": 0.54297,
+  "lv": 5,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "チョロゾウ",
+  "x": 0.6514,
+  "y": 0.51056,
+  "lv": 14,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ンダコアラ",
+  "x": 0.62627,
+  "y": 0.46773,
+  "lv": 21,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "エアムルグ",
+  "x": 0.46786,
+  "y": 0.63356,
+  "lv": 38,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "モグルン",
+  "x": 0.46909,
+  "y": 0.63624,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "クレメーオ",
+  "x": 0.46803,
+  "y": 0.63224,
+  "lv": 37,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "タマコッコ",
+  "x": 0.4666,
+  "y": 0.63394,
+  "lv": 28,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ツッパニャン",
+  "x": 0.46663,
+  "y": 0.63387,
+  "lv": 29,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "イヌズマ",
+  "x": 0.47148,
+  "y": 0.63085,
+  "lv": 36,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ボルトラ",
+  "x": 0.47109,
+  "y": 0.63108,
+  "lv": 32,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "マスクロウ",
+  "x": 0.46874,
+  "y": 0.63357,
+  "lv": 32,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ンダコアラ",
+  "x": 0.46618,
+  "y": 0.63439,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ペンタマ",
+  "x": 0.4682,
+  "y": 0.63215,
+  "lv": 28,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ダリザード",
+  "x": 0.47071,
+  "y": 0.63237,
+  "lv": 28,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ニャオテト",
+  "x": 0.46917,
+  "y": 0.63334,
+  "lv": 25,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "イヌズマ",
+  "x": 0.46569,
+  "y": 0.63362,
+  "lv": 42,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ツッパニャン",
+  "x": 0.46767,
+  "y": 0.63384,
+  "lv": 30,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "カバネドリ",
+  "x": 0.72758,
+  "y": 0.27865,
+  "lv": 43,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ガウルフ",
+  "x": 0.72885,
+  "y": 0.27732,
+  "lv": 44,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "フォレーナ",
+  "x": 0.72864,
+  "y": 0.27719,
+  "lv": 43,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ツッパニャン",
+  "x": 0.72877,
+  "y": 0.27718,
+  "lv": 41,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "タマモ",
+  "x": 0.72823,
+  "y": 0.28228,
+  "lv": 40,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "フォレーナ",
+  "x": 0.7283,
+  "y": 0.28221,
+  "lv": 48,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "パチグリ",
+  "x": 0.72799,
+  "y": 0.28243,
+  "lv": 41,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "タマコッコ",
+  "x": 0.64202,
+  "y": 0.54827,
+  "lv": 12,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ナエモチ",
+  "x": 0.64208,
+  "y": 0.54832,
+  "lv": 14,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ベリゴート",
+  "x": 0.64227,
+  "y": 0.54914,
+  "lv": 16,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "タマコッコ",
+  "x": 0.64263,
+  "y": 0.54917,
+  "lv": 11,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "エテッパ",
+  "x": 0.64515,
+  "y": 0.54672,
+  "lv": 12,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ツッパニャン",
+  "x": 0.64438,
+  "y": 0.54415,
+  "lv": 13,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "チョロゾウ",
+  "x": 0.64436,
+  "y": 0.54431,
+  "lv": 16,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ヒノコジカ",
+  "x": 0.64372,
+  "y": 0.54659,
+  "lv": 16,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ボルトラ",
+  "x": 0.64388,
+  "y": 0.5456,
+  "lv": 14,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ミルフィー",
+  "x": 0.64393,
+  "y": 0.54626,
+  "lv": 14,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "タマモ",
+  "x": 0.64252,
+  "y": 0.54691,
+  "lv": 16,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ペンタマ",
+  "x": 0.6447,
+  "y": 0.54704,
+  "lv": 10,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "エテッパ",
+  "x": 0.64329,
+  "y": 0.54627,
+  "lv": 14,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "モグルン",
+  "x": 0.72898,
+  "y": 0.28289,
+  "lv": 43,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ペンタマ",
+  "x": 0.46798,
+  "y": 0.63196,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ラヴィ",
+  "x": 0.46826,
+  "y": 0.63429,
+  "lv": 26,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "サンドロ",
+  "x": 0.72948,
+  "y": 0.28182,
+  "lv": 31,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ニャオテト",
+  "x": 0.72824,
+  "y": 0.28057,
+  "lv": 42,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ホークウィン",
+  "x": 0.72761,
+  "y": 0.27953,
+  "lv": 45,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ンダコアラ",
+  "x": 0.64451,
+  "y": 0.54774,
+  "lv": 9,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "クルリス",
+  "x": 0.64403,
+  "y": 0.54794,
+  "lv": 15,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "トドドドン",
+  "x": 0.46796,
+  "y": 0.63442,
+  "lv": 24,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "トドドドン",
+  "x": 0.46807,
+  "y": 0.63423,
+  "lv": 24,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ツッパニャン",
+  "x": 0.46785,
+  "y": 0.63391,
+  "lv": 31,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "カモノスケ",
+  "x": 0.46812,
+  "y": 0.6326,
+  "lv": 31,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ミルカルビ",
+  "x": 0.64252,
+  "y": 0.54869,
+  "lv": 15,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ミルカルビ",
+  "x": 0.64238,
+  "y": 0.54848,
+  "lv": 12,
+  "asset": null
+ },
+ {
+  "type": "City",
+  "name": "ミルカルビ",
+  "x": 0.64227,
+  "y": 0.5487,
+  "lv": 13,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.69913,
+  "y": 0.56108,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.19529,
+  "y": 0.88011,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.2313,
+  "y": 0.95238,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.17121,
+  "y": 0.86123,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.57656,
+  "y": 0.35311,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.53386,
+  "y": 0.26433,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.20808,
+  "y": 0.88966,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.81676,
+  "y": 0.33442,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.46072,
+  "y": 0.62221,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.77013,
+  "y": 0.3703,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.27512,
+  "y": 0.83786,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.30487,
+  "y": 0.77158,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.89124,
+  "y": 0.33338,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.47464,
+  "y": 0.46362,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.55345,
+  "y": 0.24764,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.62567,
+  "y": 0.30919,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.69024,
+  "y": 0.18822,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.43889,
+  "y": 0.46493,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.27078,
+  "y": 0.75198,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.26328,
+  "y": 0.81504,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.43581,
+  "y": 0.62103,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.49091,
+  "y": 0.25292,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.59805,
+  "y": 0.33274,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.68985,
+  "y": 0.24952,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.24262,
+  "y": 0.79791,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.18961,
+  "y": 0.764,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.56382,
+  "y": 0.24021,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.5157,
+  "y": 0.24331,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.55986,
+  "y": 0.24989,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.53527,
+  "y": 0.29908,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.50527,
+  "y": 0.55126,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.35729,
+  "y": 0.75232,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.39291,
+  "y": 0.72026,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.71438,
+  "y": 0.2412,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.35246,
+  "y": 0.7415,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.59448,
+  "y": 0.37702,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.42283,
+  "y": 0.73108,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.30985,
+  "y": 0.70538,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.58917,
+  "y": 0.28582,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.36757,
+  "y": 0.58153,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.76525,
+  "y": 0.16726,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.65459,
+  "y": 0.32316,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.08293,
+  "y": 0.69623,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.9079,
+  "y": 0.42552,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.42988,
+  "y": 0.83918,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.43909,
+  "y": 0.86818,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.45429,
+  "y": 0.88654,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.46128,
+  "y": 0.86856,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.45005,
+  "y": 0.83048,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.46519,
+  "y": 0.84687,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.49089,
+  "y": 0.84433,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.53463,
+  "y": 0.83876,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.48669,
+  "y": 0.89276,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.50085,
+  "y": 0.87839,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.54639,
+  "y": 0.88459,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.5499,
+  "y": 0.84822,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.49954,
+  "y": 0.82498,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.51318,
+  "y": 0.8595,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.53033,
+  "y": 0.86417,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.42515,
+  "y": 0.39996,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.4075,
+  "y": 0.30327,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.42137,
+  "y": 0.31017,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.49082,
+  "y": 0.3299,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.40862,
+  "y": 0.33575,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.43864,
+  "y": 0.34605,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.40991,
+  "y": 0.34043,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.4034,
+  "y": 0.33381,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.44876,
+  "y": 0.32663,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.42462,
+  "y": 0.31928,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.44781,
+  "y": 0.29168,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.46689,
+  "y": 0.32893,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.4416,
+  "y": 0.30987,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.38954,
+  "y": 0.34808,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.38924,
+  "y": 0.33031,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.6968,
+  "y": 0.57224,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.62456,
+  "y": 0.50265,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.67318,
+  "y": 0.50588,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.6376,
+  "y": 0.54399,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.67728,
+  "y": 0.39378,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.68658,
+  "y": 0.39407,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.67952,
+  "y": 0.42495,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.69401,
+  "y": 0.39568,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.58988,
+  "y": 0.45593,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.41707,
+  "y": 0.56406,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.59825,
+  "y": 0.48446,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.60521,
+  "y": 0.49075,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.58214,
+  "y": 0.48323,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.60135,
+  "y": 0.46064,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.62887,
+  "y": 0.42952,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.62476,
+  "y": 0.43112,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.58962,
+  "y": 0.47834,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.70427,
+  "y": 0.54876,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.61776,
+  "y": 0.54123,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.57437,
+  "y": 0.53291,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.51386,
+  "y": 0.49404,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.57189,
+  "y": 0.51797,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.55602,
+  "y": 0.49616,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.55392,
+  "y": 0.52557,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.53171,
+  "y": 0.52466,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.67325,
+  "y": 0.58439,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.70547,
+  "y": 0.46817,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.68452,
+  "y": 0.42513,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.71705,
+  "y": 0.40174,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.68575,
+  "y": 0.40683,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.66451,
+  "y": 0.33843,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.67362,
+  "y": 0.3892,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.67241,
+  "y": 0.39028,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.60923,
+  "y": 0.54864,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.56151,
+  "y": 0.46774,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.5459,
+  "y": 0.48287,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.54522,
+  "y": 0.42695,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.44873,
+  "y": 0.58552,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.54765,
+  "y": 0.49349,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.50263,
+  "y": 0.45525,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.45612,
+  "y": 0.53776,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.38169,
+  "y": 0.46204,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.36895,
+  "y": 0.48744,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.45413,
+  "y": 0.63628,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.47216,
+  "y": 0.63117,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.48595,
+  "y": 0.61497,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.42508,
+  "y": 0.48009,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.56473,
+  "y": 0.28853,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.48298,
+  "y": 0.2364,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.56539,
+  "y": 0.20424,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.71809,
+  "y": 0.16849,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.77356,
+  "y": 0.19588,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.83193,
+  "y": 0.25603,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.78065,
+  "y": 0.34534,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.76135,
+  "y": 0.30421,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.71531,
+  "y": 0.2939,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.77002,
+  "y": 0.3903,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.73615,
+  "y": 0.49754,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.66924,
+  "y": 0.54282,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.60823,
+  "y": 0.50873,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.65756,
+  "y": 0.51317,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.62736,
+  "y": 0.52795,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.63602,
+  "y": 0.55968,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.65953,
+  "y": 0.52597,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.64072,
+  "y": 0.52489,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Lifmunk Effigy",
+  "name": "クルリス像",
+  "x": 0.61532,
+  "y": 0.5225,
+  "lv": null,
+  "asset": null
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.56832,
+  "y": 0.53462,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天陽郷の空域",
+  "x": 0.50382,
+  "y": 0.89014,
+  "lv": 63,
+  "asset": "Sunreach_Skies"
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.50632,
+  "y": 0.3508,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.2572,
+  "y": 0.86193,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.33407,
+  "y": 0.71687,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.57139,
+  "y": 0.21369,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.5473,
+  "y": 0.31065,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.55073,
+  "y": 0.54485,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.2127,
+  "y": 0.91772,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.65239,
+  "y": 0.47451,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.44095,
+  "y": 0.53131,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.4261,
+  "y": 0.47415,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.73467,
+  "y": 0.21137,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.43628,
+  "y": 0.3309,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.65776,
+  "y": 0.53015,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.63599,
+  "y": 0.56179,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.48585,
+  "y": 0.58665,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.28839,
+  "y": 0.8179,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.32045,
+  "y": 0.83162,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.50184,
+  "y": 0.57687,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.69389,
+  "y": 0.45787,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.48315,
+  "y": 0.33547,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.58903,
+  "y": 0.53108,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.61553,
+  "y": 0.46879,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.66596,
+  "y": 0.52193,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.61486,
+  "y": 0.52471,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.76867,
+  "y": 0.23772,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.52921,
+  "y": 0.27957,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.56709,
+  "y": 0.60816,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.57539,
+  "y": 0.60681,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.24621,
+  "y": 0.84923,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.44859,
+  "y": 0.56828,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.29598,
+  "y": 0.79224,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.2524,
+  "y": 0.82545,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.45497,
+  "y": 0.39515,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.27635,
+  "y": 0.71504,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.65214,
+  "y": 0.37907,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.71528,
+  "y": 0.41609,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.66895,
+  "y": 0.42191,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.74095,
+  "y": 0.26425,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.62321,
+  "y": 0.45396,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.63463,
+  "y": 0.51755,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.65173,
+  "y": 0.35133,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.55483,
+  "y": 0.21451,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.55503,
+  "y": 0.58934,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.46048,
+  "y": 0.3848,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.57169,
+  "y": 0.50369,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.51471,
+  "y": 0.25275,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.65894,
+  "y": 0.54906,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.79977,
+  "y": 0.26576,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.45073,
+  "y": 0.34805,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.54791,
+  "y": 0.52723,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.76814,
+  "y": 0.44008,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.36793,
+  "y": 0.54033,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.42539,
+  "y": 0.33799,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.72734,
+  "y": 0.324,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.62587,
+  "y": 0.56072,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.54397,
+  "y": 0.56973,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.52715,
+  "y": 0.38286,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.72672,
+  "y": 0.24917,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.27847,
+  "y": 0.79662,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.27071,
+  "y": 0.65723,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.19131,
+  "y": 0.87607,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.62225,
+  "y": 0.54367,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.67227,
+  "y": 0.46175,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.31175,
+  "y": 0.8643,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.56282,
+  "y": 0.28995,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.47427,
+  "y": 0.52726,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.60119,
+  "y": 0.4926,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.7426,
+  "y": 0.47857,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.57257,
+  "y": 0.44991,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.62181,
+  "y": 0.56687,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.412,
+  "y": 0.30193,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.70302,
+  "y": 0.56681,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.61924,
+  "y": 0.349,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.72423,
+  "y": 0.29338,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.38836,
+  "y": 0.58983,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.29295,
+  "y": 0.69345,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.50361,
+  "y": 0.2754,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.29565,
+  "y": 0.82222,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.45933,
+  "y": 0.32068,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "？？？",
+  "x": 0.4861,
+  "y": 0.64552,
+  "lv": 45,
+  "asset": "___"
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.46638,
+  "y": 0.35987,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.63654,
+  "y": 0.45521,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.62336,
+  "y": 0.43394,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.28854,
+  "y": 0.73447,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.64881,
+  "y": 0.53771,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.63228,
+  "y": 0.44505,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.64894,
+  "y": 0.43129,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.70426,
+  "y": 0.48833,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.6573,
+  "y": 0.39243,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.36573,
+  "y": 0.58116,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.43773,
+  "y": 0.5415,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.73684,
+  "y": 0.49446,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.75255,
+  "y": 0.4344,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.62501,
+  "y": 0.4608,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.33908,
+  "y": 0.74241,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.43402,
+  "y": 0.32512,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.69603,
+  "y": 0.43793,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.67581,
+  "y": 0.44328,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.58449,
+  "y": 0.52776,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.20644,
+  "y": 0.76167,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.51698,
+  "y": 0.209,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.66738,
+  "y": 0.50865,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.58543,
+  "y": 0.57884,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.33182,
+  "y": 0.84259,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.69515,
+  "y": 0.29743,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.41523,
+  "y": 0.31923,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.4754,
+  "y": 0.40359,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.58129,
+  "y": 0.29408,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.5935,
+  "y": 0.48204,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.31688,
+  "y": 0.78309,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.43057,
+  "y": 0.30119,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.76798,
+  "y": 0.3604,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.47362,
+  "y": 0.49461,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.54654,
+  "y": 0.51853,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.70827,
+  "y": 0.36727,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.65135,
+  "y": 0.27881,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.78625,
+  "y": 0.45699,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.52891,
+  "y": 0.48673,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.62572,
+  "y": 0.42883,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.36509,
+  "y": 0.50923,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.60581,
+  "y": 0.4592,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.39671,
+  "y": 0.49298,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.53158,
+  "y": 0.54304,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.37708,
+  "y": 0.77506,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.63721,
+  "y": 0.48228,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.30181,
+  "y": 0.72328,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.5808,
+  "y": 0.50241,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.63859,
+  "y": 0.53261,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.42119,
+  "y": 0.30771,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.40458,
+  "y": 0.31795,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.60796,
+  "y": 0.48735,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.52965,
+  "y": 0.46224,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.62962,
+  "y": 0.30659,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.63097,
+  "y": 0.39535,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.65744,
+  "y": 0.51469,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.58889,
+  "y": 0.32577,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.77658,
+  "y": 0.29815,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.37805,
+  "y": 0.50839,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.32262,
+  "y": 0.7501,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.75565,
+  "y": 0.32696,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.27182,
+  "y": 0.753,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.61337,
+  "y": 0.33383,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.35138,
+  "y": 0.69963,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.28122,
+  "y": 0.86305,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.53202,
+  "y": 0.44887,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "霊峰の洞窟",
+  "x": 0.52343,
+  "y": 0.23779,
+  "lv": 39,
+  "asset": "Astral_Mountains_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.66995,
+  "y": 0.39927,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.31364,
+  "y": 0.66464,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.68564,
+  "y": 0.39831,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.80386,
+  "y": 0.31149,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.64412,
+  "y": 0.54396,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.82507,
+  "y": 0.33395,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.23723,
+  "y": 0.77354,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.27151,
+  "y": 0.82273,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.50107,
+  "y": 0.46485,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.62379,
+  "y": 0.4833,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.57921,
+  "y": 0.57479,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.40506,
+  "y": 0.33432,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "火山の洞窟",
+  "x": 0.45877,
+  "y": 0.56417,
+  "lv": 32,
+  "asset": "Volcanic_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.66845,
+  "y": 0.3485,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.51457,
+  "y": 0.40189,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Dungeon",
+  "name": "天落の洞窟",
+  "x": 0.23026,
+  "y": 0.89423,
+  "lv": 50,
+  "asset": "Feybreak_Cavern"
+ },
+ {
+  "type": "Dungeon",
+  "name": "桜花の洞窟",
+  "x": 0.43671,
+  "y": 0.31011,
+  "lv": 40,
+  "asset": "Cherry_Blossom_Cave"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓流の洞窟",
+  "x": 0.61623,
+  "y": 0.42275,
+  "lv": 22,
+  "asset": "Mountain_Stream_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "渓谷の洞窟",
+  "x": 0.5609,
+  "y": 0.46905,
+  "lv": 14,
+  "asset": "Ravine_Grotto"
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.68714,
+  "y": 0.31267,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "砂丘の洞窟",
+  "x": 0.7957,
+  "y": 0.35207,
+  "lv": 33,
+  "asset": "Cavern_of_the_Dunes"
+ },
+ {
+  "type": "Dungeon",
+  "name": "",
+  "x": 0.52819,
+  "y": 0.39188,
+  "lv": null,
+  "asset": ""
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.58969,
+  "y": 0.50808,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.61319,
+  "y": 0.42421,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.66458,
+  "y": 0.33845,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.68793,
+  "y": 0.39756,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.36674,
+  "y": 0.59499,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.42691,
+  "y": 0.46922,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.73092,
+  "y": 0.27703,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.65158,
+  "y": 0.2412,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.62343,
+  "y": 0.56882,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.66509,
+  "y": 0.50976,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_YellowArea",
+  "x": 0.31266,
+  "y": 0.84921,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_YellowArea"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_DarkArea",
+  "x": 0.23146,
+  "y": 0.9116,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_DarkArea"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_DarkArea",
+  "x": 0.25356,
+  "y": 0.88267,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_DarkArea"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_DarkArea",
+  "x": 0.2,
+  "y": 0.86446,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_DarkArea"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_RedArea_Desert",
+  "x": 0.18606,
+  "y": 0.72491,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_RedArea_Desert"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_RedArea_South",
+  "x": 0.25184,
+  "y": 0.67851,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_RedArea_South"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_RedArea_Desert",
+  "x": 0.34893,
+  "y": 0.67098,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_RedArea_Desert"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_RedArea_Desert",
+  "x": 0.40562,
+  "y": 0.73112,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_RedArea_Desert"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_RedArea_Magma",
+  "x": 0.36718,
+  "y": 0.79806,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_RedArea_Magma"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_YellowArea",
+  "x": 0.32856,
+  "y": 0.78024,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_YellowArea"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_RedArea_South",
+  "x": 0.30612,
+  "y": 0.79764,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_RedArea_South"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_DarkArea",
+  "x": 0.2687,
+  "y": 0.81833,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_DarkArea"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_RedArea_North",
+  "x": 0.26168,
+  "y": 0.76821,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_RedArea_North"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_RedArea_South",
+  "x": 0.31947,
+  "y": 0.73614,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_RedArea_South"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_DarkIsland_RedArea_Desert",
+  "x": 0.20745,
+  "y": 0.7877,
+  "lv": null,
+  "asset": "IncidentSpawner_DarkIsland_RedArea_Desert"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.74997,
+  "y": 0.61497,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.75674,
+  "y": 0.62163,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.75428,
+  "y": 0.6322,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Desert",
+  "x": 0.72217,
+  "y": 0.28324,
+  "lv": null,
+  "asset": "IncidentSpawner_Desert"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Desert",
+  "x": 0.72099,
+  "y": 0.33113,
+  "lv": null,
+  "asset": "IncidentSpawner_Desert"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Forest_B",
+  "x": 0.67032,
+  "y": 0.44514,
+  "lv": null,
+  "asset": "IncidentSpawner_Forest_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Forest_B",
+  "x": 0.68808,
+  "y": 0.47415,
+  "lv": null,
+  "asset": "IncidentSpawner_Forest_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Forest_B",
+  "x": 0.69702,
+  "y": 0.44398,
+  "lv": null,
+  "asset": "IncidentSpawner_Forest_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Forest_B",
+  "x": 0.62634,
+  "y": 0.39697,
+  "lv": null,
+  "asset": "IncidentSpawner_Forest_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Forest_B",
+  "x": 0.73308,
+  "y": 0.41011,
+  "lv": null,
+  "asset": "IncidentSpawner_Forest_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Forest",
+  "x": 0.59934,
+  "y": 0.48995,
+  "lv": null,
+  "asset": "IncidentSpawner_Forest"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Forest",
+  "x": 0.61055,
+  "y": 0.46513,
+  "lv": null,
+  "asset": "IncidentSpawner_Forest"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Forest",
+  "x": 0.62238,
+  "y": 0.49868,
+  "lv": null,
+  "asset": "IncidentSpawner_Forest"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Forest",
+  "x": 0.62998,
+  "y": 0.47345,
+  "lv": null,
+  "asset": "IncidentSpawner_Forest"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Forest",
+  "x": 0.62415,
+  "y": 0.4512,
+  "lv": null,
+  "asset": "IncidentSpawner_Forest"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Forest",
+  "x": 0.62862,
+  "y": 0.41489,
+  "lv": null,
+  "asset": "IncidentSpawner_Forest"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Forest_Frost",
+  "x": 0.67418,
+  "y": 0.36892,
+  "lv": null,
+  "asset": "IncidentSpawner_Forest_Frost"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Sakurajima",
+  "x": 0.39267,
+  "y": 0.35418,
+  "lv": null,
+  "asset": "IncidentSpawner_Sakurajima"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Sakurajima_B",
+  "x": 0.44623,
+  "y": 0.33237,
+  "lv": null,
+  "asset": "IncidentSpawner_Sakurajima_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_SkyIsland_A",
+  "x": 0.52867,
+  "y": 0.88639,
+  "lv": null,
+  "asset": "IncidentSpawner_SkyIsland_A"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_SkyIsland_A",
+  "x": 0.44578,
+  "y": 0.8637,
+  "lv": null,
+  "asset": "IncidentSpawner_SkyIsland_A"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Snow",
+  "x": 0.53388,
+  "y": 0.24353,
+  "lv": null,
+  "asset": "IncidentSpawner_Snow"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Volcano",
+  "x": 0.37054,
+  "y": 0.50838,
+  "lv": null,
+  "asset": "IncidentSpawner_Volcano"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Volcano",
+  "x": 0.4296,
+  "y": 0.55707,
+  "lv": null,
+  "asset": "IncidentSpawner_Volcano"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Volcano",
+  "x": 0.46912,
+  "y": 0.52366,
+  "lv": null,
+  "asset": "IncidentSpawner_Volcano"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Volcano",
+  "x": 0.46284,
+  "y": 0.48076,
+  "lv": null,
+  "asset": "IncidentSpawner_Volcano"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass_B",
+  "x": 0.59086,
+  "y": 0.54118,
+  "lv": null,
+  "asset": "IncidentSpawner_grass_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass_B",
+  "x": 0.58984,
+  "y": 0.53374,
+  "lv": null,
+  "asset": "IncidentSpawner_grass_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass_B",
+  "x": 0.58181,
+  "y": 0.51602,
+  "lv": null,
+  "asset": "IncidentSpawner_grass_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass_B",
+  "x": 0.54772,
+  "y": 0.54993,
+  "lv": null,
+  "asset": "IncidentSpawner_grass_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass_B",
+  "x": 0.55661,
+  "y": 0.51555,
+  "lv": null,
+  "asset": "IncidentSpawner_grass_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass_B",
+  "x": 0.54696,
+  "y": 0.49811,
+  "lv": null,
+  "asset": "IncidentSpawner_grass_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass_B",
+  "x": 0.53493,
+  "y": 0.44825,
+  "lv": null,
+  "asset": "IncidentSpawner_grass_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass_B",
+  "x": 0.5639,
+  "y": 0.44411,
+  "lv": null,
+  "asset": "IncidentSpawner_grass_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.70748,
+  "y": 0.49038,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.72136,
+  "y": 0.46228,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.77812,
+  "y": 0.45666,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.75126,
+  "y": 0.43979,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.56866,
+  "y": 0.60912,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.57177,
+  "y": 0.58112,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.46764,
+  "y": 0.41388,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.4884,
+  "y": 0.39723,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.54618,
+  "y": 0.57799,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.6685,
+  "y": 0.53542,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.6509,
+  "y": 0.53866,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.61603,
+  "y": 0.51644,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.60611,
+  "y": 0.53953,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.64581,
+  "y": 0.53814,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.68155,
+  "y": 0.53016,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.64233,
+  "y": 0.56246,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.65616,
+  "y": 0.51693,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass_desert",
+  "x": 0.58963,
+  "y": 0.441,
+  "lv": null,
+  "asset": "IncidentSpawner_grass_desert"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass_desert",
+  "x": 0.57753,
+  "y": 0.41407,
+  "lv": null,
+  "asset": "IncidentSpawner_grass_desert"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner",
+  "x": 0.60744,
+  "y": 0.32553,
+  "lv": null,
+  "asset": "IncidentSpawner"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Desert",
+  "x": 0.76513,
+  "y": 0.30518,
+  "lv": null,
+  "asset": "IncidentSpawner_Desert"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Sakurajima",
+  "x": 0.44932,
+  "y": 0.29776,
+  "lv": null,
+  "asset": "IncidentSpawner_Sakurajima"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Sakurajima_B",
+  "x": 0.50159,
+  "y": 0.35046,
+  "lv": null,
+  "asset": "IncidentSpawner_Sakurajima_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_SkyIsland_A",
+  "x": 0.51983,
+  "y": 0.84092,
+  "lv": null,
+  "asset": "IncidentSpawner_SkyIsland_A"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_Snow",
+  "x": 0.51658,
+  "y": 0.30741,
+  "lv": null,
+  "asset": "IncidentSpawner_Snow"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass_B",
+  "x": 0.51805,
+  "y": 0.48152,
+  "lv": null,
+  "asset": "IncidentSpawner_grass_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass_B",
+  "x": 0.5008,
+  "y": 0.47151,
+  "lv": null,
+  "asset": "IncidentSpawner_grass_B"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.52691,
+  "y": 0.37812,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Incident",
+  "name": "IncidentSpawner_grass",
+  "x": 0.51977,
+  "y": 0.39814,
+  "lv": null,
+  "asset": "IncidentSpawner_grass"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.64644,
+  "y": 0.57782,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.63503,
+  "y": 0.49958,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.6734,
+  "y": 0.58125,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.59662,
+  "y": 0.5505,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.46251,
+  "y": 0.40857,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.49931,
+  "y": 0.44357,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.58731,
+  "y": 0.42682,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.55771,
+  "y": 0.45615,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.53192,
+  "y": 0.57275,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.52079,
+  "y": 0.49383,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.56659,
+  "y": 0.53769,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.53346,
+  "y": 0.36536,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.54003,
+  "y": 0.41846,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.56751,
+  "y": 0.56926,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.55096,
+  "y": 0.48342,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.56833,
+  "y": 0.62356,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.6039,
+  "y": 0.46419,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.59479,
+  "y": 0.50001,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.65321,
+  "y": 0.46833,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.6258,
+  "y": 0.44456,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.59099,
+  "y": 0.47221,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.63414,
+  "y": 0.47497,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.61127,
+  "y": 0.42386,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.64912,
+  "y": 0.41483,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.67863,
+  "y": 0.43872,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.69553,
+  "y": 0.35797,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.71773,
+  "y": 0.41917,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.73664,
+  "y": 0.39188,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.66586,
+  "y": 0.34163,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.71541,
+  "y": 0.5013,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.63554,
+  "y": 0.38472,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.67551,
+  "y": 0.38345,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.78607,
+  "y": 0.4608,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.79953,
+  "y": 0.34784,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.85951,
+  "y": 0.33363,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.78899,
+  "y": 0.21024,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.70485,
+  "y": 0.19263,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.71724,
+  "y": 0.23777,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.78265,
+  "y": 0.36227,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.74343,
+  "y": 0.16734,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.8118,
+  "y": 0.29735,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.71552,
+  "y": 0.30548,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.74232,
+  "y": 0.33002,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.75529,
+  "y": 0.28665,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.67534,
+  "y": 0.28778,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.49802,
+  "y": 0.61182,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.38614,
+  "y": 0.60287,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.35242,
+  "y": 0.52121,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.38966,
+  "y": 0.46403,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.46028,
+  "y": 0.5563,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.47941,
+  "y": 0.57231,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.4253,
+  "y": 0.53107,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.50141,
+  "y": 0.5012,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.45682,
+  "y": 0.4603,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.46445,
+  "y": 0.59779,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.52357,
+  "y": 0.22306,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.48217,
+  "y": 0.27185,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.54127,
+  "y": 0.33559,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.63363,
+  "y": 0.31927,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.65384,
+  "y": 0.24389,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.58794,
+  "y": 0.33783,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.52486,
+  "y": 0.28537,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.5803,
+  "y": 0.20465,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.54692,
+  "y": 0.24455,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.56856,
+  "y": 0.28496,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.62215,
+  "y": 0.3559,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.56563,
+  "y": 0.23654,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.48231,
+  "y": 0.23845,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.46323,
+  "y": 0.3261,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.43918,
+  "y": 0.28325,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.37863,
+  "y": 0.34859,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.40828,
+  "y": 0.38497,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.40146,
+  "y": 0.30211,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.36065,
+  "y": 0.66534,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.41534,
+  "y": 0.74136,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.37056,
+  "y": 0.78421,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.32744,
+  "y": 0.75378,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.24306,
+  "y": 0.65872,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.20245,
+  "y": 0.73934,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.32672,
+  "y": 0.84011,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.20466,
+  "y": 0.8717,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.23407,
+  "y": 0.92642,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.38093,
+  "y": 0.71156,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.2017,
+  "y": 0.71061,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.22667,
+  "y": 0.77051,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.3146,
+  "y": 0.72426,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.29048,
+  "y": 0.75981,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.30659,
+  "y": 0.81533,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.23562,
+  "y": 0.81706,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.30759,
+  "y": 0.66197,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.21503,
+  "y": 0.81135,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.23833,
+  "y": 0.88048,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.47271,
+  "y": 0.85938,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.52434,
+  "y": 0.8744,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.52451,
+  "y": 0.82978,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.44371,
+  "y": 0.85095,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.47168,
+  "y": 0.88396,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.85989,
+  "y": 0.25935,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.7485,
+  "y": 0.62579,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.21335,
+  "y": 0.57772,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.33477,
+  "y": 0.35462,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.89235,
+  "y": 0.42449,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.07026,
+  "y": 0.71003,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.23235,
+  "y": 1.0098,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.45299,
+  "y": 0.83293,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ },
+ {
+  "type": "Ancient Ruin",
+  "name": "Ancient Ruin",
+  "x": 0.51581,
+  "y": 0.86889,
+  "lv": null,
+  "asset": "Ancient_Ruin"
+ }
+]

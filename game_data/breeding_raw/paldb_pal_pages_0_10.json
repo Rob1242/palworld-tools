@@ -1,0 +1,72 @@
+{
+ "Aegidron": {
+  "slug": "Aegidron",
+  "asset": "DomeArmorDragon",
+  "combi_rank": "30",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Amione": {
+  "slug": "Amione",
+  "asset": "ClioneTwins",
+  "combi_rank": "2520",
+  "male_probability": "40",
+  "unique_combo": null
+ },
+ "Anubis": {
+  "slug": "Anubis",
+  "asset": "Anubis",
+  "combi_rank": "480",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Arsox": {
+  "slug": "Arsox",
+  "asset": "FlameBuffalo",
+  "combi_rank": "2320",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Astegon": {
+  "slug": "Astegon",
+  "asset": "BlackMetalDragon",
+  "combi_rank": "490",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Astralym": {
+  "slug": "Astralym",
+  "asset": "WorldTreeDragon",
+  "combi_rank": "10",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Azurmane": {
+  "slug": "Azurmane",
+  "asset": "BlueThunderHorse",
+  "combi_rank": "420",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Azurobe": {
+  "slug": "Azurobe",
+  "asset": "BlueDragon",
+  "combi_rank": "1830",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Azurobe Cryst": {
+  "slug": "Azurobe_Cryst",
+  "asset": "BlueDragon_Ice",
+  "combi_rank": "1220",
+  "male_probability": "50",
+  "unique_combo": null
+ },
+ "Azurobe_Cryst": {
+  "slug": "Azurobe_Cryst",
+  "asset": "BlueDragon_Ice",
+  "combi_rank": "1220",
+  "male_probability": "50",
+  "unique_combo": null
+ }
+}

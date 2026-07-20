@@ -9,7 +9,8 @@ from js_data_writer import write_js_consts
 # DT_PalSpawnerPlacement / DT_BossSpawnerLoactionData)から直接抽出された、
 # 野生パルの出現座標データ。6時間ごとに自動更新される。
 #
-# 座標変換式は https://github.com/ARXII-13/Palworld-Interactive-Map
+# 座標変換式は https://github.com/ARXII-13/Palworld-Interactive-Map (Apache-2.0ライセンス。
+# palworld-atlas-dataとライセンスが異なるので混同しないこと)
 # (pal-map/frontend/src/components/map/utils.ts)のworldToMap/worldToLeaflet
 # を移植したもの。既知のボス座標(アヌビス・チルレット)で実際に地形と
 # 一致することを確認済み。マップ画像はT_WorldMap_85.webp(8192x8192、
@@ -128,6 +129,23 @@ def cluster_points(points, radius):
     return results
 
 
+# 出現分布を「密度の点群」として細かく見たいという要望向けに、クラスタ集計とは別に
+# 生の座標も出力する(2026-07-18)。件数が多いパル(MimicDog等は野生だけで5000件近い)を
+# DOM要素で個別描画すると重くなるため、点群はCanvas描画を前提にした軽量フォーマットにする:
+# [x, y, availCode] のフラット配列(availCode: 0=昼夜問わず, 1=昼のみ, 2=夜のみ, 3=昼夜混在)。
+AVAILABILITY_CODE = {"both": 0, "day": 1, "night": 2, "mixed": 3}
+
+
+def points_to_flat(points):
+    flat = []
+    for p in points:
+        nx, ny = map_to_normalized(p["mapX"], p["mapY"])
+        flat.append(round(nx, 4))
+        flat.append(round(ny, 4))
+        flat.append(AVAILABILITY_CODE.get(p["availability"], 3))
+    return flat
+
+
 def main():
     print("manifest取得中…")
     manifest = fetch_json(MANIFEST_URL)
@@ -164,8 +182,10 @@ def main():
         entry = {"asset": pal_id, "dexId": info["dex_id"]}
         if wild:
             entry["wildZones"] = cluster_points(wild, CLUSTER_RADIUS)
+            entry["wildPoints"] = points_to_flat(wild)
         if alpha:
             entry["alphaZones"] = cluster_points(alpha, CLUSTER_RADIUS)
+            entry["alphaPoints"] = points_to_flat(alpha)
         results.append(entry)
 
     results.sort(key=lambda r: int(r["dexId"]))

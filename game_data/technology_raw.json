@@ -1,0 +1,4298 @@
+[
+ {
+  "level": 1,
+  "tech_id": "Workbench",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "原始的な作業台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_WorkBench.webp"
+ },
+ {
+  "level": 1,
+  "tech_id": "Product_Axe_Grade_01",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "石の斧",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Axe_Tier_00.webp"
+ },
+ {
+  "level": 1,
+  "tech_id": "Product_Pickaxe_Grade_01",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "石のつるはし",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Pickaxe_Tier_00.webp"
+ },
+ {
+  "level": 1,
+  "tech_id": "HandTorch",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "携帯たいまつ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Torch.webp"
+ },
+ {
+  "level": 1,
+  "tech_id": "Battle_MeleeWeapon_Bat",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "木のこん棒",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Bat.webp"
+ },
+ {
+  "level": 2,
+  "tech_id": "PALBOX",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "パルボックス",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_PalBoxV2.webp"
+ },
+ {
+  "level": 2,
+  "tech_id": "Special_PalSphere_Grade_01",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "パルスフィア",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_PalSphere.webp"
+ },
+ {
+  "level": 2,
+  "tech_id": "Product_Cooking_Grade_01",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "キャンプファイア",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_CampFire.webp"
+ },
+ {
+  "level": 2,
+  "tech_id": "Infra_ItemChest_Grade_01",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "木のチェスト",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemChest.webp"
+ },
+ {
+  "level": 2,
+  "tech_id": "RepairBench",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "修理台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_RepairBench.webp"
+ },
+ {
+  "level": 2,
+  "tech_id": "Wooden_houseset",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "木の建築セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Wood_Foundation.webp"
+ },
+ {
+  "level": 2,
+  "tech_id": "SkinChange",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "パルおめかし装置",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_SkinChange.webp"
+ },
+ {
+  "level": 3,
+  "tech_id": "Battle_RangeWeapon_Bow1",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "古びた弓",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_WeakerBow.webp"
+ },
+ {
+  "level": 3,
+  "tech_id": "Arrow",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "矢",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_Arrow.webp"
+ },
+ {
+  "level": 3,
+  "tech_id": "Spear",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "石の槍",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Spear_Tier_00.webp"
+ },
+ {
+  "level": 3,
+  "tech_id": "Infra_PlayerBed_Grade_01",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "低質なベッド",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_PlayerBed_02.webp"
+ },
+ {
+  "level": 3,
+  "tech_id": "Infra_PalBed_Grade_01",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "わらのパルベッド",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_MedicalPalBed_02.webp"
+ },
+ {
+  "level": 3,
+  "tech_id": "GlobalPalStorage",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "グローバルパルボックス",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_GlobalPalStorage.webp"
+ },
+ {
+  "level": 4,
+  "tech_id": "Shield_01",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ノーマルシールド",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_Shield_01.webp"
+ },
+ {
+  "level": 4,
+  "tech_id": "Battle_Armor_Grade_01_Cloth",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "布の服",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_ClothArmor.webp"
+ },
+ {
+  "level": 4,
+  "tech_id": "Battle_Cloth",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "布",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_Cloth.webp"
+ },
+ {
+  "level": 4,
+  "tech_id": "PalFoodBox",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "エサ箱",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_PalFoodBox.webp"
+ },
+ {
+  "level": 5,
+  "tech_id": "Product_Farm_Berries",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "ベリー農園",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FarmBlockV2_Berries.webp"
+ },
+ {
+  "level": 5,
+  "tech_id": "MonsterFarm",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "家畜牧場",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_MonsterFarm.webp"
+ },
+ {
+  "level": 5,
+  "tech_id": "Battle_Glider_Grade_01",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ノーマルパラシュート",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Glider_Glider_Old.webp"
+ },
+ {
+  "level": 5,
+  "tech_id": "FurnitureSet_1",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "木のリビング家具セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_TableSquare_Wood.webp"
+ },
+ {
+  "level": 5,
+  "tech_id": "FurnitureSet_3",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "木の酒場家具セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Counter_Wood.webp"
+ },
+ {
+  "level": 5,
+  "tech_id": "FurnitureSet_2",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "木の酒場収納家具セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Barrel_Wood.webp"
+ },
+ {
+  "level": 6,
+  "tech_id": "Product_WorkBench_SkillUnlock",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "パルギア製作台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_WorkBench_SkillUnlock.webp"
+ },
+ {
+  "level": 6,
+  "tech_id": "Arrow_Fire",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "火矢",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_Arrow_Fire.webp"
+ },
+ {
+  "level": 6,
+  "tech_id": "Torch",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "設置たいまつ",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_TorchStand.webp"
+ },
+ {
+  "level": 6,
+  "tech_id": "Signboard",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "看板",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Signboard.webp"
+ },
+ {
+  "level": 6,
+  "tech_id": "WallSignboard",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "壁掛け看板",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_WallSignboard.webp"
+ },
+ {
+  "level": 6,
+  "tech_id": "SkillUnlock_Boar",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "イノボウのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Boar_icon_normal.webp"
+ },
+ {
+  "level": 6,
+  "tech_id": "SkillUnlock_Kitsunebi",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "キツネビのハーネス",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Kitsunebi_icon_normal.webp"
+ },
+ {
+  "level": 6,
+  "tech_id": "FurnitureSet_9",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "観葉植物セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Plant01_Plant.webp"
+ },
+ {
+  "level": 7,
+  "tech_id": "BaseCampWorkHard",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "監視台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BaseCampWorkHard.webp"
+ },
+ {
+  "level": 7,
+  "tech_id": "Battle_MeleeWeapon_Bat2",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "バット",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Spear_Bat2.webp"
+ },
+ {
+  "level": 7,
+  "tech_id": "Product_StationDeforest",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "伐採場",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_StationDeforest2.webp"
+ },
+ {
+  "level": 7,
+  "tech_id": "Product_StonePit",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "採石場",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_StonePit.webp"
+ },
+ {
+  "level": 7,
+  "tech_id": "DefenseWait",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "土嚢",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_DefenseWait.webp"
+ },
+ {
+  "level": 7,
+  "tech_id": "BaseCampBattleDirector",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "警鐘",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BaseCampBattleDirector.webp"
+ },
+ {
+  "level": 7,
+  "tech_id": "SkillUnlock_Alpaca",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "メルパカのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Alpaca_icon_normal.webp"
+ },
+ {
+  "level": 7,
+  "tech_id": "FurnitureSet_4",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "壁掛け観葉植物セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Ivy01.webp"
+ },
+ {
+  "level": 8,
+  "tech_id": "Crusher",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "粉砕機",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Crusher.webp"
+ },
+ {
+  "level": 8,
+  "tech_id": "Arrow_Poison",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "毒矢",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_Arrow_Poison.webp"
+ },
+ {
+  "level": 8,
+  "tech_id": "DefenseWall_Wood",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "木の防壁",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_DefenseWall_Wood.webp"
+ },
+ {
+  "level": 8,
+  "tech_id": "Wood_Gate",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "木の門",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Wood_Gate.webp"
+ },
+ {
+  "level": 8,
+  "tech_id": "Trap_Noose",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "宙吊り罠",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Trap_Noose.webp"
+ },
+ {
+  "level": 8,
+  "tech_id": "FurnitureSet_28",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "暖炉セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Light_FirePlace01.webp"
+ },
+ {
+  "level": 9,
+  "tech_id": "BuildableGoddessStatue",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "力の石像",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BuildableGoddessStatue.webp"
+ },
+ {
+  "level": 9,
+  "tech_id": "AutoMealPouch_Tier1",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "小さなエサぶくろ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Essential_AutoMealPouch_Tier1.webp"
+ },
+ {
+  "level": 9,
+  "tech_id": "Battle_Armor_Grade_01_Cloth_Heat",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "熱帯地の民族服",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_ClothArmorHeat.webp"
+ },
+ {
+  "level": 9,
+  "tech_id": "Battle_Armor_Grade_01_Cloth_Cold",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "寒冷地の民族服",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_ClothArmorCold.webp"
+ },
+ {
+  "level": 9,
+  "tech_id": "Spa",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "温泉",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Spa.webp"
+ },
+ {
+  "level": 9,
+  "tech_id": "SkillUnlock_Garm",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "ガウルフのサドル付きハーネス",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Garm_icon_normal.webp"
+ },
+ {
+  "level": 9,
+  "tech_id": "FurnitureSet_17",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "カーペットセット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Rug01_Stone.webp"
+ },
+ {
+  "level": 10,
+  "tech_id": "Product_Ingot_Grade_01_Copper",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "原始的な炉",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BlastFurnace.webp"
+ },
+ {
+  "level": 10,
+  "tech_id": "Battle_RangeWeapon_Bow3",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "三連弓",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Bow.webp"
+ },
+ {
+  "level": 10,
+  "tech_id": "Battle_Helm_Grade_02_Fur",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "羽根の髪飾り",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_FurHelmet.webp"
+ },
+ {
+  "level": 10,
+  "tech_id": "Infra_MachineParts",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "釘",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_MachineParts.webp"
+ },
+ {
+  "level": 10,
+  "tech_id": "Wooden_ladder",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "はしご",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Wooden_Ladder.webp"
+ },
+ {
+  "level": 10,
+  "tech_id": "Trap_LegHold",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "とらばさみ(小)",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Trap_LegHold.webp"
+ },
+ {
+  "level": 10,
+  "tech_id": "FurnitureSet_21",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "アンティークな収納セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Shelf01_Stone.webp"
+ },
+ {
+  "level": 11,
+  "tech_id": "Product_Axe_Grade_02",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "金属の斧",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Axe_Tier_00.webp"
+ },
+ {
+  "level": 11,
+  "tech_id": "Product_Pickaxe_Grade_02",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "金属のつるはし",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Pickaxe_Tier_00.webp"
+ },
+ {
+  "level": 11,
+  "tech_id": "Product_Factory_Hard_Grade_01",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "上質な作業台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Factory_Hard_01.webp"
+ },
+ {
+  "level": 11,
+  "tech_id": "HunterFlagSet",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "密猟団の旗セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Hunter_Flag.webp"
+ },
+ {
+  "level": 11,
+  "tech_id": "SkillUnlock_WeaselDragon",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "オコチョのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WeaselDragon_icon_normal.webp"
+ },
+ {
+  "level": 11,
+  "tech_id": "SkillUnlock_Carbunclo",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "クルリスのサブマシンガン",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Carbunclo_icon_normal.webp"
+ },
+ {
+  "level": 11,
+  "tech_id": "FurnitureSet_19",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "アンティークな椅子セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Chair01_Stone.webp"
+ },
+ {
+  "level": 12,
+  "tech_id": "Battle_Armor_Grade_02_Fur",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "毛皮アーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_FurArmor.webp"
+ },
+ {
+  "level": 12,
+  "tech_id": "MeatCutterKnife",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "肉切り包丁",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_MeatCutterKnife.webp"
+ },
+ {
+  "level": 12,
+  "tech_id": "Product_Medicine_Grade_01",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "中世の製薬台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_MedicineFacility_01.webp"
+ },
+ {
+  "level": 12,
+  "tech_id": "SkillUnlock_Monkey",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "エテッパのアサルトライフル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Monkey_icon_normal.webp"
+ },
+ {
+  "level": 12,
+  "tech_id": "SkillUnlock_Deer",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ツノガミのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Deer_icon_normal.webp"
+ },
+ {
+  "level": 12,
+  "tech_id": "FurnitureTree_Green",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "模型の樹木セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FurnitureTree01_Green.webp"
+ },
+ {
+  "level": 12,
+  "tech_id": "TableCircular",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "片付いたテーブルセット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_TableCircular_Wood_None.webp"
+ },
+ {
+  "level": 13,
+  "tech_id": "Battle_RangeWeapon_BowGun",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "クロスボウ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_BowGun.webp"
+ },
+ {
+  "level": 13,
+  "tech_id": "Spear_2",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "金属の槍",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Spear_Tier_00.webp"
+ },
+ {
+  "level": 13,
+  "tech_id": "Infra_ItemChest_Grade_02",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "金属のチェスト",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemChest_02.webp"
+ },
+ {
+  "level": 13,
+  "tech_id": "CoolerBox",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "クーラーボックス",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_CoolerBox.webp"
+ },
+ {
+  "level": 13,
+  "tech_id": "DamagedScarecrow",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "ダメージかかし",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_DamagedScarecrow.webp"
+ },
+ {
+  "level": 13,
+  "tech_id": "SkillUnlock_Monkey_Fire",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "カレッパのアサルトライフル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Monkey_Fire_icon_normal.webp"
+ },
+ {
+  "level": 13,
+  "tech_id": "FurnitureSet_22",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "アンティークな収納キャビネットセット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Shelf05_Stone.webp"
+ },
+ {
+  "level": 14,
+  "tech_id": "Special_PalSphere_Grade_02",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "メガスフィア",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_PalSphere_Mega.webp"
+ },
+ {
+  "level": 14,
+  "tech_id": "Special_SphereFactory_Black_Grade_01",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "スフィア製作台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_SphereFactory_Black_01.webp"
+ },
+ {
+  "level": 14,
+  "tech_id": "AutoMealPouch_Tier2",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "それなりのエサぶくろ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Essential_AutoMealPouch_Tier2.webp"
+ },
+ {
+  "level": 14,
+  "tech_id": "WallTorch",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "壁掛けたいまつ",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_TorchHang.webp"
+ },
+ {
+  "level": 14,
+  "tech_id": "SkillUnlock_Kirin",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "ライコーンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Kirin_icon_normal.webp"
+ },
+ {
+  "level": 14,
+  "tech_id": "FurnitureTree_Red",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "模型の紅葉樹セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FurnitureTree01_Red.webp"
+ },
+ {
+  "level": 14,
+  "tech_id": "FurnitureSet_24",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "アンティークな机セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Desk01_Stone.webp"
+ },
+ {
+  "level": 15,
+  "tech_id": "FishingSet1",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "初級釣りセット",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FishingRod_1.webp"
+ },
+ {
+  "level": 15,
+  "tech_id": "Product_Farm_wheat",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "小麦農園",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FarmBlockV2_wheet.webp"
+ },
+ {
+  "level": 15,
+  "tech_id": "FlourMill",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "製粉機",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FlourMill.webp"
+ },
+ {
+  "level": 15,
+  "tech_id": "Processed_Wood",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "木板",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_Processed_Wood.webp"
+ },
+ {
+  "level": 15,
+  "tech_id": "DisplayCharacter",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "鑑賞用ケージ",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_DisplayCharacter.webp"
+ },
+ {
+  "level": 15,
+  "tech_id": "SkillUnlock_FlameBuffalo",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "ブルフェルノのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FlameBuffalo_icon_normal.webp"
+ },
+ {
+  "level": 15,
+  "tech_id": "SkillUnlock_HawkBird",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ホークウィンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_HawkBird_icon_normal.webp"
+ },
+ {
+  "level": 16,
+  "tech_id": "Shield_02",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "メガシールド",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_Shield_02.webp"
+ },
+ {
+  "level": 16,
+  "tech_id": "Battle_Armor_Grade_02_Fur_Heat",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "耐熱毛皮アーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_FurArmorHeat.webp"
+ },
+ {
+  "level": 16,
+  "tech_id": "SkillUnlock_Serpent",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "シーペントのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Serpent_icon_normal.webp"
+ },
+ {
+  "level": 16,
+  "tech_id": "FurnitureTree_Yellow",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "模型の黄葉樹セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FurnitureTree01_Yellow.webp"
+ },
+ {
+  "level": 16,
+  "tech_id": "FurnitureSet_20",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "アンティークなお風呂セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BathTub_Stone.webp"
+ },
+ {
+  "level": 16,
+  "tech_id": "FurnitureSet_16",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "アンティークな鏡セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Mirror01_Stone.webp"
+ },
+ {
+  "level": 17,
+  "tech_id": "BronzeSword",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "原始的な剣",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_BronzeSword.webp"
+ },
+ {
+  "level": 17,
+  "tech_id": "Product_Cooking_Grade_02",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "調理鍋",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_CookingStove.webp"
+ },
+ {
+  "level": 17,
+  "tech_id": "Heater",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "炎のヒーター",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_HeaterMedieval.webp"
+ },
+ {
+  "level": 17,
+  "tech_id": "Headstone",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "墓石",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Headstone.webp"
+ },
+ {
+  "level": 17,
+  "tech_id": "SkillUnlock_Penguin",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ペンタマのロケットランチャー",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Penguin_icon_normal.webp"
+ },
+ {
+  "level": 17,
+  "tech_id": "FurnitureSet_15",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "ピアノ家具セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Piano01_Stone.webp"
+ },
+ {
+  "level": 17,
+  "tech_id": "FurnitureSet_30",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "金属の棚セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Shelf01_Iron.webp"
+ },
+ {
+  "level": 18,
+  "tech_id": "Battle_Glider_Grade_02",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "メガグライダー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Glider_Glider_Good.webp"
+ },
+ {
+  "level": 18,
+  "tech_id": "Battle_Armor_Grade_02_Fur_Cold",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "耐寒毛皮アーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_FurArmorCold.webp"
+ },
+ {
+  "level": 18,
+  "tech_id": "Cooler",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "氷のクーラー",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_CoolerMedieval.webp"
+ },
+ {
+  "level": 18,
+  "tech_id": "SkillUnlock_ColorfulBird",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "クルットリの手袋",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ColorfulBird_icon_normal.webp"
+ },
+ {
+  "level": 18,
+  "tech_id": "SkillUnlock_Penguin_Electric",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "デンタマのロケットランチャー",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Penguin_Electric_icon_normal.webp"
+ },
+ {
+  "level": 18,
+  "tech_id": "FurnitureSet_25",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "トイレセット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Toilet01_Stone.webp"
+ },
+ {
+  "level": 18,
+  "tech_id": "FurnitureSet_32",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "アンティークな高級家具セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Curtain01_Wall_Stone.webp"
+ },
+ {
+  "level": 19,
+  "tech_id": "Lab",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "パル作業研究所",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Lab.webp"
+ },
+ {
+  "level": 19,
+  "tech_id": "SphereModule_Heavy",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "ヘヴィウェイトモジュール",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_SphereModule_Heavy.webp"
+ },
+ {
+  "level": 19,
+  "tech_id": "Cement",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "セメント",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_Cement.webp"
+ },
+ {
+  "level": 19,
+  "tech_id": "Stone_houseset",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "石の建築セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Stone_Foundation.webp"
+ },
+ {
+  "level": 19,
+  "tech_id": "DefenseWall",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "石の防壁",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_DefenseWall.webp"
+ },
+ {
+  "level": 19,
+  "tech_id": "Stone_Gate",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "石の門",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Stone_Gate.webp"
+ },
+ {
+  "level": 19,
+  "tech_id": "SkillUnlock_NaughtyCat",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "ニャンギマリのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_NaughtyCat_icon_normal.webp"
+ },
+ {
+  "level": 20,
+  "tech_id": "Special_PalSphere_Grade_03",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ギガスフィア",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_PalSphere_Giga.webp"
+ },
+ {
+  "level": 20,
+  "tech_id": "Product_WeaponFactory_Dirty_Grade_01",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "武器製作台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_WeaponFactory_Dirty_01.webp"
+ },
+ {
+  "level": 20,
+  "tech_id": "ToolBoxV1",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "大きな工具箱",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ToolBoxV1.webp"
+ },
+ {
+  "level": 20,
+  "tech_id": "BelieverFlagSet",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "パル愛護団体の旗セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Believer_Flag.webp"
+ },
+ {
+  "level": 20,
+  "tech_id": "SkillUnlock_FairyDragon",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "シルフィアのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FairyDragon_icon_normal.webp"
+ },
+ {
+  "level": 20,
+  "tech_id": "SkillUnlock_PurpleSpider",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "モモンチュラのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_PurpleSpider_icon_normal.webp"
+ },
+ {
+  "level": 20,
+  "tech_id": "SkillUnlock_MopKing",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "ドンモップのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_MopKing_icon_normal.webp"
+ },
+ {
+  "level": 20,
+  "tech_id": "FurnitureSet_18",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "アンティークなソファセット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Sofa01_Stone.webp"
+ },
+ {
+  "level": 21,
+  "tech_id": "Musket",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "マスケット銃",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Musket.webp"
+ },
+ {
+  "level": 21,
+  "tech_id": "Battle_GunPowder_Grade_02",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "火薬",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_Gunpowder2.webp"
+ },
+ {
+  "level": 21,
+  "tech_id": "RoughBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "粗悪な弾薬",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_RoughBullet.webp"
+ },
+ {
+  "level": 21,
+  "tech_id": "Product_Farm_tomato",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "トマト農園",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FarmBlockV2_tomato.webp"
+ },
+ {
+  "level": 21,
+  "tech_id": "OlympicCauldron",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "聖火台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_OlympicCauldron.webp"
+ },
+ {
+  "level": 21,
+  "tech_id": "Trap_LegHold_Big",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "とらばさみ(大)",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Trap_LegHold.webp"
+ },
+ {
+  "level": 21,
+  "tech_id": "SkillUnlock_BirdDragon",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "カバネドリのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BirdDragon_icon_normal.webp"
+ },
+ {
+  "level": 21,
+  "tech_id": "SkillUnlock_Deer_Ground",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ヤマガミのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Deer_Ground_icon_normal.webp"
+ },
+ {
+  "level": 22,
+  "tech_id": "Expedition",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "パル遠征所",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Expedition.webp"
+ },
+ {
+  "level": 22,
+  "tech_id": "ElecBaton",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "スタンバトン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_ElecBaton.webp"
+ },
+ {
+  "level": 22,
+  "tech_id": "FishingBait_2",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "上質な釣りエサ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Consume_FishingBait_2.webp"
+ },
+ {
+  "level": 22,
+  "tech_id": "ItemBooth",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "フリーマーケット（アイテム）",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemBooth.webp"
+ },
+ {
+  "level": 22,
+  "tech_id": "PalBooth",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "フリーマーケット（パル）",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_PalBooth.webp"
+ },
+ {
+  "level": 22,
+  "tech_id": "SkillUnlock_BirdDragon_Ice",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "シロカバネのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BirdDragon_Ice_icon_normal.webp"
+ },
+ {
+  "level": 22,
+  "tech_id": "FurnitureSet_23",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "時計セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Clock01_Wall_Iron.webp"
+ },
+ {
+  "level": 22,
+  "tech_id": "FurnitureSet_13",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "金属の椅子と机セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Stool01_Iron.webp"
+ },
+ {
+  "level": 23,
+  "tech_id": "Battle_Armor_Grade_03_Copper",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "金属アーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_CopperArmor.webp"
+ },
+ {
+  "level": 23,
+  "tech_id": "Battle_Helm_Grade_03_Copper",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "金属ヘルム",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_CopperHelmet.webp"
+ },
+ {
+  "level": 23,
+  "tech_id": "SphereModule_Curve",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "カーブモジュール",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_SphereModule_Curve.webp"
+ },
+ {
+  "level": 23,
+  "tech_id": "AutoMealPouch_Tier3",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "大きなエサぶくろ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Essential_AutoMealPouch_Tier3.webp"
+ },
+ {
+  "level": 23,
+  "tech_id": "Fountain",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "噴水",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Fountain.webp"
+ },
+ {
+  "level": 23,
+  "tech_id": "SkillUnlock_KingAlpaca",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "アルパオーのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_KingAlpaca_icon_normal.webp"
+ },
+ {
+  "level": 23,
+  "tech_id": "FurnitureTree_Bamboo",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "模型の竹セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FurnitureTree01_Bamboo.webp"
+ },
+ {
+  "level": 23,
+  "tech_id": "FurnitureSet_6",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "収納コンテナセット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Container01_Iron.webp"
+ },
+ {
+  "level": 24,
+  "tech_id": "MakeshiftHandgun",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ジャンクハンドガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_MakeshiftHandgun.webp"
+ },
+ {
+  "level": 24,
+  "tech_id": "Infra_PalBed_Grade_02",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "ふかふかパルベッド",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_MedicalPalBed_03.webp"
+ },
+ {
+  "level": 24,
+  "tech_id": "PalMedicineBox",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "薬棚",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_PalMedicineBox.webp"
+ },
+ {
+  "level": 24,
+  "tech_id": "Clinic",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "診療所",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Clinic.webp"
+ },
+ {
+  "level": 24,
+  "tech_id": "FlowerBed",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "花壇",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FlowerBed.webp"
+ },
+ {
+  "level": 24,
+  "tech_id": "SkillUnlock_Kitsunebi_Ice",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ユキツネのハーネス",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Kitsunebi_Ice_icon_normal.webp"
+ },
+ {
+  "level": 24,
+  "tech_id": "SkillUnlock_BlueDragon",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "アズレーンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlueDragon_icon_normal.webp"
+ },
+ {
+  "level": 24,
+  "tech_id": "SkillUnlock_FlowerDinosaur",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "アロアリューのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FlowerDinosaur_icon_normal.webp"
+ },
+ {
+  "level": 25,
+  "tech_id": "PalDopingShot",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ブーストガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_PalDopingShot.webp"
+ },
+ {
+  "level": 25,
+  "tech_id": "PalDopingShotBullet",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ブーストガンの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_PalDopingShotBullet.webp"
+ },
+ {
+  "level": 25,
+  "tech_id": "Battle_Armor_Grade_03_Copper_Heat",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "耐熱金属アーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_CopperArmorHeat.webp"
+ },
+ {
+  "level": 25,
+  "tech_id": "Product_Farm_Lettuce",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "レタス農園",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FarmBlockV2_Lettuce.webp"
+ },
+ {
+  "level": 25,
+  "tech_id": "Silo",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "サイロ",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Silo.webp"
+ },
+ {
+  "level": 25,
+  "tech_id": "FragGrenade",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "フラググレネード",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FragGrenade.webp"
+ },
+ {
+  "level": 25,
+  "tech_id": "SkillUnlock_Serpent_Ground",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "スナペントのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Serpent_Ground_icon_normal.webp"
+ },
+ {
+  "level": 25,
+  "tech_id": "SkillUnlock_HadesBird",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ヘルガルダのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_HadesBird_icon_normal.webp"
+ },
+ {
+  "level": 26,
+  "tech_id": "MakeshiftSubmachineGun",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ボロいサブマシンガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_MakeshiftSubmachineGun.webp"
+ },
+ {
+  "level": 26,
+  "tech_id": "Infra_ElectricGenerator_Grade_01",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "発電機",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_EnergyGenerator_Electric.webp"
+ },
+ {
+  "level": 26,
+  "tech_id": "Lamp",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "設置ランプ",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_LampStand.webp"
+ },
+ {
+  "level": 26,
+  "tech_id": "ManualElectricGenerator",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "人力発電機",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ManualElectricGenerator.webp"
+ },
+ {
+  "level": 26,
+  "tech_id": "Battle_Defense_BowGun",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "設置型クロスボウ",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_efenseBulletLauncher_BowGun.webp"
+ },
+ {
+  "level": 26,
+  "tech_id": "SkillUnlock_FengyunDeeper",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ムラクモのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FengyunDeeper_icon_normal.webp"
+ },
+ {
+  "level": 26,
+  "tech_id": "SkillUnlock_IceSeal",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "バニザラシのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_IceSeal_icon_normal.webp"
+ },
+ {
+  "level": 26,
+  "tech_id": "FurnitureSet_29",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "アンティークなランプセット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Light_FloorLamp01.webp"
+ },
+ {
+  "level": 27,
+  "tech_id": "Special_PalSphere_Grade_04",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "テラスフィア",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_PalSphere_Tera.webp"
+ },
+ {
+  "level": 27,
+  "tech_id": "Special_SphereFactory_Black_Grade_02",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "スフィアライン工場",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_SphereFactory_Black_02.webp"
+ },
+ {
+  "level": 27,
+  "tech_id": "Battle_Armor_Grade_03_Copper_Cold",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "耐寒金属アーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_CopperArmorCold.webp"
+ },
+ {
+  "level": 27,
+  "tech_id": "AdditionalInventory_001",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "小さな拡張ポーチ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Essential_AdditionalInventory_001.webp"
+ },
+ {
+  "level": 27,
+  "tech_id": "CeilingLamp",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "天井ランプ",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_LampTop.webp"
+ },
+ {
+  "level": 27,
+  "tech_id": "FragGrenade_Elec",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "電撃グレネード",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FragGrenade_Elec.webp"
+ },
+ {
+  "level": 27,
+  "tech_id": "SkillUnlock_BlueDragon_Ice",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "アズルーナのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlueDragon_Ice_icon_normal.webp"
+ },
+ {
+  "level": 27,
+  "tech_id": "FurnitureTree_Tropical",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "模型の南国の樹木セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FurnitureTree01_Tropical.webp"
+ },
+ {
+  "level": 28,
+  "tech_id": "Battle_RangeWeapon_HandGun",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ハンドガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_HandGun_Default.webp"
+ },
+ {
+  "level": 28,
+  "tech_id": "HandgunBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "ハンドガンの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_HandgunBullet.webp"
+ },
+ {
+  "level": 28,
+  "tech_id": "Infra_PlayerBed_Grade_02",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "上質なベッド",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_PlayerBed_03.webp"
+ },
+ {
+  "level": 28,
+  "tech_id": "BaseCampWorkHard02",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "上質な監視台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BaseCampWorkHard02.webp"
+ },
+ {
+  "level": 28,
+  "tech_id": "Stump",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "切り株と斧",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Stump.webp"
+ },
+ {
+  "level": 28,
+  "tech_id": "FireCultFlagSet",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "永炎の同志の旗セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FireCult_Flag.webp"
+ },
+ {
+  "level": 28,
+  "tech_id": "SkillUnlock_FeatherOstrich",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "トリステップのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FeatherOstrich_icon_normal.webp"
+ },
+ {
+  "level": 28,
+  "tech_id": "SkillUnlock_GrassMammoth",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "グランモスのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GrassMammoth_icon_normal.webp"
+ },
+ {
+  "level": 29,
+  "tech_id": "Shield_03",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ギガシールド",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_Shield_03.webp"
+ },
+ {
+  "level": 29,
+  "tech_id": "Battle_MeleeWeapon_Sword",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "剣",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Sword.webp"
+ },
+ {
+  "level": 29,
+  "tech_id": "FishingRod_02_1",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "中級釣り竿（ツッパニャン）",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FishingRod_3.webp"
+ },
+ {
+  "level": 29,
+  "tech_id": "Product_Factory_Hard_Grade_02",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "作業ライン工場",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Factory_Hard_02.webp"
+ },
+ {
+  "level": 29,
+  "tech_id": "Product_Farm_Potato",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "じゃがいも農園",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FarmBlockV2_Potato.webp"
+ },
+ {
+  "level": 29,
+  "tech_id": "FragGrenade_Ice",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "氷結グレネード",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FragGrenade_Ice.webp"
+ },
+ {
+  "level": 29,
+  "tech_id": "SkillUnlock_FireKirin",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "サラブレイズのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FireKirin_icon_normal.webp"
+ },
+ {
+  "level": 29,
+  "tech_id": "SkillUnlock_ThunderBird",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ライバードのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ThunderBird_icon_normal.webp"
+ },
+ {
+  "level": 30,
+  "tech_id": "MakeshiftShotgun",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ボロいショットガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_MakeshiftShotgun.webp"
+ },
+ {
+  "level": 30,
+  "tech_id": "Trap_MineAttack",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "地雷",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Trap_MineAttack.webp"
+ },
+ {
+  "level": 30,
+  "tech_id": "Metal_houseset",
+  "cost": 4,
+  "category": "建築物",
+  "name_jp": "金属の建築セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Metal_Foundation.webp"
+ },
+ {
+  "level": 30,
+  "tech_id": "DefenseWall_Metal",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "金属の防壁",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_DefenseWall_Metal.webp"
+ },
+ {
+  "level": 30,
+  "tech_id": "Metal_Gate",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "金属の門",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Metal_Gate.webp"
+ },
+ {
+  "level": 30,
+  "tech_id": "MiningTool",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "採掘ワゴン",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_MiningTool.webp"
+ },
+ {
+  "level": 30,
+  "tech_id": "Cake02",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "キノコケーキ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_food_Cake02.webp"
+ },
+ {
+  "level": 30,
+  "tech_id": "SkillUnlock_ThunderDog",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "イヌズマのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ThunderDog_icon_normal.webp"
+ },
+ {
+  "level": 31,
+  "tech_id": "MakeshiftAssaultRifle",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ボロいアサルトライフル",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_MakeshiftAssaultRifle.webp"
+ },
+ {
+  "level": 31,
+  "tech_id": "SphereModule_Sniper",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "スナイパーモジュール",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_SphereModule_Spiper.webp"
+ },
+ {
+  "level": 31,
+  "tech_id": "Bio_Coolant",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "極低温冷却媒体",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_Bio_Coolant.webp"
+ },
+ {
+  "level": 31,
+  "tech_id": "FishingPond1",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "釣り堀",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FishingPond1.webp"
+ },
+ {
+  "level": 31,
+  "tech_id": "Spa2",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "上質な温泉",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Spa_2.webp"
+ },
+ {
+  "level": 31,
+  "tech_id": "FragGrenade_Fire",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "焼夷グレネード",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FragGrenade_Fire.webp"
+ },
+ {
+  "level": 31,
+  "tech_id": "SkillUnlock_GhostAnglerfish",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "アンドーンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GhostAnglerfish_icon_normal.webp"
+ },
+ {
+  "level": 31,
+  "tech_id": "SkillUnlock_IceDeer",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ツララジカのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_IceDeer_icon_normal.webp"
+ },
+ {
+  "level": 32,
+  "tech_id": "Product_WeaponFactory_Dirty_Grade_02",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "武器ライン工場",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_WeaponFactory_Dirty_02.webp"
+ },
+ {
+  "level": 32,
+  "tech_id": "PalHealingGrenade",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "パル回復グレネード",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_PalHealingGrenade.webp"
+ },
+ {
+  "level": 32,
+  "tech_id": "Product_Farm_Carrot",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "にんじん農園",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FarmBlockV2_Carrot.webp"
+ },
+ {
+  "level": 32,
+  "tech_id": "Cauldron",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "魔女の鍋",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Cauldron.webp"
+ },
+ {
+  "level": 32,
+  "tech_id": "BaseCampWorkerExtraStation",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "パルボックス操作端末",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BaseCampWorkerExtraStation.webp"
+ },
+ {
+  "level": 32,
+  "tech_id": "SkillUnlock_FairyDragon_Water",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "シルティアのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FairyDragon_Water_icon_normal.webp"
+ },
+ {
+  "level": 32,
+  "tech_id": "SkillUnlock_GrassPanda",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ササゾーのグレネードランチャー",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GrassPanda_icon_normal.webp"
+ },
+ {
+  "level": 32,
+  "tech_id": "SkillUnlock_Thunderdog_Ice",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "フリーズマのサドル",
+  "icon": ""
+ },
+ {
+  "level": 33,
+  "tech_id": "Battle_RangeWeapon_OldRevolver",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "古びたリボルバー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_OldRevolver.webp"
+ },
+ {
+  "level": 33,
+  "tech_id": "Polymer",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ポリマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_Polymer.webp"
+ },
+ {
+  "level": 33,
+  "tech_id": "Trap_MineElecShock",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "感電地雷",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Trap_MineElecShock.webp"
+ },
+ {
+  "level": 33,
+  "tech_id": "FragGrenade_Water",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "水流グレネード",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FragGrenade_Water.webp"
+ },
+ {
+  "level": 33,
+  "tech_id": "Snowman",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "雪だるま",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Snowman.webp"
+ },
+ {
+  "level": 33,
+  "tech_id": "SkillUnlock_Manticore",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ゴクエンオのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Manticore_icon_normal.webp"
+ },
+ {
+  "level": 33,
+  "tech_id": "SkillUnlock_RedArmorBird",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "イグニクスのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_RedArmorBird_icon_normal.webp"
+ },
+ {
+  "level": 33,
+  "tech_id": "SkillUnlock_SakuraSaurus",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ラブラドンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SakuraSaurus_icon_normal.webp"
+ },
+ {
+  "level": 34,
+  "tech_id": "Product_Ingot_Grade_02_Iron",
+  "cost": 4,
+  "category": "建築物",
+  "name_jp": "改善された炉",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BlastFurnace_2.webp"
+ },
+ {
+  "level": 34,
+  "tech_id": "Product_Axe_Grade_03",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "精錬金属の斧",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Axe_Tier_00.webp"
+ },
+ {
+  "level": 34,
+  "tech_id": "Product_Pickaxe_Grade_03",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "精錬金属のつるはし",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Pickaxe_Tier_00.webp"
+ },
+ {
+  "level": 34,
+  "tech_id": "Spear_3",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "精錬金属の槍",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Spear_Tier_00.webp"
+ },
+ {
+  "level": 34,
+  "tech_id": "SkillUnlock_FireKirin_Dark",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "サラブラックのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FireKirin_Dark_icon_normal.webp"
+ },
+ {
+  "level": 34,
+  "tech_id": "SkillUnlock_GrassPanda_Electric",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ライゾーのグレネードランチャー",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GrassPanda_Electric_icon_normal.webp"
+ },
+ {
+  "level": 34,
+  "tech_id": "SkillUnlock_FlowerDinosaur_Electric",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ビリビリューのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FlowerDinosaur_Electric_icon_normal.webp"
+ },
+ {
+  "level": 34,
+  "tech_id": "FurnitureSet_5",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "ドラム缶セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Barrel01_Iron.webp"
+ },
+ {
+  "level": 35,
+  "tech_id": "Special_PalSphere_Grade_05",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ウルトラスフィア",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_PalSphere_Master.webp"
+ },
+ {
+  "level": 35,
+  "tech_id": "Special_SphereFactory_Black_Grade_03",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "スフィアライン工場Ⅱ",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_SphereFactory_Black_03.webp"
+ },
+ {
+  "level": 35,
+  "tech_id": "Infra_ElectronicCircuit",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "電子基板",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_ElectronicCircuit.webp"
+ },
+ {
+  "level": 35,
+  "tech_id": "CarbonFiber",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "カーボン繊維",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_CarbonFiber.webp"
+ },
+ {
+  "level": 35,
+  "tech_id": "FragGrenade_Leaf",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "草木グレネード",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FragGrenade_Leaf.webp"
+ },
+ {
+  "level": 35,
+  "tech_id": "SkillUnlock_Manticore_Dark",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "シンエンオのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Manticore_Dark_icon_normal.webp"
+ },
+ {
+  "level": 35,
+  "tech_id": "SkillUnlock_TropicalOstrich",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ココヤンバのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_TropicalOstrich_icon_normal.webp"
+ },
+ {
+  "level": 35,
+  "tech_id": "FurnitureSet_14",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "アイアンウッドのテーブルセット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_TableSide01_Iron.webp"
+ },
+ {
+  "level": 36,
+  "tech_id": "Battle_RangeWeapon_Rifle",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "シングルショットライフル",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_SingleShotRifle.webp"
+ },
+ {
+  "level": 36,
+  "tech_id": "RifleBullet",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ライフルの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_RifleBullet.webp"
+ },
+ {
+  "level": 36,
+  "tech_id": "Product_Farm_Onion",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "たまねぎ農園",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FarmBlockV2_Onion.webp"
+ },
+ {
+  "level": 36,
+  "tech_id": "Cloth2",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "上質な布",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_Cloth.webp"
+ },
+ {
+  "level": 36,
+  "tech_id": "MedicalPalBed_04",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "大きなパルベッド",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_MedicalPalBed_04.webp"
+ },
+ {
+  "level": 36,
+  "tech_id": "AutoMealPouch_Tier4",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "巨大なエサぶくろ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Essential_AutoMealPouch_Tier4.webp"
+ },
+ {
+  "level": 36,
+  "tech_id": "SkillUnlock_Plesiosaur",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "トコナッツのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Plesiosaur_icon_normal.webp"
+ },
+ {
+  "level": 36,
+  "tech_id": "SkillUnlock_VolcanoDragon",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "マグマンダーのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_VolcanoDragon_icon_normal.webp"
+ },
+ {
+  "level": 37,
+  "tech_id": "Battle_RangeWeapon_SubmachineGun",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "サブマシンガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_SubmachineGun.webp"
+ },
+ {
+  "level": 37,
+  "tech_id": "Battle_Armor_Grade_03_Iron",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "精錬金属アーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_IronArmor.webp"
+ },
+ {
+  "level": 37,
+  "tech_id": "Battle_Helm_Grade_04_Iron",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "精錬金属ヘルム",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_IronHelmet.webp"
+ },
+ {
+  "level": 37,
+  "tech_id": "Corrosive_Solvent",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "腐食溶剤",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_Corrosive_Solvent.webp"
+ },
+ {
+  "level": 37,
+  "tech_id": "EnergyStorage_Electric",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "蓄電器",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_EnergyStorage_Electric.webp"
+ },
+ {
+  "level": 37,
+  "tech_id": "SkillUnlock_GhostBeast",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ソルレイスのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GhostBeast_icon_normal.webp"
+ },
+ {
+  "level": 37,
+  "tech_id": "FurnitureTree_Desert",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "模型の砂漠の樹木セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FurnitureTree01_Desert.webp"
+ },
+ {
+  "level": 37,
+  "tech_id": "FurnitureSet_31",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "屋外家具セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_CableCoil01_Iron.webp"
+ },
+ {
+  "level": 38,
+  "tech_id": "OperatingTable",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "パル手術台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_OperatingTable.webp"
+ },
+ {
+  "level": 38,
+  "tech_id": "Launcher_Meteor",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "メテオランチャー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Launcher_Meteor.webp"
+ },
+ {
+  "level": 38,
+  "tech_id": "FishingBait_3",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "贅沢な釣りエサ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Consume_FishingBait_3.webp"
+ },
+ {
+  "level": 38,
+  "tech_id": "Refrigerator",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "冷蔵庫",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Refrigerator.webp"
+ },
+ {
+  "level": 38,
+  "tech_id": "Trap_MineFreeze",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "氷結地雷",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Trap_MineFreeze.webp"
+ },
+ {
+  "level": 38,
+  "tech_id": "FragGrenade_Ground",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "大地グレネード",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FragGrenade_Ground.webp"
+ },
+ {
+  "level": 38,
+  "tech_id": "SkillUnlock_SkyDragon",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "フェスキーのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SkyDragon_icon_normal.webp"
+ },
+ {
+  "level": 38,
+  "tech_id": "FurnitureSet_7",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "皮張りの椅子セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Sofa01_Iron.webp"
+ },
+ {
+  "level": 39,
+  "tech_id": "PoliceFlagSet",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "自警団の旗セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Police_Flag.webp"
+ },
+ {
+  "level": 39,
+  "tech_id": "Battle_RangeWeapon_ShotGun",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ダブルバレルショットガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_DoubleBarrelShotgun.webp"
+ },
+ {
+  "level": 39,
+  "tech_id": "ShotGunBullet",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ショットガンの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_ShotgunBullet.webp"
+ },
+ {
+  "level": 39,
+  "tech_id": "SphereModule_Curve2",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "スライダーモジュール",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_SphereModule_Curve2.webp"
+ },
+ {
+  "level": 39,
+  "tech_id": "Infra_ItemChest_Grade_03",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "精錬金属のチェスト",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemChest_03.webp"
+ },
+ {
+  "level": 39,
+  "tech_id": "SkillUnlock_BlackMetalDragon",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ジオラーヴァのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlackMetalDragon_icon_normal.webp"
+ },
+ {
+  "level": 39,
+  "tech_id": "SkillUnlock_MushroomDragon",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "キノッポのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_MushroomDragon_icon_normal.webp"
+ },
+ {
+  "level": 39,
+  "tech_id": "SkillUnlock_MushroomDragon_Dark",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ベノッポのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_MushroomDragon_Dark_icon_normal.webp"
+ },
+ {
+  "level": 40,
+  "tech_id": "Bat3",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "金属バット",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Bat3.webp"
+ },
+ {
+  "level": 40,
+  "tech_id": "Battle_Armor_Grade_03_Iron_Heat",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "耐熱精錬金属アーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_IronArmorHeat.webp"
+ },
+ {
+  "level": 40,
+  "tech_id": "Battle_Glider_Grade_03",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ギガグライダー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Glider_Glider_Super.webp"
+ },
+ {
+  "level": 40,
+  "tech_id": "Battle_Defense_MachineGun",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "設置型マシンガン",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_DefenseMachinegun.webp"
+ },
+ {
+  "level": 40,
+  "tech_id": "FragGrenade_Dark",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "暗黒グレネード",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FragGrenade_Dark.webp"
+ },
+ {
+  "level": 40,
+  "tech_id": "SkillUnlock_Umihebi",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "レヴィドラのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Umihebi_icon_normal.webp"
+ },
+ {
+  "level": 40,
+  "tech_id": "SkillUnlock_ElecPanda",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "エレパンダのミニガン",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ElecPanda_icon_normal.webp"
+ },
+ {
+  "level": 40,
+  "tech_id": "SkillUnlock_WeaselDragon_Fire",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "モモチョのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WeaselDragon_Fire_icon_normal.webp"
+ },
+ {
+  "level": 41,
+  "tech_id": "Battle_RangeWeapon_SemiAutoRifle",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "セミオートライフル",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_SemiAutoRifle.webp"
+ },
+ {
+  "level": 41,
+  "tech_id": "Battle_Armor_Grade_03_Iron_Cold",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "耐寒精錬金属アーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_IronArmorCold.webp"
+ },
+ {
+  "level": 41,
+  "tech_id": "Product_Cooking_Grade_03",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "電気キッチン",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ElectricKitchen.webp"
+ },
+ {
+  "level": 41,
+  "tech_id": "SanityDecrease1",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "α波発生装置",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_SanityDecrease1.webp"
+ },
+ {
+  "level": 41,
+  "tech_id": "ElectricHeater",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "電気ヒーター",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_HeaterElectric.webp"
+ },
+ {
+  "level": 41,
+  "tech_id": "SkillUnlock_WhiteAlienDragon",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ゼノルーダのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WhiteAlienDragon_icon_normal.webp"
+ },
+ {
+  "level": 41,
+  "tech_id": "SkillUnlock_GuardianDog",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ヤクモマルのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GuardianDog_icon_normal.webp"
+ },
+ {
+  "level": 41,
+  "tech_id": "SkillUnlock_GrassMammoth_Ice",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ブリザモスのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GrassMammoth_Ice_icon_normal.webp"
+ },
+ {
+  "level": 42,
+  "tech_id": "Battle_RangeWeapon_CompoundBow",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "コンパウンドボウ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_CompoundBow.webp"
+ },
+ {
+  "level": 42,
+  "tech_id": "ReinforcedArrow",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "強化矢",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_ReinforcedArrow.webp"
+ },
+ {
+  "level": 42,
+  "tech_id": "Product_Factory_Hard_Grade_03",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "作業ライン工場Ⅱ",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Factory_Hard_03.webp"
+ },
+ {
+  "level": 42,
+  "tech_id": "ElectricCooler",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "電気クーラー",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_CoolerElectric.webp"
+ },
+ {
+  "level": 42,
+  "tech_id": "FragGrenade_Dragon",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "竜撃グレネード",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FragGrenade_Dragon.webp"
+ },
+ {
+  "level": 42,
+  "tech_id": "SkillUnlock_IceNarwhal",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "コゴエールのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_IceNarwhal_icon_normal.webp"
+ },
+ {
+  "level": 42,
+  "tech_id": "SkillUnlock_GhostAnglerfish_Fire",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "メラドーンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GhostAnglerfish_Fire_icon_normal.webp"
+ },
+ {
+  "level": 42,
+  "tech_id": "SkillUnlock_VolcanicMonster",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ボルカノンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_VolcanicMonster_icon_normal.webp"
+ },
+ {
+  "level": 43,
+  "tech_id": "Battle_RangeWeapon_ShotGun_Multi",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ポンプ式ショットガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_PumpActionShotgun.webp"
+ },
+ {
+  "level": 43,
+  "tech_id": "Shield_04",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "テラシールド",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_Shield_04.webp"
+ },
+ {
+  "level": 43,
+  "tech_id": "AdditionalInventory_002",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "それなりの拡張ポーチ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Essential_AdditionalInventory_002.webp"
+ },
+ {
+  "level": 43,
+  "tech_id": "HighGrade_Processed_Wood",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "上質な木板",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_HighGrade_Processed_Wood.webp"
+ },
+ {
+  "level": 43,
+  "tech_id": "Product_Medicine_Grade_02",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "電気製薬台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_MedicineFacility_02.webp"
+ },
+ {
+  "level": 43,
+  "tech_id": "SkillUnlock_Suzaku",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "スザクのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Suzaku_icon_normal.webp"
+ },
+ {
+  "level": 43,
+  "tech_id": "SkillUnlock_VolcanicMonster_Ice",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "フロスカノンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_VolcanicMonster_Ice_icon_normal.webp"
+ },
+ {
+  "level": 44,
+  "tech_id": "Special_PalSphere_Grade_06",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "レジェンドスフィア",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_PalSphere_Legend.webp"
+ },
+ {
+  "level": 44,
+  "tech_id": "Product_Ingot_Grade_03_Steal",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "電気炉",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BlastFurnace3.webp"
+ },
+ {
+  "level": 44,
+  "tech_id": "Bio_Battery",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "バイオバッテリー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_Bio_Battery.webp"
+ },
+ {
+  "level": 44,
+  "tech_id": "Katana",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "刀",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Katana.webp"
+ },
+ {
+  "level": 44,
+  "tech_id": "Battle_MeleeWeapon_Pickaxe_Steal",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "パルメタルのつるはし",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Pickaxe_Tier_03.webp"
+ },
+ {
+  "level": 44,
+  "tech_id": "Battle_MeleeWeapon_Axe_Steal",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "パルメタルの斧",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Axe_Tier_03.webp"
+ },
+ {
+  "level": 44,
+  "tech_id": "SkillUnlock_Suzaku_Water",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "シヴァのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Suzaku_Water_icon_normal.webp"
+ },
+ {
+  "level": 44,
+  "tech_id": "SkillUnlock_SakuraSaurus_Water",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "スプラドンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SakuraSaurus_Water_icon_normal.webp"
+ },
+ {
+  "level": 45,
+  "tech_id": "Glass_houseset",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "ガラスの建築セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Glass_foundation.webp"
+ },
+ {
+  "level": 45,
+  "tech_id": "Battle_RangeWeapon_AssaultRifle",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "アサルトライフル",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_AssaultRifle_Default1.webp"
+ },
+ {
+  "level": 45,
+  "tech_id": "AssaultRifleBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "アサルトライフルの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_AssaultRifleBullet.webp"
+ },
+ {
+  "level": 45,
+  "tech_id": "FishingRod_03_1",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "上級釣り竿（ペンタマ）",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FishingRod_5.webp"
+ },
+ {
+  "level": 45,
+  "tech_id": "CompositeDesk",
+  "cost": 4,
+  "category": "建築物",
+  "name_jp": "製図台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_CompositeDesk.webp"
+ },
+ {
+  "level": 45,
+  "tech_id": "SkillUnlock_SkyDragon_Grass",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "フォレスキーのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SkyDragon_Grass_icon_normal.webp"
+ },
+ {
+  "level": 45,
+  "tech_id": "SkillUnlock_LazyDragon",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ペコドンのミサイルランチャー",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LazyDragon_icon_normal.webp"
+ },
+ {
+  "level": 45,
+  "tech_id": "SkillUnlock_Yeti",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ヒエティのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Yeti_icon_normal.webp"
+ },
+ {
+  "level": 46,
+  "tech_id": "Battle_Armor_Grade_04_Steal",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "パルメタルアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_StealArmor.webp"
+ },
+ {
+  "level": 46,
+  "tech_id": "Battle_Helm_Grade_05_Steal",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "パルメタルヘルム",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_StealHelmet.webp"
+ },
+ {
+  "level": 46,
+  "tech_id": "WorkSpeedIncrease1",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "β波発生装置",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_WorkSpeedIncrease1.webp"
+ },
+ {
+  "level": 46,
+  "tech_id": "LargeLamp",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "設置大型ランプ",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_LampStandLarge.webp"
+ },
+ {
+  "level": 46,
+  "tech_id": "SkillUnlock_KingBahamut",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ボルカイザーのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_KingBahamut_icon_normal.webp"
+ },
+ {
+  "level": 46,
+  "tech_id": "SkillUnlock_KingAlpaca_Ice",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "アオパオーのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_KingAlpaca_Ice_icon_normal.webp"
+ },
+ {
+  "level": 46,
+  "tech_id": "FurnitureSet_27",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "街灯セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Light_LightPole01.webp"
+ },
+ {
+  "level": 46,
+  "tech_id": "FurnitureSet_26",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "娯楽家具セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_GoalSoccer_Iron.webp"
+ },
+ {
+  "level": 47,
+  "tech_id": "Battle_RangeWeapon_SemiAutoShotgun",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "セミオートショットガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_SemiAutoShotgun.webp"
+ },
+ {
+  "level": 47,
+  "tech_id": "Product_WeaponFactory_Dirty_Grade_03",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "武器ライン工場Ⅱ",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_WeaponFactory_Dirty_03.webp"
+ },
+ {
+  "level": 47,
+  "tech_id": "Cake03",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "野菜ケーキ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_food_Cake03.webp"
+ },
+ {
+  "level": 47,
+  "tech_id": "AutoMealPouch_Tier5",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "極大エサぶくろ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Essential_AutoMealPouch_Tier5.webp"
+ },
+ {
+  "level": 47,
+  "tech_id": "LargeCeilingLamp",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "大型天井ランプ",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_LampTopLarge.webp"
+ },
+ {
+  "level": 47,
+  "tech_id": "SkillUnlock_HadesBird_Electric",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ライガルダのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_HadesBird_Electric_icon_normal.webp"
+ },
+ {
+  "level": 47,
+  "tech_id": "SkillUnlock_BlackGriffon",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ゼノグリフのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlackGriffon_icon_normal.webp"
+ },
+ {
+  "level": 47,
+  "tech_id": "FurnitureSet_8",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "非常口サインセット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_SignExit_Ceiling_Iron.webp"
+ },
+ {
+  "level": 48,
+  "tech_id": "Battle_Armor_Grade_04_Steal_Heat",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "耐熱パルメタルアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_StealArmorHeat.webp"
+ },
+ {
+  "level": 48,
+  "tech_id": "SphereModule_Sniper2",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "スナイパーモジュールⅡ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_SphereModule_Sniper2.webp"
+ },
+ {
+  "level": 48,
+  "tech_id": "TransmissionTower",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "送電塔",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_TransmissionTower.webp"
+ },
+ {
+  "level": 48,
+  "tech_id": "SkillUnlock_LazyDragon_Electric",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "パリピドンのミサイルランチャー",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LazyDragon_Electric_icon_normal.webp"
+ },
+ {
+  "level": 48,
+  "tech_id": "SkillUnlock_GrassGolem",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ウゴクゾーのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GrassGolem_icon_normal.webp"
+ },
+ {
+  "level": 48,
+  "tech_id": "SkillUnlock_CubeTurtle",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "オモシガメのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_CubeTurtle_icon_normal.webp"
+ },
+ {
+  "level": 48,
+  "tech_id": "FurnitureSet_11",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "交通整理セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_TrafficCone01_Iron.webp"
+ },
+ {
+  "level": 49,
+  "tech_id": "BaseCampItemDispenser",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "アイテム取り出し機",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BaseCampItemDispenser.webp"
+ },
+ {
+  "level": 49,
+  "tech_id": "HugeKitchen",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "大型キッチン",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_HugeKitchen.webp"
+ },
+ {
+  "level": 49,
+  "tech_id": "JapaneseStyle_houseset",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "和風建築セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_JapaneseStyle_foundation.webp"
+ },
+ {
+  "level": 49,
+  "tech_id": "FurnitureTree_Snow",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "模型の雪の積もった樹木セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FurnitureTree01_Snow.webp"
+ },
+ {
+  "level": 49,
+  "tech_id": "FurnitureSet_12",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "道路標識セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_TrafficSign01_Iron.webp"
+ },
+ {
+  "level": 49,
+  "tech_id": "FurnitureSet_10",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "バリケードセット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_TrafficBarricade01_Iron.webp"
+ },
+ {
+  "level": 50,
+  "tech_id": "Battle_Armor_Grade_04_Steal_Cold",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "耐寒パルメタルアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_StealArmorCold.webp"
+ },
+ {
+  "level": 50,
+  "tech_id": "OilPump",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "原油抽出機",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_OilPump.webp"
+ },
+ {
+  "level": 50,
+  "tech_id": "Plastic",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "プラスチール",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_Plastic.webp"
+ },
+ {
+  "level": 50,
+  "tech_id": "Computer",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "コンピューター",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_Computer.webp"
+ },
+ {
+  "level": 50,
+  "tech_id": "Battle_Defense_Missile",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "設置型ミサイルランチャー",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_efenseBulletLauncher_Missile.webp"
+ },
+ {
+  "level": 50,
+  "tech_id": "ScientistFlagSet",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "遺伝子研究部隊の旗セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Scientist_Flag.webp"
+ },
+ {
+  "level": 51,
+  "tech_id": "Special_PalSphere_Grade_07",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "アルティメットスフィア",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_PalSphere_Ultimate.webp"
+ },
+ {
+  "level": 51,
+  "tech_id": "Battle_Armor_Grade_05_Plastic",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "プラスチールアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_PlasticArmor.webp"
+ },
+ {
+  "level": 51,
+  "tech_id": "Battle_Helm_Grade_06_Plastic",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "プラスチールヘルム",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_PlasticHelmet.webp"
+ },
+ {
+  "level": 51,
+  "tech_id": "Battle_RangeWeapon_LaserRifle",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "レーザーライフル",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_LaserRifle.webp"
+ },
+ {
+  "level": 51,
+  "tech_id": "LaserBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "エネルギーカートリッジ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_LaserBullet.webp"
+ },
+ {
+  "level": 51,
+  "tech_id": "CoolerPalFoodBox",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "保冷エサ箱",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_CoolerPalFoodBox.webp"
+ },
+ {
+  "level": 51,
+  "tech_id": "SkillUnlock_Yeti_Grass",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "トロピティのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Yeti_Grass_icon_normal.webp"
+ },
+ {
+  "level": 52,
+  "tech_id": "Battle_Glider_Grade_04",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "テラグライダー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Glider_Glider_Legendary.webp"
+ },
+ {
+  "level": 52,
+  "tech_id": "Battle_RangeWeapon_FlameThrower",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "火炎放射器",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FlameThrower_Default.webp"
+ },
+ {
+  "level": 52,
+  "tech_id": "FlamethrowerBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "火炎放射器燃料",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_FlamethrowerBullet.webp"
+ },
+ {
+  "level": 52,
+  "tech_id": "FishingBait_3_A",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "魅惑の釣りエサ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Consume_FishingBait_3_A.webp"
+ },
+ {
+  "level": 52,
+  "tech_id": "SkillUnlock_BadCatgirl",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ニャニミテのショットガン",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BadCatgirl_icon_normal.webp"
+ },
+ {
+  "level": 53,
+  "tech_id": "AdditionalInventory_003",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "大きな拡張ポーチ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Essential_AdditionalInventory_003.webp"
+ },
+ {
+  "level": 53,
+  "tech_id": "Battle_Armor_Grade_05_Plastic_Heat",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "耐熱プラスチールアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_PlasticArmorHeat.webp"
+ },
+ {
+  "level": 53,
+  "tech_id": "Battle_RangeWeapon_GrenadeLauncher",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "グレネードランチャー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_GrenadeLauncher.webp"
+ },
+ {
+  "level": 53,
+  "tech_id": "GrenadeBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "グレネード弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_GrenadeBullet.webp"
+ },
+ {
+  "level": 53,
+  "tech_id": "FragGrenade_Super",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "フラググレネード改",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_FragGrenade_Super.webp"
+ },
+ {
+  "level": 53,
+  "tech_id": "SkillUnlock_MoonQueen",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "セレムーンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_MoonQueen_icon_normal.webp"
+ },
+ {
+  "level": 53,
+  "tech_id": "SkillUnlock_SumoDog",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ドスコイヌのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SumoDog_icon_normal.webp"
+ },
+ {
+  "level": 54,
+  "tech_id": "LaserMiningTool",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "マルチプラズマカッター",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_LaserMiningTool.webp"
+ },
+ {
+  "level": 54,
+  "tech_id": "Battle_Armor_Grade_05_Plastic_Cold",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "耐寒プラスチールアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_PlasticArmorCold.webp"
+ },
+ {
+  "level": 54,
+  "tech_id": "Battle_RangeWeapon_GatlingGun",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ガトリングガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_GatlingGun.webp"
+ },
+ {
+  "level": 54,
+  "tech_id": "GatlingBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "ガトリング弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_GatlingBullet.webp"
+ },
+ {
+  "level": 54,
+  "tech_id": "IceCrusher",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "凍結粉砕機",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_IceCrusher.webp"
+ },
+ {
+  "level": 54,
+  "tech_id": "SkillUnlock_GoldenHorse",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "キンガゼルのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GoldenHorse_icon_normal.webp"
+ },
+ {
+  "level": 54,
+  "tech_id": "SkillUnlock_WhiteDeer",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "セレスディアのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WhiteDeer_icon_normal.webp"
+ },
+ {
+  "level": 55,
+  "tech_id": "Spear_ForestBoss",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "リリィの槍",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Spear_ForestBoss.webp"
+ },
+ {
+  "level": 55,
+  "tech_id": "Shield_05",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ウルトラシールド",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_Shield_05.webp"
+ },
+ {
+  "level": 55,
+  "tech_id": "Battle_Armor_Grade_05_Plastic_Weight",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "軽量プラスチールアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_PlasticArmorWeight.webp"
+ },
+ {
+  "level": 55,
+  "tech_id": "SkillUnlock_IceSeal_Ground",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "チョコザラシのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_IceSeal_Ground_icon_normal.webp"
+ },
+ {
+  "level": 55,
+  "tech_id": "SkillUnlock_KingBahamut_Dragon",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ボルドラゴのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_KingBahamut_Dragon_icon_normal.webp"
+ },
+ {
+  "level": 55,
+  "tech_id": "FurnitureSet_Japanese",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "和風家具セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Byobu.webp"
+ },
+ {
+  "level": 55,
+  "tech_id": "NinjaFlagSet",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "月花衆の旗セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Ninja_Flag.webp"
+ },
+ {
+  "level": 56,
+  "tech_id": "Battle_RangeWeapon_GuidedMissileLauncher",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ミサイルランチャー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_GuidedMissileLauncher.webp"
+ },
+ {
+  "level": 56,
+  "tech_id": "MissileBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "ミサイル弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_MissileBullet.webp"
+ },
+ {
+  "level": 56,
+  "tech_id": "DismantlingConveyor",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "パル解体コンベア",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_DismantlingConveyor.webp"
+ },
+ {
+  "level": 56,
+  "tech_id": "MedicalPalBed_05",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "高度文明のパルポッド",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_MedicalPalBed_05.webp"
+ },
+ {
+  "level": 56,
+  "tech_id": "FurnitureTree_Cherry",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "模型の桜セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FurnitureTree01_Cherry.webp"
+ },
+ {
+  "level": 57,
+  "tech_id": "SFBow",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "アドバンスボウ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_SFBow.webp"
+ },
+ {
+  "level": 57,
+  "tech_id": "SFArrow",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "アドバンスアロー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_SFArrow.webp"
+ },
+ {
+  "level": 57,
+  "tech_id": "AdditionalInventory_004",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "巨大な拡張ポーチ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Essential_AdditionalInventory_004.webp"
+ },
+ {
+  "level": 57,
+  "tech_id": "BeamSword",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ビームソード",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_BeamSword.webp"
+ },
+ {
+  "level": 57,
+  "tech_id": "SkillUnlock_NightBlueHorse",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ナイトロットのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_NightBlueHorse_icon_normal.webp"
+ },
+ {
+  "level": 57,
+  "tech_id": "SkillUnlock_FengyunDeeper_Electric",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ムラサメのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_FengyunDeeper_Electric_icon_normal.webp"
+ },
+ {
+  "level": 57,
+  "tech_id": "SkillUnlock_AmaterasuWolf",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "シラヌイのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_AmaterasuWolf_icon_normal.webp"
+ },
+ {
+  "level": 58,
+  "tech_id": "PalSphere_Exotic",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "インフィニティスフィア",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_PalSphere_Exotic.webp"
+ },
+ {
+  "level": 58,
+  "tech_id": "SphereFactory_Black_04",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "高度文明のスフィア工場",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_SphereFactory_Black_04.webp"
+ },
+ {
+  "level": 58,
+  "tech_id": "StainlessSteel",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ヘクソライト",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_StainlessSteel.webp"
+ },
+ {
+  "level": 58,
+  "tech_id": "BlastFurnace4",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "巨大な炉",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BlastFurnace4.webp"
+ },
+ {
+  "level": 58,
+  "tech_id": "MetalDetector",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "金属探知機",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Essential_MetalDetector.webp"
+ },
+ {
+  "level": 58,
+  "tech_id": "SkillUnlock_BlackPuppy",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "クロマルのハーネス",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlackPuppy_icon_normal.webp"
+ },
+ {
+  "level": 58,
+  "tech_id": "SkillUnlock_BlueThunderHorse",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "オーマサンダのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlueThunderHorse_icon_normal.webp"
+ },
+ {
+  "level": 59,
+  "tech_id": "ItemChest_04",
+  "cost": 4,
+  "category": "建築物",
+  "name_jp": "高度文明のチェスト",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_ItemChest_04.webp"
+ },
+ {
+  "level": 59,
+  "tech_id": "LaserGatlingGun",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "レーザーガトリングガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_LaserGatlingGun.webp"
+ },
+ {
+  "level": 59,
+  "tech_id": "LaserGatlingBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "ガトリングレーザーカートリッジ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_LaserGatlingBullet.webp"
+ },
+ {
+  "level": 59,
+  "tech_id": "SFArmor",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ヘクソライトアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_SFArmor.webp"
+ },
+ {
+  "level": 59,
+  "tech_id": "Thermal_Core",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "超高熱コア",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_Thermal_Core.webp"
+ },
+ {
+  "level": 59,
+  "tech_id": "SkillUnlock_Umihebi_Fire",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "アグニドラのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Umihebi_Fire_icon_normal.webp"
+ },
+ {
+  "level": 59,
+  "tech_id": "SkillUnlock_AmaterasuWolf_Dark",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "カゲヌイのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_AmaterasuWolf_Dark_icon_normal.webp"
+ },
+ {
+  "level": 60,
+  "tech_id": "Shield_SF",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "アドバンスドシールド",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_Shield_06.webp"
+ },
+ {
+  "level": 60,
+  "tech_id": "SFHelmet",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ヘクソライトヘルム",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_SFHelmet.webp"
+ },
+ {
+  "level": 60,
+  "tech_id": "Cake04",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "豪華野菜ケーキ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_food_Cake04.webp"
+ },
+ {
+  "level": 60,
+  "tech_id": "DarkIslandFlagSet",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "天落の民の旗セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_DarkIsland_Flag.webp"
+ },
+ {
+  "level": 60,
+  "tech_id": "SkillUnlock_Horus",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ホルスのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Horus_icon_normal.webp"
+ },
+ {
+  "level": 60,
+  "tech_id": "SkillUnlock_Horus_Water",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "イシスのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Horus_Water_icon_normal.webp"
+ },
+ {
+  "level": 60,
+  "tech_id": "SkillUnlock_WhiteShieldDragon",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "アイギルガのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WhiteShieldDragon_icon_normal.webp"
+ },
+ {
+  "level": 61,
+  "tech_id": "EnergyRocketLauncher",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "プラズマキャノン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_EnergyRocketLauncher.webp"
+ },
+ {
+  "level": 61,
+  "tech_id": "EnergyLauncherBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "プラズマカートリッジ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_EnergyLauncherBullet.webp"
+ },
+ {
+  "level": 61,
+  "tech_id": "Potion_Extreme",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "至高の回復薬",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Food_Potion_Extreme.webp"
+ },
+ {
+  "level": 61,
+  "tech_id": "PalRevive",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "復活薬",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Consume_PalRevive.webp"
+ },
+ {
+  "level": 61,
+  "tech_id": "MedicineFacility_03",
+  "cost": 4,
+  "category": "建築物",
+  "name_jp": "高度文明の製薬台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_MedicineFacility_03.webp"
+ },
+ {
+  "level": 61,
+  "tech_id": "SkillUnlock_SaintCentaur",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "セイントールのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SaintCentaur_icon_normal.webp"
+ },
+ {
+  "level": 61,
+  "tech_id": "SkillUnlock_BlackCentaur",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ベイントールのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlackCentaur_icon_normal.webp"
+ },
+ {
+  "level": 62,
+  "tech_id": "Salvage_TreasureBoxKey02",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "強力釣りマグネット",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Salvage_TreasureBoxKey02.webp"
+ },
+ {
+  "level": 62,
+  "tech_id": "ManganeseIngot",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "コラルムインゴット",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_ManganeseIngot.webp"
+ },
+ {
+  "level": 62,
+  "tech_id": "Factory_Hard_04",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "高度文明の作業工場",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Factory_Hard_04.webp"
+ },
+ {
+  "level": 62,
+  "tech_id": "SF_houseset",
+  "cost": 2,
+  "category": "建築物",
+  "name_jp": "未来風建築セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_SF_foundation.webp"
+ },
+ {
+  "level": 62,
+  "tech_id": "SkillUnlock_IceHorse",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "グレイシャルのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_IceHorse_icon_normal.webp"
+ },
+ {
+  "level": 62,
+  "tech_id": "SkillUnlock_IceHorse_Dark",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "グレイシャドウのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_IceHorse_Dark_icon_normal.webp"
+ },
+ {
+  "level": 63,
+  "tech_id": "EnergyShotgun",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "エネルギーショットガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_EnergyShotgun.webp"
+ },
+ {
+  "level": 63,
+  "tech_id": "EnergyShotgunBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "エネルギーショットガンの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_EnergyShotgunBullet.webp"
+ },
+ {
+  "level": 63,
+  "tech_id": "WeaponFactory_Dirty_04",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "高度文明の武器工場",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_WeaponFactory_Dirty_04.webp"
+ },
+ {
+  "level": 63,
+  "tech_id": "SFArmorHeat",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "耐熱ヘクソライトアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_SFArmorHeat.webp"
+ },
+ {
+  "level": 63,
+  "tech_id": "PalDopingShot_2",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "メガブーストガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_PalDopingShot_2.webp"
+ },
+ {
+  "level": 64,
+  "tech_id": "OverheatRifle",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "オーバーヒートライフル",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_OverheatRifle.webp"
+ },
+ {
+  "level": 64,
+  "tech_id": "OverheatRifleBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "オーバーヒートライフルの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_OverheatRifleBullet.webp"
+ },
+ {
+  "level": 64,
+  "tech_id": "SFArmorCold",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "耐寒ヘクソライトアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_SFArmorCold.webp"
+ },
+ {
+  "level": 64,
+  "tech_id": "Spa3",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "和風な温泉",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Spa3.webp"
+ },
+ {
+  "level": 64,
+  "tech_id": "SkillUnlock_Kirin_Ice",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "レイコーンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_Kirin_Ice_icon_normal.webp"
+ },
+ {
+  "level": 64,
+  "tech_id": "SkillUnlock_PoseidonOrca",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ネプティオスのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_PoseidonOrca_icon_normal.webp"
+ },
+ {
+  "level": 64,
+  "tech_id": "IceHorseStatue",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "グレイシャル像",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_IceHorseStatue.webp"
+ },
+ {
+  "level": 65,
+  "tech_id": "Battle_RangeWeapon_RocketLauncher",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ロケットランチャー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Launcher_Default.webp"
+ },
+ {
+  "level": 65,
+  "tech_id": "LauncherBullet",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ロケット弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_ExplosiveBullet.webp"
+ },
+ {
+  "level": 65,
+  "tech_id": "ChargeLaserRifle",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "チャージライフル",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_ChargeLaserRifle.webp"
+ },
+ {
+  "level": 65,
+  "tech_id": "ChargeLaserRifleBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "チャージライフルの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_ChargeLaserRifleBullet.webp"
+ },
+ {
+  "level": 65,
+  "tech_id": "SFArmorWeight",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "軽量ヘクソライトアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_SFArmorWeight.webp"
+ },
+ {
+  "level": 65,
+  "tech_id": "SkillUnlock_KingSunfish",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "オーマンボのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_KingSunfish_icon_normal.webp"
+ },
+ {
+  "level": 66,
+  "tech_id": "AncientBlastFurnace",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "古代文明の炉",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_AncientBlastFurnace.webp"
+ },
+ {
+  "level": 66,
+  "tech_id": "SkyislandIngot",
+  "cost": 3,
+  "category": "アイテム",
+  "name_jp": "ソルライトインゴット",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_SkyislandIngot.webp"
+ },
+ {
+  "level": 66,
+  "tech_id": "SkillUnlock_KingSunfish_Thunder",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "トノサマンボのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_KingSunfish_Thunder_icon_normal.webp"
+ },
+ {
+  "level": 66,
+  "tech_id": "SkillUnlock_ThunderFluffyBird",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ダイナモフのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ThunderFluffyBird_icon_normal.webp"
+ },
+ {
+  "level": 66,
+  "tech_id": "SkillUnlock_DarkMechaDragon",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ゼノドランのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_DarkMechaDragon_icon_normal.webp"
+ },
+ {
+  "level": 67,
+  "tech_id": "PalSphere_Ancient_1",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ソルスフィア",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_PalSphere_Ancient_1.webp"
+ },
+ {
+  "level": 67,
+  "tech_id": "SkyBow",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "メカニカルボウ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_SkyBow.webp"
+ },
+ {
+  "level": 67,
+  "tech_id": "SkyBowArrow",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "メカニカルボウの矢",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_SkyBowArrow.webp"
+ },
+ {
+  "level": 67,
+  "tech_id": "AIcore",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "AIコア",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_AIcore.webp"
+ },
+ {
+  "level": 67,
+  "tech_id": "AncientWorkBench",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "古代文明の作業台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_AncientWorkBench.webp"
+ },
+ {
+  "level": 67,
+  "tech_id": "Ancient_Houseset",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "古代文明の建築セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Ancient_foundation.webp"
+ },
+ {
+  "level": 68,
+  "tech_id": "Spear_ForestBoss2",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "強化リリィの槍",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_Spear_ForestBoss2.webp"
+ },
+ {
+  "level": 68,
+  "tech_id": "SkySubmachineGun",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "コンバットサブマシンガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_SkySubmachineGun.webp"
+ },
+ {
+  "level": 68,
+  "tech_id": "SkySubmachineGunBullet",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "コンバットサブマシンガンの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_SkySubmachineGunBullet.webp"
+ },
+ {
+  "level": 68,
+  "tech_id": "AncientArmor",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "エンシェントアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_AncientArmor.webp"
+ },
+ {
+  "level": 68,
+  "tech_id": "AncientHelmet",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "エンシェントヘルム",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_AncientHelmet.webp"
+ },
+ {
+  "level": 68,
+  "tech_id": "SkillUnlock_GhostDragon",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "レイバーンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GhostDragon_icon_normal.webp"
+ },
+ {
+  "level": 69,
+  "tech_id": "SkyShotgun",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "プロトタイプショットガン",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_SkyShotgun.webp"
+ },
+ {
+  "level": 69,
+  "tech_id": "SkyShotgunBullet",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "プロトタイプショットガンの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_SkyShotgunBullet.webp"
+ },
+ {
+  "level": 69,
+  "tech_id": "SphereModule_Homing",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ホーミングモジュール",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_SphereModule_Homing.webp"
+ },
+ {
+  "level": 69,
+  "tech_id": "FishingPond2",
+  "cost": 4,
+  "category": "建築物",
+  "name_jp": "大きな釣り堀",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_FishingPond2.webp"
+ },
+ {
+  "level": 69,
+  "tech_id": "SkillUnlock_GrassGolem_Dark",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ノロウゾーのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GrassGolem_Dark_icon_normal.webp"
+ },
+ {
+  "level": 70,
+  "tech_id": "SkyAssaultRifle",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ヘビーアサルトライフル",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_SkyAssaultRifle.webp"
+ },
+ {
+  "level": 70,
+  "tech_id": "SkyAssaultRifleBullet",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ヘビーアサルトライフルの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_SkyAssaultRifleBullet.webp"
+ },
+ {
+  "level": 70,
+  "tech_id": "AncientCookingStove",
+  "cost": 4,
+  "category": "建築物",
+  "name_jp": "古代文明のキッチン",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_AncientCookingStove.webp"
+ },
+ {
+  "level": 70,
+  "tech_id": "SkillUnlock_LegendDeer",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "レジェンディアのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LegendDeer_icon_normal.webp"
+ },
+ {
+  "level": 70,
+  "tech_id": "SkillUnlock_VolcanoDragon_Ice",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ブリザンダーのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_VolcanoDragon_Ice_icon_normal.webp"
+ },
+ {
+  "level": 71,
+  "tech_id": "Shield_07",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "エンシェントシールド",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_Shield_07.webp"
+ },
+ {
+  "level": 71,
+  "tech_id": "BaseCampWorkHard03",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "古代文明の監視台",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_BaseCampWorkHard03.webp"
+ },
+ {
+  "level": 71,
+  "tech_id": "Farm_SkillFruits",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "技の実農園",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Farm_SkillFruits.webp"
+ },
+ {
+  "level": 71,
+  "tech_id": "SkyIslandFlagSet",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "蒼天の盟約の旗セット",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_SkyIsland_Flag.webp"
+ },
+ {
+  "level": 71,
+  "tech_id": "SkillUnlock_ThunderBird_Ice",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "チルバードのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ThunderBird_Ice_icon_normal.webp"
+ },
+ {
+  "level": 71,
+  "tech_id": "SkillUnlock_IceNarwhal_Fire",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "モモエールのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_IceNarwhal_Fire_icon_normal.webp"
+ },
+ {
+  "level": 72,
+  "tech_id": "SkyGrenadeLauncher",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "タクティカルグレネードランチャー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_SkyGrenadeLauncher.webp"
+ },
+ {
+  "level": 72,
+  "tech_id": "SkyGrenadeLauncherBullet",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "タクティカルグレネードランチャーの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_SkyGrenadeLauncherBullet.webp"
+ },
+ {
+  "level": 72,
+  "tech_id": "SkillUnlock_ThiefBird",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "アルセーヴのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_ThiefBird_icon_normal.webp"
+ },
+ {
+  "level": 72,
+  "tech_id": "SkillUnlock_LotusDragon",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ハナミズチのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_LotusDragon_icon_normal.webp"
+ },
+ {
+  "level": 73,
+  "tech_id": "SkyBeamSword",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "レーザーソード",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_SkyBeamSword.webp"
+ },
+ {
+  "level": 73,
+  "tech_id": "Factory_Money",
+  "cost": 4,
+  "category": "建築物",
+  "name_jp": "金貨製造工場",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Factory_Money.webp"
+ },
+ {
+  "level": 73,
+  "tech_id": "Ancient_Clinic",
+  "cost": 4,
+  "category": "建築物",
+  "name_jp": "古代文明の診療所",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Ancient_Clinic.webp"
+ },
+ {
+  "level": 73,
+  "tech_id": "Ancient_MedicalPalBed",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "古代文明のパルベッド",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Ancient_MedicalPalBed.webp"
+ },
+ {
+  "level": 73,
+  "tech_id": "SkillUnlock_SnowTigerBeastman",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ヒョウガオーのハンマー",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_SnowTigerBeastman_icon_normal.webp"
+ },
+ {
+  "level": 74,
+  "tech_id": "WorldTreeIngot",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "パルキサイトインゴット",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_WorldTreeIngot.webp"
+ },
+ {
+  "level": 74,
+  "tech_id": "PalSphere_Ancient_2",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "エンシェントスフィア",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_PalSphere_Ancient_2.webp"
+ },
+ {
+  "level": 74,
+  "tech_id": "AncientRelicRecycler",
+  "cost": 3,
+  "category": "建築物",
+  "name_jp": "古代文明の遺物変換機",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_AncientRelicRecycler.webp"
+ },
+ {
+  "level": 74,
+  "tech_id": "Cake05",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "スペシャルケーキ",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_food_Cake05.webp"
+ },
+ {
+  "level": 75,
+  "tech_id": "WidePenetrateShotgun",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ビームスキャッター",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_WidePenetrateShotgun.webp"
+ },
+ {
+  "level": 75,
+  "tech_id": "WidePenetrateShotgunBullet",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ビームスキャッターの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_WidePenetrateShotgunBullet.webp"
+ },
+ {
+  "level": 75,
+  "tech_id": "AncientArmorHeat",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "耐熱エンシェントアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_AncientArmorHeat.webp"
+ },
+ {
+  "level": 75,
+  "tech_id": "AncientElectricGenerator",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "古代文明の発電機",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_AncientElectricGenerator.webp"
+ },
+ {
+  "level": 75,
+  "tech_id": "SkillUnlock_CubeTurtle_Neutral",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "オシロガメのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_CubeTurtle_Neutral_icon_normal.webp"
+ },
+ {
+  "level": 76,
+  "tech_id": "Ancient_Spa",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "古代文明の温泉",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_Ancient_Spa.webp"
+ },
+ {
+  "level": 76,
+  "tech_id": "GasMask",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "腐蝕霧マスク",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Accessory_GasMask.webp"
+ },
+ {
+  "level": 76,
+  "tech_id": "Accessory_ExplosionResist",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "防爆アンダーウェア",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Accessory_ExplosionResist.webp"
+ },
+ {
+  "level": 76,
+  "tech_id": "SkillUnlock_GhostDragon_Fire",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ヘルバーンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_GhostDragon_Fire_icon_normal.webp"
+ },
+ {
+  "level": 77,
+  "tech_id": "DroneLauncher",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ドローンランチャー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_DroneLauncher.webp"
+ },
+ {
+  "level": 77,
+  "tech_id": "AncientArmorCold",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "耐寒エンシェントアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_AncientArmorCold.webp"
+ },
+ {
+  "level": 77,
+  "tech_id": "SkillUnlock_NightBlueHorse_Neutral",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "ライトロットのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_NightBlueHorse_Neutral_icon_normal.webp"
+ },
+ {
+  "level": 77,
+  "tech_id": "SkillUnlock_BlueSkyDragon",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "シャオロンのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_BlueSkyDragon_icon_normal.webp"
+ },
+ {
+  "level": 78,
+  "tech_id": "ElectricArcAssaultRifle",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "プラズマライフル",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_ElectricArcAssaultRifle.webp"
+ },
+ {
+  "level": 78,
+  "tech_id": "ElectricArcAssaultRifleBullet",
+  "cost": 1,
+  "category": "アイテム",
+  "name_jp": "プラズマライフルの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_ElectricArcAssaultRifleBullet.webp"
+ },
+ {
+  "level": 78,
+  "tech_id": "AncientMultiProduct",
+  "cost": 5,
+  "category": "建築物",
+  "name_jp": "古代文明の物質生成器",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_AncientMultiProduct.webp"
+ },
+ {
+  "level": 78,
+  "tech_id": "AncientFarmBlock",
+  "cost": 4,
+  "category": "建築物",
+  "name_jp": "古代文明の栽培器",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_AncientFarmBlock.webp"
+ },
+ {
+  "level": 78,
+  "tech_id": "SkillUnlock_WhiteDeer_Dark",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "コスモディアのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_WhiteDeer_Dark_icon_normal.webp"
+ },
+ {
+  "level": 79,
+  "tech_id": "AncientArmorWeight",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "軽量エンシェントアーマー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Armor_AncientArmorWeight.webp"
+ },
+ {
+  "level": 79,
+  "tech_id": "Supplement",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "栄養剤",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_food_Supplement.webp"
+ },
+ {
+  "level": 79,
+  "tech_id": "SkillUnlock_DomeArmorDragon",
+  "cost": 4,
+  "category": "アイテム",
+  "name_jp": "シェルガドラのサドル",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_DomeArmorDragon_icon_normal.webp"
+ },
+ {
+  "level": 79,
+  "tech_id": "SkillUnlock_JetDragon",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ジェッドランのミサイルランチャー",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/PalIcon/Normal/T_JetDragon_icon_normal.webp"
+ },
+ {
+  "level": 79,
+  "tech_id": "JetDragonStatue",
+  "cost": 1,
+  "category": "建築物",
+  "name_jp": "ジェッドラン像",
+  "icon": "https://cdn.paldb.cc/image/Pal/Texture/BuildObject/PNG/T_icon_buildObject_JetDragonStatue.webp"
+ },
+ {
+  "level": 80,
+  "tech_id": "BeamLauncher",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ビームランチャー",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Weapon_BeamLauncher.webp"
+ },
+ {
+  "level": 80,
+  "tech_id": "BeamLauncherBullet",
+  "cost": 2,
+  "category": "アイテム",
+  "name_jp": "ビームランチャーの弾",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Ammo_BeamLauncherBullet.webp"
+ },
+ {
+  "level": 80,
+  "tech_id": "WingGlider_Fuel",
+  "cost": 5,
+  "category": "アイテム",
+  "name_jp": "ウィングセル",
+  "icon": "https://cdn.paldb.cc/image/Others/InventoryItemIcon/Texture/T_itemicon_Material_WingGlider_Fuel.webp"
+ }
+]

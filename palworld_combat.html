@@ -10,13 +10,13 @@
 <link rel="stylesheet" href="shared/design-system.css">
 <style>
   :root{
-    --bg: #07090d; --panel: #121822; --panel2: #182030;
-    --parchment: #e9eef4; --parchment-dim: #8592a3;
-    --brass: #f0b840; --brass-dim: #b5852f;
+    --bg: #05080e; --panel: #0e1420; --panel2: #141d2b;
+    --parchment: #e7edf5; --parchment-dim: #7e90a5;
+    --brass: #6ec8ea; --brass-dim: #2f6b85;
     --teal: #35d2ff; --teal-dim: #1c6d86;
-    --line: rgba(142,183,214,.16); --danger: #e2543f;
-    --lime: #e3ff3d; --lime-dim: #96b31f;
-    --magenta: #ff2e7e; --magenta-dim: #a01a52;
+    --line: rgba(120,165,220,.18); --danger: #e2543f;
+    --lime: #3d7bff; --lime-dim: #1f4a99;
+    --magenta: #8fd6ff; --magenta-dim: #4a7fa3;
     --hp: #7bdb52; --atk: #ff6f6f; --def: #6fb8ff;
     --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
     --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
@@ -25,26 +25,23 @@
     --t-地: #b98a4e; --t-草: #6dbf4f; --t-氷: #63d9e3; --t-竜: #9a6ff0; --t-闇: #8064b8;
   }
   *{box-sizing:border-box;}
-  body{margin:0;background:
-    radial-gradient(circle at 12% -8%, #143241 0%, transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(240,184,64,.06) 0%, transparent 42%),
-    var(--bg);
+  body{margin:0;background: var(--bg);
     color:var(--parchment);font-family:var(--font-body);padding:0;}
   .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
 
   header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
-  .brand-badge{width:42px;height:42px;border-radius:8px;background:linear-gradient(160deg, #1c2733, #10151c);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:var(--panel2);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
   h1.title{font-family:var(--font-display);font-weight:900;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
   .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
 
   .caveat{font-size:11.5px;color:#e7c3af;background:#3a2a20;border:1px solid var(--danger);border-radius:6px;padding:10px 14px;margin-bottom:16px;line-height:1.7;}
 
-  .picker-box{background:var(--panel);border:1px solid var(--lime-dim);border-radius:10px;padding:18px 20px;margin-bottom:20px;box-shadow:0 8px 24px rgba(0,0,0,.25), 0 0 0 1px rgba(227,255,61,.08);}
+  .picker-box{background:var(--panel);border:1px solid var(--lime-dim);border-radius:10px;padding:18px 20px;margin-bottom:20px;box-shadow:0 8px 24px rgba(0,0,0,.25), 0 0 0 1px rgba(61,123,255,.08);}
   .picker-label{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--parchment);margin-bottom:10px;}
   .pal-picker{position:relative;max-width:360px;}
   .pal-picker input{width:100%;box-sizing:border-box;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:10px 14px;font-size:14px;font-family:var(--font-body);}
   .pal-picker input::placeholder{color:var(--parchment-dim);}
-  .pal-picker input:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 2px rgba(227,255,61,.2);}
+  .pal-picker input:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 2px rgba(61,123,255,.2);}
   .pal-picker-results{position:absolute;top:100%;left:0;right:0;max-height:280px;overflow-y:auto;background:var(--panel2);border:1px solid var(--line);border-radius:0 0 8px 8px;z-index:20;box-shadow:0 12px 24px rgba(0,0,0,.4);}
   .pal-picker-item{display:flex;align-items:center;gap:8px;padding:7px 12px;cursor:pointer;font-size:13px;}
   .pal-picker-item:hover{background:var(--panel);color:var(--lime);}
@@ -76,9 +73,9 @@
   .stat-bar-row .row-top .val{font-family:var(--font-mono);font-weight:700;}
   .stat-bar{height:9px;background:var(--panel2);border-radius:5px;overflow:hidden;border:1px solid var(--line);}
   .stat-bar-fill{height:100%;}
-  .stat-bar-fill.hp{background:linear-gradient(90deg,#2f7a1e,var(--hp));}
-  .stat-bar-fill.atk{background:linear-gradient(90deg,#8a2a2a,var(--atk));}
-  .stat-bar-fill.def{background:linear-gradient(90deg,#1e4a7a,var(--def));}
+  .stat-bar-fill.hp{background:var(--hp);}
+  .stat-bar-fill.atk{background:var(--atk);}
+  .stat-bar-fill.def{background:var(--def);}
 
   .pskill-box{background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--brass);border-radius:6px;padding:10px 14px;margin-top:14px;}
   .pskill-box .pskill-name{font-weight:700;color:var(--brass);margin-bottom:4px;font-size:13px;}
@@ -111,23 +108,21 @@
   .passive-slot .slot-effect{font-size:10.5px;color:var(--parchment-dim);margin-top:4px;min-height:14px;}
   .preset-row{display:flex;gap:8px;flex-wrap:wrap;}
   .auto-btn{display:inline-flex;align-items:center;gap:6px;background:var(--panel2);border:1px solid var(--lime-dim);color:var(--lime);font-size:12px;padding:7px 14px;border-radius:6px;cursor:pointer;font-family:var(--font-display);font-weight:600;position:relative;overflow:hidden;}
-  .auto-btn::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg, transparent, rgba(227,255,61,.25), transparent);transform:skewX(-20deg);transition:left .4s;}
-  .auto-btn:hover::before{left:120%;}
-  .auto-btn:hover{border-color:var(--lime);}
+  .auto-btn:hover{border-color:var(--lime);background:var(--panel);}
   .preset-hint{font-size:11px;color:var(--parchment-dim);margin-top:8px;}
 
   .dps-mode-tabs{display:flex;gap:2px;margin-bottom:14px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
   .dps-mode-tab{padding:7px 16px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:13px;}
-  .dps-mode-tab.active{background:var(--lime);color:#08111a;box-shadow:0 0 10px rgba(227,255,61,.4);}
+  .dps-mode-tab.active{background:var(--lime);color:#08111a;box-shadow:0 0 10px rgba(61,123,255,.4);}
   .dps-formula-note{font-size:11px;color:var(--parchment-dim);margin-bottom:12px;font-family:var(--font-mono);}
 
   .skill-list{display:flex;flex-direction:column;gap:6px;}
   .skill-row{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:10px;padding:8px 12px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;font-size:12.5px;}
-  .skill-row:first-child{border-color:var(--lime-dim);box-shadow:0 0 0 1px rgba(227,255,61,.15);}
+  .skill-row:first-child{border-color:var(--lime-dim);box-shadow:0 0 0 1px rgba(61,123,255,.15);}
   .skill-row .skill-name{color:var(--parchment);font-weight:600;}
   .skill-row .skill-meta{color:var(--parchment-dim);font-family:var(--font-mono);font-size:11px;}
   .skill-row .skill-dps{font-family:var(--font-mono);color:var(--lime);font-weight:700;text-align:right;min-width:70px;}
-  .stab-tag{font-size:9.5px;padding:1px 6px;border-radius:4px;background:rgba(227,255,61,.14);color:var(--lime);border:1px solid rgba(227,255,61,.35);margin-left:6px;}
+  .stab-tag{font-size:9.5px;padding:1px 6px;border-radius:4px;background:rgba(61,123,255,.14);color:var(--lime);border:1px solid rgba(61,123,255,.35);margin-left:6px;}
 
   .type-badge{font-size:10px;padding:2px 7px;border-radius:4px;color:#fff;font-weight:700;}
   .type-badge.type-無{background:var(--t-無);color:#191c20;} .type-badge.type-炎{background:var(--t-炎);}
@@ -142,10 +137,10 @@
   /* 6体最強パーティ */
   .mode-tabs{display:flex;gap:2px;margin-bottom:16px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
   .mode-tab{padding:8px 18px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:14px;transition:color .12s,background .12s;}
-  .mode-tab.active{background:var(--lime);color:#1a1e08;box-shadow:0 0 10px rgba(227,255,61,.4);}
+  .mode-tab.active{background:var(--lime);color:#1a1e08;box-shadow:0 0 10px rgba(61,123,255,.4);}
 
-  .compute-btn{display:inline-flex;align-items:center;gap:8px;background:var(--lime);border:1px solid var(--lime);color:#1a1e08;font-family:var(--font-display);font-weight:700;font-size:14px;padding:11px 24px;border-radius:6px;cursor:pointer;box-shadow:0 0 14px rgba(227,255,61,.25);margin-bottom:18px;}
-  .compute-btn:hover{box-shadow:0 0 20px rgba(227,255,61,.4);}
+  .compute-btn{display:inline-flex;align-items:center;gap:8px;background:var(--lime);border:1px solid var(--lime);color:#1a1e08;font-family:var(--font-display);font-weight:700;font-size:14px;padding:11px 24px;border-radius:6px;cursor:pointer;box-shadow:0 0 14px rgba(61,123,255,.25);margin-bottom:18px;}
+  .compute-btn:hover{box-shadow:0 0 20px rgba(61,123,255,.4);}
   .compute-btn:disabled{opacity:.5;cursor:wait;}
 
   .party-summary{display:flex;gap:28px;flex-wrap:wrap;}
@@ -192,12 +187,48 @@
       <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
       <a href="palworld_ride.html"><span>ライド速度</span></a>
       <a href="palworld_map.html"><span>出現マップ</span></a>
+      <a href="palworld_bossguide.html"><span>ボス攻略</span></a>
+      <a href="palworld_achievements.html"><span>実績一覧</span></a>
+      <a href="palworld_passives_guide.html"><span>おすすめパッシブ</span></a>
+      <a href="palworld_reference.html"><span>早見表</span></a>
+      <a href="palworld_technology.html"><span>テクノロジー</span></a>
+      <a href="palworld_missions.html"><span>ミッション</span></a>
+      <a href="palworld_iv_calc.html"><span>素質値計算機</span></a>
+      <a href="palworld_party_guide.html"><span>パーティ編成ガイド</span></a>
+      <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
+      <a href="palworld_changelog.html"><span>更新履歴</span></a>
     </nav>
   </header>
 
   <div class="mode-tabs">
     <div class="mode-tab active" data-mode="build">1体最強ビルド</div>
     <div class="mode-tab" data-mode="party">6体最強パーティ</div>
+    <div class="mode-tab" data-mode="matchup">属性相性チェッカー</div>
+  </div>
+
+  <div id="matchupMode" style="display:none;">
+    <div class="caveat">攻撃側の属性と、防御側の属性(単一属性か複合属性)を選ぶと、ダメージ倍率をその場で確認できます。</div>
+    <div class="picker-box" style="display:flex;gap:24px;flex-wrap:wrap;">
+      <div>
+        <div class="picker-label">攻撃側の属性</div>
+        <select id="matchupAtk"></select>
+      </div>
+      <div>
+        <div class="picker-label">防御側の属性1</div>
+        <select id="matchupDef1"></select>
+      </div>
+      <div>
+        <div class="picker-label">防御側の属性2(複合属性の場合のみ)</div>
+        <select id="matchupDef2">
+          <option value="">なし</option>
+        </select>
+      </div>
+    </div>
+    <div class="section" style="margin-top:18px;">
+      <h2>結果</h2>
+      <div id="matchupResult" style="font-family:var(--font-display);font-size:32px;font-weight:700;"></div>
+      <p id="matchupNote" style="font-size:12px;color:var(--parchment-dim);margin-top:6px;"></p>
+    </div>
   </div>
 
   <div id="buildMode">
@@ -328,7 +359,7 @@
     </div>
   </div>
 
-  <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。参考UX: <a href="https://palworld-lab.com/tools/palcalculator/" target="_blank" rel="noopener" style="color:var(--brass);">パルワールド配合・攻略ラボ 火力指数計算機</a></p>
+  <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。</p>
 </div>
 
 <script src="game_data/combat_data.js"></script>
@@ -564,7 +595,7 @@ function renderSkillList(){
   document.getElementById("skillList").innerHTML = rows.map(r => `
     <div class="skill-row">
       <div>
-        <div class="skill-name">${r.jp_name || r.en_name}${r.stab ? '<span class="stab-tag">一致</span>' : ''}${r.elementBoosted ? '<span class="stab-tag" style="background:rgba(240,184,64,.14);color:var(--brass);border-color:rgba(240,184,64,.35);">属性強化</span>' : ''}</div>
+        <div class="skill-name">${r.jp_name || r.en_name}${r.stab ? '<span class="stab-tag">一致</span>' : ''}${r.elementBoosted ? '<span class="stab-tag" style="background:rgba(110,200,234,.14);color:var(--brass);border-color:rgba(110,200,234,.35);">属性強化</span>' : ''}</div>
       </div>
       <div class="skill-meta">Lv${r.level ?? '?'}</div>
       <div class="skill-meta">威力${r.power} / CT${r.cooldown}s</div>
@@ -838,8 +869,35 @@ document.querySelectorAll(".mode-tabs .mode-tab").forEach(tab => {
     const mode = tab.dataset.mode;
     document.getElementById("buildMode").style.display = mode === "build" ? "block" : "none";
     document.getElementById("partyMode").style.display = mode === "party" ? "block" : "none";
+    document.getElementById("matchupMode").style.display = mode === "matchup" ? "block" : "none";
   });
 });
+
+(function initMatchupChecker(){
+  const atkSel = document.getElementById("matchupAtk");
+  const def1Sel = document.getElementById("matchupDef1");
+  const def2Sel = document.getElementById("matchupDef2");
+  TYPES.forEach(t => {
+    atkSel.innerHTML += `<option value="${t}">${t}</option>`;
+    def1Sel.innerHTML += `<option value="${t}">${t}</option>`;
+    def2Sel.innerHTML += `<option value="${t}">${t}</option>`;
+  });
+
+  function render(){
+    const atk = atkSel.value;
+    const def1 = def1Sel.value;
+    const def2 = def2Sel.value;
+    const mult = def2 ? partyElementMultiplier(atk, def1) * partyElementMultiplier(atk, def2) : partyElementMultiplier(atk, def1);
+    const resultEl = document.getElementById("matchupResult");
+    const noteEl = document.getElementById("matchupNote");
+    const color = mult > 1 ? "var(--danger)" : mult < 1 ? "var(--teal)" : "var(--parchment)";
+    resultEl.style.color = color;
+    resultEl.textContent = `×${mult.toFixed(2).replace(/\.?0+$/,'') || mult}`;
+    noteEl.textContent = mult > 1 ? "弱点(通常より大きいダメージ)" : mult < 1 ? "耐性(通常より小さいダメージ)" : "等倍(有利・不利なし)";
+  }
+  [atkSel, def1Sel, def2Sel].forEach(sel => sel.addEventListener("change", render));
+  render();
+})();
 </script>
 </body>
 </html>

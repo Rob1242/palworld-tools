@@ -1,0 +1,6979 @@
+[
+ {
+  "group_key": "ビームランチャー",
+  "name_en": "Beam Launcher",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_BeamLauncher.webp",
+  "tiers": [
+   {
+    "asset": "BeamLauncher",
+    "rarity": 0,
+    "price": 5137080
+   },
+   {
+    "asset": "BeamLauncher_2",
+    "rarity": 1,
+    "price": 6275450
+   },
+   {
+    "asset": "BeamLauncher_3",
+    "rarity": 2,
+    "price": 7715220
+   },
+   {
+    "asset": "BeamLauncher_4",
+    "rarity": 3,
+    "price": 8846390
+   },
+   {
+    "asset": "BeamLauncher_5",
+    "rarity": 4,
+    "price": 10286160
+   }
+  ]
+ },
+ {
+  "group_key": "プラズマライフル",
+  "name_en": "Plasma Rifle",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_ElectricArcAssaultRifle.webp",
+  "tiers": [
+   {
+    "asset": "ElectricArcAssaultRifle",
+    "rarity": 0,
+    "price": 4134020
+   },
+   {
+    "asset": "ElectricArcAssaultRifle_2",
+    "rarity": 1,
+    "price": 5172790
+   },
+   {
+    "asset": "ElectricArcAssaultRifle_3",
+    "rarity": 2,
+    "price": 6209440
+   },
+   {
+    "asset": "ElectricArcAssaultRifle_4",
+    "rarity": 3,
+    "price": 7243400
+   },
+   {
+    "asset": "ElectricArcAssaultRifle_5",
+    "rarity": 4,
+    "price": 8280050
+   }
+  ]
+ },
+ {
+  "group_key": "ドローンランチャー",
+  "name_en": "Drone Launcher",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_DroneLauncher.webp",
+  "tiers": [
+   {
+    "asset": "DroneLauncher",
+    "rarity": 0,
+    "price": 4041020
+   },
+   {
+    "asset": "DroneLauncher_2",
+    "rarity": 1,
+    "price": 5049360
+   },
+   {
+    "asset": "DroneLauncher_3",
+    "rarity": 2,
+    "price": 6069940
+   },
+   {
+    "asset": "DroneLauncher_4",
+    "rarity": 3,
+    "price": 7071070
+   },
+   {
+    "asset": "DroneLauncher_5",
+    "rarity": 4,
+    "price": 8094050
+   }
+  ]
+ },
+ {
+  "group_key": "ビームスキャッター",
+  "name_en": "Beam Scatter",
+  "category": "武器",
+  "subcategory": "Shotgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_WidePenetrateShotgun.webp",
+  "tiers": [
+   {
+    "asset": "WidePenetrateShotgun",
+    "rarity": 0,
+    "price": 2933640
+   },
+   {
+    "asset": "WidePenetrateShotgun_2",
+    "rarity": 1,
+    "price": 3584930
+   },
+   {
+    "asset": "WidePenetrateShotgun_3",
+    "rarity": 2,
+    "price": 4257100
+   },
+   {
+    "asset": "WidePenetrateShotgun_4",
+    "rarity": 3,
+    "price": 4901180
+   },
+   {
+    "asset": "WidePenetrateShotgun_5",
+    "rarity": 4,
+    "price": 5879280
+   }
+  ]
+ },
+ {
+  "group_key": "ヘビーアサルトライフル",
+  "name_en": "Heavy Assault Rifle",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_SkyAssaultRifle.webp",
+  "tiers": [
+   {
+    "asset": "SkyAssaultRifle",
+    "rarity": 0,
+    "price": 2512320
+   },
+   {
+    "asset": "SkyAssaultRifle_2",
+    "rarity": 1,
+    "price": 3069880
+   },
+   {
+    "asset": "SkyAssaultRifle_3",
+    "rarity": 2,
+    "price": 3625120
+   },
+   {
+    "asset": "SkyAssaultRifle_4",
+    "rarity": 3,
+    "price": 4176670
+   },
+   {
+    "asset": "SkyAssaultRifle_5",
+    "rarity": 4,
+    "price": 5035440
+   }
+  ]
+ },
+ {
+  "group_key": "タクティカルグレネードランチャー",
+  "name_en": "Tactical Grenade Launcher",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_SkyGrenadeLauncher.webp",
+  "tiers": [
+   {
+    "asset": "SkyGrenadeLauncher",
+    "rarity": 0,
+    "price": 2295540
+   },
+   {
+    "asset": "SkyGrenadeLauncher_2",
+    "rarity": 1,
+    "price": 2796410
+   },
+   {
+    "asset": "SkyGrenadeLauncher_3",
+    "rarity": 2,
+    "price": 3292140
+   },
+   {
+    "asset": "SkyGrenadeLauncher_4",
+    "rarity": 3,
+    "price": 3787870
+   },
+   {
+    "asset": "SkyGrenadeLauncher_5",
+    "rarity": 4,
+    "price": 4601880
+   }
+  ]
+ },
+ {
+  "group_key": "プロトタイプショットガン",
+  "name_en": "Prototype Shotgun",
+  "category": "武器",
+  "subcategory": "Shotgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_SkyShotgun.webp",
+  "tiers": [
+   {
+    "asset": "SkyShotgun",
+    "rarity": 0,
+    "price": 2150100
+   },
+   {
+    "asset": "SkyShotgun_2",
+    "rarity": 1,
+    "price": 2615260
+   },
+   {
+    "asset": "SkyShotgun_3",
+    "rarity": 2,
+    "price": 3074410
+   },
+   {
+    "asset": "SkyShotgun_4",
+    "rarity": 3,
+    "price": 3533570
+   },
+   {
+    "asset": "SkyShotgun_5",
+    "rarity": 4,
+    "price": 4311000
+   }
+  ]
+ },
+ {
+  "group_key": "エネルギーショットガン",
+  "name_en": "Energy Shotgun",
+  "category": "武器",
+  "subcategory": "Shotgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_EnergyShotgun.webp",
+  "tiers": [
+   {
+    "asset": "EnergyShotgun",
+    "rarity": 0,
+    "price": 2061660
+   },
+   {
+    "asset": "EnergyShotgun_2",
+    "rarity": 1,
+    "price": 2551990
+   },
+   {
+    "asset": "EnergyShotgun_3",
+    "rarity": 2,
+    "price": 3075250
+   },
+   {
+    "asset": "EnergyShotgun_4",
+    "rarity": 3,
+    "price": 3594910
+   },
+   {
+    "asset": "EnergyShotgun_5",
+    "rarity": 4,
+    "price": 4132920
+   }
+  ]
+ },
+ {
+  "group_key": "チャージライフル",
+  "name_en": "Charge Rifle",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_ChargeLaserRifle.webp",
+  "tiers": [
+   {
+    "asset": "ChargeLaserRifle",
+    "rarity": 0,
+    "price": 1984560
+   },
+   {
+    "asset": "ChargeLaserRifle_2",
+    "rarity": 1,
+    "price": 2462150
+   },
+   {
+    "asset": "ChargeLaserRifle_3",
+    "rarity": 2,
+    "price": 2961860
+   },
+   {
+    "asset": "ChargeLaserRifle_4",
+    "rarity": 3,
+    "price": 3461580
+   },
+   {
+    "asset": "ChargeLaserRifle_5",
+    "rarity": 4,
+    "price": 3978720
+   }
+  ]
+ },
+ {
+  "group_key": "オーバーヒートライフル",
+  "name_en": "Overheat Rifle",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_OverheatRifle.webp",
+  "tiers": [
+   {
+    "asset": "OverheatRifle",
+    "rarity": 0,
+    "price": 1754940
+   },
+   {
+    "asset": "OverheatRifle_2",
+    "rarity": 1,
+    "price": 2192860
+   },
+   {
+    "asset": "OverheatRifle_3",
+    "rarity": 2,
+    "price": 2630440
+   },
+   {
+    "asset": "OverheatRifle_4",
+    "rarity": 3,
+    "price": 3067150
+   },
+   {
+    "asset": "OverheatRifle_5",
+    "rarity": 4,
+    "price": 3519480
+   }
+  ]
+ },
+ {
+  "group_key": "コンバットサブマシンガン",
+  "name_en": "Combat SMG",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_SkySubmachineGun.webp",
+  "tiers": [
+   {
+    "asset": "SkySubmachineGun",
+    "rarity": 0,
+    "price": 1693630
+   },
+   {
+    "asset": "SkySubmachineGun_2",
+    "rarity": 1,
+    "price": 2119420
+   },
+   {
+    "asset": "SkySubmachineGun_3",
+    "rarity": 2,
+    "price": 2548850
+   },
+   {
+    "asset": "SkySubmachineGun_4",
+    "rarity": 3,
+    "price": 2968630
+   },
+   {
+    "asset": "SkySubmachineGun_5",
+    "rarity": 4,
+    "price": 3398060
+   }
+  ]
+ },
+ {
+  "group_key": "レーザーソード",
+  "name_en": "Laser Sword",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_SkyBeamSword.webp",
+  "tiers": [
+   {
+    "asset": "SkyBeamSword",
+    "rarity": 0,
+    "price": 1443860
+   },
+   {
+    "asset": "SkyBeamSword_2",
+    "rarity": 1,
+    "price": 1578680
+   },
+   {
+    "asset": "SkyBeamSword_3",
+    "rarity": 2,
+    "price": 2022430
+   },
+   {
+    "asset": "SkyBeamSword_4",
+    "rarity": 3,
+    "price": 2454780
+   },
+   {
+    "asset": "SkyBeamSword_5",
+    "rarity": 4,
+    "price": 2898530
+   }
+  ]
+ },
+ {
+  "group_key": "メカニカルボウ",
+  "name_en": "Mechanical Bow",
+  "category": "武器",
+  "subcategory": "Bow",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_SkyBow.webp",
+  "tiers": [
+   {
+    "asset": "SkyBow",
+    "rarity": 0,
+    "price": 1293140
+   },
+   {
+    "asset": "SkyBow_2",
+    "rarity": 1,
+    "price": 1395980
+   },
+   {
+    "asset": "SkyBow_3",
+    "rarity": 2,
+    "price": 1796350
+   },
+   {
+    "asset": "SkyBow_4",
+    "rarity": 3,
+    "price": 2196720
+   },
+   {
+    "asset": "SkyBow_5",
+    "rarity": 4,
+    "price": 2597090
+   }
+  ]
+ },
+ {
+  "group_key": "プラズマキャノン",
+  "name_en": "Plasma Cannon",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_EnergyRocketLauncher.webp",
+  "tiers": [
+   {
+    "asset": "EnergyRocketLauncher",
+    "rarity": 0,
+    "price": 1196020
+   },
+   {
+    "asset": "EnergyRocketLauncher_2",
+    "rarity": 1,
+    "price": 1497710
+   },
+   {
+    "asset": "EnergyRocketLauncher_3",
+    "rarity": 2,
+    "price": 1801220
+   },
+   {
+    "asset": "EnergyRocketLauncher_4",
+    "rarity": 3,
+    "price": 2098120
+   },
+   {
+    "asset": "EnergyRocketLauncher_5",
+    "rarity": 4,
+    "price": 2401630
+   }
+  ]
+ },
+ {
+  "group_key": "レーザーガトリングガン",
+  "name_en": "Laser Gatling Gun",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_LaserGatlingGun.webp",
+  "tiers": [
+   {
+    "asset": "LaserGatlingGun",
+    "rarity": 0,
+    "price": 1006160
+   },
+   {
+    "asset": "LaserGatlingGun_2",
+    "rarity": 1,
+    "price": 1236470
+   },
+   {
+    "asset": "LaserGatlingGun_3",
+    "rarity": 2,
+    "price": 1507870
+   },
+   {
+    "asset": "LaserGatlingGun_4",
+    "rarity": 3,
+    "price": 1749320
+   },
+   {
+    "asset": "LaserGatlingGun_5",
+    "rarity": 4,
+    "price": 2020730
+   }
+  ]
+ },
+ {
+  "group_key": "メガブーストガン",
+  "name_en": "Megaboost Gun",
+  "category": "武器",
+  "subcategory": "Handgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_PalDopingShot_2.webp",
+  "tiers": [
+   {
+    "asset": "PalDopingShot_2",
+    "rarity": 0,
+    "price": 2013600
+   }
+  ]
+ },
+ {
+  "group_key": "ロケットランチャー",
+  "name_en": "Rocket Launcher",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Launcher_Default.webp",
+  "tiers": [
+   {
+    "asset": "Launcher_Default",
+    "rarity": 0,
+    "price": 873360
+   },
+   {
+    "asset": "Launcher_Default_2",
+    "rarity": 1,
+    "price": 1077940
+   },
+   {
+    "asset": "Launcher_Default_3",
+    "rarity": 2,
+    "price": 1313140
+   },
+   {
+    "asset": "Launcher_Default_4",
+    "rarity": 3,
+    "price": 1520110
+   },
+   {
+    "asset": "Launcher_Default_5",
+    "rarity": 4,
+    "price": 1756320
+   }
+  ]
+ },
+ {
+  "group_key": "連装ミサイルランチャー",
+  "name_en": "Multi Guided Missile Launcher",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_MultiGuidedMissileLauncher.webp",
+  "tiers": [
+   {
+    "asset": "MultiGuidedMissileLauncher",
+    "rarity": 0,
+    "price": 712580
+   },
+   {
+    "asset": "MultiGuidedMissileLauncher_2",
+    "rarity": 1,
+    "price": 894280
+   },
+   {
+    "asset": "MultiGuidedMissileLauncher_3",
+    "rarity": 2,
+    "price": 1074880
+   },
+   {
+    "asset": "MultiGuidedMissileLauncher_4",
+    "rarity": 3,
+    "price": 1252970
+   },
+   {
+    "asset": "MultiGuidedMissileLauncher_5",
+    "rarity": 4,
+    "price": 1433570
+   }
+  ]
+ },
+ {
+  "group_key": "ガトリングガン",
+  "name_en": "Gatling Gun",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_GatlingGun.webp",
+  "tiers": [
+   {
+    "asset": "GatlingGun",
+    "rarity": 0,
+    "price": 507240
+   },
+   {
+    "asset": "GatlingGun_2",
+    "rarity": 1,
+    "price": 634880
+   },
+   {
+    "asset": "GatlingGun_3",
+    "rarity": 2,
+    "price": 765660
+   },
+   {
+    "asset": "GatlingGun_4",
+    "rarity": 3,
+    "price": 890900
+   },
+   {
+    "asset": "GatlingGun_5",
+    "rarity": 4,
+    "price": 1021680
+   }
+  ]
+ },
+ {
+  "group_key": "強化リリィの槍",
+  "name_en": "Enhanced Lily's Spear",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Spear_ForestBoss2.webp",
+  "tiers": [
+   {
+    "asset": "Spear_ForestBoss2",
+    "rarity": 2,
+    "price": 508560
+   },
+   {
+    "asset": "Spear_ForestBoss2_5",
+    "rarity": 4,
+    "price": 985440
+   }
+  ]
+ },
+ {
+  "group_key": "ミサイルランチャー",
+  "name_en": "Guided Missile Launcher",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_GuidedMissileLauncher.webp",
+  "tiers": [
+   {
+    "asset": "GuidedMissileLauncher",
+    "rarity": 0,
+    "price": 461040
+   },
+   {
+    "asset": "GuidedMissileLauncher_2",
+    "rarity": 1,
+    "price": 572600
+   },
+   {
+    "asset": "GuidedMissileLauncher_3",
+    "rarity": 2,
+    "price": 683590
+   },
+   {
+    "asset": "GuidedMissileLauncher_4",
+    "rarity": 3,
+    "price": 791560
+   },
+   {
+    "asset": "GuidedMissileLauncher_5",
+    "rarity": 4,
+    "price": 930480
+   }
+  ]
+ },
+ {
+  "group_key": "コアイジェクトショットガン",
+  "name_en": "Core Eject Shotgun",
+  "category": "武器",
+  "subcategory": "Shotgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_OctaviaShotgun.webp",
+  "tiers": [
+   {
+    "asset": "OctaviaShotgun",
+    "rarity": 0,
+    "price": 363220
+   },
+   {
+    "asset": "OctaviaShotgun_2",
+    "rarity": 1,
+    "price": 178800
+   },
+   {
+    "asset": "OctaviaShotgun_3",
+    "rarity": 2,
+    "price": 271200
+   },
+   {
+    "asset": "OctaviaShotgun_4",
+    "rarity": 3,
+    "price": 412800
+   },
+   {
+    "asset": "OctaviaShotgun_5",
+    "rarity": 4,
+    "price": 736030
+   }
+  ]
+ },
+ {
+  "group_key": "グレネードランチャー",
+  "name_en": "Grenade Launcher",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_GrenadeLauncher.webp",
+  "tiers": [
+   {
+    "asset": "GrenadeLauncher",
+    "rarity": 0,
+    "price": 309060
+   },
+   {
+    "asset": "GrenadeLauncher_2",
+    "rarity": 1,
+    "price": 386840
+   },
+   {
+    "asset": "GrenadeLauncher_3",
+    "rarity": 2,
+    "price": 465940
+   },
+   {
+    "asset": "GrenadeLauncher_4",
+    "rarity": 3,
+    "price": 545030
+   },
+   {
+    "asset": "GrenadeLauncher_5",
+    "rarity": 4,
+    "price": 624120
+   }
+  ]
+ },
+ {
+  "group_key": "レーザーライフル",
+  "name_en": "Laser Rifle",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_LaserRifle.webp",
+  "tiers": [
+   {
+    "asset": "LaserRifle",
+    "rarity": 0,
+    "price": 290120
+   },
+   {
+    "asset": "LaserRifle_2",
+    "rarity": 1,
+    "price": 343440
+   },
+   {
+    "asset": "LaserRifle_3",
+    "rarity": 2,
+    "price": 423980
+   },
+   {
+    "asset": "LaserRifle_4",
+    "rarity": 3,
+    "price": 503030
+   },
+   {
+    "asset": "LaserRifle_5",
+    "rarity": 4,
+    "price": 586250
+   }
+  ]
+ },
+ {
+  "group_key": "マルチプラズマカッター",
+  "name_en": "Plasma Multicutter",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_LaserMiningTool.webp",
+  "tiers": [
+   {
+    "asset": "LaserMiningTool",
+    "rarity": 4,
+    "price": 584400
+   }
+  ]
+ },
+ {
+  "group_key": "テラプリズマ",
+  "name_en": "Terraprisma",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_YakushimaBlade003.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaBlade003",
+    "rarity": 0,
+    "price": 48000
+   },
+   {
+    "asset": "YakushimaBlade003_2",
+    "rarity": 1,
+    "price": 72600
+   },
+   {
+    "asset": "YakushimaBlade003_3",
+    "rarity": 2,
+    "price": 141600
+   },
+   {
+    "asset": "YakushimaBlade003_4",
+    "rarity": 3,
+    "price": 278400
+   },
+   {
+    "asset": "YakushimaBlade003_5",
+    "rarity": 4,
+    "price": 550800
+   }
+  ]
+ },
+ {
+  "group_key": "ナイトグロウ",
+  "name_en": "Nightglow",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_YakushimaLantern001.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaLantern001",
+    "rarity": 0,
+    "price": 48000
+   },
+   {
+    "asset": "YakushimaLantern001_2",
+    "rarity": 1,
+    "price": 72600
+   },
+   {
+    "asset": "YakushimaLantern001_3",
+    "rarity": 2,
+    "price": 141600
+   },
+   {
+    "asset": "YakushimaLantern001_4",
+    "rarity": 3,
+    "price": 278400
+   },
+   {
+    "asset": "YakushimaLantern001_5",
+    "rarity": 4,
+    "price": 550800
+   }
+  ]
+ },
+ {
+  "group_key": "ボルテックスビーター",
+  "name_en": "Vortex Beater",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_YakushimaGun001.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaGun001",
+    "rarity": 0,
+    "price": 46200
+   },
+   {
+    "asset": "YakushimaGun001_2",
+    "rarity": 1,
+    "price": 70200
+   },
+   {
+    "asset": "YakushimaGun001_3",
+    "rarity": 2,
+    "price": 138600
+   },
+   {
+    "asset": "YakushimaGun001_4",
+    "rarity": 3,
+    "price": 273600
+   },
+   {
+    "asset": "YakushimaGun001_5",
+    "rarity": 4,
+    "price": 541800
+   }
+  ]
+ },
+ {
+  "group_key": "テラブレード",
+  "name_en": "Terra Blade",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_YakushimaBlade002.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaBlade002",
+    "rarity": 0,
+    "price": 44400
+   },
+   {
+    "asset": "YakushimaBlade002_2",
+    "rarity": 1,
+    "price": 66600
+   },
+   {
+    "asset": "YakushimaBlade002_3",
+    "rarity": 2,
+    "price": 133200
+   },
+   {
+    "asset": "YakushimaBlade002_4",
+    "rarity": 3,
+    "price": 266400
+   },
+   {
+    "asset": "YakushimaBlade002_5",
+    "rarity": 4,
+    "price": 532800
+   }
+  ]
+ },
+ {
+  "group_key": "金属探知機",
+  "name_en": "Metal Detector",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Essential_MetalDetector.webp",
+  "tiers": [
+   {
+    "asset": "MetalDetector",
+    "rarity": 3,
+    "price": 527040
+   }
+  ]
+ },
+ {
+  "group_key": "ビームソード",
+  "name_en": "Beam Sword",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_BeamSword.webp",
+  "tiers": [
+   {
+    "asset": "BeamSword",
+    "rarity": 0,
+    "price": 150050
+   },
+   {
+    "asset": "BeamSword_2",
+    "rarity": 1,
+    "price": 182920
+   },
+   {
+    "asset": "BeamSword_3",
+    "rarity": 2,
+    "price": 243340
+   },
+   {
+    "asset": "BeamSword_4",
+    "rarity": 3,
+    "price": 300730
+   },
+   {
+    "asset": "BeamSword_5",
+    "rarity": 4,
+    "price": 361150
+   }
+  ]
+ },
+ {
+  "group_key": "ウルトラグラップリングガン",
+  "name_en": "Ultra Grappling Gun",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_GrapplingGun.webp",
+  "tiers": [
+   {
+    "asset": "GrapplingGun5",
+    "rarity": 4,
+    "price": 351600
+   }
+  ]
+ },
+ {
+  "group_key": "火炎放射器",
+  "name_en": "FlameThrower",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FlameThrower_Default.webp",
+  "tiers": [
+   {
+    "asset": "FlameThrower",
+    "rarity": 0,
+    "price": 172750
+   },
+   {
+    "asset": "FlameThrower_2",
+    "rarity": 1,
+    "price": 216430
+   },
+   {
+    "asset": "FlameThrower_3",
+    "rarity": 2,
+    "price": 262300
+   },
+   {
+    "asset": "FlameThrower_4",
+    "rarity": 3,
+    "price": 304780
+   },
+   {
+    "asset": "FlameThrower_5",
+    "rarity": 4,
+    "price": 351500
+   }
+  ]
+ },
+ {
+  "group_key": "アドバンスボウ",
+  "name_en": "Advanced Bow",
+  "category": "武器",
+  "subcategory": "Bow",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_SFBow.webp",
+  "tiers": [
+   {
+    "asset": "SFBow",
+    "rarity": 0,
+    "price": 170160
+   },
+   {
+    "asset": "SFBow_2",
+    "rarity": 1,
+    "price": 216050
+   },
+   {
+    "asset": "SFBow_3",
+    "rarity": 2,
+    "price": 259540
+   },
+   {
+    "asset": "SFBow_4",
+    "rarity": 3,
+    "price": 303020
+   },
+   {
+    "asset": "SFBow_5",
+    "rarity": 4,
+    "price": 347520
+   }
+  ]
+ },
+ {
+  "group_key": "メテオランチャー",
+  "name_en": "Meteor Launcher",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Launcher_Meteor.webp",
+  "tiers": [
+   {
+    "asset": "Launcher_Meteor",
+    "rarity": 0,
+    "price": 151920
+   },
+   {
+    "asset": "Launcher_Meteor_5",
+    "rarity": 4,
+    "price": 303840
+   }
+  ]
+ },
+ {
+  "group_key": "ホーミングスフィアランチャー",
+  "name_en": "Homing Sphere Launcher",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_HomingSphereLauncher.webp",
+  "tiers": [
+   {
+    "asset": "HomingSphereLauncher",
+    "rarity": 2,
+    "price": 294000
+   }
+  ]
+ },
+ {
+  "group_key": "リリィの槍",
+  "name_en": "Lily's Spear",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Spear_ForestBoss.webp",
+  "tiers": [
+   {
+    "asset": "Spear_ForestBoss",
+    "rarity": 2,
+    "price": 118610
+   },
+   {
+    "asset": "Spear_ForestBoss_5",
+    "rarity": 4,
+    "price": 205540
+   }
+  ]
+ },
+ {
+  "group_key": "セミオートショットガン",
+  "name_en": "Semi-Auto Shotgun",
+  "category": "武器",
+  "subcategory": "Shotgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_SemiAutoShotgun.webp",
+  "tiers": [
+   {
+    "asset": "SemiAutoShotgun",
+    "rarity": 0,
+    "price": 79200
+   },
+   {
+    "asset": "SemiAutoShotgun_2",
+    "rarity": 1,
+    "price": 99260
+   },
+   {
+    "asset": "SemiAutoShotgun_3",
+    "rarity": 2,
+    "price": 121200
+   },
+   {
+    "asset": "SemiAutoShotgun_4",
+    "rarity": 3,
+    "price": 141260
+   },
+   {
+    "asset": "SemiAutoShotgun_5",
+    "rarity": 4,
+    "price": 163200
+   }
+  ]
+ },
+ {
+  "group_key": "エクスカリバー",
+  "name_en": "Excalibur",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_YakushimaBlade004.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaBlade004",
+    "rarity": 0,
+    "price": 10800
+   },
+   {
+    "asset": "YakushimaBlade004_2",
+    "rarity": 1,
+    "price": 16200
+   },
+   {
+    "asset": "YakushimaBlade004_3",
+    "rarity": 2,
+    "price": 32400
+   },
+   {
+    "asset": "YakushimaBlade004_4",
+    "rarity": 3,
+    "price": 64800
+   },
+   {
+    "asset": "YakushimaBlade004_5",
+    "rarity": 4,
+    "price": 129600
+   }
+  ]
+ },
+ {
+  "group_key": "ポンプ式ショットガン",
+  "name_en": "Pump-Action Shotgun",
+  "category": "武器",
+  "subcategory": "Shotgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_PumpActionShotgun.webp",
+  "tiers": [
+   {
+    "asset": "PumpActionShotgun",
+    "rarity": 0,
+    "price": 61920
+   },
+   {
+    "asset": "PumpActionShotgun_2",
+    "rarity": 1,
+    "price": 77660
+   },
+   {
+    "asset": "PumpActionShotgun_3",
+    "rarity": 2,
+    "price": 95280
+   },
+   {
+    "asset": "PumpActionShotgun_4",
+    "rarity": 3,
+    "price": 111020
+   },
+   {
+    "asset": "PumpActionShotgun_5",
+    "rarity": 4,
+    "price": 128640
+   }
+  ]
+ },
+ {
+  "group_key": "上級釣り竿（ンダコアラ）",
+  "name_en": "Advanced Fishing Rod (Depresso)",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FishingRod_6.webp",
+  "tiers": [
+   {
+    "asset": "FishingRod_03_2",
+    "rarity": 4,
+    "price": 120120
+   }
+  ]
+ },
+ {
+  "group_key": "アサルトライフル",
+  "name_en": "Assault Rifle",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_AssaultRifle_Default1.webp",
+  "tiers": [
+   {
+    "asset": "AssaultRifle_Default1",
+    "rarity": 0,
+    "price": 57600
+   },
+   {
+    "asset": "AssaultRifle_Default2",
+    "rarity": 1,
+    "price": 72050
+   },
+   {
+    "asset": "AssaultRifle_Default3",
+    "rarity": 2,
+    "price": 88800
+   },
+   {
+    "asset": "AssaultRifle_Default4",
+    "rarity": 3,
+    "price": 103250
+   },
+   {
+    "asset": "AssaultRifle_Default5",
+    "rarity": 4,
+    "price": 120000
+   }
+  ]
+ },
+ {
+  "group_key": "刀",
+  "name_en": "Katana",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Katana.webp",
+  "tiers": [
+   {
+    "asset": "Katana",
+    "rarity": 0,
+    "price": 51020
+   },
+   {
+    "asset": "Katana_2",
+    "rarity": 1,
+    "price": 60920
+   },
+   {
+    "asset": "Katana_3",
+    "rarity": 2,
+    "price": 79700
+   },
+   {
+    "asset": "Katana_4",
+    "rarity": 3,
+    "price": 98480
+   },
+   {
+    "asset": "Katana_5",
+    "rarity": 4,
+    "price": 117260
+   }
+  ]
+ },
+ {
+  "group_key": "マークスマンリボルバー",
+  "name_en": "Marksman Revolver",
+  "category": "武器",
+  "subcategory": "Handgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_OctaviaRevolver.webp",
+  "tiers": [
+   {
+    "asset": "OctaviaRevolver",
+    "rarity": 0,
+    "price": 33480
+   },
+   {
+    "asset": "OctaviaRevolver_2",
+    "rarity": 1,
+    "price": 50400
+   },
+   {
+    "asset": "OctaviaRevolver_3",
+    "rarity": 2,
+    "price": 76200
+   },
+   {
+    "asset": "OctaviaRevolver_4",
+    "rarity": 3,
+    "price": 113400
+   },
+   {
+    "asset": "OctaviaRevolver_5",
+    "rarity": 4,
+    "price": 72960
+   }
+  ]
+ },
+ {
+  "group_key": "パルメタルの斧",
+  "name_en": "Pal Metal Axe",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Axe_Tier_03.webp",
+  "tiers": [
+   {
+    "asset": "Axe_Steal",
+    "rarity": 3,
+    "price": 112920
+   }
+  ]
+ },
+ {
+  "group_key": "パルメタルのつるはし",
+  "name_en": "Pal Metal Pickaxe",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Pickaxe_Tier_03.webp",
+  "tiers": [
+   {
+    "asset": "Pickaxe_Steal",
+    "rarity": 3,
+    "price": 112920
+   }
+  ]
+ },
+ {
+  "group_key": "拡散型スフィアランチャー",
+  "name_en": "Scatter Sphere Launcher",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_SphereLauncher.webp",
+  "tiers": [
+   {
+    "asset": "SphereLauncher",
+    "rarity": 0,
+    "price": 103080
+   }
+  ]
+ },
+ {
+  "group_key": "コンパウンドボウ",
+  "name_en": "Compound Bow",
+  "category": "武器",
+  "subcategory": "Bow",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_CompoundBow.webp",
+  "tiers": [
+   {
+    "asset": "CompoundBow",
+    "rarity": 0,
+    "price": 44300
+   },
+   {
+    "asset": "CompoundBow_2",
+    "rarity": 1,
+    "price": 56110
+   },
+   {
+    "asset": "CompoundBow_3",
+    "rarity": 2,
+    "price": 68860
+   },
+   {
+    "asset": "CompoundBow_4",
+    "rarity": 3,
+    "price": 80660
+   },
+   {
+    "asset": "CompoundBow_5",
+    "rarity": 4,
+    "price": 93410
+   }
+  ]
+ },
+ {
+  "group_key": "セミオートライフル",
+  "name_en": "Semi-Auto Rifle",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_SemiAutoRifle.webp",
+  "tiers": [
+   {
+    "asset": "SemiAutoRifle",
+    "rarity": 0,
+    "price": 43200
+   },
+   {
+    "asset": "SemiAutoRifle_2",
+    "rarity": 1,
+    "price": 53900
+   },
+   {
+    "asset": "SemiAutoRifle_3",
+    "rarity": 2,
+    "price": 66770
+   },
+   {
+    "asset": "SemiAutoRifle_4",
+    "rarity": 3,
+    "price": 78340
+   },
+   {
+    "asset": "SemiAutoRifle_5",
+    "rarity": 4,
+    "price": 91200
+   }
+  ]
+ },
+ {
+  "group_key": "テラグラップリングガン",
+  "name_en": "Hyper Grappling Gun",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_GrapplingGun.webp",
+  "tiers": [
+   {
+    "asset": "GrapplingGun4",
+    "rarity": 3,
+    "price": 83760
+   }
+  ]
+ },
+ {
+  "group_key": "ダブルバレルショットガン",
+  "name_en": "Double-Barreled Shotgun",
+  "category": "武器",
+  "subcategory": "Shotgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_DoubleBarrelShotgun.webp",
+  "tiers": [
+   {
+    "asset": "DoubleBarrelShotgun",
+    "rarity": 0,
+    "price": 37990
+   },
+   {
+    "asset": "DoubleBarrelShotgun_2",
+    "rarity": 1,
+    "price": 47260
+   },
+   {
+    "asset": "DoubleBarrelShotgun_3",
+    "rarity": 2,
+    "price": 58680
+   },
+   {
+    "asset": "DoubleBarrelShotgun_4",
+    "rarity": 3,
+    "price": 69240
+   },
+   {
+    "asset": "DoubleBarrelShotgun_5",
+    "rarity": 4,
+    "price": 80780
+   }
+  ]
+ },
+ {
+  "group_key": "サブマシンガン",
+  "name_en": "SMG",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_SubmachineGun.webp",
+  "tiers": [
+   {
+    "asset": "SubmachineGun",
+    "rarity": 0,
+    "price": 29380
+   },
+   {
+    "asset": "SubmachineGun_2",
+    "rarity": 1,
+    "price": 37060
+   },
+   {
+    "asset": "SubmachineGun_3",
+    "rarity": 2,
+    "price": 46030
+   },
+   {
+    "asset": "SubmachineGun_4",
+    "rarity": 3,
+    "price": 53710
+   },
+   {
+    "asset": "SubmachineGun_5",
+    "rarity": 4,
+    "price": 63550
+   }
+  ]
+ },
+ {
+  "group_key": "ボロいアサルトライフル",
+  "name_en": "Makeshift Assault Rifle",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_MakeshiftAssaultRifle.webp",
+  "tiers": [
+   {
+    "asset": "MakeshiftAssaultRifle",
+    "rarity": 0,
+    "price": 27940
+   },
+   {
+    "asset": "MakeshiftAssaultRifle_2",
+    "rarity": 1,
+    "price": 34780
+   },
+   {
+    "asset": "MakeshiftAssaultRifle_3",
+    "rarity": 2,
+    "price": 41900
+   },
+   {
+    "asset": "MakeshiftAssaultRifle_4",
+    "rarity": 3,
+    "price": 49940
+   },
+   {
+    "asset": "MakeshiftAssaultRifle_5",
+    "rarity": 4,
+    "price": 58270
+   }
+  ]
+ },
+ {
+  "group_key": "シングルショットライフル",
+  "name_en": "Single-Shot Rifle",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_SingleShotRifle.webp",
+  "tiers": [
+   {
+    "asset": "SingleShotRifle",
+    "rarity": 0,
+    "price": 26160
+   },
+   {
+    "asset": "SingleShotRifle_2",
+    "rarity": 1,
+    "price": 33580
+   },
+   {
+    "asset": "SingleShotRifle_3",
+    "rarity": 2,
+    "price": 40990
+   },
+   {
+    "asset": "SingleShotRifle_4",
+    "rarity": 3,
+    "price": 48410
+   },
+   {
+    "asset": "SingleShotRifle_5",
+    "rarity": 4,
+    "price": 57120
+   }
+  ]
+ },
+ {
+  "group_key": "古びたリボルバー",
+  "name_en": "Old Revolver",
+  "category": "武器",
+  "subcategory": "Handgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_OldRevolver.webp",
+  "tiers": [
+   {
+    "asset": "OldRevolver",
+    "rarity": 0,
+    "price": 24480
+   },
+   {
+    "asset": "OldRevolver_2",
+    "rarity": 1,
+    "price": 30600
+   },
+   {
+    "asset": "OldRevolver_3",
+    "rarity": 2,
+    "price": 36720
+   },
+   {
+    "asset": "OldRevolver_4",
+    "rarity": 3,
+    "price": 44040
+   },
+   {
+    "asset": "OldRevolver_5",
+    "rarity": 4,
+    "price": 51360
+   }
+  ]
+ },
+ {
+  "group_key": "ボロいショットガン",
+  "name_en": "Makeshift Shotgun",
+  "category": "武器",
+  "subcategory": "Shotgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_MakeshiftShotgun.webp",
+  "tiers": [
+   {
+    "asset": "MakeshiftShotgun",
+    "rarity": 0,
+    "price": 23160
+   },
+   {
+    "asset": "MakeshiftShotgun_2",
+    "rarity": 1,
+    "price": 28680
+   },
+   {
+    "asset": "MakeshiftShotgun_3",
+    "rarity": 2,
+    "price": 34560
+   },
+   {
+    "asset": "MakeshiftShotgun_4",
+    "rarity": 3,
+    "price": 41640
+   },
+   {
+    "asset": "MakeshiftShotgun_5",
+    "rarity": 4,
+    "price": 48720
+   }
+  ]
+ },
+ {
+  "group_key": "上級釣り竿（ペンタマ）",
+  "name_en": "Advanced Fishing Rod (Pengullet)",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FishingRod_5.webp",
+  "tiers": [
+   {
+    "asset": "FishingRod_03_1",
+    "rarity": 3,
+    "price": 43860
+   }
+  ]
+ },
+ {
+  "group_key": "ハンドガン",
+  "name_en": "Handgun",
+  "category": "武器",
+  "subcategory": "Handgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_HandGun_Default.webp",
+  "tiers": [
+   {
+    "asset": "HandGun_Default",
+    "rarity": 0,
+    "price": 19800
+   },
+   {
+    "asset": "HandGun_Default_2",
+    "rarity": 1,
+    "price": 24340
+   },
+   {
+    "asset": "HandGun_Default_3",
+    "rarity": 2,
+    "price": 29520
+   },
+   {
+    "asset": "HandGun_Default_4",
+    "rarity": 3,
+    "price": 35620
+   },
+   {
+    "asset": "HandGun_Default_5",
+    "rarity": 4,
+    "price": 42000
+   }
+  ]
+ },
+ {
+  "group_key": "金属バット",
+  "name_en": "Metal Bat",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Bat3.webp",
+  "tiers": [
+   {
+    "asset": "Bat3",
+    "rarity": 0,
+    "price": 20880
+   },
+   {
+    "asset": "Bat3_2",
+    "rarity": 1,
+    "price": 26040
+   },
+   {
+    "asset": "Bat3_3",
+    "rarity": 2,
+    "price": 31320
+   },
+   {
+    "asset": "Bat3_4",
+    "rarity": 3,
+    "price": 36480
+   },
+   {
+    "asset": "Bat3_5",
+    "rarity": 4,
+    "price": 41760
+   }
+  ]
+ },
+ {
+  "group_key": "中級釣り竿（ブシガエル）",
+  "name_en": "Intermediate Fishing Rod (Croajiro)",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FishingRod_4.webp",
+  "tiers": [
+   {
+    "asset": "FishingRod_02_2",
+    "rarity": 2,
+    "price": 35380
+   }
+  ]
+ },
+ {
+  "group_key": "ボロいサブマシンガン",
+  "name_en": "Makeshift SMG",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_MakeshiftSubmachineGun.webp",
+  "tiers": [
+   {
+    "asset": "MakeshiftSubmachineGun",
+    "rarity": 0,
+    "price": 15410
+   },
+   {
+    "asset": "MakeshiftSubmachineGun_2",
+    "rarity": 1,
+    "price": 19080
+   },
+   {
+    "asset": "MakeshiftSubmachineGun_3",
+    "rarity": 2,
+    "price": 23110
+   },
+   {
+    "asset": "MakeshiftSubmachineGun_4",
+    "rarity": 3,
+    "price": 27980
+   },
+   {
+    "asset": "MakeshiftSubmachineGun_5",
+    "rarity": 4,
+    "price": 33220
+   }
+  ]
+ },
+ {
+  "group_key": "バリスティックシールド",
+  "name_en": "Ballistic Shield",
+  "category": "武器",
+  "subcategory": "Handgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_HandGun_Default.webp",
+  "tiers": [
+   {
+    "asset": "HandgunShield",
+    "rarity": 0,
+    "price": 33000
+   }
+  ]
+ },
+ {
+  "group_key": "ジャンクハンドガン",
+  "name_en": "Makeshift Handgun",
+  "category": "武器",
+  "subcategory": "Handgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_MakeshiftHandgun.webp",
+  "tiers": [
+   {
+    "asset": "MakeshiftHandgun",
+    "rarity": 0,
+    "price": 13970
+   },
+   {
+    "asset": "MakeshiftHandgun_2",
+    "rarity": 1,
+    "price": 17060
+   },
+   {
+    "asset": "MakeshiftHandgun_3",
+    "rarity": 2,
+    "price": 20810
+   },
+   {
+    "asset": "MakeshiftHandgun_4",
+    "rarity": 3,
+    "price": 25390
+   },
+   {
+    "asset": "MakeshiftHandgun_5",
+    "rarity": 4,
+    "price": 30340
+   }
+  ]
+ },
+ {
+  "group_key": "デカール銃1",
+  "name_en": "Decal Gun 1",
+  "category": "武器",
+  "subcategory": "Handgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_DecalGun.webp",
+  "tiers": [
+   {
+    "asset": "DecalGun_1",
+    "rarity": 0,
+    "price": 26460
+   }
+  ]
+ },
+ {
+  "group_key": "デカール銃2",
+  "name_en": "Decal Gun 2",
+  "category": "武器",
+  "subcategory": "Handgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_DecalGun.webp",
+  "tiers": [
+   {
+    "asset": "DecalGun_2",
+    "rarity": 0,
+    "price": 26460
+   }
+  ]
+ },
+ {
+  "group_key": "デカール銃3",
+  "name_en": "Decal Gun 3",
+  "category": "武器",
+  "subcategory": "Handgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_DecalGun.webp",
+  "tiers": [
+   {
+    "asset": "DecalGun_3",
+    "rarity": 0,
+    "price": 26460
+   }
+  ]
+ },
+ {
+  "group_key": "デカール銃4",
+  "name_en": "Decal Gun 4",
+  "category": "武器",
+  "subcategory": "Handgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_DecalGun.webp",
+  "tiers": [
+   {
+    "asset": "DecalGun_4",
+    "rarity": 0,
+    "price": 26460
+   }
+  ]
+ },
+ {
+  "group_key": "デカール銃5",
+  "name_en": "Decal Gun 5",
+  "category": "武器",
+  "subcategory": "Handgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_DecalGun.webp",
+  "tiers": [
+   {
+    "asset": "DecalGun_5",
+    "rarity": 0,
+    "price": 26460
+   }
+  ]
+ },
+ {
+  "group_key": "単発型スフィアランチャー",
+  "name_en": "Single-Shot Sphere Launcher",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_SphereLauncher_Once.webp",
+  "tiers": [
+   {
+    "asset": "SphereLauncher_Once",
+    "rarity": 0,
+    "price": 23640
+   }
+  ]
+ },
+ {
+  "group_key": "マスケット銃",
+  "name_en": "Musket",
+  "category": "武器",
+  "subcategory": "Assault Rifle",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Musket.webp",
+  "tiers": [
+   {
+    "asset": "Musket",
+    "rarity": 0,
+    "price": 9940
+   },
+   {
+    "asset": "Musket_2",
+    "rarity": 1,
+    "price": 12020
+   },
+   {
+    "asset": "Musket_3",
+    "rarity": 2,
+    "price": 14420
+   },
+   {
+    "asset": "Musket_4",
+    "rarity": 3,
+    "price": 18020
+   },
+   {
+    "asset": "Musket_5",
+    "rarity": 4,
+    "price": 22270
+   }
+  ]
+ },
+ {
+  "group_key": "剣",
+  "name_en": "Sword",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Sword.webp",
+  "tiers": [
+   {
+    "asset": "Sword",
+    "rarity": 0,
+    "price": 9550
+   },
+   {
+    "asset": "Sword_2",
+    "rarity": 1,
+    "price": 11640
+   },
+   {
+    "asset": "Sword_3",
+    "rarity": 2,
+    "price": 14330
+   },
+   {
+    "asset": "Sword_4",
+    "rarity": 3,
+    "price": 17930
+   },
+   {
+    "asset": "Sword_5",
+    "rarity": 4,
+    "price": 21820
+   }
+  ]
+ },
+ {
+  "group_key": "ギガグラップリングガン",
+  "name_en": "Giga Grappling Gun",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_GrapplingGun.webp",
+  "tiers": [
+   {
+    "asset": "GrapplingGun3",
+    "rarity": 2,
+    "price": 17930
+   }
+  ]
+ },
+ {
+  "group_key": "ブーストガン",
+  "name_en": "Boost Gun",
+  "category": "武器",
+  "subcategory": "Handgun",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_PalDopingShot.webp",
+  "tiers": [
+   {
+    "asset": "PalDopingShot",
+    "rarity": 0,
+    "price": 16850
+   }
+  ]
+ },
+ {
+  "group_key": "初級釣り竿（ナエモチ）",
+  "name_en": "Beginner Fishing Rod (Gumoss)",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FishingRod_2.webp",
+  "tiers": [
+   {
+    "asset": "FishingRod_01_2",
+    "rarity": 0,
+    "price": 15800
+   }
+  ]
+ },
+ {
+  "group_key": "でんせつのミャオメア",
+  "name_en": "Legendary Meowmere",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_YakushimaBlade005.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaBlade005",
+    "rarity": 4,
+    "price": 15050
+   }
+  ]
+ },
+ {
+  "group_key": "ミャオメア",
+  "name_en": "Meowmere",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_YakushimaBlade.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaBlade",
+    "rarity": 4,
+    "price": 13460
+   }
+  ]
+ },
+ {
+  "group_key": "スタンバトン",
+  "name_en": "Stun Baton",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_ElecBaton.webp",
+  "tiers": [
+   {
+    "asset": "ElecBaton",
+    "rarity": 0,
+    "price": 12960
+   }
+  ]
+ },
+ {
+  "group_key": "メガグラップリングガン",
+  "name_en": "Mega Grappling Gun",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_GrapplingGun.webp",
+  "tiers": [
+   {
+    "asset": "GrapplingGun2",
+    "rarity": 1,
+    "price": 11520
+   }
+  ]
+ },
+ {
+  "group_key": "精錬金属の斧",
+  "name_en": "Refined Metal Axe",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Axe_Tier_00.webp",
+  "tiers": [
+   {
+    "asset": "Axe_Tier_02",
+    "rarity": 2,
+    "price": 10320
+   }
+  ]
+ },
+ {
+  "group_key": "精錬金属のつるはし",
+  "name_en": "Refined Metal Pickaxe",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Pickaxe_Tier_00.webp",
+  "tiers": [
+   {
+    "asset": "Pickaxe_Tier_02",
+    "rarity": 2,
+    "price": 10320
+   }
+  ]
+ },
+ {
+  "group_key": "クロスボウ",
+  "name_en": "Crossbow",
+  "category": "武器",
+  "subcategory": "Crossbow",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_BowGun.webp",
+  "tiers": [
+   {
+    "asset": "BowGun",
+    "rarity": 0,
+    "price": 4320
+   },
+   {
+    "asset": "BowGun_2",
+    "rarity": 1,
+    "price": 5210
+   },
+   {
+    "asset": "BowGun_3",
+    "rarity": 2,
+    "price": 6480
+   },
+   {
+    "asset": "BowGun_4",
+    "rarity": 3,
+    "price": 7440
+   },
+   {
+    "asset": "BowGun_5",
+    "rarity": 4,
+    "price": 9910
+   }
+  ]
+ },
+ {
+  "group_key": "精錬金属の槍",
+  "name_en": "Refined Metal Spear",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Spear_Tier_00.webp",
+  "tiers": [
+   {
+    "asset": "Spear_3",
+    "rarity": 0,
+    "price": 9420
+   }
+  ]
+ },
+ {
+  "group_key": "フラググレネード改",
+  "name_en": "Frag Grenade Mk2",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FragGrenade_Super.webp",
+  "tiers": [
+   {
+    "asset": "FragGrenade_Super",
+    "rarity": 0,
+    "price": 7900
+   }
+  ]
+ },
+ {
+  "group_key": "中級釣り竿（ツッパニャン）",
+  "name_en": "Intermediate Fishing Rod (Cattiva)",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FishingRod_3.webp",
+  "tiers": [
+   {
+    "asset": "FishingRod_02_1",
+    "rarity": 1,
+    "price": 5690
+   }
+  ]
+ },
+ {
+  "group_key": "グラップリングガン",
+  "name_en": "Grappling Gun",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_GrapplingGun.webp",
+  "tiers": [
+   {
+    "asset": "GrapplingGun",
+    "rarity": 0,
+    "price": 5210
+   }
+  ]
+ },
+ {
+  "group_key": "原始的な剣",
+  "name_en": "Primitive Sword",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_BronzeSword.webp",
+  "tiers": [
+   {
+    "asset": "BronzeSword",
+    "rarity": 0,
+    "price": 5160
+   }
+  ]
+ },
+ {
+  "group_key": "金属の斧",
+  "name_en": "Metal Axe",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Axe_Tier_00.webp",
+  "tiers": [
+   {
+    "asset": "Axe_Tier_01",
+    "rarity": 1,
+    "price": 4820
+   }
+  ]
+ },
+ {
+  "group_key": "金属のつるはし",
+  "name_en": "Metal Pickaxe",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Pickaxe_Tier_00.webp",
+  "tiers": [
+   {
+    "asset": "Pickaxe_Tier_01",
+    "rarity": 1,
+    "price": 4820
+   }
+  ]
+ },
+ {
+  "group_key": "初級釣り竿（オコチョ）",
+  "name_en": "Beginner Fishing Rod (Chillet)",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FishingRod_1.webp",
+  "tiers": [
+   {
+    "asset": "FishingRod_01_1",
+    "rarity": 0,
+    "price": 4300
+   }
+  ]
+ },
+ {
+  "group_key": "パル回復グレネード",
+  "name_en": "Pal Recovery Grenade",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_PalHealingGrenade.webp",
+  "tiers": [
+   {
+    "asset": "PalHealingGrenade",
+    "rarity": 0,
+    "price": 3660
+   }
+  ]
+ },
+ {
+  "group_key": "金属の槍",
+  "name_en": "Metal Spear",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Spear_Tier_00.webp",
+  "tiers": [
+   {
+    "asset": "Spear_2",
+    "rarity": 0,
+    "price": 3440
+   }
+  ]
+ },
+ {
+  "group_key": "古びた弓",
+  "name_en": "Old Bow",
+  "category": "武器",
+  "subcategory": "Bow",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_WeakerBow.webp",
+  "tiers": [
+   {
+    "asset": "WeakerBow",
+    "rarity": 0,
+    "price": 650
+   },
+   {
+    "asset": "WeakerBow_2",
+    "rarity": 1,
+    "price": 790
+   },
+   {
+    "asset": "WeakerBow_3",
+    "rarity": 2,
+    "price": 960
+   },
+   {
+    "asset": "WeakerBow_4",
+    "rarity": 3,
+    "price": 1110
+   },
+   {
+    "asset": "WeakerBow_5",
+    "rarity": 4,
+    "price": 2500
+   }
+  ]
+ },
+ {
+  "group_key": "肉切り包丁",
+  "name_en": "Meat Cleaver",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_MeatCutterKnife.webp",
+  "tiers": [
+   {
+    "asset": "MeatCutterKnife",
+    "rarity": 0,
+    "price": 1800
+   }
+  ]
+ },
+ {
+  "group_key": "暗黒グレネード",
+  "name_en": "Dark Grenade",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FragGrenade_Dark.webp",
+  "tiers": [
+   {
+    "asset": "FragGrenade_Dark",
+    "rarity": 0,
+    "price": 1380
+   }
+  ]
+ },
+ {
+  "group_key": "水流グレネード",
+  "name_en": "Water Grenade",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FragGrenade_Water.webp",
+  "tiers": [
+   {
+    "asset": "FragGrenade_Water",
+    "rarity": 0,
+    "price": 1380
+   }
+  ]
+ },
+ {
+  "group_key": "三連弓",
+  "name_en": "Three Shot Bow",
+  "category": "武器",
+  "subcategory": "Bow",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Bow.webp",
+  "tiers": [
+   {
+    "asset": "Bow_Triple",
+    "rarity": 0,
+    "price": 1180
+   }
+  ]
+ },
+ {
+  "group_key": "電撃グレネード",
+  "name_en": "Shock Grenade",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FragGrenade_Elec.webp",
+  "tiers": [
+   {
+    "asset": "FragGrenade_Elec",
+    "rarity": 0,
+    "price": 1020
+   }
+  ]
+ },
+ {
+  "group_key": "焼夷グレネード",
+  "name_en": "Incendiary Grenade",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FragGrenade_Fire.webp",
+  "tiers": [
+   {
+    "asset": "FragGrenade_Fire",
+    "rarity": 0,
+    "price": 1020
+   }
+  ]
+ },
+ {
+  "group_key": "氷結グレネード",
+  "name_en": "Ice Grenade",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FragGrenade_Ice.webp",
+  "tiers": [
+   {
+    "asset": "FragGrenade_Ice",
+    "rarity": 0,
+    "price": 1020
+   }
+  ]
+ },
+ {
+  "group_key": "竜撃グレネード",
+  "name_en": "Dragon Grenade",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FragGrenade_Dragon.webp",
+  "tiers": [
+   {
+    "asset": "FragGrenade_Dragon",
+    "rarity": 0,
+    "price": 900
+   }
+  ]
+ },
+ {
+  "group_key": "大地グレネード",
+  "name_en": "Ground Grenade",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FragGrenade_Ground.webp",
+  "tiers": [
+   {
+    "asset": "FragGrenade_Ground",
+    "rarity": 0,
+    "price": 780
+   }
+  ]
+ },
+ {
+  "group_key": "フラググレネード",
+  "name_en": "Frag Grenade",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FragGrenade.webp",
+  "tiers": [
+   {
+    "asset": "FragGrenade",
+    "rarity": 0,
+    "price": 660
+   }
+  ]
+ },
+ {
+  "group_key": "草木グレネード",
+  "name_en": "Grass Grenade",
+  "category": "武器",
+  "subcategory": "武器",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_FragGrenade_Leaf.webp",
+  "tiers": [
+   {
+    "asset": "FragGrenade_Leaf",
+    "rarity": 0,
+    "price": 640
+   }
+  ]
+ },
+ {
+  "group_key": "バット",
+  "name_en": "Bat",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Spear_Bat2.webp",
+  "tiers": [
+   {
+    "asset": "Bat2",
+    "rarity": 0,
+    "price": 580
+   }
+  ]
+ },
+ {
+  "group_key": "クインビーナの杖",
+  "name_en": "Elizabee's Staff",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Spear_QueenBee.webp",
+  "tiers": [
+   {
+    "asset": "Spear_QueenBee",
+    "rarity": 1,
+    "price": 370
+   }
+  ]
+ },
+ {
+  "group_key": "ビーナイトの槍",
+  "name_en": "Beegarde's Spear",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Spear_SoldierBee.webp",
+  "tiers": [
+   {
+    "asset": "Spear_SoldierBee",
+    "rarity": 1,
+    "price": 370
+   }
+  ]
+ },
+ {
+  "group_key": "石の槍",
+  "name_en": "Stone Spear",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Spear_Tier_00.webp",
+  "tiers": [
+   {
+    "asset": "Spear",
+    "rarity": 0,
+    "price": 350
+   }
+  ]
+ },
+ {
+  "group_key": "石の斧",
+  "name_en": "Stone Axe",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Axe_Tier_00.webp",
+  "tiers": [
+   {
+    "asset": "Axe_Tier_00",
+    "rarity": 0,
+    "price": 140
+   }
+  ]
+ },
+ {
+  "group_key": "石のつるはし",
+  "name_en": "Stone Pickaxe",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Pickaxe_Tier_00.webp",
+  "tiers": [
+   {
+    "asset": "Pickaxe_Tier_00",
+    "rarity": 0,
+    "price": 140
+   }
+  ]
+ },
+ {
+  "group_key": "木のこん棒",
+  "name_en": "Wooden Club",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Bat.webp",
+  "tiers": [
+   {
+    "asset": "Bat",
+    "rarity": 0,
+    "price": 70
+   }
+  ]
+ },
+ {
+  "group_key": "携帯たいまつ",
+  "name_en": "Hand-Held Torch",
+  "category": "武器",
+  "subcategory": "Melee Weapon",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Torch.webp",
+  "tiers": [
+   {
+    "asset": "Torch",
+    "rarity": 0,
+    "price": 60
+   }
+  ]
+ },
+ {
+  "group_key": "火矢のクロスボウ",
+  "name_en": "Fire Arrow Crossbow",
+  "category": "武器",
+  "subcategory": "Crossbow",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_BowGun_Fire.webp",
+  "tiers": [
+   {
+    "asset": "BowGun_Fire",
+    "rarity": 0,
+    "price": 1
+   },
+   {
+    "asset": "BowGun_Fire_2",
+    "rarity": 1,
+    "price": 1
+   },
+   {
+    "asset": "BowGun_Fire_3",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "BowGun_Fire_4",
+    "rarity": 3,
+    "price": 1
+   },
+   {
+    "asset": "BowGun_Fire_5",
+    "rarity": 4,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "毒矢のクロスボウ",
+  "name_en": "Poison Arrow Crossbow",
+  "category": "武器",
+  "subcategory": "Crossbow",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_BowGun_Poison.webp",
+  "tiers": [
+   {
+    "asset": "BowGun_Poison",
+    "rarity": 0,
+    "price": 1
+   },
+   {
+    "asset": "BowGun_Poison_2",
+    "rarity": 1,
+    "price": 1
+   },
+   {
+    "asset": "BowGun_Poison_3",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "BowGun_Poison_4",
+    "rarity": 3,
+    "price": 1
+   },
+   {
+    "asset": "BowGun_Poison_5",
+    "rarity": 4,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "五連弓",
+  "name_en": "Five Shot Bow",
+  "category": "武器",
+  "subcategory": "Bow",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_WeakerBow.webp",
+  "tiers": [
+   {
+    "asset": "Bow_Fifth",
+    "rarity": 0,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "火の弓",
+  "name_en": "Fire Bow",
+  "category": "武器",
+  "subcategory": "Bow",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Bow_Fire.webp",
+  "tiers": [
+   {
+    "asset": "Bow_Fire",
+    "rarity": 0,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "毒の弓",
+  "name_en": "Poison Bow",
+  "category": "武器",
+  "subcategory": "Bow",
+  "icon": "game_data/icons/items/T_itemicon_Weapon_Bow_Poison.webp",
+  "tiers": [
+   {
+    "asset": "Bow_Poison",
+    "rarity": 0,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "PalDopingShot_3",
+  "name_en": "PalDopingShot_3",
+  "category": "武器",
+  "subcategory": "Handgun",
+  "icon": "game_data/icons/items/PalDopingShot_3.webp",
+  "tiers": [
+   {
+    "asset": "PalDopingShot_3",
+    "rarity": 0,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "軽量エンシェントアーマー",
+  "name_en": "Lightweight Ancient Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_AncientArmorWeight.webp",
+  "tiers": [
+   {
+    "asset": "AncientArmorWeight",
+    "rarity": 0,
+    "price": 2751100
+   },
+   {
+    "asset": "AncientArmorWeight_2",
+    "rarity": 1,
+    "price": 3208270
+   },
+   {
+    "asset": "AncientArmorWeight_3",
+    "rarity": 2,
+    "price": 3983280
+   },
+   {
+    "asset": "AncientArmorWeight_4",
+    "rarity": 3,
+    "price": 4737980
+   },
+   {
+    "asset": "AncientArmorWeight_5",
+    "rarity": 4,
+    "price": 5512990
+   }
+  ]
+ },
+ {
+  "group_key": "耐熱エンシェントアーマー",
+  "name_en": "Heat-Resistant Ancient Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_AncientArmorHeat.webp",
+  "tiers": [
+   {
+    "asset": "AncientArmorHeat",
+    "rarity": 0,
+    "price": 2189330
+   },
+   {
+    "asset": "AncientArmorHeat_2",
+    "rarity": 1,
+    "price": 2650880
+   },
+   {
+    "asset": "AncientArmorHeat_3",
+    "rarity": 2,
+    "price": 3140630
+   },
+   {
+    "asset": "AncientArmorHeat_4",
+    "rarity": 3,
+    "price": 3596180
+   },
+   {
+    "asset": "AncientArmorHeat_5",
+    "rarity": 4,
+    "price": 4389460
+   }
+  ]
+ },
+ {
+  "group_key": "耐寒エンシェントアーマー",
+  "name_en": "Cold-Resistant Ancient Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_AncientArmorCold.webp",
+  "tiers": [
+   {
+    "asset": "AncientArmorCold",
+    "rarity": 0,
+    "price": 2144040
+   },
+   {
+    "asset": "AncientArmorCold_2",
+    "rarity": 1,
+    "price": 2601220
+   },
+   {
+    "asset": "AncientArmorCold_3",
+    "rarity": 2,
+    "price": 3072700
+   },
+   {
+    "asset": "AncientArmorCold_4",
+    "rarity": 3,
+    "price": 3523870
+   },
+   {
+    "asset": "AncientArmorCold_5",
+    "rarity": 4,
+    "price": 4298880
+   }
+  ]
+ },
+ {
+  "group_key": "エンシェントアーマー",
+  "name_en": "Ancient Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_AncientArmor.webp",
+  "tiers": [
+   {
+    "asset": "AncientArmor",
+    "rarity": 0,
+    "price": 1169780
+   },
+   {
+    "asset": "AncientArmor_2",
+    "rarity": 1,
+    "price": 1237460
+   },
+   {
+    "asset": "AncientArmor_3",
+    "rarity": 2,
+    "price": 1611310
+   },
+   {
+    "asset": "AncientArmor_4",
+    "rarity": 3,
+    "price": 1976520
+   },
+   {
+    "asset": "AncientArmor_5",
+    "rarity": 4,
+    "price": 2350370
+   }
+  ]
+ },
+ {
+  "group_key": "エンシェントシールド",
+  "name_en": "Ancient Shield",
+  "category": "防具",
+  "subcategory": "Shield",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Shield_07.webp",
+  "tiers": [
+   {
+    "asset": "Shield_07",
+    "rarity": 4,
+    "price": 1929840
+   }
+  ]
+ },
+ {
+  "group_key": "エンシェントヘルム",
+  "name_en": "Ancient Helm",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_AncientHelmet.webp",
+  "tiers": [
+   {
+    "asset": "AncientHelmet",
+    "rarity": 0,
+    "price": 779860
+   },
+   {
+    "asset": "AncientHelmet_2",
+    "rarity": 1,
+    "price": 830260
+   },
+   {
+    "asset": "AncientHelmet_3",
+    "rarity": 2,
+    "price": 1178180
+   },
+   {
+    "asset": "AncientHelmet_4",
+    "rarity": 3,
+    "price": 1526110
+   },
+   {
+    "asset": "AncientHelmet_5",
+    "rarity": 4,
+    "price": 1874040
+   }
+  ]
+ },
+ {
+  "group_key": "V2アーマー",
+  "name_en": "V2 Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Octavia002_Armor.webp",
+  "tiers": [
+   {
+    "asset": "Octavia002_Armor",
+    "rarity": 0,
+    "price": 244320
+   },
+   {
+    "asset": "Octavia002_Armor_5",
+    "rarity": 4,
+    "price": 1384920
+   }
+  ]
+ },
+ {
+  "group_key": "軽量ヘクソライトアーマー",
+  "name_en": "Lightweight Hexolite Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_SFArmorWeight.webp",
+  "tiers": [
+   {
+    "asset": "SFArmorWeight",
+    "rarity": 0,
+    "price": 460800
+   },
+   {
+    "asset": "SFArmorWeight_2",
+    "rarity": 1,
+    "price": 578780
+   },
+   {
+    "asset": "SFArmorWeight_3",
+    "rarity": 2,
+    "price": 697200
+   },
+   {
+    "asset": "SFArmorWeight_4",
+    "rarity": 3,
+    "price": 811580
+   },
+   {
+    "asset": "SFArmorWeight_5",
+    "rarity": 4,
+    "price": 930000
+   }
+  ]
+ },
+ {
+  "group_key": "耐熱ヘクソライトアーマー",
+  "name_en": "Heat Resistant Hexolite Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_SFArmorHeat.webp",
+  "tiers": [
+   {
+    "asset": "SFArmorHeat",
+    "rarity": 0,
+    "price": 301660
+   },
+   {
+    "asset": "SFArmorHeat_2",
+    "rarity": 1,
+    "price": 371110
+   },
+   {
+    "asset": "SFArmorHeat_3",
+    "rarity": 2,
+    "price": 458480
+   },
+   {
+    "asset": "SFArmorHeat_4",
+    "rarity": 3,
+    "price": 539090
+   },
+   {
+    "asset": "SFArmorHeat_5",
+    "rarity": 4,
+    "price": 626460
+   }
+  ]
+ },
+ {
+  "group_key": "耐寒ヘクソライトアーマー",
+  "name_en": "Cold Resistant Hexolite Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_SFArmorCold.webp",
+  "tiers": [
+   {
+    "asset": "SFArmorCold",
+    "rarity": 0,
+    "price": 280800
+   },
+   {
+    "asset": "SFArmorCold_2",
+    "rarity": 1,
+    "price": 351980
+   },
+   {
+    "asset": "SFArmorCold_3",
+    "rarity": 2,
+    "price": 427200
+   },
+   {
+    "asset": "SFArmorCold_4",
+    "rarity": 3,
+    "price": 494780
+   },
+   {
+    "asset": "SFArmorCold_5",
+    "rarity": 4,
+    "price": 570000
+   }
+  ]
+ },
+ {
+  "group_key": "ヘクソライトアーマー",
+  "name_en": "Hexolite Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_SFArmor.webp",
+  "tiers": [
+   {
+    "asset": "SFArmor",
+    "rarity": 0,
+    "price": 272160
+   },
+   {
+    "asset": "SFArmor_2",
+    "rarity": 1,
+    "price": 341620
+   },
+   {
+    "asset": "SFArmor_3",
+    "rarity": 2,
+    "price": 414240
+   },
+   {
+    "asset": "SFArmor_4",
+    "rarity": 3,
+    "price": 480100
+   },
+   {
+    "asset": "SFArmor_5",
+    "rarity": 4,
+    "price": 552720
+   }
+  ]
+ },
+ {
+  "group_key": "アドバンスドシールド",
+  "name_en": "Advanced Shield",
+  "category": "防具",
+  "subcategory": "Shield",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Shield_06.webp",
+  "tiers": [
+   {
+    "asset": "Shield_SF",
+    "rarity": 3,
+    "price": 402540
+   }
+  ]
+ },
+ {
+  "group_key": "ヘクソライトヘルム",
+  "name_en": "Hexolite Helmet",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_SFHelmet.webp",
+  "tiers": [
+   {
+    "asset": "SFHelmet",
+    "rarity": 0,
+    "price": 189360
+   },
+   {
+    "asset": "SFHelmet_2",
+    "rarity": 1,
+    "price": 239230
+   },
+   {
+    "asset": "SFHelmet_3",
+    "rarity": 2,
+    "price": 288530
+   },
+   {
+    "asset": "SFHelmet_4",
+    "rarity": 3,
+    "price": 337820
+   },
+   {
+    "asset": "SFHelmet_5",
+    "rarity": 4,
+    "price": 387120
+   }
+  ]
+ },
+ {
+  "group_key": "耐寒プラスチールアーマー",
+  "name_en": "Cold Resistant Plasteel Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_PlasticArmorCold.webp",
+  "tiers": [
+   {
+    "asset": "PlasticArmorCold",
+    "rarity": 0,
+    "price": 160200
+   },
+   {
+    "asset": "PlasticArmorCold_2",
+    "rarity": 1,
+    "price": 200360
+   },
+   {
+    "asset": "PlasticArmorCold_3",
+    "rarity": 2,
+    "price": 243520
+   },
+   {
+    "asset": "PlasticArmorCold_4",
+    "rarity": 3,
+    "price": 281280
+   },
+   {
+    "asset": "PlasticArmorCold_5",
+    "rarity": 4,
+    "price": 327600
+   }
+  ]
+ },
+ {
+  "group_key": "耐熱プラスチールアーマー",
+  "name_en": "Heat Resistant Plasteel Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_PlasticArmorHeat.webp",
+  "tiers": [
+   {
+    "asset": "PlasticArmorHeat",
+    "rarity": 0,
+    "price": 158760
+   },
+   {
+    "asset": "PlasticArmorHeat_2",
+    "rarity": 1,
+    "price": 199000
+   },
+   {
+    "asset": "PlasticArmorHeat_3",
+    "rarity": 2,
+    "price": 241360
+   },
+   {
+    "asset": "PlasticArmorHeat_4",
+    "rarity": 3,
+    "price": 279190
+   },
+   {
+    "asset": "PlasticArmorHeat_5",
+    "rarity": 4,
+    "price": 324720
+   }
+  ]
+ },
+ {
+  "group_key": "軽量プラスチールアーマー",
+  "name_en": "Lightweight Plasteel Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_PlasticArmorWeight.webp",
+  "tiers": [
+   {
+    "asset": "PlasticArmorWeight",
+    "rarity": 0,
+    "price": 158470
+   },
+   {
+    "asset": "PlasticArmorWeight_2",
+    "rarity": 1,
+    "price": 198640
+   },
+   {
+    "asset": "PlasticArmorWeight_3",
+    "rarity": 2,
+    "price": 240920
+   },
+   {
+    "asset": "PlasticArmorWeight_4",
+    "rarity": 3,
+    "price": 278690
+   },
+   {
+    "asset": "PlasticArmorWeight_5",
+    "rarity": 4,
+    "price": 324140
+   }
+  ]
+ },
+ {
+  "group_key": "プラスチールアーマー",
+  "name_en": "Plasteel Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_PlasticArmor.webp",
+  "tiers": [
+   {
+    "asset": "PlasticArmor",
+    "rarity": 0,
+    "price": 151560
+   },
+   {
+    "asset": "PlasticArmor_2",
+    "rarity": 1,
+    "price": 190000
+   },
+   {
+    "asset": "PlasticArmor_3",
+    "rarity": 2,
+    "price": 230560
+   },
+   {
+    "asset": "PlasticArmor_4",
+    "rarity": 3,
+    "price": 266590
+   },
+   {
+    "asset": "PlasticArmor_5",
+    "rarity": 4,
+    "price": 310320
+   }
+  ]
+ },
+ {
+  "group_key": "ウルトラシールド",
+  "name_en": "Ultra Shield",
+  "category": "防具",
+  "subcategory": "Shield",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Shield_05.webp",
+  "tiers": [
+   {
+    "asset": "Shield_Ultra",
+    "rarity": 3,
+    "price": 298560
+   }
+  ]
+ },
+ {
+  "group_key": "プラスチールヘルム",
+  "name_en": "Plasteel Helmet",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_PlasticHelmet.webp",
+  "tiers": [
+   {
+    "asset": "PlasticHelmet",
+    "rarity": 0,
+    "price": 97980
+   },
+   {
+    "asset": "PlasticHelmet_2",
+    "rarity": 1,
+    "price": 125700
+   },
+   {
+    "asset": "PlasticHelmet_3",
+    "rarity": 2,
+    "price": 151020
+   },
+   {
+    "asset": "PlasticHelmet_4",
+    "rarity": 3,
+    "price": 176340
+   },
+   {
+    "asset": "PlasticHelmet_5",
+    "rarity": 4,
+    "price": 203160
+   }
+  ]
+ },
+ {
+  "group_key": "耐熱パルメタルアーマー",
+  "name_en": "Heat Resistant Pal Metal Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_StealArmorHeat.webp",
+  "tiers": [
+   {
+    "asset": "StealArmorHeat",
+    "rarity": 0,
+    "price": 67460
+   },
+   {
+    "asset": "StealArmorHeat_2",
+    "rarity": 1,
+    "price": 83480
+   },
+   {
+    "asset": "StealArmorHeat_3",
+    "rarity": 2,
+    "price": 103210
+   },
+   {
+    "asset": "StealArmorHeat_4",
+    "rarity": 3,
+    "price": 121200
+   },
+   {
+    "asset": "StealArmorHeat_5",
+    "rarity": 4,
+    "price": 140930
+   }
+  ]
+ },
+ {
+  "group_key": "耐寒パルメタルアーマー",
+  "name_en": "Cold Resistant Pal Metal Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_StealArmorCold.webp",
+  "tiers": [
+   {
+    "asset": "StealArmorCold",
+    "rarity": 0,
+    "price": 66020
+   },
+   {
+    "asset": "StealArmorCold_2",
+    "rarity": 1,
+    "price": 81470
+   },
+   {
+    "asset": "StealArmorCold_3",
+    "rarity": 2,
+    "price": 100620
+   },
+   {
+    "asset": "StealArmorCold_4",
+    "rarity": 3,
+    "price": 118030
+   },
+   {
+    "asset": "StealArmorCold_5",
+    "rarity": 4,
+    "price": 138050
+   }
+  ]
+ },
+ {
+  "group_key": "V1アーマー",
+  "name_en": "V1 Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Octavia001_Armor.webp",
+  "tiers": [
+   {
+    "asset": "Octavia001_Armor",
+    "rarity": 0,
+    "price": 14040
+   },
+   {
+    "asset": "Octavia001_Armor_5",
+    "rarity": 4,
+    "price": 114360
+   }
+  ]
+ },
+ {
+  "group_key": "耐熱精錬金属アーマー",
+  "name_en": "Heat Resistant Refined Metal Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_IronArmorHeat.webp",
+  "tiers": [
+   {
+    "asset": "IronArmorHeat",
+    "rarity": 0,
+    "price": 50020
+   },
+   {
+    "asset": "IronArmorHeat_2",
+    "rarity": 1,
+    "price": 62140
+   },
+   {
+    "asset": "IronArmorHeat_3",
+    "rarity": 2,
+    "price": 77420
+   },
+   {
+    "asset": "IronArmorHeat_4",
+    "rarity": 3,
+    "price": 92710
+   },
+   {
+    "asset": "IronArmorHeat_5",
+    "rarity": 4,
+    "price": 108000
+   }
+  ]
+ },
+ {
+  "group_key": "耐寒精錬金属アーマー",
+  "name_en": "Cold Resistant Refined Metal Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_IronArmorCold.webp",
+  "tiers": [
+   {
+    "asset": "IronArmorCold",
+    "rarity": 0,
+    "price": 49150
+   },
+   {
+    "asset": "IronArmorCold_2",
+    "rarity": 1,
+    "price": 61060
+   },
+   {
+    "asset": "IronArmorCold_3",
+    "rarity": 2,
+    "price": 76130
+   },
+   {
+    "asset": "IronArmorCold_4",
+    "rarity": 3,
+    "price": 91200
+   },
+   {
+    "asset": "IronArmorCold_5",
+    "rarity": 4,
+    "price": 106270
+   }
+  ]
+ },
+ {
+  "group_key": "パルメタルアーマー",
+  "name_en": "Pal Metal Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_StealArmor.webp",
+  "tiers": [
+   {
+    "asset": "StealArmor",
+    "rarity": 0,
+    "price": 41140
+   },
+   {
+    "asset": "StealArmor_2",
+    "rarity": 1,
+    "price": 52240
+   },
+   {
+    "asset": "StealArmor_3",
+    "rarity": 2,
+    "price": 65300
+   },
+   {
+    "asset": "StealArmor_4",
+    "rarity": 3,
+    "price": 78370
+   },
+   {
+    "asset": "StealArmor_5",
+    "rarity": 4,
+    "price": 91440
+   }
+  ]
+ },
+ {
+  "group_key": "ホーリープレート",
+  "name_en": "Hallowed Plate Mail",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_YakushimaArmor001.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaArmor001",
+    "rarity": 0,
+    "price": 7200
+   },
+   {
+    "asset": "YakushimaArmor001_2",
+    "rarity": 1,
+    "price": 10800
+   },
+   {
+    "asset": "YakushimaArmor001_3",
+    "rarity": 2,
+    "price": 21600
+   },
+   {
+    "asset": "YakushimaArmor001_4",
+    "rarity": 3,
+    "price": 43200
+   },
+   {
+    "asset": "YakushimaArmor001_5",
+    "rarity": 4,
+    "price": 86400
+   }
+  ]
+ },
+ {
+  "group_key": "ホーリーマスク",
+  "name_en": "Hallowed Mask",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_YakushimaHeadEquip001.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaHeadEquip001",
+    "rarity": 0,
+    "price": 7200
+   },
+   {
+    "asset": "YakushimaHeadEquip001_2",
+    "rarity": 1,
+    "price": 10800
+   },
+   {
+    "asset": "YakushimaHeadEquip001_3",
+    "rarity": 2,
+    "price": 21600
+   },
+   {
+    "asset": "YakushimaHeadEquip001_4",
+    "rarity": 3,
+    "price": 43200
+   },
+   {
+    "asset": "YakushimaHeadEquip001_5",
+    "rarity": 4,
+    "price": 86400
+   }
+  ]
+ },
+ {
+  "group_key": "ホーリーヘッドギア",
+  "name_en": "Hallowed Headgear",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_YakushimaHeadEquip002.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaHeadEquip002",
+    "rarity": 0,
+    "price": 7200
+   },
+   {
+    "asset": "YakushimaHeadEquip002_2",
+    "rarity": 1,
+    "price": 10800
+   },
+   {
+    "asset": "YakushimaHeadEquip002_3",
+    "rarity": 2,
+    "price": 21600
+   },
+   {
+    "asset": "YakushimaHeadEquip002_4",
+    "rarity": 3,
+    "price": 43200
+   },
+   {
+    "asset": "YakushimaHeadEquip002_5",
+    "rarity": 4,
+    "price": 86400
+   }
+  ]
+ },
+ {
+  "group_key": "ホーリーヘルム",
+  "name_en": "Hallowed Helmet",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_YakushimaHeadEquip003.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaHeadEquip003",
+    "rarity": 0,
+    "price": 7200
+   },
+   {
+    "asset": "YakushimaHeadEquip003_2",
+    "rarity": 1,
+    "price": 10800
+   },
+   {
+    "asset": "YakushimaHeadEquip003_3",
+    "rarity": 2,
+    "price": 21600
+   },
+   {
+    "asset": "YakushimaHeadEquip003_4",
+    "rarity": 3,
+    "price": 43200
+   },
+   {
+    "asset": "YakushimaHeadEquip003_5",
+    "rarity": 4,
+    "price": 86400
+   }
+  ]
+ },
+ {
+  "group_key": "ホーリーフード",
+  "name_en": "Hallowed Hood",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_YakushimaHeadEquip004.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaHeadEquip004",
+    "rarity": 0,
+    "price": 7200
+   },
+   {
+    "asset": "YakushimaHeadEquip004_2",
+    "rarity": 1,
+    "price": 10800
+   },
+   {
+    "asset": "YakushimaHeadEquip004_3",
+    "rarity": 2,
+    "price": 21600
+   },
+   {
+    "asset": "YakushimaHeadEquip004_4",
+    "rarity": 3,
+    "price": 43200
+   },
+   {
+    "asset": "YakushimaHeadEquip004_5",
+    "rarity": 4,
+    "price": 86400
+   }
+  ]
+ },
+ {
+  "group_key": "精錬金属アーマー",
+  "name_en": "Refined Metal Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_IronArmor.webp",
+  "tiers": [
+   {
+    "asset": "IronArmor",
+    "rarity": 0,
+    "price": 32690
+   },
+   {
+    "asset": "IronArmor_2",
+    "rarity": 1,
+    "price": 43060
+   },
+   {
+    "asset": "IronArmor_3",
+    "rarity": 2,
+    "price": 55300
+   },
+   {
+    "asset": "IronArmor_4",
+    "rarity": 3,
+    "price": 66670
+   },
+   {
+    "asset": "IronArmor_5",
+    "rarity": 4,
+    "price": 78910
+   }
+  ]
+ },
+ {
+  "group_key": "なりきりンダコアラアーマー",
+  "name_en": "Depresso Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Kigurumi001_Armor.webp",
+  "tiers": [
+   {
+    "asset": "Player_Outfit_Kigurumi001",
+    "rarity": 3,
+    "price": 74520
+   }
+  ]
+ },
+ {
+  "group_key": "パルメタルヘルム",
+  "name_en": "Pal Metal Helm",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_StealHelmet.webp",
+  "tiers": [
+   {
+    "asset": "StealHelmet",
+    "rarity": 0,
+    "price": 31680
+   },
+   {
+    "asset": "StealHelmet_2",
+    "rarity": 1,
+    "price": 42000
+   },
+   {
+    "asset": "StealHelmet_3",
+    "rarity": 2,
+    "price": 51120
+   },
+   {
+    "asset": "StealHelmet_4",
+    "rarity": 3,
+    "price": 60240
+   },
+   {
+    "asset": "StealHelmet_5",
+    "rarity": 4,
+    "price": 69360
+   }
+  ]
+ },
+ {
+  "group_key": "耐寒金属アーマー",
+  "name_en": "Cold Resistant Metal Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_CopperArmorCold.webp",
+  "tiers": [
+   {
+    "asset": "CopperArmorCold",
+    "rarity": 0,
+    "price": 22130
+   },
+   {
+    "asset": "CopperArmorCold_2",
+    "rarity": 1,
+    "price": 27600
+   },
+   {
+    "asset": "CopperArmorCold_3",
+    "rarity": 2,
+    "price": 33070
+   },
+   {
+    "asset": "CopperArmorCold_4",
+    "rarity": 3,
+    "price": 39740
+   },
+   {
+    "asset": "CopperArmorCold_5",
+    "rarity": 4,
+    "price": 46660
+   }
+  ]
+ },
+ {
+  "group_key": "耐熱金属アーマー",
+  "name_en": "Heat Resistant Metal Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_CopperArmorHeat.webp",
+  "tiers": [
+   {
+    "asset": "CopperArmorHeat",
+    "rarity": 0,
+    "price": 22130
+   },
+   {
+    "asset": "CopperArmorHeat_2",
+    "rarity": 1,
+    "price": 27600
+   },
+   {
+    "asset": "CopperArmorHeat_3",
+    "rarity": 2,
+    "price": 33070
+   },
+   {
+    "asset": "CopperArmorHeat_4",
+    "rarity": 3,
+    "price": 39740
+   },
+   {
+    "asset": "CopperArmorHeat_5",
+    "rarity": 4,
+    "price": 46660
+   }
+  ]
+ },
+ {
+  "group_key": "精錬金属ヘルム",
+  "name_en": "Refined Metal Helm",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_IronHelmet.webp",
+  "tiers": [
+   {
+    "asset": "IronHelmet",
+    "rarity": 0,
+    "price": 18540
+   },
+   {
+    "asset": "IronHelmet_2",
+    "rarity": 1,
+    "price": 24310
+   },
+   {
+    "asset": "IronHelmet_3",
+    "rarity": 2,
+    "price": 30170
+   },
+   {
+    "asset": "IronHelmet_4",
+    "rarity": 3,
+    "price": 36020
+   },
+   {
+    "asset": "IronHelmet_5",
+    "rarity": 4,
+    "price": 41880
+   }
+  ]
+ },
+ {
+  "group_key": "テラシールド",
+  "name_en": "Hyper Shield",
+  "category": "防具",
+  "subcategory": "Shield",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Shield_04.webp",
+  "tiers": [
+   {
+    "asset": "Shield_04",
+    "rarity": 2,
+    "price": 41040
+   }
+  ]
+ },
+ {
+  "group_key": "金属アーマー",
+  "name_en": "Metal Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_CopperArmor.webp",
+  "tiers": [
+   {
+    "asset": "CopperArmor",
+    "rarity": 0,
+    "price": 13920
+   },
+   {
+    "asset": "CopperArmor_2",
+    "rarity": 1,
+    "price": 16990
+   },
+   {
+    "asset": "CopperArmor_3",
+    "rarity": 2,
+    "price": 20590
+   },
+   {
+    "asset": "CopperArmor_4",
+    "rarity": 3,
+    "price": 24860
+   },
+   {
+    "asset": "CopperArmor_5",
+    "rarity": 4,
+    "price": 30240
+   }
+  ]
+ },
+ {
+  "group_key": "なりきりンダコアラヘルメット",
+  "name_en": "Depresso Helmet",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Kigurumi001_Helmet.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip045",
+    "rarity": 3,
+    "price": 24840
+   }
+  ]
+ },
+ {
+  "group_key": "ギガシールド",
+  "name_en": "Giga Shield",
+  "category": "防具",
+  "subcategory": "Shield",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Shield_03.webp",
+  "tiers": [
+   {
+    "asset": "Shield_03",
+    "rarity": 1,
+    "price": 21960
+   }
+  ]
+ },
+ {
+  "group_key": "耐寒毛皮アーマー",
+  "name_en": "Cold Resistant Pelt Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_FurArmorCold.webp",
+  "tiers": [
+   {
+    "asset": "FurArmorCold",
+    "rarity": 0,
+    "price": 7920
+   },
+   {
+    "asset": "FurArmorCold_2",
+    "rarity": 1,
+    "price": 9580
+   },
+   {
+    "asset": "FurArmorCold_3",
+    "rarity": 2,
+    "price": 11760
+   },
+   {
+    "asset": "FurArmorCold_4",
+    "rarity": 3,
+    "price": 13660
+   },
+   {
+    "asset": "FurArmorCold_5",
+    "rarity": 4,
+    "price": 17040
+   }
+  ]
+ },
+ {
+  "group_key": "耐熱毛皮アーマー",
+  "name_en": "Heat Resistant Pelt Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_FurArmorHeat.webp",
+  "tiers": [
+   {
+    "asset": "FurArmorHeat",
+    "rarity": 0,
+    "price": 7920
+   },
+   {
+    "asset": "FurArmorHeat_2",
+    "rarity": 1,
+    "price": 9580
+   },
+   {
+    "asset": "FurArmorHeat_3",
+    "rarity": 2,
+    "price": 11760
+   },
+   {
+    "asset": "FurArmorHeat_4",
+    "rarity": 3,
+    "price": 13660
+   },
+   {
+    "asset": "FurArmorHeat_5",
+    "rarity": 4,
+    "price": 17040
+   }
+  ]
+ },
+ {
+  "group_key": "金属ヘルム",
+  "name_en": "Metal Helm",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_CopperHelmet.webp",
+  "tiers": [
+   {
+    "asset": "CopperHelmet",
+    "rarity": 0,
+    "price": 6600
+   },
+   {
+    "asset": "CopperHelmet_2",
+    "rarity": 1,
+    "price": 8210
+   },
+   {
+    "asset": "CopperHelmet_3",
+    "rarity": 2,
+    "price": 9900
+   },
+   {
+    "asset": "CopperHelmet_4",
+    "rarity": 3,
+    "price": 12710
+   },
+   {
+    "asset": "CopperHelmet_5",
+    "rarity": 4,
+    "price": 15600
+   }
+  ]
+ },
+ {
+  "group_key": "毛皮アーマー",
+  "name_en": "Pelt Armor",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_FurArmor.webp",
+  "tiers": [
+   {
+    "asset": "FurArmor",
+    "rarity": 0,
+    "price": 5470
+   },
+   {
+    "asset": "FurArmor_2",
+    "rarity": 1,
+    "price": 6580
+   },
+   {
+    "asset": "FurArmor_3",
+    "rarity": 2,
+    "price": 8210
+   },
+   {
+    "asset": "FurArmor_4",
+    "rarity": 3,
+    "price": 9310
+   },
+   {
+    "asset": "FurArmor_5",
+    "rarity": 4,
+    "price": 12140
+   }
+  ]
+ },
+ {
+  "group_key": "メガシールド",
+  "name_en": "Mega Shield",
+  "category": "防具",
+  "subcategory": "Shield",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Shield_02.webp",
+  "tiers": [
+   {
+    "asset": "Shield_02",
+    "rarity": 0,
+    "price": 11400
+   }
+  ]
+ },
+ {
+  "group_key": "マーカスのなりきり帽",
+  "name_en": "Marcus Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_GYM_Head_Desert.webp",
+  "tiers": [
+   {
+    "asset": "GYM_Head_Desert",
+    "rarity": 4,
+    "price": 10000
+   }
+  ]
+ },
+ {
+  "group_key": "アクセルのなりきり帽",
+  "name_en": "Axel Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_GYM_Head_Electric.webp",
+  "tiers": [
+   {
+    "asset": "GYM_Head_Electric",
+    "rarity": 4,
+    "price": 10000
+   }
+  ]
+ },
+ {
+  "group_key": "リリィのなりきり帽",
+  "name_en": "Lily Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_GYM_Head_Forest.webp",
+  "tiers": [
+   {
+    "asset": "GYM_Head_Forest",
+    "rarity": 4,
+    "price": 10000
+   }
+  ]
+ },
+ {
+  "group_key": "ゾーイのなりきり帽",
+  "name_en": "Zoe Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_GYM_Head_Grass.webp",
+  "tiers": [
+   {
+    "asset": "GYM_Head_Grass",
+    "rarity": 4,
+    "price": 10000
+   }
+  ]
+ },
+ {
+  "group_key": "サヤのなりきり帽",
+  "name_en": "Saya Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_GYM_Head_Sakurajima.webp",
+  "tiers": [
+   {
+    "asset": "GYM_Head_Sakurajima",
+    "rarity": 4,
+    "price": 10000
+   }
+  ]
+ },
+ {
+  "group_key": "ヴィクターのなりきり帽",
+  "name_en": "Victor Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_GYM_Head_Snow.webp",
+  "tiers": [
+   {
+    "asset": "GYM_Head_Snow",
+    "rarity": 4,
+    "price": 10000
+   }
+  ]
+ },
+ {
+  "group_key": "ビョルンのなりきり帽",
+  "name_en": "Bjorn Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_GYM_Head_Viking.webp",
+  "tiers": [
+   {
+    "asset": "GYM_Head_Viking",
+    "rarity": 4,
+    "price": 10000
+   }
+  ]
+ },
+ {
+  "group_key": "アウリのなりきり帽",
+  "name_en": "Auri Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip048.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip048",
+    "rarity": 4,
+    "price": 10000
+   }
+  ]
+ },
+ {
+  "group_key": "ゼナーラのなりきり帽",
+  "name_en": "Zenara Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip049.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip049",
+    "rarity": 4,
+    "price": 10000
+   }
+  ]
+ },
+ {
+  "group_key": "シルクハット",
+  "name_en": "Silk Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head007.webp",
+  "tiers": [
+   {
+    "asset": "Head007",
+    "rarity": 0,
+    "price": 8640
+   },
+   {
+    "asset": "Head007_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head007_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head007_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head007_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "ボーラーハット",
+  "name_en": "Bowler Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head012.webp",
+  "tiers": [
+   {
+    "asset": "Head012",
+    "rarity": 0,
+    "price": 8640
+   },
+   {
+    "asset": "Head012_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head012_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head012_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head012_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "王の冠",
+  "name_en": "Monarch's Crown",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head001.webp",
+  "tiers": [
+   {
+    "asset": "Head001",
+    "rarity": 0,
+    "price": 7490
+   },
+   {
+    "asset": "Head001_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head001_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head001_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head001_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "長耳カチューシャ",
+  "name_en": "Long-Eared Headband",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head003.webp",
+  "tiers": [
+   {
+    "asset": "Head003",
+    "rarity": 0,
+    "price": 7490
+   },
+   {
+    "asset": "Head003_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head003_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head003_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head003_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "寒冷地の民族服",
+  "name_en": "Tundra Outfit",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_ClothArmorCold.webp",
+  "tiers": [
+   {
+    "asset": "ClothArmorCold",
+    "rarity": 0,
+    "price": 2450
+   },
+   {
+    "asset": "ClothArmorCold_2",
+    "rarity": 1,
+    "price": 3380
+   },
+   {
+    "asset": "ClothArmorCold_3",
+    "rarity": 2,
+    "price": 4320
+   },
+   {
+    "asset": "ClothArmorCold_4",
+    "rarity": 3,
+    "price": 5260
+   },
+   {
+    "asset": "ClothArmorCold_5",
+    "rarity": 4,
+    "price": 7390
+   }
+  ]
+ },
+ {
+  "group_key": "熱帯地の民族服",
+  "name_en": "Tropical Outfit",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_ClothArmorHeat.webp",
+  "tiers": [
+   {
+    "asset": "ClothArmorHeat",
+    "rarity": 0,
+    "price": 2450
+   },
+   {
+    "asset": "ClothArmorHeat_2",
+    "rarity": 1,
+    "price": 3380
+   },
+   {
+    "asset": "ClothArmorHeat_3",
+    "rarity": 2,
+    "price": 4320
+   },
+   {
+    "asset": "ClothArmorHeat_4",
+    "rarity": 3,
+    "price": 5260
+   },
+   {
+    "asset": "ClothArmorHeat_5",
+    "rarity": 4,
+    "price": 7390
+   }
+  ]
+ },
+ {
+  "group_key": "金の冠",
+  "name_en": "Golden Crown",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head002.webp",
+  "tiers": [
+   {
+    "asset": "Head002",
+    "rarity": 0,
+    "price": 7200
+   },
+   {
+    "asset": "Head002_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head002_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head002_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head002_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "ヘルメット",
+  "name_en": "Helmet",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head006.webp",
+  "tiers": [
+   {
+    "asset": "Head006",
+    "rarity": 0,
+    "price": 6960
+   },
+   {
+    "asset": "Head006_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head006_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head006_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head006_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "ソフトハット",
+  "name_en": "Soft Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head005.webp",
+  "tiers": [
+   {
+    "asset": "Head005",
+    "rarity": 0,
+    "price": 5860
+   },
+   {
+    "asset": "Head005_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head005_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head005_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head005_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "布の服",
+  "name_en": "Cloth Outfit",
+  "category": "防具",
+  "subcategory": "Body Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_ClothArmor.webp",
+  "tiers": [
+   {
+    "asset": "ClothArmor",
+    "rarity": 0,
+    "price": 1220
+   },
+   {
+    "asset": "ClothArmor_2",
+    "rarity": 1,
+    "price": 1800
+   },
+   {
+    "asset": "ClothArmor_3",
+    "rarity": 2,
+    "price": 2400
+   },
+   {
+    "asset": "ClothArmor_4",
+    "rarity": 3,
+    "price": 3000
+   },
+   {
+    "asset": "ClothArmor_5",
+    "rarity": 4,
+    "price": 4790
+   }
+  ]
+ },
+ {
+  "group_key": "ダリザードのフード",
+  "name_en": "Leezpunk Hood",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip025.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip025",
+    "rarity": 0,
+    "price": 3000
+   },
+   {
+    "asset": "HeadEquip025_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip025_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip025_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip025_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "ヒメウサのカチューシャ",
+  "name_en": "Ribbuny Headband",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip028.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip028",
+    "rarity": 0,
+    "price": 3000
+   },
+   {
+    "asset": "HeadEquip028_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip028_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip028_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip028_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "羽根の髪飾り",
+  "name_en": "Feathered Hair Band",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_FurHelmet.webp",
+  "tiers": [
+   {
+    "asset": "FurHelmet",
+    "rarity": 0,
+    "price": 340
+   },
+   {
+    "asset": "FurHelmet_2",
+    "rarity": 1,
+    "price": 360
+   },
+   {
+    "asset": "FurHelmet_3",
+    "rarity": 2,
+    "price": 620
+   },
+   {
+    "asset": "FurHelmet_4",
+    "rarity": 3,
+    "price": 880
+   },
+   {
+    "asset": "FurHelmet_5",
+    "rarity": 4,
+    "price": 2350
+   }
+  ]
+ },
+ {
+  "group_key": "ノーマルシールド",
+  "name_en": "Common Shield",
+  "category": "防具",
+  "subcategory": "Shield",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Shield_01.webp",
+  "tiers": [
+   {
+    "asset": "Shield_01",
+    "rarity": 0,
+    "price": 1510
+   }
+  ]
+ },
+ {
+  "group_key": "魔女帽子",
+  "name_en": "Witch Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head004.webp",
+  "tiers": [
+   {
+    "asset": "Head004",
+    "rarity": 0,
+    "price": 500
+   },
+   {
+    "asset": "Head004_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head004_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head004_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head004_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "三角帽子",
+  "name_en": "Tricorne",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head008.webp",
+  "tiers": [
+   {
+    "asset": "Head008",
+    "rarity": 0,
+    "price": 500
+   },
+   {
+    "asset": "Head008_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head008_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head008_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head008_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "探検の帽子",
+  "name_en": "Explorer Cap",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head009.webp",
+  "tiers": [
+   {
+    "asset": "Head009",
+    "rarity": 0,
+    "price": 500
+   },
+   {
+    "asset": "Head009_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head009_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head009_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head009_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "大学の帽子",
+  "name_en": "Graduation Cap",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head010.webp",
+  "tiers": [
+   {
+    "asset": "Head010",
+    "rarity": 0,
+    "price": 500
+   },
+   {
+    "asset": "Head010_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head010_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head010_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head010_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "農業の帽子",
+  "name_en": "Farming Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head011.webp",
+  "tiers": [
+   {
+    "asset": "Head011",
+    "rarity": 0,
+    "price": 500
+   },
+   {
+    "asset": "Head011_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head011_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head011_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head011_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "クルットリ帽",
+  "name_en": "Tocotoco Cap",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head013.webp",
+  "tiers": [
+   {
+    "asset": "Head013",
+    "rarity": 0,
+    "price": 500
+   },
+   {
+    "asset": "Head013_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head013_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head013_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head013_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "にやにやクルットリ帽",
+  "name_en": "Grinning Tocotoco Cap",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head014.webp",
+  "tiers": [
+   {
+    "asset": "Head014",
+    "rarity": 0,
+    "price": 500
+   },
+   {
+    "asset": "Head014_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head014_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head014_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head014_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "ナエモチ帽",
+  "name_en": "Gumoss Cap",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head015.webp",
+  "tiers": [
+   {
+    "asset": "Head015",
+    "rarity": 0,
+    "price": 500
+   },
+   {
+    "asset": "Head015_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head015_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head015_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head015_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "キャプペン帽",
+  "name_en": "Penking Cap",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head016.webp",
+  "tiers": [
+   {
+    "asset": "Head016",
+    "rarity": 0,
+    "price": 500
+   },
+   {
+    "asset": "Head016_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head016_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head016_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head016_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "クレメーオ帽",
+  "name_en": "Katress Cap",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head017.webp",
+  "tiers": [
+   {
+    "asset": "Head017",
+    "rarity": 0,
+    "price": 500
+   },
+   {
+    "asset": "Head017_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "Head017_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "Head017_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "Head017_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "ヤミイカ帽",
+  "name_en": "Killamari Cap",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip026.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip026",
+    "rarity": 0,
+    "price": 500
+   },
+   {
+    "asset": "HeadEquip026_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip026_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip026_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip026_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "コモップ帽",
+  "name_en": "Swee Cap",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip031.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip031",
+    "rarity": 0,
+    "price": 500
+   },
+   {
+    "asset": "HeadEquip031_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip031_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip031_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip031_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "カミナラシ帽",
+  "name_en": "Dazzi Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip032.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip032",
+    "rarity": 0,
+    "price": 500
+   },
+   {
+    "asset": "HeadEquip032_2",
+    "rarity": 1,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip032_3",
+    "rarity": 2,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip032_4",
+    "rarity": 3,
+    "price": 1000
+   },
+   {
+    "asset": "HeadEquip032_5",
+    "rarity": 4,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "ブシガエル帽",
+  "name_en": "Croajiro Cap",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip055.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip055",
+    "rarity": 0,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "タマコッコ帽",
+  "name_en": "Chikipi Cap",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip056.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip056",
+    "rarity": 0,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "ノクサージュ帽",
+  "name_en": "Dandilord Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip057.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip057",
+    "rarity": 0,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "キノッポ帽",
+  "name_en": "Shroomer Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip058.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip058",
+    "rarity": 0,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "アンドーンの髪飾り",
+  "name_en": "Ghangler Accessory",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip059.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip059",
+    "rarity": 0,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "チルウィッチ帽",
+  "name_en": "Icelyn Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip060.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip060",
+    "rarity": 0,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "ヤンデリナ帽",
+  "name_en": "Splatterina Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip061.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip061",
+    "rarity": 0,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "モモンチュラ帽",
+  "name_en": "Tarantriss Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip062.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip062",
+    "rarity": 0,
+    "price": 1000
+   }
+  ]
+ },
+ {
+  "group_key": "モコロンヘルム",
+  "name_en": "Lamball Helm",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip029.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip029",
+    "rarity": 0,
+    "price": 580
+   }
+  ]
+ },
+ {
+  "group_key": "トドドドンヘルム",
+  "name_en": "Dumud Helm",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip030.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip030",
+    "rarity": 0,
+    "price": 580
+   }
+  ]
+ },
+ {
+  "group_key": "リリクインの花飾り帽",
+  "name_en": "Lyleen Accessory",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip023.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip023",
+    "rarity": 0,
+    "price": 500
+   }
+  ]
+ },
+ {
+  "group_key": "シルキーヌ帽",
+  "name_en": "Sibelyx Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip024.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip024",
+    "rarity": 0,
+    "price": 500
+   }
+  ]
+ },
+ {
+  "group_key": "マスクロウ帽",
+  "name_en": "Cawgnito Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip027.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip027",
+    "rarity": 0,
+    "price": 500
+   }
+  ]
+ },
+ {
+  "group_key": "ツッパニャン帽",
+  "name_en": "Cattiva Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip033.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip033",
+    "rarity": 0,
+    "price": 500
+   }
+  ]
+ },
+ {
+  "group_key": "モモンパのカチューシャ",
+  "name_en": "Herbil Headband",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip050.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip050",
+    "rarity": 0,
+    "price": 500
+   }
+  ]
+ },
+ {
+  "group_key": "アルパオーのカチューシャ",
+  "name_en": "Kingpaca Headband",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip051.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip051",
+    "rarity": 0,
+    "price": 500
+   }
+  ]
+ },
+ {
+  "group_key": "ヒメンダコ帽",
+  "name_en": "Gloopie Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip052.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip052",
+    "rarity": 0,
+    "price": 500
+   }
+  ]
+ },
+ {
+  "group_key": "クララン帽",
+  "name_en": "Jelliette Hat",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip053.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip053",
+    "rarity": 0,
+    "price": 500
+   }
+  ]
+ },
+ {
+  "group_key": "ヘルメッコ帽",
+  "name_en": "Turtacle Cap",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip054.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip054",
+    "rarity": 0,
+    "price": 500
+   }
+  ]
+ },
+ {
+  "group_key": "ムーンロードのおめん",
+  "name_en": "Moon Lord Mask",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_YakushimaHeadEquip005.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaHeadEquip005",
+    "rarity": 4,
+    "price": 360
+   }
+  ]
+ },
+ {
+  "group_key": "クトゥルフのめだまマスク",
+  "name_en": "Eye of Cthulhu Mask",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_YakushimaHeadEquip006.webp",
+  "tiers": [
+   {
+    "asset": "YakushimaHeadEquip006",
+    "rarity": 4,
+    "price": 360
+   }
+  ]
+ },
+ {
+  "group_key": "魔女の冠",
+  "name_en": "Witch's Crown",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_Head001_purple.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip001_purple",
+    "rarity": 4,
+    "price": 290
+   }
+  ]
+ },
+ {
+  "group_key": "覇王の角",
+  "name_en": "Horns of Supremacy",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip041.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip041",
+    "rarity": 4,
+    "price": 290
+   }
+  ]
+ },
+ {
+  "group_key": "ゼノドランヘッド",
+  "name_en": "Xenolord's head",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip044.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip044",
+    "rarity": 4,
+    "price": 290
+   }
+  ]
+ },
+ {
+  "group_key": "救いの王冠",
+  "name_en": "Crown of Salvation",
+  "category": "防具",
+  "subcategory": "Head Armor",
+  "icon": "game_data/icons/items/T_itemicon_Armor_HeadEquip046.webp",
+  "tiers": [
+   {
+    "asset": "HeadEquip046",
+    "rarity": 4,
+    "price": 290
+   }
+  ]
+ },
+ {
+  "group_key": "クワッドジャンプブーツ",
+  "name_en": "Quadruple Jump Boots",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_JumpCount_Increase.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_JumpCount_Increase3",
+    "rarity": 4,
+    "price": 500000
+   }
+  ]
+ },
+ {
+  "group_key": "エアウォーカー Mk-EX",
+  "name_en": "Air Walker EX",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_SuperJumpAir_2.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_SuperJumpAir_2",
+    "rarity": 3,
+    "price": 406440
+   }
+  ]
+ },
+ {
+  "group_key": "トリプルエアダッシュブーツ",
+  "name_en": "Triple Air Dash Boots",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_AirDash.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_AirDash3",
+    "rarity": 4,
+    "price": 306600
+   }
+  ]
+ },
+ {
+  "group_key": "エアウォーカー Mk-Ⅲ",
+  "name_en": "Air Walker Mk III",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_SuperJumpAir_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_SuperJumpAir_1",
+    "rarity": 3,
+    "price": 272400
+   }
+  ]
+ },
+ {
+  "group_key": "トリプルジャンプブーツ",
+  "name_en": "Triple Jump Boots",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_JumpCount_Increase.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_JumpCount_Increase2",
+    "rarity": 3,
+    "price": 210600
+   }
+  ]
+ },
+ {
+  "group_key": "エアウォーカー Mk-Ⅱ",
+  "name_en": "Air Walker Mk II",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_JumpAir_2.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_JumpAir_2",
+    "rarity": 3,
+    "price": 210360
+   }
+  ]
+ },
+ {
+  "group_key": "腐蝕霧マスク",
+  "name_en": "Corrosive Mist Mask",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_GasMask.webp",
+  "tiers": [
+   {
+    "asset": "GasMask",
+    "rarity": 4,
+    "price": 168000
+   }
+  ]
+ },
+ {
+  "group_key": "耐熱防寒アンダーウェア",
+  "name_en": "Multiclimate Undershirt",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_HeatColdResist_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_HeatColdResist_1",
+    "rarity": 2,
+    "price": 167040
+   },
+   {
+    "asset": "Accessory_HeatColdResist_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_HeatColdResist_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "ヒエティのお守り",
+  "name_en": "Wumpo Charm",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_ColdIce_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_ColdIce_1",
+    "rarity": 3,
+    "price": 158040
+   }
+  ]
+ },
+ {
+  "group_key": "ダブルエアダッシュブーツ",
+  "name_en": "Double Air Dash Boots",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_AirDash.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_AirDash2",
+    "rarity": 3,
+    "price": 153120
+   }
+  ]
+ },
+ {
+  "group_key": "エアウォーカー Mk-Ⅰ",
+  "name_en": "Air Walker Mk I",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_JumpAir_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_JumpAir_1",
+    "rarity": 3,
+    "price": 133920
+   }
+  ]
+ },
+ {
+  "group_key": "幻影の指輪",
+  "name_en": "Phantom Ring",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Accessory_Avoid_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_Avoid_1",
+    "rarity": 3,
+    "price": 121860
+   }
+  ]
+ },
+ {
+  "group_key": "防爆アンダーウェア",
+  "name_en": "Explosion-Resistant Undershirt",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_ExplosionResist.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_ExplosionResist",
+    "rarity": 4,
+    "price": 120000
+   }
+  ]
+ },
+ {
+  "group_key": "先遣隊のお守り",
+  "name_en": "Vanguard Charm",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_HCHP_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_HCHP_1",
+    "rarity": 3,
+    "price": 103680
+   }
+  ]
+ },
+ {
+  "group_key": "放浪商人のお守り",
+  "name_en": "Wandering Merchant Charm",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_HCMW_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_HCMW_1",
+    "rarity": 3,
+    "price": 103680
+   }
+  ]
+ },
+ {
+  "group_key": "ボルカノンのお守り",
+  "name_en": "Reptyro Charm",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_HeatFire_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_HeatFire_1",
+    "rarity": 3,
+    "price": 86040
+   }
+  ]
+ },
+ {
+  "group_key": "アイギルガのエンブレム",
+  "name_en": "Silvegis Emblem",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_PPDF_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_PPDF_1",
+    "rarity": 3,
+    "price": 81420
+   }
+  ]
+ },
+ {
+  "group_key": "ゴルクレスのベルト",
+  "name_en": "Warsect Terra's Belt",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_DFHP_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_DFHP_1",
+    "rarity": 3,
+    "price": 80700
+   }
+  ]
+ },
+ {
+  "group_key": "ワンフーのエンブレム",
+  "name_en": "Dogen Emblem",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_PPAT_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_PPAT_1",
+    "rarity": 3,
+    "price": 70620
+   }
+  ]
+ },
+ {
+  "group_key": "神龍の指揮棒",
+  "name_en": "Divine Dragon's Baton",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ATDragon_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ATDragon_ElementBoost_1",
+    "rarity": 3,
+    "price": 67200
+   }
+  ]
+ },
+ {
+  "group_key": "信頼の指輪",
+  "name_en": "Ring of Trust",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_PalConfidence_Increase_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_PalConfidence_Increase_1",
+    "rarity": 3,
+    "price": 66120
+   }
+  ]
+ },
+ {
+  "group_key": "島民のツールベルト",
+  "name_en": "Islander's Tool Belt",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_WKMC_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_WKMC_1",
+    "rarity": 3,
+    "price": 58620
+   }
+  ]
+ },
+ {
+  "group_key": "ネプティオスの守護札",
+  "name_en": "Neptilius's Talisman",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_DFWater_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_DFWater_ElementBoost_1",
+    "rarity": 3,
+    "price": 55200
+   }
+  ]
+ },
+ {
+  "group_key": "エアダッシュブーツ",
+  "name_en": "Air Dash Boots",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_AirDash.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_AirDash1",
+    "rarity": 2,
+    "price": 54120
+   }
+  ]
+ },
+ {
+  "group_key": "ダブルジャンプブーツ",
+  "name_en": "Double Jump Boots",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_JumpCount_Increase.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_JumpCount_Increase1",
+    "rarity": 2,
+    "price": 54120
+   }
+  ]
+ },
+ {
+  "group_key": "才能メガネ",
+  "name_en": "Ability Glasses",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_TalentChecker.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_TalentChecker",
+    "rarity": 2,
+    "price": 51600
+   }
+  ]
+ },
+ {
+  "group_key": "聖天の指揮棒",
+  "name_en": "Celestial Emperor's Baton",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ATNormal_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ATNormal_ElementBoost_1",
+    "rarity": 3,
+    "price": 51480
+   }
+  ]
+ },
+ {
+  "group_key": "アヌビスの守護札",
+  "name_en": "Anubis's Talisman",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_DFEarth_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_DFEarth_ElementBoost_1",
+    "rarity": 3,
+    "price": 48480
+   }
+  ]
+ },
+ {
+  "group_key": "海皇の指揮棒",
+  "name_en": "Lord of the Sea's Baton",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ATWater_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ATWater_ElementBoost_1",
+    "rarity": 3,
+    "price": 47280
+   }
+  ]
+ },
+ {
+  "group_key": "ジェッドランの守護札",
+  "name_en": "Jetragon's Talisman",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_DFDragon_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_DFDragon_ElementBoost_1",
+    "rarity": 3,
+    "price": 47280
+   }
+  ]
+ },
+ {
+  "group_key": "パルテイマーのメガネ",
+  "name_en": "Pal Tamer's Glasses",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_NonkChecker_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_NonkChecker_1",
+    "rarity": 3,
+    "price": 46200
+   }
+  ]
+ },
+ {
+  "group_key": "冥王の指揮棒",
+  "name_en": "Lord of the Underworld's Baton",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ATDark_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ATDark_ElementBoost_1",
+    "rarity": 3,
+    "price": 45480
+   }
+  ]
+ },
+ {
+  "group_key": "地帝の指揮棒",
+  "name_en": "Earth Emperor's Baton",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ATEarth_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ATEarth_ElementBoost_1",
+    "rarity": 3,
+    "price": 43680
+   }
+  ]
+ },
+ {
+  "group_key": "レジェンディアの守護札",
+  "name_en": "Hartalis's Talisman",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_DFNormal_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_DFNormal_ElementBoost_1",
+    "rarity": 3,
+    "price": 43680
+   }
+  ]
+ },
+ {
+  "group_key": "炎帝の指揮棒",
+  "name_en": "Flame Emperor's Baton",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ATFire_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ATFire_ElementBoost_1",
+    "rarity": 3,
+    "price": 41880
+   }
+  ]
+ },
+ {
+  "group_key": "氷帝の指揮棒",
+  "name_en": "Ice Emperor's Baton",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ATIce_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ATIce_ElementBoost_1",
+    "rarity": 3,
+    "price": 41880
+   }
+  ]
+ },
+ {
+  "group_key": "グレイシャルの守護札",
+  "name_en": "Frostallion's Talisman",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_DFIce_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_DFIce_ElementBoost_1",
+    "rarity": 3,
+    "price": 41880
+   }
+  ]
+ },
+ {
+  "group_key": "ゴルディングリング",
+  "name_en": "Menasting Terra Ring",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_Earth_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_Otomo_Earth_1",
+    "rarity": 3,
+    "price": 41280
+   }
+  ]
+ },
+ {
+  "group_key": "ツンドラーリング",
+  "name_en": "Cryolinx Ring",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_Ice_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_Otomo_Ice_1",
+    "rarity": 3,
+    "price": 40680
+   }
+  ]
+ },
+ {
+  "group_key": "雷帝の指揮棒",
+  "name_en": "Lord of Lightning's Baton",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ATElectricity_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ATElectricity_ElementBoost_1",
+    "rarity": 3,
+    "price": 40080
+   }
+  ]
+ },
+ {
+  "group_key": "ボルゼクスの守護札",
+  "name_en": "Orserk's Talisman",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_DFElectricity_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_DFElectricity_ElementBoost_1",
+    "rarity": 3,
+    "price": 40080
+   }
+  ]
+ },
+ {
+  "group_key": "精霊王の指揮棒",
+  "name_en": "Spirit Emperor's Baton",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ATLeaf_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ATLeaf_ElementBoost_1",
+    "rarity": 3,
+    "price": 39480
+   }
+  ]
+ },
+ {
+  "group_key": "リリクインの守護札",
+  "name_en": "Lyleen's Talisman",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_DFLeaf_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_DFLeaf_ElementBoost_1",
+    "rarity": 3,
+    "price": 39480
+   }
+  ]
+ },
+ {
+  "group_key": "ムラサメリング",
+  "name_en": "Fenglope Lux Ring",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_Electricity_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_Otomo_Electricity_1",
+    "rarity": 3,
+    "price": 38280
+   }
+  ]
+ },
+ {
+  "group_key": "ボルカイザーの守護札",
+  "name_en": "Blazamut's Talisman",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_DFFire_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_DFFire_ElementBoost_1",
+    "rarity": 3,
+    "price": 38280
+   }
+  ]
+ },
+ {
+  "group_key": "イシスリング",
+  "name_en": "Faleris Aqua Ring",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_Water_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_Otomo_Water_1",
+    "rarity": 3,
+    "price": 36600
+   }
+  ]
+ },
+ {
+  "group_key": "ルナクインの守護札",
+  "name_en": "Lyleen Noct's Talisman",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_DFDark_ElementBoost_1.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_DFDark_ElementBoost_1",
+    "rarity": 3,
+    "price": 35880
+   }
+  ]
+ },
+ {
+  "group_key": "シルフィアリング",
+  "name_en": "Elphidran Ring",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_Dargon_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_Otomo_Dargon_1",
+    "rarity": 3,
+    "price": 35280
+   }
+  ]
+ },
+ {
+  "group_key": "クレメーオリング",
+  "name_en": "Katress Ring",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_Dark_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_Otomo_Dark_1",
+    "rarity": 3,
+    "price": 34080
+   }
+  ]
+ },
+ {
+  "group_key": "ホルスリング",
+  "name_en": "Faleris Ring",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_Fire_2.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_Otomo_Fire_2",
+    "rarity": 3,
+    "price": 34080
+   }
+  ]
+ },
+ {
+  "group_key": "防御支援のホイッスル",
+  "name_en": "Defense Support Whistle",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_Defense_up.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_Defense_up1",
+    "rarity": 2,
+    "price": 32400
+   },
+   {
+    "asset": "Otomo_Defense_up2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Otomo_Defense_up3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "ゴクエンオリング",
+  "name_en": "Blazehowl Ring",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_Fire_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_Otomo_Fire_1",
+    "rarity": 3,
+    "price": 31200
+   }
+  ]
+ },
+ {
+  "group_key": "竜封じの指輪",
+  "name_en": "Ring of Dragon Resistance",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_DragonResist_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_DragonResist_1",
+    "rarity": 2,
+    "price": 25080
+   },
+   {
+    "asset": "Accessory_DragonResist_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_DragonResist_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "地封じの指輪",
+  "name_en": "Ring of Ground Resistance",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_EarthResist_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_EarthResist_1",
+    "rarity": 2,
+    "price": 25080
+   },
+   {
+    "asset": "Accessory_EarthResist_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_EarthResist_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "竜応援のホイッスル",
+  "name_en": "Dragon Support Whistle",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ElementBoost_Dragon.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ElementBoost_Dragon_1",
+    "rarity": 2,
+    "price": 24960
+   },
+   {
+    "asset": "Otomo_ElementBoost_Dragon_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Otomo_ElementBoost_Dragon_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "地応援のホイッスル",
+  "name_en": "Ground Support Whistle",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ElementBoost_Earth.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ElementBoost_Earth_1",
+    "rarity": 2,
+    "price": 24960
+   },
+   {
+    "asset": "Otomo_ElementBoost_Earth_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Otomo_ElementBoost_Earth_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "ヴィオレッタリング",
+  "name_en": "Vaelet Ring",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_Leaf_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_Otomo_Leaf_1",
+    "rarity": 3,
+    "price": 24480
+   }
+  ]
+ },
+ {
+  "group_key": "水封じの指輪",
+  "name_en": "Ring of Water Resistance",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_AquaResist_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_AquaResist_1",
+    "rarity": 2,
+    "price": 23880
+   },
+   {
+    "asset": "Accessory_AquaResist_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_AquaResist_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "水応援のホイッスル",
+  "name_en": "Water Support Whistle",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ElementBoost_Water.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ElementBoost_Water_1",
+    "rarity": 2,
+    "price": 23760
+   },
+   {
+    "asset": "Otomo_ElementBoost_Water_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Otomo_ElementBoost_Water_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "反重力ベルト",
+  "name_en": "Anti-Gravity Belt",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_JumpPower_Increase.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_JumpPower_Increase",
+    "rarity": 1,
+    "price": 23160
+   }
+  ]
+ },
+ {
+  "group_key": "成長促進の鈴",
+  "name_en": "Growth Acceleration Bell",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_Exp_up.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_PalExp_Increase_1",
+    "rarity": 2,
+    "price": 22920
+   },
+   {
+    "asset": "Otomo_PalExp_Increase_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Otomo_PalExp_Increase_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "防寒アンダーウェア",
+  "name_en": "Thermal Undershirt",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_HeatResist_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_CoolResist_1",
+    "rarity": 2,
+    "price": 21960
+   },
+   {
+    "asset": "Accessory_CoolResist_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_CoolResist_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "攻撃支援のホイッスル",
+  "name_en": "Attack Support Whistle",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_Attack_up.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_Attack_up1",
+    "rarity": 2,
+    "price": 21960
+   },
+   {
+    "asset": "Otomo_Attack_up2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Otomo_Attack_up3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "運び屋の指輪",
+  "name_en": "Ring of Freight",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_MaxWeightUp.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_MaxWeightUp_01",
+    "rarity": 2,
+    "price": 20400
+   },
+   {
+    "asset": "Accessory_MaxWeightUp_02",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_MaxWeightUp_03",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "炎封じの指輪",
+  "name_en": "Ring of Fire Resistance",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_FireResist_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_FireResist_1",
+    "rarity": 2,
+    "price": 18480
+   },
+   {
+    "asset": "Accessory_FireResist_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_FireResist_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "氷封じの指輪",
+  "name_en": "Ring of Ice Resistance",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_IceResist_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_IceResist_1",
+    "rarity": 2,
+    "price": 18480
+   },
+   {
+    "asset": "Accessory_IceResist_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_IceResist_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "炎応援のホイッスル",
+  "name_en": "Fire Support Whistle",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ElementBoost_Fire.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ElementBoost_Fire_1",
+    "rarity": 2,
+    "price": 18360
+   },
+   {
+    "asset": "Otomo_ElementBoost_Fire_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Otomo_ElementBoost_Fire_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "氷応援のホイッスル",
+  "name_en": "Ice Support Whistle",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ElementBoost_Ice.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ElementBoost_Ice_1",
+    "rarity": 2,
+    "price": 18360
+   },
+   {
+    "asset": "Otomo_ElementBoost_Ice_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Otomo_ElementBoost_Ice_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "闇封じの指輪",
+  "name_en": "Ring of Dark Resistance",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_DarkResist_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_DarkResist_1",
+    "rarity": 2,
+    "price": 16680
+   },
+   {
+    "asset": "Accessory_DarkResist_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_DarkResist_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "雷封じの指輪",
+  "name_en": "Ring of Electric Resistance",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_ThunderResist_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_ThunderResist_1",
+    "rarity": 2,
+    "price": 16680
+   },
+   {
+    "asset": "Accessory_ThunderResist_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_ThunderResist_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "闇応援のホイッスル",
+  "name_en": "Dark Support Whistle",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ElementBoost_Dark.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ElementBoost_Dark_1",
+    "rarity": 2,
+    "price": 16560
+   },
+   {
+    "asset": "Otomo_ElementBoost_Dark_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Otomo_ElementBoost_Dark_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "雷応援のホイッスル",
+  "name_en": "Electric Support Whistle",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ElementBoost_Electricity.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ElementBoost_Electricity_1",
+    "rarity": 2,
+    "price": 16560
+   },
+   {
+    "asset": "Otomo_ElementBoost_Electricity_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Otomo_ElementBoost_Electricity_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "耐熱アンダーウェア",
+  "name_en": "Heat Resistant Undershirt",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_CoolResist_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_HeatResist_1",
+    "rarity": 2,
+    "price": 16540
+   },
+   {
+    "asset": "Accessory_HeatResist_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_HeatResist_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "攻撃のペンダント",
+  "name_en": "Attack Pendant",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_AT_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_AT_1",
+    "rarity": 2,
+    "price": 16500
+   },
+   {
+    "asset": "Accessory_AT_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_AT_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "生命のペンダント",
+  "name_en": "Life Pendant",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_HP_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_HP_1",
+    "rarity": 2,
+    "price": 16500
+   },
+   {
+    "asset": "Accessory_HP_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_HP_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "勤労のペンダント",
+  "name_en": "Pendant of Diligence",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_WorkSpeed_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_WorkSpeed_1",
+    "rarity": 2,
+    "price": 16500
+   },
+   {
+    "asset": "Accessory_WorkSpeed_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_WorkSpeed_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "手加減の指輪",
+  "name_en": "Ring of Mercy",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Nonkilling.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_Nonkilling",
+    "rarity": 2,
+    "price": 16320
+   }
+  ]
+ },
+ {
+  "group_key": "草封じの指輪",
+  "name_en": "Ring of Grass Resistance",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_LeafResist_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_LeafResist_1",
+    "rarity": 2,
+    "price": 16080
+   },
+   {
+    "asset": "Accessory_LeafResist_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_LeafResist_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "草応援のホイッスル",
+  "name_en": "Grass Support Whistle",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ElementBoost_Leaf.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ElementBoost_Leaf_1",
+    "rarity": 2,
+    "price": 15960
+   },
+   {
+    "asset": "Otomo_ElementBoost_Leaf_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Otomo_ElementBoost_Leaf_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "防御のペンダント",
+  "name_en": "Defense Pendant",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_defense_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_defense_1",
+    "rarity": 2,
+    "price": 15540
+   },
+   {
+    "asset": "Accessory_defense_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_defense_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "無封じの指輪",
+  "name_en": "Ring of Neutral Resistance",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_NormalResist_1.webp",
+  "tiers": [
+   {
+    "asset": "Accessory_NormalResist_1",
+    "rarity": 2,
+    "price": 14700
+   },
+   {
+    "asset": "Accessory_NormalResist_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Accessory_NormalResist_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "無応援のホイッスル",
+  "name_en": "Neutral Support Whistle",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_ElementBoost_Normal.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_ElementBoost_Normal_1",
+    "rarity": 2,
+    "price": 14580
+   },
+   {
+    "asset": "Otomo_ElementBoost_Normal_2",
+    "rarity": 2,
+    "price": 1
+   },
+   {
+    "asset": "Otomo_ElementBoost_Normal_3",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "Otomo_MoveSpeed_up_1",
+  "name_en": "Otomo_MoveSpeed_up_1",
+  "category": "アクセサリー",
+  "subcategory": null,
+  "icon": "game_data/icons/items/T_itemicon_Accessory_Otomo_MoveSpeed_up.webp",
+  "tiers": [
+   {
+    "asset": "Otomo_MoveSpeed_up_1",
+    "rarity": 0,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "ウィングパック",
+  "name_en": "Wing Pack",
+  "category": "グライダー・盾",
+  "subcategory": "グライダー",
+  "icon": "game_data/icons/items/T_itemicon_Glider_WingGlider.webp",
+  "tiers": [
+   {
+    "asset": "WingGlider",
+    "rarity": 4,
+    "price": 6508680
+   }
+  ]
+ },
+ {
+  "group_key": "テラグライダー",
+  "name_en": "Hyper Glider",
+  "category": "グライダー・盾",
+  "subcategory": "グライダー",
+  "icon": "game_data/icons/items/T_itemicon_Glider_Glider_Legendary.webp",
+  "tiers": [
+   {
+    "asset": "Glider_Tera",
+    "rarity": 3,
+    "price": 332880
+   }
+  ]
+ },
+ {
+  "group_key": "ギガグライダー",
+  "name_en": "Giga Glider",
+  "category": "グライダー・盾",
+  "subcategory": "グライダー",
+  "icon": "game_data/icons/items/T_itemicon_Glider_Glider_Super.webp",
+  "tiers": [
+   {
+    "asset": "Glider_Super",
+    "rarity": 1,
+    "price": 76080
+   }
+  ]
+ },
+ {
+  "group_key": "メガグライダー",
+  "name_en": "Mega Glider",
+  "category": "グライダー・盾",
+  "subcategory": "グライダー",
+  "icon": "game_data/icons/items/T_itemicon_Glider_Glider_Good.webp",
+  "tiers": [
+   {
+    "asset": "Glider_Good",
+    "rarity": 0,
+    "price": 15480
+   }
+  ]
+ },
+ {
+  "group_key": "ノーマルパラシュート",
+  "name_en": "Normal Parachute",
+  "category": "グライダー・盾",
+  "subcategory": "グライダー",
+  "icon": "game_data/icons/items/T_itemicon_Glider_Glider_Old.webp",
+  "tiers": [
+   {
+    "asset": "Glider_Old",
+    "rarity": 0,
+    "price": 1300
+   }
+  ]
+ },
+ {
+  "group_key": "Glider_Legendary",
+  "name_en": "Hyper Glider",
+  "category": "グライダー・盾",
+  "subcategory": "グライダー",
+  "icon": "game_data/icons/items/T_itemicon_Glider_Glider_Legendary.webp",
+  "tiers": [
+   {
+    "asset": "Glider_Legendary",
+    "rarity": 2,
+    "price": 1
+   }
+  ]
+ },
+ {
+  "group_key": "PV_Glider_Manta",
+  "name_en": "PV_Glider_Manta",
+  "category": "グライダー・盾",
+  "subcategory": "グライダー",
+  "icon": "game_data/icons/items/T_itemicon_Glider_Glider_Old.webp",
+  "tiers": [
+   {
+    "asset": "PV_Glider_Manta",
+    "rarity": 0,
+    "price": 1
+   }
+  ]
+ }
+]

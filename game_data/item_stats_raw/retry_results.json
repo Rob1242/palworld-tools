@@ -1,0 +1,134 @@
+[
+ {
+  "group_key": "上級釣り竿（ンダコアラ）",
+  "name_en": "Advanced Fishing Rod (Depresso)",
+  "slug": "Advanced_Fishing_Rod_%28Depresso%29",
+  "url": "https://paldb.cc/ja/Advanced_Fishing_Rod_%28Depresso%29",
+  "tiers": [
+   {
+    "code": "FishingRod_03_2",
+    "stats": {
+     "Rarity": "レジェンダリー",
+     "Type": "武器",
+     "Rank": "4",
+     "price": "120120",
+     "攻撃": "25",
+     "Weight": "5",
+     "MaxStackCount": "1",
+     "耐久度": "720"
+    }
+   }
+  ],
+  "missing_assets": []
+ },
+ {
+  "group_key": "上級釣り竿（ペンタマ）",
+  "name_en": "Advanced Fishing Rod (Pengullet)",
+  "slug": "Advanced_Fishing_Rod_%28Pengullet%29",
+  "url": "https://paldb.cc/ja/Advanced_Fishing_Rod_%28Pengullet%29",
+  "tiers": [
+   {
+    "code": "FishingRod_03_1",
+    "stats": {
+     "Rarity": "エピック",
+     "Type": "武器",
+     "Rank": "4",
+     "price": "43860",
+     "攻撃": "25",
+     "Weight": "5",
+     "MaxStackCount": "1",
+     "耐久度": "480"
+    }
+   }
+  ],
+  "missing_assets": []
+ },
+ {
+  "group_key": "中級釣り竿（ブシガエル）",
+  "name_en": "Intermediate Fishing Rod (Croajiro)",
+  "slug": "Intermediate_Fishing_Rod_%28Croajiro%29",
+  "url": "https://paldb.cc/ja/Intermediate_Fishing_Rod_%28Croajiro%29",
+  "tiers": [
+   {
+    "code": "FishingRod_02_2",
+    "stats": {
+     "Rarity": "レア",
+     "Type": "武器",
+     "Rank": "3",
+     "price": "35380",
+     "攻撃": "25",
+     "Weight": "5",
+     "MaxStackCount": "1",
+     "耐久度": "360"
+    }
+   }
+  ],
+  "missing_assets": []
+ },
+ {
+  "group_key": "初級釣り竿（ナエモチ）",
+  "name_en": "Beginner Fishing Rod (Gumoss)",
+  "slug": "Beginner_Fishing_Rod_%28Gumoss%29",
+  "url": "https://paldb.cc/ja/Beginner_Fishing_Rod_%28Gumoss%29",
+  "tiers": [
+   {
+    "code": "FishingRod_01_2",
+    "stats": {
+     "Rarity": "コモン",
+     "Type": "武器",
+     "Rank": "2",
+     "price": "15800",
+     "攻撃": "25",
+     "Weight": "5",
+     "MaxStackCount": "1",
+     "耐久度": "180"
+    }
+   }
+  ],
+  "missing_assets": []
+ },
+ {
+  "group_key": "中級釣り竿（ツッパニャン）",
+  "name_en": "Intermediate Fishing Rod (Cattiva)",
+  "slug": "Intermediate_Fishing_Rod_%28Cattiva%29",
+  "url": "https://paldb.cc/ja/Intermediate_Fishing_Rod_%28Cattiva%29",
+  "tiers": [
+   {
+    "code": "FishingRod_02_1",
+    "stats": {
+     "Rarity": "アンコモン",
+     "Type": "武器",
+     "Rank": "3",
+     "price": "5690",
+     "攻撃": "25",
+     "Weight": "5",
+     "MaxStackCount": "1",
+     "耐久度": "240"
+    }
+   }
+  ],
+  "missing_assets": []
+ },
+ {
+  "group_key": "初級釣り竿（オコチョ）",
+  "name_en": "Beginner Fishing Rod (Chillet)",
+  "slug": "Beginner_Fishing_Rod_%28Chillet%29",
+  "url": "https://paldb.cc/ja/Beginner_Fishing_Rod_%28Chillet%29",
+  "tiers": [
+   {
+    "code": "FishingRod_01_1",
+    "stats": {
+     "Rarity": "コモン",
+     "Type": "武器",
+     "Rank": "2",
+     "price": "4300",
+     "攻撃": "25",
+     "Weight": "5",
+     "MaxStackCount": "1",
+     "耐久度": "120"
+    }
+   }
+  ],
+  "missing_assets": []
+ }
+]

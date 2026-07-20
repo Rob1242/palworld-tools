@@ -10,14 +10,14 @@
 <link rel="stylesheet" href="shared/design-system.css">
 <style>
   :root{
-    --bg: #07090d; --panel: #121822; --panel2: #182030;
-    --parchment: #e9eef4; --parchment-dim: #8592a3;
-    --brass: #f0b840; --brass-dim: #b5852f;
+    --bg: #05080e; --panel: #0e1420; --panel2: #141d2b;
+    --parchment: #e7edf5; --parchment-dim: #7e90a5;
+    --brass: #6ec8ea; --brass-dim: #2f6b85;
     --teal: #35d2ff; --teal-dim: #1c6d86;
-    --line: rgba(142,183,214,.16); --danger: #e2543f;
+    --line: rgba(120,165,220,.18); --danger: #e2543f;
     --hp: #7bdb52; --sp: #f0a233;
-    --lime: #e3ff3d; --lime-dim: #96b31f;
-    --magenta: #ff2e7e; --magenta-dim: #a01a52;
+    --lime: #3d7bff; --lime-dim: #1f4a99;
+    --magenta: #8fd6ff; --magenta-dim: #4a7fa3;
     --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
     --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
     --font-mono: "JetBrains Mono", monospace;
@@ -26,17 +26,14 @@
     --t-地: #b98a4e; --t-草: #6dbf4f; --t-氷: #63d9e3; --t-竜: #9a6ff0; --t-闇: #8064b8;
   }
   *{box-sizing:border-box;}
-  body{margin:0;background:
-    radial-gradient(circle at 12% -8%, #143241 0%, transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(240,184,64,.06) 0%, transparent 42%),
-    var(--bg);
+  body{margin:0;background: var(--bg);
     color:var(--parchment);font-family:var(--font-body);padding:0;}
   .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
 
   /* header */
   header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
   .brand{display:flex;align-items:center;gap:12px;}
-  .brand-badge{width:42px;height:42px;border-radius:8px;background:linear-gradient(160deg, #1c2733, #10151c);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:var(--panel2);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
   h1.title{font-family:var(--font-display);font-weight:700;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
   .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
 
@@ -65,6 +62,9 @@
   .card:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
   .card .icon-wrap{position:relative;width:64px;height:64px;margin:0 auto 8px;border-radius:50%;background:var(--panel2);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;}
   .card .icon-wrap img{width:100%;height:100%;object-fit:cover;}
+  .sex-mark{position:absolute;bottom:-1px;right:-1px;width:16px;height:16px;border-radius:50%;background:var(--panel);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;line-height:1;border:1px solid var(--line);}
+  .sex-mark.male{color:#4a95d9;}
+  .sex-mark.female{color:#ff2e7e;}
   .card .icon-wrap::after{content:"";position:absolute;inset:-5px;opacity:0;transition:opacity .12s;pointer-events:none;
     background:
       linear-gradient(var(--teal),var(--teal)) top left / 9px 2px no-repeat,
@@ -97,7 +97,7 @@
   .back-btn:hover{border-color:var(--lime-dim);color:var(--parchment);}
   .detail-head{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:16px;box-shadow:0 8px 24px rgba(0,0,0,.25);}
   .medallion{position:relative;width:112px;height:112px;flex-shrink:0;}
-  .medallion .ring{width:112px;height:112px;border-radius:50%;background:var(--panel2);border:3px solid var(--brass);overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(0,0,0,.4), 0 0 18px rgba(240,184,64,.18);}
+  .medallion .ring{width:112px;height:112px;border-radius:50%;background:var(--panel2);border:3px solid var(--brass);overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(0,0,0,.4), 0 0 18px rgba(110,200,234,.18);}
   .medallion .ring img{width:100%;height:100%;object-fit:cover;}
   .medallion .rivet{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:inset 0 1px 1px rgba(0,0,0,.4), 0 0 0 2px var(--bg), 0 0 5px rgba(53,210,255,.7);}
   .medallion .rivet.nw{top:2px;left:16px;} .medallion .rivet.ne{top:2px;right:16px;}
@@ -119,7 +119,7 @@
   .stat-row{display:grid;grid-template-columns:70px 1fr 48px;align-items:center;gap:8px;}
   .stat-row .stat-label{font-size:11.5px;color:var(--parchment-dim);}
   .stat-row .stat-bar{height:8px;background:var(--panel2);border-radius:4px;overflow:hidden;border:1px solid var(--line);}
-  .stat-row .stat-bar-fill{height:100%;background:linear-gradient(90deg, var(--brass-dim), var(--brass));}
+  .stat-row .stat-bar-fill{height:100%;background:var(--brass);}
   .stat-row .stat-val{font-family:var(--font-mono);font-size:12px;text-align:right;color:var(--parchment);}
 
   .role-grid{display:flex;flex-wrap:wrap;gap:8px;}
@@ -154,6 +154,14 @@
   .mode-tabs{display:flex;gap:2px;margin-bottom:16px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
   .mode-tab{padding:8px 18px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:14px;transition:color .12s,background .12s;}
   .mode-tab.active{background:var(--teal);color:#08222c;box-shadow:0 0 10px rgba(53,210,255,.4);}
+  .mini-tabs{display:flex;gap:2px;margin-bottom:14px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
+  .mini-tab{padding:7px 16px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:13px;transition:color .12s,background .12s;}
+  .mini-tab.active{background:var(--teal);color:#08222c;box-shadow:0 0 10px rgba(53,210,255,.4);}
+  .quick-makeable-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:8px;}
+  .quick-makeable-item{width:52px;height:52px;border-radius:50%;background:var(--panel2);border:2px solid var(--line);cursor:pointer;overflow:hidden;transition:border-color .12s,transform .12s;}
+  .quick-makeable-item:hover{border-color:var(--brass);transform:translateY(-2px);}
+  .quick-makeable-item:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+  .quick-makeable-item img{width:100%;height:100%;object-fit:cover;}
   .picker-row{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;margin-bottom:20px;}
   .pal-picker{position:relative;width:260px;}
   .pal-picker input{width:100%;box-sizing:border-box;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:8px 12px;font-size:13.5px;font-family:var(--font-body);}
@@ -202,6 +210,15 @@
   .box-search-row input{flex:1;min-width:140px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:7px 11px;font-size:13px;font-family:var(--font-body);}
   .box-search-row input::placeholder{color:var(--parchment-dim);}
   .box-search-row input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 2px rgba(53,210,255,.2);}
+  .pfilter-wrap{border-bottom:1px solid var(--line);}
+  .pfilter-toggle{cursor:pointer;display:flex;align-items:center;gap:8px;user-select:none;padding:10px 16px;font-size:13px;color:var(--parchment-dim);}
+  .pfilter-toggle:hover{color:var(--parchment);}
+  .pfilter-toggle .chevron{display:inline-block;transition:transform .15s;font-size:10px;}
+  .pfilter-body{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px;}
+  .pfilter-chip{font-size:12px;padding:5px 11px;border-radius:5px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment-dim);cursor:pointer;user-select:none;transition:border-color .12s,color .12s,background .12s;}
+  .pfilter-chip:hover{border-color:var(--brass-dim);color:var(--parchment);}
+  .pfilter-chip.active{background:var(--brass);border-color:var(--brass);color:#2a1c08;font-weight:600;}
+  .pfilter-chip .cnt{opacity:.7;margin-left:3px;}
   .box-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px;padding:14px 16px;max-height:600px;overflow-y:auto;}
   .box-grid .card{padding:7px 4px 6px;}
   .box-grid .icon-wrap{width:46px;height:46px;margin-bottom:5px;}
@@ -235,7 +252,7 @@
   .add-pal-btn{padding:7px 16px;background:var(--teal);border:1px solid var(--teal);color:#08222c;font-weight:700;font-size:13px;border-radius:6px;cursor:pointer;font-family:var(--font-body);white-space:nowrap;}
   .add-pal-btn:hover{box-shadow:0 0 12px rgba(53,210,255,.4);}
   .share-btn{padding:7px 16px;background:var(--panel2);border:1px solid var(--brass-dim);color:var(--brass);font-weight:700;font-size:13px;border-radius:6px;cursor:pointer;font-family:var(--font-body);white-space:nowrap;}
-  .share-btn:hover{border-color:var(--brass);box-shadow:0 0 12px rgba(240,184,64,.25);}
+  .share-btn:hover{border-color:var(--brass);box-shadow:0 0 12px rgba(110,200,234,.25);}
 
   /* 友達と共有(モーダル) */
   .share-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
@@ -253,12 +270,6 @@
   .share-status{font-size:11.5px;color:var(--parchment-dim);min-height:16px;line-height:1.6;}
   .share-status.err{color:#ff6f6f;}
   .share-status.ok{color:var(--lime);}
-  .shared-view-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;margin-top:18px;border-top:1px solid var(--line);padding-top:16px;}
-  .shared-view-head h3{margin:0;font-size:13.5px;font-family:var(--font-display);}
-  .shared-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px;max-height:340px;overflow-y:auto;padding-right:4px;}
-  .shared-detail{margin-top:10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:12px;}
-  .shared-detail .sd-name{font-family:var(--font-display);font-size:14px;margin-bottom:8px;}
-  .shared-detail .role-pill{margin:2px 4px 2px 0;display:inline-block;}
 
   /* パル登録フォーム(モーダル) */
   .pform-overlay{position:fixed;inset:0;background:rgba(4,6,9,.78);display:none;align-items:flex-start;justify-content:center;z-index:300;padding:30px 20px;overflow-y:auto;}
@@ -320,11 +331,22 @@
       <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
       <a href="palworld_ride.html"><span>ライド速度</span></a>
       <a href="palworld_map.html"><span>出現マップ</span></a>
+      <a href="palworld_bossguide.html"><span>ボス攻略</span></a>
+      <a href="palworld_achievements.html"><span>実績一覧</span></a>
+      <a href="palworld_passives_guide.html"><span>おすすめパッシブ</span></a>
+      <a href="palworld_reference.html"><span>早見表</span></a>
+      <a href="palworld_technology.html"><span>テクノロジー</span></a>
+      <a href="palworld_missions.html"><span>ミッション</span></a>
+      <a href="palworld_iv_calc.html"><span>素質値計算機</span></a>
+      <a href="palworld_party_guide.html"><span>パーティ編成ガイド</span></a>
+      <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
+      <a href="palworld_changelog.html"><span>更新履歴</span></a>
     </nav>
   </header>
 
   <div class="mode-tabs">
     <div class="mode-tab active" data-mode="box">所持パル管理</div>
+    <div class="mode-tab" data-mode="share">共有ボックス</div>
     <div class="mode-tab" data-mode="roadmap">配合ロードマップ</div>
   </div>
 
@@ -337,10 +359,18 @@
             <span class="box-panel-title">ボックス</span>
             <span class="count-tag" id="boxCountTag"></span>
             <button class="share-btn" id="openShareBtn">友達と共有</button>
+            <button class="share-btn" id="openBackupBtn">バックアップ/復元</button>
             <button class="add-pal-btn" id="openAddPalBtn">+ パルを追加</button>
           </div>
           <div class="box-search-row">
             <input type="text" id="boxSearchBox" placeholder="パル名・ニックネームで検索…">
+          </div>
+          <div class="pfilter-wrap">
+            <div class="pfilter-toggle" id="boxPfilterToggle">
+              <span class="chevron" id="boxPfilterChevron">▶</span>
+              パッシブで絞り込む <span class="count-tag" id="boxPfilterActiveTag"></span>
+            </div>
+            <div class="pfilter-body" id="boxPfilterBody" style="display:none;"></div>
           </div>
           <div class="grid box-grid" id="boxGrid"></div>
         </div>
@@ -350,6 +380,45 @@
           <div class="box-diamond"><span>NoData</span></div>
         </div>
         <div class="box-detail-panel" id="boxDetailPanel" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pform-overlay" id="backupOverlay">
+    <div class="pform-box">
+      <button class="pform-close" id="backupClose">×</button>
+      <p class="pform-title">バックアップ/復元</p>
+      <p style="font-size:12.5px;color:var(--parchment-dim);line-height:1.7;margin:0 0 16px;">
+        所持パルデータはこの端末のブラウザにしか保存されません。バックアップコードを発行しておけば、
+        スマホを機種変更したり別のブラウザで開いたりしても、コードを入力するだけで所持データを復元できます。
+      </p>
+
+      <div id="backupNoCodeSection">
+        <button class="pform-save-btn" id="backupGenerateBtn">バックアップコードを発行してアップロード</button>
+      </div>
+
+      <div id="backupHasCodeSection" style="display:none;">
+        <div class="pform-section">
+          <div class="pform-label">あなたのバックアップコード</div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span id="backupCodeText" style="font-family:var(--font-mono);font-size:22px;font-weight:700;color:var(--teal);letter-spacing:.08em;"></span>
+            <button class="back-btn" id="backupCopyBtn" style="margin:0;">コピー</button>
+          </div>
+          <p style="font-size:11px;color:var(--parchment-dim);margin-top:6px;">忘れずにメモしておいてください。他の人には教えないでください(このコードだけで所持データを復元・上書きできます)。</p>
+        </div>
+        <button class="pform-save-btn" id="backupUploadBtn">今の所持データでバックアップを上書き</button>
+        <p class="share-status" id="backupStatus" style="margin-top:8px;"></p>
+        <button class="back-btn" id="backupForgetBtn" style="margin-top:10px;">このコードを端末から削除(バックアップ自体は残ります)</button>
+      </div>
+
+      <div class="pform-section" style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line);">
+        <div class="pform-label">別のバックアップコードから復元</div>
+        <p style="font-size:11px;color:var(--parchment-dim);margin:0 0 8px;">機種変更した端末や別のブラウザで、前に発行したコードを入力すると復元できます。<b style="color:var(--danger);">今この端末にある所持データは上書きされて消えます。</b></p>
+        <div style="display:flex;gap:8px;">
+          <input type="text" id="backupRestoreInput" placeholder="コードを入力…" style="flex:1;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:8px 12px;font-size:14px;font-family:var(--font-mono);text-transform:uppercase;">
+          <button class="back-btn" id="backupRestoreBtn" style="margin:0;">復元する</button>
+        </div>
+        <p class="share-status" id="backupRestoreStatus" style="margin-top:8px;"></p>
       </div>
     </div>
   </div>
@@ -371,6 +440,15 @@
       <div class="pform-section" id="pformDetailSections" style="display:none;">
         <div class="pform-label">ニックネーム(任意)</div>
         <input type="text" class="pform-nickname" id="pformNickname" placeholder="空欄なら種族名で表示されます">
+      </div>
+
+      <div class="pform-section" id="pformSexSection" style="display:none;">
+        <div class="pform-label">性別 <span style="color:var(--parchment-dim);font-weight:400;text-transform:none;letter-spacing:0;">(配合には異性の相手が必要です。配合ロードマップの計算精度に関わるため、分かる場合は設定してください)</span></div>
+        <div class="mini-tabs" id="pformSexTabs">
+          <div class="mini-tab" data-sex="male">オス</div>
+          <div class="mini-tab" data-sex="female">メス</div>
+          <div class="mini-tab active" data-sex="unknown">不明</div>
+        </div>
       </div>
 
       <div class="pform-section" id="pformIvSection" style="display:none;">
@@ -411,56 +489,101 @@
     </div>
   </div>
 
-  <div class="pform-overlay" id="shareOverlay">
-    <div class="pform-box" style="max-width:680px;">
-      <button class="pform-close" id="shareClose">×</button>
-      <p class="pform-title">友達と共有ボックス</p>
+  <div class="pform-overlay" id="quickRouteOverlay">
+    <div class="pform-box" style="max-width:420px;">
+      <button class="pform-close" id="quickRouteClose">×</button>
+      <div id="quickRouteBody"></div>
+    </div>
+  </div>
+
+  <div id="shareView" style="display:none;">
+    <div id="shareJoinPanel" class="box-panel" style="max-width:680px;padding:20px 24px;">
+      <p class="pform-title" style="margin-top:0;">友達と共有ボックス</p>
       <p class="pform-hint">合言葉(6桁のコード)を知っている人同士で、1つの共有ボックスに一緒にパルを追加できます。自分だけのボックスとは別に管理され、追加・削除はリアルタイムでお互いに反映されます。パスワードのような強い認証ではないので、合言葉は信頼できる友達にだけ教えてください。</p>
 
-      <div id="shareJoinView">
-        <div class="share-columns">
-          <div class="share-col">
-            <h3>新しい共有ボックスを作る</h3>
-            <p>空の共有ボックスを作って合言葉を発行します。友達にその合言葉を伝えてください。</p>
-            <button class="add-pal-btn" id="shareCreateBtn">共有ボックスを作る</button>
+      <div class="share-columns">
+        <div class="share-col">
+          <h3>新しい共有ボックスを作る</h3>
+          <p>空の共有ボックスを作って合言葉を発行します。友達にその合言葉を伝えてください。</p>
+          <button class="add-pal-btn" id="shareCreateBtn">共有ボックスを作る</button>
+        </div>
+        <div class="share-col">
+          <h3>合言葉で入る</h3>
+          <p>友達から教えてもらった合言葉を入力してください。</p>
+          <div class="share-input-row">
+            <input type="text" id="shareJoinInput" placeholder="例: K3F9QZ" maxlength="6">
+            <button class="add-pal-btn" id="shareJoinBtn">入る</button>
           </div>
-          <div class="share-col">
-            <h3>合言葉で入る</h3>
-            <p>友達から教えてもらった合言葉を入力してください。</p>
-            <div class="share-input-row">
-              <input type="text" id="shareJoinInput" placeholder="例: K3F9QZ" maxlength="6">
-              <button class="add-pal-btn" id="shareJoinBtn">入る</button>
+        </div>
+      </div>
+      <div class="share-status" id="shareStatus" style="margin-top:6px;"></div>
+    </div>
+
+    <div id="shareRoomPanel" style="display:none;">
+      <div class="room-code-box">
+        <span style="font-size:11.5px;color:var(--parchment-dim);">合言葉</span>
+        <span class="code" id="shareRoomCodeText">------</span>
+        <button class="copy-btn" id="shareCopyBtn">コピー</button>
+        <button class="copy-btn" id="shareLeaveBtn">退出</button>
+        <span class="share-status" id="shareRoomStatus" style="margin-left:auto;text-align:right;"></span>
+      </div>
+      <div class="box-layout">
+        <div class="box-main">
+          <div class="box-panel">
+            <div class="box-panel-head">
+              <span class="box-tab-num">2</span>
+              <span class="box-panel-title">共有ボックス</span>
+              <span class="count-tag" id="sharedCountTag"></span>
+              <button class="add-pal-btn" id="openSharedAddBtn">+ パルを追加</button>
             </div>
+            <div class="box-search-row">
+              <input type="text" id="sharedSearchBox" placeholder="パル名・ニックネームで検索…">
+            </div>
+            <div class="pfilter-wrap">
+              <div class="pfilter-toggle" id="sharedPfilterToggle">
+                <span class="chevron" id="sharedPfilterChevron">▶</span>
+                パッシブで絞り込む <span class="count-tag" id="sharedPfilterActiveTag"></span>
+              </div>
+              <div class="pfilter-body" id="sharedPfilterBody" style="display:none;"></div>
+            </div>
+            <div class="grid box-grid" id="sharedGrid"></div>
           </div>
         </div>
-      </div>
-
-      <div id="shareRoomView" style="display:none;">
-        <div class="room-code-box">
-          <span class="code" id="shareRoomCodeText">------</span>
-          <button class="copy-btn" id="shareCopyBtn">コピー</button>
-          <button class="copy-btn" id="shareLeaveBtn">退出</button>
+        <div class="box-side">
+          <div class="box-diamond-wrap" id="sharedDetailEmpty">
+            <div class="box-diamond"><span>NoData</span></div>
+          </div>
+          <div class="box-detail-panel" id="sharedDetailPanel" style="display:none;"></div>
         </div>
-        <div class="shared-view-head">
-          <h3>共有ボックス</h3>
-          <button class="add-pal-btn" id="openSharedAddBtn" style="margin-left:auto;">+ パルを追加</button>
-        </div>
-        <div class="shared-grid" id="sharedGrid"></div>
-        <div class="shared-detail" id="sharedDetail" style="display:none;"></div>
       </div>
-
-      <div class="share-status" id="shareStatus" style="margin-top:10px;"></div>
     </div>
   </div>
 
   <div id="roadmapView" style="display:none;">
+    <div class="mini-tabs" id="roadmapSourceTabs">
+      <div class="mini-tab active" data-source="local">自分のボックス</div>
+      <div class="mini-tab" data-source="shared">共有ボックス</div>
+    </div>
+    <p class="pform-hint" id="roadmapSourceHint" style="max-width:520px;margin:-6px 0 14px;"></p>
+
+    <div class="section" style="margin-bottom:18px;max-width:640px;">
+      <h2 id="quickMakeableToggle" style="cursor:pointer;display:flex;align-items:center;gap:8px;user-select:none;">
+        <span id="quickMakeableChevron" style="display:inline-block;transition:transform .15s;">▶</span>
+        今すぐ作れるパル <span class="count-tag" id="quickMakeableCount"></span>
+      </h2>
+      <div id="quickMakeableBody" style="display:none;">
+        <p class="pform-hint" style="margin-top:-2px;">選択中のボックスの所持パル同士を1回配合するだけで作れる(まだ持っていない)パルの一覧です。アイコンをクリックすると配合レシピを表示します。</p>
+        <div class="quick-makeable-grid" id="quickMakeableGrid"></div>
+      </div>
+    </div>
+
     <div class="pal-picker" style="width:320px;">
       <input type="text" id="roadmapTargetInput" placeholder="目標のパルを検索…">
       <div class="pal-picker-results" style="display:none;"></div>
     </div>
     <div class="pform-section" style="margin-top:16px;max-width:420px;">
       <div class="pform-label">欲しいパッシブ(任意・最大4つ)</div>
-      <p class="pform-hint">指定すると、最終配合の親候補(所持個体の中から目的パッシブに最も近い個体を自動選択)が、目的のパッシブを継承候補プールに含んでいるか確認します。</p>
+      <p class="pform-hint">指定すると、単に目標のパルを作るだけでなく、このパッシブをできるだけ多く継承できる配合ルート自体を優先的に探します(同じパルでも作り方は何通りもあるため)。所持個体の中から目的パッシブに最も近い個体も自動選択します。</p>
       <input type="text" class="skill-search" id="roadmapPassiveSearch" placeholder="パッシブ名で検索…">
       <div class="skill-pick-list" id="roadmapPassivePickList"></div>
       <div class="picked-chips" id="roadmapPassivePickedChips"></div>
@@ -485,6 +608,12 @@
 
 <script>
 const PAL_BOX_DATA = PAL_DEX_DATA;
+
+// 共有ボックス(Firebase)の接続状態。roadmapのソース切り替えなど複数箇所から参照するため先頭で宣言。
+let firebaseApp = null;
+let db = null;
+let currentRoomCode = null;
+let sharedRoomUnsubscribe = null;
 
 // ---- 旧「所持チェックリスト」(種族IDのみ)の読み取り。個体管理への移行専用に残す ----
 const OWNED_KEY = "palworldOwnedPals";
@@ -560,51 +689,97 @@ function boxStatRow(label, val, max){
   </div>`;
 }
 
-const boxState = { query: "", selectedUid: null };
+const boxState = { query: "", selectedUid: null, passiveFilter: null };
+const sharedBoxState = { query: "", selectedUid: null, instances: [], passiveFilter: null };
 
-function renderBoxGrid(){
-  const instances = getInstances();
-  let list = instances.filter(inst => {
-    if(!boxState.query) return true;
+// ---- パルボックス共通(所持ボックス・共有ボックスの両方で使う汎用レンダラー) ----
+function filterInstances(instances, query, passiveFilter){
+  let list = instances;
+  if(passiveFilter) list = list.filter(inst => (inst.passives||[]).includes(passiveFilter));
+  if(!query) return list;
+  const q = query.toLowerCase();
+  const qKana = toKana(query);
+  return list.filter(inst => {
     const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
-    const q = boxState.query.toLowerCase();
-    const qKana = toKana(boxState.query);
     return (p && toKana(p.name).includes(qKana)) || (inst.nickname && toKana(inst.nickname).includes(qKana))
       || (p && p.en_name && p.en_name.toLowerCase().includes(q));
   });
-  document.getElementById("boxCountTag").textContent = `所持${instances.length}体 / 表示${list.length}体`;
-  const grid = document.getElementById("boxGrid");
+}
+
+// パルが持っているパッシブごとの所持数を集計し、多い順に並べる(絞り込みチップの一覧に使う)
+function passiveCounts(instances){
+  const map = new Map();
+  instances.forEach(inst => {
+    (inst.passives||[]).forEach(name => map.set(name, (map.get(name)||0) + 1));
+  });
+  return [...map.entries()].sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0], 'ja'));
+}
+
+function renderPassiveFilter(cfg){
+  // cfg: {instances, bodyId, tagId, state, onChange}
+  const counts = passiveCounts(cfg.instances);
+  const body = document.getElementById(cfg.bodyId);
+  if(counts.length === 0){
+    body.innerHTML = `<span style="color:var(--parchment-dim);font-size:12px;">登録済みのパッシブがまだありません。</span>`;
+  } else {
+    body.innerHTML = counts.map(([name, n]) => {
+      const active = cfg.state.passiveFilter === name;
+      return `<span class="pfilter-chip ${active ? 'active' : ''}" data-passive="${name}">${name}<span class="cnt">${n}</span></span>`;
+    }).join("");
+    body.querySelectorAll(".pfilter-chip[data-passive]").forEach(chip => {
+      chip.addEventListener("click", () => {
+        const name = chip.dataset.passive;
+        cfg.state.passiveFilter = cfg.state.passiveFilter === name ? null : name;
+        cfg.onChange();
+      });
+    });
+  }
+  const tag = document.getElementById(cfg.tagId);
+  tag.textContent = cfg.state.passiveFilter ? `絞り込み中: ${cfg.state.passiveFilter}` : "";
+}
+
+function renderInstanceGrid(cfg){
+  // cfg: {instances, gridId, countId, state, onSelect, emptyMsg}
+  const instances = cfg.instances;
+  const list = filterInstances(instances, cfg.state.query, cfg.state.passiveFilter);
+  if(cfg.countId) document.getElementById(cfg.countId).textContent = `所持${instances.length}体 / 表示${list.length}体`;
+  const grid = document.getElementById(cfg.gridId);
   if(instances.length === 0){
-    grid.innerHTML = `<div class="empty-box-msg"><div class="big">${ico("box")}</div>まだパルが登録されていません。<br>「+ パルを追加」から、捕まえたパルを1体ずつ記録しましょう。</div>`;
+    grid.innerHTML = `<div class="empty-box-msg"><div class="big">${ico("box")}</div>${cfg.emptyMsg}</div>`;
     return;
   }
   if(list.length === 0){
-    grid.innerHTML = `<div class="empty-box-msg">「${boxState.query}」に一致するパルが見つかりません。</div>`;
+    const msg = cfg.state.query
+      ? `「${cfg.state.query}」に一致するパルが見つかりません。`
+      : `パッシブ「${cfg.state.passiveFilter}」を持つパルが見つかりません。`;
+    grid.innerHTML = `<div class="empty-box-msg">${msg}</div>`;
     return;
   }
   grid.innerHTML = list.map(inst => {
     const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
     if(!p) return "";
+    const sexMark = inst.sex === "male" ? `<span class="sex-mark male">♂</span>`
+      : inst.sex === "female" ? `<span class="sex-mark female">♀</span>` : "";
     return `
-    <div class="card ${boxState.selectedUid===inst.uid ? 'selected' : ''}" data-uid="${inst.uid}" tabindex="0" role="button">
-      <div class="icon-wrap">${p.icon ? `<img src="${p.icon}" alt="${p.name}" loading="lazy">` : ""}</div>
+    <div class="card ${cfg.state.selectedUid===inst.uid ? 'selected' : ''}" data-uid="${inst.uid}" tabindex="0" role="button">
+      <div class="icon-wrap">${p.icon ? `<img src="${p.icon}" alt="${p.name}" loading="lazy">` : ""}${sexMark}</div>
       <div class="pname">${inst.nickname || p.name}</div>
       <div class="pname-en">${inst.nickname ? p.name : (p.en_name || "")}</div>
     </div>`;
   }).join("");
   grid.querySelectorAll(".card[data-uid]").forEach(card => {
-    card.addEventListener("click", () => selectBoxPal(card.dataset.uid));
-    card.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); selectBoxPal(card.dataset.uid); } });
+    card.addEventListener("click", () => cfg.onSelect(card.dataset.uid));
+    card.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); cfg.onSelect(card.dataset.uid); } });
   });
 }
 
-function selectBoxPal(uid){
-  boxState.selectedUid = uid;
-  const inst = getInstances().find(x => x.uid === uid);
-  if(!inst){ closeDetailPanel(); return; }
-  const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
-  if(!p){ closeDetailPanel(); return; }
-  renderBoxGrid();
+function sexBadge(sex){
+  if(sex === "male") return `<span class="badge day" style="border-color:#4a95d9;color:#4a95d9;">♂ オス</span>`;
+  if(sex === "female") return `<span class="badge day" style="border-color:#ff2e7e;color:#ff2e7e;">♀ メス</span>`;
+  return `<span class="badge" style="border-color:var(--parchment-dim);color:var(--parchment-dim);">性別不明</span>`;
+}
+
+function buildDetailInnerHtml(inst, p){
   const timeBadge = p.active_time === "夜" ? `<span class="badge night">${ico("moon")} 夜行性</span>`
     : p.active_time === "両方" ? `<span class="badge day">${ico("sun")} 昼</span><span class="badge night">${ico("moon")} 夜</span>`
     : `<span class="badge day">${ico("sun")} 昼行性</span>`;
@@ -646,39 +821,15 @@ function selectBoxPal(uid){
     </div>
   </div>` : "";
 
-  const dropsHtml = (extra && extra.drops && extra.drops.length) ? `<div class="section">
-    <h2>ドロップアイテム</h2>
-    <div class="drop-list">
-      ${extra.drops.map(d => `<div class="drop-item">
-        ${ITEM_ICONS[d.item] ? `<img class="drop-icon" src="${ITEM_ICONS[d.item]}" alt="">` : ""}
-        ${d.tier && d.tier !== "normal" ? `<span class="drop-tier ${d.tier}">${d.tier}</span>` : ""}
-        <span class="drop-name">${d.item}</span>
-        <span class="drop-qty">×${d.qty}</span>
-        <span class="drop-rate">${d.rate}</span>
-      </div>`).join("")}
-    </div>
-  </div>` : "";
-
-  const obtainInfo = extra && extra.obtain;
-  const obtainHtml = (obtainInfo && ((obtainInfo.locations && obtainInfo.locations.length) || obtainInfo.egg_type || obtainInfo.notes)) ? `<div class="section">
-    <h2>入手方法</h2>
-    <div class="obtain-box">
-      ${obtainInfo.locations && obtainInfo.locations.length ? `<div><span class="obtain-label">生息地</span>${obtainInfo.locations.join(" / ")}</div>` : ""}
-      ${obtainInfo.egg_type ? `<div><span class="obtain-label">タマゴ</span>${obtainInfo.egg_type}</div>` : ""}
-      ${obtainInfo.boss_only ? `<div><span class="obtain-label">出現</span>ボス個体のみ</div>` : ""}
-      ${obtainInfo.notes ? `<div class="obtain-notes">${obtainInfo.notes}</div>` : ""}
-    </div>
-  </div>` : "";
-
-  document.getElementById("boxDetailPanel").innerHTML = `
+  return `
     <div class="medallion">
       <div class="ring">${p.icon ? `<img src="${p.icon}" alt="${p.name}">` : ""}</div>
       <span class="rivet nw"></span><span class="rivet ne"></span><span class="rivet sw"></span><span class="rivet se"></span>
     </div>
     <div class="detail-info">
-      <div class="dname">${inst.nickname || p.name}</div>
+      <div class="dname"><a href="palworld_dex.html?id=${p.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--parchment-dim);">${inst.nickname || p.name}</a></div>
       <div class="dname-en">${inst.nickname ? p.name + ' ・ ' : ''}${p.en_name || ""}</div>
-      <div class="badge-row">${(p.types||[]).map(typeBadge).join("")}${timeBadge}</div>
+      <div class="badge-row">${(p.types||[]).map(typeBadge).join("")}${timeBadge}${sexBadge(inst.sex)}</div>
       ${ivHtml}
     </div>
     <div class="section">
@@ -691,8 +842,41 @@ function selectBoxPal(uid){
     </div>
     ${statsHtml}
     ${innatePassivesHtml}
-    ${dropsHtml}
-    ${obtainHtml}
+  `;
+}
+
+function closeDetailPanel(emptyId, panelId){
+  document.getElementById(emptyId).style.display = "flex";
+  document.getElementById(panelId).style.display = "none";
+}
+
+// ---- 所持パル管理(自分のボックス) ----
+function renderBoxGrid(){
+  renderInstanceGrid({
+    instances: getInstances(),
+    gridId: "boxGrid",
+    countId: "boxCountTag",
+    state: boxState,
+    onSelect: selectBoxPal,
+    emptyMsg: `まだパルが登録されていません。<br>「+ パルを追加」から、捕まえたパルを1体ずつ記録しましょう。`,
+  });
+  renderPassiveFilter({
+    instances: getInstances(),
+    bodyId: "boxPfilterBody",
+    tagId: "boxPfilterActiveTag",
+    state: boxState,
+    onChange: renderBoxGrid,
+  });
+}
+
+function selectBoxPal(uid){
+  boxState.selectedUid = uid;
+  const inst = getInstances().find(x => x.uid === uid);
+  if(!inst){ closeDetailPanel("boxDetailEmpty","boxDetailPanel"); return; }
+  const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
+  if(!p){ closeDetailPanel("boxDetailEmpty","boxDetailPanel"); return; }
+  renderBoxGrid();
+  document.getElementById("boxDetailPanel").innerHTML = buildDetailInnerHtml(inst, p) + `
     <div class="box-detail-actions">
       <button class="edit-btn" id="editInstBtn">${ico('edit')} 編集</button>
       <button class="delete-btn" id="deleteInstBtn">${ico('trash')} 削除</button>
@@ -703,21 +887,85 @@ function selectBoxPal(uid){
     if(!confirm(`「${inst.nickname || p.name}」をボックスから削除しますか?`)) return;
     setInstances(getInstances().filter(x => x.uid !== uid));
     boxState.selectedUid = null;
-    closeDetailPanel();
+    closeDetailPanel("boxDetailEmpty","boxDetailPanel");
     renderBoxGrid();
   });
   document.getElementById("boxDetailEmpty").style.display = "none";
   document.getElementById("boxDetailPanel").style.display = "block";
 }
 
-function closeDetailPanel(){
-  document.getElementById("boxDetailEmpty").style.display = "flex";
-  document.getElementById("boxDetailPanel").style.display = "none";
-}
-
 document.getElementById("boxSearchBox").addEventListener("input", e => { boxState.query = e.target.value; renderBoxGrid(); });
 
+// パッシブ絞り込みパネルの開閉状態はlocalStorageに覚えておく(パルが多いと縦に長くなるため既定は閉)
+const BOX_PFILTER_OPEN_KEY = "palworldBoxPfilterOpen";
+function setBoxPfilterOpen(open){
+  document.getElementById("boxPfilterBody").style.display = open ? "flex" : "none";
+  document.getElementById("boxPfilterChevron").style.transform = open ? "rotate(90deg)" : "rotate(0deg)";
+  localStorage.setItem(BOX_PFILTER_OPEN_KEY, open ? "1" : "0");
+}
+document.getElementById("boxPfilterToggle").addEventListener("click", () => {
+  setBoxPfilterOpen(document.getElementById("boxPfilterBody").style.display === "none");
+});
+setBoxPfilterOpen(localStorage.getItem(BOX_PFILTER_OPEN_KEY) === "1");
+
 renderBoxGrid();
+
+// ---- 共有ボックス(友達と共有) ----
+function renderSharedGrid(instances){
+  if(instances) sharedBoxState.instances = instances;
+  renderInstanceGrid({
+    instances: sharedBoxState.instances,
+    gridId: "sharedGrid",
+    countId: "sharedCountTag",
+    state: sharedBoxState,
+    onSelect: selectSharedPal,
+    emptyMsg: `まだパルが登録されていません。「+ パルを追加」から登録しましょう。`,
+  });
+  renderPassiveFilter({
+    instances: sharedBoxState.instances,
+    bodyId: "sharedPfilterBody",
+    tagId: "sharedPfilterActiveTag",
+    state: sharedBoxState,
+    onChange: renderSharedGrid,
+  });
+}
+
+function selectSharedPal(uid){
+  sharedBoxState.selectedUid = uid;
+  const inst = sharedBoxState.instances.find(x => x.uid === uid);
+  if(!inst){ closeDetailPanel("sharedDetailEmpty","sharedDetailPanel"); return; }
+  const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
+  if(!p){ closeDetailPanel("sharedDetailEmpty","sharedDetailPanel"); return; }
+  renderSharedGrid();
+  document.getElementById("sharedDetailPanel").innerHTML = buildDetailInnerHtml(inst, p) + `
+    <div class="box-detail-actions">
+      <button class="edit-btn" id="editSharedInstBtn">${ico('edit')} 編集</button>
+      <button class="delete-btn" id="deleteSharedInstBtn">${ico('trash')} 削除</button>
+    </div>
+  `;
+  document.getElementById("editSharedInstBtn").addEventListener("click", () => openPform(inst.uid, "shared"));
+  document.getElementById("deleteSharedInstBtn").addEventListener("click", () => {
+    if(!confirm(`「${inst.nickname || p.name}」を共有ボックスから削除しますか?(元に戻せません)`)) return;
+    deleteFromSharedRoom(uid);
+    sharedBoxState.selectedUid = null;
+    closeDetailPanel("sharedDetailEmpty","sharedDetailPanel");
+  });
+  document.getElementById("sharedDetailEmpty").style.display = "none";
+  document.getElementById("sharedDetailPanel").style.display = "block";
+}
+
+document.getElementById("sharedSearchBox").addEventListener("input", e => { sharedBoxState.query = e.target.value; renderSharedGrid(); });
+
+const SHARED_PFILTER_OPEN_KEY = "palworldSharedPfilterOpen";
+function setSharedPfilterOpen(open){
+  document.getElementById("sharedPfilterBody").style.display = open ? "flex" : "none";
+  document.getElementById("sharedPfilterChevron").style.transform = open ? "rotate(90deg)" : "rotate(0deg)";
+  localStorage.setItem(SHARED_PFILTER_OPEN_KEY, open ? "1" : "0");
+}
+document.getElementById("sharedPfilterToggle").addEventListener("click", () => {
+  setSharedPfilterOpen(document.getElementById("sharedPfilterBody").style.display === "none");
+});
+setSharedPfilterOpen(localStorage.getItem(SHARED_PFILTER_OPEN_KEY) === "1");
 
 // ---- 配合ロードマップ ----
 
@@ -782,8 +1030,12 @@ function setupPicker(inputEl, resultsEl, onPick){
   inputEl.addEventListener("blur", () => setTimeout(() => resultsEl.style.display = "none", 150));
 }
 
+function roadmapInstances(){
+  return roadmapState.source === "shared" ? sharedBoxState.instances : getInstances();
+}
+
 function ownedAssetSet(){
-  const ownedIds = new Set(getInstances().map(inst => inst.dexId));
+  const ownedIds = new Set(roadmapInstances().map(inst => inst.dexId));
   const owned = new Set();
   Object.entries(BREEDING_DATA.pals).forEach(([asset, info]) => {
     if(info.dex_id && ownedIds.has(info.dex_id)) owned.add(asset);
@@ -791,36 +1043,151 @@ function ownedAssetSet(){
   return owned;
 }
 
-function findBreedingRoute(targetAsset, ownedSet, maxGenerations = 8){
-  if(ownedSet.has(targetAsset)){
-    return { found: true, alreadyOwned: true, steps: [] };
-  }
+// ---- 今すぐ作れるパル一覧(所持パル同士の1回配合だけで作れる、まだ持っていないパル) ----
+// findBreedingRouteのBFSの「第1世代ぶんだけ」を切り出したもの: 所持パルの全ペアの組み合わせを
+// 総当たりし、配合表(forwardPairs)に載っている子を集める。多世代先のルートは対象外(そちらは
+// 目標パルを検索して調べる既存の機能で扱う)。
+function computeDirectlyMakeable(ownedSet){
   const forward = BREEDING_DATA.forwardPairs;
-  const producedBy = {};
-  let allKnown = new Set(ownedSet);
-
-  for(let gen = 1; gen <= maxGenerations; gen++){
-    const arr = Array.from(allKnown);
-    const newlyFound = new Map();
-    for(let i = 0; i < arr.length; i++){
-      for(let j = i; j < arr.length; j++){
-        const key = [arr[i], arr[j]].sort().join("|");
-        const child = forward[key];
-        if(child && !allKnown.has(child) && !newlyFound.has(child)){
-          newlyFound.set(child, [arr[i], arr[j]]);
-        }
+  const arr = Array.from(ownedSet);
+  const result = new Map(); // child asset -> {a, b}
+  for(let i=0;i<arr.length;i++){
+    for(let j=i;j<arr.length;j++){
+      const key = [arr[i], arr[j]].sort().join("|");
+      const child = forward[key];
+      if(child && !ownedSet.has(child) && !result.has(child)){
+        result.set(child, { a: arr[i], b: arr[j] });
       }
     }
-    if(newlyFound.size === 0) break;
-    newlyFound.forEach((pair, child) => {
-      producedBy[child] = { a: pair[0], b: pair[1], generation: gen };
-      allKnown.add(child);
-    });
-    if(allKnown.has(targetAsset)){
-      return { found: true, alreadyOwned: false, steps: reconstructSteps(targetAsset, producedBy, ownedSet) };
+  }
+  return result;
+}
+
+function renderQuickMakeable(){
+  const grid = document.getElementById("quickMakeableGrid");
+  const countTag = document.getElementById("quickMakeableCount");
+  if(!grid) return;
+  const owned = ownedAssetSet();
+  const makeable = computeDirectlyMakeable(owned);
+  if(!makeable.size){
+    countTag.textContent = "";
+    grid.innerHTML = `<div class="empty-box-msg" style="grid-column:1/-1;padding:14px;">今の所持パルの組み合わせだけでは、新しく作れるパルがありません。</div>`;
+    return;
+  }
+  countTag.textContent = `${makeable.size}種`;
+  const entries = Array.from(makeable.entries()).sort((x, y) => nameOf(x[0]).localeCompare(nameOf(y[0]), 'ja'));
+  grid.innerHTML = entries.map(([child, pair]) => `
+    <div class="quick-makeable-item" data-child="${child}" data-a="${pair.a}" data-b="${pair.b}" tabindex="0" role="button" title="${nameOf(child)}">
+      ${iconOf(child) ? `<img src="${iconOf(child)}" alt="${nameOf(child)}" loading="lazy">` : ""}
+    </div>
+  `).join("");
+  grid.querySelectorAll(".quick-makeable-item").forEach(el => {
+    const open = () => openQuickMakeableModal(el.dataset.child, el.dataset.a, el.dataset.b);
+    el.addEventListener("click", open);
+    el.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); open(); } });
+  });
+}
+
+function openQuickMakeableModal(child, a, b){
+  const body = document.getElementById("quickRouteBody");
+  const palCol = (asset, isTarget) => `
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <div style="width:${isTarget ? 68 : 56}px;height:${isTarget ? 68 : 56}px;border-radius:50%;background:var(--panel2);border:2px solid ${isTarget ? 'var(--brass)' : 'var(--line)'};overflow:hidden;">
+        ${iconOf(asset) ? `<img src="${iconOf(asset)}" alt="" style="width:100%;height:100%;object-fit:cover;">` : ""}
+      </div>
+      <span style="font-size:12.5px;text-align:center;">${nameOf(asset)}</span>
+    </div>`;
+  body.innerHTML = `
+    <p class="pform-title" style="margin-top:0;">${nameOf(child)} の配合レシピ</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin:18px 0;flex-wrap:wrap;">
+      ${palCol(a)}
+      <span style="color:var(--brass);font-size:20px;">×</span>
+      ${palCol(b)}
+      <span style="color:var(--brass);font-size:20px;">→</span>
+      ${palCol(child, true)}
+    </div>
+    <p style="font-size:11.5px;color:var(--parchment-dim);text-align:center;margin-bottom:0;">今の所持パル同士だけで、配合1回で作れます(異性のペアが必要です)。</p>
+  `;
+  document.getElementById("quickRouteOverlay").classList.add("open");
+}
+
+function passiveMaskOf(passives, targetList){
+  let m = 0;
+  (passives||[]).forEach(p => { const idx = targetList.indexOf(p); if(idx >= 0) m |= (1 << idx); });
+  return m;
+}
+function popcountOf(m){ let c = 0; while(m){ c += m & 1; m >>= 1; } return c; }
+
+// 子パル -> それを作れる親ペア候補一覧への逆引き(1つの子パルに対して親ペアが
+// 数十〜千通り以上あることが多い)。BREEDING_DATAは実行中に変化しないため一度だけ構築する。
+const REVERSE_FORWARD_PAIRS = (() => {
+  const rev = {};
+  Object.entries(BREEDING_DATA.forwardPairs).forEach(([key, child]) => {
+    const sep = key.indexOf("|");
+    const a = key.slice(0, sep), b = key.slice(sep + 1);
+    (rev[child] = rev[child] || []).push([a, b]);
+  });
+  return rev;
+})();
+
+// targetSetを指定すると、同じ子パルを作れる親ペア候補の中から、目的パッシブを理論上
+// 最も多く継承できるルートそのものを再帰的に探す(メモ化DFS)。各パルの結果は一度確定したら
+// 二度と書き換えない(cache.set は1回のみ)ため、後から他のパルの値が変わっても既に確定した
+// パルの参照が食い違う(不整合な「幽霊ルート」ができる)ことがない。
+// ※以前試した「全ペアを世代の上限回数だけ繰り返し緩和する」方式(ベルマンフォード法)は、
+// 一度確定した子パルの参照(mask/pair)を後の周回で書き換えてしまい、achieve()が返す
+// カバー数と実際に復元されるルート(reconstructSteps)が食い違う不整合なバグがあったため、
+// このメモ化DFS方式に置き換えた(実データで内部整合性を確認済み)。
+// 探索中の祖先(visiting)を再度使おうとした場合は循環として除外し、その候補だけスキップする
+// (他の候補は引き続き試すため、循環のせいで見つかるはずのルートを見逃すことはない)。
+function computeAchievableForAsset(asset, targetList, ownedSet, cache, visiting, maxGenerations){
+  if(cache.has(asset)) return cache.get(asset);
+  if(visiting.has(asset)) return null;
+  if(ownedSet.has(asset)){
+    const inst = targetList.length ? bestParentForPassives(asset, new Set(targetList)) : null;
+    const result = { mask: passiveMaskOf(inst ? inst.passives : [], targetList), gen: 0, pair: null };
+    cache.set(asset, result);
+    return result;
+  }
+  visiting.add(asset);
+  const candidates = REVERSE_FORWARD_PAIRS[asset] || [];
+  let best = null;
+  for(const [a, b] of candidates){
+    const ra = computeAchievableForAsset(a, targetList, ownedSet, cache, visiting, maxGenerations);
+    if(!ra) continue;
+    const rb = computeAchievableForAsset(b, targetList, ownedSet, cache, visiting, maxGenerations);
+    if(!rb) continue;
+    const gen = Math.max(ra.gen, rb.gen) + 1;
+    if(gen > maxGenerations) continue;
+    const mask = ra.mask | rb.mask;
+    if(!best || popcountOf(mask) > popcountOf(best.mask) || (popcountOf(mask) === popcountOf(best.mask) && gen < best.gen)){
+      best = { mask, gen, pair: [a, b] };
     }
   }
-  return { found: false };
+  visiting.delete(asset);
+  cache.set(asset, best);
+  return best;
+}
+
+function findBreedingRoute(targetAsset, ownedSet, targetSet = new Set(), maxGenerations = 20){
+  const alreadyOwned = ownedSet.has(targetAsset);
+  // 所持済みでも「配合するならどのルートが一番良いか」を必ず探索する。
+  // targetAsset自身だけをownedSetから除外した専用Setで探索することで、
+  // computeAchievableForAssetの「所持済みなら即0ステップの葉ノード」扱いを
+  // targetAsset自身に限って回避する(中間素材としての所持判定はそのまま維持)。
+  const searchOwnedSet = alreadyOwned
+    ? new Set(Array.from(ownedSet).filter(a => a !== targetAsset))
+    : ownedSet;
+  const targetList = Array.from(targetSet);
+  const cache = new Map();
+  const rec = computeAchievableForAsset(targetAsset, targetList, searchOwnedSet, cache, new Set(), maxGenerations);
+  if(!rec){
+    // 所持済みだが配合ルートが無い(自家配合限定種など)場合は、従来通り所持済み表示に留める
+    return alreadyOwned ? { found: true, alreadyOwned: true, steps: [] } : { found: false };
+  }
+  const producedBy = {};
+  cache.forEach((r, asset) => { if(r && r.pair) producedBy[asset] = { a: r.pair[0], b: r.pair[1], generation: r.gen }; });
+  return { found: true, alreadyOwned, steps: reconstructSteps(targetAsset, producedBy, searchOwnedSet) };
 }
 
 function reconstructSteps(targetAsset, producedBy, ownedSet){
@@ -828,7 +1195,10 @@ function reconstructSteps(targetAsset, producedBy, ownedSet){
   const stack = [targetAsset];
   while(stack.length){
     const cur = stack.pop();
-    if(needed.has(cur) || ownedSet.has(cur)) continue;
+    if(needed.has(cur)) continue;
+    // targetAsset自身は(所持済みでも)常にルートの最終ステップとして残す。
+    // 中間素材はこれまで通り所持済みなら葉ノード扱いで打ち切る。
+    if(cur !== targetAsset && ownedSet.has(cur)) continue;
     needed.add(cur);
     const rec = producedBy[cur];
     if(rec){ stack.push(rec.a); stack.push(rec.b); }
@@ -840,17 +1210,38 @@ function reconstructSteps(targetAsset, producedBy, ownedSet){
 }
 
 (function selfTestRoute(){
-  // 単純ケース: A,Aから作れるパルがownedなら0ステップ
-  const dummyForward = { "X|X": "X" };
-  const savedForward = BREEDING_DATA.forwardPairs;
-  BREEDING_DATA.forwardPairs = dummyForward;
-  const r1 = findBreedingRoute("X", new Set(["X"]));
-  console.assert(r1.found && r1.alreadyOwned === true, "[selfTest失敗] 所持済みパルは0ステップになるはず");
-  BREEDING_DATA.forwardPairs = savedForward;
+  // REVERSE_FORWARD_PAIRSはBREEDING_DATA読み込み時に1度だけ構築されるため、
+  // テスト用にBREEDING_DATA.forwardPairsを差し替えても反映されない。
+  // そのため、実データの中から検証に使える具体例を動的に探して使う。
+
+  // 自家配合(X|X)以外にルートが存在しない実データ上のパルは、所持済みなら0ステップのはず
+  let selfOnlyAsset = null;
+  for(const asset of Object.keys(BREEDING_DATA.pals)){
+    const candidates = REVERSE_FORWARD_PAIRS[asset] || [];
+    const hasOtherRoute = candidates.some(([a, b]) => a !== asset || b !== asset);
+    if(!hasOtherRoute){ selfOnlyAsset = asset; break; }
+  }
+  if(selfOnlyAsset){
+    const r1 = findBreedingRoute(selfOnlyAsset, new Set([selfOnlyAsset]));
+    console.assert(r1.found && r1.alreadyOwned === true && r1.steps.length === 0, "[selfTest失敗] 自家配合以外にルートが無いパルは所持済みなら0ステップになるはず");
+  }
 
   // 到達不能ケース
   const r2 = findBreedingRoute("__NOT_EXIST__", new Set());
   console.assert(r2.found === false, "[selfTest失敗] 存在しない組み合わせはfound:falseになるはず");
+
+  // 所持済みでも、他の所持パル同士で配合できるルートがあればそちらも提示する
+  let dynChild = null, dynPair = null;
+  for(const [key, child] of Object.entries(BREEDING_DATA.forwardPairs)){
+    const sep = key.indexOf("|");
+    const a = key.slice(0, sep), b = key.slice(sep + 1);
+    if(a !== child && b !== child){ dynChild = child; dynPair = [a, b]; break; }
+  }
+  if(dynChild){
+    const r3 = findBreedingRoute(dynChild, new Set([dynChild, ...dynPair]));
+    console.assert(r3.found && r3.alreadyOwned === true && r3.steps.length >= 1, "[selfTest失敗] 所持済みでも配合可能なら配合ルートを提示するはず");
+  }
+
   console.log("[selfTest] 配合ロードマップBFSの自己診断完了(上に赤いAssertion failedが無ければOK)");
 })();
 
@@ -858,36 +1249,50 @@ function renderRoute(result, targetAsset, ownedSet){
   const box = document.getElementById("roadmapResult");
   box.className = "result-box";
   if(!result.found){
-    box.innerHTML = `<p>「${nameOf(targetAsset)}」への配合ルートが見つかりませんでした(所持パルからは最大8世代以内で作れません。野生入手が必要な可能性があります)。</p>`;
+    box.innerHTML = `<p>「${nameOf(targetAsset)}」への配合ルートが見つかりませんでした(所持パルの組み合わせだけでは最大20世代以内でも作れません。野生入手が必要な可能性があります)。</p>`;
     return;
   }
-  if(result.alreadyOwned){
-    box.innerHTML = `<p>「${nameOf(targetAsset)}」はすでに所持しています。</p>`;
+  if(result.alreadyOwned && !result.steps.length){
+    box.innerHTML = `<p>「${nameOf(targetAsset)}」はすでに所持しています(この個体だけで作れる自家配合限定種のため、他の配合ルートはありません)。</p>`;
     return;
   }
-  let html = `<h3 style="font-family:var(--font-display);margin-top:0;">${nameOf(targetAsset)} への配合ルート(${result.steps.length}ステップ)</h3><ol class="route-pair-list" style="list-style:none;padding:0;">`;
+  const ownedNote = result.alreadyOwned
+    ? `<p style="font-size:11.5px;color:var(--brass);margin:0 0 10px;">${ico('check')} 「${nameOf(targetAsset)}」はすでに所持していますが、以下の配合でも作れます。</p>`
+    : "";
+  const passiveNote = roadmapState.passives.length
+    ? `<p style="font-size:11.5px;color:var(--hp);margin:0 0 10px;">${ico('check')} 指定したパッシブ(${roadmapState.passives.join('・')})をできるだけ多く継承できるよう、複数の配合ルート候補の中から優先して選んでいます。</p>`
+    : "";
+  let html = `<h3 style="font-family:var(--font-display);margin-top:0;">${nameOf(targetAsset)} への配合ルート(${result.steps.length}ステップ)</h3>${ownedNote}${passiveNote}<ol class="route-pair-list" style="list-style:none;padding:0;">`;
   result.steps.forEach(s => {
     const isFinal = s.child === targetAsset;
-    html += `<li class="route-pair-item" style="${isFinal ? 'border:1px solid var(--brass);' : ''}">
+    const bothOwned = ownedSet.has(s.a) && ownedSet.has(s.b);
+    const sexStatus = bothOwned ? canPairSpeciesGenders(s.a, s.b) : null;
+    const sexWarning = sexStatus === "conflict"
+      ? `<div style="font-size:11px;color:var(--danger);margin-top:4px;">${ico('warning')} 所持個体が全員同性のため、このままでは配合できません</div>`
+      : sexStatus === "unknown"
+      ? `<div style="font-size:11px;color:var(--brass);margin-top:4px;">${ico('warning')} 性別未設定の個体があり、配合できるか未確認です</div>`
+      : "";
+    html += `<li class="route-pair-item" style="${isFinal ? 'border:1px solid var(--brass);' : (sexStatus === 'conflict' ? 'border:1px solid var(--danger);' : '')}">
       <span class="unique-tag" style="background:var(--teal-dim);">第${s.generation}世代</span>
       ${ownedSet.has(s.a) ? '' : ico('egg')}${iconOf(s.a) ? `<img src="${iconOf(s.a)}" alt="">` : ""}${nameOf(s.a)}
       <span style="color:var(--brass);">×</span>
       ${ownedSet.has(s.b) ? '' : ico('egg')}${iconOf(s.b) ? `<img src="${iconOf(s.b)}" alt="">` : ""}${nameOf(s.b)}
       <span style="color:var(--brass);">→</span>
       ${iconOf(s.child) ? `<img src="${iconOf(s.child)}" alt="">` : ""}${nameOf(s.child)}${isFinal ? ' '+ico('target') : ''}
+      ${sexWarning}
     </li>`;
   });
-  html += `</ol><p style="margin-top:10px;color:var(--parchment-dim);font-size:12px;">${ico('egg')} = このルート内で先に配合して用意する必要があるパル(元々の所持パルではない)</p>`;
+  html += `</ol><p style="margin-top:10px;color:var(--parchment-dim);font-size:12px;">${ico('egg')} = このルート内で先に配合して用意する必要があるパル(元々の所持パルではない)。${ico('warning')} = 所持個体の性別設定から見て配合できるか怪しいステップ(性別を設定していないパルは判定できません)。</p>`;
   box.innerHTML = html;
 }
 
 // ---- パッシブ厳選(目的のパッシブを持つ子を作るための最終配合ペア判定) ----
-const roadmapState = { targetAsset: null, passives: [] };
+const roadmapState = { targetAsset: null, passives: [], source: "local" };
 
 function instancesOfAsset(asset){
   const info = BREEDING_DATA.pals[asset];
   if(!info || !info.dex_id) return [];
-  return getInstances().filter(inst => inst.dexId === info.dex_id);
+  return roadmapInstances().filter(inst => inst.dexId === info.dex_id);
 }
 
 // 指定種族の所持個体の中から、目的パッシブとの重複が最も多い個体を選ぶ
@@ -950,6 +1355,36 @@ function collectLeafSpecies(result){
   return Array.from(leaves);
 }
 
+// 配合は種族の相性表だけでなく「必ず異性同士でなければ成立しない」というゲーム側の制約があるため、
+// パッシブの継承候補プールとは別に、各配合ステップの親2体が実際に配合できる性別の組み合わせかを判定する。
+// 中間世代(このルート内でこれから配合して用意するパル)は生まれるまで性別が分からないため判定対象外(null)。
+function sexOf(inst){ return (inst && inst.sex) ? inst.sex : "unknown"; }
+
+// 基本ルート表示用の簡易判定: 2種族それぞれの所持個体群の中に、異性同士のペアが
+// 1組でも組めるかを見る(パッシブは見ない、種族単位のざっくりした「配合できそうか」判定)。
+function canPairSpeciesGenders(assetA, assetB){
+  const instsA = instancesOfAsset(assetA);
+  const instsB = instancesOfAsset(assetB);
+  if(!instsA.length || !instsB.length) return null;
+  for(const ia of instsA){
+    for(const ib of instsB){
+      const sa = sexOf(ia), sb = sexOf(ib);
+      if(sa === "unknown" || sb === "unknown") continue;
+      if(sa !== sb) return "ok";
+    }
+  }
+  const anyUnknown = instsA.some(i => sexOf(i) === "unknown") || instsB.some(i => sexOf(i) === "unknown");
+  return anyUnknown ? "unknown" : "conflict";
+}
+
+function stepSexStatus(aRes, bRes){
+  if(aRes.isIntermediate || bRes.isIntermediate) return null;
+  if(!aRes.inst || !bRes.inst) return null;
+  const sa = sexOf(aRes.inst), sb = sexOf(bRes.inst);
+  if(sa === "unknown" || sb === "unknown") return "unknown";
+  return sa === sb ? "conflict" : "ok";
+}
+
 // computeAchievablePoolsと同じ再帰だが、末端種族にどの所持個体を割り当てるかを
 // assignment(Map: asset -> instance|null)で明示的に指定できるようにしたもの。
 function computePoolsWithAssignment(result, assignment){
@@ -968,7 +1403,7 @@ function computePoolsWithAssignment(result, assignment){
     const aRes = resolve(step.a);
     const bRes = resolve(step.b);
     const pool = new Set([...aRes.pool, ...bRes.pool]);
-    resolved[asset] = { pool, isIntermediate: true, step, aRes, bRes };
+    resolved[asset] = { pool, isIntermediate: true, step, aRes, bRes, sexStatus: stepSexStatus(aRes, bRes) };
     return resolved[asset];
   }
   result.steps.forEach(s => resolve(s.child));
@@ -1007,10 +1442,18 @@ function enumerateParentCombinations(result, targetSet, maxCombos = 2000){
     const finalPool = resolved[finalStep.child].pool;
     const covered = [...targetSet].filter(p => finalPool.has(p));
     const excess = [...finalPool].filter(p => !targetSet.has(p)).length;
-    return { assignment, resolved, coveredCount: covered.length, covered, excess };
+    // 性別ペナルティ: 同性のため配合不可能なステップが1つでもあれば最優先で除外扱い、
+    // 性別未設定で判定できないステップがあれば次点(「要確認」として下位に回す)。
+    let genderPenalty = 0;
+    result.steps.forEach(s => {
+      const status = resolved[s.child] && resolved[s.child].sexStatus;
+      if(status === "conflict") genderPenalty += 1000;
+      else if(status === "unknown") genderPenalty += 1;
+    });
+    return { assignment, resolved, coveredCount: covered.length, covered, excess, genderPenalty };
   });
 
-  scored.sort((a, b) => b.coveredCount - a.coveredCount || a.excess - b.excess);
+  scored.sort((a, b) => a.genderPenalty - b.genderPenalty || b.coveredCount - a.coveredCount || a.excess - b.excess);
 
   // 個体の組み合わせ(誰と誰を使うか)が同一なものは重複表示しないようにする
   const seen = new Set();
@@ -1027,10 +1470,67 @@ function enumerateParentCombinations(result, targetSet, maxCombos = 2000){
   return { leaves, ranked: distinct };
 }
 
+// ---- 成功率シミュレーター(モンテカルロ法) ----
+// wikiで報告されている「継承枠1〜4個抽選(4個10%/3個20%/2個30%/1個40%)」のメカニクスだけを
+// モデル化する。「親の持たないパッシブが枠に追加されるボーナス抽選」は、狙ったパッシブが
+// たまたま当たる確率が低く不確実性も高いため、意図的にモデルに含めない
+// (=実際の成功率はここで出す数字よりやや高めになりうる、という前提の控えめな見積もり)。
+function rollInheritedSlotCount(){
+  const r = Math.random();
+  if(r < 0.10) return 4;
+  if(r < 0.30) return 3;
+  if(r < 0.60) return 2;
+  return 1;
+}
+function sampleWithoutReplacement(arr, n){
+  const copy = arr.slice();
+  for(let i = copy.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy.slice(0, Math.min(n, copy.length));
+}
+// resolved(computePoolsWithAssignmentの結果)をたどり、1回分の配合ルートをシミュレートして
+// 最終個体が実際に持つことになるパッシブ配列を返す。所持済み個体は乱数無し(実際のパッシブそのまま)。
+function simulateRouteOnce(resolved, asset, memo){
+  if(memo.has(asset)) return memo.get(asset);
+  const node = resolved[asset];
+  if(!node.isIntermediate){
+    const passives = node.inst ? node.inst.passives : [];
+    memo.set(asset, passives);
+    return passives;
+  }
+  const aPassives = simulateRouteOnce(resolved, node.step.a, memo);
+  const bPassives = simulateRouteOnce(resolved, node.step.b, memo);
+  const combinedPool = Array.from(new Set([...aPassives, ...bPassives]));
+  const slots = rollInheritedSlotCount();
+  const inherited = combinedPool.length <= slots ? combinedPool : sampleWithoutReplacement(combinedPool, slots);
+  memo.set(asset, inherited);
+  return inherited;
+}
+function simulateBreedingSuccessRate(resolved, finalAsset, targetList, trials = 20000){
+  if(!targetList.length) return null;
+  let successCount = 0;
+  for(let t = 0; t < trials; t++){
+    const memo = new Map();
+    const finalPassives = new Set(simulateRouteOnce(resolved, finalAsset, memo));
+    if(targetList.every(p => finalPassives.has(p))) successCount++;
+  }
+  const p = successCount / trials;
+  return { p, trials, successCount };
+}
+// 成功確率pのとき、confidence(例0.8=80%)以上の確率で少なくとも1回成功するまでに
+// 必要な試行回数の期待的な目安(幾何分布の分位点)。p=0(理論上0%)ならnullを返す。
+function attemptsForConfidence(p, confidence){
+  if(p <= 0) return null;
+  if(p >= 1) return 1;
+  return Math.ceil(Math.log(1 - confidence) / Math.log(1 - p));
+}
+
 function renderPassiveFit(result, targetAsset){
   const wrap = document.getElementById("roadmapPassiveFit");
   if(!wrap) return;
-  if(!roadmapState.passives.length || !result.found || result.alreadyOwned){
+  if(!roadmapState.passives.length || !result.found || !result.steps.length){
     wrap.innerHTML = "";
     return;
   }
@@ -1038,12 +1538,16 @@ function renderPassiveFit(result, targetAsset){
   const { leaves, ranked } = enumerateParentCombinations(result, targetSet);
   if(!ranked.length){ wrap.innerHTML = ""; return; }
 
+  const sexLabel = sex => sex === "male" ? `<span style="color:#4a95d9;">♂オス</span>`
+    : sex === "female" ? `<span style="color:#ff2e7e;">♀メス</span>`
+    : `<span style="color:var(--parchment-dim);">性別不明</span>`;
+
   const parentLabel = (asset, res) => {
     const label = nameOf(asset);
-    if(res.isIntermediate) return `<span style="color:var(--teal);">${label}(このルート内で配合して用意)</span>`;
+    if(res.isIntermediate) return `<span style="color:var(--teal);">${label}(このルート内で配合して用意・性別は生まれるまで不明)</span>`;
     if(!res.inst) return `<span style="color:var(--danger);">${label}(未所持・パッシブ未確認)</span>`;
     const passiveList = res.inst.passives.length ? res.inst.passives.join('・') : '(パッシブ未登録)';
-    return `<span>${res.inst.nickname || label}${res.inst.nickname ? `(${label})` : ''} — ${passiveList}</span>`;
+    return `<span>${res.inst.nickname || label}${res.inst.nickname ? `(${label})` : ''} [${sexLabel(sexOf(res.inst))}] — ${passiveList}</span>`;
   };
 
   const renderComboDetail = (resolved) => {
@@ -1053,11 +1557,17 @@ function renderPassiveFit(result, targetAsset){
       const aRes = resolved[s.a];
       const bRes = resolved[s.b];
       const gotHere = [...res.pool].filter(p => targetSet.has(p));
-      html += `<div style="border-left:2px solid var(--line);padding:8px 0 8px 12px;margin-bottom:8px;">
+      const sexWarning = res.sexStatus === "conflict"
+        ? `<p style="font-size:11.5px;color:var(--danger);margin:4px 0 0;">${ico('warning')} この2体は性別が同じため、実際には配合できません。どちらかの性別が違う個体を用意してください。</p>`
+        : res.sexStatus === "unknown"
+        ? `<p style="font-size:11.5px;color:var(--brass);margin:4px 0 0;">${ico('warning')} どちらかの性別が未設定のため、実際に配合できるか未確認です。パルボックスの編集から性別を設定してください。</p>`
+        : "";
+      html += `<div style="border-left:2px solid ${res.sexStatus === 'conflict' ? 'var(--danger)' : 'var(--line)'};padding:8px 0 8px 12px;margin-bottom:8px;">
         <div style="font-size:11px;color:var(--brass);margin-bottom:4px;">第${s.generation}世代: ${nameOf(s.child)}</div>
         <p style="font-size:12px;color:var(--parchment-dim);margin:0 0 4px;">${parentLabel(s.a, aRes)}</p>
         <p style="font-size:12px;color:var(--parchment-dim);margin:0 0 4px;">${parentLabel(s.b, bRes)}</p>
         <p style="font-size:11.5px;margin:4px 0 0;">→ ${nameOf(s.child)}が理論上引き継ぎうる目的パッシブ: ${gotHere.length ? gotHere.map(p=>`<span style="color:var(--hp);">${ico('check')}${p}</span>`).join(' ') : '<span style="color:var(--parchment-dim);">なし</span>'}</p>
+        ${sexWarning}
       </div>`;
     });
     return html;
@@ -1074,6 +1584,12 @@ function renderPassiveFit(result, targetAsset){
 
   let html = `<div class="section" style="margin-top:12px;">
     <h2>パッシブ厳選チェック(全${result.steps.length}世代)</h2>`;
+
+  if(best.genderPenalty >= 1000){
+    html += `<div class="coverage-warn" style="margin-bottom:8px;">${ico("warning")} 所持個体のどの組み合わせでも、性別が同じで配合できないステップがあります(下記の該当世代を参照)。異性の個体を用意してください。</div>`;
+  } else if(best.genderPenalty > 0){
+    html += `<p style="font-size:11.5px;color:var(--brass);margin:0 0 8px;">${ico("warning")} 性別が未設定の個体があるため、実際に配合できるか未確認のステップがあります(下記参照)。</p>`;
+  }
 
   if(ranked.length > 1){
     html += `<p style="font-size:11.5px;color:var(--parchment-dim);margin:0 0 8px;">所持個体の組み合わせ${ranked.length}通りを比較し、目的パッシブを最も多くカバーできる順に並べています。</p>
@@ -1097,6 +1613,20 @@ function renderPassiveFit(result, targetAsset){
   } else {
     html += `<p style="font-size:12.5px;color:var(--hp);margin-bottom:8px;">目的の${roadmapState.passives.length}パッシブすべてが、最有力パターンでルートのどこかの世代で継承候補プールに入る可能性があります(上記世代ごとの内訳を参照)。</p>`;
   }
+
+  const sim = simulateBreedingSuccessRate(best.resolved, targetAsset, roadmapState.passives);
+  if(sim){
+    const pctExact = (sim.p * 100);
+    const pctLabel = pctExact === 0 ? "0%未満(2万回試行で1回も成功せず)" : pctExact < 0.1 ? "0.1%未満" : pctExact.toFixed(pctExact < 10 ? 1 : 0) + "%";
+    const need80 = attemptsForConfidence(sim.p, 0.8);
+    const expected = sim.p > 0 ? Math.round(1 / sim.p) : null;
+    html += `<div class="archetype-box" style="background:var(--panel2);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);border-radius:6px;padding:12px 14px;margin-bottom:10px;">
+      <div style="font-weight:700;color:var(--teal);font-size:13px;margin-bottom:6px;">${ico('sparkle')} 成功率シミュレーター(概算)</div>
+      <p style="font-size:12.5px;margin:0 0 4px;">今の最有力パターンでこのルート通りに1回配合〜孵化した場合、目的パッシブ${roadmapState.passives.length}個が<b style="color:var(--parchment);">全部揃う確率は約${pctLabel}</b>。</p>
+      ${expected ? `<p style="font-size:12.5px;margin:0 0 4px;">期待値としては<b style="color:var(--parchment);">平均${expected.toLocaleString()}回</b>ほど孵化を繰り返す想定になります(80%の確率で1回は成功させるには目安${need80.toLocaleString()}回)。</p>` : ""}
+      <p style="font-size:10.5px;color:var(--parchment-dim);line-height:1.6;margin:6px 0 0;">継承枠1〜4個抽選(4個10%/3個20%/2個30%/1個40%)のメカニクスのみをモンテカルロ法(2万回試行)でシミュレートした概算値です。親の持たないパッシブが追加されるボーナス抽選は不確実性が高いため含めていません(実際の成功率はこれよりやや高めの可能性があります)。中間世代の親も所持個体と同じ手順で用意する前提です。</p>
+    </div>`;
+  }
   html += `<p style="font-size:10.5px;color:var(--parchment-dim);line-height:1.7;">
     ※「理論上引き継ぎうる」は保証ではありません。継承は確率制で、中間世代(配合して用意するパル)を挟むほど、
     その世代で狙ったパッシブが実際に付くまで配合をやり直す必要があります(何世代も挟むほど成功率は下がります)。
@@ -1110,7 +1640,8 @@ function renderPassiveFit(result, targetAsset){
 function updateRoadmapResult(){
   if(!roadmapState.targetAsset) return;
   const owned = ownedAssetSet();
-  const result = findBreedingRoute(roadmapState.targetAsset, owned);
+  const targetSet = new Set(roadmapState.passives);
+  const result = findBreedingRoute(roadmapState.targetAsset, owned, targetSet);
   renderRoute(result, roadmapState.targetAsset, owned);
   renderPassiveFit(result, roadmapState.targetAsset);
 }
@@ -1188,12 +1719,59 @@ document.querySelectorAll(".mode-tab").forEach(tab => {
     tab.classList.add("active");
     const mode = tab.dataset.mode;
     document.getElementById("boxView").style.display = mode === "box" ? "block" : "none";
+    document.getElementById("shareView").style.display = mode === "share" ? "block" : "none";
     document.getElementById("roadmapView").style.display = mode === "roadmap" ? "block" : "none";
+    if(mode === "roadmap") renderQuickMakeable();
   });
 });
 
+function updateRoadmapSourceHint(){
+  const hint = document.getElementById("roadmapSourceHint");
+  if(roadmapState.source === "shared"){
+    hint.textContent = currentRoomCode
+      ? `合言葉「${currentRoomCode}」の共有ボックスに入っている個体を「所持済み」として配合ルートを計算します。`
+      : `共有ボックスに入っていません。「共有ボックス」タブで合言葉を作成/入力してから選んでください。`;
+  } else {
+    hint.textContent = `自分のボックス(この端末だけに保存されている個体)を「所持済み」として配合ルートを計算します。`;
+  }
+}
+updateRoadmapSourceHint();
+
+document.querySelectorAll("#roadmapSourceTabs .mini-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    if(tab.dataset.source === "shared" && !currentRoomCode){
+      alert("共有ボックスに入っていません。先に「共有ボックス」タブで合言葉を作成/入力してください。");
+      return;
+    }
+    document.querySelectorAll("#roadmapSourceTabs .mini-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    roadmapState.source = tab.dataset.source;
+    updateRoadmapSourceHint();
+    updateRoadmapResult();
+    renderQuickMakeable();
+  });
+});
+renderQuickMakeable();
+
+// 「今すぐ作れるパル」は所持数が多いと100種以上並んでロードマップ画面が縦に長くなりすぎるため、
+// 折りたたみ式にしている(2026-07-16、ユーザー指摘)。開閉状態はlocalStorageに覚えておく。
+const QUICK_MAKEABLE_OPEN_KEY = "palworldQuickMakeableOpen";
+function setQuickMakeableOpen(open){
+  document.getElementById("quickMakeableBody").style.display = open ? "block" : "none";
+  document.getElementById("quickMakeableChevron").style.transform = open ? "rotate(90deg)" : "rotate(0deg)";
+  localStorage.setItem(QUICK_MAKEABLE_OPEN_KEY, open ? "1" : "0");
+}
+document.getElementById("quickMakeableToggle").addEventListener("click", () => {
+  const isOpen = document.getElementById("quickMakeableBody").style.display !== "none";
+  setQuickMakeableOpen(!isOpen);
+});
+setQuickMakeableOpen(localStorage.getItem(QUICK_MAKEABLE_OPEN_KEY) === "1");
+
+document.getElementById("quickRouteClose").addEventListener("click", () => document.getElementById("quickRouteOverlay").classList.remove("open"));
+document.getElementById("quickRouteOverlay").addEventListener("click", e => { if(e.target.id === "quickRouteOverlay") document.getElementById("quickRouteOverlay").classList.remove("open"); });
+
 // ---- パル登録フォーム(捕まえた個体を1体ずつボックスへ追加/編集) ----
-const pformState = { editUid: null, asset: null, skills: [], passives: [], target: "local" };
+const pformState = { editUid: null, asset: null, skills: [], passives: [], sex: "unknown", target: "local" };
 
 function pickSpeciesForPform(asset){
   pformState.asset = asset;
@@ -1212,6 +1790,7 @@ function pickSpeciesForPform(asset){
     document.getElementById('pformSpeciesInput').focus();
   });
   document.getElementById('pformDetailSections').style.display = 'block';
+  document.getElementById('pformSexSection').style.display = 'block';
   document.getElementById('pformIvSection').style.display = 'block';
   document.getElementById('pformSkillSection').style.display = 'block';
   document.getElementById('pformPassiveSection').style.display = 'block';
@@ -1337,6 +1916,11 @@ function renderPickedChips(){
   });
 }
 
+function setPformSex(sex){
+  pformState.sex = sex;
+  document.querySelectorAll('#pformSexTabs .mini-tab').forEach(t => t.classList.toggle('active', t.dataset.sex === sex));
+}
+
 function openPform(editUid, target){
   pformState.editUid = editUid || null;
   pformState.target = target || "local";
@@ -1347,10 +1931,12 @@ function openPform(editUid, target){
   document.getElementById('pformSpeciesInput').value = '';
   document.getElementById('pformSpeciesPicked').style.display = 'none';
   document.getElementById('pformDetailSections').style.display = 'none';
+  document.getElementById('pformSexSection').style.display = 'none';
   document.getElementById('pformIvSection').style.display = 'none';
   document.getElementById('pformSkillSection').style.display = 'none';
   document.getElementById('pformPassiveSection').style.display = 'none';
   document.getElementById('pformNickname').value = '';
+  setPformSex('unknown');
   ['ivHp','ivAttack','ivDefense'].forEach(id => {
     document.getElementById(id).value = 0;
     document.getElementById(id+'Val').textContent = '0%';
@@ -1359,11 +1945,12 @@ function openPform(editUid, target){
   document.getElementById('pformSaveBtn').textContent = '種族を選んでください';
 
   if(editUid){
-    const inst = getInstances().find(x => x.uid === editUid);
+    const inst = (pformState.target === "shared" ? sharedBoxState.instances : getInstances()).find(x => x.uid === editUid);
     if(inst){
       const asset = ASSET_BY_DEXID[inst.dexId];
       pickSpeciesForPform(asset);
       document.getElementById('pformNickname').value = inst.nickname || '';
+      setPformSex(inst.sex || 'unknown');
       document.getElementById('ivHp').value = inst.ivs.hp;
       document.getElementById('ivHpVal').textContent = inst.ivs.hp + '%';
       document.getElementById('ivAttack').value = inst.ivs.attack;
@@ -1406,11 +1993,13 @@ document.getElementById('pformSaveBtn').addEventListener('click', () => {
     },
     activeSkills: pformState.skills.slice(),
     passives: pformState.passives.slice(),
+    sex: pformState.sex || "unknown",
     createdAt: Date.now(),
   };
 
   if(pformState.target === "shared"){
     saveInstanceToSharedRoom(inst);
+    sharedBoxState.selectedUid = inst.uid;
     closePform();
     return;
   }
@@ -1439,17 +2028,14 @@ document.getElementById('pformClose').addEventListener('click', closePform);
 document.getElementById('pformOverlay').addEventListener('click', e => { if(e.target.id === 'pformOverlay') closePform(); });
 document.getElementById('skillSearchInput').addEventListener('input', e => renderSkillPickList(e.target.value));
 document.getElementById('passiveSearchInput').addEventListener('input', e => renderPassivePickList(e.target.value));
+document.querySelectorAll('#pformSexTabs .mini-tab').forEach(tab => {
+  tab.addEventListener('click', () => setPformSex(tab.dataset.sex));
+});
 
 // ===== 友達と共有ボックス(Firebase Firestore) =====
 // 合言葉(6桁のコード)ごとにFirestoreのサブコレクション(palboxRooms/{code}/pals/{uid})を持ち、
 // 個体1体=1ドキュメントとして扱う。複数人が同時に追加してもお互いの内容を上書きしない。
 // game_data/firebase_config.js が未設定(apiKey空)の間は、共有機能全体を無効として扱う。
-let firebaseApp = null;
-let db = null;
-let currentRoomCode = null;
-let sharedRoomUnsubscribe = null;
-let sharedState = { instances: [] };
-
 function firebaseReady(){
   if(typeof FIREBASE_CONFIG === "undefined" || !FIREBASE_CONFIG.apiKey) return false;
   if(typeof firebase === "undefined") return false;
@@ -1466,6 +2052,12 @@ function setShareStatus(msg, cls){
   el.className = "share-status" + (cls ? " " + cls : "");
 }
 
+function setRoomStatus(msg, cls){
+  const el = document.getElementById("shareRoomStatus");
+  el.textContent = msg;
+  el.className = "share-status" + (cls ? " " + cls : "");
+}
+
 function generateRoomCode(){
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // 0/O, 1/Iなど紛らわしい文字は除外
   let code = "";
@@ -1477,6 +2069,8 @@ function roomPalsRef(code){
   return db.collection("palboxRooms").doc(code).collection("pals");
 }
 
+const SHARED_ROOM_CODE_KEY = "palworldSharedRoomCode";
+
 function enterSharedRoom(code){
   if(!firebaseReady()){
     setShareStatus("Firebaseが未設定のため、共有機能はまだ準備中です。", "err");
@@ -1484,27 +2078,47 @@ function enterSharedRoom(code){
   }
   if(sharedRoomUnsubscribe){ sharedRoomUnsubscribe(); sharedRoomUnsubscribe = null; }
   currentRoomCode = code;
-  document.getElementById("shareJoinView").style.display = "none";
-  document.getElementById("shareRoomView").style.display = "block";
+  localStorage.setItem(SHARED_ROOM_CODE_KEY, code); // 他のページに移動して戻ってきても自動で再入室できるように覚えておく
+  sharedBoxState.selectedUid = null;
+  sharedBoxState.instances = [];
+  document.getElementById("shareJoinPanel").style.display = "none";
+  document.getElementById("shareRoomPanel").style.display = "block";
   document.getElementById("shareRoomCodeText").textContent = code;
-  setShareStatus("接続中…");
+  setShareStatus("");
+  setRoomStatus("接続中…");
   sharedRoomUnsubscribe = roomPalsRef(code).onSnapshot(snapshot => {
     const instances = snapshot.docs.map(d => d.data());
-    setShareStatus(`合言葉「${code}」の共有ボックス(リアルタイム更新中)`, "ok");
-    renderSharedGrid(instances);
+    setRoomStatus(`合言葉「${code}」の共有ボックス(リアルタイム更新中)`, "ok");
+    sharedBoxState.instances = instances;
+    if(sharedBoxState.selectedUid && instances.some(x => x.uid === sharedBoxState.selectedUid)){
+      selectSharedPal(sharedBoxState.selectedUid);
+    } else {
+      sharedBoxState.selectedUid = null;
+      closeDetailPanel("sharedDetailEmpty","sharedDetailPanel");
+      renderSharedGrid();
+    }
+    if(roadmapState.source === "shared"){
+      updateRoadmapResult();
+      renderQuickMakeable();
+    }
   }, err => {
-    setShareStatus("読み込みに失敗しました: " + err.message, "err");
+    setRoomStatus("読み込みに失敗しました: " + err.message, "err");
   });
 }
 
 function leaveSharedRoom(){
   if(sharedRoomUnsubscribe){ sharedRoomUnsubscribe(); sharedRoomUnsubscribe = null; }
   currentRoomCode = null;
-  document.getElementById("shareRoomView").style.display = "none";
-  document.getElementById("shareJoinView").style.display = "block";
+  localStorage.removeItem(SHARED_ROOM_CODE_KEY);
+  sharedBoxState.selectedUid = null;
+  sharedBoxState.instances = [];
+  document.getElementById("shareRoomPanel").style.display = "none";
+  document.getElementById("shareJoinPanel").style.display = "block";
   document.getElementById("shareJoinInput").value = "";
-  document.getElementById("sharedDetail").style.display = "none";
   setShareStatus("");
+  if(roadmapState.source === "shared"){
+    document.querySelector('#roadmapSourceTabs .mini-tab[data-source="local"]').click();
+  }
 }
 
 function createSharedRoom(){
@@ -1520,6 +2134,111 @@ function joinSharedRoom(){
   if(!code){ setShareStatus("合言葉を入力してください。", "err"); return; }
   enterSharedRoom(code);
 }
+
+// ---- 個人用バックアップ/復元コード ----
+// 共有ボックス(リアルタイム同期)とは別に、端末を変えても所持データを復元できるように
+// するための一方向バックアップ機能。共有ボックスと違い自動同期はせず、ユーザーが明示的に
+// 「アップロード」「復元」を押した時だけFirestoreとやり取りする(意図しない上書きを防ぐため)。
+const PERSONAL_BACKUP_CODE_KEY = "palworldPersonalBackupCode";
+
+function personalBackupRef(code){
+  return db.collection("personalBackups").doc(code);
+}
+
+function setBackupStatus(msg, cls){
+  const el = document.getElementById("backupStatus");
+  el.textContent = msg;
+  el.className = "share-status" + (cls ? " " + cls : "");
+}
+function setBackupRestoreStatus(msg, cls){
+  const el = document.getElementById("backupRestoreStatus");
+  el.textContent = msg;
+  el.className = "share-status" + (cls ? " " + cls : "");
+}
+
+function renderBackupModal(){
+  const code = localStorage.getItem(PERSONAL_BACKUP_CODE_KEY);
+  document.getElementById("backupNoCodeSection").style.display = code ? "none" : "block";
+  document.getElementById("backupHasCodeSection").style.display = code ? "block" : "none";
+  if(code) document.getElementById("backupCodeText").textContent = code;
+  setBackupStatus("");
+  setBackupRestoreStatus("");
+  document.getElementById("backupRestoreInput").value = "";
+}
+
+async function uploadBackup(code){
+  if(!firebaseReady()){
+    setBackupStatus("Firebaseが未設定のため、バックアップ機能はまだ準備中です。", "err");
+    return;
+  }
+  setBackupStatus("アップロード中…");
+  try {
+    const instances = getInstances();
+    await personalBackupRef(code).set({
+      instances,
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+    setBackupStatus(`バックアップしました(${instances.length}体)。`, "ok");
+  } catch(e){
+    setBackupStatus("アップロードに失敗しました: " + e.message, "err");
+  }
+}
+
+document.getElementById("openBackupBtn").addEventListener("click", () => {
+  renderBackupModal();
+  document.getElementById("backupOverlay").classList.add("open");
+});
+document.getElementById("backupClose").addEventListener("click", () => {
+  document.getElementById("backupOverlay").classList.remove("open");
+});
+document.getElementById("backupGenerateBtn").addEventListener("click", async () => {
+  if(!firebaseReady()){
+    setBackupStatus("Firebaseが未設定のため、バックアップ機能はまだ準備中です。", "err");
+    return;
+  }
+  const code = generateRoomCode();
+  localStorage.setItem(PERSONAL_BACKUP_CODE_KEY, code);
+  renderBackupModal();
+  await uploadBackup(code);
+});
+document.getElementById("backupUploadBtn").addEventListener("click", () => {
+  const code = localStorage.getItem(PERSONAL_BACKUP_CODE_KEY);
+  if(code) uploadBackup(code);
+});
+document.getElementById("backupCopyBtn").addEventListener("click", () => {
+  const code = localStorage.getItem(PERSONAL_BACKUP_CODE_KEY);
+  if(!code) return;
+  navigator.clipboard.writeText(code).then(() => setBackupStatus("コピーしました。", "ok")).catch(() => setBackupStatus("コピーに失敗しました。手動で選択してコピーしてください。", "err"));
+});
+document.getElementById("backupForgetBtn").addEventListener("click", () => {
+  localStorage.removeItem(PERSONAL_BACKUP_CODE_KEY);
+  renderBackupModal();
+});
+document.getElementById("backupRestoreBtn").addEventListener("click", async () => {
+  const code = document.getElementById("backupRestoreInput").value.trim().toUpperCase();
+  if(!code){ setBackupRestoreStatus("コードを入力してください。", "err"); return; }
+  if(!firebaseReady()){
+    setBackupRestoreStatus("Firebaseが未設定のため、バックアップ機能はまだ準備中です。", "err");
+    return;
+  }
+  if(!confirm("今この端末にある所持データを、このコードの内容で上書きします。よろしいですか？")) return;
+  setBackupRestoreStatus("復元中…");
+  try {
+    const doc = await personalBackupRef(code).get();
+    if(!doc.exists){
+      setBackupRestoreStatus("そのコードのバックアップが見つかりませんでした。コードを確認してください。", "err");
+      return;
+    }
+    const data = doc.data();
+    const instances = data.instances || [];
+    localStorage.setItem(BOX_KEY, JSON.stringify(instances));
+    localStorage.setItem(PERSONAL_BACKUP_CODE_KEY, code);
+    setBackupRestoreStatus(`復元しました(${instances.length}体)。ページを再読み込みします…`, "ok");
+    setTimeout(() => location.reload(), 1200);
+  } catch(e){
+    setBackupRestoreStatus("復元に失敗しました: " + e.message, "err");
+  }
+});
 
 async function saveInstanceToSharedRoom(inst){
   if(!currentRoomCode || !firebaseReady()) return;
@@ -1539,75 +2258,9 @@ async function deleteFromSharedRoom(uid){
   }
 }
 
-function renderSharedGrid(instances){
-  sharedState.instances = instances;
-  const grid = document.getElementById("sharedGrid");
-  if(!instances.length){
-    grid.innerHTML = `<div class="empty-box-msg" style="grid-column:1/-1;padding:20px;">まだパルが登録されていません。「+ パルを追加」から登録しましょう。</div>`;
-    document.getElementById("sharedDetail").style.display = "none";
-    return;
-  }
-  grid.innerHTML = instances.map(inst => {
-    const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
-    if(!p) return "";
-    return `
-    <div class="card" data-uid="${inst.uid}" tabindex="0" role="button">
-      <div class="icon-wrap">${p.icon ? `<img src="${p.icon}" alt="${p.name}" loading="lazy">` : ""}</div>
-      <div class="pname">${inst.nickname || p.name}</div>
-      <div class="pname-en">${inst.nickname ? p.name : (p.en_name || "")}</div>
-    </div>`;
-  }).join("");
-  grid.querySelectorAll(".card[data-uid]").forEach(card => {
-    card.addEventListener("click", () => showSharedDetail(card.dataset.uid));
-  });
-}
-
-function showSharedDetail(uid){
-  const inst = sharedState.instances.find(x => x.uid === uid);
-  const detailEl = document.getElementById("sharedDetail");
-  if(!inst){ detailEl.style.display = "none"; return; }
-  const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
-  if(!p){ detailEl.style.display = "none"; return; }
-  const typesHtml = (p.types || []).map(t => typeBadge(t)).join("");
-  const ivHtml = inst.legacy
-    ? `<p style="color:var(--parchment-dim);">個体値・技・パッシブ未登録(旧チェックリストからの移行データ)</p>`
-    : `<div class="iv-summary" style="margin-bottom:8px;justify-content:flex-start;">
-        <span class="iv-chip">HP <b>${inst.ivs.hp}%</b></span>
-        <span class="iv-chip">攻撃 <b>${inst.ivs.attack}%</b></span>
-        <span class="iv-chip">防御 <b>${inst.ivs.defense}%</b></span>
-      </div>`;
-  const skillsHtml = inst.activeSkills.length
-    ? inst.activeSkills.map(a => `<span class="role-pill">${ico("sword")} ${skillDisplayName(a)}</span>`).join("")
-    : '<span style="color:var(--parchment-dim);">未登録</span>';
-  const passivesHtml = inst.passives.length
-    ? inst.passives.map(name => `<span class="role-pill" style="border-color:var(--brass-dim);">${ico('sparkle')} ${name}</span>`).join("")
-    : '<span style="color:var(--parchment-dim);">未登録</span>';
-  detailEl.innerHTML = `
-    <div class="sd-name">${inst.nickname || p.name}${inst.nickname ? ` <span style="color:var(--parchment-dim);font-size:12px;">(${p.name})</span>` : ""} ${typesHtml}</div>
-    ${ivHtml}
-    <div style="margin-bottom:6px;color:var(--parchment-dim);font-size:11px;">技</div>
-    <div style="margin-bottom:10px;">${skillsHtml}</div>
-    <div style="margin-bottom:6px;color:var(--parchment-dim);font-size:11px;">パッシブ</div>
-    <div style="margin-bottom:12px;">${passivesHtml}</div>
-    <button class="copy-btn" id="sharedDeleteBtn" style="border-color:#7a2e2e;color:#ff8080;">この共有ボックスから削除</button>
-  `;
-  document.getElementById("sharedDeleteBtn").addEventListener("click", () => {
-    if(confirm("このパルを共有ボックスから削除しますか?(元に戻せません)")){
-      deleteFromSharedRoom(uid);
-      detailEl.style.display = "none";
-    }
-  });
-  detailEl.style.display = "block";
-}
-
-function openShareModal(){ document.getElementById("shareOverlay").classList.add("open"); }
-function closeShareModal(){
-  document.getElementById("shareOverlay").classList.remove("open");
-}
-
-document.getElementById("openShareBtn").addEventListener("click", openShareModal);
-document.getElementById("shareClose").addEventListener("click", closeShareModal);
-document.getElementById("shareOverlay").addEventListener("click", e => { if(e.target.id === "shareOverlay") closeShareModal(); });
+document.getElementById("openShareBtn").addEventListener("click", () => {
+  document.querySelector('.mode-tab[data-mode="share"]').click();
+});
 document.getElementById("shareCreateBtn").addEventListener("click", createSharedRoom);
 document.getElementById("shareJoinBtn").addEventListener("click", joinSharedRoom);
 document.getElementById("shareJoinInput").addEventListener("keydown", e => { if(e.key === "Enter") joinSharedRoom(); });
@@ -1616,11 +2269,57 @@ document.getElementById("openSharedAddBtn").addEventListener("click", () => open
 document.getElementById("shareCopyBtn").addEventListener("click", () => {
   if(!currentRoomCode) return;
   navigator.clipboard.writeText(currentRoomCode).then(() => {
-    setShareStatus("合言葉をコピーしました。", "ok");
+    setRoomStatus("合言葉をコピーしました。", "ok");
   }).catch(() => {
-    setShareStatus("コピーに失敗しました。手動で選択してコピーしてください。", "err");
+    setRoomStatus("コピーに失敗しました。手動で選択してコピーしてください。", "err");
   });
 });
+
+// 前回入っていた共有ボックスがあれば、ページを移動して戻ってきても自動で再入室する
+// (他のツールを見て戻るたびに合言葉を打ち直す手間を無くすため)。Firebase SDKはasyncで
+// 読み込んでいるため即座には使えないことがあり、準備できるまで短い間隔でリトライする。
+function tryAutoRejoinSharedRoom(retriesLeft){
+  const savedCode = localStorage.getItem(SHARED_ROOM_CODE_KEY);
+  if(!savedCode) return;
+  if(!firebaseReady()){
+    if(retriesLeft > 0) setTimeout(() => tryAutoRejoinSharedRoom(retriesLeft - 1), 200);
+    return;
+  }
+  enterSharedRoom(savedCode);
+}
+tryAutoRejoinSharedRoom(25);
+
+// 攻略ガイド側から「この配合ロードマップ検索」ボタンで遷移してきた場合、
+// URLパラメータ(target=アセットキー, passives=パッシブ名をカンマ区切り)を
+// 読み取って配合ロードマップタブに自動で切り替え、目標パルとパッシブを入力済みにする。
+// 例: palworld_palbox.html?target=JormunIgnis&passives=伝説,鬼神
+(function applyRoadmapPrefillFromURL(){
+  const params = new URLSearchParams(location.search);
+  const target = params.get("target");
+  if(!target || !BREEDING_DATA.pals[target]) return;
+
+  document.querySelectorAll(".mode-tab").forEach(t => t.classList.remove("active"));
+  document.querySelector('.mode-tab[data-mode="roadmap"]').classList.add("active");
+  document.getElementById("boxView").style.display = "none";
+  document.getElementById("shareView").style.display = "none";
+  document.getElementById("roadmapView").style.display = "block";
+
+  roadmapState.targetAsset = target;
+  document.getElementById("roadmapTargetInput").value = nameOf(target);
+
+  const passivesParam = params.get("passives");
+  if(passivesParam){
+    roadmapState.passives = passivesParam.split(",")
+      .map(s => s.trim())
+      .filter(name => name && passiveByName(name))
+      .slice(0, 4);
+  }
+
+  renderRoadmapPassivePickList("");
+  renderRoadmapPassiveChips();
+  renderQuickMakeable();
+  updateRoadmapResult();
+})();
 </script>
 </body>
 </html>
