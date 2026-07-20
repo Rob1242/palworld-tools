@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
 <title>拠点プランナー | Palworld攻略ツール</title>
 <meta name="description" content="拠点に置くべきパルの組み合わせを自動計算。役職の重要度と枠数を入れるだけで、287体の中から最適な配置を提案します。">
 <meta property="og:type" content="website">
@@ -257,8 +258,8 @@
 <script src="game_data/dex_data.js"></script>
 <script src="shared/icons.js"></script>
 <script src="game_data/firebase_config.js"></script>
-<script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js" integrity="sha384-AQ3POAMqIhwS81FrUH95ekxqBZHeP5tG2JfEL3+7GuTtfRLWnrRh32UxwzM+//A9" crossorigin="anonymous"></script>
+<script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js" integrity="sha384-qn4Jh88HhJA8dplNQyGjOh9OGI4izVhrfj/qIFgaKcdgOE06pXqIKGlsCILZcLAC" crossorigin="anonymous"></script>
 
 <script>
 
@@ -1554,8 +1555,13 @@ function updatePalSourceCount(){
 // 共有ボックスの合言葉を覚えておく(他のツールを見て戻ってきても打ち直さなくて済むように)。
 const SHARED_ROOM_CODE_KEY = "palworldSharedRoomCode";
 
+// パルボックス側のgenerateRoomCode()と同じ文字種6桁のみを許可する(Firestoreの.doc()が
+// "/"区切りを複数階層のパスとして解釈してしまうのを防ぐため)。
+const ROOM_CODE_RE = /^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$/;
+
 async function loadSharedRoomByCode(code){
   if(!code){ setPalSourceStatus("合言葉を入力してください。", "err"); return; }
+  if(!ROOM_CODE_RE.test(code)){ setPalSourceStatus("合言葉は英数字6桁で入力してください。", "err"); return; }
   if(!plannerFirebaseReady()){ setPalSourceStatus("Firebaseが未設定のため、共有ボックスは読み込めません。", "err"); return; }
   setPalSourceStatus("読み込み中…");
   try {

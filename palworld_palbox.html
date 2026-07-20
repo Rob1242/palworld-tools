@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
 <title>パルボックス | Palworld攻略ツール</title>
 <meta name="description" content="パルワールドのパルボックス管理ツール。所持パルを個体値・技・パッシブごと記録して、目的パルへの配合ロードマップを自動で組みます。">
 <meta property="og:type" content="website">
@@ -611,8 +612,8 @@
 <script src="game_data/paldb_extra_data.js"></script>
 <script src="shared/icons.js"></script>
 <script src="game_data/firebase_config.js"></script>
-<script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js" integrity="sha384-AQ3POAMqIhwS81FrUH95ekxqBZHeP5tG2JfEL3+7GuTtfRLWnrRh32UxwzM+//A9" crossorigin="anonymous"></script>
+<script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js" integrity="sha384-qn4Jh88HhJA8dplNQyGjOh9OGI4izVhrfj/qIFgaKcdgOE06pXqIKGlsCILZcLAC" crossorigin="anonymous"></script>
 
 <script>
 const PAL_BOX_DATA = PAL_DEX_DATA;
@@ -758,8 +759,8 @@ function renderInstanceGrid(cfg){
   }
   if(list.length === 0){
     const msg = cfg.state.query
-      ? `「${cfg.state.query}」に一致するパルが見つかりません。`
-      : `パッシブ「${cfg.state.passiveFilter}」を持つパルが見つかりません。`;
+      ? `「${escapeHtml(cfg.state.query)}」に一致するパルが見つかりません。`
+      : `パッシブ「${escapeHtml(cfg.state.passiveFilter)}」を持つパルが見つかりません。`;
     grid.innerHTML = `<div class="empty-box-msg">${msg}</div>`;
     return;
   }
@@ -771,7 +772,7 @@ function renderInstanceGrid(cfg){
     return `
     <div class="card ${cfg.state.selectedUid===inst.uid ? 'selected' : ''}" data-uid="${inst.uid}" tabindex="0" role="button">
       <div class="icon-wrap">${p.icon ? `<img src="${p.icon}" alt="${p.name}" loading="lazy">` : ""}${sexMark}</div>
-      <div class="pname">${inst.nickname || p.name}</div>
+      <div class="pname">${escapeHtml(inst.nickname) || p.name}</div>
       <div class="pname-en">${inst.nickname ? p.name : (p.en_name || "")}</div>
     </div>`;
   }).join("");
@@ -835,7 +836,7 @@ function buildDetailInnerHtml(inst, p){
       <span class="rivet nw"></span><span class="rivet ne"></span><span class="rivet sw"></span><span class="rivet se"></span>
     </div>
     <div class="detail-info">
-      <div class="dname"><a href="palworld_dex.html?id=${p.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--parchment-dim);">${inst.nickname || p.name}</a></div>
+      <div class="dname"><a href="palworld_dex.html?id=${p.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--parchment-dim);">${escapeHtml(inst.nickname) || p.name}</a></div>
       <div class="dname-en">${inst.nickname ? p.name + ' ・ ' : ''}${p.en_name || ""}</div>
       <div class="badge-row">${(p.types||[]).map(typeBadge).join("")}${timeBadge}${sexBadge(inst.sex)}</div>
       ${ivHtml}
@@ -997,6 +998,14 @@ function iconOf(asset){
 // (「る」→「ル」を含む名前にもヒット)
 function toKana(str){
   return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
+}
+
+// ニックネーム(自由入力・共有ボックス経由で他人のブラウザにも表示されうる)や検索語を
+// innerHTMLに埋め込む箇所は、必ずこれを通してHTMLタグとして解釈されないようにする。
+function escapeHtml(str){
+  return (str||"").replace(/[&<>"']/g, ch => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+  }[ch]));
 }
 
 function setupPicker(inputEl, resultsEl, onPick){
@@ -1555,7 +1564,7 @@ function renderPassiveFit(result, targetAsset){
     if(res.isIntermediate) return `<span style="color:var(--teal);">${label}(このルート内で配合して用意・性別は生まれるまで不明)</span>`;
     if(!res.inst) return `<span style="color:var(--danger);">${label}(未所持・パッシブ未確認)</span>`;
     const passiveList = res.inst.passives.length ? res.inst.passives.join('・') : '(パッシブ未登録)';
-    return `<span>${res.inst.nickname || label}${res.inst.nickname ? `(${label})` : ''} [${sexLabel(sexOf(res.inst))}] — ${passiveList}</span>`;
+    return `<span>${escapeHtml(res.inst.nickname) || label}${res.inst.nickname ? `(${label})` : ''} [${sexLabel(sexOf(res.inst))}] — ${escapeHtml(passiveList)}</span>`;
   };
 
   const renderComboDetail = (resolved) => {
@@ -1585,7 +1594,7 @@ function renderPassiveFit(result, targetAsset){
     const inst = combo.assignment.get(asset);
     const label = nameOf(asset);
     if(!inst) return `${label}:未所持`;
-    return `${label}=${inst.nickname || '(名称未設定)'}`;
+    return `${label}=${escapeHtml(inst.nickname) || '(名称未設定)'}`;
   }).join(' / ');
 
   const best = ranked[0];
@@ -2137,9 +2146,16 @@ function createSharedRoom(){
   enterSharedRoom(generateRoomCode());
 }
 
+// 合言葉はgenerateRoomCode()と同じ文字種6桁のみを許可する。Firestoreの.doc()は
+// "/"区切りを含む文字列を複数階層のパスとして解釈してしまうため、入力をここで
+// 厳密な形式にそろえておくことで、意図しないコレクション/ドキュメントへの
+// アクセスパスが組み立てられる余地を無くす。
+const ROOM_CODE_RE = /^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$/;
+
 function joinSharedRoom(){
   const code = document.getElementById("shareJoinInput").value.trim().toUpperCase();
   if(!code){ setShareStatus("合言葉を入力してください。", "err"); return; }
+  if(!ROOM_CODE_RE.test(code)){ setShareStatus("合言葉は英数字6桁で入力してください。", "err"); return; }
   enterSharedRoom(code);
 }
 
@@ -2225,6 +2241,7 @@ document.getElementById("backupForgetBtn").addEventListener("click", () => {
 document.getElementById("backupRestoreBtn").addEventListener("click", async () => {
   const code = document.getElementById("backupRestoreInput").value.trim().toUpperCase();
   if(!code){ setBackupRestoreStatus("コードを入力してください。", "err"); return; }
+  if(!ROOM_CODE_RE.test(code)){ setBackupRestoreStatus("コードは英数字6桁で入力してください。", "err"); return; }
   if(!firebaseReady()){
     setBackupRestoreStatus("Firebaseが未設定のため、バックアップ機能はまだ準備中です。", "err");
     return;
