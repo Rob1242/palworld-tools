@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<title>スマート検索 | Palworld攻略ツール</title>
+<meta name="description" content="「ソルライトインゴット 落とすパル」のように文章のまま検索すると、ドロップ元や製作材料を直接答えるパルワールド専用の検索ツールです。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="スマート検索 | Palworld攻略ツール">
+<meta property="og:description" content="「ソルライトインゴット 落とすパル」のように文章のまま検索すると、ドロップ元や製作材料を直接答えるパルワールド専用の検索ツールです。">
+<meta property="og:image" content="https://rob1242.github.io/palworld-tools/game_data/art/hero_sphere_2.webp">
+<meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_search.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/design-system.css">
+<style>
+  :root{
+    --bg: #05080e; --panel: #0e1420; --panel2: #141d2b;
+    --parchment: #e7edf5; --parchment-dim: #7e90a5;
+    --brass: #6ec8ea; --brass-dim: #2f6b85;
+    --teal: #35d2ff; --teal-dim: #1c6d86;
+    --lime: #3d7bff; --lime-dim: #1f4a99;
+    --magenta: #8fd6ff; --magenta-dim: #4a7fa3;
+    --line: rgba(120,165,220,.18); --danger: #e2543f;
+    --hp: #7bdb52; --sp: #f0a233;
+    --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
+    --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
+    --font-mono: "JetBrains Mono", monospace;
+  }
+  ::selection{background:var(--lime);color:#0a0d12;}
+  *{box-sizing:border-box;}
+  body{margin:0;background: var(--bg);
+    color:var(--parchment);font-family:var(--font-body);padding:0;}
+  .wrap{max-width:900px;margin:0 auto;padding:22px 20px 60px;}
+
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:var(--panel2);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  h1.title{font-family:var(--font-display);font-weight:900;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
+  .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
+  .brand-link{display:flex;align-items:center;gap:12px;text-decoration:none;}
+
+  .caveat{font-size:11.5px;color:var(--parchment-dim);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-bottom:16px;line-height:1.7;}
+
+  .search-panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:20px;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+  #searchBox{width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:6px;padding:14px 16px;font-size:16px;font-family:var(--font-body);}
+  #searchBox::placeholder{color:var(--parchment-dim);}
+  #searchBox:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 2px rgba(53,210,255,.2);}
+  .examples{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;}
+  .example-chip{font-size:11.5px;padding:5px 11px;border-radius:5px;border:1px solid var(--line);background:var(--panel2);color:var(--parchment-dim);cursor:pointer;user-select:none;transition:transform .1s,border-color .1s;}
+  .example-chip:hover{transform:translateY(-1px);border-color:var(--teal-dim);color:var(--parchment);}
+
+  .result-box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;}
+  .result-empty{color:var(--parchment-dim);font-size:13px;text-align:center;padding:30px 10px;}
+  .result-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .result-head img{width:44px;height:44px;object-fit:contain;background:var(--panel2);border:1px solid var(--teal-dim);border-radius:8px;padding:5px;}
+  .result-head h2{font-family:var(--font-display);font-size:19px;margin:0;color:var(--parchment);}
+  .result-head .sub{font-size:11.5px;color:var(--parchment-dim);font-family:var(--font-mono);}
+  .result-tag{font-size:10.5px;padding:3px 9px;border-radius:4px;background:var(--lime-dim);color:var(--parchment);font-weight:700;letter-spacing:.04em;}
+
+  .modal-section{margin-top:14px;}
+  .modal-section h4{margin:0 0 8px;font-size:11px;font-weight:700;color:var(--brass);text-transform:uppercase;letter-spacing:.06em;}
+  .obtain-box{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:10px 14px;font-size:12px;color:var(--parchment-dim);line-height:1.7;}
+  .obtain-box .obtain-label{color:var(--brass);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-right:6px;}
+  .drop-list{display:flex;flex-direction:column;gap:6px;max-height:340px;overflow-y:auto;}
+  .drop-item{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:7px 10px;background:var(--panel2);border:1px solid var(--line);border-radius:5px;}
+  .drop-icon{width:22px;height:22px;object-fit:contain;flex-shrink:0;image-rendering:-webkit-optimize-contrast;}
+  .drop-item .drop-name{flex:1;color:var(--parchment);}
+  .drop-item .drop-qty{color:var(--parchment-dim);font-family:var(--font-mono);font-size:11.5px;}
+  .drop-item .drop-rate{color:var(--teal);font-family:var(--font-mono);font-size:11.5px;min-width:44px;text-align:right;}
+
+  .suggest-list{display:flex;flex-direction:column;gap:6px;margin-top:10px;}
+  .suggest-item{display:flex;align-items:center;gap:8px;font-size:12.5px;padding:8px 12px;background:var(--panel2);border:1px solid var(--line);border-radius:5px;cursor:pointer;}
+  .suggest-item:hover{border-color:var(--teal-dim);}
+  .suggest-item img{width:20px;height:20px;object-fit:contain;}
+</style>
+<script src="shared/analytics.js"></script>
+</head>
+<body>
+<script src="game_data/items_dex_data.js"></script>
+<script src="game_data/dex_data.js"></script>
+<script src="game_data/items_obtain_data.js"></script>
+<script src="game_data/breeding_data.js"></script>
+<div class="wrap">
+  <header class="top">
+    <a class="brand-link" href="palworld_home.html">
+      <div class="brand-badge">P</div>
+      <h1 class="title glitch-hover" data-text="スマート検索"><small>Palworld 攻略ツール</small>スマート検索</h1>
+    </a>
+    <nav class="tabs">
+      <a href="palworld_home.html"><span>ホーム</span></a>
+      <a href="palworld_search.html" class="current"><span>スマート検索</span></a>
+      <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
+      <a href="palworld_dex.html"><span>パル図鑑</span></a>
+      <a href="palworld_items.html"><span>アイテム図鑑</span></a>
+      <a href="palworld_breeding.html"><span>配合検索</span></a>
+      <a href="palworld_palbox.html"><span>パルボックス</span></a>
+      <a href="palworld_combat.html"><span>戦闘最適化</span></a>
+      <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
+      <a href="palworld_ride.html"><span>ライド速度</span></a>
+      <a href="palworld_map.html"><span>出現マップ</span></a>
+      <a href="palworld_bossguide.html"><span>ボス攻略</span></a>
+      <a href="palworld_achievements.html"><span>実績一覧</span></a>
+      <a href="palworld_passives_guide.html"><span>おすすめパッシブ</span></a>
+      <a href="palworld_reference.html"><span>早見表</span></a>
+      <a href="palworld_technology.html"><span>テクノロジー</span></a>
+      <a href="palworld_missions.html"><span>ミッション</span></a>
+      <a href="palworld_iv_calc.html"><span>素質値計算機</span></a>
+      <a href="palworld_party_guide.html"><span>パーティ編成ガイド</span></a>
+      <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
+      <a href="palworld_changelog.html"><span>更新履歴</span></a>
+    </nav>
+  </header>
+
+  <p class="caveat">
+    「ソルライトインゴット 落とすパル」「AIコア 材料」「ベイントール ドロップ」のように、話し言葉のまま検索窓に打ち込むとドロップ元・製作材料を直接表示します。アイテム名/パル名は部分入力・英語名・ひらがな入力にも対応。「パル」を含めるとパル限定、「人」を含めると人間NPC限定で絞り込みます。
+  </p>
+
+  <div class="search-panel">
+    <input type="text" id="searchBox" placeholder="例: ソルライトインゴット 落とすパル" autocomplete="off">
+    <div class="examples" id="examples"></div>
+  </div>
+
+  <div class="result-box" id="resultBox">
+    <div class="result-empty">検索窓にアイテム名やパル名を含む文章を入力してください。</div>
+  </div>
+</div>
+
+<script>
+function toKana(str){
+  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
+}
+function normalize(s){
+  return toKana((s||"").trim().toLowerCase());
+}
+
+const DROP_KEYWORDS = ["落とす","落ちる","おとす","おちる","ドロップ","入手方法","入手できる","入手先","産出"];
+const CRAFT_KEYWORDS = ["作る","作れる","つくる","材料","レシピ","クラフト","製作"];
+const PAL_FILTER_KEYWORDS = ["パル"];
+const HUMAN_FILTER_KEYWORDS = ["人間","にんげん","npc","人"];
+const TRAILING_PARTICLES = ["という","っていう","って","からは","までは","には","では","にも","の方","のほう","から","まで","を","が","は","も","に","で","と","の"];
+
+// 除外対象(デバッグ/テスト専用・DUMMY画像)はpalworld_items.htmlのREAL_ITEMSと同じ基準
+function isRealItem(it){
+  return !/test|debug|dummy/i.test(it.asset) && !/dummy/i.test(it.icon);
+}
+const ITEM_BY_ASSET = new Map(ITEMS_DEX_DATA.map(it => [it.asset, it]));
+
+// 文字数フィルタは掛けない(骨・肉・革・砂のような1文字の実アイテム名があるため)。
+// 1文字語の誤ヒットはmatchEntityのあいまい一致側(fuzzyMatch)で2文字未満を
+// 除外することで防ぐ(完全一致は文字数に関係なく通す)。
+const ITEM_ENTITIES = ITEMS_DEX_DATA.filter(isRealItem).flatMap(it => {
+  const names = new Set([it.name_jp, it.name_en, it.asset].filter(Boolean));
+  return [...names].map(n => ({ text: normalize(n), asset: it.asset, item: it }));
+}).sort((a,b) => b.text.length - a.text.length);
+
+// ドロップ元(パル・人間NPC問わず)の索引。ITEM_OBTAIN_DATAに出てくる全dropped_byの
+// pal_assetを集め、BREEDING_DATA.pals(実在パル303件)に含まれるかどうかで
+// 「パル」/「人間NPC」を判定する(2026-07-21、パルボックスの配合バグ調査で判明した
+// BREEDING_DATA.palsが実在パルの正本データだったため、それを流用)。
+// ITEM_OBTAIN_DATAのpal_jp_nameは「二つ名+パル名」(例:"青モフの覇者 アオパオー")の
+// 場合があり素のパル名だけでは完全一致しないため、BREEDING_DATA.pals側の
+// 素のjp_name/en_nameも別名候補として登録する(2026-07-21、テストで発覚)。
+const DROPPER_INFO = {};
+Object.entries(ITEM_OBTAIN_DATA).forEach(([itemAsset, v]) => {
+  (v.dropped_by || []).forEach(d => {
+    if(!DROPPER_INFO[d.pal_asset]){
+      const bd = (typeof BREEDING_DATA !== "undefined" && BREEDING_DATA.pals) ? BREEDING_DATA.pals[d.pal_asset] : null;
+      DROPPER_INFO[d.pal_asset] = { jp_name: d.pal_jp_name, isPal: !!bd, en_name: bd ? bd.en_name : null, canonical_jp_name: bd ? bd.jp_name : null };
+    }
+  });
+});
+const DROPPER_ENTITIES = Object.entries(DROPPER_INFO).flatMap(([asset, info]) => {
+  const names = new Set([info.jp_name, info.en_name, info.canonical_jp_name, asset].filter(Boolean));
+  return [...names].map(n => ({ text: normalize(n), asset, isPal: info.isPal }));
+}).sort((a,b) => b.text.length - a.text.length);
+
+const REVERSE_DROPS = {};
+Object.entries(ITEM_OBTAIN_DATA).forEach(([itemAsset, v]) => {
+  (v.dropped_by || []).forEach(d => {
+    (REVERSE_DROPS[d.pal_asset] = REVERSE_DROPS[d.pal_asset] || []).push({ item_asset: itemAsset, qty: d.qty, rate: d.rate });
+  });
+});
+
+function stripParticles(s){
+  let changed = true;
+  while(changed){
+    changed = false;
+    for(const p of TRAILING_PARTICLES){
+      if(s.length > p.length && s.endsWith(p)){ s = s.slice(0, -p.length); changed = true; }
+    }
+  }
+  return s;
+}
+
+// 語彙(アイテム名・パル名)が既知で有限個であることを利用した最長一致法ベースの
+// スロット抽出。実体名の候補は「完全一致」→「辞書側が短く、coreに含まれる」→
+// 「coreが長く、辞書側を含む」の優先順で決める(2026-07-21、検索エンジン方式の
+// 相談を経て実装)。1文字の実体名(骨・肉・革など)も完全一致なら拾えるよう、
+// 文字数ガードは「あいまい一致」側にだけかける。
+function exactMatch(core, entities){
+  return entities.find(e => e.text === core) || null;
+}
+function fuzzyMatch(core, entities){
+  if(core.length < 2) return null;
+  const containing = entities.filter(e => e.text.length >= 2 && e.text.includes(core));
+  if(containing.length) return containing.reduce((a,b) => a.text.length <= b.text.length ? a : b);
+  const contained = entities.filter(e => e.text.length >= 2 && core.includes(e.text));
+  if(contained.length) return contained.reduce((a,b) => a.text.length >= b.text.length ? a : b);
+  return null;
+}
+// アイテム名/パル名どちらの完全一致を優先するか決められないため、まず両方の
+// 完全一致を試し、どちらも無ければあいまい一致(アイテム優先)にフォールバックする。
+function exactMatchOnly(core){
+  const exactItem = exactMatch(core, ITEM_ENTITIES);
+  if(exactItem) return { match: exactItem, isItem: true };
+  const exactDropper = exactMatch(core, DROPPER_ENTITIES);
+  if(exactDropper) return { match: exactDropper, isItem: false };
+  return null;
+}
+function fuzzyMatchOnly(core){
+  const fuzzyItem = fuzzyMatch(core, ITEM_ENTITIES);
+  if(fuzzyItem) return { match: fuzzyItem, isItem: true };
+  const fuzzyDropper = fuzzyMatch(core, DROPPER_ENTITIES);
+  if(fuzzyDropper) return { match: fuzzyDropper, isItem: false };
+  return null;
+}
+// 「パル」「人」はドロップ元の絞り込みキーワードだが、"パル商人"や"パル成長の石"
+// のように実体名そのものに含まれるケースがある一方、"骨 落とすパル"のように
+// 短い実体名(1〜2文字)の直後に付くと、フィルタ語を残したままではあいまい一致の
+// 足切り(2文字未満除外)に引っかかって見つからないこともある(2026-07-21、テストで発覚)。
+// そのため二段構えにする: まずフィルタ語を残したまま一致を試し(実体名側の
+// パル/人を優先)、それで見つからない時だけフィルタ語を剥がして再挑戦する。
+function parseQuery(raw){
+  let norm = normalize(raw);
+  const strip = (text, arr) => {
+    let found = false;
+    arr.forEach(k => {
+      const kn = normalize(k);
+      if(kn && text.includes(kn)){ found = true; text = text.split(kn).join(""); }
+    });
+    return { text, found };
+  };
+  let r = strip(norm, CRAFT_KEYWORDS);
+  const hasCraft = r.found;
+  r = strip(r.text, DROP_KEYWORDS);
+  const hasDrop = r.found;
+
+  const coreRaw = stripParticles(r.text.trim());
+  let rf = strip(r.text, PAL_FILTER_KEYWORDS);
+  const palStripped = rf.found;
+  rf = strip(rf.text, HUMAN_FILTER_KEYWORDS);
+  const humanStripped = rf.found;
+  const coreStripped = stripParticles(rf.text.trim());
+  const filterWasStripped = palStripped || humanStripped;
+
+  // 優先順位: 生テキストの完全一致(=フィルタ語が実体名の一部、例:パル商人)
+  // → フィルタ語除去後の完全一致 → 除去後のあいまい一致 → 生テキストのあいまい一致。
+  // あいまい一致は生テキストより先に除去後を試す。生テキストのあいまい一致は
+  // 「アイテム名+パル」のように名前を含んだまま緩く一致してしまいやすく、
+  // 先に試すとパル/人フィルタの検出漏れになる(2026-07-21、テストで発覚)。
+  let found = exactMatchOnly(coreRaw);
+  let core = coreRaw, palOnly = false, humanOnly = false;
+  if(!found && filterWasStripped){
+    found = exactMatchOnly(coreStripped);
+    if(found){ core = coreStripped; palOnly = palStripped; humanOnly = humanStripped; }
+  }
+  if(!found && filterWasStripped){
+    found = fuzzyMatchOnly(coreStripped);
+    if(found){ core = coreStripped; palOnly = palStripped; humanOnly = humanStripped; }
+  }
+  if(!found){
+    found = fuzzyMatchOnly(coreRaw);
+    if(found) core = coreRaw;
+  }
+
+  const itemMatch = found && found.isItem ? found.match : null;
+  const dropperMatch = found && !found.isItem ? found.match : null;
+  return { core, itemMatch, dropperMatch, hasCraft, hasDrop, palOnly, humanOnly };
+}
+
+function displayName(it){
+  return (it.name_jp && it.name_jp !== "-") ? it.name_jp : it.name_en;
+}
+function palIcon(asset){
+  return `game_data/icons/pals/T_${asset}_icon_normal.webp`;
+}
+
+function renderDropRows(rows, opts){
+  opts = opts || {};
+  if(!rows.length) return `<div class="result-empty">${opts.emptyMsg || "該当するデータがありません。"}</div>`;
+  return `<div class="drop-list">${rows.map(r => r).join("")}</div>`;
+}
+
+function dropItemRow(d){
+  return `<div class="drop-item">
+    <img class="drop-icon" src="${palIcon(d.pal_asset)}" onerror="this.style.display='none'" alt="">
+    <span class="drop-name">${d.pal_jp_name}</span>
+    <span class="drop-qty">×${d.qty}</span>
+    <span class="drop-rate">${d.rate}</span>
+  </div>`;
+}
+function reverseItemRow(r){
+  const it = ITEM_BY_ASSET.get(r.item_asset);
+  const name = it ? displayName(it) : r.item_asset;
+  const icon = it ? it.icon : "game_data/icons/T_icon_unknown.webp";
+  return `<div class="drop-item">
+    <img class="drop-icon" src="${icon}" onerror="this.style.display='none'" alt="">
+    <span class="drop-name">${name}</span>
+    <span class="drop-qty">×${r.qty}</span>
+    <span class="drop-rate">${r.rate}</span>
+  </div>`;
+}
+function materialRow(m){
+  const it = ITEM_BY_ASSET.get(m.item_asset);
+  const name = it ? displayName(it) : m.item_asset;
+  const icon = it ? it.icon : "game_data/icons/T_icon_unknown.webp";
+  return `<div class="drop-item">
+    <img class="drop-icon" src="${icon}" onerror="this.style.display='none'" alt="">
+    <span class="drop-name">${name}</span>
+    <span class="drop-qty">×${m.qty}</span>
+  </div>`;
+}
+
+function renderItemResult(item, p){
+  const obtain = ITEM_OBTAIN_DATA[item.asset];
+  const box = document.getElementById("resultBox");
+  let head = `<div class="result-head">
+    <img src="${item.icon}" onerror="this.style.display='none'" alt="">
+    <div><h2>${displayName(item)}</h2><div class="sub">${item.name_en || ""} / ${item.category}</div></div>
+    <span class="result-tag">アイテム</span>
+  </div>`;
+
+  if(!obtain){
+    box.innerHTML = head + `<div class="result-empty">このアイテムの入手方法データはまだ登録されていません。</div>`;
+    return;
+  }
+
+  const sections = [];
+  const wantCraft = p.hasCraft && !p.hasDrop;
+  const wantDrop = p.hasDrop && !p.hasCraft;
+  const wantBoth = !p.hasCraft && !p.hasDrop;
+
+  if((wantDrop || wantBoth) && obtain.dropped_by){
+    let rows = obtain.dropped_by;
+    if(p.palOnly) rows = rows.filter(d => DROPPER_INFO[d.pal_asset] && DROPPER_INFO[d.pal_asset].isPal);
+    if(p.humanOnly) rows = rows.filter(d => !(DROPPER_INFO[d.pal_asset] && DROPPER_INFO[d.pal_asset].isPal));
+    const filterNote = p.palOnly ? "(パル限定)" : p.humanOnly ? "(人間NPC限定)" : "";
+    sections.push(`<div class="modal-section"><h4>ドロップ元 ${filterNote}</h4>${renderDropRows(rows.map(dropItemRow), {emptyMsg:"条件に合うドロップ元が見つかりませんでした。"})}</div>`);
+  }
+  if((wantCraft || wantBoth) && obtain.production){
+    sections.push(`<div class="modal-section"><h4>製作材料</h4>
+      ${obtain.production.workbench_jp ? `<div class="obtain-box" style="margin-bottom:8px;"><span class="obtain-label">作業台</span>${obtain.production.workbench_jp}</div>` : ""}
+      ${renderDropRows(obtain.production.materials.map(materialRow))}
+    </div>`);
+  }
+  if(wantCraft && !obtain.production){
+    sections.push(`<div class="result-empty">製作材料のデータはありません(ドロップ入手専用の可能性があります)。</div>`);
+  }
+  if(wantDrop && !obtain.dropped_by){
+    sections.push(`<div class="result-empty">ドロップ元のデータはありません(製作専用アイテムの可能性があります)。</div>`);
+  }
+  box.innerHTML = head + sections.join("");
+}
+
+function renderDropperResult(asset, info){
+  const box = document.getElementById("resultBox");
+  const rows = REVERSE_DROPS[asset] || [];
+  const head = `<div class="result-head">
+    <img src="${palIcon(asset)}" onerror="this.style.display='none'" alt="">
+    <div><h2>${info.jp_name}</h2><div class="sub">${info.en_name || asset}</div></div>
+    <span class="result-tag">${info.isPal ? "パル" : "人間NPC"}</span>
+  </div>`;
+  const section = `<div class="modal-section"><h4>ドロップするアイテム</h4>${renderDropRows(rows.map(reverseItemRow), {emptyMsg:"ドロップ品のデータが見つかりませんでした。"})}</div>`;
+  box.innerHTML = head + section;
+}
+
+function fallbackSuggestions(core){
+  const box = document.getElementById("resultBox");
+  if(!core){
+    box.innerHTML = `<div class="result-empty">アイテム名またはパル名を含む文章を入力してください。</div>`;
+    return;
+  }
+  const itemHits = ITEM_ENTITIES.filter(e => e.text.includes(core) || core.includes(e.text)).slice(0, 6);
+  const dropperHits = DROPPER_ENTITIES.filter(e => e.text.includes(core) || core.includes(e.text)).slice(0, 6);
+  const seen = new Set();
+  const rows = [];
+  itemHits.forEach(e => {
+    if(seen.has("i:"+e.asset)) return; seen.add("i:"+e.asset);
+    rows.push(`<div class="suggest-item" data-kind="item" data-asset="${e.asset}"><img src="${e.item.icon}" onerror="this.style.display='none'" alt="">${displayName(e.item)}</div>`);
+  });
+  dropperHits.forEach(e => {
+    if(seen.has("d:"+e.asset)) return; seen.add("d:"+e.asset);
+    const info = DROPPER_INFO[e.asset];
+    rows.push(`<div class="suggest-item" data-kind="dropper" data-asset="${e.asset}"><img src="${palIcon(e.asset)}" onerror="this.style.display='none'" alt="">${info.jp_name}</div>`);
+  });
+  if(!rows.length){
+    box.innerHTML = `<div class="result-empty">「${core}」に一致するアイテム・パルが見つかりませんでした。</div>`;
+    return;
+  }
+  box.innerHTML = `<div class="result-empty" style="text-align:left;padding:6px 6px 12px;">「${core}」に近い候補:</div><div class="suggest-list">${rows.join("")}</div>`;
+  box.querySelectorAll(".suggest-item").forEach(el => {
+    el.addEventListener("click", () => {
+      if(el.dataset.kind === "item"){
+        const item = ITEM_BY_ASSET.get(el.dataset.asset);
+        renderItemResult(item, { hasCraft:false, hasDrop:false, palOnly:false, humanOnly:false });
+      } else {
+        renderDropperResult(el.dataset.asset, DROPPER_INFO[el.dataset.asset]);
+      }
+    });
+  });
+}
+
+function runSearch(raw){
+  const box = document.getElementById("resultBox");
+  if(!raw || !raw.trim()){
+    box.innerHTML = `<div class="result-empty">検索窓にアイテム名やパル名を含む文章を入力してください。</div>`;
+    return;
+  }
+  const p = parseQuery(raw);
+  if(p.itemMatch){
+    renderItemResult(p.itemMatch.item, p);
+    return;
+  }
+  if(p.dropperMatch){
+    renderDropperResult(p.dropperMatch.asset, DROPPER_INFO[p.dropperMatch.asset]);
+    return;
+  }
+  fallbackSuggestions(p.core);
+}
+
+const EXAMPLES = [
+  "ソルライトインゴット 落とすパル",
+  "AIコア 材料",
+  "ダイヤモンド 落とす",
+  "ベイントール ドロップ",
+  "コラルムインゴット 作れる",
+];
+document.getElementById("examples").innerHTML = EXAMPLES.map(q => `<span class="example-chip">${q}</span>`).join("");
+document.querySelectorAll(".example-chip").forEach(el => {
+  el.addEventListener("click", () => {
+    document.getElementById("searchBox").value = el.textContent;
+    runSearch(el.textContent);
+  });
+});
+
+document.getElementById("searchBox").addEventListener("input", e => runSearch(e.target.value));
+
+// 動作確認用の自己テストハーネス(コンソール/自動テストからwindow.__runSelfTests(cases)で
+// 一括実行できるようにする。casesは{query, note}の配列で、戻り値に判定結果を含む
+// (2026-07-21、100件のテスト依頼に対応するため実装)。
+window.__runSelfTests = function(cases){
+  return cases.map(c => {
+    const p = parseQuery(c.query);
+    let resultType = "none", resultLabel = null;
+    if(p.itemMatch){ resultType = "item"; resultLabel = displayName(p.itemMatch.item); }
+    else if(p.dropperMatch){ resultType = "dropper"; resultLabel = DROPPER_INFO[p.dropperMatch.asset].jp_name; }
+    return {
+      query: c.query, note: c.note || "", resultType, resultLabel,
+      hasCraft: p.hasCraft, hasDrop: p.hasDrop, palOnly: p.palOnly, humanOnly: p.humanOnly, core: p.core,
+    };
+  });
+};
+</script>
+</body>
+</html>
