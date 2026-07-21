@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<title>パッシブスキル図鑑 | Palworld攻略ツール</title>
+<meta name="description" content="パルワールドのパッシブスキル115種の詳細図鑑。効果・ランク・入手方法を個別ページで確認できます。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="パッシブスキル図鑑 | Palworld攻略ツール">
+<meta property="og:description" content="パルワールドのパッシブスキル115種の詳細図鑑。効果・ランク・入手方法を個別ページで確認できます。">
+<meta property="og:image" content="https://rob1242.github.io/palworld-tools/game_data/art/hero_sphere_2.webp">
+<meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_passives.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/design-system.css">
+<style>
+  :root{
+    --bg: #05080e; --panel: #0e1420; --panel2: #141d2b;
+    --parchment: #e7edf5; --parchment-dim: #7e90a5;
+    --brass: #6ec8ea; --brass-dim: #2f6b85;
+    --teal: #35d2ff; --teal-dim: #1c6d86;
+    --lime: #3d7bff; --lime-dim: #1f4a99;
+    --magenta: #8fd6ff; --magenta-dim: #4a7fa3;
+    --line: rgba(120,165,220,.18); --danger: #e2543f;
+    --hp: #7bdb52; --sp: #f0a233;
+    --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
+    --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
+    --font-mono: "JetBrains Mono", monospace;
+  }
+  ::selection{background:var(--lime);color:#0a0d12;}
+  *{box-sizing:border-box;}
+  body{margin:0;background: var(--bg);
+    color:var(--parchment);font-family:var(--font-body);padding:0;}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px;}
+
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .brand-badge{width:42px;height:42px;border-radius:8px;background:var(--panel2);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
+  h1.title{font-family:var(--font-display);font-weight:900;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
+  .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
+
+  .caveat{font-size:11.5px;color:var(--parchment-dim);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-bottom:16px;line-height:1.7;}
+
+  .controls{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+  .controls-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  #searchBox{flex:1;min-width:160px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:8px 12px;font-size:13.5px;font-family:var(--font-body);}
+  #searchBox::placeholder{color:var(--parchment-dim);}
+  #searchBox:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 2px rgba(53,210,255,.2);}
+  .count-tag{font-size:12px;color:var(--parchment-dim);font-family:var(--font-mono);white-space:nowrap;}
+  .cat-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+  .chip{font-size:12px;padding:5px 11px;border-radius:5px;border:1px solid var(--line);background:var(--panel2);color:var(--parchment-dim);cursor:pointer;user-select:none;transition:transform .1s,border-color .1s;}
+  .chip:hover{transform:translateY(-1px);border-color:var(--teal-dim);}
+  .chip.active{color:#0d1013;font-weight:700;border-color:transparent;background:var(--lime);}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;cursor:pointer;position:relative;transition:border-color .12s, transform .12s;}
+  .card:hover{border-color:var(--teal-dim);transform:translateY(-2px);}
+  .card-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+  .card .icon-wrap{width:32px;height:32px;border-radius:6px;background:var(--panel2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .card .icon-wrap img{width:70%;height:70%;object-fit:contain;}
+  .card .pname{font-size:13.5px;font-weight:700;color:var(--parchment);}
+  .rank-badge{font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700;font-family:var(--font-mono);}
+  .rank-pos{background:rgba(123,219,82,.18);color:var(--hp);}
+  .rank-neg{background:rgba(226,84,63,.18);color:var(--danger);}
+  .card .peffect{font-size:11.5px;color:var(--parchment-dim);line-height:1.6;white-space:pre-line;}
+
+  .empty-msg{grid-column:1/-1;text-align:center;padding:40px 0;color:var(--parchment-dim);font-size:13px;}
+
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(4,6,10,.72);backdrop-filter:blur(2px);z-index:50;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto;}
+  .modal-overlay.open{display:flex;}
+  .modal-box{background:var(--panel);border:1px solid var(--line);border-radius:12px;max-width:460px;width:100%;padding:22px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+  .modal-close{position:absolute;top:14px;right:14px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment-dim);width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:16px;line-height:1;}
+  .modal-close:hover{color:var(--parchment);border-color:var(--teal-dim);}
+  .modal-head{display:flex;gap:16px;align-items:center;margin-bottom:14px;}
+  .modal-head .icon-wrap{width:56px;height:56px;border-radius:10px;background:var(--panel2);border:2px solid var(--brass);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .modal-head .icon-wrap img{width:70%;height:70%;object-fit:contain;}
+  .modal-head h3{margin:0 0 6px;font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--parchment);}
+  .modal-desc{font-size:13px;color:var(--parchment);line-height:1.8;background:var(--panel2);border-radius:8px;padding:12px 14px;border:1px solid var(--line);white-space:pre-line;margin-bottom:14px;}
+  .modal-section h4{margin:0 0 8px;font-size:11px;font-weight:700;color:var(--brass);text-transform:uppercase;letter-spacing:.06em;}
+  .obtain-box{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:12px 14px;font-size:12.5px;color:var(--parchment-dim);line-height:1.7;}
+</style>
+<script src="shared/analytics.js"></script>
+<script src="shared/global_search.js" defer></script>
+</head>
+<body>
+<script src="game_data/passives_page_data.js"></script>
+<div class="wrap">
+  <header class="top">
+    <a class="brand-link" href="palworld_home.html">
+      <div class="brand-badge">P</div>
+      <h1 class="title glitch-hover" data-text="パッシブ図鑑"><small>Palworld 攻略ツール</small>パッシブスキル図鑑</h1>
+    </a>
+    <div class="header-right">
+      <div class="gsearch-wrap">
+        <input type="text" id="gsearchInput" class="gsearch-input" placeholder="サイト内検索(パル名・アイテム名・ページ名など)" autocomplete="off">
+        <div class="gsearch-results" id="gsearchResults"></div>
+      </div>
+      <nav class="tabs">
+      <a href="palworld_home.html"><span>ホーム</span></a>
+      <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
+      <a href="palworld_dex.html"><span>パル図鑑</span></a>
+      <a href="palworld_items.html"><span>アイテム図鑑</span></a>
+      <a href="palworld_skills.html"><span>技図鑑</span></a>
+      <a href="palworld_passives.html" class="current"><span>パッシブ図鑑</span></a>
+      <a href="palworld_breeding.html"><span>配合検索</span></a>
+      <a href="palworld_palbox.html"><span>パルボックス</span></a>
+      <a href="palworld_combat.html"><span>戦闘最適化</span></a>
+      <a href="palworld_tierlist.html"><span>最強Tier表</span></a>
+      <a href="palworld_ride.html"><span>ライド速度</span></a>
+      <a href="palworld_map.html"><span>出現マップ</span></a>
+      <a href="palworld_bossguide.html"><span>ボス攻略</span></a>
+      <a href="palworld_achievements.html"><span>実績一覧</span></a>
+      <a href="palworld_passives_guide.html"><span>おすすめパッシブ</span></a>
+      <a href="palworld_reference.html"><span>早見表</span></a>
+      <a href="palworld_technology.html"><span>テクノロジー</span></a>
+      <a href="palworld_missions.html"><span>ミッション</span></a>
+      <a href="palworld_iv_calc.html"><span>素質値計算機</span></a>
+      <a href="palworld_party_guide.html"><span>パーティ編成ガイド</span></a>
+      <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
+      <a href="palworld_changelog.html"><span>更新履歴</span></a>
+    </nav>
+    </div>
+  </header>
+
+  <p class="caveat">
+    ゲーム内データを元にしたパッシブスキル図鑑です(表示対象115種、ランクの高いものほど強力)。入手方法は、放浪の商人や宝箱で買えるインプラントで習得できるものは具体的に掲載(35種)。それ以外は野生個体が元々持っていたり、配合・厳選によって狙った子に付与する形での入手になります(個別の断定的な入手経路データが無いため一般的な説明にしています)。「おすすめパッシブ早見表」もあわせてご覧ください。
+  </p>
+
+  <div class="controls">
+    <div class="controls-row">
+      <input type="text" id="searchBox" placeholder="パッシブ名で検索…">
+      <span class="count-tag" id="countTag"></span>
+    </div>
+    <div class="cat-chips" id="rankChips"></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <p style="font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。</p>
+</div>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">×</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const state = { query: "", rank: "すべて" };
+const RANK_CHIPS = ["すべて", "5", "4", "3", "2", "1", "マイナス"];
+
+function renderChips(){
+  document.getElementById("rankChips").innerHTML = RANK_CHIPS.map(r =>
+    `<div class="chip ${state.rank === r ? "active" : ""}" data-r="${r}">${r === "すべて" ? "すべて" : r === "マイナス" ? "マイナス効果" : `ランク${r}`}</div>`
+  ).join("");
+  document.querySelectorAll(".chip").forEach(el => {
+    el.addEventListener("click", () => { state.rank = el.dataset.r; renderGrid(); renderChips(); });
+  });
+}
+
+function filtered(){
+  const q = state.query.toLowerCase();
+  return PASSIVES_PAGE_DATA.filter(p => {
+    if(state.rank !== "すべて"){
+      if(state.rank === "マイナス"){ if(p.rank >= 0) return false; }
+      else if(p.rank !== parseInt(state.rank, 10)) return false;
+    }
+    if(!q) return true;
+    return p.name_jp.toLowerCase().includes(q) || p.effect_jp.toLowerCase().includes(q);
+  });
+}
+
+function renderGrid(){
+  const list = filtered();
+  document.getElementById("countTag").textContent = `${list.length} / ${PASSIVES_PAGE_DATA.length}件`;
+  const grid = document.getElementById("grid");
+  if(!list.length){
+    grid.innerHTML = `<div class="empty-msg">該当するパッシブが見つかりません。</div>`;
+    return;
+  }
+  grid.innerHTML = list.map(p => `
+    <div class="card" data-asset="${p.asset}">
+      <div class="card-head">
+        <div class="icon-wrap"><img src="${p.icon}" onerror="this.style.display='none'" alt=""></div>
+        <div class="pname">${p.name_jp}</div>
+        <span class="rank-badge ${p.rank >= 0 ? "rank-pos" : "rank-neg"}">${p.rank >= 0 ? "★" + p.rank : "▼" + Math.abs(p.rank)}</span>
+      </div>
+      <div class="peffect">${p.effect_jp}</div>
+    </div>
+  `).join("");
+  document.querySelectorAll(".card").forEach(el => {
+    el.addEventListener("click", () => openModal(el.dataset.asset));
+  });
+}
+
+function openModal(asset){
+  const p = PASSIVES_PAGE_DATA.find(x => x.asset === asset);
+  if(!p) return;
+  document.getElementById("modalBody").innerHTML = `
+    <div class="modal-head">
+      <div class="icon-wrap"><img src="${p.icon}" onerror="this.style.display='none'" alt=""></div>
+      <div>
+        <h3>${p.name_jp}</h3>
+        <span class="rank-badge ${p.rank >= 0 ? "rank-pos" : "rank-neg"}">${p.rank >= 0 ? "ランク " + p.rank : "マイナス効果 " + Math.abs(p.rank)}</span>
+      </div>
+    </div>
+    <div class="modal-desc">${p.effect_jp}</div>
+    <div class="modal-section">
+      <h4>入手方法</h4>
+      <div class="obtain-box">${p.obtain_jp || "野生のパルが元々持っている場合や、配合・厳選によって特定の個体に付与される形で入手します(このパッシブ専用の確定入手ルートは確認できていません)。"}</div>
+    </div>
+  `;
+  document.getElementById("modal").classList.add("open");
+}
+
+document.getElementById("modalClose").addEventListener("click", () => document.getElementById("modal").classList.remove("open"));
+document.getElementById("modal").addEventListener("click", e => { if(e.target.id === "modal") document.getElementById("modal").classList.remove("open"); });
+document.getElementById("searchBox").addEventListener("input", e => { state.query = e.target.value; renderGrid(); });
+
+renderChips();
+renderGrid();
+
+const initialAsset = new URLSearchParams(location.search).get("asset");
+if(initialAsset && PASSIVES_PAGE_DATA.some(p => p.asset === initialAsset)) openModal(initialAsset);
+</script>
+</body>
+</html>

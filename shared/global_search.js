@@ -14,6 +14,8 @@
     "game_data/items_obtain_data.js",
     "game_data/breeding_data.js",
     "game_data/missions_data.js",
+    "game_data/skills_page_data.js",
+    "game_data/passives_page_data.js",
   ];
 
   const PAGES = [
@@ -21,6 +23,8 @@
     { name: "拠点プランナー", url: "palworld_base_planner_v2.html" },
     { name: "パル図鑑", url: "palworld_dex.html" },
     { name: "アイテム図鑑", url: "palworld_items.html" },
+    { name: "技図鑑", url: "palworld_skills.html" },
+    { name: "パッシブ図鑑", url: "palworld_passives.html" },
     { name: "配合検索", url: "palworld_breeding.html" },
     { name: "パルボックス", url: "palworld_palbox.html" },
     { name: "戦闘最適化", url: "palworld_combat.html" },
@@ -65,7 +69,7 @@
   let dataReady = false;
   let loadingPromise = null;
   let ITEM_ENTITIES = [], DROPPER_ENTITIES = [], DROPPER_INFO = {}, REVERSE_DROPS = {}, ITEM_BY_ASSET = new Map();
-  let PAL_ENTITIES = [], MISSION_ENTITIES = [], PAGE_ENTITIES = [];
+  let PAL_ENTITIES = [], MISSION_ENTITIES = [], PAGE_ENTITIES = [], SKILL_ENTITIES = [], PASSIVE_ENTITIES = [];
 
   function loadScript(src){
     if(document.querySelector(`script[src="${src}"]`)) return Promise.resolve();
@@ -130,6 +134,15 @@
 
     PAGE_ENTITIES = PAGES.map(p => ({ text: normalize(p.name), page: p }))
       .sort((a,b) => b.text.length - a.text.length);
+
+    // 技図鑑・パッシブ図鑑への直接遷移用(2026-07-21、詳細ページ新設に合わせて追加)。
+    SKILL_ENTITIES = SKILLS_PAGE_DATA.flatMap(s => {
+      const names = new Set([s.name_jp, s.name_en].filter(Boolean));
+      return [...names].map(n => ({ text: normalize(n), skill: s }));
+    }).sort((a,b) => b.text.length - a.text.length);
+
+    PASSIVE_ENTITIES = PASSIVES_PAGE_DATA.map(p => ({ text: normalize(p.name_jp), passive: p }))
+      .sort((a,b) => b.text.length - a.text.length);
   }
 
   function exactMatch(core, entities){
@@ -156,6 +169,8 @@
     const base = [
       { kind: "item", entities: ITEM_ENTITIES },
       { kind: "pal", entities: PAL_ENTITIES },
+      { kind: "skill", entities: SKILL_ENTITIES },
+      { kind: "passive", entities: PASSIVE_ENTITIES },
       { kind: "dropper", entities: DROPPER_ENTITIES },
       { kind: "mission", entities: MISSION_ENTITIES },
       { kind: "page", entities: PAGE_ENTITIES },
@@ -326,6 +341,22 @@
       <span class="gsearch-tag">ページを開く</span>
     </a>`;
   }
+  function renderSkillResult(entry){
+    const s = entry.skill;
+    return `<a class="gsearch-row gsearch-head gsearch-link" href="palworld_skills.html?asset=${encodeURIComponent(s.asset)}">
+      <img class="gsearch-icon" src="${s.element_icon}" onerror="this.style.display='none'" alt="" style="filter:brightness(0) invert(1);">
+      <span class="gsearch-name">${esc(s.name_jp)}<span class="gsearch-en">${esc(s.element_jp)} / 威力${s.power}</span></span>
+      <span class="gsearch-tag">技の詳細を開く</span>
+    </a>`;
+  }
+  function renderPassiveResult(entry){
+    const p = entry.passive;
+    return `<a class="gsearch-row gsearch-head gsearch-link" href="palworld_passives.html?asset=${encodeURIComponent(p.asset)}">
+      <img class="gsearch-icon" src="${p.icon}" onerror="this.style.display='none'" alt="">
+      <span class="gsearch-name">${esc(p.name_jp)}<span class="gsearch-en">${p.rank >= 0 ? "ランク" + p.rank : "マイナス効果"}</span></span>
+      <span class="gsearch-tag">パッシブの詳細を開く</span>
+    </a>`;
+  }
 
   function fallbackSuggestions(core, box){
     if(!core){
@@ -341,6 +372,8 @@
         if(pool.kind === "item") rows.push({ kind: "item", entry: e });
         if(pool.kind === "dropper") rows.push({ kind: "dropper", entry: e });
         if(pool.kind === "pal") rows.push(renderPalResult(e));
+        if(pool.kind === "skill") rows.push(renderSkillResult(e));
+        if(pool.kind === "passive") rows.push(renderPassiveResult(e));
         if(pool.kind === "mission") rows.push(renderMissionResult(e));
         if(pool.kind === "page") rows.push(renderPageResult(e));
       });
@@ -387,6 +420,8 @@
     if(p.found.kind === "item"){ box.innerHTML = renderItemResult(p.found.match.item, p); return; }
     if(p.found.kind === "dropper"){ box.innerHTML = renderDropperResult(p.found.match.asset, DROPPER_INFO[p.found.match.asset]); return; }
     if(p.found.kind === "pal"){ box.innerHTML = renderPalResult(p.found.match); return; }
+    if(p.found.kind === "skill"){ box.innerHTML = renderSkillResult(p.found.match); return; }
+    if(p.found.kind === "passive"){ box.innerHTML = renderPassiveResult(p.found.match); return; }
     if(p.found.kind === "mission"){ box.innerHTML = renderMissionResult(p.found.match); return; }
     if(p.found.kind === "page"){ box.innerHTML = renderPageResult(p.found.match); return; }
   }
