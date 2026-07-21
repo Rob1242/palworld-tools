@@ -58,8 +58,12 @@
   .mission-foot b{color:var(--brass);font-weight:700;}
 
   .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;}
+
+  .mission-item.highlight{border-color:var(--teal);box-shadow:0 0 0 2px rgba(53,210,255,.35), 0 6px 18px rgba(0,0,0,.2);animation:missionHighlightFade 2.6s ease-out;}
+  @keyframes missionHighlightFade{0%{background:rgba(53,210,255,.16);}100%{background:var(--panel);}}
 </style>
 <script src="shared/analytics.js"></script>
+<script src="shared/global_search.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -68,9 +72,13 @@
       <div class="brand-badge">P</div>
       <h1 class="title glitch-hover" data-text="ミッション一覧"><small>Palworld 攻略ツール</small>ミッション一覧</h1>
     </a>
-    <nav class="tabs">
+    <div class="header-right">
+      <div class="gsearch-wrap">
+        <input type="text" id="gsearchInput" class="gsearch-input" placeholder="サイト内検索(パル名・アイテム名・ページ名など)" autocomplete="off">
+        <div class="gsearch-results" id="gsearchResults"></div>
+      </div>
+      <nav class="tabs">
       <a href="palworld_home.html"><span>ホーム</span></a>
-      <a href="palworld_search.html"><span>スマート検索</span></a>
       <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
       <a href="palworld_dex.html"><span>パル図鑑</span></a>
       <a href="palworld_breeding.html"><span>配合検索</span></a>
@@ -91,6 +99,7 @@
       <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
       <a href="palworld_changelog.html"><span>更新履歴</span></a>
     </nav>
+  </div>
   </header>
 
   <p class="intro">メインミッション・サブミッションの一覧です。「次」は続けて発生するミッションです。</p>
@@ -109,7 +118,7 @@
 function render(cat){
   const list = MISSIONS_DATA.filter(m => m.category === cat);
   document.getElementById("missionList").innerHTML = list.map((m, i) => `
-    <div class="mission-item">
+    <div class="mission-item" data-id="${m.id}">
       <div class="mission-head">
         <span class="mission-num">${i + 1}</span>
         <span class="mission-title">${m.title}</span>
@@ -130,6 +139,26 @@ document.querySelectorAll(".mode-tab").forEach(tab => {
   });
 });
 render("メインミッション");
+
+// サイト全体検索(shared/global_search.js)からの直リンク用: ?id=<mission_id>で
+// 該当ミッションのタブへ切り替えてスクロール+ハイライトする(2026-07-21新設)。
+const initialId = new URLSearchParams(location.search).get("id");
+if(initialId){
+  const target = MISSIONS_DATA.find(m => m.id === initialId);
+  if(target){
+    document.querySelectorAll(".mode-tab").forEach(t => t.classList.toggle("active", t.dataset.cat === target.category));
+    render(target.category);
+    // render()はinnerHTMLを同期的に書き換えるため、この時点で要素は既に
+    // クエリ可能(requestAnimationFrameは不要。バックグラウンドタブではrAFが
+    // 抑制され動かないことがあるため使わない、2026-07-21確認)。
+    const el = document.querySelector(`.mission-item[data-id="${CSS.escape(initialId)}"]`);
+    if(el){
+      el.scrollIntoView({ behavior: "instant", block: "center" });
+      el.classList.add("highlight");
+      setTimeout(() => el.classList.remove("highlight"), 2600);
+    }
+  }
+}
 </script>
 </body>
 </html>

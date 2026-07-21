@@ -162,6 +162,7 @@
 
   </style>
 <script src="shared/analytics.js"></script>
+<script src="shared/global_search.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -170,9 +171,13 @@
       <div class="brand-badge">P</div>
       <h1 class="brand-title glitch-hover" data-text="拠点プランナー"><small>Palworld 攻略ツール</small>拠点プランナー</h1>
     </a>
-    <nav class="tabs">
+    <div class="header-right">
+      <div class="gsearch-wrap">
+        <input type="text" id="gsearchInput" class="gsearch-input" placeholder="サイト内検索(パル名・アイテム名・ページ名など)" autocomplete="off">
+        <div class="gsearch-results" id="gsearchResults"></div>
+      </div>
+      <nav class="tabs">
       <a href="palworld_home.html"><span>ホーム</span></a>
-      <a href="palworld_search.html"><span>スマート検索</span></a>
       <a href="palworld_base_planner_v2.html" class="current"><span>拠点プランナー</span></a>
       <a href="palworld_dex.html"><span>パル図鑑</span></a>
       <a href="palworld_breeding.html"><span>配合検索</span></a>
@@ -193,6 +198,7 @@
       <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
       <a href="palworld_changelog.html"><span>更新履歴</span></a>
     </nav>
+  </div>
   </header>
   <p class="title">拠点配置プランナー v2</p>
   <p class="subtitle">基礎適正Lv + 理想パッシブ理論値で実効スコアを計算し、動的計画法(DP)で役職カバレッジを保ちながら合計スコアが最大になる組み合わせを厳密に求めます(近似ではありません)。</p>

@@ -57,6 +57,7 @@
   .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;}
 </style>
 <script src="shared/analytics.js"></script>
+<script src="shared/global_search.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -65,9 +66,13 @@
       <div class="brand-badge">P</div>
       <h1 class="title glitch-hover" data-text="おすすめパッシブ"><small>Palworld 攻略ツール</small>おすすめパッシブ早見表</h1>
     </a>
-    <nav class="tabs">
+    <div class="header-right">
+      <div class="gsearch-wrap">
+        <input type="text" id="gsearchInput" class="gsearch-input" placeholder="サイト内検索(パル名・アイテム名・ページ名など)" autocomplete="off">
+        <div class="gsearch-results" id="gsearchResults"></div>
+      </div>
+      <nav class="tabs">
       <a href="palworld_home.html"><span>ホーム</span></a>
-      <a href="palworld_search.html"><span>スマート検索</span></a>
       <a href="palworld_base_planner_v2.html"><span>拠点プランナー</span></a>
       <a href="palworld_dex.html"><span>パル図鑑</span></a>
       <a href="palworld_breeding.html"><span>配合検索</span></a>
@@ -88,6 +93,7 @@
       <a href="palworld_base_spots.html"><span>拠点位置ガイド</span></a>
       <a href="palworld_changelog.html"><span>更新履歴</span></a>
     </nav>
+  </div>
   </header>
 
   <p class="intro">用途別(戦闘用/拠点用/騎乗用)におすすめのパッシブスキルを、ランク(効果の強さ)順に並べています。効果文に含まれるキーワードから機械的に分類しているため、複数の用途に重複して載っているパッシブもあります。</p>
