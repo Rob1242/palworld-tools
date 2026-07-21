@@ -304,6 +304,7 @@
     }
     if(wantCraft && !obtain.production) html += `<div class="gsearch-empty">製作材料のデータはありません。</div>`;
     if(wantDrop && !obtain.dropped_by) html += `<div class="gsearch-empty">ドロップ元のデータはありません。</div>`;
+    html += `<a class="gsearch-row gsearch-link" href="palworld_items.html?asset=${encodeURIComponent(item.asset)}" style="margin-top:6px;justify-content:center;color:var(--teal);">アイテム図鑑で詳細ページを見る(使い道も掲載)→</a>`;
     return html;
   }
 

@@ -167,7 +167,8 @@
 
   <p class="caveat">
     ゲーム内データ(items.json、全2466件)を元にしたアイテム一覧です。日本語名は2415件(97.9%、うちpaldb.ccにも和訳が無かった102件は直訳の参考訳「(参考訳)」表記)で判明済み。開発者用のデバッグ/テスト専用アイテムと、NPC専用の無名武器データ(計53件)は一覧から除外しています。残りは情報源にも和名が見つからず、英語名(内部アイテム名)での表示になります。<br>
-    武器・防具・アクセサリー・グライダー/盾は、同じ名前のまま5段階のレア度(コモン〜レジェンダリー)違いで複数の設計図が存在する仕様のため(paldb.ccで実データ確認済み)、1アイテムにつき1枚のカードへ統合し、詳細はカードをクリックした先のレア度別ステータス表(攻撃・防御・耐久度など)で確認できます。統合後の表示件数は2088件です。
+    武器・防具・アクセサリー・グライダー/盾は、同じ名前のまま5段階のレア度(コモン〜レジェンダリー)違いで複数の設計図が存在する仕様のため(paldb.ccで実データ確認済み)、1アイテムにつき1枚のカードへ統合し、詳細はカードをクリックした先のレア度別ステータス表(攻撃・防御・耐久度など)で確認できます。統合後の表示件数は2088件です。<br>
+    各アイテムには個別の詳細ページ(<code>?asset=名前</code>のURL)があり、ドロップ元・製作材料に加えて「この素材の使い道(製作材料として使われるレシピ)」も確認できます。カードをクリックするとURLに反映されるので、そのままブックマーク・共有できます。
   </p>
 
   <div class="controls">
@@ -426,6 +427,47 @@ function buildSingleStats(it){
   return (chips ? `<div class="single-stats">${chips}</div>` : "") + effectsHtml + techHtml;
 }
 
+// この素材が他のどのアイテムの製作材料として使われているか(逆引き)。
+// gamewith.jp等の個別アイテムページには載っているが、こちらはまだ「このアイテム自体を
+// 作るのに何が要るか」の順方向しか出していなかったため追加(2026-07-22、複数サイトの
+// アイテム詳細ページを比較した結果判明した最大のギャップ)。ITEM_OBTAIN_DATAの
+// production.materialsを総当たりして逆引き索引を作るだけなので、新しいデータ取得は不要。
+const REVERSE_USAGE = (() => {
+  const rev = {};
+  if(typeof ITEM_OBTAIN_DATA === "undefined") return rev;
+  Object.entries(ITEM_OBTAIN_DATA).forEach(([itemAsset, data]) => {
+    if(!data.production) return;
+    data.production.materials.forEach(m => {
+      (rev[m.item_asset] = rev[m.item_asset] || []).push({ item_asset: itemAsset, qty: m.qty });
+    });
+  });
+  return rev;
+})();
+
+function buildUsedInHtml(it){
+  const seen = new Set();
+  const rows = [];
+  it.tiers.forEach(t => {
+    (REVERSE_USAGE[t.asset] || []).forEach(u => {
+      if(seen.has(u.item_asset)) return;
+      seen.add(u.item_asset);
+      const usedByItem = ITEM_BY_ASSET.get(u.item_asset);
+      const name = usedByItem ? displayName(usedByItem) : u.item_asset;
+      const icon = usedByItem ? usedByItem.icon : "game_data/icons/T_icon_unknown.webp";
+      rows.push(`<div class="drop-item">
+        <img class="drop-icon" src="${icon}" onerror="this.style.display='none'" alt="">
+        <span class="drop-name">${name}</span>
+        <span class="drop-qty">×${u.qty}</span>
+      </div>`);
+    });
+  });
+  if(!rows.length) return "";
+  return `<div class="modal-section">
+    <h4>この素材の使い道(製作材料として)</h4>
+    <div class="drop-list">${rows.join("")}</div>
+  </div>`;
+}
+
 function buildObtainHtml(it){
   if(typeof ITEM_OBTAIN_DATA === "undefined") return "";
   const sections = [];
@@ -511,21 +553,32 @@ function openModal(asset){
     ${it.category !== "建築物" ? (it.isGroup ? buildStatTable(it) : buildSingleStats(it)) : ""}
     <div class="modal-desc">${it.description_jp || it.description_en || "(説明文なし)"}</div>
     ${buildObtainHtml(it)}
+    ${buildUsedInHtml(it)}
   `;
   document.getElementById("itemModal").classList.add("open");
+  history.replaceState(null, "", `?asset=${encodeURIComponent(asset)}`);
 }
 
-document.getElementById("modalClose").addEventListener("click", () => {
+function closeModal(){
   document.getElementById("itemModal").classList.remove("open");
-});
+  history.replaceState(null, "", location.pathname);
+}
+document.getElementById("modalClose").addEventListener("click", closeModal);
 document.getElementById("itemModal").addEventListener("click", e => {
-  if(e.target.id === "itemModal") document.getElementById("itemModal").classList.remove("open");
+  if(e.target.id === "itemModal") closeModal();
 });
 
 document.getElementById("searchBox").addEventListener("input", e => { state.query = e.target.value; renderGrid(); });
 
 renderChips();
 renderGrid();
+
+// 個別アイテムへの直リンク用: ?asset=<資産名>で該当アイテムの詳細を自動で開く
+// (2026-07-22、アイテム全件に「詳細ページ」を持たせる依頼への対応。物理的に2466個の
+// HTMLファイルを作る代わりに、パル図鑑・技図鑑・パッシブ図鑑と同じ「1ページ+クエリ
+// パラメータでの詳細直リンク」方式に統一した)。
+const initialAsset = new URLSearchParams(location.search).get("asset");
+if(initialAsset && ITEM_BY_ASSET.has(initialAsset)) openModal(initialAsset);
 </script>
 </body>
 </html>
