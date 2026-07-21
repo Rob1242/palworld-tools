@@ -1000,13 +1000,23 @@ const PAL_LIST = Object.entries(BREEDING_DATA.pals || {})
     icon: info.icon,
   })).sort((a, b) => a.displayName.localeCompare(b.displayName, 'ja'));
 
-// forwardPairs(親ペア→子)は生データの時点でボス/ゴースト個体が「子」として
-// 載っていることがあるため(ゼノドラン等、実際には配合で作れない)、ここで
-// 一括して取り除いておく。以降このオブジェクトを参照する「今すぐ作れるパル」
-// (computeDirectlyMakeable)や多世代ロードマップ探索(findBreedingRoute)にも
-// 自動的に反映される(2026-07-21、「今すぐ作れるパル」一覧で再発したユーザー報告)。
+// forwardPairs(親ペア→子)は生データの時点で以下の2種類の無効なレシピを含んでいる:
+// (1) 子がボス/ゴースト個体(ゼノドラン等、そもそも配合で作れないはずのパル)
+// (2) 親のどちらかがゴースト個体(dex_idがnull、ゼロヴァース等。パル図鑑に正式登録すら
+//     されておらず所持しようがないため、親として使うこと自体が不可能)
+// なお「レイドボスは親としては使える(ただし伝説級の子は作れない)」というユーザー確認済みの
+// 仕様と、実データの傾向(ボス個体を親に含む3553件中、伝説級の子になるのは同種同士の
+// 自己参照1件のみ=既に(1)で除外済み)が一致したため、ボス個体を親に持つ他のレシピは
+// そのまま残す(2026-07-21、「フロスドン」の親候補にゼロヴァースが出た再報告で発覚)。
+function isGhost(asset){
+  const info = BREEDING_DATA.pals[asset];
+  return !info || !info.dex_id;
+}
 Object.keys(BREEDING_DATA.forwardPairs || {}).forEach(key => {
-  if(isNonBreedable(BREEDING_DATA.forwardPairs[key])) delete BREEDING_DATA.forwardPairs[key];
+  const child = BREEDING_DATA.forwardPairs[key];
+  if(isNonBreedable(child)){ delete BREEDING_DATA.forwardPairs[key]; return; }
+  const [a, b] = key.split("|");
+  if(isGhost(a) || isGhost(b)) delete BREEDING_DATA.forwardPairs[key];
 });
 
 function nameOf(asset){

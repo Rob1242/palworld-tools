@@ -270,11 +270,34 @@ const PAL_LIST = Object.entries(BREEDING_DATA.pals || {})
     icon: info.icon,
   })).sort((a, b) => a.displayName.localeCompare(b.displayName, 'ja'));
 
-// forwardPairs(親ペア→子)自体にボス/ゴースト個体が「子」として載っていることが
-// あるため(ゼノドラン等、実際には配合で作れない)、一括して取り除いておく
-// (2026-07-21、パルボックス側と同じ修正)。
+// forwardPairs(親ペア→子)は生データの時点で以下の2種類の無効なレシピを含んでいる:
+// (1) 子がボス/ゴースト個体(ゼノドラン等、そもそも配合で作れないはずのパル)
+// (2) 親のどちらかがゴースト個体(dex_idがnull、ゼロヴァース等。パル図鑑に正式登録すら
+//     されておらず所持しようがないため、親として使うこと自体が不可能)
+// レイドボスは親としては使える(ただし伝説級の子は作れない)というユーザー確認済みの
+// 仕様と実データの傾向が一致したため、ボス個体を親に持つ他のレシピはそのまま残す
+// (2026-07-21、「フロスドン」の親候補にゼロヴァースが出た再報告で発覚)。
+function isGhost(asset){
+  const info = BREEDING_DATA.pals[asset];
+  return !info || !info.dex_id;
+}
 Object.keys(BREEDING_DATA.forwardPairs || {}).forEach(key => {
-  if(isNonBreedable(BREEDING_DATA.forwardPairs[key])) delete BREEDING_DATA.forwardPairs[key];
+  const child = BREEDING_DATA.forwardPairs[key];
+  if(isNonBreedable(child)){ delete BREEDING_DATA.forwardPairs[key]; return; }
+  const [a, b] = key.split("|");
+  if(isGhost(a) || isGhost(b)) delete BREEDING_DATA.forwardPairs[key];
+});
+
+// 「欲しい子から親候補を調べる」はforwardPairsとは別の事前計算済みインデックス
+// (reverseParents)を参照しているため、こちらにも同じゴースト除外を適用する
+// (ゼロヴァース(WorldTreeDragon)が親候補に出ていた不具合はこちらが原因)。
+Object.entries(BREEDING_DATA.reverseParents || {}).forEach(([target, entry]) => {
+  if(isNonBreedable(target)){ delete BREEDING_DATA.reverseParents[target]; return; }
+  ["unique", "formula"].forEach(key => {
+    if(Array.isArray(entry[key])){
+      entry[key] = entry[key].filter(([a, b]) => !isGhost(a) && !isGhost(b));
+    }
+  });
 });
 
 function nameOf(asset){
