@@ -70,6 +70,24 @@ def icon_stem(path):
     return path.rsplit("/", 1)[-1].removesuffix(".webp")
 
 
+# 生データ(items.json)は設計図(Blueprint_*)アイテムのicon欄に、対応する完成品とは
+# 無関係な汎用アイコン(T_itemicon_Material_Blueprint.webp)を一律で入れている。
+# しかしpaldb.ccの実ページでは、設計図は対応する完成品と同じ専用アイコンで表示されている
+# (例: Blueprint_Accessory_AT_1_2 → Accessory_AT_1と同じアイコン)。
+# "Blueprint_"を外した残りから末尾の"_数字"セグメントを1つずつ落としながら、
+# 実在する完成品アセットに一致するまで遡って探す(2026-07-21、ユーザー報告で発覚)。
+def resolve_blueprint_icon(asset, asset_to_icon):
+    if not asset.startswith("Blueprint_"):
+        return None
+    rest = asset[len("Blueprint_"):]
+    parts = rest.split("_")
+    for cut in range(len(parts), 0, -1):
+        candidate = "_".join(parts[:cut])
+        if candidate in asset_to_icon and not candidate.startswith("Blueprint"):
+            return asset_to_icon[candidate]
+    return None
+
+
 def main():
     with open(ITEMS_PATH, encoding="utf-8") as f:
         items = json.load(f)["items"]
@@ -78,10 +96,16 @@ def main():
         raw = f.read()
     icon_map = json.loads(raw.split("=", 1)[1].strip().rstrip(";"))
     stem_to_jp = {icon_stem(path): jp for jp, path in icon_map.items()}
+    asset_to_icon = {it["asset"]: it["icon"] for it in items}
 
     out = []
+    resolved_blueprint_icons = 0
     for it in items:
-        stem = icon_stem(it["icon"])
+        blueprint_icon = resolve_blueprint_icon(it["asset"], asset_to_icon)
+        icon_source = blueprint_icon if blueprint_icon else it["icon"]
+        if blueprint_icon:
+            resolved_blueprint_icons += 1
+        stem = icon_stem(icon_source)
         jp_name = stem_to_jp.get(stem)
         category, subcategory = categorize(it)
         out.append({
@@ -102,7 +126,7 @@ def main():
     out.sort(key=lambda x: (CATEGORY_ORDER.index(x["category"]), -x["price"]))
 
     jp_matched = sum(1 for x in out if x["name_jp"])
-    print(f"total items: {len(out)}, JP name matched: {jp_matched}")
+    print(f"total items: {len(out)}, JP name matched: {jp_matched}, blueprint icons resolved: {resolved_blueprint_icons}")
     by_cat = {}
     for x in out:
         by_cat[x["category"]] = by_cat.get(x["category"], 0) + 1
