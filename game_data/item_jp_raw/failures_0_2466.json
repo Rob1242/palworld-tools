@@ -1,0 +1,262 @@
+[
+ {
+  "asset": "AssaultRifle_NPC",
+  "name": "AssaultRifle_NPC",
+  "slug": "AssaultRifle_NPC"
+ },
+ {
+  "asset": "AssaultRifle_NPC_GrassBoss",
+  "name": "AssaultRifle_NPC_GrassBoss",
+  "slug": "AssaultRifle_NPC_GrassBoss"
+ },
+ {
+  "asset": "AssaultRifle_NPC_Otomo",
+  "name": "AssaultRifle_NPC_Otomo",
+  "slug": "AssaultRifle_NPC_Otomo"
+ },
+ {
+  "asset": "Bat_NPC",
+  "name": "Bat_NPC",
+  "slug": "Bat_NPC"
+ },
+ {
+  "asset": "Bat_NPC_Otomo",
+  "name": "Bat_NPC_Otomo",
+  "slug": "Bat_NPC_Otomo"
+ },
+ {
+  "asset": "BeamSword_NPC",
+  "name": "BeamSword_NPC",
+  "slug": "BeamSword_NPC"
+ },
+ {
+  "asset": "BelieverFatCane",
+  "name": "BelieverFatCane",
+  "slug": "BelieverFatCane"
+ },
+ {
+  "asset": "BelieverFatCane_Otomo",
+  "name": "BelieverFatCane_Otomo",
+  "slug": "BelieverFatCane_Otomo"
+ },
+ {
+  "asset": "BossDefeatReward_FlowerPrince",
+  "name": "Dandilord's Petal",
+  "slug": "Dandilords_Petal"
+ },
+ {
+  "asset": "BossDefeatReward_Mothman",
+  "name": "Silvance's Plume",
+  "slug": "Silvances_Plume"
+ },
+ {
+  "asset": "BowGun_NPC",
+  "name": "BowGun_NPC",
+  "slug": "BowGun_NPC"
+ },
+ {
+  "asset": "BowGun_NPC_Otomo",
+  "name": "BowGun_NPC_Otomo",
+  "slug": "BowGun_NPC_Otomo"
+ },
+ {
+  "asset": "Debug_Handgun_AttackUp",
+  "name": "Debug_Handgun_AttackUp",
+  "slug": "Debug_Handgun_AttackUp"
+ },
+ {
+  "asset": "Debug_Handgun_Burn",
+  "name": "Debug_Handgun_Burn",
+  "slug": "Debug_Handgun_Burn"
+ },
+ {
+  "asset": "Debug_Handgun_Darkness",
+  "name": "Debug_Handgun_Darkness",
+  "slug": "Debug_Handgun_Darkness"
+ },
+ {
+  "asset": "Debug_Handgun_DefenseUp",
+  "name": "Debug_Handgun_DefenseUp",
+  "slug": "Debug_Handgun_DefenseUp"
+ },
+ {
+  "asset": "Debug_Handgun_Electrical",
+  "name": "Debug_Handgun_Electrical",
+  "slug": "Debug_Handgun_Electrical"
+ },
+ {
+  "asset": "Debug_Handgun_Freeze",
+  "name": "Debug_Handgun_Freeze",
+  "slug": "Debug_Handgun_Freeze"
+ },
+ {
+  "asset": "Debug_Handgun_IvyCling",
+  "name": "Debug_Handgun_IvyCling",
+  "slug": "Debug_Handgun_IvyCling"
+ },
+ {
+  "asset": "Debug_Handgun_Muddy",
+  "name": "Debug_Handgun_Muddy",
+  "slug": "Debug_Handgun_Muddy"
+ },
+ {
+  "asset": "Debug_Handgun_Poison",
+  "name": "Debug_Handgun_Poison",
+  "slug": "Debug_Handgun_Poison"
+ },
+ {
+  "asset": "Debug_Handgun_Stun",
+  "name": "Debug_Handgun_Stun",
+  "slug": "Debug_Handgun_Stun"
+ },
+ {
+  "asset": "Debug_Handgun_Wetness",
+  "name": "Debug_Handgun_Wetness",
+  "slug": "Debug_Handgun_Wetness"
+ },
+ {
+  "asset": "FlameThrower",
+  "name": "FlameThrower",
+  "slug": "FlameThrower"
+ },
+ {
+  "asset": "FlameThrower_2",
+  "name": "FlameThrower_2",
+  "slug": "FlameThrower_2"
+ },
+ {
+  "asset": "FlameThrower_3",
+  "name": "FlameThrower_3",
+  "slug": "FlameThrower_3"
+ },
+ {
+  "asset": "FlameThrower_4",
+  "name": "FlameThrower_4",
+  "slug": "FlameThrower_4"
+ },
+ {
+  "asset": "FlameThrower_5",
+  "name": "FlameThrower_5",
+  "slug": "FlameThrower_5"
+ },
+ {
+  "asset": "FlameThrower_NPC",
+  "name": "FlameThrower_NPC",
+  "slug": "FlameThrower_NPC"
+ },
+ {
+  "asset": "FlameThrower_NPC_Otomo",
+  "name": "FlameThrower_NPC_Otomo",
+  "slug": "FlameThrower_NPC_Otomo"
+ },
+ {
+  "asset": "FragGrenade_NPC",
+  "name": "FragGrenade_NPC",
+  "slug": "FragGrenade_NPC"
+ },
+ {
+  "asset": "FragGrenade_NPC_Otomo",
+  "name": "FragGrenade_NPC_Otomo",
+  "slug": "FragGrenade_NPC_Otomo"
+ },
+ {
+  "asset": "Gasoline",
+  "name": "Gasoline",
+  "slug": "Gasoline"
+ },
+ {
+  "asset": "GatlingGun_NPC",
+  "name": "GatlingGun_NPC",
+  "slug": "GatlingGun_NPC"
+ },
+ {
+  "asset": "GatlingGun_NPC_GrassBoss",
+  "name": "GatlingGun_NPC_GrassBoss",
+  "slug": "GatlingGun_NPC_GrassBoss"
+ },
+ {
+  "asset": "GatlingGun_NPC_Otomo",
+  "name": "GatlingGun_NPC_Otomo",
+  "slug": "GatlingGun_NPC_Otomo"
+ },
+ {
+  "asset": "GrenadeLauncher_NPC",
+  "name": "GrenadeLauncher_NPC",
+  "slug": "GrenadeLauncher_NPC"
+ },
+ {
+  "asset": "GrenadeLauncher_NPC_Otomo",
+  "name": "GrenadeLauncher_NPC_Otomo",
+  "slug": "GrenadeLauncher_NPC_Otomo"
+ },
+ {
+  "asset": "Handgun_NPC",
+  "name": "Handgun_NPC",
+  "slug": "Handgun_NPC"
+ },
+ {
+  "asset": "Handgun_NPC_Otomo",
+  "name": "Handgun_NPC_Otomo",
+  "slug": "Handgun_NPC_Otomo"
+ },
+ {
+  "asset": "Katana_NPC",
+  "name": "Katana_NPC",
+  "slug": "Katana_NPC"
+ },
+ {
+  "asset": "Katana_NPC_Otomo",
+  "name": "Katana_NPC_Otomo",
+  "slug": "Katana_NPC_Otomo"
+ },
+ {
+  "asset": "LaserRifle_NPC",
+  "name": "LaserRifle_NPC",
+  "slug": "LaserRifle_NPC"
+ },
+ {
+  "asset": "LaserRifle_NPC_Otomo",
+  "name": "LaserRifle_NPC_Otomo",
+  "slug": "LaserRifle_NPC_Otomo"
+ },
+ {
+  "asset": "Meat",
+  "name": "Meat",
+  "slug": "Meat"
+ },
+ {
+  "asset": "MissileLauncher_NPC",
+  "name": "MissileLauncher_NPC",
+  "slug": "MissileLauncher_NPC"
+ },
+ {
+  "asset": "MissileLauncher_NPC_Otomo",
+  "name": "MissileLauncher_NPC_Otomo",
+  "slug": "MissileLauncher_NPC_Otomo"
+ },
+ {
+  "asset": "Propellant",
+  "name": "Propellant",
+  "slug": "Propellant"
+ },
+ {
+  "asset": "RocketLauncher_NPC",
+  "name": "RocketLauncher_NPC",
+  "slug": "RocketLauncher_NPC"
+ },
+ {
+  "asset": "RocketLauncher_NPC_Otomo",
+  "name": "RocketLauncher_NPC_Otomo",
+  "slug": "RocketLauncher_NPC_Otomo"
+ },
+ {
+  "asset": "Shotgun_NPC",
+  "name": "Shotgun_NPC",
+  "slug": "Shotgun_NPC"
+ },
+ {
+  "asset": "Shotgun_NPC_Otomo",
+  "name": "Shotgun_NPC_Otomo",
+  "slug": "Shotgun_NPC_Otomo"
+ }
+]

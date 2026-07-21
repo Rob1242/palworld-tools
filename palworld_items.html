@@ -191,6 +191,7 @@ const CATEGORY_ORDER = ["すべて","資源・素材","武器","防具","アク�
 // したが、それだと実在の防具・アクセサリー約100件を誤って消してしまうところだった)。
 const REAL_ITEMS = ITEMS_DEX_DATA.filter(it => {
   if(/test|debug|dummy/i.test(it.asset)) return false;
+  if(/dummy/i.test(it.icon)) return false;
   const isUnnamed = it.name_jp === "-" && it.name_en === it.asset;
   if(isUnnamed && (/_NPC(_|$)/.test(it.asset) || /_Otomo$/.test(it.asset))) return false;
   return true;
@@ -225,7 +226,7 @@ const DISPLAY_ITEMS = (() => {
     if(!EQUIPMENT_CATEGORIES.has(it.category)){
       out.push({
         asset: it.asset, name_jp: it.name_jp, name_en: it.name_en, icon: it.icon,
-        category: it.category, subcategory: it.subcategory, description_en: it.description_en,
+        category: it.category, subcategory: it.subcategory, description_en: it.description_en, description_jp: it.description_jp,
         weight: it.weight, max_stack: it.max_stack, price: it.price, rarity: it.rarity,
         isGroup: false,
         tiers: [{ asset: it.asset, rarity: it.rarity, rarityName: null, price: it.price, stats: statsOf(it.asset) }],
@@ -242,7 +243,7 @@ const DISPLAY_ITEMS = (() => {
     const prices = sorted.map(t => t.price);
     out.push({
       asset: rep.asset, name_jp: rep.name_jp, name_en: rep.name_en, icon: rep.icon,
-      category: rep.category, subcategory: rep.subcategory, description_en: rep.description_en,
+      category: rep.category, subcategory: rep.subcategory, description_en: rep.description_en, description_jp: rep.description_jp,
       weight: rep.weight, max_stack: rep.max_stack,
       price: Math.max(...prices), priceMin: Math.min(...prices), priceMax: Math.max(...prices),
       rarity: rep.rarity, isGroup: sorted.length > 1,
@@ -254,7 +255,7 @@ const DISPLAY_ITEMS = (() => {
   (typeof BUILDING_ITEMS_DATA !== "undefined" ? BUILDING_ITEMS_DATA : []).forEach(b => {
     out.push({
       asset: b.asset, name_jp: b.name_jp, name_en: null, icon: b.icon,
-      category: "建築物", subcategory: b.subcategory, description_en: null,
+      category: "建築物", subcategory: b.subcategory, description_en: null, description_jp: null,
       weight: null, max_stack: null, price: null, rarity: 0,
       tech_level: b.tech_level, tech_cost: b.tech_cost,
       isGroup: false,
@@ -496,7 +497,7 @@ function openModal(asset){
            <div class="k">最大スタック数</div><div class="v">${it.max_stack.toLocaleString()}</div>`}
     </div>
     ${it.category !== "建築物" ? (it.isGroup ? buildStatTable(it) : buildSingleStats(it)) : ""}
-    <div class="modal-desc">${it.description_en || "(説明文なし)"}</div>
+    <div class="modal-desc">${it.description_jp || it.description_en || "(説明文なし)"}</div>
     ${buildObtainHtml(it)}
   `;
   document.getElementById("itemModal").classList.add("open");

@@ -11,6 +11,7 @@ from js_data_writer import write_js_consts
 
 ITEMS_PATH = "game_data/items.json"
 ITEM_ICONS_PATH = "game_data/item_icons_data.js"
+ITEM_JP_RAW_PATH = "game_data/item_jp_raw/jp_0_2466.json"
 OUTPUT_PATH = "game_data/items_dex_data.js"
 
 # type_a_display(大分類)が空文字の場合、名前パターンで補完する追加カテゴリ
@@ -33,6 +34,18 @@ CATEGORY_ORDER = [
 
 RESOURCE_TYPE_A = {"Material", "Essential"}
 RESOURCE_TYPE_B_TAGS = {"Ore": "鉱石", "Ingot": "インゴット", "Wood": "木材", "Processing Material": "加工素材"}
+
+# SkillUnlock_DarkMutantは元データ自体が壊れている(name="en_text's Power Converter"という
+# 翻訳テンプレート漏れ文字列、icon=汎用DUMMY画像)。対応するパル「Dark Mutant」は
+# 図鑑にもpaldb.ccにも存在せず(2026-07-21確認)、正規の名前・アイコンを復元不可能なため、
+# 他の騎乗ギア系アイテムと同じ体裁の汎用値に差し替える
+# (表示自体はpalworld_items.html側でicon="dummy"のものを除外済み。念のためデータ側も直す)。
+ITEM_OVERRIDES = {
+    "SkillUnlock_DarkMutant": {
+        "name": "Dark Mutant's Gear",
+        "icon": "/icons/items/T_itemicon_Essential_SkillUnlock_Saddle.webp",
+    },
+}
 
 
 def categorize(item):
@@ -96,6 +109,29 @@ def main():
         raw = f.read()
     icon_map = json.loads(raw.split("=", 1)[1].strip().rstrip(";"))
     stem_to_jp = {icon_stem(path): jp for jp, path in icon_map.items()}
+
+    # paldb.ccの各アイテムページ(og:title/og:description)から取得したJP名/JP説明文
+    # (scripts/scrape_item_jp_names.pyで2026-07-21取得、2414/2466件ヒット)。
+    # ページが無くog:titleがEN名やハイフンをそのまま返しているケースは「未取得」扱いにする。
+    with open(ITEM_JP_RAW_PATH, encoding="utf-8") as f:
+        jp_raw = json.load(f)
+    name_by_asset = {it["asset"]: it["name"] for it in items}
+    INVALID_VALUES = {"-", "#N/A"}
+    jp_by_asset = {}
+    for asset, v in jp_raw.items():
+        jp_name = v.get("name_jp")
+        if not jp_name or jp_name in INVALID_VALUES or jp_name == name_by_asset.get(asset):
+            continue
+        jp_desc = v.get("description_jp")
+        if jp_desc in INVALID_VALUES:
+            jp_desc = None
+        jp_by_asset[asset] = {"name_jp": jp_name, "description_jp": jp_desc}
+
+    for asset, override in ITEM_OVERRIDES.items():
+        for it in items:
+            if it["asset"] == asset:
+                it.update(override)
+
     asset_to_icon = {it["asset"]: it["icon"] for it in items}
 
     out = []
@@ -106,7 +142,9 @@ def main():
         if blueprint_icon:
             resolved_blueprint_icons += 1
         stem = icon_stem(icon_source)
-        jp_name = stem_to_jp.get(stem)
+        jp_info = jp_by_asset.get(it["asset"])
+        jp_name = jp_info["name_jp"] if jp_info else stem_to_jp.get(stem)
+        description_jp = jp_info["description_jp"] if jp_info else None
         category, subcategory = categorize(it)
         out.append({
             "asset": it["asset"],
@@ -121,12 +159,14 @@ def main():
             "weight": it["weight"],
             "max_stack": it["max_stack"],
             "description_en": it["description"],
+            "description_jp": description_jp,
         })
 
     out.sort(key=lambda x: (CATEGORY_ORDER.index(x["category"]), -x["price"]))
 
     jp_matched = sum(1 for x in out if x["name_jp"])
-    print(f"total items: {len(out)}, JP name matched: {jp_matched}, blueprint icons resolved: {resolved_blueprint_icons}")
+    desc_jp_matched = sum(1 for x in out if x["description_jp"])
+    print(f"total items: {len(out)}, JP name matched: {jp_matched}, JP description matched: {desc_jp_matched}, blueprint icons resolved: {resolved_blueprint_icons}")
     by_cat = {}
     for x in out:
         by_cat[x["category"]] = by_cat.get(x["category"], 0) + 1
