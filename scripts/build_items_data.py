@@ -2,6 +2,7 @@ import json
 import re
 
 from js_data_writer import write_js_consts
+from item_literal_jp import LITERAL_JP
 
 # ===== アイテム図鑑用データ生成 =====
 # データ元: game_data/items.json (ユーザー提供の未加工データ、2466件、英語名のみ)。
@@ -145,11 +146,16 @@ def main():
         jp_info = jp_by_asset.get(it["asset"])
         jp_name = jp_info["name_jp"] if jp_info else stem_to_jp.get(stem)
         description_jp = jp_info["description_jp"] if jp_info else None
+        name_jp_literal = False
+        if not jp_name and it["asset"] in LITERAL_JP:
+            jp_name = LITERAL_JP[it["asset"]]
+            name_jp_literal = True
         category, subcategory = categorize(it)
         out.append({
             "asset": it["asset"],
             "name_en": it["name"],
             "name_jp": jp_name,
+            "name_jp_literal": name_jp_literal,
             "icon": "game_data/icons/items/" + stem + ".webp",
             "category": category,
             "subcategory": subcategory,
@@ -165,8 +171,9 @@ def main():
     out.sort(key=lambda x: (CATEGORY_ORDER.index(x["category"]), -x["price"]))
 
     jp_matched = sum(1 for x in out if x["name_jp"])
+    jp_literal = sum(1 for x in out if x["name_jp_literal"])
     desc_jp_matched = sum(1 for x in out if x["description_jp"])
-    print(f"total items: {len(out)}, JP name matched: {jp_matched}, JP description matched: {desc_jp_matched}, blueprint icons resolved: {resolved_blueprint_icons}")
+    print(f"total items: {len(out)}, JP name matched: {jp_matched} (of which literal translation: {jp_literal}), JP description matched: {desc_jp_matched}, blueprint icons resolved: {resolved_blueprint_icons}")
     by_cat = {}
     for x in out:
         by_cat[x["category"]] = by_cat.get(x["category"], 0) + 1

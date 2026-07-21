@@ -1,0 +1,128 @@
+# paldb.ccにもJP訳が存在しない(元の英語名すら記録されていない内部アセットも含む)残り
+# アイテム向けの、直訳・参考訳の日本語名一覧(2026-07-21、ユーザー依頼により作成)。
+# 正式なゲーム内訳ではないため、build_items_data.py側でname_jp_literal=Trueを立てて
+# UI上「(参考訳)」と分かるようにする。既存の確定JP名(Gunpowder→火薬、FurArmor→毛皮アーマー
+# 等、tier違いでも同名にする慣習)や、既に判明済みの派生元パル名(ダリザード、モスローン等)
+# に合わせて訳している。
+
+LITERAL_JP = {
+    # 資源・素材
+    "PotatoSeedPotatoes": "じゃがいもの種イモ",
+    "AnimalSkin": "動物の皮",
+    "AnimalSkin2": "動物の皮(上質)",
+    "BossDefeatReward_FlowerPrince": "ノクサージュの花びら",
+    "BossDefeatReward_Mothman": "モスローンの羽根",
+    "CashFang": "換金用の牙",
+    "CashScales": "換金用の鱗",
+    "Claws": "爪",
+    "Claws2": "爪(上質)",
+    "ElectronicCircuit": "電子回路",
+    "Fang": "牙",
+    "Fang2": "牙(上質)",
+    "Flint": "火打ち石",
+    "Gasoline": "ガソリン",
+    "IronOre": "鉄鉱石",
+    "Kitsunebi_Fire": "キツネビの炎",
+    "Leather2": "革(上質)",
+    "PAL_Growth_Stone_L": "パル成長の石(L)",
+    "PAL_Growth_Stone_M": "パル成長の石(M)",
+    "PAL_Growth_Stone_S": "パル成長の石(S)",
+    "PAL_Growth_Stone_XL": "パル成長の石(XL)",
+    "Propellant": "推進剤",
+    "Sand": "砂",
+    "Scales": "鱗",
+    "Scales2": "鱗(上質)",
+    "Sharkkid_Scale": "シャークキッドの鱗",
+    "Silicon": "シリコン",
+    "YakushimaParts001": "屋久島パーツ1",
+    "YakushimaParts002": "屋久島パーツ2",
+    "YakushimaParts003": "屋久島パーツ3",
+
+    # 武器
+    "FlameThrower": "火炎放射器",
+    "FlameThrower_2": "火炎放射器",
+    "FlameThrower_3": "火炎放射器",
+    "FlameThrower_4": "火炎放射器",
+    "FlameThrower_5": "火炎放射器",
+    "AirGrapplingGun": "エアーグラップリングガン",
+    "Axe_Tier_03": "強化金属の斧",
+    "BelieverFatCane": "信者の杖",
+    "CaptureRope": "捕獲ロープ",
+    "FishingRod_Good": "釣り竿(上質)",
+    "FishingRod_Legendary": "釣り竿(伝説)",
+    "FishingRod_Old": "釣り竿(旧式)",
+    "FishingRod_Super": "釣り竿(強化)",
+    "Launcher_Meat": "ミートランチャー",
+    "PalDopingShot_3": "パル用ドーピング注射3",
+    "PenguinLauncher": "ペンギンランチャー",
+    "Pickaxe_Tier_03": "強化金属のつるはし",
+    "RecurveBow": "リカーブボウ",
+    "SniperRifle_Default": "スナイパーライフル",
+    "ThrowStone": "投石",
+
+    # 防具
+    "ClothHat": "布の帽子",
+    "LightzHelmet": "ライツヘルメット",
+
+    # アクセサリー
+    "Accessory_AirDash4": "クアッドエアダッシュブーツ",
+    "ClawsPendant": "爪のペンダント",
+    "FangNecklace": "牙のネックレス",
+    "NightVisionGoggles": "暗視ゴーグル",
+    "Otomo_MoveSpeed_up_1": "インプラント:移動速度アップ",
+
+    # 食料
+    "Potato": "じゃがいも",
+    "Baked_Potato": "焼きじゃがいも",
+    "Beer": "ビール",
+    "Corn": "とうもろこし",
+    "CornSoup": "コーンスープ",
+    "Curry_old": "カレー(旧)",
+    "FishMeat": "魚肉",
+    "FishMeat2": "魚肉(上質)",
+    "Grape": "ぶどう",
+    "GrilledFish": "焼き魚",
+    "Hop": "ホップ",
+    "LuxuryOmelette": "高級オムレツ",
+    "Meat": "肉",
+    "Meat2": "肉(上質)",
+    "Potage": "ポタージュ",
+    "Potato_old": "じゃがいも(旧)",
+    "Pumpkin": "かぼちゃ",
+    "Sandwich": "サンドイッチ",
+    "SeafoodSoup": "シーフードスープ",
+    "Stew": "シチュー",
+    "VenisonBoiledInTomato": "鹿肉のトマト煮込み",
+    "Wine": "ワイン",
+
+    # 消耗品
+    "Antibiotic_Good": "抗生物質(上質)",
+    "Antibiotic_Normal": "抗生物質",
+    "Antibiotic_Super": "抗生物質(強力)",
+    "EnergyDrink": "エナジードリンク",
+    "FarmCrop_Tmp": "農作物(仮)",
+    "MateItem01": "交配用アイテム",
+    "Seed_Tmp": "種(仮)",
+    "WaterBucket": "水入りバケツ",
+
+    # グライダー・盾
+    "PV_Glider_Manta": "マンタ型グライダー",
+
+    # 弾薬
+    "LargeBullet": "大型弾",
+    "SmallBullet": "小型弾",
+
+    # 設計図
+    "Blueprint_Otomo_PalConfidence_Increase_1": "信頼の指輪の設計図",
+    "Blueprint_HeadEquip025_5": "ダリザードフードの設計図5",
+    "Blueprint_HeadEquip026_5": "ヤミイカキャップの設計図5",
+    "Blueprint_HeadEquip028_5": "ヒメウサヘッドバンドの設計図5",
+    "Blueprint_HeadEquip031_5": "コモップキャップの設計図5",
+    "Blueprint_HeadEquip032_5": "カミナラシハットの設計図5",
+    "Blueprint_Salvage_FishingBait_1_A": "サルベージ釣り餌1-Aの設計図",
+    "Blueprint_Salvage_FishingBait_1_B": "サルベージ釣り餌1-Bの設計図",
+    "Blueprint_Salvage_FishingBait_2_A": "サルベージ釣り餌2-Aの設計図",
+    "Blueprint_Salvage_FishingBait_2_B": "サルベージ釣り餌2-Bの設計図",
+    "Blueprint_Salvage_FishingBait_3_B": "サルベージ釣り餌3-Bの設計図",
+    "Blueprint_Salvage_TreasureBoxKey01": "フィッシングマグネットの設計図",
+}
