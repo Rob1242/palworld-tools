@@ -95,9 +95,27 @@
     return !/test|debug|dummy/i.test(it.asset) && !/dummy/i.test(it.icon);
   }
 
+  const EQUIPMENT_CATEGORIES = new Set(["武器", "防具", "アクセサリー", "グライダー・盾"]);
+
   function buildIndices(){
     ITEM_BY_ASSET = new Map(ITEMS_DEX_DATA.map(it => [it.asset, it]));
-    ITEM_ENTITIES = ITEMS_DEX_DATA.filter(isRealItem).flatMap(it => {
+
+    // 武器・防具・アクセサリー・グライダー/盾は同名のまま5段階のレア度違いで
+    // 別アセットとして存在するため(palworld_items.htmlのDISPLAY_ITEMSと同じ事情)、
+    // 検索候補が「ビームソード」だけで5件並ぶのを防ぐために代表1件(最高レア度)だけを
+    // 候補に残す(2026-07-22、「ビーム」検索の重複表示でユーザーが発見)。
+    const seenEquipNames = new Map();
+    ITEMS_DEX_DATA.filter(isRealItem).forEach(it => {
+      if(!EQUIPMENT_CATEGORIES.has(it.category)) return;
+      const key = it.category + "::" + (it.name_jp || it.name_en);
+      const prev = seenEquipNames.get(key);
+      if(!prev || it.rarity > prev.rarity) seenEquipNames.set(key, it);
+    });
+    const equipRepAssets = new Set([...seenEquipNames.values()].map(it => it.asset));
+
+    ITEM_ENTITIES = ITEMS_DEX_DATA.filter(isRealItem).filter(it =>
+      !EQUIPMENT_CATEGORIES.has(it.category) || equipRepAssets.has(it.asset)
+    ).flatMap(it => {
       const names = new Set([it.name_jp, it.name_en, it.asset].filter(Boolean));
       return [...names].map(n => ({ text: normalize(n), asset: it.asset, item: it }));
     }).sort((a,b) => b.text.length - a.text.length);
@@ -107,7 +125,7 @@
       (v.dropped_by || []).forEach(d => {
         if(!DROPPER_INFO[d.pal_asset]){
           const bd = (typeof BREEDING_DATA !== "undefined" && BREEDING_DATA.pals) ? BREEDING_DATA.pals[d.pal_asset] : null;
-          DROPPER_INFO[d.pal_asset] = { jp_name: d.pal_jp_name, isPal: !!bd, en_name: bd ? bd.en_name : null, canonical_jp_name: bd ? bd.jp_name : null };
+          DROPPER_INFO[d.pal_asset] = { jp_name: d.pal_jp_name, isPal: !!bd, en_name: bd ? bd.en_name : null, canonical_jp_name: bd ? bd.jp_name : null, dex_id: bd ? bd.dex_id : null };
         }
       });
     });
@@ -148,13 +166,49 @@
   function exactMatch(core, entities){
     return entities.find(e => e.text === core) || null;
   }
-  function fuzzyMatch(core, entities){
-    if(core.length < 2) return null;
-    const containing = entities.filter(e => e.text.length >= 2 && e.text.includes(core));
-    if(containing.length) return containing.reduce((a,b) => a.text.length <= b.text.length ? a : b);
-    const contained = entities.filter(e => e.text.length >= 2 && core.includes(e.text));
-    if(contained.length) return contained.reduce((a,b) => a.text.length >= b.text.length ? a : b);
-    return null;
+  // 種類ごとの一意キー(重複除去用)。同じ実体がJP名/EN名など複数のエイリアスで
+  // 候補プールに入っているため、asset/id等の実体そのものの識別子で判定する。
+  function entityKey(kind, e){
+    if(kind === "item") return "item:" + e.asset;
+    if(kind === "dropper") return "dropper:" + e.asset;
+    if(kind === "pal") return "pal:" + e.id;
+    if(kind === "skill") return "skill:" + e.skill.asset;
+    if(kind === "passive") return "passive:" + e.passive.asset;
+    if(kind === "mission") return "mission:" + e.id;
+    if(kind === "page") return "page:" + e.page.url;
+    return kind + ":" + e.text;
+  }
+  // 「ビーム」で検索すると本来「ビームソード」「ビームランチャー」等が該当するはずが、
+  // 旧実装は最短一致1件だけを返して残りを黙って捨てていた(2026-07-22、ユーザー報告で発覚)。
+  // 全プールを横断してcore(あいまい一致)を含む候補を全部集め、重複除去だけして返す。
+  function fuzzyMatchAll(core, hasDrop){
+    if(core.length < 2) return [];
+    const seen = new Set();
+    const out = [];
+    entityPools(hasDrop).forEach(pool => {
+      const containing = pool.entities.filter(e => e.text.length >= 2 && e.text.includes(core));
+      containing.sort((a,b) => a.text.length - b.text.length);
+      containing.forEach(e => {
+        const key = entityKey(pool.kind, e);
+        if(seen.has(key)) return;
+        seen.add(key);
+        out.push({ kind: pool.kind, match: e });
+      });
+    });
+    if(out.length) return out;
+    // 「〜ってどこで手に入るの?」のような文章埋め込みは、containing側では
+    // 何も見つからない(coreの方が長い)ので、coreがentity名を含む向きも試す。
+    entityPools(hasDrop).forEach(pool => {
+      const contained = pool.entities.filter(e => e.text.length >= 2 && core.includes(e.text));
+      contained.sort((a,b) => b.text.length - a.text.length);
+      contained.forEach(e => {
+        const key = entityKey(pool.kind, e);
+        if(seen.has(key)) return;
+        seen.add(key);
+        out.push({ kind: pool.kind, match: e });
+      });
+    });
+    return out;
   }
 
   // 実体候補: アイテム/ドロップ元パル/パル図鑑/ミッション/ページ名、全部をまとめて
@@ -189,13 +243,6 @@
     }
     return null;
   }
-  function fuzzyMatchOnly(core, hasDrop){
-    for(const pool of entityPools(hasDrop)){
-      const m = fuzzyMatch(core, pool.entities);
-      if(m) return { kind: pool.kind, match: m };
-    }
-    return null;
-  }
 
   function parseQuery(raw){
     let norm = normalize(raw);
@@ -220,22 +267,21 @@
     const coreStripped = stripParticles(rf.text.trim());
     const filterWasStripped = palStripped || humanStripped;
 
-    let found = exactMatchOnly(coreRaw, hasDrop);
-    let core = coreRaw, palOnly = false, humanOnly = false;
-    if(!found && filterWasStripped){
-      found = exactMatchOnly(coreStripped, hasDrop);
-      if(found){ core = coreStripped; palOnly = palStripped; humanOnly = humanStripped; }
+    let exact = exactMatchOnly(coreRaw, hasDrop);
+    let core = coreRaw, palOnly = false, humanOnly = false, matches = [];
+    if(!exact && filterWasStripped){
+      exact = exactMatchOnly(coreStripped, hasDrop);
+      if(exact){ core = coreStripped; palOnly = palStripped; humanOnly = humanStripped; }
     }
-    if(!found && filterWasStripped){
-      found = fuzzyMatchOnly(coreStripped, hasDrop);
-      if(found){ core = coreStripped; palOnly = palStripped; humanOnly = humanStripped; }
-    }
-    if(!found){
-      found = fuzzyMatchOnly(coreRaw, hasDrop);
-      if(found) core = coreRaw;
+    if(!exact){
+      matches = fuzzyMatchAll(core, hasDrop);
+      if(!matches.length && filterWasStripped){
+        const stripped = fuzzyMatchAll(coreStripped, hasDrop);
+        if(stripped.length){ core = coreStripped; palOnly = palStripped; humanOnly = humanStripped; matches = stripped; }
+      }
     }
 
-    return { core, found, hasCraft, hasDrop, palOnly, humanOnly };
+    return { core, exact, matches, hasCraft, hasDrop, palOnly, humanOnly };
   }
 
   function displayName(it){
@@ -278,11 +324,11 @@
 
   function renderItemResult(item, p){
     const obtain = ITEM_OBTAIN_DATA[item.asset];
-    let html = `<div class="gsearch-row gsearch-head">
+    let html = `<a class="gsearch-row gsearch-head gsearch-link" href="palworld_items.html?asset=${encodeURIComponent(item.asset)}">
       <img class="gsearch-icon" src="${item.icon}" onerror="this.style.display='none'" alt="">
       <span class="gsearch-name">${esc(displayName(item))}</span>
-      <span class="gsearch-tag">アイテム</span>
-    </div>`;
+      <span class="gsearch-tag">アイテム(クリックで詳細)</span>
+    </a>`;
     if(!obtain){
       return html + `<div class="gsearch-empty">入手方法データはまだ登録されていません。</div>`;
     }
@@ -310,11 +356,15 @@
 
   function renderDropperResult(asset, info){
     const rows = REVERSE_DROPS[asset] || [];
-    let html = `<div class="gsearch-row gsearch-head">
+    const headTag = info.isPal && info.dex_id
+      ? `<a class="gsearch-row gsearch-head gsearch-link" href="palworld_dex.html?id=${encodeURIComponent(info.dex_id)}">`
+      : `<div class="gsearch-row gsearch-head">`;
+    const headClose = info.isPal && info.dex_id ? "</a>" : "</div>";
+    let html = `${headTag}
       <img class="gsearch-icon" src="${palIcon(asset)}" onerror="this.style.display='none'" alt="">
       <span class="gsearch-name">${esc(info.jp_name)}</span>
-      <span class="gsearch-tag">${info.isPal ? "パル" : "人間NPC"}</span>
-    </div>`;
+      <span class="gsearch-tag">${info.isPal ? "パル図鑑を開く" : "人間NPC"}</span>
+    ${headClose}`;
     html += `<div class="gsearch-subhead">ドロップするアイテム</div>`;
     html += rows.length ? rows.map(reverseItemRow).join("") : `<div class="gsearch-empty">ドロップ品のデータがありません。</div>`;
     return html;
@@ -359,46 +409,45 @@
     </a>`;
   }
 
-  function fallbackSuggestions(core, box){
-    if(!core){
-      box.innerHTML = `<div class="gsearch-empty">アイテム名・パル名・ページ名などを入力してください。</div>`;
-      return;
-    }
-    const rows = [];
-    const seen = new Set();
-    entityPools().forEach(pool => {
-      pool.entities.filter(e => e.text.includes(core) || core.includes(e.text)).slice(0, 4).forEach(e => {
-        const key = pool.kind + ":" + (e.asset || e.id || e.text);
-        if(seen.has(key)) return; seen.add(key);
-        if(pool.kind === "item") rows.push({ kind: "item", entry: e });
-        if(pool.kind === "dropper") rows.push({ kind: "dropper", entry: e });
-        if(pool.kind === "pal") rows.push(renderPalResult(e));
-        if(pool.kind === "skill") rows.push(renderSkillResult(e));
-        if(pool.kind === "passive") rows.push(renderPassiveResult(e));
-        if(pool.kind === "mission") rows.push(renderMissionResult(e));
-        if(pool.kind === "page") rows.push(renderPageResult(e));
-      });
-    });
-    if(!rows.length){
-      box.innerHTML = `<div class="gsearch-empty">「${esc(core)}」に一致する候補が見つかりませんでした。</div>`;
-      return;
-    }
-    box.innerHTML = `<div class="gsearch-subhead">「${esc(core)}」に近い候補</div>` + rows.map(r => {
-      if(typeof r === "string") return r;
-      if(r.kind === "item") return `<div class="gsearch-row gsearch-link" data-item-asset="${esc(r.entry.asset)}">
-        <img class="gsearch-icon" src="${r.entry.item.icon}" onerror="this.style.display='none'" alt="">
-        <span class="gsearch-name">${esc(displayName(r.entry.item))}</span><span class="gsearch-tag">アイテム</span></div>`;
-      if(r.kind === "dropper") return `<div class="gsearch-row gsearch-link" data-dropper-asset="${esc(r.entry.asset)}">
-        <img class="gsearch-icon" src="${palIcon(r.entry.asset)}" onerror="this.style.display='none'" alt="">
-        <span class="gsearch-name">${esc(DROPPER_INFO[r.entry.asset].jp_name)}</span><span class="gsearch-tag">${DROPPER_INFO[r.entry.asset].isPal ? "パル" : "人間NPC"}</span></div>`;
-      return "";
-    }).join("");
-    box.querySelectorAll("[data-item-asset]").forEach(el => {
-      el.addEventListener("click", () => {
-        const item = ITEM_BY_ASSET.get(el.dataset.itemAsset);
-        box.innerHTML = renderItemResult(item, { hasCraft:false, hasDrop:false, palOnly:false, humanOnly:false });
-      });
-    });
+  // 単一の実体が確定した時(完全一致、またはあいまい一致の候補が1件だけの時)の描画。
+  function renderSingle(found, p){
+    if(found.kind === "item"){ return renderItemResult(found.match.item, p); }
+    if(found.kind === "dropper"){ return renderDropperResult(found.match.asset, DROPPER_INFO[found.match.asset]); }
+    if(found.kind === "pal"){ return renderPalResult(found.match); }
+    if(found.kind === "skill"){ return renderSkillResult(found.match); }
+    if(found.kind === "passive"){ return renderPassiveResult(found.match); }
+    if(found.kind === "mission"){ return renderMissionResult(found.match); }
+    if(found.kind === "page"){ return renderPageResult(found.match); }
+    return "";
+  }
+
+  // 「ビーム」のように複数のアイテム/パル等に一致しうる場合の候補一覧表示
+  // (2026-07-22、1件しか出ない不具合の修正に合わせて新設。旧fallbackSuggestionsを統合)。
+  // アイテム/パル/技/パッシブ/ミッション/ページは直接遷移リンク、ドロップ元(パル/人間NPC)
+  // だけは専用ページが無いのでクリックでその場に逆引き結果を展開する。
+  function renderMatchList(matches, core, box){
+    const capped = matches.slice(0, 12);
+    box.innerHTML = `<div class="gsearch-subhead">「${esc(core)}」に一致する候補(${matches.length}件${matches.length > capped.length ? "・上位" + capped.length + "件を表示" : ""})</div>` +
+      capped.map(m => {
+        if(m.kind === "item"){
+          const it = m.match.item;
+          return `<a class="gsearch-row gsearch-link" href="palworld_items.html?asset=${encodeURIComponent(it.asset)}">
+            <img class="gsearch-icon" src="${it.icon}" onerror="this.style.display='none'" alt="">
+            <span class="gsearch-name">${esc(displayName(it))}</span><span class="gsearch-tag">アイテム</span></a>`;
+        }
+        if(m.kind === "dropper"){
+          const info = DROPPER_INFO[m.match.asset];
+          return `<div class="gsearch-row gsearch-link" data-dropper-asset="${esc(m.match.asset)}">
+            <img class="gsearch-icon" src="${palIcon(m.match.asset)}" onerror="this.style.display='none'" alt="">
+            <span class="gsearch-name">${esc(info.jp_name)}</span><span class="gsearch-tag">${info.isPal ? "パル" : "人間NPC"}</span></div>`;
+        }
+        if(m.kind === "pal") return renderPalResult(m.match);
+        if(m.kind === "skill") return renderSkillResult(m.match);
+        if(m.kind === "passive") return renderPassiveResult(m.match);
+        if(m.kind === "mission") return renderMissionResult(m.match);
+        if(m.kind === "page") return renderPageResult(m.match);
+        return "";
+      }).join("");
     box.querySelectorAll("[data-dropper-asset]").forEach(el => {
       el.addEventListener("click", () => {
         box.innerHTML = renderDropperResult(el.dataset.dropperAsset, DROPPER_INFO[el.dataset.dropperAsset]);
@@ -414,17 +463,14 @@
     }
     box.classList.add("open");
     const p = parseQuery(raw);
-    if(!p.found){
-      fallbackSuggestions(p.core, box);
+    if(p.exact){ box.innerHTML = renderSingle(p.exact, p); return; }
+    if(p.matches.length === 1){ box.innerHTML = renderSingle(p.matches[0], p); return; }
+    if(p.matches.length > 1){ renderMatchList(p.matches, p.core, box); return; }
+    if(!p.core){
+      box.innerHTML = `<div class="gsearch-empty">アイテム名・パル名・ページ名などを入力してください。</div>`;
       return;
     }
-    if(p.found.kind === "item"){ box.innerHTML = renderItemResult(p.found.match.item, p); return; }
-    if(p.found.kind === "dropper"){ box.innerHTML = renderDropperResult(p.found.match.asset, DROPPER_INFO[p.found.match.asset]); return; }
-    if(p.found.kind === "pal"){ box.innerHTML = renderPalResult(p.found.match); return; }
-    if(p.found.kind === "skill"){ box.innerHTML = renderSkillResult(p.found.match); return; }
-    if(p.found.kind === "passive"){ box.innerHTML = renderPassiveResult(p.found.match); return; }
-    if(p.found.kind === "mission"){ box.innerHTML = renderMissionResult(p.found.match); return; }
-    if(p.found.kind === "page"){ box.innerHTML = renderPageResult(p.found.match); return; }
+    box.innerHTML = `<div class="gsearch-empty">「${esc(p.core)}」に一致する候補が見つかりませんでした。</div>`;
   }
 
   function init(){

@@ -71,18 +71,18 @@
 
   .empty-msg{grid-column:1/-1;text-align:center;padding:40px 0;color:var(--parchment-dim);font-size:13px;}
 
-  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(4,6,10,.72);backdrop-filter:blur(2px);z-index:50;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto;}
-  .modal-overlay.open{display:flex;}
-  .modal-box{background:var(--panel);border:1px solid var(--line);border-radius:12px;max-width:460px;width:100%;padding:22px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.5);}
-  .modal-close{position:absolute;top:14px;right:14px;background:var(--panel2);border:1px solid var(--line);color:var(--parchment-dim);width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:16px;line-height:1;}
-  .modal-close:hover{color:var(--parchment);border-color:var(--teal-dim);}
-  .modal-head{display:flex;gap:16px;align-items:center;margin-bottom:14px;}
-  .modal-head .icon-wrap{width:56px;height:56px;border-radius:10px;background:var(--panel2);border:2px solid var(--brass);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  /* ===== フルスクリーン詳細ビュー(小さいモーダルの代わり、2026-07-22) ===== */
+  #detailView{display:none;}
+  .back-btn{display:inline-flex;align-items:center;gap:6px;background:var(--panel);border:1px solid var(--line);color:var(--parchment-dim);font-size:12.5px;padding:8px 16px;border-radius:6px;cursor:pointer;margin-bottom:18px;font-family:var(--font-display);font-weight:600;}
+  .back-btn:hover{color:var(--parchment);border-color:var(--teal-dim);}
+  .detail-box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:28px 32px;max-width:640px;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+  .modal-head{display:flex;gap:20px;align-items:center;margin-bottom:20px;}
+  .modal-head .icon-wrap{width:72px;height:72px;border-radius:12px;background:var(--panel2);border:2px solid var(--brass);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   .modal-head .icon-wrap img{width:70%;height:70%;object-fit:contain;}
-  .modal-head h3{margin:0 0 6px;font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--parchment);}
-  .modal-desc{font-size:13px;color:var(--parchment);line-height:1.8;background:var(--panel2);border-radius:8px;padding:12px 14px;border:1px solid var(--line);white-space:pre-line;margin-bottom:14px;}
-  .modal-section h4{margin:0 0 8px;font-size:11px;font-weight:700;color:var(--brass);text-transform:uppercase;letter-spacing:.06em;}
-  .obtain-box{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:12px 14px;font-size:12.5px;color:var(--parchment-dim);line-height:1.7;}
+  .modal-head h3{margin:0 0 8px;font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--parchment);}
+  .modal-desc{font-size:14px;color:var(--parchment);line-height:1.8;background:var(--panel2);border-radius:8px;padding:16px 18px;border:1px solid var(--line);white-space:pre-line;margin-bottom:18px;}
+  .modal-section h4{margin:0 0 10px;font-size:12px;font-weight:700;color:var(--brass);text-transform:uppercase;letter-spacing:.06em;}
+  .obtain-box{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:14px 16px;font-size:13px;color:var(--parchment-dim);line-height:1.8;}
 </style>
 <script src="shared/analytics.js"></script>
 <script src="shared/global_search.js" defer></script>
@@ -127,28 +127,28 @@
     </div>
   </header>
 
-  <p class="caveat">
-    ゲーム内データを元にしたパッシブスキル図鑑です(表示対象115種、ランクの高いものほど強力)。入手方法は、放浪の商人や宝箱で買えるインプラントで習得できるものは具体的に掲載(35種)。それ以外は野生個体が元々持っていたり、配合・厳選によって狙った子に付与する形での入手になります(個別の断定的な入手経路データが無いため一般的な説明にしています)。「おすすめパッシブ早見表」もあわせてご覧ください。
-  </p>
+  <div id="listView">
+    <p class="caveat">
+      ゲーム内データを元にしたパッシブスキル図鑑です(表示対象115種、ランクの高いものほど強力)。入手方法は、放浪の商人や宝箱で買えるインプラントで習得できるものは具体的に掲載(35種)。それ以外は野生個体が元々持っていたり、配合・厳選によって狙った子に付与する形での入手になります(個別の断定的な入手経路データが無いため一般的な説明にしています)。「おすすめパッシブ早見表」もあわせてご覧ください。
+    </p>
 
-  <div class="controls">
-    <div class="controls-row">
-      <input type="text" id="searchBox" placeholder="パッシブ名で検索…">
-      <span class="count-tag" id="countTag"></span>
+    <div class="controls">
+      <div class="controls-row">
+        <input type="text" id="searchBox" placeholder="パッシブ名で検索…">
+        <span class="count-tag" id="countTag"></span>
+      </div>
+      <div class="cat-chips" id="rankChips"></div>
     </div>
-    <div class="cat-chips" id="rankChips"></div>
+
+    <div class="grid" id="grid"></div>
   </div>
 
-  <div class="grid" id="grid"></div>
+  <div id="detailView">
+    <button class="back-btn" id="backBtn">← パッシブ図鑑に戻る</button>
+    <div id="detailContent"></div>
+  </div>
 
   <p style="font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。</p>
-</div>
-
-<div class="modal-overlay" id="modal">
-  <div class="modal-box">
-    <button class="modal-close" id="modalClose">×</button>
-    <div id="modalBody"></div>
-  </div>
 </div>
 
 <script>
@@ -202,25 +202,34 @@ function renderGrid(){
 function openModal(asset){
   const p = PASSIVES_PAGE_DATA.find(x => x.asset === asset);
   if(!p) return;
-  document.getElementById("modalBody").innerHTML = `
-    <div class="modal-head">
-      <div class="icon-wrap"><img src="${p.icon}" onerror="this.style.display='none'" alt=""></div>
-      <div>
-        <h3>${p.name_jp}</h3>
-        <span class="rank-badge ${p.rank >= 0 ? "rank-pos" : "rank-neg"}">${p.rank >= 0 ? "ランク " + p.rank : "マイナス効果 " + Math.abs(p.rank)}</span>
+  document.getElementById("detailContent").innerHTML = `
+    <div class="detail-box">
+      <div class="modal-head">
+        <div class="icon-wrap"><img src="${p.icon}" onerror="this.style.display='none'" alt=""></div>
+        <div>
+          <h3>${p.name_jp}</h3>
+          <span class="rank-badge ${p.rank >= 0 ? "rank-pos" : "rank-neg"}">${p.rank >= 0 ? "ランク " + p.rank : "マイナス効果 " + Math.abs(p.rank)}</span>
+        </div>
+      </div>
+      <div class="modal-desc">${p.effect_jp}</div>
+      <div class="modal-section">
+        <h4>入手方法</h4>
+        <div class="obtain-box">${p.obtain_jp || "野生のパルが元々持っている場合や、配合・厳選によって特定の個体に付与される形で入手します(このパッシブ専用の確定入手ルートは確認できていません)。"}</div>
       </div>
     </div>
-    <div class="modal-desc">${p.effect_jp}</div>
-    <div class="modal-section">
-      <h4>入手方法</h4>
-      <div class="obtain-box">${p.obtain_jp || "野生のパルが元々持っている場合や、配合・厳選によって特定の個体に付与される形で入手します(このパッシブ専用の確定入手ルートは確認できていません)。"}</div>
-    </div>
   `;
-  document.getElementById("modal").classList.add("open");
+  document.getElementById("listView").style.display = "none";
+  document.getElementById("detailView").style.display = "block";
+  window.scrollTo(0, 0);
+  history.replaceState(null, "", `?asset=${encodeURIComponent(asset)}`);
 }
 
-document.getElementById("modalClose").addEventListener("click", () => document.getElementById("modal").classList.remove("open"));
-document.getElementById("modal").addEventListener("click", e => { if(e.target.id === "modal") document.getElementById("modal").classList.remove("open"); });
+function closeModal(){
+  document.getElementById("detailView").style.display = "none";
+  document.getElementById("listView").style.display = "block";
+  history.replaceState(null, "", location.pathname);
+}
+document.getElementById("backBtn").addEventListener("click", closeModal);
 document.getElementById("searchBox").addEventListener("input", e => { state.query = e.target.value; renderGrid(); });
 
 renderChips();
