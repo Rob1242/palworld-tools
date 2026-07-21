@@ -51,6 +51,14 @@
   .ach-cond{font-size:13px;color:var(--parchment-dim);}
 
   .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;}
+
+  /* auto-fill+minmax(420px,..)は列の最小幅そのものが狭い画面より広いため、
+     スマホ幅では1列に切り替えないと横はみ出しが起きる(2026-07-22、iframeでの
+     モバイル幅検証で発覚)。 */
+  @media (max-width:480px){
+    .ach-list{grid-template-columns:1fr;}
+    .ach-item{flex-wrap:wrap;}
+  }
 </style>
 <script src="shared/analytics.js"></script>
 <script src="shared/global_search.js" defer></script>

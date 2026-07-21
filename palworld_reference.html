@@ -57,6 +57,12 @@
   .ref-vals span{background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:2px 6px;}
 
   .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;}
+
+  @media (max-width:480px){
+    .ref-list{grid-template-columns:1fr;}
+    .ref-item{flex-wrap:wrap;}
+    .ref-vals{margin-left:0;}
+  }
 </style>
 <script src="shared/analytics.js"></script>
 <script src="shared/global_search.js" defer></script>
