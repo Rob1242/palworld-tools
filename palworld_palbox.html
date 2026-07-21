@@ -987,13 +987,27 @@ setSharedPfilterOpen(localStorage.getItem(SHARED_PFILTER_OPEN_KEY) === "1");
 // 目標選択どちらの候補にも出さないようにする(2026-07-21、ユーザー報告で発覚)。
 const BOSS_ONLY_DEX_IDS = new Set(["119","120","138","139","146","149","162","163","164","174","230","284"]);
 
+function isNonBreedable(asset){
+  const info = BREEDING_DATA.pals[asset];
+  return !info || !info.dex_id || BOSS_ONLY_DEX_IDS.has(info.dex_id);
+}
+
 const PAL_LIST = Object.entries(BREEDING_DATA.pals || {})
-  .filter(([, info]) => info.dex_id && !BOSS_ONLY_DEX_IDS.has(info.dex_id))
+  .filter(([asset]) => !isNonBreedable(asset))
   .map(([asset, info]) => ({
     asset,
     displayName: info.jp_name || `${info.en_name}(JP名未確認)`,
     icon: info.icon,
   })).sort((a, b) => a.displayName.localeCompare(b.displayName, 'ja'));
+
+// forwardPairs(親ペア→子)は生データの時点でボス/ゴースト個体が「子」として
+// 載っていることがあるため(ゼノドラン等、実際には配合で作れない)、ここで
+// 一括して取り除いておく。以降このオブジェクトを参照する「今すぐ作れるパル」
+// (computeDirectlyMakeable)や多世代ロードマップ探索(findBreedingRoute)にも
+// 自動的に反映される(2026-07-21、「今すぐ作れるパル」一覧で再発したユーザー報告)。
+Object.keys(BREEDING_DATA.forwardPairs || {}).forEach(key => {
+  if(isNonBreedable(BREEDING_DATA.forwardPairs[key])) delete BREEDING_DATA.forwardPairs[key];
+});
 
 function nameOf(asset){
   const info = BREEDING_DATA.pals[asset];
