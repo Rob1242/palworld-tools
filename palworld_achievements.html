@@ -35,7 +35,7 @@
   *{box-sizing:border-box;}
   body{margin:0;background: var(--bg);
     color:var(--parchment);font-family:var(--font-body);padding:0;}
-  .wrap{max-width:900px;margin:0 auto;padding:22px 20px 60px;}
+  .wrap{max-width:1400px;margin:0 auto;padding:22px 20px 60px;}
 
   header.top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}
   .brand-badge{width:42px;height:42px;border-radius:8px;background:var(--panel2);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
@@ -44,7 +44,7 @@
 
   .intro{font-size:13px;color:var(--parchment-dim);line-height:1.8;margin:0 0 20px;}
 
-  .ach-list{display:flex;flex-direction:column;gap:8px;}
+  .ach-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:10px;}
   .ach-item{display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;box-shadow:0 6px 18px rgba(0,0,0,.2);}
   .ach-badge{width:36px;height:36px;border-radius:8px;background:var(--panel2);border:1px solid var(--brass-dim);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;color:var(--brass);flex-shrink:0;font-size:14px;}
   .ach-name{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--parchment);min-width:140px;}
