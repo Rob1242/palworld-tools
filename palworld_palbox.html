@@ -1009,6 +1009,19 @@ const PAL_LIST = Object.entries(BREEDING_DATA.pals || {})
     icon: info.icon,
   })).sort((a, b) => a.displayName.localeCompare(b.displayName, 'ja'));
 
+// パルボックスへの「追加」は実際に捕獲した記録であり、配合ロードマップ用の
+// BOSS_ONLY_DEX_IDS除外(繁殖では作れない、という別の意味の除外)を適用すべきではない。
+// ボルゼクス・ゼノベーダ・ゼノルーダ・ベラノワール・ベラルージュ等、実際は捕獲できる
+// ボス級パルがパルボックスに追加できなくなっていた不具合の修正(2026-07-26)。
+// dex_idが無い正真正銘のゴーストデータ(ゼロヴァース等)のみ引き続き除外する。
+const PAL_LIST_ALL = Object.entries(BREEDING_DATA.pals || {})
+  .filter(([, info]) => info && info.dex_id)
+  .map(([asset, info]) => ({
+    asset,
+    displayName: info.jp_name || `${info.en_name}(JP名未確認)`,
+    icon: info.icon,
+  })).sort((a, b) => a.displayName.localeCompare(b.displayName, 'ja'));
+
 // forwardPairs(親ペア→子)は生データの時点で以下の2種類の無効なレシピを含んでいる:
 // (1) 子がボス/ゴースト個体(ゼノドラン等、そもそも配合で作れないはずのパル)
 // (2) 親のどちらかがゴースト個体(dex_idがnull、ゼロヴァース等。パル図鑑に正式登録すら
@@ -1052,7 +1065,7 @@ function escapeHtml(str){
   }[ch]));
 }
 
-function setupPicker(inputEl, resultsEl, onPick){
+function setupPicker(inputEl, resultsEl, onPick, sourceList = PAL_LIST){
   inputEl.addEventListener("input", () => {
     const q = inputEl.value.trim().toLowerCase();
     if(!q){ resultsEl.style.display = "none"; return; }
@@ -1060,7 +1073,7 @@ function setupPicker(inputEl, resultsEl, onPick){
     // 前方一致(名前が検索語で始まる)を最優先で上に出す。結果を30件に絞る際、
     // 単純な五十音順だと「ら行」の名前は絞り込み前に切り捨てられてしまうため
     // (例: 「る」で検索してもルミカイト等が63件中31位以降になり表示されない)。
-    const matches = PAL_LIST
+    const matches = sourceList
       .filter(p => toKana(p.displayName.toLowerCase()).includes(qKana) || p.asset.toLowerCase().includes(q))
       .sort((a, b) => {
         const aStarts = toKana(a.displayName.toLowerCase()).startsWith(qKana) ? 0 : 1;
@@ -2082,7 +2095,8 @@ document.getElementById('pformSaveBtn').addEventListener('click', () => {
 setupPicker(
   document.getElementById('pformSpeciesInput'),
   document.querySelector('#pformSpeciesPickerWrap .pal-picker-results'),
-  asset => pickSpeciesForPform(asset)
+  asset => pickSpeciesForPform(asset),
+  PAL_LIST_ALL
 );
 document.getElementById('openAddPalBtn').addEventListener('click', () => openPform(null));
 document.getElementById('pformClose').addEventListener('click', closePform);
