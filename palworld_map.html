@@ -76,7 +76,6 @@
   .map-viewport.dragging{cursor:grabbing;}
   .map-world{position:absolute;top:0;left:0;width:100%;height:100%;transform-origin:0 0;will-change:transform;}
   .map-world img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none;pointer-events:none;}
-  .map-world.schematic{background:#0a0f16;}
   #densityCanvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;}
   .landmark{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;pointer-events:none;}
   .landmark .lm-dot{width:10px;height:10px;border-radius:50%;background:var(--parchment-dim);border:2px solid var(--bg);box-shadow:0 0 6px rgba(0,0,0,.6);}
@@ -184,7 +183,7 @@
   <p class="caveat">
     出現座標はpalworld-atlas-data(Palworld専用サーバーの生成テーブルから自動抽出、6時間ごと更新)を、
     本編マップの地図画像はPalworld-Interactive-Mapのものを使用しています。近い場所の個別スポーンをまとめて円で表示しているため、円の位置はおおよその中心です。
-    世界樹エリアは、合法的に再配布可能な背景地図画像が見つからなかったため、ファストトラベル地点・ボスの塔を目印にした座標のみのスキーマティック表示(画像なし)です。地名はパルワールド配合・攻略ラボの実データで確認した日本語名です(一部は単一ソースでの確認のため、今後の情報更新で変わる可能性があります)。
+    世界樹エリアの地図画像は<a href="https://github.com/Nifrendil/pal-atlas" target="_blank" rel="noopener">Nifrendil/pal-atlas</a>(MITライセンス)のものを使用しています。地名はパルワールド配合・攻略ラボの実データで確認した日本語名です(一部は単一ソースでの確認のため、今後の情報更新で変わる可能性があります)。
   </p>
 
   <div class="region-tabs">
@@ -231,6 +230,7 @@
     <div class="map-viewport" id="mapViewport">
       <div class="map-world" id="mapWorld">
         <img id="mapBgImg" src="game_data/art/world_map_3072.webp" alt="パルワールド 世界地図" draggable="false">
+        <img id="mapBgImgTree" src="game_data/maps/worldtree.webp" alt="パルワールド 世界樹エリア地図" draggable="false" style="display:none;">
         <div id="landmarkLayer"></div>
         <div id="bubbleLayer"></div>
         <div id="customMarkerLayer"></div>
@@ -735,13 +735,13 @@ function switchRegion(region){
   state.region = region;
   document.querySelectorAll(".region-tab").forEach(t => t.classList.toggle("active", t.dataset.region === region));
   document.getElementById("mapBgImg").style.display = region === "worldtree" ? "none" : "";
-  document.getElementById("mapWorld").classList.toggle("schematic", region === "worldtree");
+  document.getElementById("mapBgImgTree").style.display = region === "worldtree" ? "" : "none";
   state.pal = null;
   const showForCurated = region === "palpagos" && curatedState.active.size > 0;
   document.getElementById("mapSection").style.display = showForCurated ? "block" : "none";
   document.getElementById("emptyHint").style.display = showForCurated ? "none" : "block";
   document.getElementById("emptyHint").textContent = region === "worldtree"
-    ? "上の検索で世界樹エリアに出現するパルを選ぶと、スキーマティック図上に表示されます。"
+    ? "上の検索で世界樹エリアに出現するパルを選ぶと、地図上に表示されます。"
     : "上の検索でパルを選ぶと、出現場所が地図上に表示されます。";
   renderLandmarks();
   renderCustomMarkers();
