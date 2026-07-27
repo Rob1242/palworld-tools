@@ -252,7 +252,7 @@
     <div id="roadmapResult" class="result-box empty">パルを選んでください</div>
   </div>
 
-  <p class="footer-note">配合データは内部データマイン実測値(<code>game_data/breedingdata.json</code>)に基づきます。1.0で追加されたパルの一部はパル図鑑側とのJP名紐付けが取れていない場合があります(その場合「(JP名未確認)」と表示)。</p>
+  <p class="footer-note">配合データは<a href="https://github.com/tylercamp/palcalc" target="_blank" rel="noopener">tylercamp/palcalc</a>(ゲームファイルから直接抽出、1.0対応)に基づきます。1.0で追加されたパルの一部はパル図鑑側とのJP名紐付けが取れていない場合があります(その場合「(JP名未確認)」と表示)。</p>
 </div>
 <script src="game_data/breeding_data.js"></script>
 <script src="game_data/spawn_data.js"></script>
@@ -260,48 +260,39 @@
 
 <script>
 
-// 塔ボス・レイドボス・ストーリー専用ボス(固定/召喚戦のみで登場し、捕獲や配合による
-// 入手手段が存在しない12体)。dex_idがnullの個体(パル図鑑に正式登録されていない
-// ゴーストデータ、ゼロヴァース等5体)と合わせて検索候補から除外する
-// (2026-07-21、パルボックス側でユーザー報告があり同じ問題がこちらにもあったため修正)。
-const BOSS_ONLY_DEX_IDS = new Set(["119","120","138","139","146","149","162","163","164","174","230","284"]);
-
-function isNonBreedable(asset){
+// 2026-07-21に「塔ボス・レイドボス12体は捕獲/配合による入手手段が無い」という
+// 前提でBOSS_ONLY_DEX_IDSによる除外を追加していたが、2026-07-27にユーザーから
+// 「ボルゼクス(ThunderDragonMan)を実際に配合の親として使った」という実プレイ報告を
+// 受けて調査した結果、この前提自体が誤りだったと判明。配合データを一次データ抽出の
+// tylercamp/palcalcに刷新し直接確認したところ、該当12体は全員、親としても子としても
+// 実際の配合結果に登場することが確認できた(=通常の配合対象として扱ってよい)。
+// よって前提が誤っていたBOSS_ONLY_DEX_IDSによる除外は撤廃し、本当に入手不可能な
+// ゴースト個体(dex_idがnull、パル図鑑に正式登録すらされていないゼロヴァース等)の
+// 除外のみ残す。
+function isGhost(asset){
   const info = BREEDING_DATA.pals[asset];
-  return !info || !info.dex_id || BOSS_ONLY_DEX_IDS.has(info.dex_id);
+  return !info || !info.dex_id;
 }
 
 const PAL_LIST = Object.entries(BREEDING_DATA.pals || {})
-  .filter(([asset]) => !isNonBreedable(asset))
+  .filter(([asset]) => !isGhost(asset))
   .map(([asset, info]) => ({
     asset,
     displayName: info.jp_name || `${info.en_name}(JP名未確認)`,
     icon: info.icon,
   })).sort((a, b) => a.displayName.localeCompare(b.displayName, 'ja'));
 
-// forwardPairs(親ペア→子)は生データの時点で以下の2種類の無効なレシピを含んでいる:
-// (1) 子がボス/ゴースト個体(ゼノドラン等、そもそも配合で作れないはずのパル)
-// (2) 親のどちらかがゴースト個体(dex_idがnull、ゼロヴァース等。パル図鑑に正式登録すら
-//     されておらず所持しようがないため、親として使うこと自体が不可能)
-// レイドボスは親としては使える(ただし伝説級の子は作れない)というユーザー確認済みの
-// 仕様と実データの傾向が一致したため、ボス個体を親に持つ他のレシピはそのまま残す
-// (2026-07-21、「フロスドン」の親候補にゼロヴァースが出た再報告で発覚)。
-function isGhost(asset){
-  const info = BREEDING_DATA.pals[asset];
-  return !info || !info.dex_id;
-}
+// forwardPairs(親ペア→子)・reverseParents(子→親候補)から、ゴースト個体が
+// 絡むレシピ(親のどちらか、または子がゴースト=そもそも配合で作れない/親として
+// 所持しようがない)のみ除外する。
 Object.keys(BREEDING_DATA.forwardPairs || {}).forEach(key => {
   const child = BREEDING_DATA.forwardPairs[key];
-  if(isNonBreedable(child)){ delete BREEDING_DATA.forwardPairs[key]; return; }
   const [a, b] = key.split("|");
-  if(isGhost(a) || isGhost(b)) delete BREEDING_DATA.forwardPairs[key];
+  if(isGhost(child) || isGhost(a) || isGhost(b)) delete BREEDING_DATA.forwardPairs[key];
 });
 
-// 「欲しい子から親候補を調べる」はforwardPairsとは別の事前計算済みインデックス
-// (reverseParents)を参照しているため、こちらにも同じゴースト除外を適用する
-// (ゼロヴァース(WorldTreeDragon)が親候補に出ていた不具合はこちらが原因)。
 Object.entries(BREEDING_DATA.reverseParents || {}).forEach(([target, entry]) => {
-  if(isNonBreedable(target)){ delete BREEDING_DATA.reverseParents[target]; return; }
+  if(isGhost(target)){ delete BREEDING_DATA.reverseParents[target]; return; }
   ["unique", "formula"].forEach(key => {
     if(Array.isArray(entry[key])){
       entry[key] = entry[key].filter(([a, b]) => !isGhost(a) && !isGhost(b));

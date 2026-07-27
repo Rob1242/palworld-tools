@@ -990,55 +990,35 @@ setSharedPfilterOpen(localStorage.getItem(SHARED_PFILTER_OPEN_KEY) === "1");
 
 // ---- 配合ロードマップ ----
 
-// 塔ボス・レイドボス・ストーリー専用ボス(固定/召喚戦のみで登場し、捕獲や配合による
-// 入手手段が存在しない12体)。dex_idがnullの個体(パル図鑑に正式登録されていない
-// ゴーストデータ、ゼロヴァース等5体)と合わせて、パルを追加/配合ロードマップの
-// 目標選択どちらの候補にも出さないようにする(2026-07-21、ユーザー報告で発覚)。
-const BOSS_ONLY_DEX_IDS = new Set(["119","120","138","139","146","149","162","163","164","174","230","284"]);
-
-function isNonBreedable(asset){
-  const info = BREEDING_DATA.pals[asset];
-  return !info || !info.dex_id || BOSS_ONLY_DEX_IDS.has(info.dex_id);
-}
-
-const PAL_LIST = Object.entries(BREEDING_DATA.pals || {})
-  .filter(([asset]) => !isNonBreedable(asset))
-  .map(([asset, info]) => ({
-    asset,
-    displayName: info.jp_name || `${info.en_name}(JP名未確認)`,
-    icon: info.icon,
-  })).sort((a, b) => a.displayName.localeCompare(b.displayName, 'ja'));
-
-// パルボックスへの「追加」は実際に捕獲した記録であり、配合ロードマップ用の
-// BOSS_ONLY_DEX_IDS除外(繁殖では作れない、という別の意味の除外)を適用すべきではない。
-// ボルゼクス・ゼノベーダ・ゼノルーダ・ベラノワール・ベラルージュ等、実際は捕獲できる
-// ボス級パルがパルボックスに追加できなくなっていた不具合の修正(2026-07-26)。
-// dex_idが無い正真正銘のゴーストデータ(ゼロヴァース等)のみ引き続き除外する。
-const PAL_LIST_ALL = Object.entries(BREEDING_DATA.pals || {})
-  .filter(([, info]) => info && info.dex_id)
-  .map(([asset, info]) => ({
-    asset,
-    displayName: info.jp_name || `${info.en_name}(JP名未確認)`,
-    icon: info.icon,
-  })).sort((a, b) => a.displayName.localeCompare(b.displayName, 'ja'));
-
-// forwardPairs(親ペア→子)は生データの時点で以下の2種類の無効なレシピを含んでいる:
-// (1) 子がボス/ゴースト個体(ゼノドラン等、そもそも配合で作れないはずのパル)
-// (2) 親のどちらかがゴースト個体(dex_idがnull、ゼロヴァース等。パル図鑑に正式登録すら
-//     されておらず所持しようがないため、親として使うこと自体が不可能)
-// なお「レイドボスは親としては使える(ただし伝説級の子は作れない)」というユーザー確認済みの
-// 仕様と、実データの傾向(ボス個体を親に含む3553件中、伝説級の子になるのは同種同士の
-// 自己参照1件のみ=既に(1)で除外済み)が一致したため、ボス個体を親に持つ他のレシピは
-// そのまま残す(2026-07-21、「フロスドン」の親候補にゼロヴァースが出た再報告で発覚)。
+// 2026-07-21に「塔ボス・レイドボス12体は捕獲/配合による入手手段が無い」という
+// 前提でBOSS_ONLY_DEX_IDSによる除外を追加していたが、2026-07-27にユーザーから
+// 「ボルゼクス(ThunderDragonMan)を実際に配合の親として使った」という実プレイ報告を
+// 受けて調査した結果、この前提自体が誤りだったと判明。配合データを一次データ抽出の
+// tylercamp/palcalcに刷新し直接確認したところ、該当12体は全員、親としても子としても
+// 実際の配合結果に登場することが確認できた(=通常の配合対象・パルボックス追加対象として
+// 扱ってよい)。よって前提が誤っていたBOSS_ONLY_DEX_IDSによる除外は撤廃し、本当に
+// 入手不可能なゴースト個体(dex_idがnull、パル図鑑に正式登録すらされていないゼロヴァース等)
+// の除外のみ残す。パルを追加・配合ロードマップの目標選択どちらも同じ基準でよいため、
+// リストを1本化する。
 function isGhost(asset){
   const info = BREEDING_DATA.pals[asset];
   return !info || !info.dex_id;
 }
+
+const PAL_LIST = Object.entries(BREEDING_DATA.pals || {})
+  .filter(([asset]) => !isGhost(asset))
+  .map(([asset, info]) => ({
+    asset,
+    displayName: info.jp_name || `${info.en_name}(JP名未確認)`,
+    icon: info.icon,
+  })).sort((a, b) => a.displayName.localeCompare(b.displayName, 'ja'));
+
+// forwardPairs(親ペア→子)から、ゴースト個体が絡むレシピ(親のどちらか、または子が
+// ゴースト=そもそも配合で作れない/親として所持しようがない)のみ除外する。
 Object.keys(BREEDING_DATA.forwardPairs || {}).forEach(key => {
   const child = BREEDING_DATA.forwardPairs[key];
-  if(isNonBreedable(child)){ delete BREEDING_DATA.forwardPairs[key]; return; }
   const [a, b] = key.split("|");
-  if(isGhost(a) || isGhost(b)) delete BREEDING_DATA.forwardPairs[key];
+  if(isGhost(child) || isGhost(a) || isGhost(b)) delete BREEDING_DATA.forwardPairs[key];
 });
 
 function nameOf(asset){
@@ -2095,8 +2075,7 @@ document.getElementById('pformSaveBtn').addEventListener('click', () => {
 setupPicker(
   document.getElementById('pformSpeciesInput'),
   document.querySelector('#pformSpeciesPickerWrap .pal-picker-results'),
-  asset => pickSpeciesForPform(asset),
-  PAL_LIST_ALL
+  asset => pickSpeciesForPform(asset)
 );
 document.getElementById('openAddPalBtn').addEventListener('click', () => openPform(null));
 document.getElementById('pformClose').addEventListener('click', closePform);
