@@ -13,10 +13,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://rob1242.github.io/palworld-tools/palworld_base_spots.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://rob1242.github.io/palworld-tools/palworld_bossguide.html</loc>
     <priority>0.7</priority>
   </url>
@@ -50,10 +46,6 @@
   </url>
   <url>
     <loc>https://rob1242.github.io/palworld-tools/palworld_map.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://rob1242.github.io/palworld-tools/palworld_missions.html</loc>
     <priority>0.7</priority>
   </url>
   <url>
