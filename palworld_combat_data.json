@@ -480,6 +480,102 @@
     ]
   },
   {
+    "dex_id": "6",
+    "name": "カモノスケ",
+    "en_name": "Fuack",
+    "icon": "game_data/icons/pals/T_BluePlatypus_icon_normal.webp",
+    "types": [
+      "水"
+    ],
+    "types_en": [
+      "Water"
+    ],
+    "stats": {
+      "hp": 60,
+      "melee_attack": 80,
+      "shot_attack": 80,
+      "defense": 60
+    },
+    "partner_skill": {
+      "name": "サーフィンタックル",
+      "effect": "発動すると、カモノスケが敵に向かってボディサーフィンをしながら突っ込む。"
+    },
+    "skills": [
+      {
+        "asset": "WaterGun",
+        "jp_name": "アクアショット",
+        "en_name": "Aqua Gun",
+        "element": "Water",
+        "power": 50,
+        "cooldown": 2.0,
+        "level": 1
+      },
+      {
+        "asset": "PowerShot",
+        "jp_name": "パワーショット",
+        "en_name": "Power Shot",
+        "element": "Normal",
+        "power": 80,
+        "cooldown": 4.0,
+        "level": 7
+      },
+      {
+        "asset": "AquaJet",
+        "jp_name": "ウォータージェット",
+        "en_name": "Hydro Jet",
+        "element": "Water",
+        "power": 40,
+        "cooldown": 2.0,
+        "level": 15
+      },
+      {
+        "asset": "IceMissile",
+        "jp_name": "アイスミサイル",
+        "en_name": "Ice Missile",
+        "element": "Ice",
+        "power": 40,
+        "cooldown": 2.0,
+        "level": 22
+      },
+      {
+        "asset": "BubbleShot",
+        "jp_name": "バブルショット",
+        "en_name": "Bubble Blast",
+        "element": "Water",
+        "power": 80,
+        "cooldown": 4.0,
+        "level": 30
+      },
+      {
+        "asset": "WaterBall",
+        "jp_name": "スプラッシュボム",
+        "en_name": "Aqua Burst",
+        "element": "Water",
+        "power": 200,
+        "cooldown": 12.0,
+        "level": 40
+      },
+      {
+        "asset": "HydroPump",
+        "jp_name": "ハイドロストリーム",
+        "en_name": "Hydro Laser",
+        "element": "Water",
+        "power": 450,
+        "cooldown": 20.0,
+        "level": 50
+      },
+      {
+        "asset": "SeaGush",
+        "jp_name": "水柱噴出",
+        "en_name": "Geyser Gush",
+        "element": "Water",
+        "power": 600,
+        "cooldown": 30.0,
+        "level": 70
+      }
+    ]
+  },
+  {
     "dex_id": "7",
     "name": "ボルトラ",
     "en_name": "Sparkit",
@@ -521,7 +617,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -539,7 +635,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -548,7 +644,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -557,7 +653,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -793,7 +889,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -829,7 +925,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -900,7 +996,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -987,7 +1083,7 @@
     "skills": [
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -1023,7 +1119,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -1032,7 +1128,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -1041,7 +1137,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -1083,7 +1179,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -1101,7 +1197,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -1592,7 +1688,7 @@
       },
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -1697,7 +1793,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -1715,7 +1811,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -1898,7 +1994,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -2108,7 +2204,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -2344,7 +2440,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -2380,7 +2476,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -2947,7 +3043,7 @@
       },
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -2965,7 +3061,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -3157,7 +3253,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -3187,6 +3283,102 @@
         "jp_name": "サンダーストーム",
         "en_name": "Thunderstorm",
         "element": "Electricity",
+        "power": 600,
+        "cooldown": 30.0,
+        "level": 70
+      }
+    ]
+  },
+  {
+    "dex_id": "35",
+    "name": "シメナワ",
+    "en_name": "Hangyu",
+    "icon": "game_data/icons/pals/T_WindChimes_icon_normal.webp",
+    "types": [
+      "地"
+    ],
+    "types_en": [
+      "Earth"
+    ],
+    "stats": {
+      "hp": 80,
+      "melee_attack": 70,
+      "shot_attack": 70,
+      "defense": 70
+    },
+    "partner_skill": {
+      "name": "空中ブランコ",
+      "effect": "手持ちにいる間、グライダーの代わりに呼び出せる。グライドすると、プレイヤーを高く持ち上げる。"
+    },
+    "skills": [
+      {
+        "asset": "MudShot",
+        "jp_name": "マッドシュート",
+        "en_name": "Bog Blast",
+        "element": "Earth",
+        "power": 40,
+        "cooldown": 2.0,
+        "level": 1
+      },
+      {
+        "asset": "AirCanon",
+        "jp_name": "エアーキャノン",
+        "en_name": "Air Cannon",
+        "element": "Normal",
+        "power": 40,
+        "cooldown": 2.0,
+        "level": 7
+      },
+      {
+        "asset": "WindCutter",
+        "jp_name": "ウィンドカッター",
+        "en_name": "Wind Cutter",
+        "element": "Leaf",
+        "power": 40,
+        "cooldown": 2.0,
+        "level": 15
+      },
+      {
+        "asset": "PowerShot",
+        "jp_name": "パワーショット",
+        "en_name": "Power Shot",
+        "element": "Normal",
+        "power": 80,
+        "cooldown": 4.0,
+        "level": 22
+      },
+      {
+        "asset": "PowerBall",
+        "jp_name": "パワーボム",
+        "en_name": "Power Bomb",
+        "element": "Normal",
+        "power": 120,
+        "cooldown": 8.0,
+        "level": 30
+      },
+      {
+        "asset": "SandTornado",
+        "jp_name": "サンドトルネード",
+        "en_name": "Sand Tornado",
+        "element": "Earth",
+        "power": 200,
+        "cooldown": 12.0,
+        "level": 40
+      },
+      {
+        "asset": "RockLance",
+        "jp_name": "ロックランス",
+        "en_name": "Rock Lance",
+        "element": "Earth",
+        "power": 400,
+        "cooldown": 20.0,
+        "level": 50
+      },
+      {
+        "asset": "RockBeat",
+        "jp_name": "ストーンビート",
+        "en_name": "Rocky Impact",
+        "element": "Earth",
         "power": 600,
         "cooldown": 30.0,
         "level": 70
@@ -3322,7 +3514,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -3331,7 +3523,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -3349,7 +3541,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -3367,7 +3559,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -3637,7 +3829,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -3742,7 +3934,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -3907,7 +4099,7 @@
       },
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -3934,7 +4126,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -4897,7 +5089,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -5341,7 +5533,7 @@
       },
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -5368,7 +5560,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -5437,7 +5629,7 @@
       },
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -5455,7 +5647,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -5526,7 +5718,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -5640,7 +5832,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -5658,7 +5850,7 @@
       },
       {
         "asset": "LockonLaser",
-        "jp_name": null,
+        "jp_name": "ロックオンレーザー",
         "en_name": "Lock-on Laser",
         "element": "Electricity",
         "power": 140,
@@ -5667,7 +5859,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -5676,7 +5868,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -5694,7 +5886,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -5745,7 +5937,7 @@
       },
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -5772,7 +5964,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -6034,7 +6226,7 @@
       },
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -6052,7 +6244,7 @@
       },
       {
         "asset": "Unique_IceDeer_IceHorn",
-        "jp_name": null,
+        "jp_name": "アイスホーンラッシュ",
         "en_name": "Freezing Charge",
         "element": "Ice",
         "power": 120,
@@ -6061,7 +6253,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -6148,7 +6340,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -6193,7 +6385,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -6202,7 +6394,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -6367,7 +6559,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -6385,7 +6577,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -6394,7 +6586,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -6412,7 +6604,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -6650,7 +6842,7 @@
     "skills": [
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -6686,7 +6878,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -6713,7 +6905,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -7010,7 +7202,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -7579,7 +7771,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -7588,7 +7780,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -7606,7 +7798,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -7624,7 +7816,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -8155,7 +8347,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -8173,7 +8365,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -8646,7 +8838,7 @@
       },
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -8673,7 +8865,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -9071,7 +9263,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -9080,7 +9272,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -9107,7 +9299,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -9503,7 +9695,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -9581,7 +9773,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -9590,7 +9782,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -9768,7 +9960,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -9837,7 +10029,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -9864,7 +10056,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -10094,7 +10286,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -10496,7 +10688,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -10670,7 +10862,7 @@
       },
       {
         "asset": "Unique_Anubis_Tackle",
-        "jp_name": null,
+        "jp_name": "フォースドライブ",
         "en_name": "Forceful Charge",
         "element": "Earth",
         "power": 400,
@@ -10688,7 +10880,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -10777,7 +10969,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -10884,7 +11076,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -11058,7 +11250,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -11067,7 +11259,7 @@
       },
       {
         "asset": "Unique_ElecPanda_ElecScratch",
-        "jp_name": null,
+        "jp_name": "ライトニングクロー",
         "en_name": "Lightning Claw",
         "element": "Electricity",
         "power": 150,
@@ -11076,7 +11268,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -11085,7 +11277,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -11103,7 +11295,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -11112,7 +11304,7 @@
       },
       {
         "asset": "Unique_ElecPanda_GatlingAttack",
-        "jp_name": null,
+        "jp_name": "雷撃の重戦車",
         "en_name": "Heavy Thunder Tank",
         "element": "Electricity",
         "power": 550,
@@ -11498,7 +11690,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -11507,7 +11699,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -11516,7 +11708,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -11681,7 +11873,7 @@
       },
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -11690,7 +11882,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -11822,7 +12014,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -11909,7 +12101,7 @@
       },
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -11927,7 +12119,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -12139,7 +12331,7 @@
       },
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -12235,7 +12427,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -12253,7 +12445,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -12342,7 +12534,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -12360,7 +12552,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -12396,10 +12588,106 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
+        "cooldown": 20.0,
+        "level": 50
+      },
+      {
+        "asset": "DiamondFall",
+        "jp_name": "ダイアモンドフォール",
+        "en_name": "Diamond Rain",
+        "element": "Ice",
+        "power": 600,
+        "cooldown": 30.0,
+        "level": 70
+      }
+    ]
+  },
+  {
+    "dex_id": "129",
+    "name": "オバケナワ",
+    "en_name": "Hangyu_Cryst",
+    "icon": "game_data/icons/pals/T_WindChimes_Ice_icon_normal.webp",
+    "types": [
+      "氷"
+    ],
+    "types_en": [
+      "Earth"
+    ],
+    "stats": {
+      "hp": 80,
+      "melee_attack": 70,
+      "shot_attack": 70,
+      "defense": 70
+    },
+    "partner_skill": {
+      "name": "寒色ブランコ",
+      "effect": "手持ちにいる間、グライダーの代わりに呼び出せる。グライドすると、プレイヤーを高く持ち上げる。"
+    },
+    "skills": [
+      {
+        "asset": "AirCanon",
+        "jp_name": "エアーキャノン",
+        "en_name": "Air Cannon",
+        "element": "Normal",
+        "power": 40,
+        "cooldown": 2.0,
+        "level": 1
+      },
+      {
+        "asset": "IceMissile",
+        "jp_name": "アイスミサイル",
+        "en_name": "Ice Missile",
+        "element": "Ice",
+        "power": 40,
+        "cooldown": 2.0,
+        "level": 7
+      },
+      {
+        "asset": "PowerShot",
+        "jp_name": "パワーショット",
+        "en_name": "Power Shot",
+        "element": "Normal",
+        "power": 80,
+        "cooldown": 4.0,
+        "level": 15
+      },
+      {
+        "asset": "IceBlade",
+        "jp_name": "アイスカッター",
+        "en_name": "Icicle Cutter",
+        "element": "Ice",
+        "power": 80,
+        "cooldown": 4.0,
+        "level": 22
+      },
+      {
+        "asset": "BlizzardLance",
+        "jp_name": "アイスバーグ",
+        "en_name": "Iceberg",
+        "element": "Ice",
+        "power": 120,
+        "cooldown": 8.0,
+        "level": 30
+      },
+      {
+        "asset": "FrostBreath",
+        "jp_name": "コールドブレス",
+        "en_name": "Crystal Breath",
+        "element": "Ice",
+        "power": 160,
+        "cooldown": 8.0,
+        "level": 40
+      },
+      {
+        "asset": "IcicleThrow",
+        "jp_name": "ブリザードスパイク",
+        "en_name": "Blizzard Spike",
+        "element": "Ice",
+        "power": 450,
         "cooldown": 20.0,
         "level": 50
       },
@@ -12501,7 +12789,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -12703,7 +12991,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -12889,7 +13177,7 @@
       },
       {
         "asset": "Unique_BlackMetalDragon_FirePunch",
-        "jp_name": null,
+        "jp_name": "パンチブレス",
         "en_name": "Firefist Breathstorm",
         "element": "Dragon",
         "power": 450,
@@ -13005,7 +13293,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -13065,7 +13353,7 @@
       },
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -13530,7 +13818,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -14174,7 +14462,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -14307,7 +14595,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -14904,7 +15192,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -15089,7 +15377,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -15176,7 +15464,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -15861,7 +16149,7 @@
       },
       {
         "asset": "Unique_DarkMechaDragon_BeamSlash",
-        "jp_name": null,
+        "jp_name": "ビームスラッシュ",
         "en_name": "Beam Slash",
         "element": "Dragon",
         "power": 450,
@@ -16149,7 +16437,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -16725,7 +17013,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -16734,7 +17022,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -16830,7 +17118,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -17216,7 +17504,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -17243,7 +17531,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -17495,7 +17783,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -17742,7 +18030,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -17856,7 +18144,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -18004,7 +18292,7 @@
     "skills": [
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -18013,7 +18301,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -18049,7 +18337,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -18198,7 +18486,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -18216,7 +18504,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -18695,7 +18983,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -18713,7 +19001,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -18740,7 +19028,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -18977,7 +19265,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -18995,7 +19283,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -19073,7 +19361,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -19091,7 +19379,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -19463,7 +19751,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -19481,7 +19769,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -19701,7 +19989,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -20239,7 +20527,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -20257,7 +20545,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -20355,7 +20643,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -20679,7 +20967,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -20730,7 +21018,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -20748,7 +21036,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -20862,7 +21150,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -20940,7 +21228,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -20949,7 +21237,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -21240,7 +21528,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -21249,7 +21537,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -21819,7 +22107,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -21837,7 +22125,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -22163,7 +22451,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -22618,7 +22906,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -22654,7 +22942,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -23286,7 +23574,7 @@
     "skills": [
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -23807,7 +24095,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -23867,7 +24155,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -23885,7 +24173,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -23963,7 +24251,7 @@
     "skills": [
       {
         "asset": "IceMissile",
-        "jp_name": null,
+        "jp_name": "アイスミサイル",
         "en_name": "Ice Missile",
         "element": "Ice",
         "power": 40,
@@ -23981,7 +24269,7 @@
       },
       {
         "asset": "BlizzardLance",
-        "jp_name": null,
+        "jp_name": "アイスバーグ",
         "en_name": "Iceberg",
         "element": "Ice",
         "power": 120,
@@ -24396,7 +24684,7 @@
       },
       {
         "asset": "Unique_Sekhmet_RollingScratch",
-        "jp_name": null,
+        "jp_name": "ローリングスクラッチ",
         "en_name": "Rolling Scratch",
         "element": "Earth",
         "power": 400,
@@ -24483,7 +24771,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -24675,7 +24963,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -24831,7 +25119,7 @@
     "skills": [
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -24840,7 +25128,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -24867,7 +25155,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -24928,7 +25216,7 @@
     "skills": [
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -24964,7 +25252,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -25165,7 +25453,7 @@
       },
       {
         "asset": "RockLance",
-        "jp_name": null,
+        "jp_name": "ロックランス",
         "en_name": "Rock Lance",
         "element": "Earth",
         "power": 400,
@@ -25321,7 +25609,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -25339,7 +25627,7 @@
       },
       {
         "asset": "LineThunder",
-        "jp_name": null,
+        "jp_name": "ラインサンダー",
         "en_name": "Lightning Streak",
         "element": "Electricity",
         "power": 160,
@@ -25357,7 +25645,7 @@
       },
       {
         "asset": "Thunderbolt",
-        "jp_name": null,
+        "jp_name": "ライトニングボルト",
         "en_name": "Lightning Bolt",
         "element": "Electricity",
         "power": 450,
@@ -25610,7 +25898,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -25822,7 +26110,7 @@
       },
       {
         "asset": "ThreeCommet",
-        "jp_name": null,
+        "jp_name": "コメットフォール",
         "en_name": "Comet Barrage",
         "element": "Dragon",
         "power": 450,
@@ -25998,7 +26286,7 @@
       },
       {
         "asset": "ElecWave",
-        "jp_name": null,
+        "jp_name": "ショックウェーブ",
         "en_name": "Shockwave",
         "element": "Electricity",
         "power": 80,
@@ -26025,7 +26313,7 @@
       },
       {
         "asset": "ThreeThunder",
-        "jp_name": null,
+        "jp_name": "トライサンダー",
         "en_name": "Tri-Lightning",
         "element": "Electricity",
         "power": 200,
@@ -26884,7 +27172,7 @@
       },
       {
         "asset": "ThreeCommet",
-        "jp_name": null,
+        "jp_name": "コメットフォール",
         "en_name": "Comet Barrage",
         "element": "Dragon",
         "power": 450,

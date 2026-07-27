@@ -333,6 +333,37 @@ JP_NAME = {
     "TriSpark": "トライスパーク",
 }
 
+# gamepedia.jpの元データでは未確認(missing)だった21件を、paldb.cc(https://paldb.cc/ja/<英語名>、
+# 例: https://paldb.cc/ja/Iceberg)の各技個別ページを直接確認して追加(2026-07-26)。
+# 出典が異なるためJP_NAMEとは別辞書にし、match_statusも"paldb.cc確認済み"と区別する。
+# 残り約33件(Unique_WorldTreeDragon_*, Unique_YakushimaBoss001/002_*, GYM_Act系)は
+# ボス専用の内部スクリプト技で、そもそも英語名すら内部アセットコードのままであり
+# (paldb.ccの該当ページでも日本語名の記載なしを確認済み)、捏造禁止ルールにより
+# 未確認のまま(英語表記フォールバック)で維持する。
+JP_NAME_PALDB = {
+    "BlizzardLance": "アイスバーグ",
+    "ElecWave": "ショックウェーブ",
+    "IceMissile": "アイスミサイル",
+    "LineThunder": "ラインサンダー",
+    "LockonLaser": "ロックオンレーザー",
+    "PoisonFog": "ポイズンフォグ",
+    "PredatorBeam": "プレデタービーム",
+    "PredatorLockon": "プレデターロックオン",
+    "PredatorWave": "プレデターウェーブ",
+    "RockLance": "ロックランス",
+    "ThreeCommet": "コメットフォール",
+    "ThreeThunder": "トライサンダー",
+    "Thunderbolt": "ライトニングボルト",
+    "Unique_Anubis_Tackle": "フォースドライブ",
+    "Unique_BlackMetalDragon_FirePunch": "パンチブレス",
+    "Unique_DarkMechaDragon_BeamSlash": "ビームスラッシュ",
+    "Unique_ElecPanda_ElecScratch": "ライトニングクロー",
+    "Unique_ElecPanda_GatlingAttack": "雷撃の重戦車",
+    "Unique_IceDeer_IceHorn": "アイスホーンラッシュ",
+    "Unique_LilyQueen_LilyHealing": "豊穣の加護",
+    "Unique_Sekhmet_RollingScratch": "ローリングスクラッチ",
+}
+
 
 def main():
     sk = json.load(open(SKILLS_PATH, encoding="utf-8"))
@@ -355,6 +386,9 @@ def main():
         if jp:
             matched += 1
             out[asset] = {"jp_name": jp, "en_name": en_name, "match_status": "wiki確認済み"}
+        elif asset in JP_NAME_PALDB:
+            matched += 1
+            out[asset] = {"jp_name": JP_NAME_PALDB[asset], "en_name": en_name, "match_status": "paldb.cc確認済み"}
         else:
             missing.append(asset)
             out[asset] = {"jp_name": None, "en_name": en_name, "match_status": "missing"}

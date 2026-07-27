@@ -36,9 +36,9 @@
       "match_status": "wiki確認済み"
     },
     "BlizzardLance": {
-      "jp_name": null,
+      "jp_name": "アイスバーグ",
       "en_name": "Iceberg",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "BubbleShot": {
       "jp_name": "バブルショット",
@@ -146,9 +146,9 @@
       "match_status": "wiki確認済み"
     },
     "ElecWave": {
-      "jp_name": null,
+      "jp_name": "ショックウェーブ",
       "en_name": "Shockwave",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "Eruption": {
       "jp_name": "ボルカニックレイン",
@@ -246,9 +246,9 @@
       "match_status": "wiki確認済み"
     },
     "IceMissile": {
-      "jp_name": null,
+      "jp_name": "アイスミサイル",
       "en_name": "Ice Missile",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "IceWall": {
       "jp_name": "フリーズウォール",
@@ -286,14 +286,14 @@
       "match_status": "wiki確認済み"
     },
     "LineThunder": {
-      "jp_name": null,
+      "jp_name": "ラインサンダー",
       "en_name": "Lightning Streak",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "LockonLaser": {
-      "jp_name": null,
+      "jp_name": "ロックオンレーザー",
       "en_name": "Lock-on Laser",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "MudShot": {
       "jp_name": "マッドシュート",
@@ -301,9 +301,9 @@
       "match_status": "wiki確認済み"
     },
     "PoisonFog": {
-      "jp_name": null,
+      "jp_name": "ポイズンフォグ",
       "en_name": "Poison Fog",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "PoisonShot": {
       "jp_name": "ポイズンシュート",
@@ -321,19 +321,19 @@
       "match_status": "wiki確認済み"
     },
     "PredatorBeam": {
-      "jp_name": null,
+      "jp_name": "プレデタービーム",
       "en_name": "Predator Blast",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "PredatorLockon": {
-      "jp_name": null,
+      "jp_name": "プレデターロックオン",
       "en_name": "Predator Mark",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "PredatorWave": {
-      "jp_name": null,
+      "jp_name": "プレデターウェーブ",
       "en_name": "Predator Surge",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "Psychokinesis": {
       "jp_name": "サイコグラビティ",
@@ -376,9 +376,9 @@
       "match_status": "wiki確認済み"
     },
     "RockLance": {
-      "jp_name": null,
+      "jp_name": "ロックランス",
       "en_name": "Rock Lance",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "RootAttack": {
       "jp_name": "スパインヴァイン",
@@ -466,14 +466,14 @@
       "match_status": "wiki確認済み"
     },
     "ThreeCommet": {
-      "jp_name": null,
+      "jp_name": "コメットフォール",
       "en_name": "Comet Barrage",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "ThreeThunder": {
-      "jp_name": null,
+      "jp_name": "トライサンダー",
       "en_name": "Tri-Lightning",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "ThrowRock": {
       "jp_name": "ストーンキャノン",
@@ -506,9 +506,9 @@
       "match_status": "wiki確認済み"
     },
     "Thunderbolt": {
-      "jp_name": null,
+      "jp_name": "ライトニングボルト",
       "en_name": "Lightning Bolt",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "Tremor": {
       "jp_name": "ロックバースト",
@@ -566,9 +566,9 @@
       "match_status": "wiki確認済み"
     },
     "Unique_Anubis_Tackle": {
-      "jp_name": null,
+      "jp_name": "フォースドライブ",
       "en_name": "Forceful Charge",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "Unique_Baphomet_Dark_DarkKite": {
       "jp_name": "ナイトメアクロー",
@@ -606,9 +606,9 @@
       "match_status": "wiki確認済み"
     },
     "Unique_BlackMetalDragon_FirePunch": {
-      "jp_name": null,
+      "jp_name": "パンチブレス",
       "en_name": "Firefist Breathstorm",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "Unique_BlackPuppy_Bite": {
       "jp_name": "ワイルドファング(闇)",
@@ -696,9 +696,9 @@
       "match_status": "wiki確認済み"
     },
     "Unique_DarkMechaDragon_BeamSlash": {
-      "jp_name": null,
+      "jp_name": "ビームスラッシュ",
       "en_name": "Beam Slash",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "Unique_DarkMechaDragon_ConvergentBeam": {
       "jp_name": "アストラルレイ",
@@ -751,14 +751,14 @@
       "match_status": "wiki確認済み"
     },
     "Unique_ElecPanda_ElecScratch": {
-      "jp_name": null,
+      "jp_name": "ライトニングクロー",
       "en_name": "Lightning Claw",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "Unique_ElecPanda_GatlingAttack": {
-      "jp_name": null,
+      "jp_name": "雷撃の重戦車",
       "en_name": "Heavy Thunder Tank",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "Unique_ElecPomeranian_Bite": {
       "jp_name": "ワイルドファング(雷)",
@@ -991,9 +991,9 @@
       "match_status": "wiki確認済み"
     },
     "Unique_IceDeer_IceHorn": {
-      "jp_name": null,
+      "jp_name": "アイスホーンラッシュ",
       "en_name": "Freezing Charge",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "Unique_IceHorse_Dark_DarkBladeAttack": {
       "jp_name": "ダークウィング",
@@ -1106,9 +1106,9 @@
       "match_status": "missing"
     },
     "Unique_LilyQueen_LilyHealing": {
-      "jp_name": null,
+      "jp_name": "豊穣の加護",
       "en_name": "Bountiful Protection",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "Unique_LilyQueen_LilyHealing_Boss": {
       "jp_name": null,
@@ -1321,9 +1321,9 @@
       "match_status": "wiki確認済み"
     },
     "Unique_Sekhmet_RollingScratch": {
-      "jp_name": null,
+      "jp_name": "ローリングスクラッチ",
       "en_name": "Rolling Scratch",
-      "match_status": "missing"
+      "match_status": "paldb.cc確認済み"
     },
     "Unique_Sekhmet_SomersaultScratch": {
       "jp_name": "サマーソルトスクラッチ",
