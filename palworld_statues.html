@@ -53,9 +53,10 @@
   .progress-box .pb-reset:hover{border-color:var(--danger);color:var(--danger);}
 
   .species-panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
-  .species-chip{font-size:12px;padding:6px 12px;border-radius:5px;border:1px solid var(--line);background:var(--panel2);color:var(--parchment-dim);cursor:pointer;user-select:none;display:flex;align-items:center;gap:7px;}
-  .species-chip .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+  .species-chip{font-size:12px;padding:5px 12px 5px 6px;border-radius:5px;border:1px solid var(--line);background:var(--panel2);color:var(--parchment-dim);cursor:pointer;user-select:none;display:flex;align-items:center;gap:7px;}
+  .species-chip .sc-icon{width:22px;height:22px;border-radius:50%;object-fit:contain;background:var(--panel);border:1.5px solid var(--line);flex-shrink:0;}
   .species-chip.active{color:var(--parchment);font-weight:700;border-color:var(--teal-dim);background:rgba(53,210,255,.12);}
+  .species-chip.active .sc-icon{border-color:var(--teal-dim);}
   .species-chip .sc-count{font-family:var(--font-mono);font-size:10.5px;color:var(--brass-dim);}
   .species-chip.active .sc-count{color:var(--brass);}
   .species-chip.complete .sc-count{color:var(--lime);}
@@ -72,11 +73,12 @@
   .map-world img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none;pointer-events:none;}
   .statue-layer{position:absolute;top:0;left:0;width:100%;height:100%;}
 
-  .statue-marker{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;cursor:pointer;}
-  .statue-marker .sm-dot{width:13px;height:13px;border-radius:50%;border:1.5px solid rgba(255,255,255,.75);box-shadow:0 0 7px rgba(0,0,0,.6);}
-  .statue-marker:hover .sm-dot{outline:2px solid #fff;outline-offset:1px;}
-  .statue-marker.done .sm-dot{opacity:.32;box-shadow:none;border-color:rgba(255,255,255,.25);}
-  .statue-marker.done::after{content:"✓";position:absolute;top:50%;left:50%;transform:translate(-50%,-58%);font-size:10px;font-weight:900;color:#fff;text-shadow:0 0 3px rgba(0,0,0,.9);pointer-events:none;}
+  .statue-marker{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;cursor:pointer;z-index:1;}
+  .statue-marker .sm-icon{display:block;width:22px;height:22px;border-radius:50%;object-fit:contain;background:var(--panel2);border:2px solid var(--brass);box-shadow:0 2px 6px rgba(0,0,0,.6);}
+  .statue-marker:hover{z-index:2;}
+  .statue-marker:hover .sm-icon{outline:2px solid #fff;outline-offset:1px;}
+  .statue-marker.done .sm-icon{opacity:.38;filter:grayscale(.9);box-shadow:none;border-color:rgba(255,255,255,.3);}
+  .statue-marker.done .sm-check{position:absolute;top:-4px;right:-4px;width:14px;height:14px;border-radius:50%;background:var(--lime);border:1.5px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:#0c1206;line-height:1;pointer-events:none;}
 
   .coord-readout{position:absolute;left:14px;bottom:14px;z-index:5;font-family:var(--font-mono);font-size:11px;color:var(--parchment-dim);background:rgba(4,6,10,.7);border:1px solid var(--line);border-radius:6px;padding:5px 10px;pointer-events:none;}
   .map-zoom-controls{position:absolute;right:14px;bottom:14px;display:flex;flex-direction:column;gap:2px;z-index:5;}
@@ -180,14 +182,20 @@
   <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。パル像の座標データはpaldb.ccの提供によるものです。</p>
 </div>
 
+<script src="game_data/dex_data.js"></script>
 <script src="game_data/statue_data.js"></script>
 <script>
-const EFFIGY_COLORS = {
-  "Lifmunk Effigy": "#8fd6ff", "Rooby Effigy": "#e2543f", "Munchill Effigy": "#6ec8ea",
-  "Herbil Effigy": "#c9a86a", "Tanzee Effigy": "#7bdb52", "Depresso Effigy": "#8064b8",
-  "Pengullet Effigy": "#3d7bff", "Lamball Effigy": "#f0a233", "Relaxaurus Effigy": "#ff6ec7",
-  "Lunaris Effigy": "#35d2ff", "Yakumo Effigy": "#ffd23d",
-};
+// パル像は元になったパルと同じ姿をしているため、マーカーには色分けした点ではなく
+// そのパル自身のアイコンを使う(2026-07-27、種類が多く色だけでは見分けにくいという指摘)。
+// 像のtype("Lamball Effigy"等)は末尾の" Effigy"を除けばパル図鑑のen_nameと一致する。
+const PAL_BY_EN = {};
+PAL_DEX_DATA.forEach(p => { PAL_BY_EN[p.en_name] = p; });
+
+const EFFIGY_ICON = {};
+STATUE_DATA.effigyTypes.forEach(t => {
+  const pal = PAL_BY_EN[t.type.replace(/ Effigy$/, "")];
+  EFFIGY_ICON[t.type] = pal ? pal.icon : "";
+});
 
 const CHECKLIST_KEY = "palworld_statue_checklist";
 function loadChecked(){
@@ -216,7 +224,7 @@ function renderSpeciesPanel(){
     const isComplete = donePts === t.count;
     return `
     <div class="species-chip ${state.activeTypes.has(t.type) ? "active" : ""} ${isComplete ? "complete" : ""}" data-type="${t.type}">
-      <span class="dot" style="background:${EFFIGY_COLORS[t.type]}"></span>
+      <img class="sc-icon" src="${EFFIGY_ICON[t.type]}" alt="">
       <span>${t.jp_name}</span>
       <span class="sc-count">${donePts}/${t.count}</span>
     </div>`;
@@ -241,7 +249,8 @@ function renderStatues(){
   });
   layer.innerHTML = points.map(p => `
     <div class="statue-marker ${checked[p.id] ? "done" : ""}" data-id="${p.id.replace(/"/g,'&quot;')}" style="left:${p.x*100}%;top:${p.y*100}%;">
-      <div class="sm-dot" style="background:${EFFIGY_COLORS[p.type]}"></div>
+      <img class="sm-icon" src="${EFFIGY_ICON[p.type]}" alt="">
+      ${checked[p.id] ? '<span class="sm-check">✓</span>' : ""}
     </div>`).join("");
 
   layer.querySelectorAll(".statue-marker").forEach(el => {
