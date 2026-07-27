@@ -8,10 +8,10 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <title>パル像マップ | Palworld攻略ツール</title>
-<meta name="description" content="パルワールドのパル像(エフィジー)コンプリート用マップ型チェックリスト。1.0で追加された種族別の像を含む全11種360体分の場所を地図上に表示し、回収済みをクリックで記録できます。">
+<meta name="description" content="パルワールドのパル像(エフィジー)コンプリート用マップ型チェックリスト。本土・世界樹エリア合わせて全12種407体分の場所を地図上に表示し、回収済みをクリックで記録できます。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="パル像マップ | Palworld攻略ツール">
-<meta property="og:description" content="パルワールドのパル像(エフィジー)コンプリート用マップ型チェックリスト。1.0で追加された種族別の像を含む全11種360体分の場所を地図上に表示し、回収済みをクリックで記録できます。">
+<meta property="og:description" content="パルワールドのパル像(エフィジー)コンプリート用マップ型チェックリスト。本土・世界樹エリア合わせて全12種407体分の場所を地図上に表示し、回収済みをクリックで記録できます。">
 <meta property="og:image" content="https://rob1242.github.io/palworld-tools/game_data/art/hero_sphere_2.webp">
 <meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_statues.html">
 <meta name="twitter:card" content="summary_large_image">
@@ -60,6 +60,11 @@
   .species-chip .sc-count{font-family:var(--font-mono);font-size:10.5px;color:var(--brass-dim);}
   .species-chip.active .sc-count{color:var(--brass);}
   .species-chip.complete .sc-count{color:var(--lime);}
+
+  .region-tabs{display:flex;gap:2px;margin-bottom:16px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
+  .region-tab{padding:8px 18px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:14px;transition:color .12s,background .12s;}
+  .region-tab.active{background:var(--teal);color:#08222c;box-shadow:0 0 10px rgba(53,210,255,.4);}
+  .region-tab .rt-count{font-family:var(--font-mono);font-size:10.5px;opacity:.8;margin-left:4px;}
 
   .map-toolbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 18px;margin-bottom:14px;}
   .toggle-group{display:flex;gap:2px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;}
@@ -147,14 +152,19 @@
   </header>
 
   <p class="caveat">
-    パル像(エフィジー)の場所はpaldb.ccの本島マップデータから抽出しています。1.0でクルリス像に加えて種族別の像7種(ヒノコジカ像/コチワニ像/モモンパ像/エテッパ像/ンダコアラ像/ペンタマ像/モコロン像、各30体)と希少な3種(ペコドン像/ミステリア像/ヤクモマル像)が追加され、全11種360体になりました。いずれもパルパゴス島各所にあり「力の石像」に捧げるとプレイヤーが強化されます(世界樹エリアには像はありません)。地図上のマーカーをクリックすると回収済みとして記録できます(この端末のブラウザ内(localStorage)にのみ保存され、他の端末とは共有されません)。
+    パル像(エフィジー)の場所は<a href="https://palworld-lab.com/map/relic/" target="_blank" rel="noopener">パルワールド配合・攻略ラボ</a>のマップデータから抽出しています。クルリス像に加えて種族別の像8種(ヒノコジカ像/コチワニ像/モモンパ像/エテッパ像/ンダコアラ像/ペンタマ像/モコロン像/ツッパニャン像)と希少な3種(ペコドン像/ミステリア像/ヤクモマル像)があり、本土・世界樹エリア合わせて全12種407体です(ツッパニャン像は世界樹エリアにのみ出現)。いずれも拠点の「力の石像」に捧げるとプレイヤーが強化されます。地図上のマーカーをクリックすると回収済みとして記録できます(この端末のブラウザ内(localStorage)にのみ保存され、他の端末とは共有されません)。
   </p>
 
   <div class="progress-box">
     <span class="pb-label">回収状況</span>
     <div class="progress-bar"><div class="fill" id="progressFill" style="width:0%;"></div></div>
-    <span class="pb-count" id="progressCount">0 / 360</span>
+    <span class="pb-count" id="progressCount">0 / 407</span>
     <button class="pb-reset" id="resetAllBtn">チェックを全部リセット</button>
+  </div>
+
+  <div class="region-tabs" id="regionTabs">
+    <div class="region-tab active" data-region="palpagos">本土<span class="rt-count"></span></div>
+    <div class="region-tab" data-region="worldtree">世界樹エリア<span class="rt-count"></span></div>
   </div>
 
   <div class="species-panel" id="speciesPanel"></div>
@@ -169,7 +179,8 @@
 
   <div class="map-viewport" id="mapViewport">
     <div class="map-world" id="mapWorld">
-      <img src="game_data/art/world_map_3072.webp" alt="パルワールド 世界地図" draggable="false">
+      <img id="mapBgImg" src="game_data/art/world_map_3072.webp" alt="パルワールド 世界地図" draggable="false">
+      <img id="mapBgImgTree" src="game_data/maps/worldtree.webp" alt="パルワールド 世界樹エリア地図" draggable="false" style="display:none;">
       <div class="statue-layer" id="statueLayer"></div>
     </div>
     <div class="map-zoom-controls">
@@ -179,7 +190,7 @@
     <div class="coord-readout" id="coordReadout">X: — Y: —</div>
   </div>
 
-  <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。パル像の座標データはpaldb.ccの提供によるものです。</p>
+  <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。パル像の座標データはパルワールド配合・攻略ラボの提供によるものです。世界樹エリアの地図画像は<a href="https://github.com/Nifrendil/pal-atlas" target="_blank" rel="noopener">Nifrendil/pal-atlas</a>(MITライセンス)のものを使用しています。</p>
 </div>
 
 <script src="game_data/dex_data.js"></script>
@@ -187,13 +198,17 @@
 <script>
 // パル像は元になったパルと同じ姿をしているため、マーカーには色分けした点ではなく
 // そのパル自身のアイコンを使う(2026-07-27、種類が多く色だけでは見分けにくいという指摘)。
-// 像のtype("Lamball Effigy"等)は末尾の" Effigy"を除けばパル図鑑のen_nameと一致する。
-const PAL_BY_EN = {};
-PAL_DEX_DATA.forEach(p => { PAL_BY_EN[p.en_name] = p; });
+// 像のtype(内部アセット名、例:"Carbunclo")はパル図鑑アイコンのファイル名
+// (T_Carbunclo_icon_normal.webp)から抽出したアセット名と直接一致する。
+const PAL_BY_ASSET = {};
+PAL_DEX_DATA.forEach(p => {
+  const m = /T_(.+?)_icon_normal\.webp$/.exec(p.icon || "");
+  if(m) PAL_BY_ASSET[m[1]] = p;
+});
 
 const EFFIGY_ICON = {};
 STATUE_DATA.effigyTypes.forEach(t => {
-  const pal = PAL_BY_EN[t.type.replace(/ Effigy$/, "")];
+  const pal = PAL_BY_ASSET[t.type];
   EFFIGY_ICON[t.type] = pal ? pal.icon : "";
 });
 
@@ -205,6 +220,7 @@ function saveChecked(obj){ localStorage.setItem(CHECKLIST_KEY, JSON.stringify(ob
 let checked = loadChecked();
 
 const state = {
+  region: "palpagos", // "palpagos" | "worldtree"
   activeTypes: new Set(STATUE_DATA.effigyTypes.map(t => t.type)),
   filter: "all", // "all" | "remaining"
   view: { x: 0, y: 0, scale: 1 },
@@ -215,18 +231,29 @@ function renderProgress(){
   const done = STATUE_DATA.points.filter(p => checked[p.id]).length;
   document.getElementById("progressFill").style.width = `${(done/total*100).toFixed(1)}%`;
   document.getElementById("progressCount").textContent = `${done} / ${total}`;
+
+  document.querySelectorAll("#regionTabs .region-tab").forEach(tab => {
+    const region = tab.dataset.region;
+    const regionPts = STATUE_DATA.points.filter(p => p.region === region);
+    const regionDone = regionPts.filter(p => checked[p.id]).length;
+    tab.querySelector(".rt-count").textContent = ` ${regionDone}/${regionPts.length}`;
+  });
 }
 
 function renderSpeciesPanel(){
   const panel = document.getElementById("speciesPanel");
-  panel.innerHTML = STATUE_DATA.effigyTypes.map(t => {
-    const donePts = STATUE_DATA.points.filter(p => p.type === t.type && checked[p.id]).length;
-    const isComplete = donePts === t.count;
+  // 種族チップの件数は現在の地域(本土/世界樹)に絞った件数を表示する。
+  // その種族がこの地域に一体もいない場合はチップ自体を出さない(例:本土タブでツッパニャン像は非表示)。
+  const typesHere = STATUE_DATA.effigyTypes.filter(t => t.regionCounts[state.region] > 0);
+  panel.innerHTML = typesHere.map(t => {
+    const regionTotal = t.regionCounts[state.region];
+    const donePts = STATUE_DATA.points.filter(p => p.type === t.type && p.region === state.region && checked[p.id]).length;
+    const isComplete = donePts === regionTotal;
     return `
-    <div class="species-chip ${state.activeTypes.has(t.type) ? "active" : ""} ${isComplete ? "complete" : ""}" data-type="${t.type}">
+    <div class="species-chip ${state.activeTypes.has(t.type) ? "active" : ""} ${isComplete ? "complete" : ""}" data-type="${t.type}" title="強化効果: ${t.effect}">
       <img class="sc-icon" src="${EFFIGY_ICON[t.type]}" alt="">
       <span>${t.jp_name}</span>
-      <span class="sc-count">${donePts}/${t.count}</span>
+      <span class="sc-count">${donePts}/${regionTotal}</span>
     </div>`;
   }).join("");
   panel.querySelectorAll(".species-chip").forEach(el => {
@@ -240,9 +267,24 @@ function renderSpeciesPanel(){
   });
 }
 
+function switchRegion(region){
+  state.region = region;
+  document.querySelectorAll(".region-tab").forEach(t => t.classList.toggle("active", t.dataset.region === region));
+  document.getElementById("mapBgImg").style.display = region === "worldtree" ? "none" : "";
+  document.getElementById("mapBgImgTree").style.display = region === "worldtree" ? "" : "none";
+  state.view = { x: 0, y: 0, scale: 1 };
+  applyView();
+  renderSpeciesPanel();
+  renderStatues();
+}
+document.querySelectorAll(".region-tab").forEach(tab => {
+  tab.addEventListener("click", () => switchRegion(tab.dataset.region));
+});
+
 function renderStatues(){
   const layer = document.getElementById("statueLayer");
   const points = STATUE_DATA.points.filter(p => {
+    if(p.region !== state.region) return false;
     if(!state.activeTypes.has(p.type)) return false;
     if(state.filter === "remaining" && checked[p.id]) return false;
     return true;
@@ -277,7 +319,7 @@ function showDetail(point, el){
   detail.id = "statueDetailTip";
   detail.style.left = `${point.x*100}%`;
   detail.style.top = `${point.y*100}%`;
-  detail.innerHTML = `<b>${t ? t.jp_name : point.type}</b><div class="sd-hint">${checked[point.id] ? "回収済み(クリックで解除)" : "クリックで回収済みにする"}</div>`;
+  detail.innerHTML = `<b>${t ? t.jp_name : point.type}</b><div class="sd-hint">強化効果: ${t ? t.effect : "?"}</div><div class="sd-hint">${checked[point.id] ? "回収済み(クリックで解除)" : "クリックで回収済みにする"}</div>`;
   document.getElementById("mapWorld").appendChild(detail);
 }
 function hideDetail(){
