@@ -31,16 +31,16 @@
     { name: "最強Tier表", url: "palworld_tierlist.html" },
     { name: "ライド速度", url: "palworld_ride.html" },
     { name: "出現マップ", url: "palworld_map.html" },
-    { name: "パル像マップ", url: "palworld_statues.html" },
+    { name: "パル像コンプリート", url: "palworld_map.html?view=statues" },
     { name: "ボス攻略", url: "palworld_bossguide.html" },
     { name: "実績一覧", url: "palworld_achievements.html" },
     { name: "おすすめパッシブ", url: "palworld_passives_guide.html" },
     { name: "早見表", url: "palworld_reference.html" },
     { name: "テクノロジー", url: "palworld_technology.html" },
-    { name: "ミッション一覧", url: "palworld_missions.html" },
+    { name: "ミッション一覧", url: "palworld_map.html?view=missions" },
     { name: "素質値計算機", url: "palworld_iv_calc.html" },
     { name: "パーティ編成ガイド", url: "palworld_party_guide.html" },
-    { name: "拠点位置ガイド", url: "palworld_base_spots.html" },
+    { name: "拠点位置ガイド", url: "palworld_map.html?view=basespots" },
     { name: "更新履歴", url: "palworld_changelog.html" },
   ];
 
@@ -381,7 +381,7 @@
   }
   function renderMissionResult(entry){
     const m = entry.mission;
-    return `<a class="gsearch-row gsearch-head gsearch-link" href="palworld_missions.html?id=${encodeURIComponent(m.id)}">
+    return `<a class="gsearch-row gsearch-head gsearch-link" href="palworld_map.html?view=missions&id=${encodeURIComponent(m.id)}">
       <span class="gsearch-name">${esc(m.title)}<span class="gsearch-en">${esc(m.category)}</span></span>
       <span class="gsearch-tag">ミッション詳細</span>
     </a>`;
