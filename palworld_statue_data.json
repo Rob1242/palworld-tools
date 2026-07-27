@@ -1,0 +1,2221 @@
+{
+  "effigyTypes": [
+    {
+      "type": "Lifmunk Effigy",
+      "jp_name": "クルリス像",
+      "count": 140
+    },
+    {
+      "type": "Rooby Effigy",
+      "jp_name": "ヒノコジカ像",
+      "count": 30
+    },
+    {
+      "type": "Munchill Effigy",
+      "jp_name": "コチワニ像",
+      "count": 30
+    },
+    {
+      "type": "Herbil Effigy",
+      "jp_name": "モモンパ像",
+      "count": 30
+    },
+    {
+      "type": "Tanzee Effigy",
+      "jp_name": "エテッパ像",
+      "count": 30
+    },
+    {
+      "type": "Depresso Effigy",
+      "jp_name": "ンダコアラ像",
+      "count": 30
+    },
+    {
+      "type": "Pengullet Effigy",
+      "jp_name": "ペンタマ像",
+      "count": 30
+    },
+    {
+      "type": "Lamball Effigy",
+      "jp_name": "モコロン像",
+      "count": 30
+    },
+    {
+      "type": "Relaxaurus Effigy",
+      "jp_name": "ペコドン像",
+      "count": 4
+    },
+    {
+      "type": "Lunaris Effigy",
+      "jp_name": "ミステリア像",
+      "count": 4
+    },
+    {
+      "type": "Yakumo Effigy",
+      "jp_name": "ヤクモマル像",
+      "count": 2
+    }
+  ],
+  "points": [
+    {
+      "id": "Lifmunk Effigy|-363777|272944",
+      "type": "Lifmunk Effigy",
+      "x": 0.69913,
+      "y": 0.56108
+    },
+    {
+      "id": "Lifmunk Effigy|-822996|-455299",
+      "type": "Lifmunk Effigy",
+      "x": 0.19529,
+      "y": 0.88011
+    },
+    {
+      "id": "Lifmunk Effigy|-927026|-403248",
+      "type": "Lifmunk Effigy",
+      "x": 0.2313,
+      "y": 0.95238
+    },
+    {
+      "id": "Lifmunk Effigy|-795816|-490105",
+      "type": "Lifmunk Effigy",
+      "x": 0.17121,
+      "y": 0.86123
+    },
+    {
+      "id": "Lifmunk Effigy|-64421|95774",
+      "type": "Lifmunk Effigy",
+      "x": 0.57656,
+      "y": 0.35311
+    },
+    {
+      "id": "Lifmunk Effigy|63374|34058",
+      "type": "Lifmunk Effigy",
+      "x": 0.53386,
+      "y": 0.26433
+    },
+    {
+      "id": "Lifmunk Effigy|-836734|-436815",
+      "type": "Lifmunk Effigy",
+      "x": 0.20808,
+      "y": 0.88966
+    },
+    {
+      "id": "Lifmunk Effigy|-37510|442970",
+      "type": "Lifmunk Effigy",
+      "x": 0.81676,
+      "y": 0.33442
+    },
+    {
+      "id": "Lifmunk Effigy|-451762|-71656",
+      "type": "Lifmunk Effigy",
+      "x": 0.46072,
+      "y": 0.62221
+    },
+    {
+      "id": "Lifmunk Effigy|-89167|375571",
+      "type": "Lifmunk Effigy",
+      "x": 0.77013,
+      "y": 0.3703
+    },
+    {
+      "id": "Lifmunk Effigy|-762176|-339918",
+      "type": "Lifmunk Effigy",
+      "x": 0.27512,
+      "y": 0.83786
+    },
+    {
+      "id": "Lifmunk Effigy|-666778|-296915",
+      "type": "Lifmunk Effigy",
+      "x": 0.30487,
+      "y": 0.77158
+    },
+    {
+      "id": "Lifmunk Effigy|-36020|550610",
+      "type": "Lifmunk Effigy",
+      "x": 0.89124,
+      "y": 0.33338
+    },
+    {
+      "id": "Lifmunk Effigy|-223491|-51540",
+      "type": "Lifmunk Effigy",
+      "x": 0.47464,
+      "y": 0.46362
+    },
+    {
+      "id": "Lifmunk Effigy|87402|62371",
+      "type": "Lifmunk Effigy",
+      "x": 0.55345,
+      "y": 0.24764
+    },
+    {
+      "id": "Lifmunk Effigy|-1195|166766",
+      "type": "Lifmunk Effigy",
+      "x": 0.62567,
+      "y": 0.30919
+    },
+    {
+      "id": "Lifmunk Effigy|172923|260092",
+      "type": "Lifmunk Effigy",
+      "x": 0.69024,
+      "y": 0.18822
+    },
+    {
+      "id": "Lifmunk Effigy|-225372|-103212",
+      "type": "Lifmunk Effigy",
+      "x": 0.43889,
+      "y": 0.46493
+    },
+    {
+      "id": "Lifmunk Effigy|-638559|-346189",
+      "type": "Lifmunk Effigy",
+      "x": 0.27078,
+      "y": 0.75198
+    },
+    {
+      "id": "Lifmunk Effigy|-729332|-357029",
+      "type": "Lifmunk Effigy",
+      "x": 0.26328,
+      "y": 0.81504
+    },
+    {
+      "id": "Lifmunk Effigy|-450064|-107655",
+      "type": "Lifmunk Effigy",
+      "x": 0.43581,
+      "y": 0.62103
+    },
+    {
+      "id": "Lifmunk Effigy|79798|-28013",
+      "type": "Lifmunk Effigy",
+      "x": 0.49091,
+      "y": 0.25292
+    },
+    {
+      "id": "Lifmunk Effigy|-35090|126840",
+      "type": "Lifmunk Effigy",
+      "x": 0.59805,
+      "y": 0.33274
+    },
+    {
+      "id": "Lifmunk Effigy|84690|259530",
+      "type": "Lifmunk Effigy",
+      "x": 0.68985,
+      "y": 0.24952
+    },
+    {
+      "id": "Lifmunk Effigy|-704669|-386895",
+      "type": "Lifmunk Effigy",
+      "x": 0.24262,
+      "y": 0.79791
+    },
+    {
+      "id": "Lifmunk Effigy|-655859|-463511",
+      "type": "Lifmunk Effigy",
+      "x": 0.18961,
+      "y": 0.764
+    },
+    {
+      "id": "Lifmunk Effigy|98100|77360",
+      "type": "Lifmunk Effigy",
+      "x": 0.56382,
+      "y": 0.24021
+    },
+    {
+      "id": "Lifmunk Effigy|93630|7814",
+      "type": "Lifmunk Effigy",
+      "x": 0.5157,
+      "y": 0.24331
+    },
+    {
+      "id": "Lifmunk Effigy|84166|71646",
+      "type": "Lifmunk Effigy",
+      "x": 0.55986,
+      "y": 0.24989
+    },
+    {
+      "id": "Lifmunk Effigy|13359|36095",
+      "type": "Lifmunk Effigy",
+      "x": 0.53527,
+      "y": 0.29908
+    },
+    {
+      "id": "Lifmunk Effigy|-349639|-7258",
+      "type": "Lifmunk Effigy",
+      "x": 0.50527,
+      "y": 0.55126
+    },
+    {
+      "id": "Lifmunk Effigy|-639045|-221154",
+      "type": "Lifmunk Effigy",
+      "x": 0.35729,
+      "y": 0.75232
+    },
+    {
+      "id": "Lifmunk Effigy|-592896|-169671",
+      "type": "Lifmunk Effigy",
+      "x": 0.39291,
+      "y": 0.72026
+    },
+    {
+      "id": "Lifmunk Effigy|96670|294990",
+      "type": "Lifmunk Effigy",
+      "x": 0.71438,
+      "y": 0.2412
+    },
+    {
+      "id": "Lifmunk Effigy|-623478|-228132",
+      "type": "Lifmunk Effigy",
+      "x": 0.35246,
+      "y": 0.7415
+    },
+    {
+      "id": "Lifmunk Effigy|-98830|121683",
+      "type": "Lifmunk Effigy",
+      "x": 0.59448,
+      "y": 0.37702
+    },
+    {
+      "id": "Lifmunk Effigy|-608479|-126421",
+      "type": "Lifmunk Effigy",
+      "x": 0.42283,
+      "y": 0.73108
+    },
+    {
+      "id": "Lifmunk Effigy|-571483|-289721",
+      "type": "Lifmunk Effigy",
+      "x": 0.30985,
+      "y": 0.70538
+    },
+    {
+      "id": "Lifmunk Effigy|32446|114014",
+      "type": "Lifmunk Effigy",
+      "x": 0.58917,
+      "y": 0.28582
+    },
+    {
+      "id": "Lifmunk Effigy|-393210|-206296",
+      "type": "Lifmunk Effigy",
+      "x": 0.36757,
+      "y": 0.58153
+    },
+    {
+      "id": "Lifmunk Effigy|203100|368516",
+      "type": "Lifmunk Effigy",
+      "x": 0.76525,
+      "y": 0.16726
+    },
+    {
+      "id": "Lifmunk Effigy|-21300|208570",
+      "type": "Lifmunk Effigy",
+      "x": 0.65459,
+      "y": 0.32316
+    },
+    {
+      "id": "Lifmunk Effigy|-558308|-617707",
+      "type": "Lifmunk Effigy",
+      "x": 0.08293,
+      "y": 0.69623
+    },
+    {
+      "id": "Lifmunk Effigy|-168650|574690",
+      "type": "Lifmunk Effigy",
+      "x": 0.9079,
+      "y": 0.42552
+    },
+    {
+      "id": "Lifmunk Effigy|-764070|-116230",
+      "type": "Lifmunk Effigy",
+      "x": 0.42988,
+      "y": 0.83918
+    },
+    {
+      "id": "Lifmunk Effigy|-805820|-102910",
+      "type": "Lifmunk Effigy",
+      "x": 0.43909,
+      "y": 0.86818
+    },
+    {
+      "id": "Lifmunk Effigy|-832250|-80950",
+      "type": "Lifmunk Effigy",
+      "x": 0.45429,
+      "y": 0.88654
+    },
+    {
+      "id": "Lifmunk Effigy|-806370|-70850",
+      "type": "Lifmunk Effigy",
+      "x": 0.46128,
+      "y": 0.86856
+    },
+    {
+      "id": "Lifmunk Effigy|-751550|-87070",
+      "type": "Lifmunk Effigy",
+      "x": 0.45005,
+      "y": 0.83048
+    },
+    {
+      "id": "Lifmunk Effigy|-775140|-65190",
+      "type": "Lifmunk Effigy",
+      "x": 0.46519,
+      "y": 0.84687
+    },
+    {
+      "id": "Lifmunk Effigy|-771490|-28050",
+      "type": "Lifmunk Effigy",
+      "x": 0.49089,
+      "y": 0.84433
+    },
+    {
+      "id": "Lifmunk Effigy|-763478|35180",
+      "type": "Lifmunk Effigy",
+      "x": 0.53463,
+      "y": 0.83876
+    },
+    {
+      "id": "Lifmunk Effigy|-841200|-34110",
+      "type": "Lifmunk Effigy",
+      "x": 0.48669,
+      "y": 0.89276
+    },
+    {
+      "id": "Lifmunk Effigy|-820520|-13650",
+      "type": "Lifmunk Effigy",
+      "x": 0.50085,
+      "y": 0.87839
+    },
+    {
+      "id": "Lifmunk Effigy|-829440|52170",
+      "type": "Lifmunk Effigy",
+      "x": 0.54639,
+      "y": 0.88459
+    },
+    {
+      "id": "Lifmunk Effigy|-777090|57250",
+      "type": "Lifmunk Effigy",
+      "x": 0.5499,
+      "y": 0.84822
+    },
+    {
+      "id": "Lifmunk Effigy|-743640|-15540",
+      "type": "Lifmunk Effigy",
+      "x": 0.49954,
+      "y": 0.82498
+    },
+    {
+      "id": "Lifmunk Effigy|-793330|4170",
+      "type": "Lifmunk Effigy",
+      "x": 0.51318,
+      "y": 0.8595
+    },
+    {
+      "id": "Lifmunk Effigy|-800047|28960",
+      "type": "Lifmunk Effigy",
+      "x": 0.53033,
+      "y": 0.86417
+    },
+    {
+      "id": "Lifmunk Effigy|-131854|-123073",
+      "type": "Lifmunk Effigy",
+      "x": 0.42515,
+      "y": 0.39996
+    },
+    {
+      "id": "Lifmunk Effigy|7327|-148581",
+      "type": "Lifmunk Effigy",
+      "x": 0.4075,
+      "y": 0.30327
+    },
+    {
+      "id": "Lifmunk Effigy|-2613|-128534",
+      "type": "Lifmunk Effigy",
+      "x": 0.42137,
+      "y": 0.31017
+    },
+    {
+      "id": "Lifmunk Effigy|-31002|-28150",
+      "type": "Lifmunk Effigy",
+      "x": 0.49082,
+      "y": 0.3299
+    },
+    {
+      "id": "Lifmunk Effigy|-39432|-146954",
+      "type": "Lifmunk Effigy",
+      "x": 0.40862,
+      "y": 0.33575
+    },
+    {
+      "id": "Lifmunk Effigy|-54259|-103562",
+      "type": "Lifmunk Effigy",
+      "x": 0.43864,
+      "y": 0.34605
+    },
+    {
+      "id": "Lifmunk Effigy|-46171|-145089",
+      "type": "Lifmunk Effigy",
+      "x": 0.40991,
+      "y": 0.34043
+    },
+    {
+      "id": "Lifmunk Effigy|-36636|-154497",
+      "type": "Lifmunk Effigy",
+      "x": 0.4034,
+      "y": 0.33381
+    },
+    {
+      "id": "Lifmunk Effigy|-26300|-88940",
+      "type": "Lifmunk Effigy",
+      "x": 0.44876,
+      "y": 0.32663
+    },
+    {
+      "id": "Lifmunk Effigy|-15719|-123832",
+      "type": "Lifmunk Effigy",
+      "x": 0.42462,
+      "y": 0.31928
+    },
+    {
+      "id": "Lifmunk Effigy|24000|-90318",
+      "type": "Lifmunk Effigy",
+      "x": 0.44781,
+      "y": 0.29168
+    },
+    {
+      "id": "Lifmunk Effigy|-29613|-62733",
+      "type": "Lifmunk Effigy",
+      "x": 0.46689,
+      "y": 0.32893
+    },
+    {
+      "id": "Lifmunk Effigy|-2174|-99294",
+      "type": "Lifmunk Effigy",
+      "x": 0.4416,
+      "y": 0.30987
+    },
+    {
+      "id": "Lifmunk Effigy|-57184|-174532",
+      "type": "Lifmunk Effigy",
+      "x": 0.38954,
+      "y": 0.34808
+    },
+    {
+      "id": "Lifmunk Effigy|-31603|-174972",
+      "type": "Lifmunk Effigy",
+      "x": 0.38924,
+      "y": 0.33031
+    },
+    {
+      "id": "Rooby Effigy|-118280|127920",
+      "type": "Rooby Effigy",
+      "x": 0.5988,
+      "y": 0.39053
+    },
+    {
+      "id": "Rooby Effigy|-104410|148540",
+      "type": "Rooby Effigy",
+      "x": 0.61306,
+      "y": 0.38089
+    },
+    {
+      "id": "Rooby Effigy|-110010|134360",
+      "type": "Rooby Effigy",
+      "x": 0.60325,
+      "y": 0.38478
+    },
+    {
+      "id": "Rooby Effigy|-93370|116180",
+      "type": "Rooby Effigy",
+      "x": 0.59067,
+      "y": 0.37322
+    },
+    {
+      "id": "Rooby Effigy|-76050|101920",
+      "type": "Rooby Effigy",
+      "x": 0.58081,
+      "y": 0.36119
+    },
+    {
+      "id": "Rooby Effigy|-67410|112370",
+      "type": "Rooby Effigy",
+      "x": 0.58804,
+      "y": 0.35519
+    },
+    {
+      "id": "Rooby Effigy|-72050|126140",
+      "type": "Rooby Effigy",
+      "x": 0.59756,
+      "y": 0.35841
+    },
+    {
+      "id": "Rooby Effigy|-78240|163260",
+      "type": "Rooby Effigy",
+      "x": 0.62325,
+      "y": 0.36271
+    },
+    {
+      "id": "Rooby Effigy|-29460|169950",
+      "type": "Rooby Effigy",
+      "x": 0.62787,
+      "y": 0.32882
+    },
+    {
+      "id": "Rooby Effigy|-39520|116950",
+      "type": "Rooby Effigy",
+      "x": 0.59121,
+      "y": 0.33581
+    },
+    {
+      "id": "Rooby Effigy|9380|123290",
+      "type": "Rooby Effigy",
+      "x": 0.59559,
+      "y": 0.30184
+    },
+    {
+      "id": "Rooby Effigy|25150|111360",
+      "type": "Rooby Effigy",
+      "x": 0.58734,
+      "y": 0.29089
+    },
+    {
+      "id": "Rooby Effigy|23170|93760",
+      "type": "Rooby Effigy",
+      "x": 0.57516,
+      "y": 0.29226
+    },
+    {
+      "id": "Rooby Effigy|-18370|35380",
+      "type": "Rooby Effigy",
+      "x": 0.53477,
+      "y": 0.32112
+    },
+    {
+      "id": "Rooby Effigy|12640|-11770",
+      "type": "Rooby Effigy",
+      "x": 0.50215,
+      "y": 0.29958
+    },
+    {
+      "id": "Rooby Effigy|97050|-35980",
+      "type": "Rooby Effigy",
+      "x": 0.4854,
+      "y": 0.24094
+    },
+    {
+      "id": "Rooby Effigy|114620|-21710",
+      "type": "Rooby Effigy",
+      "x": 0.49527,
+      "y": 0.22873
+    },
+    {
+      "id": "Rooby Effigy|154130|9300",
+      "type": "Rooby Effigy",
+      "x": 0.51673,
+      "y": 0.20128
+    },
+    {
+      "id": "Rooby Effigy|125450|43700",
+      "type": "Rooby Effigy",
+      "x": 0.54053,
+      "y": 0.22121
+    },
+    {
+      "id": "Rooby Effigy|156890|46140",
+      "type": "Rooby Effigy",
+      "x": 0.54222,
+      "y": 0.19936
+    },
+    {
+      "id": "Rooby Effigy|131050|63690",
+      "type": "Rooby Effigy",
+      "x": 0.55436,
+      "y": 0.21731
+    },
+    {
+      "id": "Rooby Effigy|138070|98190",
+      "type": "Rooby Effigy",
+      "x": 0.57823,
+      "y": 0.21244
+    },
+    {
+      "id": "Rooby Effigy|86670|77140",
+      "type": "Rooby Effigy",
+      "x": 0.56366,
+      "y": 0.24815
+    },
+    {
+      "id": "Rooby Effigy|78140|222490",
+      "type": "Rooby Effigy",
+      "x": 0.66422,
+      "y": 0.25407
+    },
+    {
+      "id": "Rooby Effigy|44170|199960",
+      "type": "Rooby Effigy",
+      "x": 0.64864,
+      "y": 0.27767
+    },
+    {
+      "id": "Rooby Effigy|3650|179700",
+      "type": "Rooby Effigy",
+      "x": 0.63462,
+      "y": 0.30582
+    },
+    {
+      "id": "Rooby Effigy|21310|104160",
+      "type": "Rooby Effigy",
+      "x": 0.58236,
+      "y": 0.29355
+    },
+    {
+      "id": "Rooby Effigy|-9580|66220",
+      "type": "Rooby Effigy",
+      "x": 0.55611,
+      "y": 0.31501
+    },
+    {
+      "id": "Rooby Effigy|52970|44790",
+      "type": "Rooby Effigy",
+      "x": 0.54128,
+      "y": 0.27156
+    },
+    {
+      "id": "Rooby Effigy|89730|68030",
+      "type": "Rooby Effigy",
+      "x": 0.55736,
+      "y": 0.24602
+    },
+    {
+      "id": "Yakumo Effigy|-761030|-357740",
+      "type": "Yakumo Effigy",
+      "x": 0.26279,
+      "y": 0.83706
+    },
+    {
+      "id": "Yakumo Effigy|-793671|28823",
+      "type": "Yakumo Effigy",
+      "x": 0.53024,
+      "y": 0.85974
+    },
+    {
+      "id": "Munchill Effigy|177760|280970",
+      "type": "Munchill Effigy",
+      "x": 0.70468,
+      "y": 0.18486
+    },
+    {
+      "id": "Munchill Effigy|153970|285020",
+      "type": "Munchill Effigy",
+      "x": 0.70749,
+      "y": 0.20139
+    },
+    {
+      "id": "Munchill Effigy|-68040|-256420",
+      "type": "Munchill Effigy",
+      "x": 0.33289,
+      "y": 0.35563
+    },
+    {
+      "id": "Munchill Effigy|105640|290440",
+      "type": "Munchill Effigy",
+      "x": 0.71124,
+      "y": 0.23497
+    },
+    {
+      "id": "Munchill Effigy|82390|283820",
+      "type": "Munchill Effigy",
+      "x": 0.70666,
+      "y": 0.25112
+    },
+    {
+      "id": "Munchill Effigy|36610|271050",
+      "type": "Munchill Effigy",
+      "x": 0.69782,
+      "y": 0.28292
+    },
+    {
+      "id": "Munchill Effigy|-397470|-433860",
+      "type": "Munchill Effigy",
+      "x": 0.21013,
+      "y": 0.58449
+    },
+    {
+      "id": "Munchill Effigy|-16270|248250",
+      "type": "Munchill Effigy",
+      "x": 0.68205,
+      "y": 0.31966
+    },
+    {
+      "id": "Munchill Effigy|-25370|286320",
+      "type": "Munchill Effigy",
+      "x": 0.70839,
+      "y": 0.32598
+    },
+    {
+      "id": "Munchill Effigy|-59500|349900",
+      "type": "Munchill Effigy",
+      "x": 0.75237,
+      "y": 0.34969
+    },
+    {
+      "id": "Munchill Effigy|-94670|365390",
+      "type": "Munchill Effigy",
+      "x": 0.76309,
+      "y": 0.37413
+    },
+    {
+      "id": "Munchill Effigy|-94030|414520",
+      "type": "Munchill Effigy",
+      "x": 0.79708,
+      "y": 0.37368
+    },
+    {
+      "id": "Munchill Effigy|-109050|496610",
+      "type": "Munchill Effigy",
+      "x": 0.85388,
+      "y": 0.38412
+    },
+    {
+      "id": "Munchill Effigy|-12490|460970",
+      "type": "Munchill Effigy",
+      "x": 0.82922,
+      "y": 0.31704
+    },
+    {
+      "id": "Munchill Effigy|64620|438550",
+      "type": "Munchill Effigy",
+      "x": 0.81371,
+      "y": 0.26347
+    },
+    {
+      "id": "Munchill Effigy|119140|408730",
+      "type": "Munchill Effigy",
+      "x": 0.79308,
+      "y": 0.22559
+    },
+    {
+      "id": "Munchill Effigy|180560|385170",
+      "type": "Munchill Effigy",
+      "x": 0.77678,
+      "y": 0.18292
+    },
+    {
+      "id": "Munchill Effigy|216740|302670",
+      "type": "Munchill Effigy",
+      "x": 0.7197,
+      "y": 0.15778
+    },
+    {
+      "id": "Munchill Effigy|131880|317520",
+      "type": "Munchill Effigy",
+      "x": 0.72997,
+      "y": 0.21674
+    },
+    {
+      "id": "Munchill Effigy|3610|388720",
+      "type": "Munchill Effigy",
+      "x": 0.77923,
+      "y": 0.30585
+    },
+    {
+      "id": "Munchill Effigy|-9390|291840",
+      "type": "Munchill Effigy",
+      "x": 0.7122,
+      "y": 0.31488
+    },
+    {
+      "id": "Munchill Effigy|87490|354630",
+      "type": "Munchill Effigy",
+      "x": 0.75565,
+      "y": 0.24758
+    },
+    {
+      "id": "Munchill Effigy|26890|400750",
+      "type": "Munchill Effigy",
+      "x": 0.78755,
+      "y": 0.28968
+    },
+    {
+      "id": "Munchill Effigy|-60960|371580",
+      "type": "Munchill Effigy",
+      "x": 0.76737,
+      "y": 0.35071
+    },
+    {
+      "id": "Munchill Effigy|-44770|438420",
+      "type": "Munchill Effigy",
+      "x": 0.81362,
+      "y": 0.33946
+    },
+    {
+      "id": "Munchill Effigy|111360|360140",
+      "type": "Munchill Effigy",
+      "x": 0.75946,
+      "y": 0.23099
+    },
+    {
+      "id": "Munchill Effigy|136200|338080",
+      "type": "Munchill Effigy",
+      "x": 0.7442,
+      "y": 0.21374
+    },
+    {
+      "id": "Munchill Effigy|-61820|445360",
+      "type": "Munchill Effigy",
+      "x": 0.81842,
+      "y": 0.35131
+    },
+    {
+      "id": "Munchill Effigy|-54300|413060",
+      "type": "Munchill Effigy",
+      "x": 0.79607,
+      "y": 0.34608
+    },
+    {
+      "id": "Munchill Effigy|-465970|366330",
+      "type": "Munchill Effigy",
+      "x": 0.76374,
+      "y": 0.63208
+    },
+    {
+      "id": "Relaxaurus Effigy|-20450|-132160",
+      "type": "Relaxaurus Effigy",
+      "x": 0.41886,
+      "y": 0.32257
+    },
+    {
+      "id": "Relaxaurus Effigy|159960|91220",
+      "type": "Relaxaurus Effigy",
+      "x": 0.5734,
+      "y": 0.19723
+    },
+    {
+      "id": "Relaxaurus Effigy|40790|388870",
+      "type": "Relaxaurus Effigy",
+      "x": 0.77934,
+      "y": 0.28002
+    },
+    {
+      "id": "Relaxaurus Effigy|-409850|-97150",
+      "type": "Relaxaurus Effigy",
+      "x": 0.44308,
+      "y": 0.59309
+    },
+    {
+      "id": "Herbil Effigy|-65670|4620",
+      "type": "Herbil Effigy",
+      "x": 0.51349,
+      "y": 0.35398
+    },
+    {
+      "id": "Herbil Effigy|-63420|-6190",
+      "type": "Herbil Effigy",
+      "x": 0.50601,
+      "y": 0.35242
+    },
+    {
+      "id": "Herbil Effigy|-55100|-11450",
+      "type": "Herbil Effigy",
+      "x": 0.50237,
+      "y": 0.34664
+    },
+    {
+      "id": "Herbil Effigy|-65270|-17190",
+      "type": "Herbil Effigy",
+      "x": 0.4984,
+      "y": 0.3537
+    },
+    {
+      "id": "Herbil Effigy|-41340|-19460",
+      "type": "Herbil Effigy",
+      "x": 0.49683,
+      "y": 0.33708
+    },
+    {
+      "id": "Herbil Effigy|-38180|-27950",
+      "type": "Herbil Effigy",
+      "x": 0.49096,
+      "y": 0.33488
+    },
+    {
+      "id": "Herbil Effigy|-55500|-47200",
+      "type": "Herbil Effigy",
+      "x": 0.47764,
+      "y": 0.34692
+    },
+    {
+      "id": "Herbil Effigy|-76850|-68220",
+      "type": "Herbil Effigy",
+      "x": 0.4631,
+      "y": 0.36175
+    },
+    {
+      "id": "Herbil Effigy|-77440|-96090",
+      "type": "Herbil Effigy",
+      "x": 0.44381,
+      "y": 0.36216
+    },
+    {
+      "id": "Herbil Effigy|-63840|-82160",
+      "type": "Herbil Effigy",
+      "x": 0.45345,
+      "y": 0.35271
+    },
+    {
+      "id": "Herbil Effigy|-51440|-87750",
+      "type": "Herbil Effigy",
+      "x": 0.44958,
+      "y": 0.34409
+    },
+    {
+      "id": "Herbil Effigy|-49480|-109990",
+      "type": "Herbil Effigy",
+      "x": 0.4342,
+      "y": 0.34273
+    },
+    {
+      "id": "Herbil Effigy|-75960|-132870",
+      "type": "Herbil Effigy",
+      "x": 0.41837,
+      "y": 0.36113
+    },
+    {
+      "id": "Herbil Effigy|-120630|-135290",
+      "type": "Herbil Effigy",
+      "x": 0.41669,
+      "y": 0.39216
+    },
+    {
+      "id": "Herbil Effigy|-84330|-160450",
+      "type": "Herbil Effigy",
+      "x": 0.39929,
+      "y": 0.36694
+    },
+    {
+      "id": "Herbil Effigy|-39340|-166540",
+      "type": "Herbil Effigy",
+      "x": 0.39507,
+      "y": 0.33569
+    },
+    {
+      "id": "Herbil Effigy|-3910|-164200",
+      "type": "Herbil Effigy",
+      "x": 0.39669,
+      "y": 0.31107
+    },
+    {
+      "id": "Herbil Effigy|32920|-86950",
+      "type": "Herbil Effigy",
+      "x": 0.45014,
+      "y": 0.28549
+    },
+    {
+      "id": "Herbil Effigy|5750|-124110",
+      "type": "Herbil Effigy",
+      "x": 0.42443,
+      "y": 0.30436
+    },
+    {
+      "id": "Herbil Effigy|-36650|-69910",
+      "type": "Herbil Effigy",
+      "x": 0.46193,
+      "y": 0.33382
+    },
+    {
+      "id": "Herbil Effigy|-29760|-109580",
+      "type": "Herbil Effigy",
+      "x": 0.43448,
+      "y": 0.32903
+    },
+    {
+      "id": "Herbil Effigy|-40640|-79040",
+      "type": "Herbil Effigy",
+      "x": 0.45561,
+      "y": 0.33659
+    },
+    {
+      "id": "Herbil Effigy|-36600|-130330",
+      "type": "Herbil Effigy",
+      "x": 0.42012,
+      "y": 0.33379
+    },
+    {
+      "id": "Herbil Effigy|29500|-109230",
+      "type": "Herbil Effigy",
+      "x": 0.43472,
+      "y": 0.28786
+    },
+    {
+      "id": "Herbil Effigy|-16760|-114480",
+      "type": "Herbil Effigy",
+      "x": 0.43109,
+      "y": 0.32
+    },
+    {
+      "id": "Herbil Effigy|-41470|-157590",
+      "type": "Herbil Effigy",
+      "x": 0.40126,
+      "y": 0.33717
+    },
+    {
+      "id": "Herbil Effigy|-39940|-149880",
+      "type": "Herbil Effigy",
+      "x": 0.4066,
+      "y": 0.33611
+    },
+    {
+      "id": "Herbil Effigy|-38440|-63780",
+      "type": "Herbil Effigy",
+      "x": 0.46617,
+      "y": 0.33506
+    },
+    {
+      "id": "Herbil Effigy|-18670|-50530",
+      "type": "Herbil Effigy",
+      "x": 0.47533,
+      "y": 0.32133
+    },
+    {
+      "id": "Herbil Effigy|-39670|-47310",
+      "type": "Herbil Effigy",
+      "x": 0.47756,
+      "y": 0.33592
+    },
+    {
+      "id": "Tanzee Effigy|-903490|-413810",
+      "type": "Tanzee Effigy",
+      "x": 0.224,
+      "y": 0.93603
+    },
+    {
+      "id": "Tanzee Effigy|-872080|-374080",
+      "type": "Tanzee Effigy",
+      "x": 0.25148,
+      "y": 0.91421
+    },
+    {
+      "id": "Tanzee Effigy|-769950|-305290",
+      "type": "Tanzee Effigy",
+      "x": 0.29908,
+      "y": 0.84326
+    },
+    {
+      "id": "Tanzee Effigy|-740560|-246540",
+      "type": "Tanzee Effigy",
+      "x": 0.33972,
+      "y": 0.82284
+    },
+    {
+      "id": "Tanzee Effigy|-651870|-222000",
+      "type": "Tanzee Effigy",
+      "x": 0.3567,
+      "y": 0.76123
+    },
+    {
+      "id": "Tanzee Effigy|-580480|-292190",
+      "type": "Tanzee Effigy",
+      "x": 0.30814,
+      "y": 0.71163
+    },
+    {
+      "id": "Tanzee Effigy|-559820|-362810",
+      "type": "Tanzee Effigy",
+      "x": 0.25928,
+      "y": 0.69728
+    },
+    {
+      "id": "Tanzee Effigy|-619190|-353480",
+      "type": "Tanzee Effigy",
+      "x": 0.26574,
+      "y": 0.73852
+    },
+    {
+      "id": "Tanzee Effigy|-697430|-360000",
+      "type": "Tanzee Effigy",
+      "x": 0.26123,
+      "y": 0.79288
+    },
+    {
+      "id": "Tanzee Effigy|-720810|-359460",
+      "type": "Tanzee Effigy",
+      "x": 0.2616,
+      "y": 0.80912
+    },
+    {
+      "id": "Tanzee Effigy|-619910|-135650",
+      "type": "Tanzee Effigy",
+      "x": 0.41644,
+      "y": 0.73902
+    },
+    {
+      "id": "Tanzee Effigy|-566500|-151680",
+      "type": "Tanzee Effigy",
+      "x": 0.40535,
+      "y": 0.70192
+    },
+    {
+      "id": "Tanzee Effigy|-570220|-173120",
+      "type": "Tanzee Effigy",
+      "x": 0.39052,
+      "y": 0.7045
+    },
+    {
+      "id": "Tanzee Effigy|-564930|-230160",
+      "type": "Tanzee Effigy",
+      "x": 0.35106,
+      "y": 0.70083
+    },
+    {
+      "id": "Tanzee Effigy|-814680|-383050",
+      "type": "Tanzee Effigy",
+      "x": 0.24528,
+      "y": 0.87434
+    },
+    {
+      "id": "Tanzee Effigy|-847130|-432930",
+      "type": "Tanzee Effigy",
+      "x": 0.21077,
+      "y": 0.89688
+    },
+    {
+      "id": "Tanzee Effigy|-870010|-413650",
+      "type": "Tanzee Effigy",
+      "x": 0.22411,
+      "y": 0.91277
+    },
+    {
+      "id": "Tanzee Effigy|-544490|-286940",
+      "type": "Tanzee Effigy",
+      "x": 0.31177,
+      "y": 0.68663
+    },
+    {
+      "id": "Tanzee Effigy|-502430|-384330",
+      "type": "Tanzee Effigy",
+      "x": 0.24439,
+      "y": 0.65741
+    },
+    {
+      "id": "Tanzee Effigy|-511450|-385230",
+      "type": "Tanzee Effigy",
+      "x": 0.24377,
+      "y": 0.66367
+    },
+    {
+      "id": "Tanzee Effigy|-572100|-399660",
+      "type": "Tanzee Effigy",
+      "x": 0.23379,
+      "y": 0.70581
+    },
+    {
+      "id": "Tanzee Effigy|-590660|-486560",
+      "type": "Tanzee Effigy",
+      "x": 0.17366,
+      "y": 0.7187
+    },
+    {
+      "id": "Tanzee Effigy|-600050|-490560",
+      "type": "Tanzee Effigy",
+      "x": 0.1709,
+      "y": 0.72523
+    },
+    {
+      "id": "Tanzee Effigy|-748650|-395270",
+      "type": "Tanzee Effigy",
+      "x": 0.23682,
+      "y": 0.82846
+    },
+    {
+      "id": "Tanzee Effigy|-772070|-397300",
+      "type": "Tanzee Effigy",
+      "x": 0.23542,
+      "y": 0.84473
+    },
+    {
+      "id": "Tanzee Effigy|-769310|-450000",
+      "type": "Tanzee Effigy",
+      "x": 0.19896,
+      "y": 0.84282
+    },
+    {
+      "id": "Tanzee Effigy|-778550|-462420",
+      "type": "Tanzee Effigy",
+      "x": 0.19037,
+      "y": 0.84923
+    },
+    {
+      "id": "Tanzee Effigy|-891380|-467810",
+      "type": "Tanzee Effigy",
+      "x": 0.18664,
+      "y": 0.92762
+    },
+    {
+      "id": "Tanzee Effigy|-699730|-324580",
+      "type": "Tanzee Effigy",
+      "x": 0.28573,
+      "y": 0.79448
+    },
+    {
+      "id": "Tanzee Effigy|-659810|-290910",
+      "type": "Tanzee Effigy",
+      "x": 0.30903,
+      "y": 0.76674
+    },
+    {
+      "id": "Lunaris Effigy|-110780|324060",
+      "type": "Lunaris Effigy",
+      "x": 0.7345,
+      "y": 0.38532
+    },
+    {
+      "id": "Lunaris Effigy|-89530|270350",
+      "type": "Lunaris Effigy",
+      "x": 0.69734,
+      "y": 0.37056
+    },
+    {
+      "id": "Lunaris Effigy|-257580|185030",
+      "type": "Lunaris Effigy",
+      "x": 0.63831,
+      "y": 0.4873
+    },
+    {
+      "id": "Lunaris Effigy|-145050|89690",
+      "type": "Lunaris Effigy",
+      "x": 0.57235,
+      "y": 0.40913
+    },
+    {
+      "id": "Depresso Effigy|-795780|50060",
+      "type": "Depresso Effigy",
+      "x": 0.54493,
+      "y": 0.8612
+    },
+    {
+      "id": "Depresso Effigy|-812670|62770",
+      "type": "Depresso Effigy",
+      "x": 0.55372,
+      "y": 0.87294
+    },
+    {
+      "id": "Depresso Effigy|-835680|56120",
+      "type": "Depresso Effigy",
+      "x": 0.54912,
+      "y": 0.88892
+    },
+    {
+      "id": "Depresso Effigy|-813100|41850",
+      "type": "Depresso Effigy",
+      "x": 0.53925,
+      "y": 0.87324
+    },
+    {
+      "id": "Depresso Effigy|-833940|22380",
+      "type": "Depresso Effigy",
+      "x": 0.52578,
+      "y": 0.88772
+    },
+    {
+      "id": "Depresso Effigy|-840380|5090",
+      "type": "Depresso Effigy",
+      "x": 0.51382,
+      "y": 0.89219
+    },
+    {
+      "id": "Depresso Effigy|-816830|-2350",
+      "type": "Depresso Effigy",
+      "x": 0.50867,
+      "y": 0.87583
+    },
+    {
+      "id": "Depresso Effigy|-838150|-19220",
+      "type": "Depresso Effigy",
+      "x": 0.497,
+      "y": 0.89064
+    },
+    {
+      "id": "Depresso Effigy|-842940|-32440",
+      "type": "Depresso Effigy",
+      "x": 0.48785,
+      "y": 0.89397
+    },
+    {
+      "id": "Depresso Effigy|-810720|-22400",
+      "type": "Depresso Effigy",
+      "x": 0.4948,
+      "y": 0.87158
+    },
+    {
+      "id": "Depresso Effigy|-838520|-8810",
+      "type": "Depresso Effigy",
+      "x": 0.5042,
+      "y": 0.8909
+    },
+    {
+      "id": "Depresso Effigy|-840290|-48800",
+      "type": "Depresso Effigy",
+      "x": 0.47653,
+      "y": 0.89213
+    },
+    {
+      "id": "Depresso Effigy|-833910|-78770",
+      "type": "Depresso Effigy",
+      "x": 0.4558,
+      "y": 0.88769
+    },
+    {
+      "id": "Depresso Effigy|-826120|-96960",
+      "type": "Depresso Effigy",
+      "x": 0.44321,
+      "y": 0.88228
+    },
+    {
+      "id": "Depresso Effigy|-805107|-109978",
+      "type": "Depresso Effigy",
+      "x": 0.4342,
+      "y": 0.86768
+    },
+    {
+      "id": "Depresso Effigy|-794820|-107900",
+      "type": "Depresso Effigy",
+      "x": 0.43564,
+      "y": 0.86054
+    },
+    {
+      "id": "Depresso Effigy|-741022|-102583",
+      "type": "Depresso Effigy",
+      "x": 0.43932,
+      "y": 0.82316
+    },
+    {
+      "id": "Depresso Effigy|-729500|-92910",
+      "type": "Depresso Effigy",
+      "x": 0.44601,
+      "y": 0.81516
+    },
+    {
+      "id": "Depresso Effigy|-752078|-82058",
+      "type": "Depresso Effigy",
+      "x": 0.45352,
+      "y": 0.83084
+    },
+    {
+      "id": "Depresso Effigy|-751900|-64560",
+      "type": "Depresso Effigy",
+      "x": 0.46563,
+      "y": 0.83072
+    },
+    {
+      "id": "Depresso Effigy|-776180|-55950",
+      "type": "Depresso Effigy",
+      "x": 0.47158,
+      "y": 0.84759
+    },
+    {
+      "id": "Depresso Effigy|-786660|-34190",
+      "type": "Depresso Effigy",
+      "x": 0.48664,
+      "y": 0.85487
+    },
+    {
+      "id": "Depresso Effigy|-753200|-26060",
+      "type": "Depresso Effigy",
+      "x": 0.49226,
+      "y": 0.83162
+    },
+    {
+      "id": "Depresso Effigy|-762729|5168",
+      "type": "Depresso Effigy",
+      "x": 0.51387,
+      "y": 0.83824
+    },
+    {
+      "id": "Depresso Effigy|-749300|-1770",
+      "type": "Depresso Effigy",
+      "x": 0.50907,
+      "y": 0.82891
+    },
+    {
+      "id": "Depresso Effigy|-776370|41610",
+      "type": "Depresso Effigy",
+      "x": 0.53908,
+      "y": 0.84772
+    },
+    {
+      "id": "Depresso Effigy|-807550|46200",
+      "type": "Depresso Effigy",
+      "x": 0.54226,
+      "y": 0.86938
+    },
+    {
+      "id": "Depresso Effigy|-790410|8200",
+      "type": "Depresso Effigy",
+      "x": 0.51597,
+      "y": 0.85747
+    },
+    {
+      "id": "Depresso Effigy|-777430|-3440",
+      "type": "Depresso Effigy",
+      "x": 0.50791,
+      "y": 0.84846
+    },
+    {
+      "id": "Depresso Effigy|-797526|-74016",
+      "type": "Depresso Effigy",
+      "x": 0.45909,
+      "y": 0.86242
+    },
+    {
+      "id": "Pengullet Effigy|-310470|-51430",
+      "type": "Pengullet Effigy",
+      "x": 0.47471,
+      "y": 0.52405
+    },
+    {
+      "id": "Pengullet Effigy|-369870|-49330",
+      "type": "Pengullet Effigy",
+      "x": 0.47616,
+      "y": 0.56532
+    },
+    {
+      "id": "Pengullet Effigy|-403680|-106880",
+      "type": "Pengullet Effigy",
+      "x": 0.43635,
+      "y": 0.5888
+    },
+    {
+      "id": "Pengullet Effigy|-417110|-151170",
+      "type": "Pengullet Effigy",
+      "x": 0.40571,
+      "y": 0.59813
+    },
+    {
+      "id": "Pengullet Effigy|81420|512960",
+      "type": "Pengullet Effigy",
+      "x": 0.86519,
+      "y": 0.25179
+    },
+    {
+      "id": "Pengullet Effigy|-273910|-133790",
+      "type": "Pengullet Effigy",
+      "x": 0.41773,
+      "y": 0.49865
+    },
+    {
+      "id": "Pengullet Effigy|-341720|-90930",
+      "type": "Pengullet Effigy",
+      "x": 0.44738,
+      "y": 0.54576
+    },
+    {
+      "id": "Pengullet Effigy|-254730|-120200",
+      "type": "Pengullet Effigy",
+      "x": 0.42713,
+      "y": 0.48532
+    },
+    {
+      "id": "Pengullet Effigy|-307780|-118180",
+      "type": "Pengullet Effigy",
+      "x": 0.42853,
+      "y": 0.52218
+    },
+    {
+      "id": "Pengullet Effigy|-324270|-118760",
+      "type": "Pengullet Effigy",
+      "x": 0.42813,
+      "y": 0.53364
+    },
+    {
+      "id": "Pengullet Effigy|-244030|-65120",
+      "type": "Pengullet Effigy",
+      "x": 0.46524,
+      "y": 0.47789
+    },
+    {
+      "id": "Pengullet Effigy|-1005226|-377003",
+      "type": "Pengullet Effigy",
+      "x": 0.24946,
+      "y": 1.0
+    },
+    {
+      "id": "Pengullet Effigy|-298610|-8360",
+      "type": "Pengullet Effigy",
+      "x": 0.50451,
+      "y": 0.51581
+    },
+    {
+      "id": "Pengullet Effigy|-321830|5240",
+      "type": "Pengullet Effigy",
+      "x": 0.51392,
+      "y": 0.53194
+    },
+    {
+      "id": "Pengullet Effigy|-367430|19600",
+      "type": "Pengullet Effigy",
+      "x": 0.52385,
+      "y": 0.56362
+    },
+    {
+      "id": "Pengullet Effigy|-425590|-14550",
+      "type": "Pengullet Effigy",
+      "x": 0.50023,
+      "y": 0.60403
+    },
+    {
+      "id": "Pengullet Effigy|-396200|-30690",
+      "type": "Pengullet Effigy",
+      "x": 0.48906,
+      "y": 0.58361
+    },
+    {
+      "id": "Pengullet Effigy|-435830|-62690",
+      "type": "Pengullet Effigy",
+      "x": 0.46692,
+      "y": 0.61114
+    },
+    {
+      "id": "Pengullet Effigy|-460340|-85870",
+      "type": "Pengullet Effigy",
+      "x": 0.45088,
+      "y": 0.62817
+    },
+    {
+      "id": "Pengullet Effigy|-457620|-113800",
+      "type": "Pengullet Effigy",
+      "x": 0.43156,
+      "y": 0.62628
+    },
+    {
+      "id": "Pengullet Effigy|-457470|-153860",
+      "type": "Pengullet Effigy",
+      "x": 0.40384,
+      "y": 0.62617
+    },
+    {
+      "id": "Pengullet Effigy|-414270|-211450",
+      "type": "Pengullet Effigy",
+      "x": 0.364,
+      "y": 0.59616
+    },
+    {
+      "id": "Pengullet Effigy|-366560|-222270",
+      "type": "Pengullet Effigy",
+      "x": 0.35651,
+      "y": 0.56302
+    },
+    {
+      "id": "Pengullet Effigy|-316030|-221990",
+      "type": "Pengullet Effigy",
+      "x": 0.35671,
+      "y": 0.52791
+    },
+    {
+      "id": "Pengullet Effigy|-272060|-209210",
+      "type": "Pengullet Effigy",
+      "x": 0.36555,
+      "y": 0.49736
+    },
+    {
+      "id": "Pengullet Effigy|-242960|-192720",
+      "type": "Pengullet Effigy",
+      "x": 0.37696,
+      "y": 0.47715
+    },
+    {
+      "id": "Pengullet Effigy|-227330|-122400",
+      "type": "Pengullet Effigy",
+      "x": 0.42561,
+      "y": 0.46629
+    },
+    {
+      "id": "Pengullet Effigy|-233370|-88310",
+      "type": "Pengullet Effigy",
+      "x": 0.4492,
+      "y": 0.47049
+    },
+    {
+      "id": "Pengullet Effigy|-211180|-80990",
+      "type": "Pengullet Effigy",
+      "x": 0.45426,
+      "y": 0.45507
+    },
+    {
+      "id": "Pengullet Effigy|-260590|-60160",
+      "type": "Pengullet Effigy",
+      "x": 0.46867,
+      "y": 0.4894
+    },
+    {
+      "id": "Lamball Effigy|-176630|-22150",
+      "type": "Lamball Effigy",
+      "x": 0.49497,
+      "y": 0.43107
+    },
+    {
+      "id": "Lamball Effigy|-168370|35570",
+      "type": "Lamball Effigy",
+      "x": 0.5349,
+      "y": 0.42533
+    },
+    {
+      "id": "Lamball Effigy|-184840|117270",
+      "type": "Lamball Effigy",
+      "x": 0.59143,
+      "y": 0.43677
+    },
+    {
+      "id": "Lamball Effigy|-198800|134470",
+      "type": "Lamball Effigy",
+      "x": 0.60333,
+      "y": 0.44647
+    },
+    {
+      "id": "Lamball Effigy|-162710|156190",
+      "type": "Lamball Effigy",
+      "x": 0.61835,
+      "y": 0.4214
+    },
+    {
+      "id": "Lamball Effigy|-118800|169000",
+      "type": "Lamball Effigy",
+      "x": 0.62722,
+      "y": 0.39089
+    },
+    {
+      "id": "Lamball Effigy|-69650|191650",
+      "type": "Lamball Effigy",
+      "x": 0.64289,
+      "y": 0.35675
+    },
+    {
+      "id": "Lamball Effigy|-61750|268730",
+      "type": "Lamball Effigy",
+      "x": 0.69622,
+      "y": 0.35126
+    },
+    {
+      "id": "Lamball Effigy|-99850|338010",
+      "type": "Lamball Effigy",
+      "x": 0.74415,
+      "y": 0.37773
+    },
+    {
+      "id": "Lamball Effigy|-142710|341980",
+      "type": "Lamball Effigy",
+      "x": 0.74689,
+      "y": 0.4075
+    },
+    {
+      "id": "Lamball Effigy|-203150|287220",
+      "type": "Lamball Effigy",
+      "x": 0.70901,
+      "y": 0.44949
+    },
+    {
+      "id": "Lamball Effigy|-247440|260930",
+      "type": "Lamball Effigy",
+      "x": 0.69082,
+      "y": 0.48026
+    },
+    {
+      "id": "Lamball Effigy|-216770|237000",
+      "type": "Lamball Effigy",
+      "x": 0.67426,
+      "y": 0.45895
+    },
+    {
+      "id": "Lamball Effigy|-261650|186730",
+      "type": "Lamball Effigy",
+      "x": 0.63948,
+      "y": 0.49013
+    },
+    {
+      "id": "Lamball Effigy|-285110|152310",
+      "type": "Lamball Effigy",
+      "x": 0.61567,
+      "y": 0.50643
+    },
+    {
+      "id": "Lamball Effigy|-268230|116820",
+      "type": "Lamball Effigy",
+      "x": 0.59112,
+      "y": 0.4947
+    },
+    {
+      "id": "Lamball Effigy|-241360|-14430",
+      "type": "Lamball Effigy",
+      "x": 0.50031,
+      "y": 0.47604
+    },
+    {
+      "id": "Lamball Effigy|-305320|37250",
+      "type": "Lamball Effigy",
+      "x": 0.53607,
+      "y": 0.52047
+    },
+    {
+      "id": "Lamball Effigy|-357120|31380",
+      "type": "Lamball Effigy",
+      "x": 0.532,
+      "y": 0.55646
+    },
+    {
+      "id": "Lamball Effigy|-355920|90270",
+      "type": "Lamball Effigy",
+      "x": 0.57275,
+      "y": 0.55562
+    },
+    {
+      "id": "Lamball Effigy|-286910|110730",
+      "type": "Lamball Effigy",
+      "x": 0.5869,
+      "y": 0.50768
+    },
+    {
+      "id": "Lamball Effigy|-319590|44590",
+      "type": "Lamball Effigy",
+      "x": 0.54114,
+      "y": 0.53038
+    },
+    {
+      "id": "Lamball Effigy|-244510|74600",
+      "type": "Lamball Effigy",
+      "x": 0.56191,
+      "y": 0.47822
+    },
+    {
+      "id": "Lamball Effigy|-230880|9040",
+      "type": "Lamball Effigy",
+      "x": 0.51655,
+      "y": 0.46876
+    },
+    {
+      "id": "Lamball Effigy|-243870|131430",
+      "type": "Lamball Effigy",
+      "x": 0.60122,
+      "y": 0.47778
+    },
+    {
+      "id": "Lamball Effigy|-161650|153000",
+      "type": "Lamball Effigy",
+      "x": 0.61615,
+      "y": 0.42066
+    },
+    {
+      "id": "Lamball Effigy|-139690|216410",
+      "type": "Lamball Effigy",
+      "x": 0.66002,
+      "y": 0.4054
+    },
+    {
+      "id": "Lamball Effigy|-91500|246590",
+      "type": "Lamball Effigy",
+      "x": 0.6809,
+      "y": 0.37193
+    },
+    {
+      "id": "Lamball Effigy|-106400|291550",
+      "type": "Lamball Effigy",
+      "x": 0.712,
+      "y": 0.38228
+    },
+    {
+      "id": "Lamball Effigy|-188890|251370",
+      "type": "Lamball Effigy",
+      "x": 0.68421,
+      "y": 0.43958
+    },
+    {
+      "id": "Lifmunk Effigy|-379832|269567",
+      "type": "Lifmunk Effigy",
+      "x": 0.6968,
+      "y": 0.57224
+    },
+    {
+      "id": "Lifmunk Effigy|-279662|165161",
+      "type": "Lifmunk Effigy",
+      "x": 0.62456,
+      "y": 0.50265
+    },
+    {
+      "id": "Lifmunk Effigy|-284319|235441",
+      "type": "Lifmunk Effigy",
+      "x": 0.67318,
+      "y": 0.50588
+    },
+    {
+      "id": "Lifmunk Effigy|-339168|184004",
+      "type": "Lifmunk Effigy",
+      "x": 0.6376,
+      "y": 0.54399
+    },
+    {
+      "id": "Lifmunk Effigy|-122963|241359",
+      "type": "Lifmunk Effigy",
+      "x": 0.67728,
+      "y": 0.39378
+    },
+    {
+      "id": "Lifmunk Effigy|-123372|254804",
+      "type": "Lifmunk Effigy",
+      "x": 0.68658,
+      "y": 0.39407
+    },
+    {
+      "id": "Lifmunk Effigy|-167820|244594",
+      "type": "Lifmunk Effigy",
+      "x": 0.67952,
+      "y": 0.42495
+    },
+    {
+      "id": "Lifmunk Effigy|-125688|265536",
+      "type": "Lifmunk Effigy",
+      "x": 0.69401,
+      "y": 0.39568
+    },
+    {
+      "id": "Lifmunk Effigy|-212417|115026",
+      "type": "Lifmunk Effigy",
+      "x": 0.58988,
+      "y": 0.45593
+    },
+    {
+      "id": "Lifmunk Effigy|-368062|-134743",
+      "type": "Lifmunk Effigy",
+      "x": 0.41707,
+      "y": 0.56406
+    },
+    {
+      "id": "Lifmunk Effigy|-253481|127131",
+      "type": "Lifmunk Effigy",
+      "x": 0.59825,
+      "y": 0.48446
+    },
+    {
+      "id": "Lifmunk Effigy|-262533|137185",
+      "type": "Lifmunk Effigy",
+      "x": 0.60521,
+      "y": 0.49075
+    },
+    {
+      "id": "Lifmunk Effigy|-251718|103840",
+      "type": "Lifmunk Effigy",
+      "x": 0.58214,
+      "y": 0.48323
+    },
+    {
+      "id": "Lifmunk Effigy|-219204|131608",
+      "type": "Lifmunk Effigy",
+      "x": 0.60135,
+      "y": 0.46064
+    },
+    {
+      "id": "Lifmunk Effigy|-174405|171383",
+      "type": "Lifmunk Effigy",
+      "x": 0.62887,
+      "y": 0.42952
+    },
+    {
+      "id": "Lifmunk Effigy|-176707|165453",
+      "type": "Lifmunk Effigy",
+      "x": 0.62476,
+      "y": 0.43112
+    },
+    {
+      "id": "Lifmunk Effigy|-244672|114650",
+      "type": "Lifmunk Effigy",
+      "x": 0.58962,
+      "y": 0.47834
+    },
+    {
+      "id": "Lifmunk Effigy|-346039|280366",
+      "type": "Lifmunk Effigy",
+      "x": 0.70427,
+      "y": 0.54876
+    },
+    {
+      "id": "Lifmunk Effigy|-335200|155334",
+      "type": "Lifmunk Effigy",
+      "x": 0.61776,
+      "y": 0.54123
+    },
+    {
+      "id": "Lifmunk Effigy|-323222|92608",
+      "type": "Lifmunk Effigy",
+      "x": 0.57437,
+      "y": 0.53291
+    },
+    {
+      "id": "Lifmunk Effigy|-267272|5157",
+      "type": "Lifmunk Effigy",
+      "x": 0.51386,
+      "y": 0.49404
+    },
+    {
+      "id": "Lifmunk Effigy|-301716|89024",
+      "type": "Lifmunk Effigy",
+      "x": 0.57189,
+      "y": 0.51797
+    },
+    {
+      "id": "Lifmunk Effigy|-270319|66095",
+      "type": "Lifmunk Effigy",
+      "x": 0.55602,
+      "y": 0.49616
+    },
+    {
+      "id": "Lifmunk Effigy|-312657|63055",
+      "type": "Lifmunk Effigy",
+      "x": 0.55392,
+      "y": 0.52557
+    },
+    {
+      "id": "Lifmunk Effigy|-311348|30955",
+      "type": "Lifmunk Effigy",
+      "x": 0.53171,
+      "y": 0.52466
+    },
+    {
+      "id": "Lifmunk Effigy|-397320|235533",
+      "type": "Lifmunk Effigy",
+      "x": 0.67325,
+      "y": 0.58439
+    },
+    {
+      "id": "Lifmunk Effigy|-230035|282109",
+      "type": "Lifmunk Effigy",
+      "x": 0.70547,
+      "y": 0.46817
+    },
+    {
+      "id": "Lifmunk Effigy|-168086|251818",
+      "type": "Lifmunk Effigy",
+      "x": 0.68452,
+      "y": 0.42513
+    },
+    {
+      "id": "Lifmunk Effigy|-134416|298847",
+      "type": "Lifmunk Effigy",
+      "x": 0.71705,
+      "y": 0.40174
+    },
+    {
+      "id": "Lifmunk Effigy|-141739|253602",
+      "type": "Lifmunk Effigy",
+      "x": 0.68575,
+      "y": 0.40683
+    },
+    {
+      "id": "Lifmunk Effigy|-43290|222904",
+      "type": "Lifmunk Effigy",
+      "x": 0.66451,
+      "y": 0.33843
+    },
+    {
+      "id": "Lifmunk Effigy|-116368|236065",
+      "type": "Lifmunk Effigy",
+      "x": 0.67362,
+      "y": 0.3892
+    },
+    {
+      "id": "Lifmunk Effigy|-117922|234328",
+      "type": "Lifmunk Effigy",
+      "x": 0.67241,
+      "y": 0.39028
+    },
+    {
+      "id": "Lifmunk Effigy|-345872|143003",
+      "type": "Lifmunk Effigy",
+      "x": 0.60923,
+      "y": 0.54864
+    },
+    {
+      "id": "Lifmunk Effigy|-229411|74031",
+      "type": "Lifmunk Effigy",
+      "x": 0.56151,
+      "y": 0.46774
+    },
+    {
+      "id": "Lifmunk Effigy|-251194|51458",
+      "type": "Lifmunk Effigy",
+      "x": 0.5459,
+      "y": 0.48287
+    },
+    {
+      "id": "Lifmunk Effigy|-170707|50483",
+      "type": "Lifmunk Effigy",
+      "x": 0.54522,
+      "y": 0.42695
+    },
+    {
+      "id": "Lifmunk Effigy|-398955|-88981",
+      "type": "Lifmunk Effigy",
+      "x": 0.44873,
+      "y": 0.58552
+    },
+    {
+      "id": "Lifmunk Effigy|-266489|53997",
+      "type": "Lifmunk Effigy",
+      "x": 0.54765,
+      "y": 0.49349
+    },
+    {
+      "id": "Lifmunk Effigy|-211443|-11077",
+      "type": "Lifmunk Effigy",
+      "x": 0.50263,
+      "y": 0.45525
+    },
+    {
+      "id": "Lifmunk Effigy|-330213|-78304",
+      "type": "Lifmunk Effigy",
+      "x": 0.45612,
+      "y": 0.53776
+    },
+    {
+      "id": "Lifmunk Effigy|-221216|-185877",
+      "type": "Lifmunk Effigy",
+      "x": 0.38169,
+      "y": 0.46204
+    },
+    {
+      "id": "Lifmunk Effigy|-257769|-204290",
+      "type": "Lifmunk Effigy",
+      "x": 0.36895,
+      "y": 0.48744
+    },
+    {
+      "id": "Lifmunk Effigy|-472013|-81182",
+      "type": "Lifmunk Effigy",
+      "x": 0.45413,
+      "y": 0.63628
+    },
+    {
+      "id": "Lifmunk Effigy|-464656|-55121",
+      "type": "Lifmunk Effigy",
+      "x": 0.47216,
+      "y": 0.63117
+    },
+    {
+      "id": "Lifmunk Effigy|-441338|-35181",
+      "type": "Lifmunk Effigy",
+      "x": 0.48595,
+      "y": 0.61497
+    },
+    {
+      "id": "Lifmunk Effigy|-247190|-123170",
+      "type": "Lifmunk Effigy",
+      "x": 0.42508,
+      "y": 0.48009
+    },
+    {
+      "id": "Lifmunk Effigy|28541|78688",
+      "type": "Lifmunk Effigy",
+      "x": 0.56473,
+      "y": 0.28853
+    },
+    {
+      "id": "Lifmunk Effigy|103584|-39480",
+      "type": "Lifmunk Effigy",
+      "x": 0.48298,
+      "y": 0.2364
+    },
+    {
+      "id": "Lifmunk Effigy|149874|79632",
+      "type": "Lifmunk Effigy",
+      "x": 0.56539,
+      "y": 0.20424
+    },
+    {
+      "id": "Lifmunk Effigy|201323|300351",
+      "type": "Lifmunk Effigy",
+      "x": 0.71809,
+      "y": 0.16849
+    },
+    {
+      "id": "Lifmunk Effigy|161910|380520",
+      "type": "Lifmunk Effigy",
+      "x": 0.77356,
+      "y": 0.19588
+    },
+    {
+      "id": "Lifmunk Effigy|75320|464887",
+      "type": "Lifmunk Effigy",
+      "x": 0.83193,
+      "y": 0.25603
+    },
+    {
+      "id": "Lifmunk Effigy|-53225|390774",
+      "type": "Lifmunk Effigy",
+      "x": 0.78065,
+      "y": 0.34534
+    },
+    {
+      "id": "Lifmunk Effigy|5975|362868",
+      "type": "Lifmunk Effigy",
+      "x": 0.76135,
+      "y": 0.30421
+    },
+    {
+      "id": "Lifmunk Effigy|20805|296330",
+      "type": "Lifmunk Effigy",
+      "x": 0.71531,
+      "y": 0.2939
+    },
+    {
+      "id": "Lifmunk Effigy|-117950|375410",
+      "type": "Lifmunk Effigy",
+      "x": 0.77002,
+      "y": 0.3903
+    },
+    {
+      "id": "Lifmunk Effigy|-272317|326450",
+      "type": "Lifmunk Effigy",
+      "x": 0.73615,
+      "y": 0.49754
+    },
+    {
+      "id": "Lifmunk Effigy|-337495|229740",
+      "type": "Lifmunk Effigy",
+      "x": 0.66924,
+      "y": 0.54282
+    },
+    {
+      "id": "Lifmunk Effigy|-288426|141552",
+      "type": "Lifmunk Effigy",
+      "x": 0.60823,
+      "y": 0.50873
+    },
+    {
+      "id": "Lifmunk Effigy|-294815|212862",
+      "type": "Lifmunk Effigy",
+      "x": 0.65756,
+      "y": 0.51317
+    },
+    {
+      "id": "Lifmunk Effigy|-316086|169212",
+      "type": "Lifmunk Effigy",
+      "x": 0.62736,
+      "y": 0.52795
+    },
+    {
+      "id": "Lifmunk Effigy|-361761|181722",
+      "type": "Lifmunk Effigy",
+      "x": 0.63602,
+      "y": 0.55968
+    },
+    {
+      "id": "Lifmunk Effigy|-313237|215706",
+      "type": "Lifmunk Effigy",
+      "x": 0.65953,
+      "y": 0.52597
+    },
+    {
+      "id": "Lifmunk Effigy|-311675|188521",
+      "type": "Lifmunk Effigy",
+      "x": 0.64072,
+      "y": 0.52489
+    },
+    {
+      "id": "Lifmunk Effigy|-308237|151805",
+      "type": "Lifmunk Effigy",
+      "x": 0.61532,
+      "y": 0.5225
+    }
+  ]
+}

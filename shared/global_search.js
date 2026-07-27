@@ -31,6 +31,7 @@
     { name: "最強Tier表", url: "palworld_tierlist.html" },
     { name: "ライド速度", url: "palworld_ride.html" },
     { name: "出現マップ", url: "palworld_map.html" },
+    { name: "パル像マップ", url: "palworld_statues.html" },
     { name: "ボス攻略", url: "palworld_bossguide.html" },
     { name: "実績一覧", url: "palworld_achievements.html" },
     { name: "おすすめパッシブ", url: "palworld_passives_guide.html" },
