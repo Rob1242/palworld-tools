@@ -1,4 +1,7 @@
-import json, re
+import html
+import json
+import re
+import urllib.request
 
 from js_data_writer import write_js_consts
 
@@ -6,11 +9,76 @@ from js_data_writer import write_js_consts
 # type="Alpha Pal")から抽出。asset欄は「二つ名(英語)+パルの英語名(+属性variant)」が
 # アンダースコアで連結された文字列(例: "Gold-Armored_Warrior_Warsect_Terra")なので、
 # dex_data.jsのen_nameと後方一致させて二つ名とパル本体を分離する(2026-07-20)。
+#
+# 2026-07-27追記: paldb.ccのこのデータは本島限定のため、世界樹エリアのフィールド
+# ボス9体(属性違いの伝説級パル)をパルワールド配合・攻略ラボの/map/fboss/ページから
+# 追加で取得する(build_statue_data.pyと同じ抽出方法)。こちらはドロップ表までは
+# 持っていないため、drops:[]のまま二つ名(sub1)とレベルだけ載せる。
 LANDMARKS_PATH = "game_data/curated_landmarks_raw.json"
 DEX_PATH = "game_data/dex_data.js"
 OBTAIN_PATH = "game_data/items_obtain_data.js"
 ITEMS_DEX_PATH = "game_data/items_dex_data.js"
 OUT_PATH = "game_data/field_boss_data.js"
+
+WORLDTREE_FBOSS_URL = "https://palworld-lab.com/map/fboss/"
+TREE_WORLD_MIN_X, TREE_WORLD_MAX_X = 347351.5, 689148.5
+TREE_WORLD_MIN_Y, TREE_WORLD_MAX_Y = -818197, -476400
+
+
+def normalize_tree(raw_x, raw_y):
+    nx = (raw_y - TREE_WORLD_MIN_Y) / (TREE_WORLD_MAX_Y - TREE_WORLD_MIN_Y)
+    ny = 1 - (raw_x - TREE_WORLD_MIN_X) / (TREE_WORLD_MAX_X - TREE_WORLD_MIN_X)
+    return max(0.0, min(1.0, nx)), max(0.0, min(1.0, ny))
+
+
+def unwrap(o):
+    if isinstance(o, list) and len(o) == 2 and o[0] in (0, 1):
+        v = o[1]
+        if isinstance(v, list):
+            return [unwrap(x) for x in v]
+        if isinstance(v, dict):
+            return {k: unwrap(x) for k, x in v.items()}
+        return v
+    return o
+
+
+def fetch_worldtree_fbosses(by_name):
+    req = urllib.request.Request(WORLDTREE_FBOSS_URL, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        page = resp.read().decode("utf-8")
+    idx = page.find("fbossData")
+    start = page.rfind('props="', 0, idx) + len('props="')
+    end = page.find('"', start)
+    data = json.loads(html.unescape(page[start:end]))
+    recs = [unwrap(x) for x in data["fbossData"][1]]
+
+    out = []
+    unmatched = []
+    for r in recs:
+        if r["map"] != "tree":
+            continue
+        pal = by_name.get(r["name"])
+        if not pal:
+            unmatched.append(r["name"])
+            continue
+        m = re.search(r"T_(.+?)_icon_normal\.webp", pal["icon"])
+        nx, ny = normalize_tree(r["internal_x"], r["internal_y"])
+        out.append({
+            "title_en": None,
+            "title_jp": r.get("sub1") or None,
+            "jp_name": r["name"],
+            "en_name": pal["en_name"],
+            "asset": m.group(1) if m else None,
+            "icon": pal["icon"],
+            "level": int(r["sub2"]) if str(r.get("sub2") or "").isdigit() else r.get("sub2"),
+            "x": nx, "y": ny,
+            "region": "worldtree",
+            "types": pal["types"],
+            "drops": [],
+        })
+    if unmatched:
+        print(f"警告: 図鑑と紐付かなかった世界樹フィールドボス {unmatched}")
+    return out
 
 # paldb.ccのアイテムドロップ表は同一パルでも複数の呼称違いの行が混在しており(例:
 # Horus_Water(イシス)には「イシス」(野生種)「水天の覇者 イシス」(アルファ個体)
@@ -121,11 +189,18 @@ def main():
             "level": a["lv"],
             "x": a["x"],
             "y": a["y"],
+            "region": "palpagos",
             "types": pal["types"],
             "drops": drops,
         })
 
-    out.sort(key=lambda b: b["level"])
+    print("世界樹エリアのフィールドボス取得中...")
+    by_name = {p["name"]: p for p in dex}
+    tree_bosses = fetch_worldtree_fbosses(by_name)
+    out.extend(tree_bosses)
+    print(f"世界樹エリア: {len(tree_bosses)}件追加")
+
+    out.sort(key=lambda b: (b["region"], b["level"]))
     write_js_consts(OUT_PATH, [("FIELD_BOSS_DATA", out)])
     with_title = sum(1 for b in out if b["title_jp"])
     print(f"{len(out)}件 -> {OUT_PATH} (未解決: {len(unresolved)}, 和名タイトル判明: {with_title}, ドロップ判定曖昧: {len(ambiguous)})")
