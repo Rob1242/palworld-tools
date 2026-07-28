@@ -205,9 +205,9 @@
   .hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 35%;opacity:.6;filter:saturate(1.15) contrast(1.05);}
   .hero-fade{position:absolute;inset:0;background:rgba(5,8,14,.55);}
   .hero-content{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 28px;max-width:560px;}
-  .hero-eyebrow{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;color:var(--lime);margin-bottom:10px;text-shadow:0 0 10px rgba(61,123,255,.5);}
+  .hero-eyebrow{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.28em;color:var(--lime);margin-bottom:10px;text-shadow:0 0 10px rgba(61,123,255,.5);display:flex;align-items:center;gap:2px;}
   .hero-title{font-family:var(--font-display);font-size:40px;line-height:1;color:var(--parchment);letter-spacing:.02em;margin:0 0 10px;text-shadow:0 2px 24px rgba(0,0,0,.6);}
-  .hero-title .accent{color:var(--magenta);text-shadow:0 0 18px rgba(143,214,255,.6);}
+  .hero-title .accent{color:var(--pulse);text-shadow:0 0 8px rgba(255,46,196,.85), 0 0 26px rgba(255,46,196,.5);}
   .hero-sub{font-size:13px;color:var(--parchment-dim);max-width:400px;line-height:1.7;margin:0;}
   @media (max-width:640px){
     .hero{height:200px;}
@@ -290,8 +290,8 @@
       <div class="hero-scanlines"></div>
       <div class="hero-fade"></div>
       <div class="hero-content">
-        <div class="hero-eyebrow">CAPTURE INTEL ARCHIVE</div>
-        <h2 class="hero-title">パル<span class="accent">図鑑</span></h2>
+        <div class="hero-eyebrow">CAPTURE INTEL ARCHIVE<span class="term-cursor"></span></div>
+        <h2 class="hero-title glitch-hover" data-text="パル図鑑">パル<span class="accent text-pulse">図鑑</span></h2>
         <p class="hero-sub">種族値、ドロップ率、入手ルート。捕獲前に、丸裸にする。</p>
       </div>
     </div>
