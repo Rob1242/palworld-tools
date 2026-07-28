@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared/design-system.css">
-<link rel="preload" as="script" href="game_data/breeding_data_no_reverse.js">
+<link rel="preload" as="script" href="game_data/breeding_pals_data.js">
 <style>
   :root{
     --bg: #05080e; --panel: #0e1420; --panel2: #141d2b;
@@ -616,7 +616,7 @@
   <p class="footer-note">所持データはこの端末のブラウザ内(localStorage)にのみ保存されます。他の端末・ブラウザとは共有されません。</p>
 </div>
 <script src="game_data/dex_data.js"></script>
-<script src="game_data/breeding_data_no_reverse.js"></script>
+<script src="game_data/breeding_pals_data.js"></script>
 <script src="game_data/learnset_data.js"></script>
 <script src="game_data/passives_data.js"></script>
 <script src="game_data/skills_jp_data.js"></script>
@@ -685,7 +685,7 @@ function migrateLegacyOwned(){
 migrateLegacyOwned();
 
 const ASSET_BY_DEXID = {};
-Object.entries(BREEDING_DATA.pals || {}).forEach(([asset, info]) => { if(info.dex_id) ASSET_BY_DEXID[info.dex_id] = asset; });
+Object.entries(BREEDING_PALS_DATA || {}).forEach(([asset, info]) => { if(info.dex_id) ASSET_BY_DEXID[info.dex_id] = asset; });
 
 // LEARNSET_DATA(asset別)からゲーム内に実在する技全体の技名プールを構築する
 // (種族を横断して検索できるようにするため。skills_jp未生成の技はjp_name:nullのまま)
@@ -1001,11 +1001,11 @@ setSharedPfilterOpen(localStorage.getItem(SHARED_PFILTER_OPEN_KEY) === "1");
 // の除外のみ残す。パルを追加・配合ロードマップの目標選択どちらも同じ基準でよいため、
 // リストを1本化する。
 function isGhost(asset){
-  const info = BREEDING_DATA.pals[asset];
+  const info = BREEDING_PALS_DATA[asset];
   return !info || !info.dex_id;
 }
 
-const PAL_LIST = Object.entries(BREEDING_DATA.pals || {})
+const PAL_LIST = Object.entries(BREEDING_PALS_DATA || {})
   .filter(([asset]) => !isGhost(asset))
   .map(([asset, info]) => ({
     asset,
@@ -1013,21 +1013,48 @@ const PAL_LIST = Object.entries(BREEDING_DATA.pals || {})
     icon: info.icon,
   })).sort((a, b) => a.displayName.localeCompare(b.displayName, 'ja'));
 
-// forwardPairs(親ペア→子)から、ゴースト個体が絡むレシピ(親のどちらか、または子が
-// ゴースト=そもそも配合で作れない/親として所持しようがない)のみ除外する。
-Object.keys(BREEDING_DATA.forwardPairs || {}).forEach(key => {
-  const child = BREEDING_DATA.forwardPairs[key];
-  const [a, b] = key.split("|");
-  if(isGhost(child) || isGhost(a) || isGhost(b)) delete BREEDING_DATA.forwardPairs[key];
-});
+// forwardPairs(親ペア→子、1.8MB)は「配合ロードマップ」タブを実際に開くまで
+// 読み込まない(2026-07-28、パルボックスの初期表示が配合データ3.3MB分
+// 不要に重かった件の続き)。以下はそのための遅延読込ヘルパーで、実際の
+// ゴースト個体除外・REVERSE_FORWARD_PAIRS構築・自己診断テストは
+// ensureForwardPairsLoaded()の中(読み込み完了後)に移した。
+// BREEDING_FORWARD_PAIRS_DATA自体はここで事前宣言しない
+// (breeding_forward_pairs_data.js側がconstでトップレベル宣言するため。
+// classic scriptのlet/constはスクリプトタグをまたいで同じグローバル字句
+// スコープを共有するので、ここでletを重ねると「already declared」の
+// SyntaxErrorになる)。
+let REVERSE_FORWARD_PAIRS = null;
+let forwardPairsPromise = null;
+function ensureForwardPairsLoaded(){
+  if(forwardPairsPromise) return forwardPairsPromise;
+  forwardPairsPromise = new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = "game_data/breeding_forward_pairs_data.js";
+    script.onload = () => {
+      // ゴースト個体が絡むレシピ(親のどちらか、または子がゴースト=そもそも配合で
+      // 作れない/親として所持しようがない)のみ除外する。
+      Object.keys(BREEDING_FORWARD_PAIRS_DATA || {}).forEach(key => {
+        const child = BREEDING_FORWARD_PAIRS_DATA[key];
+        const [a, b] = key.split("|");
+        if(isGhost(child) || isGhost(a) || isGhost(b)) delete BREEDING_FORWARD_PAIRS_DATA[key];
+      });
+      buildReverseForwardPairs();
+      selfTestRoute();
+      resolve();
+    };
+    script.onerror = () => reject(new Error("breeding_forward_pairs_data.js の読み込みに失敗しました"));
+    document.head.appendChild(script);
+  });
+  return forwardPairsPromise;
+}
 
 function nameOf(asset){
-  const info = BREEDING_DATA.pals[asset];
+  const info = BREEDING_PALS_DATA[asset];
   if(!info) return asset;
   return info.jp_name || `${info.en_name}(JP名未確認)`;
 }
 function iconOf(asset){
-  const info = BREEDING_DATA.pals[asset];
+  const info = BREEDING_PALS_DATA[asset];
   return info && info.icon;
 }
 
@@ -1091,7 +1118,7 @@ function roadmapInstances(){
 function ownedAssetSet(){
   const ownedIds = new Set(roadmapInstances().map(inst => inst.dexId));
   const owned = new Set();
-  Object.entries(BREEDING_DATA.pals).forEach(([asset, info]) => {
+  Object.entries(BREEDING_PALS_DATA).forEach(([asset, info]) => {
     if(info.dex_id && ownedIds.has(info.dex_id)) owned.add(asset);
   });
   return owned;
@@ -1102,7 +1129,7 @@ function ownedAssetSet(){
 // 総当たりし、配合表(forwardPairs)に載っている子を集める。多世代先のルートは対象外(そちらは
 // 目標パルを検索して調べる既存の機能で扱う)。
 function computeDirectlyMakeable(ownedSet){
-  const forward = BREEDING_DATA.forwardPairs;
+  const forward = BREEDING_FORWARD_PAIRS_DATA;
   const arr = Array.from(ownedSet);
   const result = new Map(); // child asset -> {a, b}
   for(let i=0;i<arr.length;i++){
@@ -1117,7 +1144,22 @@ function computeDirectlyMakeable(ownedSet){
   return result;
 }
 
+// forwardPairsは遅延読込のため、実描画本体(Inner)は読込完了後にしか呼べない。
+// renderQuickMakeable()はこれまで通りの同期関数として呼び出せるようにしつつ、
+// 内部で読込を待ってから描画する薄いラッパーにしている(2026-07-28)。
 function renderQuickMakeable(){
+  const grid = document.getElementById("quickMakeableGrid");
+  if(!grid) return;
+  grid.innerHTML = `<div class="empty-box-msg" style="grid-column:1/-1;padding:14px;">読み込み中…</div>`;
+  ensureForwardPairsLoaded()
+    .then(renderQuickMakeableInner)
+    .catch(err => {
+      grid.innerHTML = `<div class="empty-box-msg" style="grid-column:1/-1;padding:14px;">配合データの読み込みに失敗しました。再読み込みしてください。</div>`;
+      console.error(err);
+    });
+}
+
+function renderQuickMakeableInner(){
   const grid = document.getElementById("quickMakeableGrid");
   const countTag = document.getElementById("quickMakeableCount");
   if(!grid) return;
@@ -1173,16 +1215,18 @@ function passiveMaskOf(passives, targetList){
 function popcountOf(m){ let c = 0; while(m){ c += m & 1; m >>= 1; } return c; }
 
 // 子パル -> それを作れる親ペア候補一覧への逆引き(1つの子パルに対して親ペアが
-// 数十〜千通り以上あることが多い)。BREEDING_DATAは実行中に変化しないため一度だけ構築する。
-const REVERSE_FORWARD_PAIRS = (() => {
+// 数十〜千通り以上あることが多い)。forwardPairsは読込後に変化しないため
+// ensureForwardPairsLoaded()内で一度だけ構築する(REVERSE_FORWARD_PAIRS変数自体は
+// 上でlet宣言済み)。
+function buildReverseForwardPairs(){
   const rev = {};
-  Object.entries(BREEDING_DATA.forwardPairs).forEach(([key, child]) => {
+  Object.entries(BREEDING_FORWARD_PAIRS_DATA).forEach(([key, child]) => {
     const sep = key.indexOf("|");
     const a = key.slice(0, sep), b = key.slice(sep + 1);
     (rev[child] = rev[child] || []).push([a, b]);
   });
-  return rev;
-})();
+  REVERSE_FORWARD_PAIRS = rev;
+}
 
 // targetSetを指定すると、同じ子パルを作れる親ペア候補の中から、目的パッシブを理論上
 // 最も多く継承できるルートそのものを再帰的に探す(メモ化DFS)。各パルの結果は一度確定したら
@@ -1263,14 +1307,17 @@ function reconstructSteps(targetAsset, producedBy, ownedSet){
     .sort((x, y) => x.generation - y.generation);
 }
 
-(function selfTestRoute(){
-  // REVERSE_FORWARD_PAIRSはBREEDING_DATA読み込み時に1度だけ構築されるため、
-  // テスト用にBREEDING_DATA.forwardPairsを差し替えても反映されない。
+// forwardPairs読込完了後(ensureForwardPairsLoaded内)に1回だけ呼ばれる自己診断。
+// 以前はIIFEでスクリプト読込直後に自動実行していたが、forwardPairsの遅延読込化に
+// 伴い、読込完了タイミングで呼び出す通常の関数に変更した(2026-07-28)。
+function selfTestRoute(){
+  // REVERSE_FORWARD_PAIRSはforwardPairs読込時に1度だけ構築されるため、
+  // テスト用にBREEDING_FORWARD_PAIRS_DATAを差し替えても反映されない。
   // そのため、実データの中から検証に使える具体例を動的に探して使う。
 
   // 自家配合(X|X)以外にルートが存在しない実データ上のパルは、所持済みなら0ステップのはず
   let selfOnlyAsset = null;
-  for(const asset of Object.keys(BREEDING_DATA.pals)){
+  for(const asset of Object.keys(BREEDING_PALS_DATA)){
     const candidates = REVERSE_FORWARD_PAIRS[asset] || [];
     const hasOtherRoute = candidates.some(([a, b]) => a !== asset || b !== asset);
     if(!hasOtherRoute){ selfOnlyAsset = asset; break; }
@@ -1286,7 +1333,7 @@ function reconstructSteps(targetAsset, producedBy, ownedSet){
 
   // 所持済みでも、他の所持パル同士で配合できるルートがあればそちらも提示する
   let dynChild = null, dynPair = null;
-  for(const [key, child] of Object.entries(BREEDING_DATA.forwardPairs)){
+  for(const [key, child] of Object.entries(BREEDING_FORWARD_PAIRS_DATA)){
     const sep = key.indexOf("|");
     const a = key.slice(0, sep), b = key.slice(sep + 1);
     if(a !== child && b !== child){ dynChild = child; dynPair = [a, b]; break; }
@@ -1297,7 +1344,7 @@ function reconstructSteps(targetAsset, producedBy, ownedSet){
   }
 
   console.log("[selfTest] 配合ロードマップBFSの自己診断完了(上に赤いAssertion failedが無ければOK)");
-})();
+}
 
 function renderRoute(result, targetAsset, ownedSet){
   const box = document.getElementById("roadmapResult");
@@ -1344,7 +1391,7 @@ function renderRoute(result, targetAsset, ownedSet){
 const roadmapState = { targetAsset: null, passives: [], source: "local" };
 
 function instancesOfAsset(asset){
-  const info = BREEDING_DATA.pals[asset];
+  const info = BREEDING_PALS_DATA[asset];
   if(!info || !info.dex_id) return [];
   return roadmapInstances().filter(inst => inst.dexId === info.dex_id);
 }
@@ -1691,7 +1738,20 @@ function renderPassiveFit(result, targetAsset){
   wrap.innerHTML = html;
 }
 
+// renderQuickMakeable()と同じ理由の薄いラッパー(forwardPairs遅延読込待ち)。
 function updateRoadmapResult(){
+  if(!roadmapState.targetAsset) return;
+  const box = document.getElementById("roadmapResult");
+  if(box){ box.className = "result-box"; box.textContent = "読み込み中…"; }
+  ensureForwardPairsLoaded()
+    .then(updateRoadmapResultInner)
+    .catch(err => {
+      if(box){ box.textContent = "配合データの読み込みに失敗しました。再読み込みしてください。"; }
+      console.error(err);
+    });
+}
+
+function updateRoadmapResultInner(){
   if(!roadmapState.targetAsset) return;
   const owned = ownedAssetSet();
   const targetSet = new Set(roadmapState.passives);
@@ -1805,7 +1865,10 @@ document.querySelectorAll("#roadmapSourceTabs .mini-tab").forEach(tab => {
     renderQuickMakeable();
   });
 });
-renderQuickMakeable();
+// (以前ここでrenderQuickMakeable()を無条件実行していたが、「配合ロードマップ」
+// タブに切り替えた時(上のmode-tabハンドラ)だけで十分なため削除。
+// 初期表示のタブは「所持パル管理」でロードマップ画面自体が非表示のため、
+// 無条件実行は無駄にforwardPairsの読込を早めるだけだった。2026-07-28)
 
 // 「今すぐ作れるパル」は所持数が多いと100種以上並んでロードマップ画面が縦に長くなりすぎるため、
 // 折りたたみ式にしている(2026-07-16、ユーザー指摘)。開閉状態はlocalStorageに覚えておく。
@@ -1829,7 +1892,7 @@ const pformState = { editUid: null, asset: null, skills: [], passives: [], sex: 
 
 function pickSpeciesForPform(asset){
   pformState.asset = asset;
-  const info = BREEDING_DATA.pals[asset];
+  const info = BREEDING_PALS_DATA[asset];
   const p = info && info.dex_id ? PAL_BOX_DATA.find(x => x.id === info.dex_id) : null;
   const pickedEl = document.getElementById('pformSpeciesPicked');
   pickedEl.style.display = 'flex';
@@ -2033,7 +2096,7 @@ function closePform(){
 
 document.getElementById('pformSaveBtn').addEventListener('click', () => {
   if(!pformState.asset) return;
-  const info = BREEDING_DATA.pals[pformState.asset];
+  const info = BREEDING_PALS_DATA[pformState.asset];
   const dexId = info ? info.dex_id : null;
   if(!dexId){ alert('この種族は図鑑データと紐づいていないため登録できません。'); return; }
   const inst = {
@@ -2358,7 +2421,7 @@ tryAutoRejoinSharedRoom(25);
 (function applyRoadmapPrefillFromURL(){
   const params = new URLSearchParams(location.search);
   const target = params.get("target");
-  if(!target || !BREEDING_DATA.pals[target]) return;
+  if(!target || !BREEDING_PALS_DATA[target]) return;
 
   document.querySelectorAll(".mode-tab").forEach(t => t.classList.remove("active"));
   document.querySelector('.mode-tab[data-mode="roadmap"]').classList.add("active");
