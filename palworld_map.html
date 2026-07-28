@@ -304,8 +304,8 @@
 
   <div id="mapSection">
     <div class="map-toolbar">
-      <div class="selected-pal">
-        <img id="selPalIcon" src="" alt="">
+      <div class="selected-pal" id="selectedPalBox" style="display:none;">
+        <img id="selPalIcon" alt="">
         <span class="name" id="selPalName"></span>
       </div>
       <div class="toggle-group" id="kindToggle">
@@ -601,8 +601,11 @@ function selectPal(dexId){
   const p = PAL_LISTS[state.region].find(x => x.dexId === dexId);
   if(!p) return;
   state.pal = p;
-  document.getElementById("selPalIcon").src = p.icon || "";
+  const selPalIcon = document.getElementById("selPalIcon");
+  selPalIcon.style.display = p.icon ? "" : "none";
+  if(p.icon) selPalIcon.src = p.icon;
   document.getElementById("selPalName").textContent = p.name;
+  document.getElementById("selectedPalBox").style.display = "flex";
   document.getElementById("mapSection").style.display = "block";
   document.getElementById("emptyHint").style.display = "none";
   document.getElementById("zoneDetail").style.display = "none";
@@ -910,6 +913,7 @@ function switchRegion(region){
   document.querySelectorAll("#mapRegionTabs .region-tab").forEach(t => t.classList.toggle("active", t.dataset.region === region));
   setMapTiles(region);
   state.pal = null;
+  document.getElementById("selectedPalBox").style.display = "none";
   const showForCurated = curatedState.active.size > 0;
   document.getElementById("mapSection").style.display = showForCurated ? "block" : "none";
   document.getElementById("emptyHint").style.display = showForCurated ? "none" : "block";
