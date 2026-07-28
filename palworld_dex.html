@@ -73,7 +73,7 @@
 
   /* grid */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 10px 10px;cursor:pointer;position:relative;text-align:center;transition:border-color .12s, transform .12s;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 10px 10px;cursor:pointer;position:relative;text-align:center;transition:border-color .12s, transform .12s;content-visibility:auto;contain-intrinsic-size:0 220px;}
   .card:hover{border-color:var(--teal-dim);transform:translateY(-2px);}
   .card:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
   .card .icon-wrap{position:relative;width:64px;height:64px;margin:0 auto 8px;border-radius:50%;background:var(--panel2);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;}
@@ -324,15 +324,16 @@
 <script src="game_data/capture_rate_data.js"></script>
 <script src="game_data/movement_data.js"></script>
 <script src="game_data/level80_stats_data.js"></script>
-<script src="game_data/spawn_data.js"></script>
+<script src="game_data/spawn_flags_data.js"></script>
 <script src="game_data/learnset_data.js"></script>
 <script src="game_data/skills_jp_data.js"></script>
 <script src="shared/icons.js"></script>
 
 <script>
 
-const SPAWN_BY_DEXID = {};
-(SPAWN_DATA.pals || []).forEach(p => { SPAWN_BY_DEXID[p.dexId] = p; });
+// 出現マップ埋め込み表示の有無だけを見るため、全パルの出現座標データ(1.2MB)ではなく
+// dexIdごとの真偽値のみを持つ軽量データ(spawn_flags_data.js)を使う(2026-07-28)
+const SPAWN_BY_DEXID = SPAWN_FLAGS_DATA;
 
 const TYPES = ["無","炎","水","雷","地","草","氷","竜","闇"];
 const ROLE_ICON = {"火おこし":"flame","水やり":"droplet","種まき":"sprout","発電":"bolt","手作業":"wrench","採集":"basket","伐採":"axe","採掘":"pickaxe","製薬":"flask","冷却":"snowflake","運搬":"box","牧場":"paw"};
@@ -568,8 +569,8 @@ function openDetail(id){
   </div>` : "";
 
   const obtain = extra && extra.obtain;
-  const spawn = SPAWN_BY_DEXID[p.id];
-  const spawnMapHtml = (spawn && ((spawn.wildZones && spawn.wildZones.length) || (spawn.alphaZones && spawn.alphaZones.length))) ? `
+  const hasSpawn = SPAWN_BY_DEXID[p.id];
+  const spawnMapHtml = hasSpawn ? `
     <div class="spawn-map-embed">
       <iframe src="palworld_map.html?id=${p.id}&embed=1" loading="lazy" title="${p.name}の出現マップ"></iframe>
       <a class="spawn-map-link" href="palworld_map.html?id=${p.id}" target="_blank" rel="noopener">出現マップを別タブで開く →</a>

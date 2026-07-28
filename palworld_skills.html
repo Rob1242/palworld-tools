@@ -60,7 +60,7 @@
   .chip.active{color:#0d1013;font-weight:700;border-color:transparent;background:var(--lime);}
 
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 10px 10px;cursor:pointer;position:relative;text-align:center;transition:border-color .12s, transform .12s;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 10px 10px;cursor:pointer;position:relative;text-align:center;transition:border-color .12s, transform .12s;content-visibility:auto;contain-intrinsic-size:0 220px;}
   .card:hover{border-color:var(--teal-dim);transform:translateY(-2px);}
   .card .icon-wrap{position:relative;width:52px;height:52px;margin:0 auto 8px;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;border:2px solid var(--line);}
   .card .icon-wrap img{width:64%;height:64%;object-fit:contain;filter:brightness(0) invert(1);}

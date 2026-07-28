@@ -68,7 +68,7 @@
 
   /* grid */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 10px 10px;cursor:pointer;position:relative;text-align:center;transition:border-color .12s, transform .12s;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 10px 10px;cursor:pointer;position:relative;text-align:center;transition:border-color .12s, transform .12s;content-visibility:auto;contain-intrinsic-size:0 220px;}
   .card:hover{border-color:var(--lime-dim);transform:translateY(-2px);}
   .card:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
   .card .icon-wrap{position:relative;width:64px;height:64px;margin:0 auto 8px;border-radius:50%;background:var(--panel2);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;}

@@ -58,7 +58,7 @@
   .chip.active{color:#0d1013;font-weight:700;border-color:transparent;background:var(--lime);}
 
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;cursor:pointer;position:relative;transition:border-color .12s, transform .12s;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;cursor:pointer;position:relative;transition:border-color .12s, transform .12s;content-visibility:auto;contain-intrinsic-size:0 140px;}
   .card:hover{border-color:var(--teal-dim);transform:translateY(-2px);}
   .card-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
   .card .icon-wrap{width:32px;height:32px;border-radius:6px;background:var(--panel2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;}

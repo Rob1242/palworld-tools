@@ -254,8 +254,7 @@
   <p class="footer-note">配合データは<a href="https://github.com/tylercamp/palcalc" target="_blank" rel="noopener">tylercamp/palcalc</a>(ゲームファイルから直接抽出、1.0対応)に基づきます。1.0で追加されたパルの一部はパル図鑑側とのJP名紐付けが取れていない場合があります(その場合「(JP名未確認)」と表示)。</p>
 </div>
 <script src="game_data/breeding_data.js"></script>
-<script src="game_data/spawn_data.js"></script>
-<script src="game_data/worldtree_spawn_data.js"></script>
+<script src="game_data/spawn_flags_data.js"></script>
 
 <script>
 
@@ -458,17 +457,9 @@ document.querySelectorAll(".mode-tab").forEach(tab => {
 // 最少世代数ルート探索(所持ボックス機能は無く、palworld_palbox.htmlの配合ロードマップ機能
 // から「所持パル管理」抜きの汎用版として移植したもの。アルゴリズム自体はそちらで
 // 自己診断テスト済み)。
-const CATCHABLE_ASSETS = (() => {
-  const set = new Set();
-  [typeof SPAWN_DATA !== "undefined" ? SPAWN_DATA : null, typeof WORLDTREE_SPAWN_DATA !== "undefined" ? WORLDTREE_SPAWN_DATA : null]
-    .forEach(data => {
-      if(!data) return;
-      (data.pals || []).forEach(p => {
-        if((p.wildZones && p.wildZones.length) || (p.alphaZones && p.alphaZones.length)) set.add(p.asset);
-      });
-    });
-  return set;
-})();
+// 出現有無の真偽値だけを持つ軽量データ(spawn_flags_data.js)を使う(2026-07-28、
+// 以前は本土・世界樹それぞれの1.2MB/168KBの詳細出現座標データを丸ごと読み込んでいた)
+const CATCHABLE_ASSETS = new Set(Object.keys(SPAWN_FLAGS_BY_ASSET_DATA));
 
 const REVERSE_FORWARD_PAIRS_RM = (() => {
   const rev = {};
