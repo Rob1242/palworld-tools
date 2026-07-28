@@ -66,9 +66,13 @@
   .hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 40%;opacity:.6;filter:saturate(1.15) contrast(1.05);}
   .hero-fade{position:absolute;inset:0;background:rgba(5,8,14,.55);}
   .hero-content{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 28px;max-width:600px;}
-  .hero-eyebrow{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;color:var(--lime);margin-bottom:10px;text-shadow:0 0 10px rgba(61,123,255,.5);}
-  .hero-title{font-family:var(--font-display);font-weight:900;font-size:38px;line-height:1.15;color:var(--parchment);letter-spacing:.02em;margin:0 0 10px;text-shadow:0 2px 24px rgba(0,0,0,.6);}
-  .hero-title .accent{color:var(--magenta);text-shadow:0 0 18px rgba(143,214,255,.6);}
+  .hero-eyebrow{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.28em;color:var(--lime);margin-bottom:10px;text-shadow:0 0 10px rgba(61,123,255,.5);display:flex;align-items:center;gap:2px;}
+  .term-cursor{display:inline-block;width:7px;height:13px;background:var(--lime);box-shadow:0 0 8px rgba(61,123,255,.8);animation:termBlink 1.1s steps(1) infinite;}
+  @media (prefers-reduced-motion: reduce){ .term-cursor{animation:none;opacity:.6;} }
+  @keyframes termBlink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+  .hero-title{font-family:var(--font-display);font-weight:900;font-size:42px;line-height:1.1;color:var(--parchment);letter-spacing:-0.01em;margin:0 0 10px;text-shadow:0 2px 24px rgba(0,0,0,.6);}
+  .hero-title.glitch-hover{display:block;}
+  .hero-title .accent{color:var(--pulse);text-shadow:0 0 8px rgba(255,46,196,.85), 0 0 26px rgba(255,46,196,.5);}
   .hero-sub{font-size:13px;color:var(--parchment-dim);max-width:420px;line-height:1.7;margin:0;}
   @media (max-width:640px){
     .hero{height:230px;}
@@ -140,8 +144,8 @@
     <div class="hero-scanlines"></div>
     <div class="hero-fade"></div>
     <div class="hero-content">
-      <div class="hero-eyebrow">PALWORLD ｜ UNOFFICIAL TOOLKIT</div>
-      <h2 class="hero-title">攻略の<span class="accent">基地</span>、ここに。</h2>
+      <div class="hero-eyebrow">PALWORLD ｜ UNOFFICIAL TOOLKIT<span class="term-cursor"></span></div>
+      <h2 class="hero-title glitch-hover" data-text="攻略の基地、ここに。">攻略の<span class="accent text-pulse">基地</span>、ここに。</h2>
       <p class="hero-sub">拠点配置、図鑑、配合、パルボックス。迷ったらここから選ぶ。</p>
     </div>
   </div>

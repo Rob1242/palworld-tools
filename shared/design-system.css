@@ -5,8 +5,12 @@
 
   .glitch-hover{position:relative;display:inline-block;cursor:default;}
   .glitch-hover::before, .glitch-hover::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;height:100%;overflow:hidden;opacity:0;}
-  .glitch-hover:hover::before{opacity:.7;color:var(--lime);clip-path:inset(0 0 55% 0);transform:translate(-2px,-1px);animation:glitchShift .32s steps(2) infinite;}
-  .glitch-hover:hover::after{opacity:.7;color:var(--magenta);clip-path:inset(55% 0 0 0);transform:translate(2px,1px);animation:glitchShift .32s steps(2) infinite reverse;}
+  /* タッチデバイスは:hoverがtap時に誤爆して張り付くため、ポインター精度がある
+     環境だけに限定する(2026-07-29、ヒーロー見出しへの適用に合わせて追加)。 */
+  @media (hover:hover) and (pointer:fine){
+    .glitch-hover:hover::before{opacity:.7;color:var(--lime);clip-path:inset(0 0 55% 0);transform:translate(-2px,-1px);animation:glitchShift .32s steps(2) infinite;}
+    .glitch-hover:hover::after{opacity:.7;color:var(--magenta);clip-path:inset(55% 0 0 0);transform:translate(2px,1px);animation:glitchShift .32s steps(2) infinite reverse;}
+  }
   @keyframes glitchShift{0%{transform:translate(-2px,-1px);}50%{transform:translate(2px,1px);}100%{transform:translate(-1px,1px);}}
 
   /* display:flexをここで明示しないと、ページ側のstyleにnav.tabsの上書き定義が
@@ -93,4 +97,85 @@
   @keyframes skel-shimmer{
     0%{background-position:200% 0;}
     100%{background-position:-200% 0;}
+  }
+
+  /* ===== サイバーパンク・近未来リデザイン(2026-07-29、颯太の依頼で全ページ刷新)=====
+     既存の--bg/--panel/--lime等は元々ほぼ青系トーンだったため、色相自体は維持しつつ
+     「雰囲気」側(グリッド背景・走査線・グロー・HUD風フレーム・タイポの押し出し)を
+     大幅に強化する方針。サイン累積効果を1箇所(shared/design-system.css)に集約する
+     ことで、全23ページに触れず自動で波及させる。新規変数はこのファイルのみで定義し
+     (各ページの:rootは上書きしない=既存の大量のvar()参照を壊さない)、"一点だけ
+     大胆に"の原則で新規アクセント--pulse(ホットマゼンタ)を要所だけに使う。 */
+  :root{
+    --pulse: #ff2ec4; --pulse-dim: #7a1861;
+    --grid-line: rgba(90,150,255,.065);
+    --scan-glow: rgba(53,210,255,.07);
+    --glow-blue-sm: 0 0 10px rgba(61,123,255,.4);
+    --glow-blue-lg: 0 0 32px rgba(61,123,255,.28), 0 0 2px rgba(61,123,255,.7);
+    --ease-out: cubic-bezier(.23,1,.32,1);
+    --ease-in-out: cubic-bezier(.77,0,.175,1);
+  }
+
+  /* 固定の背景アトモスフィア層(グリッド+遠景の青いグロー+走査線)。z-index:0で
+     全ページ共通の.wrapより下に敷く。.wrap側にposition:relative+z-index:1を
+     与えて、既存の各ページのレイアウトCSSには一切触れずにコンテンツを前面へ
+     持ち上げる。 */
+  html{background:var(--bg, #05080e);}
+  body{position:relative;}
+  body::before, body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;}
+  body::before{
+    background-image:
+      radial-gradient(ellipse 70% 55% at 18% -8%, rgba(61,123,255,.20), transparent 60%),
+      radial-gradient(ellipse 55% 45% at 100% 15%, rgba(53,210,255,.13), transparent 62%),
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size:auto, auto, 44px 44px, 44px 44px;
+    -webkit-mask-image:linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+    mask-image:linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);
+  }
+  body::after{
+    top:0;left:0;right:0;bottom:auto;height:260px;
+    background:linear-gradient(180deg, transparent 0%, var(--scan-glow) 45%, transparent 100%);
+    animation:scanSweep 10s linear infinite;
+    will-change:transform;
+  }
+  @keyframes scanSweep{
+    0%{transform:translateY(-260px);}
+    100%{transform:translateY(100vh);}
+  }
+  .wrap{position:relative;z-index:1;}
+
+  /* HUD風の角ブラケット。position:relativeな要素に付けると左上・右下の2隅だけ
+     光る枠が付く(4隅だと擬似要素が足りないため、2隅で"計器"感を出す設計)。 */
+  .hud-frame{position:relative;}
+  .hud-frame::before, .hud-frame::after{
+    content:"";position:absolute;width:16px;height:16px;
+    border:2px solid var(--lime);opacity:.8;pointer-events:none;z-index:2;
+    filter:drop-shadow(0 0 6px rgba(61,123,255,.6));
+  }
+  .hud-frame::before{top:-1px;left:-1px;border-right:none;border-bottom:none;}
+  .hud-frame::after{bottom:-1px;right:-1px;border-left:none;border-top:none;}
+
+  /* ヒーロー画像に重ねる走査線テクスチャ(palworld_home.html / palworld_dex.htmlの
+     .hero-scanlinesが実装なしで参照されていたのを解消)。 */
+  .hero-scanlines{
+    position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(180deg, rgba(180,210,255,.05) 0px, rgba(180,210,255,.05) 1px, transparent 1px, transparent 3px);
+    mix-blend-mode:overlay;
+  }
+
+  /* ホットマゼンタのシグネチャーアクセント。使いどころは意図的に絞る
+     (ヒーロー見出しの強調語、バッジなど"ここぞ"の1箇所ルール)。 */
+  .text-pulse{color:var(--pulse);text-shadow:0 0 18px rgba(255,46,196,.55);}
+
+  /* ボタン・カードの押下フィードバック(emil-design-eng: 押した瞬間に反応する)。
+     scale(0)始まりを避け、transformのみをアニメーションしてGPU合成で軽く保つ。 */
+  .tool-card:active, .card:active{transition:transform 120ms var(--ease-out);}
+  @media (hover:hover) and (pointer:fine){
+    .tool-card:hover, .card:hover{box-shadow:var(--glow-blue-lg), 0 14px 32px rgba(0,0,0,.4);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    body::after{animation:none;}
+    .glitch-hover:hover::before, .glitch-hover:hover::after{animation:none;}
   }
