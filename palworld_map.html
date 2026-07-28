@@ -393,10 +393,7 @@
   <div id="basespotsView" style="display:none;">
     <div class="bs-intro">
       <p class="lead">「どこに拠点を建てればいいか」に絞った立地ガイドです。<a href="palworld_base_planner_v2.html">拠点プランナー</a>(建物配置シミュレーター)とは別物で、こちらは資源・地形・安全性の観点からおすすめの座標そのものを紹介します。</p>
-      <p>掲載している12件は、paldb.ccのマップデータに実際に収録されているコミュニティ推奨の拠点候補地(資源や地形に関する説明コメント付き)をそのまま日本語化したものです。</p>
-    </div>
-    <div class="bs-caveat">
-      <b>座標について</b>: この12件の座標は当ツールの出現マップやボス攻略ページで使っている座標系とは異なる縮尺のデータで、変換式を実測しようとしたところ誤差が大きく(最大7〜15%)信頼できる変換が作れませんでした。そのため座標はマップ上にピン表示せず、参考座標(テキスト)としてのみ掲載しています。実際に建てる際は座標を目安に、現地の地形を確認しながら探してください。
+      <p>ネット上の複数サイト(GameWith・Game8・Palworld Companion・paldb.cc)に散らばっていた拠点おすすめ情報を集約し、重複を統合した34件です。全て座標変換の検証済みで、<a href="palworld_map.html?view=map#recommend-base">出現マップの「おすすめ拠点」レイヤー</a>にもピン表示されています。</p>
     </div>
     <div class="spot-grid" id="baseSpotGrid"></div>
   </div>
@@ -414,7 +411,7 @@
 <script src="game_data/field_boss_data.js"></script>
 <script src="game_data/statue_data.js"></script>
 <script src="game_data/missions_data.js"></script>
-<script src="game_data/base_spots_data.js"></script>
+<script src="game_data/base_spots_recommend_data.js"></script>
 <script src="shared/icons.js"></script>
 <script>
 // ══════════════════════════════════════════════════════════════
@@ -463,11 +460,13 @@ const CURATED_TYPE_LABEL = {
   "Alpha Pal": "フィールドボス", "Dungeon": "ダンジョン", "Ancient Ruin": "古代遺跡",
   "NPC": "NPC", "Bounty": "懸賞金対象", "City": "集落・拠点", "Incident": "遭遇イベント",
   "Tower Boss": "塔ボス", "Merchant": "商人", "Fast Travel": "ファストトラベル/観測塔",
+  "Recommend Base": "おすすめ拠点",
 };
 const CURATED_TYPE_COLOR = {
   "Alpha Pal": "#e2543f", "Dungeon": "#6ec8ea", "Ancient Ruin": "#c9a86a",
   "NPC": "#3d7bff", "Bounty": "#f0a233", "City": "#7bdb52", "Incident": "#8064b8",
   "Tower Boss": "#ff6ec7", "Merchant": "#ffd23d", "Fast Travel": "#3ddbc0",
+  "Recommend Base": "#a3e635",
 };
 const curatedState = { active: new Set() };
 
@@ -489,6 +488,10 @@ const EXTRA_CURATED_DATA = [
   ...FAST_TRAVEL_MAP_DATA.map(f => ({
     type: "Fast Travel", name: (f.name_jp || f.name_en) + (f.kind === "watchtower" ? "(観測塔)" : ""),
     x: f.x, y: f.y, region: f.region,
+  })),
+  ...BASE_SPOTS_RECOMMEND_DATA.map(b => ({
+    type: "Recommend Base", name: `${b.name} — ${b.reason}(出典: ${b.sources.join("・")})`,
+    x: b.x, y: b.y, region: b.region,
   })),
 ];
 
@@ -923,6 +926,12 @@ if(initialView !== "map") switchView(initialView, false);
 if(initialView === "map" && initialId && PAL_LISTS.palpagos.some(p => p.dexId === initialId)){
   selectPal(initialId);
 }
+// 拠点おすすめビューの「地図で見る」リンク(#recommend-base)から遷移してきた場合、
+// おすすめ拠点レイヤーを自動でONにする(2026-07-28)
+if(location.hash === "#recommend-base"){
+  const chip = document.querySelector('.curated-chip[data-type="Recommend Base"]');
+  if(chip) chip.click();
+}
 </script>
 
 <!-- ══════════════════════════════════════════════════════════════
@@ -1199,25 +1208,15 @@ if(initialView === "map" && initialId && PAL_LISTS.palpagos.some(p => p.dexId ==
      ══════════════════════════════════════════════════════════════ -->
 <script>
 (function(){
-  function tagsFor(en){
-    if(!en) return [];
-    const tags = [];
-    if(/Ore|Coal|Oil|Quartz/i.test(en)) tags.push({cls:"resource", label:"資源が近い"});
-    if(/Flat|Flower/i.test(en)) tags.push({cls:"terrain", label:"地形良好"});
-    if(/no raid/i.test(en)) tags.push({cls:"safety", label:"襲撃なしとされる"});
-    if(/triple/i.test(en)) tags.push({cls:"terrain", label:"広い(3拠点分)"});
-    return tags;
-  }
-
-  document.getElementById("baseSpotGrid").innerHTML = BASE_SPOTS_DATA.map((s, i) => `
+  document.getElementById("baseSpotGrid").innerHTML = BASE_SPOTS_RECOMMEND_DATA.map((s, i) => `
     <div class="spot-card">
       <div class="spot-head">
         <span class="spot-num">候補地 #${i+1}</span>
-        <span class="spot-coord">x:${s.x} / y:${s.y}</span>
+        <a class="spot-coord" href="palworld_map.html?view=map#recommend-base" title="出現マップの「おすすめ拠点」レイヤーで見る">地図で見る →</a>
       </div>
-      <div class="spot-comment">${s.comment_jp || "(特記コメントなし)"}</div>
-      <div class="spot-tags">${tagsFor(s.comment_en).map(t => `<span class="spot-tag ${t.cls}">${t.label}</span>`).join("")}</div>
-      ${s.comment_en ? `<div class="spot-en">EN: ${s.comment_en}</div>` : ""}
+      <div class="spot-comment">${s.name}</div>
+      <div class="spot-comment" style="font-weight:400;font-size:12.5px;color:var(--parchment-dim);">${s.reason}</div>
+      <div class="spot-tags">${s.sources.map(src => `<span class="spot-tag resource">${src}</span>`).join("")}</div>
     </div>
   `).join("");
 })();
