@@ -72,3 +72,25 @@
     .header-right{align-items:stretch;}
     .gsearch-wrap{max-width:none;}
   }
+
+  /* カード一覧系ページの初期表示用スケルトン(2026-07-28)。データ読込・描画が
+     終わる前に、実カードと同じ形のプレースホルダーを一瞬で表示することで
+     「何も無い空白」を無くす。実際の読込時間そのものは変えない体感速度施策。 */
+  .card.skeleton{cursor:default;pointer-events:none;}
+  .card.skeleton .icon-wrap{background:var(--panel2);}
+  .skel-bar{border-radius:4px;background:var(--panel2);margin:0 auto;}
+  .card.skeleton .icon-wrap,
+  .skel-bar{
+    position:relative;overflow:hidden;
+  }
+  .card.skeleton .icon-wrap::after,
+  .skel-bar::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
+    background-size:200% 100%;
+    animation:skel-shimmer 1.4s ease-in-out infinite;
+  }
+  @keyframes skel-shimmer{
+    0%{background-position:200% 0;}
+    100%{background-position:-200% 0;}
+  }
