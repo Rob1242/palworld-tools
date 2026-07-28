@@ -100,6 +100,13 @@
   .curated-marker-icon{pointer-events:auto;}
   .curated-marker-icon .cd-dot{width:9px;height:9px;border-radius:50%;border:1.5px solid rgba(0,0,0,.5);box-shadow:0 0 5px rgba(0,0,0,.6);cursor:pointer;}
   .curated-marker-icon .cd-dot:hover{outline:2px solid #fff;}
+  .rb-popup-wrap .leaflet-popup-content-wrapper{background:var(--panel);border:1px solid var(--teal-dim);border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,.5);}
+  .rb-popup-wrap .leaflet-popup-content{margin:10px 14px;font-family:var(--font-body);}
+  .rb-popup-wrap .leaflet-popup-tip{background:var(--panel);border:1px solid var(--teal-dim);}
+  .rb-popup-wrap .leaflet-popup-close-button{color:var(--parchment-dim) !important;}
+  .rb-popup b{color:var(--parchment);font-size:13px;}
+  .rb-popup .rb-reason{color:var(--parchment-dim);font-size:12px;margin-top:4px;line-height:1.5;}
+  .rb-popup .rb-sources{color:var(--brass);font-size:11px;margin-top:6px;}
   .custom-marker-icon{pointer-events:auto;cursor:pointer;display:flex;flex-direction:column;align-items:center;}
   .custom-marker-icon .cm-pin{width:14px;height:14px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--lime);border:1.5px solid rgba(255,255,255,.7);box-shadow:0 2px 6px rgba(0,0,0,.5);}
   .custom-marker-icon:hover .cm-pin{background:var(--danger);}
@@ -490,7 +497,7 @@ const EXTRA_CURATED_DATA = [
     x: f.x, y: f.y, region: f.region,
   })),
   ...BASE_SPOTS_RECOMMEND_DATA.map(b => ({
-    type: "Recommend Base", name: `${b.name} — ${b.reason}(出典: ${b.sources.join("・")})`,
+    type: "Recommend Base", name: b.name, reason: b.reason, sources: b.sources,
     x: b.x, y: b.y, region: b.region,
   })),
 ];
@@ -873,7 +880,14 @@ function renderCuratedLandmarks(){
       iconSize: [9, 9],
       iconAnchor: [4.5, 4.5],
     });
-    L.marker(xyToLatLng(p.x, p.y), { icon }).addTo(curatedLayerGroup);
+    const marker = L.marker(xyToLatLng(p.x, p.y), { icon });
+    if(p.reason){
+      marker.bindPopup(
+        `<div class="rb-popup"><b>${p.name}</b><div class="rb-reason">${p.reason}</div><div class="rb-sources">出典: ${p.sources.join(" ・ ")}</div></div>`,
+        { className: "rb-popup-wrap", closeButton: true }
+      );
+    }
+    marker.addTo(curatedLayerGroup);
   });
 }
 
