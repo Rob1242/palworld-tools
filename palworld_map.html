@@ -430,6 +430,9 @@ function switchView(view, updateUrl){
   document.getElementById("statuesView").style.display = view === "statues" ? "" : "none";
   document.getElementById("missionsView").style.display = view === "missions" ? "" : "none";
   document.getElementById("basespotsView").style.display = view === "basespots" ? "" : "none";
+  // パル像マップ(stMap)は#statuesViewがdisplay:noneの間に初期化されるとLeafletが
+  // コンテナサイズを0のまま覚えてしまうため、タブ表示のたびに再計算させる(2026-07-30)。
+  if(view === "statues" && window.__statueMapOnShow) window.__statueMapOnShow();
   // 初回ロード時のURL(?view=missions&id=...等)はここで消してしまうと、
   // 後続スクリプト(ミッション詳細の自動オープン等)がidを読めなくなるため、
   // タブを実際にクリックした時だけURLを書き換える(2026-07-27)。
@@ -999,6 +1002,7 @@ if(location.hash === "#recommend-base"){
     attributionControl: false,
   });
   stMap.fitBounds(stBounds);
+  window.__statueMapOnShow = () => { stMap.invalidateSize(); stMap.fitBounds(stBounds); };
 
   let stTileLayer = null;
   function setStatueTiles(region){
