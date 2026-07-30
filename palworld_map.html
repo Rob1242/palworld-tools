@@ -7,13 +7,14 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-<title>出現マップ | Palworld攻略ツール</title>
-<meta name="description" content="パルワールドの出現マップ。パルの出現場所・パル像コンプリート・ミッション一覧・おすすめ拠点候補地を1ページにまとめました。塔ボス・商人・ファストトラベルなども地図上に表示できます。">
+<title id="pageTitle">出現マップ | Palworld攻略ツール</title>
+<link rel="canonical" id="canonicalTag" href="https://rob1242.github.io/palworld-tools/palworld_map.html">
+<meta name="description" id="metaDesc" content="パルワールドの出現マップ。パルの出現場所・パル像コンプリート・ミッション一覧・おすすめ拠点候補地を1ページにまとめました。塔ボス・商人・ファストトラベルなども地図上に表示できます。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="出現マップ | Palworld攻略ツール">
-<meta property="og:description" content="パルワールドの出現マップ。パルの出現場所・パル像コンプリート・ミッション一覧・おすすめ拠点候補地を1ページにまとめました。塔ボス・商人・ファストトラベルなども地図上に表示できます。">
+<meta property="og:title" id="ogTitle" content="出現マップ | Palworld攻略ツール">
+<meta property="og:description" id="ogDesc" content="パルワールドの出現マップ。パルの出現場所・パル像コンプリート・ミッション一覧・おすすめ拠点候補地を1ページにまとめました。塔ボス・商人・ファストトラベルなども地図上に表示できます。">
 <meta property="og:image" content="https://rob1242.github.io/palworld-tools/game_data/art/hero_sphere_2.webp">
-<meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_map.html">
+<meta property="og:url" id="ogUrl" content="https://rob1242.github.io/palworld-tools/palworld_map.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -227,7 +228,7 @@
 <script src="shared/analytics.js"></script>
 <script src="shared/global_search.js" defer></script>
 <script src="shared/leaflet/leaflet.js"></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"出現マップ","url":"https://rob1242.github.io/palworld-tools/palworld_map.html","description":"パルワールドの出現マップ。パルの出現場所・パル像コンプリート・ミッション一覧・おすすめ拠点候補地を1ページにまとめました。塔ボス・商人・ファストトラベルなども地図上に表示できます。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
+<script type="application/ld+json" id="ldJson">{"@context":"https://schema.org","@type":"WebApplication","name":"出現マップ","url":"https://rob1242.github.io/palworld-tools/palworld_map.html","description":"パルワールドの出現マップ。パルの出現場所・パル像コンプリート・ミッション一覧・おすすめ拠点候補地を1ページにまとめました。塔ボス・商人・ファストトラベルなども地図上に表示できます。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
 </head>
 <body>
 <script>
@@ -424,12 +425,56 @@
 // ══════════════════════════════════════════════════════════════
 // ビュー切り替え(地図/パル像コンプリート/ミッション/拠点おすすめ)
 // ══════════════════════════════════════════════════════════════
+// SEO対策: 各ビューは中身が別物(パル像チェックリスト/ミッション一覧/拠点おすすめ)
+// なのに、JSでdisplay:noneを切り替えているだけなので生HTMLはどの?view=でも同一
+// だった。canonical/title/descriptionが常に「出現マップ」固定だったため、Search
+// Consoleに「重複しています。ユーザーにより、正規ページとして選択されていません」
+// と検出された(2026-07-30、颯太からのSearch Consoleメール通知で発覚)。
+// 統合前の旧ページ(palworld_statues.html等)のcanonicalは元々この?view=単位を
+// 正規URLとして指しているため、ここでも?view=単位で自己参照canonicalを持たせて
+// 一致させる。
+const BASE_URL = "https://rob1242.github.io/palworld-tools/palworld_map.html";
+const VIEW_META = {
+  map: {
+    title: "出現マップ | Palworld攻略ツール",
+    desc: "パルワールドの出現マップ。パルの出現場所を昼夜・野生/ボス別に地図表示。塔ボス・商人・ファストトラベル・おすすめ拠点なども重ねて確認できます。",
+  },
+  statues: {
+    title: "パル像コンプリート | Palworld攻略ツール",
+    desc: "パルワールドのパル像(エフィジー)コンプリートチェックリスト。本土・世界樹エリア合わせて全12種407体の位置を地図で確認し、回収済みを記録できます。",
+  },
+  missions: {
+    title: "ミッション一覧 | Palworld攻略ツール",
+    desc: "パルワールドのミッション一覧。メイン・サブミッションの内容と場所を地図と合わせて確認できます。",
+  },
+  basespots: {
+    title: "拠点おすすめ | Palworld攻略ツール",
+    desc: "パルワールドのおすすめ拠点位置ガイド。座標付きで地図上に表示し、各拠点の推奨理由もあわせて確認できます。",
+  },
+};
+function applyViewMeta(view){
+  const meta = VIEW_META[view] || VIEW_META.map;
+  const url = view === "map" ? BASE_URL : `${BASE_URL}?view=${view}`;
+  document.getElementById("pageTitle").textContent = meta.title;
+  document.getElementById("metaDesc").setAttribute("content", meta.desc);
+  document.getElementById("ogTitle").setAttribute("content", meta.title);
+  document.getElementById("ogDesc").setAttribute("content", meta.desc);
+  document.getElementById("ogUrl").setAttribute("content", url);
+  document.getElementById("canonicalTag").setAttribute("href", url);
+  const ld = JSON.parse(document.getElementById("ldJson").textContent);
+  ld.name = meta.title.split(" | ")[0];
+  ld.description = meta.desc;
+  ld.url = url;
+  document.getElementById("ldJson").textContent = JSON.stringify(ld);
+}
+
 function switchView(view, updateUrl){
   document.querySelectorAll(".view-tab").forEach(t => t.classList.toggle("active", t.dataset.view === view));
   document.getElementById("mapView").style.display = view === "map" ? "" : "none";
   document.getElementById("statuesView").style.display = view === "statues" ? "" : "none";
   document.getElementById("missionsView").style.display = view === "missions" ? "" : "none";
   document.getElementById("basespotsView").style.display = view === "basespots" ? "" : "none";
+  applyViewMeta(view);
   // パル像マップ(stMap)は#statuesViewがdisplay:noneの間に初期化されるとLeafletが
   // コンテナサイズを0のまま覚えてしまうため、タブ表示のたびに再計算させる(2026-07-30)。
   if(view === "statues" && window.__statueMapOnShow) window.__statueMapOnShow();
