@@ -1,48 +1,6 @@
-const STAB_MULT = 1.2;
-const MIN_CYCLE_SECONDS = 2.5;
-const TL_LV = 80, TL_STAR_PCT = 20, TL_TALENT_PCT = 100, TL_SOUL_PCT = 60;
 
-function computeStat(speciesVal, base, coef, lv, talentPct, starPct, soulPct){
-  return (base + speciesVal * coef * lv * (1 + talentPct/100)) * (1 + starPct/100) * (1 + soulPct/100);
-}
-function passiveEffectValue(passive, type){
-  if(!passive) return 0;
-  const e = passive.effects.find(x => x.type === type && x.target === "ToSelf");
-  return e ? e.value : 0;
-}
-function pickBestPresetForTypes(typesEn){
-  const elementKeys = typesEn.map(t => `ElementBoost_${t}`);
-  return COMBAT_PASSIVES_DATA
-    .map(p => {
-      const atk = passiveEffectValue(p, "ShotAttack");
-      const elem = elementKeys.reduce((sum, k) => sum + passiveEffectValue(p, k), 0);
-      return { p, score: atk + elem, hasElem: elem > 0 };
-    })
-    .filter(x => x.score > 0)
-    .sort((a,b) => (b.score + (b.hasElem?0.01:0)) - (a.score + (a.hasElem?0.01:0)))
-    .slice(0, 4)
-    .map(x => x.p.name);
-}
-function computeCombatBest(pal){
-  if(!pal.skills || !pal.skills.length) return null;
-  const atk = computeStat(pal.stats.shot_attack, 100, 0.075, TL_LV, TL_TALENT_PCT, TL_STAR_PCT, TL_SOUL_PCT);
-  const passiveNames = pickBestPresetForTypes(pal.types_en);
-  const chosen = passiveNames.map(n => COMBAT_PASSIVES_DATA.find(p => p.name === n)).filter(Boolean);
-  const genericPct = chosen.reduce((s,ps) => s + passiveEffectValue(ps, "ShotAttack"), 0);
-  const ctPct = chosen.reduce((s,ps) => s + passiveEffectValue(ps, "ActiveSkillCoolTime_Decrease"), 0);
-  const ctMultiplier = Math.max(1 - ctPct/100, 0.1);
-  let best = null;
-  for(const sk of pal.skills){
-    const stab = pal.types_en.includes(sk.element) ? STAB_MULT : 1.0;
-    const elementPct = chosen.reduce((s,ps) => s + passiveEffectValue(ps, `ElementBoost_${sk.element}`), 0);
-    const effectiveAtk = atk * (1 + genericPct/100) * (1 + elementPct/100);
-    const instant = sk.power * effectiveAtk * stab;
-    const cycle = Math.max(sk.cooldown * ctMultiplier, MIN_CYCLE_SECONDS);
-    const sustained = instant / cycle;
-    if(!best || sustained > best.sustained) best = { ...sk, sustained };
-  }
-  return best;
-}
+
+
 function computeCombatBestEarly(pal, lv){
   if(!pal.skills || !pal.skills.length) return null;
   const atk = computeStat(pal.stats.shot_attack, 100, 0.075, lv, 0, 0, 0);
@@ -57,7 +15,7 @@ function computeCombatBestEarly(pal, lv){
   }
   return best;
 }
-const RANKING_EXCLUDE_DEX_IDS = new Set(Array.from({length: 298-288+1}, (_,i) => String(288+i)));
+
 
 function palChip(name, role, reason){
   const dp = PAL_DEX_DATA.find(p => p.name === name);

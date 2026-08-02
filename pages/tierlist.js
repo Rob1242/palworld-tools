@@ -1,60 +1,7 @@
-const STAB_MULT = 1.2;
-const MIN_CYCLE_SECONDS = 2.5;
-const TL_LV = 80, TL_STAR_PCT = 20, TL_TALENT_PCT = 100, TL_SOUL_PCT = 60;
 
-function computeStat(speciesVal, base, coef, lv, talentPct, starPct, soulPct){
-  return (base + speciesVal * coef * lv * (1 + talentPct/100)) * (1 + starPct/100) * (1 + soulPct/100);
-}
-function passiveEffectValue(passive, type){
-  if(!passive) return 0;
-  const e = passive.effects.find(x => x.type === type && x.target === "ToSelf");
-  return e ? e.value : 0;
-}
-function pickBestPresetForTypes(typesEn){
-  const elementKeys = typesEn.map(t => `ElementBoost_${t}`);
-  return COMBAT_PASSIVES_DATA
-    .map(p => {
-      const atk = passiveEffectValue(p, "ShotAttack");
-      const elem = elementKeys.reduce((sum, k) => sum + passiveEffectValue(p, k), 0);
-      return { p, score: atk + elem, hasElem: elem > 0 };
-    })
-    .filter(x => x.score > 0)
-    .sort((a,b) => (b.score + (b.hasElem?0.01:0)) - (a.score + (a.hasElem?0.01:0)))
-    .slice(0, 4)
-    .map(x => x.p.name);
-}
-function computeCombatBest(pal){
-  if(!pal.skills || !pal.skills.length) return null;
-  const atk = computeStat(pal.stats.shot_attack, 100, 0.075, TL_LV, TL_TALENT_PCT, TL_STAR_PCT, TL_SOUL_PCT);
-  const passiveNames = pickBestPresetForTypes(pal.types_en);
-  const chosen = passiveNames.map(n => COMBAT_PASSIVES_DATA.find(p => p.name === n)).filter(Boolean);
-  const genericPct = chosen.reduce((s,ps) => s + passiveEffectValue(ps, "ShotAttack"), 0);
-  const ctPct = chosen.reduce((s,ps) => s + passiveEffectValue(ps, "ActiveSkillCoolTime_Decrease"), 0);
-  const ctMultiplier = Math.max(1 - ctPct/100, 0.1);
-  let best = null;
-  for(const sk of pal.skills){
-    const stab = pal.types_en.includes(sk.element) ? STAB_MULT : 1.0;
-    const elementPct = chosen.reduce((s,ps) => s + passiveEffectValue(ps, `ElementBoost_${sk.element}`), 0);
-    const effectiveAtk = atk * (1 + genericPct/100) * (1 + elementPct/100);
-    const instant = sk.power * effectiveAtk * stab;
-    const cycle = Math.max(sk.cooldown * ctMultiplier, MIN_CYCLE_SECONDS);
-    const sustained = instant / cycle;
-    if(!best || sustained > best.sustained) best = { ...sk, sustained };
-  }
-  return best;
-}
 
-function toKana(str){
-  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
-}
 
-// Terrariaコラボパル(dex_id 288〜298)は専用技のクールタイムが軒並み1秒(他の291体は
-// 最低でも2秒、高火力技は大抵10〜30秒)という他に例のない値で、そのままDPS計算式に通すと
-// レインボースライム等が桁外れのスコアで「最強」に来てしまう(2026-07-16に発覚)。
-// この値が実際のゲームプレイ上のものかボス戦AI由来かは確認が取れていないため、
-// 検証できるまで戦闘カテゴリのランキングからは除外する(作業適性・ライド速度は別データで
-// 異常が見られないため、そちらのカテゴリでは通常通り表示する)。
-const RANKING_EXCLUDE_DEX_IDS = new Set(Array.from({length: 298-288+1}, (_,i) => String(288+i)));
+
 
 // 家畜牧場にパルを配置した際の産出アイテムは、専用の構造化データが無いため
 // パートナースキルの説明文(自然文)から正規表現で抽出する。抽出できないパルは

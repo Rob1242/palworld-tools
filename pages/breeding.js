@@ -56,11 +56,6 @@ function iconOf(asset){
   return info && info.icon;
 }
 
-// ひらがな入力でもカタカナのパル名にヒットするよう正規化する(「る」→「ル」を含む名前にもヒット)
-function toKana(str){
-  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
-}
-
 function setupPicker(inputEl, resultsEl, onPick){
   inputEl.addEventListener("input", () => {
     const q = inputEl.value.trim().toLowerCase();

@@ -192,11 +192,6 @@ mapMap.on("click", e => {
 
 document.getElementById("zoomInBtn").addEventListener("click", () => mapMap.zoomIn());
 document.getElementById("zoomOutBtn").addEventListener("click", () => mapMap.zoomOut());
-
-function toKana(s){
-  return (s || "").replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
-}
-
 function setupPicker(){
   const wrap = document.getElementById("mapPicker");
   const input = wrap.querySelector("input");

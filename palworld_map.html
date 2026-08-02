@@ -232,7 +232,8 @@
 <script type="application/ld+json" id="ldJson">{"@context":"https://schema.org","@type":"WebApplication","name":"出現マップ","url":"https://rob1242.github.io/palworld-tools/palworld_map.html","description":"パルワールドの出現マップ。パルの出現場所・パル像コンプリート・ミッション一覧・おすすめ拠点候補地を1ページにまとめました。塔ボス・商人・ファストトラベルなども地図上に表示できます。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
 </head>
 <body>
-<script src="pages/map.js"></script>
+<script src="shared/text-normalize.js"></script>
+<script src="pages/map-embed.js"></script>
 <div class="wrap">
   <header class="top">
     <a class="brand-link" href="palworld_home.html">
@@ -418,22 +419,22 @@
 <script src="game_data/missions_data.js"></script>
 <script src="game_data/base_spots_recommend_data.js"></script>
 <script src="shared/icons.js"></script>
-<script src="pages/map.2.js"></script>
+<script src="pages/map-view.js"></script>
 
 <!-- ══════════════════════════════════════════════════════════════
      パル像コンプリートビュー専用スクリプト(旧palworld_statues.htmlを移植、
      IIFEで独立スコープにして地図ビューのstate/関数名と衝突しないようにしている)
      ══════════════════════════════════════════════════════════════ -->
-<script src="pages/map.3.js"></script>
+<script src="pages/map-statues.js"></script>
 
 <!-- ══════════════════════════════════════════════════════════════
      ミッションビュー専用スクリプト(旧palworld_missions.htmlを移植)
      ══════════════════════════════════════════════════════════════ -->
-<script src="pages/map.4.js"></script>
+<script src="pages/map-missions.js"></script>
 
 <!-- ══════════════════════════════════════════════════════════════
      拠点おすすめビュー専用スクリプト(旧palworld_base_spots.htmlを移植)
      ══════════════════════════════════════════════════════════════ -->
-<script src="pages/map.5.js"></script>
+<script src="pages/map-basespots.js"></script>
 </body>
 </html>

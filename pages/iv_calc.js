@@ -1,9 +1,4 @@
 const POTENTIAL_BONUS = 0.3;
-
-function toKana(str){
-  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
-}
-
 function setupPicker(){
   const input = document.querySelector("#ivPicker input");
   const results = document.querySelector("#ivPicker .pal-picker-results");

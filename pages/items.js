@@ -87,11 +87,6 @@ const DISPLAY_ITEMS = (() => {
 })();
 
 const state = { query: "", category: "すべて", sort: "price_desc" };
-
-function toKana(str){
-  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
-}
-
 // name_jpが"-"のものは「日本語名が見つからなかった」プレースホルダであり、
 // 実際の日本語名ではない(2026-07-17発見)。この場合は英語名にフォールバックする。
 function displayName(item){

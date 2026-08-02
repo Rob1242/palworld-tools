@@ -1,8 +1,8 @@
 const TYPES = ["無","炎","水","雷","地","草","氷","竜","闇"];
 function typeBadge(t){ return `<span class="type-badge type-${t}">${t}</span>`; }
 
-const STAB_MULT = 1.2;
-const MIN_CYCLE_SECONDS = 2.5;
+
+
 
 let state = {
   pal: null,
@@ -13,17 +13,6 @@ let state = {
   passiveSlots: [null, null, null, null],
   dpsMode: "sustained",
 };
-
-function computeStat(speciesVal, base, coef, lv, talentPct, starPct, soulPct){
-  return (base + speciesVal * coef * lv * (1 + talentPct/100)) * (1 + starPct/100) * (1 + soulPct/100);
-}
-
-function passiveEffectValue(passive, type){
-  if(!passive) return 0;
-  const e = passive.effects.find(x => x.type === type && x.target === "ToSelf");
-  return e ? e.value : 0;
-}
-
 function getChosenPassives(){
   return state.passiveSlots.map(name => name ? COMBAT_PASSIVES_DATA.find(p => p.name === name) : null).filter(Boolean);
 }
@@ -332,21 +321,6 @@ function isWeakTo(defenderTypesJp, attackerType){
   defenderTypesJp.forEach(def => { mult *= partyElementMultiplier(attackerType, def); });
   return mult > 1.01;
 }
-
-function pickBestPresetForTypes(typesEn){
-  const elementKeys = typesEn.map(t => `ElementBoost_${t}`);
-  return COMBAT_PASSIVES_DATA
-    .map(p => {
-      const atk = passiveEffectValue(p, "ShotAttack");
-      const elem = elementKeys.reduce((sum, k) => sum + passiveEffectValue(p, k), 0);
-      return { p, score: atk + elem, hasElem: elem > 0 };
-    })
-    .filter(x => x.score > 0)
-    .sort((a,b) => (b.score + (b.hasElem?0.01:0)) - (a.score + (a.hasElem?0.01:0)))
-    .slice(0, 4)
-    .map(x => x.p.name);
-}
-
 function computePalBestForParty(pal){
   if(!pal.skills || !pal.skills.length) return null;
   const atk = computeStat(pal.stats.shot_attack, 100, 0.075, PARTY_LV, PARTY_TALENT_PCT, PARTY_STAR_PCT, PARTY_SOUL_PCT);
@@ -376,14 +350,7 @@ function popcount(x){
   return c;
 }
 
-// Terrariaコラボパル(dex_id 288〜298、クトゥルフのめだま〜かがやくコウモリ)は専用技の
-// クールタイムが軒並み1秒(他の291体は最低でも2秒、高火力技は大抵10〜30秒)という他に例のない
-// 異常値で、DPS計算式にそのまま通すと実際の強さとかけ離れた桁外れのスコアになる
-// (レインボースライム等が「最強」に出てしまう不具合を確認済み・2026-07-16)。
-// この専用技コールタイムが実際のゲームプレイ上の値なのか、ボス戦AIの攻撃間隔がそのまま
-// 技データとして抽出されたものなのかは確認が取れていないため、確実な検証ができるまで
-// 全パル横断のランキング系機能(6体パーティ・最強Tier表)からは除外する。
-const RANKING_EXCLUDE_DEX_IDS = new Set(Array.from({length: 298-288+1}, (_,i) => String(288+i)));
+
 
 function selectBestParty(){
   const candidates = COMBAT_PAL_DATA

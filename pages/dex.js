@@ -22,12 +22,6 @@ function renderChips(){
   });
 }
 
-// ひらがな入力でもカタカナのパル名にヒットするよう、ひらがなをカタカナに正規化して比較する
-// (パル名はほぼカタカナ表記のため。「る」で検索→「ル」を含む名前にもヒットする)
-function toKana(str){
-  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
-}
-
 function filteredSorted(){
   let list = PAL_DEX_DATA.filter(p => {
     if(state.query){

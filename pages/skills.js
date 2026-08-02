@@ -1,11 +1,6 @@
 const ELEMENTS = [...new Map(SKILLS_PAGE_DATA.map(s => [s.element, { element: s.element, jp: s.element_jp, color: s.element_color, icon: s.element_icon }])).values()];
 
 const state = { query: "", element: "すべて" };
-
-function toKana(str){
-  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
-}
-
 function renderChips(){
   const chips = ["すべて", ...ELEMENTS.map(e => e.element)];
   document.getElementById("elementChips").innerHTML = chips.map(el => {

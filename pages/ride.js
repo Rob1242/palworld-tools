@@ -34,11 +34,6 @@ const ENV_BONUS_PALS = {
 };
 
 const state = { mode: "ground", build: "none", query: "", sort: "sprint", star: 0, env: "off" };
-
-function toKana(str){
-  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
-}
-
 function envPctFor(p){
   if(state.env !== "on") return 0;
   const bonus = ENV_BONUS_PALS[p.id];

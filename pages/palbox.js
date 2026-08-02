@@ -552,12 +552,6 @@ function iconOf(asset){
   return info && info.icon;
 }
 
-// ひらがな入力でもカタカナのパル名・技名・パッシブ名にヒットするよう正規化する
-// (「る」→「ル」を含む名前にもヒット)
-function toKana(str){
-  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
-}
-
 // ニックネーム(自由入力・共有ボックス経由で他人のブラウザにも表示されうる)や検索語を
 // innerHTMLに埋め込む箇所は、必ずこれを通してHTMLタグとして解釈されないようにする。
 function escapeHtml(str){
