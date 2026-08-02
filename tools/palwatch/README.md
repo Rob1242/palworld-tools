@@ -73,35 +73,36 @@ node palwatch.mjs --quiet    # 声を出さず記録だけ
 
 ## 呼びかけモード(--wake)
 
-Siriと同じ二段構えにしている。常時は軽い検出だけを動かし、呼ばれた時だけ
-whisperを起動する。whisperを回しっぱなしにすると8GBのMacでは重すぎるため。
+「ルナ」と呼びかけると反応する。**追加の登録もAPIキーも要らない。**
 
-### 準備
+当初Picovoiceを使う予定だったが、2026年6月30日に個人利用プランが廃止されたため、
+すでに入れてあるwhisperだけで実現している。
 
-[Picovoice Console](https://console.picovoice.ai/) で無料のアクセスキーを取得し、
-`config.json` の `picovoiceAccessKey` に入れる。
+### 仕組み
 
-呼びかけ語は2通り選べる。
+1. soxが無音を監視して待つ(音量を見ているだけなのでCPUをほとんど使わない)
+2. 声が始まったら録音し、黙ったところで自動的に切る
+3. whisperで文字にして、呼びかけ語が含まれているか見る
 
-**英語の組み込み語(追加ファイル不要)**
+**「ルナ、今何体いる」のように呼びかけと用件を続けて言える**のがこの方式の利点。
+呼びかけだけの場合は「なに?」と返してから用件を聞く。
 
-`builtinWakeWord` に指定するだけ。使えるのは
-ALEXA / AMERICANO / BLUEBERRY / BUMBLEBEE / COMPUTER / GRAPEFRUIT / GRASSHOPPER /
-HEY_GOOGLE / HEY_SIRI / JARVIS / OK_GOOGLE / PICOVOICE / PORCUPINE / TERMINATOR。
+### 認識のゆれへの対応
 
-**日本語の自作(「ルナ」など)**
+短い呼びかけは頭が欠けやすい(「ルナ、拠点は」→「な、拠点は」)。
+そのため完全一致に加えて、先頭が1文字欠けた形も**文頭に限って**認めている。
+文頭に限定するのは、文の途中の同じ音で誤反応しないため。
 
-Picovoice Console で日本語を選んで語を作り、落とした `.ppn` をこのフォルダに置いて
-`wakeWordFile` にファイル名を書く。日本語モデル(`models/porcupine_params_ja.pv`)は取得済み。
+カタカナが平仮名に崩れるケース(「ルナ」→「るな」)にも対応している。
 
 ### うまく動かない時
 
-- `wakeSensitivity` を上げると反応しやすくなるが、誤検知も増える(既定0.6)
-- マイクを選び直す: `audioDeviceIndex` に番号を入れる。一覧は下のコマンドで出る
+`config.json` で調整する。
 
-```bash
-node -e "const{PvRecorder}=require('@picovoice/pvrecorder-node');PvRecorder.getAvailableDevices().forEach((d,i)=>console.log(i,d))"
-```
+- `wakeWords` — 呼びかけ語。複数指定でき、既定は `["ルナ", "るな"]`
+- `wakeStartThreshold` — この音量以上で録音を始める(既定3%)。**大きくすると小さな物音を拾わなくなる**
+- `wakeSilenceSec` — 何秒黙ったら切るか(既定1.0秒)
+- `wakeDebug` — `true` にすると、呼びかけ以外の聞き取り結果も表示される。調整に使う
 
-- **ゲーム音が鳴っている環境では誤検知が増える。** ヘッドセットを使うと大幅に改善する
-- それでも実用にならなければ `--talk`(Enter方式)に戻せる。中身は同じ
+**ゲーム音が鳴っている環境では誤検知が増える。** ヘッドセットを使うと大幅に改善する。
+それでも実用にならなければ `--talk`(Enter方式)に戻せる。返答の中身は同じ。

@@ -165,40 +165,40 @@ async function talkMode() {
 // Enterを押す代わりに、呼びかけ語を検知したら聞き取りを始める。
 // うまく動かない時に切り分けられるよう、Enter方式と同じ中身を使い回している。
 async function wakeMode() {
-  const { createDetector, listenForWake, release } = await import('./wakeword.mjs');
-  const { listenOnce } = await import('./voice.mjs');
+  const { listenForWake } = await import('./wakeword.mjs');
+  const { listenOnce, interpret } = await import('./voice.mjs');
   const ctx = await buildTalkContext();
   if (!ctx) return;
   const say = t => speak(t, cfg.voice, cfg.speechRate);
 
-  let det;
-  try {
-    det = await createDetector(cfg);
-  } catch (e) {
-    console.error('呼びかけ検出を始められませんでした:', e.message);
-    console.error('  --talk なら追加設定なしで使えます。');
-    return;
-  }
-
-  const label = cfg.wakeWordFile ? cfg.wakeWordLabel || '呼びかけ語' : (cfg.builtinWakeWord || 'JARVIS');
-  console.log(`「${label}」と呼びかけてください(終了は Control+C)。`);
+  const words = cfg.wakeWords?.length ? cfg.wakeWords : ['ルナ'];
+  console.log(`「${words[0]}」と呼びかけてください(終了は Control+C)。`);
+  console.log('「ルナ、今何体いる」のように用件まで続けて言ってもいいです。\n');
   await say('呼びかけを待ってるね。');
 
   let stopping = false;
-  process.on('SIGINT', () => { stopping = true; });
+  process.on('SIGINT', () => { stopping = true; process.exit(0); });
 
-  await listenForWake(det, async () => {
-    process.stdout.write('  呼ばれました。聞いています…\n');
+  await listenForWake(cfg, async (rest, whole) => {
+    console.log(`  呼ばれました: ${whole}`);
     try {
-      const r = await listenOnce(cfg, ctx, say);
-      if (r.heard) console.log(`  聞き取り: ${r.heard}`);
-      if (r.reply) console.log(`  返答:     ${r.reply}`);
+      if (rest) {
+        // 呼びかけと一緒に用件も言われた場合は、聞き直さずそのまま答える
+        const reply = interpret(rest, ctx);
+        if (reply) { console.log(`  返答: ${reply}`); await say(reply); }
+        else { await say('ごめん、聞き取れなかった。もう一回言って。'); }
+      } else {
+        // 呼びかけだけだった場合は、返事をしてから用件を聞く
+        await say('なに?');
+        const r = await listenOnce(cfg, ctx, say);
+        if (r.heard) console.log(`  聞き取り: ${r.heard}`);
+        if (r.reply) console.log(`  返答:     ${r.reply}`);
+      }
     } catch (e) {
       console.error('  エラー:', e.message);
     }
   }, () => stopping);
 
-  release(det);
   console.log('終了しました。');
 }
 

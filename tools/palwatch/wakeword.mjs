@@ -1,66 +1,111 @@
-// 呼びかけ語の検出。「ルナ」と言ったら聞き取りを始める。
+// 呼びかけ語の検出。「ルナ」と言ったら反応する。
 //
-// Siriと同じ二段構えにしている:
-//   常時は軽い検出だけを動かし(CPUをほとんど使わない)、
-//   呼びかけを検知した時だけwhisperを起動して本格的に聞き取る。
-// whisperを回しっぱなしにすると8GBのMacでは重すぎるため。
+// Picovoiceは2026年6月30日に個人利用プランが廃止されたため使えない。
+// 代わりに、すでに入れてあるwhisperだけで実現している。追加の登録もキーも要らない。
 //
-// 呼びかけ語は2通り選べる:
-//   日本語 … Picovoice Consoleで作った .ppn と日本語モデルが要る(「ルナ」等)
-//   英語   … 組み込みの語をそのまま使える。追加ファイル不要(JARVIS等)
+// 仕組み:
+//   1. soxが無音を監視して待つ(音量を見ているだけなのでCPUをほとんど使わない)
+//   2. 声が始まったら録音し、黙ったところで自動的に切る
+//   3. whisperで文字にして、呼びかけ語が含まれているか見る
+//
+// この作りの利点は、「ルナ、今何体いる」のように呼びかけと用件を続けて言えること。
+// 呼びかけだけを検出する方式だと、二度手間になる。
 
+import { spawn, execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+const execFileAsync = promisify(execFile);
 
-const HERE = path.dirname(fileURLToPath(import.meta.url));
+const TMP = path.join(os.tmpdir(), 'palwatch-wake');
+fs.mkdirSync(TMP, { recursive: true });
 
-export async function createDetector(cfg) {
-  const { Porcupine, BuiltinKeyword } = await import('@picovoice/porcupine-node');
-  const { PvRecorder } = await import('@picovoice/pvrecorder-node');
+// 聞き取りではカタカナが崩れるので(「ルナ」→「るな」)、平仮名に寄せて比べる。
+const toHira = s => (s || '').replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
 
-  if (!cfg.picovoiceAccessKey) {
-    throw new Error('config.json に picovoiceAccessKey がありません。');
-  }
-
-  let porcupine;
-  const jaModel = path.join(HERE, 'models', 'porcupine_params_ja.pv');
-  const kw = cfg.wakeWordFile ? path.join(HERE, cfg.wakeWordFile) : null;
-
-  if (kw && fs.existsSync(kw)) {
-    // 日本語などの自作呼びかけ語
-    if (!fs.existsSync(jaModel)) throw new Error('日本語モデル(models/porcupine_params_ja.pv)が見つかりません。');
-    porcupine = new Porcupine(cfg.picovoiceAccessKey, [kw], [cfg.wakeSensitivity ?? 0.6], jaModel);
-  } else {
-    // 組み込みの英語の語(追加ファイルなしで動かせる)
-    const name = (cfg.builtinWakeWord || 'JARVIS').toUpperCase();
-    const builtin = BuiltinKeyword[name];
-    if (builtin === undefined) throw new Error(`組み込みの呼びかけ語に ${name} はありません。`);
-    porcupine = new Porcupine(cfg.picovoiceAccessKey, [builtin], [cfg.wakeSensitivity ?? 0.6]);
-  }
-
-  const recorder = new PvRecorder(porcupine.frameLength, cfg.audioDeviceIndex ?? -1);
-  return { porcupine, recorder };
+// 呼びかけ語が含まれているか。
+// 短い呼びかけは頭が欠けやすい(「ルナ、拠点は」→「な、拠点は」のように「ル」が落ちる)。
+// そこで完全一致に加えて、先頭が1文字欠けた形も文頭に限って認める。
+// 文頭に限定するのは、文の途中にたまたま同じ音があった時に誤反応しないため。
+export function containsWake(text, words) {
+  const t = toHira(text).replace(/[\s、。,.!?！？]/g, '');
+  if (words.some(w => t.includes(toHira(w)))) return true;
+  return words.some(w => {
+    const h = toHira(w);
+    return h.length >= 2 && t.startsWith(h.slice(1));
+  });
 }
 
-// 呼びかけを待ち続け、検知するたびに onWake を呼ぶ。
-// onWake の実行中は検出を止める(自分の返事の声を拾って誤検知するのを防ぐため)。
-export async function listenForWake({ porcupine, recorder }, onWake, shouldStop = () => false) {
-  recorder.start();
+// 呼びかけ語より後ろを用件として取り出す(「ルナ、今何体いる」→「今何体いる」)。
+export function stripWake(text, words) {
+  let t = text;
+  for (const w of words) {
+    const h = toHira(w);
+    const i = toHira(t).indexOf(h);
+    if (i >= 0) { t = t.slice(i + w.length); break; }
+    // 先頭が欠けた形(「な、拠点は」)も取り除く
+    if (h.length >= 2 && toHira(t).startsWith(h.slice(1))) { t = t.slice(h.length - 1); break; }
+  }
+  return t.replace(/^[\s、。,.]+/, '').trim();
+}
+
+// 声が始まるのを待って、黙るまで録音する。
+// 無音の間はsoxが音量を見ているだけなので、待機中の負荷はごく小さい。
+function recordUtterance(cfg) {
+  const wav = path.join(TMP, `w_${Date.now()}.wav`);
+  return new Promise((resolve, reject) => {
+    const p = spawn('rec', [
+      '-q', '-r', '16000', '-c', '1', '-b', '16', wav,
+      // 前半: 声が始まるまで無音を捨て続ける / 後半: 黙ったら終了
+      'silence', '1', '0.1', String(cfg.wakeStartThreshold || '3%'),
+      '1', String(cfg.wakeSilenceSec || 1.0), String(cfg.wakeStopThreshold || '3%'),
+      'trim', '0', String(cfg.wakeMaxSec || 10),
+    ]);
+    p.on('error', reject);
+    p.on('close', () => fs.existsSync(wav) ? resolve(wav) : reject(new Error('録音できませんでした')));
+  });
+}
+
+async function transcribe(wav, model) {
   try {
-    while (!shouldStop()) {
-      const frame = await recorder.read();
-      if (porcupine.process(frame) >= 0) {
-        recorder.stop();
-        try { await onWake(); } finally { recorder.start(); }
-      }
-    }
+    const { stdout } = await execFileAsync('whisper-cli',
+      ['-m', model, '-l', 'ja', '-nt', '-np', '-f', wav], { maxBuffer: 1024 * 1024 });
+    return stdout.replace(/\s+/g, ' ').trim();
   } finally {
-    recorder.stop();
+    fs.unlink(wav, () => {});
   }
 }
 
-export function release({ porcupine, recorder }) {
-  try { recorder.release(); } catch {}
-  try { porcupine.release(); } catch {}
+// 呼びかけを待ち続ける。呼ばれたら onWake(用件のテキスト) を呼ぶ。
+// 用件が空(呼びかけonly)なら null を渡すので、呼び出し側で聞き直せばよい。
+export async function listenForWake(cfg, onWake, shouldStop = () => false) {
+  const words = cfg.wakeWords && cfg.wakeWords.length ? cfg.wakeWords : ['ルナ'];
+  const model = cfg.wakeWhisperModel || cfg.whisperModel;
+
+  while (!shouldStop()) {
+    let wav;
+    try {
+      wav = await recordUtterance(cfg);
+    } catch (e) {
+      if (shouldStop()) break;
+      console.error('  録音に失敗:', e.message);
+      continue;
+    }
+    let text = '';
+    try {
+      text = await transcribe(wav, model);
+    } catch (e) {
+      console.error('  聞き取りに失敗:', e.message);
+      continue;
+    }
+    if (!text) continue;
+
+    if (containsWake(text, words)) {
+      const rest = stripWake(text, words);
+      await onWake(rest || null, text);
+    } else if (cfg.wakeDebug) {
+      console.log(`  (呼びかけ以外: ${text})`);
+    }
+  }
 }

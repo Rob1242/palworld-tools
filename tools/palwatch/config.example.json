@@ -15,10 +15,14 @@
   "voiceMaxSec": 12,
   "voiceStartThreshold": "2%",
   "voiceStopThreshold": "2%",
-  "picovoiceAccessKey": "",
-  "builtinWakeWord": "JARVIS",
-  "wakeWordFile": "",
-  "wakeWordLabel": "ルナ",
-  "wakeSensitivity": 0.6,
-  "audioDeviceIndex": -1
+  "wakeWords": [
+    "ルナ",
+    "るな"
+  ],
+  "wakeWhisperModel": "~/.local/share/whisper/ggml-small.bin",
+  "wakeStartThreshold": "3%",
+  "wakeStopThreshold": "3%",
+  "wakeSilenceSec": 1.0,
+  "wakeMaxSec": 10,
+  "wakeDebug": false
 }
