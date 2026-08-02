@@ -1284,11 +1284,13 @@ function renderRoadmapPassivePickList(query){
       const idx = roadmapState.passives.indexOf(name);
       if(idx >= 0){ roadmapState.passives.splice(idx,1); }
       else {
-        if(roadmapState.passives.length >= 4){ alert('パッシブは最大4つまでです'); return; }
+        // パルのパッシブ枠は4つまで。alert()はページ全体が固まるので使わない。
+        if(roadmapState.passives.length >= 4){ showGlobalToast('パッシブは最大4つまでです。'); return; }
         roadmapState.passives.push(name);
       }
       renderRoadmapPassivePickList(query);
       renderRoadmapPassiveChips();
+      renderRoadmapPassivePresets();
       updateRoadmapResult();
     });
   });
@@ -1304,6 +1306,67 @@ function renderRoadmapPassiveChips(){
       roadmapState.passives = roadmapState.passives.filter(p => p !== x.dataset.remove);
       renderRoadmapPassivePickList(document.getElementById('roadmapPassiveSearch').value);
       renderRoadmapPassiveChips();
+      renderRoadmapPassivePresets();
+      updateRoadmapResult();
+    });
+  });
+}
+
+// ---- 欲しいパッシブの用途別プリセット ----
+// パルは最大4枠なので、どれも4つちょうどで組む。
+//
+// 作業速度の並びは拠点プランナーの PASSIVE_POOL と揃えてある(超絶技巧75 / 職人気質50 /
+// 社畜30 / 希少20 / 悪魔の手90=世界樹)。移動速度・戦闘系の効果量は
+// game_data/passives_guide_data.js の実データに基づく。
+// 戦闘・レイドの構成だけはデータから一意に決まらないため、複数の攻略サイト・
+// コミュニティで共通して挙がる組み合わせを採用している(2026-08調査)。
+// 数値を変える場合は、必ず上記データ側と突き合わせること。
+const PASSIVE_PRESETS = [
+  { label: "作業用", desc: "作業速度+175%",
+    passives: ["超絶技巧", "職人気質", "社畜", "希少"] },
+  { label: "作業用(夜も稼働)", desc: "作業速度+155% / 夜も働く",
+    // 夜稼働は吸血鬼(R4)でも取れるが、配合で狙うならR1の不眠の方が現実的
+    passives: ["不眠", "超絶技巧", "職人気質", "社畜"] },
+  { label: "作業用(世界樹込み)", desc: "作業速度+245% / SAN値-15%",
+    passives: ["悪魔の手", "超絶技巧", "職人気質", "社畜"] },
+  { label: "戦闘用", desc: "攻撃と耐久のバランス型",
+    passives: ["伝説", "鬼神", "冷静沈着", "ダイヤモンドボディ"] },
+  { label: "レイド用", desc: "長期戦向け / 回復手段あり",
+    passives: ["伝説", "鬼神", "冷静沈着", "不死身"] },
+  { label: "安定型(耐久)", desc: "防御重視 / ひるみ・吹き飛び無効",
+    passives: ["ダイヤモンドボディ", "屈強な肉体", "ヘビー級", "伝説"] },
+  { label: "スピード特化(騎乗)", desc: "移動速度+120%",
+    passives: ["次元跳躍", "神速", "伝説", "走るのが得意"] },
+  { label: "牧場・タマゴ", desc: "牧場適性とタマゴ生成",
+    passives: ["ベビーシッター", "博愛主義者", "牧場の主", "牧場っ子"] },
+  { label: "満腹度節約", desc: "エサの消費を抑える",
+    passives: ["絶食の極み", "ダイエットマスター", "小食", "神樹の苗床"] },
+  { label: "SAN値対策", desc: "働かせ続けても病みにくい",
+    passives: ["仙人", "不動明王の心", "ワーカーホリック", "ポジティブ思考"] },
+];
+
+function currentPresetLabel(){
+  const cur = [...roadmapState.passives].sort().join("|");
+  const hit = PASSIVE_PRESETS.find(p => [...p.passives].sort().join("|") === cur);
+  return hit ? hit.label : null;
+}
+
+function renderRoadmapPassivePresets(){
+  const el = document.getElementById('roadmapPassivePresets');
+  if(!el) return;
+  const active = currentPresetLabel();
+  el.innerHTML = PASSIVE_PRESETS.map(p =>
+    `<span class="preset-chip${p.label === active ? ' active' : ''}" data-preset="${escapeHtml(p.label)}" title="${escapeHtml(p.passives.join('・'))} — ${escapeHtml(p.desc)}">${escapeHtml(p.label)}</span>`
+  ).join('');
+  el.querySelectorAll('[data-preset]').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const preset = PASSIVE_PRESETS.find(p => p.label === chip.dataset.preset);
+      if(!preset) return;
+      // 同じプリセットをもう一度押したら解除する
+      roadmapState.passives = (currentPresetLabel() === preset.label) ? [] : preset.passives.slice();
+      renderRoadmapPassivePresets();
+      renderRoadmapPassivePickList(document.getElementById('roadmapPassiveSearch').value);
+      renderRoadmapPassiveChips();
       updateRoadmapResult();
     });
   });
@@ -1312,6 +1375,7 @@ function renderRoadmapPassiveChips(){
 document.getElementById('roadmapPassiveSearch').addEventListener('input', e => renderRoadmapPassivePickList(e.target.value));
 renderRoadmapPassivePickList('');
 renderRoadmapPassiveChips();
+renderRoadmapPassivePresets();
 
 setupPicker(
   document.querySelector('#roadmapTargetInput'),
@@ -1349,7 +1413,7 @@ updateRoadmapSourceHint();
 document.querySelectorAll("#roadmapSourceTabs .mini-tab").forEach(tab => {
   tab.addEventListener("click", () => {
     if(tab.dataset.source === "shared" && !currentRoomCode){
-      alert("共有ボックスに入っていません。先に「共有ボックス」タブで合言葉を作成/入力してください。");
+      showGlobalToast("共有ボックスに入っていません。先に「共有ボックス」タブで合言葉を作成/入力してください。");
       return;
     }
     document.querySelectorAll("#roadmapSourceTabs .mini-tab").forEach(t => t.classList.remove("active"));
@@ -1457,7 +1521,7 @@ function renderSkillPickList(query){
       const idx = pformState.skills.indexOf(a);
       if(idx >= 0){ pformState.skills.splice(idx,1); }
       else {
-        if(pformState.skills.length >= 3){ alert('技は最大3つまでです'); return; }
+        if(pformState.skills.length >= 3){ showGlobalToast('技は最大3つまでです。'); return; }
         pformState.skills.push(a);
       }
       renderSkillPickList(query);
@@ -1495,7 +1559,7 @@ function renderPassivePickList(query){
       const idx = pformState.passives.indexOf(name);
       if(idx >= 0){ pformState.passives.splice(idx,1); }
       else {
-        if(pformState.passives.length >= 4){ alert('パッシブは最大4つまでです'); return; }
+        if(pformState.passives.length >= 4){ showGlobalToast('パッシブは最大4つまでです。'); return; }
         pformState.passives.push(name);
       }
       renderPassivePickList(query);
@@ -1597,7 +1661,7 @@ document.getElementById('pformSaveBtn').addEventListener('click', () => {
   if(!pformState.asset) return;
   const info = BREEDING_PALS_DATA[pformState.asset];
   const dexId = info ? info.dex_id : null;
-  if(!dexId){ alert('この種族は図鑑データと紐づいていないため登録できません。'); return; }
+  if(!dexId){ showGlobalToast('この種族は図鑑データと紐づいていないため登録できません。'); return; }
   const inst = {
     uid: pformState.editUid || ('inst_' + Date.now() + '_' + Math.floor(Math.random()*100000)),
     dexId,
