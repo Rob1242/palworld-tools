@@ -216,7 +216,14 @@
   .pfilter-chip:hover{border-color:var(--brass-dim);color:var(--parchment);}
   .pfilter-chip.active{background:var(--brass);border-color:var(--brass);color:#2a1c08;font-weight:600;}
   .pfilter-chip .cnt{opacity:.7;margin-left:3px;}
-  .box-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:8px;padding:14px 16px;max-height:600px;overflow-y:auto;}
+  /* 1ページ72体を 12列×6行 で並べる(pages/palbox.js の BOX_PAGE_SIZE と対応)。
+     画面が狭いと12列では1枠が潰れるため、幅に応じて列数だけ段階的に減らす
+     (1ページの体数は変えないので、そのぶん縦に伸びる)。 */
+  .box-grid{--box-cols:12;display:grid;grid-template-columns:repeat(var(--box-cols),minmax(0,1fr));gap:8px;padding:14px 16px;max-height:600px;overflow-y:auto;}
+  @media (max-width:1200px){ .box-grid{--box-cols:8;} }
+  @media (max-width:900px){ .box-grid{--box-cols:6;} }
+  @media (max-width:600px){ .box-grid{--box-cols:4;} }
+  @media (max-width:400px){ .box-grid{--box-cols:3;} }
   .box-grid .card{padding:7px 4px 6px;}
   .box-grid .icon-wrap{width:46px;height:46px;margin-bottom:5px;}
   .box-grid .pname{font-size:10.5px;line-height:1.2;}

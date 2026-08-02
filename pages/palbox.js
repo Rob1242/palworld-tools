@@ -163,10 +163,11 @@ function boxStatRow(label, val, max){
 const boxState = { query: "", selectedUid: null, passiveFilter: null, page: 0 };
 const sharedBoxState = { query: "", selectedUid: null, instances: [], passiveFilter: null, page: 0 };
 
-// 実際のゲーム内パルボックスは1ページ(1ボックス)30枠(6列×5行)、全32ボックスで
-// 合計960枠という仕様(2026-08確認、palworld.wiki.gg「Palbox」項目)。
-// ここでの1ページもこれに合わせて30体ずつに区切って表示する。
-const BOX_PAGE_SIZE = 30;
+// 1ページあたりの表示数。12列×6行=72体。
+// 実機のパルボックスは1ボックス30枠(6列×5行)だが、ここは画面が広い分たくさん
+// 一覧できた方が探しやすいため、実機より多めに区切っている(2026-08、颯太の指定)。
+// 列数は .box-grid のCSS(--box-cols)と揃えること。
+const BOX_PAGE_SIZE = 72;
 
 // ---- パルボックス共通(所持ボックス・共有ボックスの両方で使う汎用レンダラー) ----
 function filterInstances(instances, query, passiveFilter){
