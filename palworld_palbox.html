@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
@@ -323,12 +323,28 @@
   .pform-save-btn:disabled{opacity:.4;cursor:default;box-shadow:none;}
   @media (max-width:760px){ .box-layout{flex-direction:column;} .box-side{width:100%;position:static;} }
 
+  .save-import-drop{border:2px dashed var(--line);border-radius:10px;padding:32px 16px;text-align:center;cursor:pointer;color:var(--parchment-dim);transition:border-color .15s,background .15s;}
+  .save-import-drop:hover, .save-import-drop.dragover{border-color:var(--teal);background:rgba(53,210,255,.06);color:var(--parchment);}
+  .save-import-list{max-height:340px;overflow-y:auto;border:1px solid var(--line);border-radius:8px;padding:4px;}
+  .save-import-row{display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:6px;font-size:12.5px;}
+  .save-import-row:hover{background:var(--panel2);}
+  .save-import-row img{width:28px;height:28px;border-radius:6px;flex-shrink:0;}
+  .save-import-row .siname{flex:1;}
+  .save-import-row .sitag{font-size:10.5px;color:var(--parchment-dim);}
+
+  .global-toast{position:fixed;top:16px;left:50%;transform:translateX(-50%) translateY(-20px);z-index:9000;
+    background:var(--panel2);border:1px solid var(--danger);color:var(--parchment);border-radius:8px;
+    padding:12px 18px;font-size:13px;max-width:min(520px,90vw);box-shadow:0 8px 24px rgba(0,0,0,.5);
+    opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;}
+  .global-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
   </style>
 <script src="shared/analytics.js"></script>
 <script src="shared/global_search.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"パルボックス","url":"https://rob1242.github.io/palworld-tools/palworld_palbox.html","description":"パルワールドのパルボックス管理ツール。所持パルを個体値・技・パッシブごと記録して、目的パルへの配合ロードマップを自動で組みます。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
 </head>
 <body>
+<div id="globalToast" class="global-toast"></div>
 <div class="wrap">
   <header class="top">
     <a class="brand-link" href="palworld_home.html">
@@ -381,6 +397,7 @@
             <span class="count-tag" id="boxCountTag"></span>
             <button class="share-btn" id="openShareBtn">友達と共有</button>
             <button class="share-btn" id="openBackupBtn">バックアップ/復元</button>
+            <button class="share-btn" id="openSaveImportBtn">セーブデータから読み込む</button>
             <button class="add-pal-btn" id="openAddPalBtn">+ パルを追加</button>
           </div>
           <div class="box-search-row">
@@ -444,6 +461,42 @@
     </div>
   </div>
 
+  <div class="pform-overlay" id="saveImportOverlay">
+    <div class="pform-box" style="max-width:640px;">
+      <button class="pform-close" id="saveImportClose">×</button>
+      <p class="pform-title">セーブデータから読み込む</p>
+      <p style="font-size:12.5px;color:var(--parchment-dim);line-height:1.7;margin:0 0 16px;">
+        Palworldのセーブファイル(<code>Level.sav</code>、または友達から送られたバックアップの<code>.zip</code>)を選ぶと、
+        所持しているパルの個体値・パッシブ・技・α個体かどうかを自動で読み取ります。
+        <b style="color:var(--parchment);">ファイルはこの端末の中だけで処理され、どこにもアップロードされません。</b>
+      </p>
+
+      <div id="saveImportDropSection">
+        <div class="save-import-drop" id="saveImportDropZone">
+          <div style="font-size:14px;">ここにファイルをドラッグ、またはクリックして選択</div>
+          <div style="font-size:11px;color:var(--parchment-dim);margin-top:6px;">対応形式: .sav / .zip</div>
+        </div>
+        <input type="file" id="saveImportFileInput" accept=".sav,.zip" style="display:none;">
+      </div>
+
+      <p class="share-status" id="saveImportStatus" style="margin-top:10px;"></p>
+
+      <div id="saveImportReviewSection" style="display:none;">
+        <div class="mini-tabs" id="saveImportOwnerTabs" style="margin-bottom:10px;flex-wrap:wrap;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <span class="count-tag" id="saveImportSelectedCount"></span>
+          <div>
+            <button class="back-btn" id="saveImportSelectAllBtn" style="margin:0 6px 0 0;">表示中を全て選択</button>
+            <button class="back-btn" id="saveImportSelectNoneBtn" style="margin:0;">全解除</button>
+          </div>
+        </div>
+        <div class="save-import-list" id="saveImportList"></div>
+        <button class="pform-save-btn" id="saveImportConfirmBtn" style="margin-top:14px;">選択したパルをボックスに追加</button>
+        <p style="font-size:11px;color:var(--parchment-dim);margin-top:8px;">※ 同じセーブデータを2回読み込むと重複して追加されます。やり直したい場合は先にボックスから削除してください。</p>
+      </div>
+    </div>
+  </div>
+
   <div class="pform-overlay" id="pformOverlay">
     <div class="pform-box">
       <button class="pform-close" id="pformClose">×</button>
@@ -480,21 +533,26 @@
       </div>
 
       <div class="pform-section" id="pformIvSection" style="display:none;">
-        <div class="pform-label">個体値 <span style="color:var(--parchment-dim);font-weight:400;text-transform:none;letter-spacing:0;">(0〜30%、HP・攻撃・防御のみが対象。作業速度は個体値の対象外・wiki確認済み)</span></div>
+        <div class="pform-label">個体値 <span style="color:var(--parchment-dim);font-weight:400;text-transform:none;letter-spacing:0;">(0〜100、実際のセーブデータ確認済み。近接攻撃と遠隔攻撃は別々の値です)</span></div>
         <div class="iv-row">
           <label>HP</label>
-          <input type="range" id="ivHp" min="0" max="30" value="0">
-          <span class="iv-val" id="ivHpVal">0%</span>
+          <input type="range" id="ivHp" min="0" max="100" value="0">
+          <span class="iv-val" id="ivHpVal">0</span>
         </div>
         <div class="iv-row">
-          <label>攻撃</label>
-          <input type="range" id="ivAttack" min="0" max="30" value="0">
-          <span class="iv-val" id="ivAttackVal">0%</span>
+          <label>近接攻撃</label>
+          <input type="range" id="ivMelee" min="0" max="100" value="0">
+          <span class="iv-val" id="ivMeleeVal">0</span>
+        </div>
+        <div class="iv-row">
+          <label>遠隔攻撃</label>
+          <input type="range" id="ivShot" min="0" max="100" value="0">
+          <span class="iv-val" id="ivShotVal">0</span>
         </div>
         <div class="iv-row">
           <label>防御</label>
-          <input type="range" id="ivDefense" min="0" max="30" value="0">
-          <span class="iv-val" id="ivDefenseVal">0%</span>
+          <input type="range" id="ivDefense" min="0" max="100" value="0">
+          <span class="iv-val" id="ivDefenseVal">0</span>
         </div>
       </div>
 
@@ -630,6 +688,7 @@
 <script src="game_data/item_icons_data.js"></script>
 <script src="game_data/paldb_extra_data.js"></script>
 <script src="shared/icons.js"></script>
+<script type="module" src="shared/palsave-import.js"></script>
 <script src="game_data/firebase_config.js"></script>
 <script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js" integrity="sha384-AQ3POAMqIhwS81FrUH95ekxqBZHeP5tG2JfEL3+7GuTtfRLWnrRh32UxwzM+//A9" crossorigin="anonymous"></script>
 <script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js" integrity="sha384-qn4Jh88HhJA8dplNQyGjOh9OGI4izVhrfj/qIFgaKcdgOE06pXqIKGlsCILZcLAC" crossorigin="anonymous"></script>
@@ -668,8 +727,31 @@ function getInstances(){
     return [];
   }
 }
+// ブラウザのlocalStorage容量には上限があり(実測でこの端末では概ね5MB前後=2万体弱)、
+// 超えるとsetItemが例外を投げる。今まではここが無防備で、上限超え時に何の警告も出さず
+// 保存だけ失敗する(既存データは壊れないが、追加分がそのまま消える)状態だった(2026-08発見)。
 function setInstances(list){
-  localStorage.setItem(BOX_KEY, JSON.stringify(list));
+  try{
+    localStorage.setItem(BOX_KEY, JSON.stringify(list));
+    return true;
+  }catch(e){
+    console.error("setInstances失敗:", e);
+    if(e.name === "QuotaExceededError"){
+      showGlobalToast(`保存容量の上限に達したため、今回の変更は保存できませんでした(お使いのブラウザの制限、目安として2万体弱が上限です)。パルの数を減らしてから再度お試しください。`);
+    } else {
+      showGlobalToast(`パルボックスの保存に失敗しました: ${e.message}`);
+    }
+    return false;
+  }
+}
+
+let globalToastTimer = null;
+function showGlobalToast(msg, durationMs = 8000){
+  const el = document.getElementById("globalToast");
+  el.textContent = msg;
+  el.classList.add("show");
+  if(globalToastTimer) clearTimeout(globalToastTimer);
+  globalToastTimer = setTimeout(() => el.classList.remove("show"), durationMs);
 }
 function migrateLegacyOwned(){
   // 個体データが1件も無く、旧チェックリストにIDが残っている場合のみ、
@@ -705,6 +787,18 @@ function skillDisplayName(asset){
   return jp || `${asset}(JP名未確認)`;
 }
 function passiveByName(name){ return PASSIVES_DATA.find(p => p.name === name); }
+
+// 個体値の正規化: 旧仕様({hp,attack,defense}、0-30目安)と新仕様({hp,melee,shot,defense}、
+// 実セーブデータ確認済みの0-100)の両方を受け取れるようにする(2026-08、旧データ移行対応)。
+// 旧attackはmelee/shotの区別が無かったため、両方に同じ値を引き継ぐ(完全な移行ではないが
+// 「無かった値として0にする」よりは元の入力を尊重できる)。
+function normalizeIvs(ivs){
+  if(!ivs) return {hp:0, melee:0, shot:0, defense:0};
+  if(ivs.melee !== undefined || ivs.shot !== undefined){
+    return {hp: ivs.hp||0, melee: ivs.melee||0, shot: ivs.shot||0, defense: ivs.defense||0};
+  }
+  return {hp: ivs.hp||0, melee: ivs.attack||0, shot: ivs.attack||0, defense: ivs.defense||0};
+}
 
 const ROLE_ICON = {"火おこし":"flame","水やり":"droplet","種まき":"sprout","発電":"bolt","手作業":"wrench","採集":"basket","伐採":"axe","採掘":"pickaxe","製薬":"flask","冷却":"snowflake","運搬":"box","牧場":"paw"};
 function typeBadge(t){ return `<span class="type-badge type-${t}">${t}</span>`; }
@@ -829,12 +923,14 @@ function buildDetailInnerHtml(inst, p){
       </div>
     </div>`;
   }
+  const ivs0 = normalizeIvs(inst.ivs);
   const ivHtml = inst.legacy
     ? `<p style="font-size:11.5px;color:var(--parchment-dim);">旧チェックリストから移行された個体のため、個体値・技・パッシブは未入力です。「編集」から入力できます。</p>`
     : `<div class="iv-summary">
-        <span class="iv-chip">HP <b>${inst.ivs.hp}%</b></span>
-        <span class="iv-chip">攻撃 <b>${inst.ivs.attack}%</b></span>
-        <span class="iv-chip">防御 <b>${inst.ivs.defense}%</b></span>
+        <span class="iv-chip">HP <b>${ivs0.hp}</b></span>
+        <span class="iv-chip">近接 <b>${ivs0.melee}</b></span>
+        <span class="iv-chip">遠隔 <b>${ivs0.shot}</b></span>
+        <span class="iv-chip">防御 <b>${ivs0.defense}</b></span>
       </div>`;
   const skillsHtml = inst.activeSkills.length
     ? inst.activeSkills.map(a => `<span class="role-pill">${ico("sword")} ${skillDisplayName(a)}</span>`).join("")
@@ -862,7 +958,7 @@ function buildDetailInnerHtml(inst, p){
     <div class="detail-info">
       <div class="dname"><a href="palworld_dex.html?id=${p.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--parchment-dim);">${escapeHtml(inst.nickname) || p.name}</a></div>
       <div class="dname-en">${inst.nickname ? p.name + ' ・ ' : ''}${p.en_name || ""}</div>
-      <div class="badge-row">${(p.types||[]).map(typeBadge).join("")}${timeBadge}${sexBadge(inst.sex)}${inst.isAlpha ? alphaBadge() : ""}</div>
+      <div class="badge-row">${(p.types||[]).map(typeBadge).join("")}${timeBadge}${sexBadge(inst.sex)}${inst.isAlpha ? alphaBadge() : ""}${inst.level ? `<span class="badge">Lv.${inst.level}</span>` : ""}${inst.rank ? `<span class="badge">★${Math.max(0, inst.rank - 1)}</span>` : ""}</div>
       ${ivHtml}
     </div>
     <div class="section">
@@ -2069,9 +2165,9 @@ function openPform(editUid, target){
   document.getElementById('pformNickname').value = '';
   document.getElementById('pformIsAlpha').checked = false;
   setPformSex('unknown');
-  ['ivHp','ivAttack','ivDefense'].forEach(id => {
+  ['ivHp','ivMelee','ivShot','ivDefense'].forEach(id => {
     document.getElementById(id).value = 0;
-    document.getElementById(id+'Val').textContent = '0%';
+    document.getElementById(id+'Val').textContent = '0';
   });
   document.getElementById('pformSaveBtn').disabled = true;
   document.getElementById('pformSaveBtn').textContent = '種族を選んでください';
@@ -2084,12 +2180,12 @@ function openPform(editUid, target){
       document.getElementById('pformNickname').value = inst.nickname || '';
       setPformSex(inst.sex || 'unknown');
       document.getElementById('pformIsAlpha').checked = !!inst.isAlpha;
-      document.getElementById('ivHp').value = inst.ivs.hp;
-      document.getElementById('ivHpVal').textContent = inst.ivs.hp + '%';
-      document.getElementById('ivAttack').value = inst.ivs.attack;
-      document.getElementById('ivAttackVal').textContent = inst.ivs.attack + '%';
-      document.getElementById('ivDefense').value = inst.ivs.defense;
-      document.getElementById('ivDefenseVal').textContent = inst.ivs.defense + '%';
+      const ivs0 = normalizeIvs(inst.ivs);
+      ['hp','melee','shot','defense'].forEach(k => {
+        const id = 'iv' + k[0].toUpperCase() + k.slice(1);
+        document.getElementById(id).value = ivs0[k];
+        document.getElementById(id+'Val').textContent = ivs0[k];
+      });
       pformState.skills = inst.activeSkills.slice();
       pformState.passives = inst.passives.slice();
       renderSkillPickList('');
@@ -2104,9 +2200,9 @@ function closePform(){
   document.getElementById('pformOverlay').classList.remove('open');
 }
 
-['Hp','Attack','Defense'].forEach(suffix => {
+['Hp','Melee','Shot','Defense'].forEach(suffix => {
   document.getElementById('iv'+suffix).addEventListener('input', function(){
-    document.getElementById('iv'+suffix+'Val').textContent = this.value + '%';
+    document.getElementById('iv'+suffix+'Val').textContent = this.value;
   });
 });
 
@@ -2121,7 +2217,8 @@ document.getElementById('pformSaveBtn').addEventListener('click', () => {
     nickname: document.getElementById('pformNickname').value.trim(),
     ivs: {
       hp: parseInt(document.getElementById('ivHp').value) || 0,
-      attack: parseInt(document.getElementById('ivAttack').value) || 0,
+      melee: parseInt(document.getElementById('ivMelee').value) || 0,
+      shot: parseInt(document.getElementById('ivShot').value) || 0,
       defense: parseInt(document.getElementById('ivDefense').value) || 0,
     },
     activeSkills: pformState.skills.slice(),
@@ -2145,7 +2242,7 @@ document.getElementById('pformSaveBtn').addEventListener('click', () => {
   } else {
     list.push(inst);
   }
-  setInstances(list);
+  if(!setInstances(list)) return; // 保存失敗時はモーダルを開いたままにする(トーストで警告済み)
   closePform();
   boxState.selectedUid = inst.uid;
   renderBoxGrid();
@@ -2324,6 +2421,196 @@ async function uploadBackup(code){
     setBackupStatus("アップロードに失敗しました: " + e.message, "err");
   }
 }
+
+// ===== セーブデータから読み込む(Palworldの.sav/.zipをブラウザ内だけで解析) =====
+// 実際のパース処理はshared/palsave-import.js(ESモジュール)側にある。
+// window.PalSaveImportはそちらのモジュールスクリプトの読み込み完了後にセットされるが、
+// ここでの利用は全てユーザー操作(クリック/ドロップ)後なので、読み込み順の問題は起きない。
+const saveImportState = { players: [], pals: [], selectedOwner: null, selected: new Set() };
+
+function setSaveImportStatus(msg, cls){
+  const el = document.getElementById("saveImportStatus");
+  el.textContent = msg;
+  el.className = "share-status" + (cls ? " " + cls : "");
+}
+
+function ownerLabel(uid){
+  if(!uid) return "所有者不明(拠点/ギルド割当など)";
+  const p = saveImportState.players.find(pl => pl.keyPlayerUId === uid);
+  const shortUid = uid.slice(0, 8);
+  if(uid === "00000000-0000-0000-0000-000000000001") return `${p ? p.nickname : "ホスト"}(ホスト・${shortUid})`;
+  return `${p ? p.nickname : "ゲスト"}(${shortUid})`;
+}
+
+function saveImportPalIcon(pal){
+  const info = BREEDING_PALS_DATA[pal.characterId];
+  const dex = info && info.dex_id ? PAL_BOX_DATA.find(x => x.id === info.dex_id) : null;
+  return dex;
+}
+
+function renderSaveImportOwnerTabs(){
+  const owners = [...new Set(saveImportState.pals.map(p => p.ownerPlayerUId))];
+  // パル数が多いオーナー(=たぶん本命)を先頭に
+  owners.sort((a,b) => saveImportState.pals.filter(p=>p.ownerPlayerUId===b).length - saveImportState.pals.filter(p=>p.ownerPlayerUId===a).length);
+  if(!saveImportState.selectedOwner || !owners.includes(saveImportState.selectedOwner)){
+    saveImportState.selectedOwner = owners[0];
+  }
+  const tabs = document.getElementById("saveImportOwnerTabs");
+  tabs.innerHTML = owners.map(uid => {
+    const count = saveImportState.pals.filter(p => p.ownerPlayerUId === uid).length;
+    return `<div class="mini-tab ${uid===saveImportState.selectedOwner?'active':''}" data-uid="${uid||''}">${escapeHtml(ownerLabel(uid))} (${count})</div>`;
+  }).join("");
+  tabs.querySelectorAll(".mini-tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+      saveImportState.selectedOwner = tab.dataset.uid || null;
+      renderSaveImportOwnerTabs();
+      renderSaveImportList();
+    });
+  });
+}
+
+function renderSaveImportList(){
+  const list = document.getElementById("saveImportList");
+  const owner = saveImportState.selectedOwner;
+  const rows = saveImportState.pals
+    .map((p, idx) => ({ p, idx }))
+    .filter(({p}) => p.ownerPlayerUId === owner);
+  list.innerHTML = rows.map(({p, idx}) => {
+    const dex = saveImportPalIcon(p);
+    const name = dex ? dex.name : `${p.characterId}(図鑑未対応)`;
+    const checked = saveImportState.selected.has(idx);
+    return `<label class="save-import-row">
+      <input type="checkbox" data-idx="${idx}" ${checked?'checked':''}>
+      ${dex && dex.icon ? `<img src="${dex.icon}" alt="">` : `<span style="width:28px;height:28px;flex-shrink:0;"></span>`}
+      <span class="siname">${escapeHtml(p.nickname || name)}${p.nickname ? ` <span class="sitag">(${escapeHtml(name)})</span>` : ''}</span>
+      <span class="sitag">${p.level ? `Lv.${p.level}` : ''}${p.isAlpha ? ' ・α' : ''}</span>
+    </label>`;
+  }).join("") || `<p style="color:var(--parchment-dim);font-size:12px;padding:10px;">このオーナーのパルはいません。</p>`;
+  list.querySelectorAll("input[type=checkbox][data-idx]").forEach(cb => {
+    cb.addEventListener("change", () => {
+      const idx = parseInt(cb.dataset.idx);
+      if(cb.checked) saveImportState.selected.add(idx); else saveImportState.selected.delete(idx);
+      updateSaveImportSelectedCount();
+    });
+  });
+  updateSaveImportSelectedCount();
+}
+
+function updateSaveImportSelectedCount(){
+  document.getElementById("saveImportSelectedCount").textContent = `${saveImportState.selected.size}体選択中(全${saveImportState.pals.length}体)`;
+}
+
+async function pickBestLevelSavFromZip(arrayBuffer){
+  const entries = window.PalSaveImport.listZipEntries(arrayBuffer).filter(e => e.name.endsWith("Level.sav"));
+  if(entries.length === 0) throw new Error("zipの中にLevel.savが見つかりませんでした");
+  // "/backup/"を含まない(=最新の実データ)ものを優先。無ければ日時が一番新しい(名前のソート順が一番後ろの)ものを使う。
+  const noBackup = entries.filter(e => !e.name.includes("/backup/"));
+  const pick = (noBackup.length ? noBackup : entries.slice().sort((a,b) => a.name.localeCompare(b.name))).slice(-1)[0];
+  const bytes = await window.PalSaveImport.extractZipEntry(arrayBuffer, pick);
+  return { bytes, pickedName: pick.name };
+}
+
+async function handleSaveImportFile(file){
+  setSaveImportStatus("読み込み中…", "");
+  document.getElementById("saveImportReviewSection").style.display = "none";
+  try{
+    const buf = await file.arrayBuffer();
+    const head = new Uint8Array(buf.slice(0,2));
+    const isZip = file.name.toLowerCase().endsWith(".zip") || (head[0]===0x50 && head[1]===0x4b);
+    let savBuf = buf;
+    if(isZip){
+      const { bytes, pickedName } = await pickBestLevelSavFromZip(buf);
+      savBuf = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
+      setSaveImportStatus(`zipの中の ${pickedName} を読み込み中…`, "");
+    }
+    const { players, pals } = await window.PalSaveImport.parsePalworldSaveFile(savBuf);
+    saveImportState.players = players;
+    saveImportState.pals = pals;
+    saveImportState.selectedOwner = null;
+    saveImportState.selected = new Set(pals.map((_, idx) => idx)); // 既定で全選択
+    setSaveImportStatus(`解析成功: パル${pals.length}体・プレイヤー${players.length}人を検出しました。`, "ok");
+    document.getElementById("saveImportReviewSection").style.display = "block";
+    renderSaveImportOwnerTabs();
+    renderSaveImportList();
+  }catch(e){
+    console.error(e);
+    setSaveImportStatus("読み込みに失敗しました: " + e.message, "err");
+  }
+}
+
+const saveImportDropZone = document.getElementById("saveImportDropZone");
+const saveImportFileInput = document.getElementById("saveImportFileInput");
+saveImportDropZone.addEventListener("click", () => saveImportFileInput.click());
+saveImportFileInput.addEventListener("change", () => {
+  if(saveImportFileInput.files[0]) handleSaveImportFile(saveImportFileInput.files[0]);
+});
+["dragenter","dragover"].forEach(ev => saveImportDropZone.addEventListener(ev, e => {
+  e.preventDefault(); saveImportDropZone.classList.add("dragover");
+}));
+["dragleave","drop"].forEach(ev => saveImportDropZone.addEventListener(ev, e => {
+  e.preventDefault(); saveImportDropZone.classList.remove("dragover");
+}));
+saveImportDropZone.addEventListener("drop", e => {
+  const file = e.dataTransfer.files && e.dataTransfer.files[0];
+  if(file) handleSaveImportFile(file);
+});
+
+document.getElementById("saveImportSelectAllBtn").addEventListener("click", () => {
+  saveImportState.pals.forEach((p, idx) => { if(p.ownerPlayerUId === saveImportState.selectedOwner) saveImportState.selected.add(idx); });
+  renderSaveImportList();
+});
+document.getElementById("saveImportSelectNoneBtn").addEventListener("click", () => {
+  saveImportState.pals.forEach((p, idx) => { if(p.ownerPlayerUId === saveImportState.selectedOwner) saveImportState.selected.delete(idx); });
+  renderSaveImportList();
+});
+
+document.getElementById("saveImportConfirmBtn").addEventListener("click", () => {
+  const list = getInstances();
+  let imported = 0, skipped = 0;
+  saveImportState.selected.forEach(idx => {
+    const p = saveImportState.pals[idx];
+    if(!p) return;
+    const info = BREEDING_PALS_DATA[p.characterId];
+    const dexId = info ? info.dex_id : null;
+    if(!dexId){ skipped++; return; }
+    const passives = p.passiveNames.map(n => passiveByName2(n)).filter(Boolean).slice(0,4);
+    list.push({
+      uid: 'inst_' + Date.now() + '_' + Math.floor(Math.random()*1000000) + '_' + idx,
+      dexId,
+      nickname: p.nickname || '',
+      ivs: { hp: p.talents.hp, melee: p.talents.melee, shot: p.talents.shot, defense: p.talents.defense },
+      activeSkills: p.equipWaza.slice(0,3),
+      passives,
+      sex: p.sex || "unknown",
+      isAlpha: !!p.isAlpha,
+      level: p.level || null,
+      rank: p.rank || null,
+      createdAt: Date.now(),
+    });
+    imported++;
+  });
+  const saved = setInstances(list);
+  if(saved){
+    renderBoxGrid();
+    setSaveImportStatus(`${imported}体をパルボックスに追加しました。${skipped ? `(${skipped}体は図鑑データと紐づかず未対応でした)` : ''} 閉じるとボックスに反映されています。`, "ok");
+  } else {
+    setSaveImportStatus(`保存に失敗したため、今回のインポートは反映されていません(上に出ている警告を確認してください)。`, "err");
+  }
+});
+
+// PASSIVES_DATAはJP表示名(name)で検索することが多いが、ここでは内部アセット名(asset、
+// セーブデータ由来)から逆引きする必要があるため専用の関数にする。
+function passiveByName2(asset){
+  const p = PASSIVES_DATA.find(x => x.asset === asset);
+  return p ? p.name : null;
+}
+
+document.getElementById("openSaveImportBtn").addEventListener("click", () => {
+  document.getElementById("saveImportOverlay").classList.add("open");
+});
+document.getElementById("saveImportClose").addEventListener("click", () => {
+  document.getElementById("saveImportOverlay").classList.remove("open");
+});
 
 document.getElementById("openBackupBtn").addEventListener("click", () => {
   renderBackupModal();
