@@ -1,0 +1,13 @@
+{
+  "roomCode": "サーバー側のpalsyncと同じ合言葉(6桁)",
+  "apiKey": "game_data/firebase_config.js の apiKey",
+  "projectId": "palworld-tool",
+  "gameDataDir": "/path/to/palworld/game_data",
+  "vaultDir": "/path/to/ObsidianのVault",
+  "voice": "Kyoko",
+  "speechRate": 190,
+  "speakMinWeight": 3,
+  "maxSpeechPerTick": 3,
+  "intervalMinutes": 5,
+  "baseSlots": 20
+}
