@@ -33,6 +33,7 @@ curl -LO https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bi
 node palwatch.mjs            # 1回だけ確認して、変化があれば知らせる
 node palwatch.mjs --watch    # 常駐(既定5分ごと)。遊ぶ時はこれを立ち上げておく
 node palwatch.mjs --talk     # 話しかけモード。Enterを押してから喋る
+node palwatch.mjs --wake     # 呼びかけモード。呼ばれたら聞き取りを始める
 node palwatch.mjs --advice   # 拠点編成の助言だけ
 node palwatch.mjs --quiet    # 声を出さず記録だけ
 ```
@@ -70,8 +71,37 @@ node palwatch.mjs --quiet    # 声を出さず記録だけ
 - `intervalMinutes` — 見守りの間隔(既定5分)
 - `voiceSilenceSec` — 何秒黙ったら話し終わりとみなすか(既定1.2秒)
 
-## まだやっていないこと
+## 呼びかけモード(--wake)
 
-呼びかけ語(「ルナ」と言ったら反応する)は未実装。Porcupineなどを使えば実現できるが、
-アクセスキーの取得が要るのと、ゲーム音が鳴っている環境では誤検知が増えるため、
-まずEnterを押す方式で確実に動かしている。
+Siriと同じ二段構えにしている。常時は軽い検出だけを動かし、呼ばれた時だけ
+whisperを起動する。whisperを回しっぱなしにすると8GBのMacでは重すぎるため。
+
+### 準備
+
+[Picovoice Console](https://console.picovoice.ai/) で無料のアクセスキーを取得し、
+`config.json` の `picovoiceAccessKey` に入れる。
+
+呼びかけ語は2通り選べる。
+
+**英語の組み込み語(追加ファイル不要)**
+
+`builtinWakeWord` に指定するだけ。使えるのは
+ALEXA / AMERICANO / BLUEBERRY / BUMBLEBEE / COMPUTER / GRAPEFRUIT / GRASSHOPPER /
+HEY_GOOGLE / HEY_SIRI / JARVIS / OK_GOOGLE / PICOVOICE / PORCUPINE / TERMINATOR。
+
+**日本語の自作(「ルナ」など)**
+
+Picovoice Console で日本語を選んで語を作り、落とした `.ppn` をこのフォルダに置いて
+`wakeWordFile` にファイル名を書く。日本語モデル(`models/porcupine_params_ja.pv`)は取得済み。
+
+### うまく動かない時
+
+- `wakeSensitivity` を上げると反応しやすくなるが、誤検知も増える(既定0.6)
+- マイクを選び直す: `audioDeviceIndex` に番号を入れる。一覧は下のコマンドで出る
+
+```bash
+node -e "const{PvRecorder}=require('@picovoice/pvrecorder-node');PvRecorder.getAvailableDevices().forEach((d,i)=>console.log(i,d))"
+```
+
+- **ゲーム音が鳴っている環境では誤検知が増える。** ヘッドセットを使うと大幅に改善する
+- それでも実用にならなければ `--talk`(Enter方式)に戻せる。中身は同じ

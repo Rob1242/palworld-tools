@@ -2,3 +2,8 @@
 config.json
 # 前回の状態(サイズが大きく、履歴に残す意味もない)
 state.json
+# 依存パッケージ
+node_modules/
+package-lock.json
+# 自作の呼びかけ語(個人のアカウントに紐づくため)
+*.ppn

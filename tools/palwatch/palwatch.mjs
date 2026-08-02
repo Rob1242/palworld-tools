@@ -102,12 +102,12 @@ async function tick() {
 // --- 声で話しかけてもらうモード ---
 // Enterを押している間ではなく「Enterを押したら録音開始、話し終わりを無音で検出」方式。
 // ゲームのコントローラーを持ったままでも扱いやすいのと、押しっぱなしより確実なため。
-async function talkMode() {
-  const { listenOnce, toHira } = await import('./voice.mjs');
+// 質問に答えるための材料をそろえる(--talk と --wake で共通)
+async function buildTalkContext() {
+  const { toHira } = await import('./voice.mjs');
   const cur = await fetchCurrent(cfg);
-  if (!cur.pals.length) { console.log('まだパルのデータがありません。'); return; }
+  if (!cur.pals.length) { console.log('まだパルのデータがありません。'); return null; }
 
-  // 質問に答えるための材料をそろえる
   const speciesSet = new Set(cur.pals.map(p => p.dexId));
   const best = cur.pals.slice().sort((a, b) => ivTotal(b) - ivTotal(a))[0];
   const advice = buildAdvice(analyzeBase(cur.pals, dexName, plannerData, cfg.baseSlots), cfg.baseSlots);
@@ -134,6 +134,13 @@ async function talkMode() {
     },
   };
 
+  return ctx;
+}
+
+async function talkMode() {
+  const { listenOnce } = await import('./voice.mjs');
+  const ctx = await buildTalkContext();
+  if (!ctx) return;
   const say = t => speak(t, cfg.voice, cfg.speechRate);
   console.log('話しかけモードです。Enterを押してから話してください(終了は Control+C)。\n');
   await say(`準備できたよ。今は${ctx.total}体、${ctx.species}種類。`);
@@ -154,7 +161,50 @@ async function talkMode() {
   }
 }
 
-if (args.includes('--talk')) {
+// --- 呼びかけで反応するモード ---
+// Enterを押す代わりに、呼びかけ語を検知したら聞き取りを始める。
+// うまく動かない時に切り分けられるよう、Enter方式と同じ中身を使い回している。
+async function wakeMode() {
+  const { createDetector, listenForWake, release } = await import('./wakeword.mjs');
+  const { listenOnce } = await import('./voice.mjs');
+  const ctx = await buildTalkContext();
+  if (!ctx) return;
+  const say = t => speak(t, cfg.voice, cfg.speechRate);
+
+  let det;
+  try {
+    det = await createDetector(cfg);
+  } catch (e) {
+    console.error('呼びかけ検出を始められませんでした:', e.message);
+    console.error('  --talk なら追加設定なしで使えます。');
+    return;
+  }
+
+  const label = cfg.wakeWordFile ? cfg.wakeWordLabel || '呼びかけ語' : (cfg.builtinWakeWord || 'JARVIS');
+  console.log(`「${label}」と呼びかけてください(終了は Control+C)。`);
+  await say('呼びかけを待ってるね。');
+
+  let stopping = false;
+  process.on('SIGINT', () => { stopping = true; });
+
+  await listenForWake(det, async () => {
+    process.stdout.write('  呼ばれました。聞いています…\n');
+    try {
+      const r = await listenOnce(cfg, ctx, say);
+      if (r.heard) console.log(`  聞き取り: ${r.heard}`);
+      if (r.reply) console.log(`  返答:     ${r.reply}`);
+    } catch (e) {
+      console.error('  エラー:', e.message);
+    }
+  }, () => stopping);
+
+  release(det);
+  console.log('終了しました。');
+}
+
+if (args.includes('--wake')) {
+  await wakeMode();
+} else if (args.includes('--talk')) {
   await talkMode();
 } else if (watch) {
   console.log(`見守りを開始します(${cfg.intervalMinutes}分ごと)。止めるには Control+C。`);

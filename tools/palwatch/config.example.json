@@ -14,5 +14,11 @@
   "voiceSilenceSec": 1.2,
   "voiceMaxSec": 12,
   "voiceStartThreshold": "2%",
-  "voiceStopThreshold": "2%"
+  "voiceStopThreshold": "2%",
+  "picovoiceAccessKey": "",
+  "builtinWakeWord": "JARVIS",
+  "wakeWordFile": "",
+  "wakeWordLabel": "ルナ",
+  "wakeSensitivity": 0.6,
+  "audioDeviceIndex": -1
 }
