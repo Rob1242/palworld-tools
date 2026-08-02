@@ -12,7 +12,9 @@
     "game_data/items_dex_data.js",
     "game_data/dex_data.js",
     "game_data/items_obtain_data.js",
-    "game_data/breeding_data.js",
+    // 使うのはパルの基本情報だけなので、配合ペア表まで含む breeding_data.js(3.3MB)ではなく
+    // 軽量版(55KB)を読む。検索を1回使うだけで3MB以上落ちてくるのを避けるため(2026-08)。
+    "game_data/breeding_pals_data.js",
     "game_data/missions_data.js",
     "game_data/skills_page_data.js",
     "game_data/passives_page_data.js",
@@ -125,7 +127,7 @@
     Object.entries(ITEM_OBTAIN_DATA).forEach(([itemAsset, v]) => {
       (v.dropped_by || []).forEach(d => {
         if(!DROPPER_INFO[d.pal_asset]){
-          const bd = (typeof BREEDING_DATA !== "undefined" && BREEDING_DATA.pals) ? BREEDING_DATA.pals[d.pal_asset] : null;
+          const bd = (typeof BREEDING_PALS_DATA !== "undefined") ? BREEDING_PALS_DATA[d.pal_asset] : null;
           DROPPER_INFO[d.pal_asset] = { jp_name: d.pal_jp_name, isPal: !!bd, en_name: bd ? bd.en_name : null, canonical_jp_name: bd ? bd.jp_name : null, dex_id: bd ? bd.dex_id : null };
         }
       });

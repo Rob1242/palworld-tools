@@ -1,11 +1,11 @@
 const NAME_TO_ASSET = {};
-Object.entries(BREEDING_DATA.pals).forEach(([asset, info]) => {
+Object.entries(BREEDING_PALS_DATA).forEach(([asset, info]) => {
   if(info.jp_name) NAME_TO_ASSET[info.jp_name] = asset;
 });
 
 function palChip(name, count, passives){
   const asset = NAME_TO_ASSET[name];
-  const info = asset ? BREEDING_DATA.pals[asset] : null;
+  const info = asset ? BREEDING_PALS_DATA[asset] : null;
   const icon = info && info.icon ? `<img src="${info.icon}" alt="">` : `<img alt="">`;
   const countTag = count ? `<span class="pc-count">×${count}</span>` : "";
   const link = asset

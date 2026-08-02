@@ -239,8 +239,10 @@
   <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。攻略情報は複数の攻略サイト・動画を参照してまとめたもので、正確性を保証するものではありません。</p>
 </div>
 
-<script src="game_data/dex_data.js"></script>
-<script src="game_data/breeding_data.js"></script>
+<!-- このページ自身はパル図鑑データを使わない(サイト内検索が必要なときに自分で読み込む)。 -->
+<!-- このページはパルの基本情報(BREEDING_DATA.pals相当)しか使わないため、
+     配合ペア表まで含む breeding_data.js(3.3MB)ではなく軽量版(55KB)を読む。 -->
+<script src="game_data/breeding_pals_data.js"></script>
 <script src="game_data/passives_data.js"></script>
 <script src="game_data/combat_data.js"></script>
 <script src="game_data/field_boss_data.js"></script>
