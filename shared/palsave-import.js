@@ -220,11 +220,40 @@ function readPropertiesUntilEnd(r, path) {
 const MAGIC_PLZ = 'PlZ';
 const MAGIC_PLM = 'PlM';
 
+// 展開後サイズの上限。この機能は「友達から送られたセーブデータ」を開く前提なので、
+// 圧縮爆弾(数百KBのファイルが数GBに膨らむ細工)を投げ込まれてもタブが落ちないよう、
+// 現実的なセーブサイズから十分余裕を見た値で頭打ちにする。
+// (実測: パル1036体・プレイヤー2人のセーブで展開後21MB。2026-08)
+const MAX_UNCOMPRESSED_BYTES = 512 * 1024 * 1024;
+
+function tooLargeError(size) {
+  return new Error(
+    `展開後のサイズが大きすぎます(${Math.round(size / 1024 / 1024)}MB)。` +
+    `Palworldのセーブデータではないか、壊れている可能性があります。`
+  );
+}
+
+// 一気にArrayBufferへ流し込むと上限を超えた時点で気付けないため、
+// チャンクごとに読みながら合計サイズを見張る。
 async function zlibInflate(bytes) {
   const ds = new DecompressionStream('deflate');
-  const stream = new Blob([bytes]).stream().pipeThrough(ds);
-  const buf = await new Response(stream).arrayBuffer();
-  return new Uint8Array(buf);
+  const reader = new Blob([bytes]).stream().pipeThrough(ds).getReader();
+  const chunks = [];
+  let total = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > MAX_UNCOMPRESSED_BYTES) {
+      await reader.cancel();
+      throw tooLargeError(total);
+    }
+    chunks.push(value);
+  }
+  const out = new Uint8Array(total);
+  let off = 0;
+  for (const c of chunks) { out.set(c, off); off += c.byteLength; }
+  return out;
 }
 
 function bytesToAscii3(bytes, offset) {
@@ -251,6 +280,10 @@ async function decompressSav(bytes) {
   }
   if (saveType !== 0x31 && saveType !== 0x32) {
     throw new Error(`未対応の圧縮タイプです(save_type: 0x${saveType.toString(16)})`);
+  }
+  // Oodle側は宣言サイズがそのままメモリ確保に使われるため、展開前に弾く。
+  if (uncompressedLen > MAX_UNCOMPRESSED_BYTES || compressedLen > MAX_UNCOMPRESSED_BYTES) {
+    throw tooLargeError(Math.max(uncompressedLen, compressedLen));
   }
   const compressed = bytes.subarray(dataStart);
   const inflateOnce = magic === MAGIC_PLZ
