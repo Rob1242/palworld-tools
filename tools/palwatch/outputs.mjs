@@ -2,6 +2,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 const execFileAsync = promisify(execFile);
@@ -24,15 +25,30 @@ async function voicevoxAvailable(cfg) {
   return voicevoxAlive;
 }
 
-async function speakVoicevox(text, cfg) {
+// 内容に応じた話し方を選ぶ。
+// VOICEVOXは同じキャラでもスタイルごとに別の番号が振られているので、
+// 「うれしい報告はこの番号」「淡々とした報告はこの番号」と割り当てられる。
+// 設定に無い場合は既定の話者に落とすので、番号を1つしか登録していなくても動く。
+export function pickStyle(cfg, tone) {
+  const styles = cfg.voicevoxStyles || {};
+  const id = styles[tone];
+  return {
+    speaker: id ?? cfg.voicevoxSpeaker ?? 3,
+    speed: (cfg.voicevoxToneSpeed || {})[tone] ?? cfg.voicevoxSpeed ?? 1.0,
+    pitch: (cfg.voicevoxTonePitch || {})[tone] ?? cfg.voicevoxPitch ?? 0.0,
+  };
+}
+
+async function speakVoicevox(text, cfg, tone) {
   const base = cfg.voicevoxUrl;
-  const sp = cfg.voicevoxSpeaker ?? 3;
+  const st = pickStyle(cfg, tone);
+  const sp = st.speaker;
   // VOICEVOXは「読み方の解析」と「音声合成」の2段階に分かれている
   const q = await fetch(`${base}/audio_query?text=${encodeURIComponent(text)}&speaker=${sp}`, { method: 'POST' });
   if (!q.ok) throw new Error(`audio_query 失敗 (${q.status})`);
   const query = await q.json();
-  if (cfg.voicevoxSpeed) query.speedScale = cfg.voicevoxSpeed;
-  if (cfg.voicevoxPitch) query.pitchScale = cfg.voicevoxPitch;
+  query.speedScale = st.speed;
+  query.pitchScale = st.pitch;
 
   const s = await fetch(`${base}/synthesis?speaker=${sp}`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(query),
@@ -48,11 +64,13 @@ async function speakVoicevox(text, cfg) {
   }
 }
 
-export async function speak(text, voice = 'Kyoko', rate = 190, cfg = null) {
+// tone には出来事の種類('catch' 'levelup' など)や 'reply' を渡す。
+// 未指定なら既定の話し方になる。
+export async function speak(text, voice = 'Kyoko', rate = 190, cfg = null, tone = null) {
   // VOICEVOXを使う設定で、実際に起動していればそちらで喋る
   if (cfg && cfg.useVoicevox !== false && cfg.voicevoxUrl && await voicevoxAvailable(cfg)) {
     try {
-      await speakVoicevox(text, cfg);
+      await speakVoicevox(text, cfg, tone);
       return;
     } catch (e) {
       console.error('  VOICEVOXでの読み上げに失敗、標準の声に切り替えます:', e.message);

@@ -52,7 +52,7 @@ async function tick() {
     const advice = buildAdvice(analyzeBase(cur.pals, dexName, plannerData, cfg.baseSlots), cfg.baseSlots);
     for (const a of advice) {
       console.log('  ' + a);
-      if (!quiet) await speak(a, cfg.voice, cfg.speechRate, cfg);
+      if (!quiet) await speak(a, cfg.voice, cfg.speechRate, cfg, 'advice');
     }
     return;
   }
@@ -74,7 +74,7 @@ async function tick() {
       .filter(e => e.weight >= cfg.speakMinWeight)
       .sort((a, b) => b.weight - a.weight)
       .slice(0, cfg.maxSpeechPerTick);
-    for (const e of toSpeak) await speak(e.text, cfg.voice, cfg.speechRate, cfg);
+    for (const e of toSpeak) await speak(e.text, cfg.voice, cfg.speechRate, cfg, e.type);
   }
 
   // --- Obsidianの日誌 ---
@@ -141,7 +141,7 @@ async function talkMode() {
   const { listenOnce } = await import('./voice.mjs');
   const ctx = await buildTalkContext();
   if (!ctx) return;
-  const say = t => speak(t, cfg.voice, cfg.speechRate, cfg);
+  const say = (t, tone = 'reply') => speak(t, cfg.voice, cfg.speechRate, cfg, tone);
 
   // 押すキーは設定で変えられる。既定は「+」。
   // 全角で入力される場合もあるので、両方を受け付ける。
@@ -194,7 +194,7 @@ async function wakeMode() {
   const { listenOnce, interpret } = await import('./voice.mjs');
   const ctx = await buildTalkContext();
   if (!ctx) return;
-  const say = t => speak(t, cfg.voice, cfg.speechRate, cfg);
+  const say = (t, tone = 'reply') => speak(t, cfg.voice, cfg.speechRate, cfg, tone);
 
   const words = cfg.wakeWords?.length ? cfg.wakeWords : ['ルナ'];
   console.log(`「${words[0]}」と呼びかけてください(終了は Control+C)。`);

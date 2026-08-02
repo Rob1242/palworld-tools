@@ -95,9 +95,34 @@ node palwatch.mjs --voices
 ### 設定
 
 - `useVoicevox` — `false` にすると常にmacOS標準の声を使う
-- `voicevoxSpeaker` — 話者の番号(既定3 = ずんだもん ノーマル)
+- `voicevoxSpeaker` — 既定の話者番号
 - `voicevoxSpeed` — 話す速さ(1.0が標準)
 - `voicevoxPitch` — 声の高さ(0.0が標準)
+
+### 内容によって声色を変える
+
+VOICEVOXは同じキャラでもスタイル(ノーマル/あまあま/ささやき等)ごとに別の番号が
+振られている。それを場面ごとに割り当てられる。
+
+```json
+"voicevoxStyles": {
+  "catch":   7,    // パルを捕まえた時(うれしい報告)
+  "levelup": 7,
+  "first":   3,
+  "gone":    22,   // いなくなった時(落ち着いた声)
+  "advice":  22,   // 拠点の助言
+  "reply":   3     // 話しかけへの返事
+},
+"voicevoxToneSpeed": { "catch": 1.15, "advice": 0.95 },
+"voicevoxTonePitch": { "catch": 0.05 }
+```
+
+**書かなかった場面は既定の話者になる**ので、全部埋める必要はない。
+番号は `--voices` で調べる。同じキャラの別スタイルを指定すれば、声質は保ったまま
+話し方だけが変わる。
+
+場面の名前は `first`(記録開始) / `catch`(捕獲) / `levelup` / `gone`(手放した) /
+`advice`(拠点の助言) / `reply`(会話の返事)。
 
 ### 注意
 

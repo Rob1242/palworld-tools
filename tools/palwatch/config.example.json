@@ -33,5 +33,8 @@
   "voicevoxUrl": "http://127.0.0.1:50021",
   "voicevoxSpeaker": 3,
   "voicevoxSpeed": 1.0,
-  "voicevoxPitch": 0.0
+  "voicevoxPitch": 0.0,
+  "voicevoxStyles": {},
+  "voicevoxToneSpeed": {},
+  "voicevoxTonePitch": {}
 }
