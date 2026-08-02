@@ -802,6 +802,47 @@ function skillDisplayName(asset){
 }
 function passiveByName(name){ return PASSIVES_DATA.find(p => p.name === name); }
 
+// 共有ボックスと個人バックアップの中身はFirestore上にあり、合言葉さえ知っていれば
+// 誰でも書き換えられる。ゲーム本来はパッシブ4個・技3個までなので、それを大きく超える
+// 配列や極端に長い文字列が入っていたら、受け取った時点で切り詰める。
+// (5万個のパッシブを持つ個体を置かれると、それを開いた人の画面が10秒以上固まることを
+//  2026-08の検証で確認したため。表示側ではなく取り込み口で止める)
+const MAX_PASSIVES = 4;
+const MAX_ACTIVE_SKILLS = 3;
+const MAX_NICKNAME_LEN = 100;
+function sanitizeUntrustedInstance(inst){
+  if(!inst || typeof inst !== "object") return null;
+  const arr = (v, n) => Array.isArray(v) ? v.slice(0, n).map(x => String(x).slice(0, 100)) : [];
+  // 数値のはずのフィールドは必ず数値にする。個体値などは normalizeIvs() が
+  // 「ivs.hp || 0」で通すだけなので、文字列が入っているとそのまま描画に流れてしまう
+  // (2026-08の検証でIV4項目すべてでタグが生成されることを確認済み)。
+  const num = (v, min, max) => {
+    const n = Number(v);
+    return Number.isFinite(n) ? Math.min(max, Math.max(min, Math.trunc(n))) : 0;
+  };
+  const ivs = inst.ivs && typeof inst.ivs === "object" ? inst.ivs : {};
+  return {
+    ...inst,
+    uid: String(inst.uid || "").slice(0, 100),
+    nickname: typeof inst.nickname === "string" ? inst.nickname.slice(0, MAX_NICKNAME_LEN) : "",
+    passives: arr(inst.passives, MAX_PASSIVES),
+    activeSkills: arr(inst.activeSkills, MAX_ACTIVE_SKILLS),
+    ivs: {
+      hp: num(ivs.hp, 0, 100), melee: num(ivs.melee, 0, 100),
+      shot: num(ivs.shot, 0, 100), defense: num(ivs.defense, 0, 100),
+      // 旧スキーマ(attack)も数値化して残す。normalizeIvs()が参照するため。
+      ...(ivs.attack !== undefined ? { attack: num(ivs.attack, 0, 100) } : {}),
+    },
+    level: inst.level == null ? null : num(inst.level, 0, 9999),
+    rank: inst.rank == null ? null : num(inst.rank, 0, 99),
+    isAlpha: !!inst.isAlpha,
+    sex: ["male","female","unknown"].includes(inst.sex) ? inst.sex : "unknown",
+  };
+}
+function sanitizeUntrustedInstances(list){
+  return (Array.isArray(list) ? list : []).map(sanitizeUntrustedInstance).filter(Boolean);
+}
+
 // 個体値の正規化: 旧仕様({hp,attack,defense}、0-30目安)と新仕様({hp,melee,shot,defense}、
 // 実セーブデータ確認済みの0-100)の両方を受け取れるようにする(2026-08、旧データ移行対応)。
 // 旧attackはmelee/shotの区別が無かったため、両方に同じ値を引き継ぐ(完全な移行ではないが
@@ -2374,7 +2415,7 @@ function enterSharedRoom(code){
   setShareStatus("");
   setRoomStatus("接続中…");
   sharedRoomUnsubscribe = roomPalsRef(code).onSnapshot(snapshot => {
-    const instances = snapshot.docs.map(d => d.data());
+    const instances = sanitizeUntrustedInstances(snapshot.docs.map(d => d.data()));
     setRoomStatus(`合言葉「${code}」の共有ボックス(リアルタイム更新中)`, "ok");
     sharedBoxState.instances = instances;
     if(sharedBoxState.selectedUid && instances.some(x => x.uid === sharedBoxState.selectedUid)){
@@ -2796,7 +2837,7 @@ document.getElementById("backupRestoreBtn").addEventListener("click", async () =
       return;
     }
     const data = doc.data();
-    const instances = data.instances || [];
+    const instances = sanitizeUntrustedInstances(data.instances);
     localStorage.setItem(BOX_KEY, JSON.stringify(instances));
     localStorage.setItem(PERSONAL_BACKUP_CODE_KEY, code);
     setBackupRestoreStatus(`復元しました(${instances.length}体)。ページを再読み込みします…`, "ok");

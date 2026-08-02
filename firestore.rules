@@ -22,9 +22,14 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // 合言葉の形式: generateRoomCode() と同じ文字種の6桁
+    // 合言葉の形式: generateRoomCode() と同じ文字種の6桁。
+    // matches()の ^ と $ は正規表現エンジンによっては行単位の境界として働き、
+    // "ABC234\n" のような値がすり抜ける可能性があるため、文字数も併せて見る
+    // (2026-08時点のエミュレータでは改行入りIDはFirestore側で正規化されて
+    //  そもそも到達しなかったが、正規化の挙動に依存しない形にしておく)。
     function isValidCode(code) {
-      return code.matches('^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$');
+      return code.size() == 6
+        && code.matches('^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$');
     }
 
     // バックアップに詰め込める個体数の上限。
