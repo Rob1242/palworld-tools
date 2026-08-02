@@ -464,7 +464,7 @@
   <div class="pform-overlay" id="saveImportOverlay">
     <div class="pform-box" style="max-width:640px;">
       <button class="pform-close" id="saveImportClose">×</button>
-      <p class="pform-title">セーブデータから読み込む</p>
+      <p class="pform-title" id="saveImportTitle">セーブデータから読み込む</p>
       <p style="font-size:12.5px;color:var(--parchment-dim);line-height:1.7;margin:0 0 16px;">
         Palworldのセーブファイル(<code>Level.sav</code>、または友達から送られたバックアップの<code>.zip</code>)を選ぶと、
         所持しているパルの個体値・パッシブ・技・α個体かどうかを自動で読み取ります。
@@ -620,6 +620,7 @@
               <span class="box-tab-num">2</span>
               <span class="box-panel-title">共有ボックス</span>
               <span class="count-tag" id="sharedCountTag"></span>
+              <button class="share-btn" id="openSharedSaveImportBtn">セーブデータから読み込む</button>
               <button class="add-pal-btn" id="openSharedAddBtn">+ パルを追加</button>
             </div>
             <div class="box-search-row">
@@ -2426,7 +2427,7 @@ async function uploadBackup(code){
 // 実際のパース処理はshared/palsave-import.js(ESモジュール)側にある。
 // window.PalSaveImportはそちらのモジュールスクリプトの読み込み完了後にセットされるが、
 // ここでの利用は全てユーザー操作(クリック/ドロップ)後なので、読み込み順の問題は起きない。
-const saveImportState = { players: [], pals: [], selectedOwner: null, selected: new Set() };
+const saveImportState = { players: [], pals: [], selectedOwner: null, selected: new Set(), target: "local" };
 
 function setSaveImportStatus(msg, cls){
   const el = document.getElementById("saveImportStatus");
@@ -2564,39 +2565,77 @@ document.getElementById("saveImportSelectNoneBtn").addEventListener("click", () 
   renderSaveImportList();
 });
 
-document.getElementById("saveImportConfirmBtn").addEventListener("click", () => {
-  const list = getInstances();
-  let imported = 0, skipped = 0;
+// セーブデータの1体分(p)から、パルボックスのinst形式を組み立てる。
+// 図鑑データと紐づかない(未対応の)種族の場合はnullを返す。
+function buildInstFromParsedPal(p, idx){
+  const info = BREEDING_PALS_DATA[p.characterId];
+  const dexId = info ? info.dex_id : null;
+  if(!dexId) return null;
+  const passives = p.passiveNames.map(n => passiveByName2(n)).filter(Boolean).slice(0,4);
+  return {
+    uid: 'inst_' + Date.now() + '_' + Math.floor(Math.random()*1000000) + '_' + idx,
+    dexId,
+    nickname: p.nickname || '',
+    ivs: { hp: p.talents.hp, melee: p.talents.melee, shot: p.talents.shot, defense: p.talents.defense },
+    activeSkills: p.equipWaza.slice(0,3),
+    passives,
+    sex: p.sex || "unknown",
+    isAlpha: !!p.isAlpha,
+    level: p.level || null,
+    rank: p.rank || null,
+    createdAt: Date.now(),
+  };
+}
+
+document.getElementById("saveImportConfirmBtn").addEventListener("click", async () => {
+  const insts = [];
+  let skipped = 0;
   saveImportState.selected.forEach(idx => {
     const p = saveImportState.pals[idx];
     if(!p) return;
-    const info = BREEDING_PALS_DATA[p.characterId];
-    const dexId = info ? info.dex_id : null;
-    if(!dexId){ skipped++; return; }
-    const passives = p.passiveNames.map(n => passiveByName2(n)).filter(Boolean).slice(0,4);
-    list.push({
-      uid: 'inst_' + Date.now() + '_' + Math.floor(Math.random()*1000000) + '_' + idx,
-      dexId,
-      nickname: p.nickname || '',
-      ivs: { hp: p.talents.hp, melee: p.talents.melee, shot: p.talents.shot, defense: p.talents.defense },
-      activeSkills: p.equipWaza.slice(0,3),
-      passives,
-      sex: p.sex || "unknown",
-      isAlpha: !!p.isAlpha,
-      level: p.level || null,
-      rank: p.rank || null,
-      createdAt: Date.now(),
-    });
-    imported++;
+    const inst = buildInstFromParsedPal(p, idx);
+    if(!inst){ skipped++; return; }
+    insts.push(inst);
   });
-  const saved = setInstances(list);
-  if(saved){
-    renderBoxGrid();
-    setSaveImportStatus(`${imported}体をパルボックスに追加しました。${skipped ? `(${skipped}体は図鑑データと紐づかず未対応でした)` : ''} 閉じるとボックスに反映されています。`, "ok");
+
+  if(saveImportState.target === "shared"){
+    await importToSharedRoom(insts, skipped);
   } else {
-    setSaveImportStatus(`保存に失敗したため、今回のインポートは反映されていません(上に出ている警告を確認してください)。`, "err");
+    const list = getInstances().concat(insts);
+    const saved = setInstances(list);
+    if(saved){
+      renderBoxGrid();
+      setSaveImportStatus(`${insts.length}体をパルボックスに追加しました。${skipped ? `(${skipped}体は図鑑データと紐づかず未対応でした)` : ''} 閉じるとボックスに反映されています。`, "ok");
+    } else {
+      setSaveImportStatus(`保存に失敗したため、今回のインポートは反映されていません(上に出ている警告を確認してください)。`, "err");
+    }
   }
 });
+
+// 共有ボックス(Firestore)への一括書き込み。1体ずつawaitすると数百体規模で
+// 非常に遅くなるため、batch()で最大500件ずつまとめて送信する(Firestoreの
+// バッチ上限が500件のため)。
+async function importToSharedRoom(insts, skipped){
+  if(!currentRoomCode || !firebaseReady()){
+    setSaveImportStatus("共有ボックスに接続できませんでした。先に入室してください。", "err");
+    return;
+  }
+  const CHUNK = 500;
+  let done = 0;
+  try{
+    for(let i=0; i<insts.length; i+=CHUNK){
+      const chunk = insts.slice(i, i+CHUNK);
+      const batch = db.batch();
+      chunk.forEach(inst => batch.set(roomPalsRef(currentRoomCode).doc(inst.uid), inst));
+      await batch.commit();
+      done += chunk.length;
+      setSaveImportStatus(`共有ボックスへ書き込み中… ${done}/${insts.length}体`, "");
+    }
+    setSaveImportStatus(`${insts.length}体を共有ボックスに追加しました。${skipped ? `(${skipped}体は図鑑データと紐づかず未対応でした)` : ''}`, "ok");
+  }catch(e){
+    setSaveImportStatus(`共有ボックスへの書き込みに失敗しました(${done}/${insts.length}体まで完了): ${e.message}`, "err");
+  }
+}
 
 // PASSIVES_DATAはJP表示名(name)で検索することが多いが、ここでは内部アセット名(asset、
 // セーブデータ由来)から逆引きする必要があるため専用の関数にする。
@@ -2605,8 +2644,22 @@ function passiveByName2(asset){
   return p ? p.name : null;
 }
 
-document.getElementById("openSaveImportBtn").addEventListener("click", () => {
+function openSaveImportModal(target){
+  saveImportState.target = target;
+  document.getElementById("saveImportTitle").textContent = target === "shared"
+    ? "セーブデータから読み込む(共有ボックスへ)" : "セーブデータから読み込む";
+  document.getElementById("saveImportConfirmBtn").textContent = target === "shared"
+    ? "選択したパルを共有ボックスに追加" : "選択したパルをボックスに追加";
   document.getElementById("saveImportOverlay").classList.add("open");
+}
+document.getElementById("openSaveImportBtn").addEventListener("click", () => openSaveImportModal("local"));
+document.getElementById("openSharedSaveImportBtn").addEventListener("click", () => {
+  if(!currentRoomCode){
+    setShareStatus("先に「友達と共有」で合言葉を発行するか入室してください。", "err");
+    document.querySelector('.mode-tab[data-mode="share"]').click();
+    return;
+  }
+  openSaveImportModal("shared");
 });
 document.getElementById("saveImportClose").addEventListener("click", () => {
   document.getElementById("saveImportOverlay").classList.remove("open");
