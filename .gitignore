@@ -2,3 +2,8 @@
 __pycache__/
 .superpowers/
 
+
+# Firebaseエミュレータのデバッグログ(ローカル実行時に生成される)
+firestore-debug.log
+firebase-debug.log
+*.log

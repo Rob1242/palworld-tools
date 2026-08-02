@@ -1,0 +1,69 @@
+rules_version = '2';
+
+// パルボックスの「友達と共有」「バックアップ/復元」用のFirestoreセキュリティルール。
+//
+// このサイトはログイン機能を持たず、誰でも匿名で読み書きする前提のため、
+// 「合言葉(6桁コード)を知っている人だけがその1件にアクセスできる」ことを
+// 唯一のアクセス条件とする。したがって次の2点が要になる:
+//
+//   1. コレクションの list(一覧取得)を禁止する。
+//      これを許すと、合言葉を知らなくても全件を列挙できてしまい、
+//      コードを秘密にしている意味が無くなる(2026-08、実際に
+//      personalBackups が匿名で一覧できる状態だったため修正)。
+//      get(1件取得)は許可し、list は許可しない。
+//
+//   2. ドキュメントIDを合言葉と同じ厳密な形式に限定する。
+//      任意のIDで大量のゴミを書き込まれるのを防ぐ。
+//
+// なお合言葉を知る人(=一緒に遊ぶ友達)は、その部屋のデータを自由に
+// 書き換えられる。これは共有ボックスという機能の性質上そういう設計であり、
+// 表示側は受け取った内容をエスケープして扱うこと(XSS対策)。
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 合言葉の形式: generateRoomCode() と同じ文字種の6桁
+    function isValidCode(code) {
+      return code.matches('^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$');
+    }
+
+    // バックアップに詰め込める個体数の上限。
+    // 極端な件数を書き込まれて課金が膨らむのを防ぐ。ブラウザのlocalStorage側が
+    // 2万体弱で頭打ちになることを実測済みなので、それより十分大きい値にしてある。
+    // (Firestoreの1ドキュメント1MB制限は別途サーバー側で効く)
+    function isReasonableBackup() {
+      return !('instances' in request.resource.data)
+        || request.resource.data.instances.size() <= 30000;
+    }
+
+    // ---- 友達と共有ボックス ----
+    // palboxRooms/{合言葉} 自体は使っていないが、階層として明示しておく。
+    match /palboxRooms/{roomCode} {
+      allow get: if isValidCode(roomCode);
+      allow list: if false;              // 部屋の総当たり列挙を禁止
+      allow write: if false;             // 部屋ドキュメント自体は書き込み不要
+
+      // 個体1体=1ドキュメント
+      match /pals/{palId} {
+        // 合言葉を知っていれば、その部屋の中は読み書きできる(機能の前提)
+        allow get, list: if isValidCode(roomCode);
+        allow create, update: if isValidCode(roomCode);
+        allow delete: if isValidCode(roomCode);
+      }
+    }
+
+    // ---- 個人用バックアップ ----
+    // コードを知っている本人だけが復元できる想定。一覧は必ず禁止する。
+    match /personalBackups/{code} {
+      allow get: if isValidCode(code);
+      allow list: if false;              // ← 全ユーザーのバックアップ列挙を防ぐ最重要行
+      allow create, update: if isValidCode(code) && isReasonableBackup();
+      allow delete: if false;            // 誤操作・嫌がらせによる消失を防ぐ
+    }
+
+    // 上記以外は一切許可しない
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
