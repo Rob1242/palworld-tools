@@ -35,6 +35,7 @@ node palwatch.mjs --watch    # 常駐(既定5分ごと)。遊ぶ時はこれを�
 node palwatch.mjs --talk     # 話しかけモード。「+」を押してから喋る
 node palwatch.mjs --wake     # 呼びかけモード。呼ばれたら聞き取りを始める
 node palwatch.mjs --advice   # 拠点編成の助言だけ
+node palwatch.mjs --voices   # VOICEVOXの話者一覧(番号を調べる)
 node palwatch.mjs --quiet    # 声を出さず記録だけ
 ```
 
@@ -65,12 +66,44 @@ node palwatch.mjs --quiet    # 声を出さず記録だけ
 
 `config.json` で変えられる。
 
-- `voice` — 声(`Kyoko` / `Eddy` / `Flo` / `Grandma` / `Grandpa`)
+- `voice` — macOS標準の声(`Kyoko` / `Eddy` / `Flo` / `Grandma` / `Grandpa`)
 - `speakMinWeight` — この重要度以上の出来事だけ読み上げる(既定3)
 - `maxSpeechPerTick` — 1回にまとめて喋る上限(既定3)
 - `intervalMinutes` — 見守りの間隔(既定5分)
 - `voiceSilenceSec` — 何秒黙ったら話し終わりとみなすか(既定1.2秒)
 - `talkKeys` — `--talk` で録音を始めるキー(既定 `["+", "＋"]`)。Enterは不要
+
+## 声をVOICEVOXにする
+
+[VOICEVOX](https://voicevox.hiroshiba.jp/) を入れて起動しておくと、そちらの声で喋る。
+入れていない、または起動していない場合は自動でmacOS標準の声に戻るので、
+設定を戻す必要はない。
+
+### 導入
+
+公式サイトからダウンロードする。M1/M2/M3なら **「CPU(Apple)」版** を選ぶ。
+アプリを起動している間だけ使える(内部で音声合成サーバーが動く仕組みのため)。
+
+### 話者を選ぶ
+
+VOICEVOXを起動した状態で番号を調べ、`config.json` の `voicevoxSpeaker` に入れる。
+
+```bash
+node palwatch.mjs --voices
+```
+
+### 設定
+
+- `useVoicevox` — `false` にすると常にmacOS標準の声を使う
+- `voicevoxSpeaker` — 話者の番号(既定3 = ずんだもん ノーマル)
+- `voicevoxSpeed` — 話す速さ(1.0が標準)
+- `voicevoxPitch` — 声の高さ(0.0が標準)
+
+### 注意
+
+VOICEVOXのキャラクターには**それぞれ利用規約がある**。個人で楽しむぶんには問題ないが、
+動画や配信など公開する形で使う場合はクレジット表記が必要になることが多いので、
+公式の規約を確認すること。
 
 ## 呼びかけモード(--wake)
 

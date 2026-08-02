@@ -7,9 +7,58 @@ import { promisify } from 'node:util';
 const execFileAsync = promisify(execFile);
 
 // --- 声 ---
-// macOS標準のsayコマンドを使う。追加のインストールが要らず、日本語の声も入っている。
+// 既定はmacOS標準のsay(追加のインストール不要)。
+// VOICEVOXが起動していればそちらを使う。設定で明示的に切り替えることもできる。
 // 遊んでいる最中に喋り続けると邪魔になるので、重要度の低い出来事は読み上げない。
-export async function speak(text, voice = 'Kyoko', rate = 190) {
+
+let voicevoxAlive = null;   // 起動確認の結果を覚えておく(毎回試すと遅いため)
+
+async function voicevoxAvailable(cfg) {
+  if (voicevoxAlive !== null) return voicevoxAlive;
+  try {
+    const r = await fetch(`${cfg.voicevoxUrl}/version`, { signal: AbortSignal.timeout(1500) });
+    voicevoxAlive = r.ok;
+  } catch {
+    voicevoxAlive = false;
+  }
+  return voicevoxAlive;
+}
+
+async function speakVoicevox(text, cfg) {
+  const base = cfg.voicevoxUrl;
+  const sp = cfg.voicevoxSpeaker ?? 3;
+  // VOICEVOXは「読み方の解析」と「音声合成」の2段階に分かれている
+  const q = await fetch(`${base}/audio_query?text=${encodeURIComponent(text)}&speaker=${sp}`, { method: 'POST' });
+  if (!q.ok) throw new Error(`audio_query 失敗 (${q.status})`);
+  const query = await q.json();
+  if (cfg.voicevoxSpeed) query.speedScale = cfg.voicevoxSpeed;
+  if (cfg.voicevoxPitch) query.pitchScale = cfg.voicevoxPitch;
+
+  const s = await fetch(`${base}/synthesis?speaker=${sp}`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(query),
+  });
+  if (!s.ok) throw new Error(`synthesis 失敗 (${s.status})`);
+
+  const wav = path.join(os.tmpdir(), `palwatch_vv_${Date.now()}.wav`);
+  fs.writeFileSync(wav, Buffer.from(await s.arrayBuffer()));
+  try {
+    await execFileAsync('afplay', [wav]);
+  } finally {
+    fs.unlink(wav, () => {});
+  }
+}
+
+export async function speak(text, voice = 'Kyoko', rate = 190, cfg = null) {
+  // VOICEVOXを使う設定で、実際に起動していればそちらで喋る
+  if (cfg && cfg.useVoicevox !== false && cfg.voicevoxUrl && await voicevoxAvailable(cfg)) {
+    try {
+      await speakVoicevox(text, cfg);
+      return;
+    } catch (e) {
+      console.error('  VOICEVOXでの読み上げに失敗、標準の声に切り替えます:', e.message);
+      voicevoxAlive = false;   // 以降はsayを使う
+    }
+  }
   try {
     await execFileAsync('say', ['-v', voice, '-r', String(rate), text]);
   } catch (e) {

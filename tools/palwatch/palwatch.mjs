@@ -52,7 +52,7 @@ async function tick() {
     const advice = buildAdvice(analyzeBase(cur.pals, dexName, plannerData, cfg.baseSlots), cfg.baseSlots);
     for (const a of advice) {
       console.log('  ' + a);
-      if (!quiet) await speak(a, cfg.voice, cfg.speechRate);
+      if (!quiet) await speak(a, cfg.voice, cfg.speechRate, cfg);
     }
     return;
   }
@@ -74,7 +74,7 @@ async function tick() {
       .filter(e => e.weight >= cfg.speakMinWeight)
       .sort((a, b) => b.weight - a.weight)
       .slice(0, cfg.maxSpeechPerTick);
-    for (const e of toSpeak) await speak(e.text, cfg.voice, cfg.speechRate);
+    for (const e of toSpeak) await speak(e.text, cfg.voice, cfg.speechRate, cfg);
   }
 
   // --- Obsidianの日誌 ---
@@ -141,7 +141,7 @@ async function talkMode() {
   const { listenOnce } = await import('./voice.mjs');
   const ctx = await buildTalkContext();
   if (!ctx) return;
-  const say = t => speak(t, cfg.voice, cfg.speechRate);
+  const say = t => speak(t, cfg.voice, cfg.speechRate, cfg);
 
   // 押すキーは設定で変えられる。既定は「+」。
   // 全角で入力される場合もあるので、両方を受け付ける。
@@ -194,7 +194,7 @@ async function wakeMode() {
   const { listenOnce, interpret } = await import('./voice.mjs');
   const ctx = await buildTalkContext();
   if (!ctx) return;
-  const say = t => speak(t, cfg.voice, cfg.speechRate);
+  const say = t => speak(t, cfg.voice, cfg.speechRate, cfg);
 
   const words = cfg.wakeWords?.length ? cfg.wakeWords : ['ルナ'];
   console.log(`「${words[0]}」と呼びかけてください(終了は Control+C)。`);
@@ -227,7 +227,29 @@ async function wakeMode() {
   console.log('終了しました。');
 }
 
-if (args.includes('--wake')) {
+// --- VOICEVOXの話者一覧を出す ---
+// どの番号がどのキャラかを調べるためのもの。
+async function listVoices() {
+  if (!cfg.voicevoxUrl) { console.log('config.json に voicevoxUrl がありません。'); return; }
+  try {
+    const r = await fetch(`${cfg.voicevoxUrl}/speakers`, { signal: AbortSignal.timeout(3000) });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const speakers = await r.json();
+    console.log('VOICEVOXの話者(番号を voicevoxSpeaker に設定する):\n');
+    for (const sp of speakers) {
+      for (const st of sp.styles) {
+        console.log(`  ${String(st.id).padStart(3)}  ${sp.name}(${st.name})`);
+      }
+    }
+  } catch (e) {
+    console.log('VOICEVOXに接続できません:', e.message);
+    console.log('  VOICEVOXアプリを起動してから、もう一度お試しください。');
+  }
+}
+
+if (args.includes('--voices')) {
+  await listVoices();
+} else if (args.includes('--wake')) {
   await wakeMode();
 } else if (args.includes('--talk')) {
   await talkMode();
