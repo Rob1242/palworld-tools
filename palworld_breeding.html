@@ -299,9 +299,17 @@ Object.entries(BREEDING_DATA.reverseParents || {}).forEach(([target, entry]) => 
   });
 });
 
+function escapeHtml(str){
+  return String(str == null ? "" : str).replace(/[&<>"']/g, ch => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+  }[ch]));
+}
+
+// 戻り値がinnerHTMLに埋められるため、対応表に無いアセット名はそのまま返さずエスケープする
+// (現状ここに届く値は実在キーに限られるが、将来穴にならないようにしておく。2026-08)
 function nameOf(asset){
+  if(!Object.prototype.hasOwnProperty.call(BREEDING_DATA.pals || {}, asset)) return escapeHtml(String(asset));
   const info = BREEDING_DATA.pals[asset];
-  if(!info) return asset;
   return info.jp_name || `${info.en_name}(JP名未確認)`;
 }
 function iconOf(asset){

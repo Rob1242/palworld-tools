@@ -791,9 +791,14 @@ const ALL_SKILLS_MAP = {};
 Object.values(LEARNSET_DATA).forEach(arr => arr.forEach(e => {
   if(!(e.asset in ALL_SKILLS_MAP)) ALL_SKILLS_MAP[e.asset] = e.jp_name;
 }));
+// 技IDは共有ボックス(=合言葉を知る人なら誰でも書き換えられる)やセーブデータ由来なので、
+// 未知のIDをそのまま表示名として返すと呼び出し側のinnerHTMLでタグとして解釈されうる。
+// 対応表に無いIDはここでエスケープしてから返す(2026-08)。
+// また"__proto__"のようなキーを渡されるとObject.prototypeが返って文字列にならないため、
+// 対応表に実在するキーかどうかで判定する。
 function skillDisplayName(asset){
-  const jp = ALL_SKILLS_MAP[asset];
-  return jp || `${asset}(JP名未確認)`;
+  if(Object.prototype.hasOwnProperty.call(ALL_SKILLS_MAP, asset)) return ALL_SKILLS_MAP[asset];
+  return `${escapeHtml(String(asset))}(JP名未確認)`;
 }
 function passiveByName(name){ return PASSIVES_DATA.find(p => p.name === name); }
 
@@ -1198,9 +1203,12 @@ function ensureForwardPairsLoaded(){
   return forwardPairsPromise;
 }
 
+// skillDisplayName()と同じ理由で、対応表に無いアセット名をそのまま返さずエスケープする。
+// 現状ここに届く値はURLパラメータ側で実在チェック済みだが、戻り値がinnerHTMLに
+// 埋められる関数なので、呼び出し元が増えたときに穴にならないようにしておく(2026-08)。
 function nameOf(asset){
+  if(!Object.prototype.hasOwnProperty.call(BREEDING_PALS_DATA, asset)) return escapeHtml(String(asset));
   const info = BREEDING_PALS_DATA[asset];
-  if(!info) return asset;
   return info.jp_name || `${info.en_name}(JP名未確認)`;
 }
 function iconOf(asset){

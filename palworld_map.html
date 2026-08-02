@@ -453,7 +453,12 @@ const VIEW_META = {
   },
 };
 function applyViewMeta(view){
-  const meta = VIEW_META[view] || VIEW_META.map;
+  // viewはURLパラメータ(?view=)由来なので、VIEW_METAに実在するキーだけを受け付ける。
+  // Object.prototype由来のキー("__proto__"や"constructor")を渡されると
+  // VIEW_META[view]が中身の無いオブジェクトとして真になり、後続でエラーになるため
+  // hasOwnProperty相当の判定で弾いてmapビューに倒す(2026-08)。
+  if(!Object.prototype.hasOwnProperty.call(VIEW_META, view)) view = "map";
+  const meta = VIEW_META[view];
   const url = view === "map" ? BASE_URL : `${BASE_URL}?view=${view}`;
   document.getElementById("pageTitle").textContent = meta.title;
   document.getElementById("metaDesc").setAttribute("content", meta.desc);
