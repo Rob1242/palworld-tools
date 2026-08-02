@@ -7,6 +7,16 @@
 // よって前提が誤っていたBOSS_ONLY_DEX_IDSによる除外は撤廃し、本当に入手不可能な
 // ゴースト個体(dex_idがnull、パル図鑑に正式登録すらされていないゼロヴァース等)の
 // 除外のみ残す。
+// ページ読み込み時にはパルの基本情報(55KB)だけを持ち、重い配合表は
+// そのモードが実際に使われるまで読み込まない(2026-08)。
+//   順引き(2体→子)  … breeding_forward_pairs_data.js  1.8MB
+//   逆引き(子→親候補)… breeding_reverse_parents_data.js 1.4MB
+// 以前は起動時に両方入りの breeding_data.js(3.3MB)を読んでいたため、
+// どちらか一方しか使わない人にも全部ダウンロードさせていた。
+// BREEDING_DATA という名前で参照している箇所が多いので、器だけ先に用意して
+// 読み込み完了時に中身を差し込む形にする。
+const BREEDING_DATA = { pals: BREEDING_PALS_DATA, forwardPairs: null, reverseParents: null };
+
 function isGhost(asset){
   const info = BREEDING_DATA.pals[asset];
   return !info || !info.dex_id;
@@ -20,23 +30,49 @@ const PAL_LIST = Object.entries(BREEDING_DATA.pals || {})
     icon: info.icon,
   })).sort((a, b) => a.displayName.localeCompare(b.displayName, 'ja'));
 
-// forwardPairs(親ペア→子)・reverseParents(子→親候補)から、ゴースト個体が
-// 絡むレシピ(親のどちらか、または子がゴースト=そもそも配合で作れない/親として
-// 所持しようがない)のみ除外する。
-Object.keys(BREEDING_DATA.forwardPairs || {}).forEach(key => {
-  const child = BREEDING_DATA.forwardPairs[key];
-  const [a, b] = key.split("|");
-  if(isGhost(child) || isGhost(a) || isGhost(b)) delete BREEDING_DATA.forwardPairs[key];
-});
-
-Object.entries(BREEDING_DATA.reverseParents || {}).forEach(([target, entry]) => {
-  if(isGhost(target)){ delete BREEDING_DATA.reverseParents[target]; return; }
-  ["unique", "formula"].forEach(key => {
-    if(Array.isArray(entry[key])){
-      entry[key] = entry[key].filter(([a, b]) => !isGhost(a) && !isGhost(b));
-    }
+// 追加のデータファイルを1回だけ読み込む。既に読み込み済みなら即座に返す。
+const loadedDataPromises = {};
+function loadDataScript(src){
+  if(loadedDataPromises[src]) return loadedDataPromises[src];
+  loadedDataPromises[src] = new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = src;
+    s.onload = resolve;
+    s.onerror = () => reject(new Error("読み込みに失敗しました: " + src));
+    document.head.appendChild(s);
   });
-});
+  return loadedDataPromises[src];
+}
+
+// ゴースト個体(dex_idが無く、パル図鑑に正式登録すらされていない個体)が絡むレシピは、
+// そもそも配合で作れない/親として所持しようがないので除外する。
+function ensureForwardPairs(){
+  return loadDataScript("game_data/breeding_forward_pairs_data.js").then(() => {
+    if(BREEDING_DATA.forwardPairs) return;
+    const fp = BREEDING_FORWARD_PAIRS_DATA;
+    Object.keys(fp).forEach(key => {
+      const [a, b] = key.split("|");
+      if(isGhost(fp[key]) || isGhost(a) || isGhost(b)) delete fp[key];
+    });
+    BREEDING_DATA.forwardPairs = fp;
+  });
+}
+
+function ensureReverseParents(){
+  return loadDataScript("game_data/breeding_reverse_parents_data.js").then(() => {
+    if(BREEDING_DATA.reverseParents) return;
+    const rp = BREEDING_REVERSE_PARENTS_DATA;
+    Object.entries(rp).forEach(([target, entry]) => {
+      if(isGhost(target)){ delete rp[target]; return; }
+      ["unique", "formula"].forEach(key => {
+        if(Array.isArray(entry[key])){
+          entry[key] = entry[key].filter(([a, b]) => !isGhost(a) && !isGhost(b));
+        }
+      });
+    });
+    BREEDING_DATA.reverseParents = rp;
+  });
+}
 
 function escapeHtml(str){
   return String(str == null ? "" : str).replace(/[&<>"']/g, ch => ({
@@ -97,12 +133,18 @@ function setupPicker(inputEl, resultsEl, onPick){
 
 const forwardState = { a: null, b: null };
 
-function renderForwardResult(){
+async function renderForwardResult(){
   const box = document.getElementById("forwardResult");
   if(!forwardState.a || !forwardState.b){
     box.className = "result-box empty";
     box.textContent = "親を2体選んでください";
     return;
+  }
+  if(!BREEDING_DATA.forwardPairs){
+    box.className = "result-box empty";
+    box.textContent = "配合データを読み込んでいます…";
+    try{ await ensureForwardPairs(); }
+    catch(e){ box.textContent = "配合データの読み込みに失敗しました。通信環境を確認して再読み込みしてください。"; return; }
   }
   const key = [forwardState.a, forwardState.b].sort().join("|");
   const child = BREEDING_DATA.forwardPairs[key];
@@ -148,8 +190,14 @@ function renderPairList(pairs, isUnique){
   `).join("");
 }
 
-function renderReverseResult(targetAsset){
+async function renderReverseResult(targetAsset){
   const box = document.getElementById("reverseResult");
+  if(!BREEDING_DATA.reverseParents){
+    box.className = "result-box empty";
+    box.textContent = "配合データを読み込んでいます…";
+    try{ await ensureReverseParents(); }
+    catch(e){ box.textContent = "配合データの読み込みに失敗しました。通信環境を確認して再読み込みしてください。"; return; }
+  }
   box.className = "result-box";
   const entry = BREEDING_DATA.reverseParents[targetAsset];
   if(!entry || (entry.unique.length === 0 && entry.formula.length === 0)){
@@ -204,15 +252,18 @@ document.querySelectorAll(".mode-tab").forEach(tab => {
 // 以前は本土・世界樹それぞれの1.2MB/168KBの詳細出現座標データを丸ごと読み込んでいた)
 const CATCHABLE_ASSETS = new Set(Object.keys(SPAWN_FLAGS_BY_ASSET_DATA));
 
-const REVERSE_FORWARD_PAIRS_RM = (() => {
+// 順引き表(1.8MB)を読み込んでから作る逆引き索引。起動時には作らず、
+// 配合ルート探索が実際に使われた時点で1回だけ組み立てる。
+let REVERSE_FORWARD_PAIRS_RM = null;
+function buildReverseForwardPairs(){
   const rev = {};
   Object.entries(BREEDING_DATA.forwardPairs).forEach(([key, child]) => {
     const sep = key.indexOf("|");
     const a = key.slice(0, sep), b = key.slice(sep + 1);
     (rev[child] = rev[child] || []).push([a, b]);
   });
-  return rev;
-})();
+  REVERSE_FORWARD_PAIRS_RM = rev;
+}
 
 function computeShortestGen(asset, cache, visiting){
   if(cache.has(asset)) return cache.get(asset);
@@ -265,8 +316,14 @@ function findRoadmapRoute(targetAsset){
   return { found: true, wildOnly: false, steps: reconstructRoadmapSteps(targetAsset, producedBy) };
 }
 
-function renderRoadmapResult(targetAsset){
+async function renderRoadmapResult(targetAsset){
   const box = document.getElementById("roadmapResult");
+  if(!REVERSE_FORWARD_PAIRS_RM){
+    box.className = "result-box empty";
+    box.textContent = "配合データを読み込んでいます…";
+    try{ await ensureForwardPairs(); buildReverseForwardPairs(); }
+    catch(e){ box.textContent = "配合データの読み込みに失敗しました。通信環境を確認して再読み込みしてください。"; return; }
+  }
   box.className = "result-box";
   const result = findRoadmapRoute(targetAsset);
   if(!result.found){

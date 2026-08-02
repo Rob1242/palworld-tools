@@ -239,7 +239,9 @@
 
   <p class="footer-note">配合データは<a href="https://github.com/tylercamp/palcalc" target="_blank" rel="noopener">tylercamp/palcalc</a>(ゲームファイルから直接抽出、1.0対応)に基づきます。1.0で追加されたパルの一部はパル図鑑側とのJP名紐付けが取れていない場合があります(その場合「(JP名未確認)」と表示)。</p>
 </div>
-<script src="game_data/breeding_data.js"></script>
+<!-- 起動時はパルの基本情報(55KB)だけ。重い配合表(順引き1.8MB/逆引き1.4MB)は
+     そのモードが実際に使われた時点で pages/breeding.js が読み込む。 -->
+<script src="game_data/breeding_pals_data.js"></script>
 <script src="game_data/spawn_flags_data.js"></script>
 
 <script src="shared/text-normalize.js"></script>

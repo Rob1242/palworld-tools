@@ -151,7 +151,6 @@ function normalizeIvs(ivs){
 }
 
 const ROLE_ICON = {"火おこし":"flame","水やり":"droplet","種まき":"sprout","発電":"bolt","手作業":"wrench","採集":"basket","伐採":"axe","採掘":"pickaxe","製薬":"flask","冷却":"snowflake","運搬":"box","牧場":"paw"};
-function typeBadge(t){ return `<span class="type-badge type-${t}">${t}</span>`; }
 function boxStatRow(label, val, max){
   const pct = Math.min(100, Math.round((val/max)*100));
   return `<div class="stat-row">
@@ -700,7 +699,6 @@ function passiveMaskOf(passives, targetList){
   (passives||[]).forEach(p => { const idx = targetList.indexOf(p); if(idx >= 0) m |= (1 << idx); });
   return m;
 }
-function popcountOf(m){ let c = 0; while(m){ c += m & 1; m >>= 1; } return c; }
 
 // 子パル -> それを作れる親ペア候補一覧への逆引き(1つの子パルに対して親ペアが
 // 数十〜千通り以上あることが多い)。forwardPairsは読込後に変化しないため
@@ -746,7 +744,7 @@ function computeAchievableForAsset(asset, targetList, ownedSet, cache, visiting,
     const gen = Math.max(ra.gen, rb.gen) + 1;
     if(gen > maxGenerations) continue;
     const mask = ra.mask | rb.mask;
-    if(!best || popcountOf(mask) > popcountOf(best.mask) || (popcountOf(mask) === popcountOf(best.mask) && gen < best.gen)){
+    if(!best || popcount(mask) > popcount(best.mask) || (popcount(mask) === popcount(best.mask) && gen < best.gen)){
       best = { mask, gen, pair: [a, b] };
     }
   }

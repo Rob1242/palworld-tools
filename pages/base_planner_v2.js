@@ -288,13 +288,6 @@ function scoredSpecies(pal, roleLvBonus, excludeFromBonus, extraPctByName){
   const totalMult = mult * passiveMult * (extra ? (1 + extra/100) : 1);
   return { pal, contribs, totalMult, loadout };
 }
-
-function popcount(x){
-  let c = 0;
-  while(x){ c += x & 1; x >>= 1; }
-  return c;
-}
-
 // activeRoles・roleCapsから、各役職を「上限が無ければ0/1のカバレッジビット」「上限があれば
 // 0..上限のカウンタ」として混合基数(mixed radix)でエンコードするための次元情報を作る。
 function buildRoleDims(activeRoles, roleCaps){

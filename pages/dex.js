@@ -6,9 +6,6 @@ const TYPES = ["無","炎","水","雷","地","草","氷","竜","闇"];
 const ROLE_ICON = {"火おこし":"flame","水やり":"droplet","種まき":"sprout","発電":"bolt","手作業":"wrench","採集":"basket","伐採":"axe","採掘":"pickaxe","製薬":"flask","冷却":"snowflake","運搬":"box","牧場":"paw"};
 
 let state = { view:"list", query:"", activeTypes:new Set(), sort:"id", selectedId:null };
-
-function typeBadge(t){ return `<span class="type-badge type-${t}">${t}</span>`; }
-
 function renderChips(){
   const wrap = document.getElementById("typeChips");
   wrap.innerHTML = TYPES.map(t => `<span class="chip" data-t="${t}">${t}</span>`).join("");

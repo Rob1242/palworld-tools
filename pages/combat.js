@@ -1,9 +1,4 @@
 const TYPES = ["無","炎","水","雷","地","草","氷","竜","闇"];
-function typeBadge(t){ return `<span class="type-badge type-${t}">${t}</span>`; }
-
-
-
-
 let state = {
   pal: null,
   lv: 80,
@@ -343,15 +338,6 @@ function computePalBestForParty(pal){
   if(!best) return null;
   return { pal, atk, passiveNames, best, attackElementJp: ELEMENT_EN_TO_JP[best.element] || "無" };
 }
-
-function popcount(x){
-  let c = 0;
-  while(x){ c += x & 1; x >>= 1; }
-  return c;
-}
-
-
-
 function selectBestParty(){
   const candidates = COMBAT_PAL_DATA
     .filter(p => !RANKING_EXCLUDE_DEX_IDS.has(p.dex_id))
