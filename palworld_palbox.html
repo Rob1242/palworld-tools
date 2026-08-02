@@ -237,6 +237,11 @@
   .box-grid .pname{font-size:10.5px;line-height:1.2;}
   .box-grid .pname-en{display:none;}
   .box-grid .owned-badge{top:1px;left:1px;font-size:11px;}
+  .box-pager{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;border-top:1px solid var(--line);}
+  .pager-btn{background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:6px;padding:6px 14px;font-size:12.5px;font-family:var(--font-body);cursor:pointer;white-space:nowrap;}
+  .pager-btn:hover:not(:disabled){border-color:var(--teal-dim);color:var(--teal);}
+  .pager-btn:disabled{opacity:.35;cursor:default;}
+  .pager-label{font-size:12.5px;color:var(--parchment-dim);font-family:var(--font-mono);white-space:nowrap;}
   .box-side{width:270px;flex-shrink:0;position:sticky;top:20px;}
   .box-diamond-wrap{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:30px 20px;display:flex;align-items:center;justify-content:center;min-height:260px;box-shadow:0 8px 24px rgba(0,0,0,.2);}
   .box-diamond{width:110px;height:110px;border:2px solid var(--line);transform:rotate(45deg);display:flex;align-items:center;justify-content:center;position:relative;}
@@ -401,7 +406,7 @@
             <button class="add-pal-btn" id="openAddPalBtn">+ パルを追加</button>
           </div>
           <div class="box-search-row">
-            <input type="text" id="boxSearchBox" placeholder="パル名・ニックネームで検索…">
+            <input type="text" id="boxSearchBox" placeholder="パル名・ニックネーム・パッシブで検索…">
           </div>
           <div class="pfilter-wrap">
             <div class="pfilter-toggle" id="boxPfilterToggle">
@@ -411,6 +416,7 @@
             <div class="pfilter-body" id="boxPfilterBody" style="display:none;"></div>
           </div>
           <div class="grid box-grid" id="boxGrid"></div>
+          <div class="box-pager" id="boxPager"></div>
         </div>
       </div>
       <div class="box-side">
@@ -624,7 +630,7 @@
               <button class="add-pal-btn" id="openSharedAddBtn">+ パルを追加</button>
             </div>
             <div class="box-search-row">
-              <input type="text" id="sharedSearchBox" placeholder="パル名・ニックネームで検索…">
+              <input type="text" id="sharedSearchBox" placeholder="パル名・ニックネーム・パッシブで検索…">
             </div>
             <div class="pfilter-wrap">
               <div class="pfilter-toggle" id="sharedPfilterToggle">
@@ -634,6 +640,7 @@
               <div class="pfilter-body" id="sharedPfilterBody" style="display:none;"></div>
             </div>
             <div class="grid box-grid" id="sharedGrid"></div>
+            <div class="box-pager" id="sharedPager"></div>
           </div>
         </div>
         <div class="box-side">
@@ -812,8 +819,13 @@ function boxStatRow(label, val, max){
   </div>`;
 }
 
-const boxState = { query: "", selectedUid: null, passiveFilter: null };
-const sharedBoxState = { query: "", selectedUid: null, instances: [], passiveFilter: null };
+const boxState = { query: "", selectedUid: null, passiveFilter: null, page: 0 };
+const sharedBoxState = { query: "", selectedUid: null, instances: [], passiveFilter: null, page: 0 };
+
+// 実際のゲーム内パルボックスは1ページ(1ボックス)30枠(6列×5行)、全32ボックスで
+// 合計960枠という仕様(2026-08確認、palworld.wiki.gg「Palbox」項目)。
+// ここでの1ページもこれに合わせて30体ずつに区切って表示する。
+const BOX_PAGE_SIZE = 30;
 
 // ---- パルボックス共通(所持ボックス・共有ボックスの両方で使う汎用レンダラー) ----
 function filterInstances(instances, query, passiveFilter){
@@ -825,8 +837,26 @@ function filterInstances(instances, query, passiveFilter){
   return list.filter(inst => {
     const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
     return (p && toKana(p.name).includes(qKana)) || (inst.nickname && toKana(inst.nickname).includes(qKana))
-      || (p && p.en_name && p.en_name.toLowerCase().includes(q));
+      || (p && p.en_name && p.en_name.toLowerCase().includes(q))
+      || (inst.passives||[]).some(name => toKana(name).includes(qKana));
   });
+}
+
+// ボックスのページ送りUIを描画する。cfg: {pagerId, state, onChange}
+function renderBoxPager(cfg, totalItems){
+  const pager = document.getElementById(cfg.pagerId);
+  if(!pager) return;
+  const totalPages = Math.max(1, Math.ceil(totalItems / BOX_PAGE_SIZE));
+  if(cfg.state.page > totalPages - 1) cfg.state.page = totalPages - 1;
+  if(cfg.state.page < 0) cfg.state.page = 0;
+  if(totalPages <= 1){ pager.innerHTML = ""; return; }
+  pager.innerHTML = `
+    <button class="pager-btn" id="${cfg.pagerId}Prev" ${cfg.state.page===0 ? "disabled" : ""}>◀ 前のボックス</button>
+    <span class="pager-label">ボックス ${cfg.state.page+1} / ${totalPages}</span>
+    <button class="pager-btn" id="${cfg.pagerId}Next" ${cfg.state.page===totalPages-1 ? "disabled" : ""}>次のボックス ▶</button>
+  `;
+  document.getElementById(`${cfg.pagerId}Prev`).addEventListener("click", () => { cfg.state.page--; cfg.onChange(); });
+  document.getElementById(`${cfg.pagerId}Next`).addEventListener("click", () => { cfg.state.page++; cfg.onChange(); });
 }
 
 // パルが持っているパッシブごとの所持数を集計し、多い順に並べる(絞り込みチップの一覧に使う)
@@ -853,6 +883,7 @@ function renderPassiveFilter(cfg){
       chip.addEventListener("click", () => {
         const name = chip.dataset.passive;
         cfg.state.passiveFilter = cfg.state.passiveFilter === name ? null : name;
+        cfg.state.page = 0;
         cfg.onChange();
       });
     });
@@ -862,22 +893,27 @@ function renderPassiveFilter(cfg){
 }
 
 function renderInstanceGrid(cfg){
-  // cfg: {instances, gridId, countId, state, onSelect, emptyMsg}
+  // cfg: {instances, gridId, countId, pagerId, state, onSelect, onChange, emptyMsg}
   const instances = cfg.instances;
-  const list = filterInstances(instances, cfg.state.query, cfg.state.passiveFilter);
-  if(cfg.countId) document.getElementById(cfg.countId).textContent = `所持${instances.length}体 / 表示${list.length}体`;
+  const fullList = filterInstances(instances, cfg.state.query, cfg.state.passiveFilter);
+  if(cfg.countId) document.getElementById(cfg.countId).textContent = `所持${instances.length}体 / 表示${fullList.length}体`;
   const grid = document.getElementById(cfg.gridId);
   if(instances.length === 0){
     grid.innerHTML = `<div class="empty-box-msg"><div class="big">${ico("box")}</div>${cfg.emptyMsg}</div>`;
+    if(cfg.pagerId) document.getElementById(cfg.pagerId).innerHTML = "";
     return;
   }
-  if(list.length === 0){
+  if(fullList.length === 0){
     const msg = cfg.state.query
       ? `「${escapeHtml(cfg.state.query)}」に一致するパルが見つかりません。`
       : `パッシブ「${escapeHtml(cfg.state.passiveFilter)}」を持つパルが見つかりません。`;
     grid.innerHTML = `<div class="empty-box-msg">${msg}</div>`;
+    if(cfg.pagerId) document.getElementById(cfg.pagerId).innerHTML = "";
     return;
   }
+  if(cfg.pagerId) renderBoxPager(cfg, fullList.length);
+  const start = cfg.state.page * BOX_PAGE_SIZE;
+  const list = fullList.slice(start, start + BOX_PAGE_SIZE);
   grid.innerHTML = list.map(inst => {
     const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
     if(!p) return "";
@@ -986,8 +1022,10 @@ function renderBoxGrid(){
     instances: getInstances(),
     gridId: "boxGrid",
     countId: "boxCountTag",
+    pagerId: "boxPager",
     state: boxState,
     onSelect: selectBoxPal,
+    onChange: renderBoxGrid,
     emptyMsg: `まだパルが登録されていません。<br>「+ パルを追加」から、捕まえたパルを1体ずつ記録しましょう。`,
   });
   renderPassiveFilter({
@@ -1024,7 +1062,7 @@ function selectBoxPal(uid){
   document.getElementById("boxDetailPanel").style.display = "block";
 }
 
-document.getElementById("boxSearchBox").addEventListener("input", e => { boxState.query = e.target.value; renderBoxGrid(); });
+document.getElementById("boxSearchBox").addEventListener("input", e => { boxState.query = e.target.value; boxState.page = 0; renderBoxGrid(); });
 
 // パッシブ絞り込みパネルの開閉状態はlocalStorageに覚えておく(パルが多いと縦に長くなるため既定は閉)
 const BOX_PFILTER_OPEN_KEY = "palworldBoxPfilterOpen";
@@ -1047,8 +1085,10 @@ function renderSharedGrid(instances){
     instances: sharedBoxState.instances,
     gridId: "sharedGrid",
     countId: "sharedCountTag",
+    pagerId: "sharedPager",
     state: sharedBoxState,
     onSelect: selectSharedPal,
+    onChange: renderSharedGrid,
     emptyMsg: `まだパルが登録されていません。「+ パルを追加」から登録しましょう。`,
   });
   renderPassiveFilter({
@@ -1084,7 +1124,7 @@ function selectSharedPal(uid){
   document.getElementById("sharedDetailPanel").style.display = "block";
 }
 
-document.getElementById("sharedSearchBox").addEventListener("input", e => { sharedBoxState.query = e.target.value; renderSharedGrid(); });
+document.getElementById("sharedSearchBox").addEventListener("input", e => { sharedBoxState.query = e.target.value; sharedBoxState.page = 0; renderSharedGrid(); });
 
 const SHARED_PFILTER_OPEN_KEY = "palworldSharedPfilterOpen";
 function setSharedPfilterOpen(open){
