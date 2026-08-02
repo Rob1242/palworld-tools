@@ -99,7 +99,64 @@ async function tick() {
   console.log(`${events.length}件を記録 → ${path.basename(file)}`);
 }
 
-if (watch) {
+// --- 声で話しかけてもらうモード ---
+// Enterを押している間ではなく「Enterを押したら録音開始、話し終わりを無音で検出」方式。
+// ゲームのコントローラーを持ったままでも扱いやすいのと、押しっぱなしより確実なため。
+async function talkMode() {
+  const { listenOnce, toHira } = await import('./voice.mjs');
+  const cur = await fetchCurrent(cfg);
+  if (!cur.pals.length) { console.log('まだパルのデータがありません。'); return; }
+
+  // 質問に答えるための材料をそろえる
+  const speciesSet = new Set(cur.pals.map(p => p.dexId));
+  const best = cur.pals.slice().sort((a, b) => ivTotal(b) - ivTotal(a))[0];
+  const advice = buildAdvice(analyzeBase(cur.pals, dexName, plannerData, cfg.baseSlots), cfg.baseSlots);
+  const ctx = {
+    total: cur.pals.length,
+    species: speciesSet.size,
+    best: best ? { name: dexName(best.dexId) || best.dexId, iv: ivTotal(best) } : null,
+    advice,
+    // 聞き取った文にパル名が含まれていればその所持状況を返す。
+    // 認識結果はカタカナが崩れることがあるので、両方を平仮名に寄せて比べる。
+    findSpecies(t) {
+      const th = toHira(t);
+      // 長い名前から先に見る(短い名前が別の名前の一部に一致するのを防ぐ)
+      const sorted = PAL_DEX_DATA.filter(p => p.name && p.name.length >= 3)
+        .sort((a, b) => b.name.length - a.name.length);
+      for (const p of sorted) {
+        if (th.includes(toHira(p.name))) {
+          const mine = cur.pals.filter(x => x.dexId === p.id);
+          return { name: p.name, count: mine.length,
+            bestIv: mine.length ? Math.max(...mine.map(ivTotal)) : 0 };
+        }
+      }
+      return null;
+    },
+  };
+
+  const say = t => speak(t, cfg.voice, cfg.speechRate);
+  console.log('話しかけモードです。Enterを押してから話してください(終了は Control+C)。\n');
+  await say(`準備できたよ。今は${ctx.total}体、${ctx.species}種類。`);
+
+  process.stdin.setEncoding('utf8');
+  const prompt = () => process.stdout.write('Enterで録音 > ');
+  prompt();
+  for await (const _ of process.stdin) {
+    process.stdout.write('  聞いています…\n');
+    try {
+      const r = await listenOnce(cfg, ctx, say);
+      if (r.heard) console.log(`  聞き取り: ${r.heard}`);
+      if (r.reply) console.log(`  返答:     ${r.reply}`);
+    } catch (e) {
+      console.error('  エラー:', e.message);
+    }
+    prompt();
+  }
+}
+
+if (args.includes('--talk')) {
+  await talkMode();
+} else if (watch) {
   console.log(`見守りを開始します(${cfg.intervalMinutes}分ごと)。止めるには Control+C。`);
   await tick();
   setInterval(tick, cfg.intervalMinutes * 60 * 1000);

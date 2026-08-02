@@ -9,5 +9,10 @@
   "speakMinWeight": 3,
   "maxSpeechPerTick": 3,
   "intervalMinutes": 5,
-  "baseSlots": 20
+  "baseSlots": 20,
+  "whisperModel": "~/.local/share/whisper/ggml-small.bin",
+  "voiceSilenceSec": 1.2,
+  "voiceMaxSec": 12,
+  "voiceStartThreshold": "2%",
+  "voiceStopThreshold": "2%"
 }
