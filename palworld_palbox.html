@@ -455,6 +455,29 @@
         </div>
         <button class="pform-save-btn" id="backupUploadBtn">今の所持データでバックアップを上書き</button>
         <p class="share-status" id="backupStatus" style="margin-top:8px;"></p>
+
+        <!-- 専用サーバーからバックアップを自動更新している人向け。
+             コードを保存している端末にしか表示されないので、通常の利用者には出ない。 -->
+        <div class="pform-section" style="margin-top:18px;padding-top:16px;border-top:1px solid var(--line);">
+          <div class="pform-label">開いた時に自動で取り込む</div>
+          <p style="font-size:11px;color:var(--parchment-dim);margin:0 0 10px;line-height:1.7;">
+            専用サーバー側でバックアップを自動更新している場合に使います。オンにすると、このページを開くたびに
+            バックアップの内容を所持パル管理へ取り込みます。
+          </p>
+          <div class="toggle-row" style="border:none;padding:0 0 8px;">
+            <div>
+              <div class="toggle-label" style="font-size:13px;">自動で取り込む</div>
+              <div class="toggle-desc" style="font-size:11px;color:var(--parchment-dim);">オフにすれば従来どおり手動の復元だけになります</div>
+            </div>
+            <div class="switch" id="autoPullSwitch"><div class="knob"></div></div>
+          </div>
+          <div class="mini-tabs" id="autoPullModeTabs" style="margin-top:6px;">
+            <div class="mini-tab active" data-mode="merge">手入力ぶんを残す</div>
+            <div class="mini-tab" data-mode="replace">まるごと置き換え</div>
+          </div>
+          <p class="share-status" id="autoPullStatus" style="margin-top:8px;"></p>
+        </div>
+
         <button class="back-btn" id="backupForgetBtn" style="margin-top:10px;">このコードを端末から削除(バックアップ自体は残ります)</button>
       </div>
 

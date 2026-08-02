@@ -1859,6 +1859,7 @@ function renderBackupModal(){
   setBackupStatus("");
   setBackupRestoreStatus("");
   document.getElementById("backupRestoreInput").value = "";
+  if(typeof renderAutoPullUI === "function") renderAutoPullUI();
 }
 
 async function uploadBackup(code){
@@ -2206,6 +2207,82 @@ document.getElementById("backupRestoreBtn").addEventListener("click", async () =
     setBackupRestoreStatus("復元に失敗しました: " + e.message, "err");
   }
 });
+
+// ---- バックアップの自動取り込み ----
+// 専用サーバー側でバックアップを自動更新している場合に、ページを開いた時点で
+// その内容を所持パル管理へ取り込む。バックアップコードを保存している端末でしか
+// UIも動作も有効にならないので、通常の利用者には影響しない(2026-08)。
+const AUTO_PULL_KEY = "palworldAutoPullEnabled";
+const AUTO_PULL_MODE_KEY = "palworldAutoPullMode";   // "merge" | "replace"
+
+function autoPullEnabled(){ return localStorage.getItem(AUTO_PULL_KEY) === "1"; }
+function autoPullMode(){ return localStorage.getItem(AUTO_PULL_MODE_KEY) === "replace" ? "replace" : "merge"; }
+
+function renderAutoPullUI(){
+  const sw = document.getElementById("autoPullSwitch");
+  if(!sw) return;
+  sw.classList.toggle("on", autoPullEnabled());
+  const mode = autoPullMode();
+  document.querySelectorAll("#autoPullModeTabs .mini-tab").forEach(t =>
+    t.classList.toggle("active", t.dataset.mode === mode));
+}
+
+function setAutoPullStatus(msg, cls){
+  const el = document.getElementById("autoPullStatus");
+  if(!el) return;
+  el.textContent = msg;
+  el.className = "share-status" + (cls ? " " + cls : "");
+}
+
+// ページ読み込み時に1回だけ実行。失敗しても既存の所持データには一切触らない。
+async function runAutoPull(){
+  const code = localStorage.getItem(PERSONAL_BACKUP_CODE_KEY);
+  if(!code || !autoPullEnabled() || !ROOM_CODE_RE.test(code)) return;
+  if(!firebaseReady()) return;
+  try {
+    const doc = await personalBackupRef(code).get();
+    if(!doc.exists) return;
+    const incoming = sanitizeUntrustedInstances(doc.data().instances);
+    if(!incoming.length) return;   // 空のバックアップで既存を消してしまわない
+
+    let list, added = 0, updated = 0;
+    if(autoPullMode() === "replace"){
+      list = incoming;
+    } else {
+      // 手入力した個体にはsourceInstanceIdが無いので、マージすればそのまま残る
+      const merged = mergeInstsIntoList(getInstances(), incoming);
+      list = merged.list; added = merged.added; updated = merged.updated;
+    }
+    if(!setInstances(list)) return;
+    renderBoxGrid();
+    const label = autoPullMode() === "replace"
+      ? `サーバーの内容で置き換えました(${incoming.length}体)。`
+      : `サーバーから取り込みました(新規${added}体・更新${updated}体)。`;
+    showGlobalToast(label, 5000);
+    setAutoPullStatus(label, "ok");
+  } catch(e){
+    // 通信失敗時は何もしない(既存データを壊さないことを最優先)
+    console.error("自動取り込みに失敗:", e);
+  }
+}
+
+document.getElementById("autoPullSwitch")?.addEventListener("click", () => {
+  const next = !autoPullEnabled();
+  localStorage.setItem(AUTO_PULL_KEY, next ? "1" : "0");
+  renderAutoPullUI();
+  setAutoPullStatus(next ? "オンにしました。次にページを開いた時から取り込みます。" : "オフにしました。", "");
+  if(next) runAutoPull();
+});
+document.querySelectorAll("#autoPullModeTabs .mini-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    localStorage.setItem(AUTO_PULL_MODE_KEY, tab.dataset.mode);
+    renderAutoPullUI();
+    setAutoPullStatus(tab.dataset.mode === "replace"
+      ? "取り込み時に所持パル管理をまるごと置き換えます。" : "手入力した個体は残したまま取り込みます。", "");
+  });
+});
+renderAutoPullUI();
+runAutoPull();
 
 async function saveInstanceToSharedRoom(inst){
   if(!currentRoomCode || !firebaseReady()) return;
