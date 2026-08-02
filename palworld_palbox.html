@@ -472,6 +472,13 @@
         </div>
       </div>
 
+      <div class="pform-section" id="pformAlphaSection" style="display:none;">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:400;text-transform:none;letter-spacing:0;">
+          <input type="checkbox" id="pformIsAlpha" style="width:16px;height:16px;">
+          α個体(ボス) <span style="color:var(--parchment-dim);">セクメトの場合、既知バグ(自己作業速度+400%)を拠点プランナーの所持パル計算に反映します</span>
+        </label>
+      </div>
+
       <div class="pform-section" id="pformIvSection" style="display:none;">
         <div class="pform-label">個体値 <span style="color:var(--parchment-dim);font-weight:400;text-transform:none;letter-spacing:0;">(0〜30%、HP・攻撃・防御のみが対象。作業速度は個体値の対象外・wiki確認済み)</span></div>
         <div class="iv-row">
@@ -781,9 +788,10 @@ function renderInstanceGrid(cfg){
     if(!p) return "";
     const sexMark = inst.sex === "male" ? `<span class="sex-mark male">♂</span>`
       : inst.sex === "female" ? `<span class="sex-mark female">♀</span>` : "";
+    const alphaMark = inst.isAlpha ? `<span class="sex-mark" style="color:var(--danger);">α</span>` : "";
     return `
     <div class="card ${cfg.state.selectedUid===inst.uid ? 'selected' : ''}" data-uid="${inst.uid}" tabindex="0" role="button">
-      <div class="icon-wrap">${p.icon ? `<img src="${p.icon}" alt="${p.name}" loading="lazy">` : ""}${sexMark}</div>
+      <div class="icon-wrap">${p.icon ? `<img src="${p.icon}" alt="${p.name}" loading="lazy">` : ""}${sexMark}${alphaMark}</div>
       <div class="pname">${escapeHtml(inst.nickname) || p.name}</div>
       <div class="pname-en">${inst.nickname ? p.name : (p.en_name || "")}</div>
     </div>`;
@@ -792,6 +800,10 @@ function renderInstanceGrid(cfg){
     card.addEventListener("click", () => cfg.onSelect(card.dataset.uid));
     card.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); cfg.onSelect(card.dataset.uid); } });
   });
+}
+
+function alphaBadge(){
+  return `<span class="badge" style="border-color:var(--danger);color:var(--danger);">α個体(ボス)</span>`;
 }
 
 function sexBadge(sex){
@@ -850,7 +862,7 @@ function buildDetailInnerHtml(inst, p){
     <div class="detail-info">
       <div class="dname"><a href="palworld_dex.html?id=${p.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--parchment-dim);">${escapeHtml(inst.nickname) || p.name}</a></div>
       <div class="dname-en">${inst.nickname ? p.name + ' ・ ' : ''}${p.en_name || ""}</div>
-      <div class="badge-row">${(p.types||[]).map(typeBadge).join("")}${timeBadge}${sexBadge(inst.sex)}</div>
+      <div class="badge-row">${(p.types||[]).map(typeBadge).join("")}${timeBadge}${sexBadge(inst.sex)}${inst.isAlpha ? alphaBadge() : ""}</div>
       ${ivHtml}
     </div>
     <div class="section">
@@ -1908,6 +1920,7 @@ function pickSpeciesForPform(asset){
   });
   document.getElementById('pformDetailSections').style.display = 'block';
   document.getElementById('pformSexSection').style.display = 'block';
+  document.getElementById('pformAlphaSection').style.display = 'block';
   document.getElementById('pformIvSection').style.display = 'block';
   document.getElementById('pformSkillSection').style.display = 'block';
   document.getElementById('pformPassiveSection').style.display = 'block';
@@ -2049,10 +2062,12 @@ function openPform(editUid, target){
   document.getElementById('pformSpeciesPicked').style.display = 'none';
   document.getElementById('pformDetailSections').style.display = 'none';
   document.getElementById('pformSexSection').style.display = 'none';
+  document.getElementById('pformAlphaSection').style.display = 'none';
   document.getElementById('pformIvSection').style.display = 'none';
   document.getElementById('pformSkillSection').style.display = 'none';
   document.getElementById('pformPassiveSection').style.display = 'none';
   document.getElementById('pformNickname').value = '';
+  document.getElementById('pformIsAlpha').checked = false;
   setPformSex('unknown');
   ['ivHp','ivAttack','ivDefense'].forEach(id => {
     document.getElementById(id).value = 0;
@@ -2068,6 +2083,7 @@ function openPform(editUid, target){
       pickSpeciesForPform(asset);
       document.getElementById('pformNickname').value = inst.nickname || '';
       setPformSex(inst.sex || 'unknown');
+      document.getElementById('pformIsAlpha').checked = !!inst.isAlpha;
       document.getElementById('ivHp').value = inst.ivs.hp;
       document.getElementById('ivHpVal').textContent = inst.ivs.hp + '%';
       document.getElementById('ivAttack').value = inst.ivs.attack;
@@ -2111,6 +2127,7 @@ document.getElementById('pformSaveBtn').addEventListener('click', () => {
     activeSkills: pformState.skills.slice(),
     passives: pformState.passives.slice(),
     sex: pformState.sex || "unknown",
+    isAlpha: document.getElementById('pformIsAlpha').checked,
     createdAt: Date.now(),
   };
 

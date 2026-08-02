@@ -228,6 +228,10 @@
       <div><div class="toggle-label">世界樹パッシブも考慮</div><div class="toggle-desc">悪魔の手(作業速度+90%、デメリット:SAN値減少+15%)を選択肢に含める。手術台での移植が前提の上級者向け機能</div></div>
       <div class="switch" id="toggleWorldTree"><div class="knob"></div></div>
     </div>
+    <div class="toggle-row">
+      <div><div class="toggle-label">セクメトはα個体</div><div class="toggle-desc">既知のゲーム内バグ(2026-08時点、未修正)により、α個体のセクメトは自身への作業速度バフが本来の値ではなく+400%固定になる(Twitter・YouTube複数ソースで確認済み、データマイニングには出てこない実機バグ)。修正されたらこのトグルをオフにするだけで通常個体と同じ計算に戻ります。</div></div>
+      <div class="switch" id="toggleSekhmetAlpha"><div class="knob"></div></div>
+    </div>
     <div class="pal-source-row">
       <div><div class="toggle-label">計算に使うパルの範囲</div><div class="toggle-desc">「理想値」は全パルを対象にした理論値(従来通り)。「自分のボックス」「共有ボックス」は実際に登録されている個体だけを対象にし、各個体は1体まで(同じ種でも所持数を超えて重複選出しません)。パッシブも理論値ではなく、その個体に実際に登録されているものだけを使います。</div></div>
       <div class="mini-tabs" id="palSourceTabs">
@@ -329,6 +333,7 @@ let dayNightBalance = true;
 let generalistPref = true;
 let usePassive = true;
 let useWorldTree = false;
+let sekhmetIsAlpha = false;
 
 // 設定(役職重要度・実働上限・トグル・枠数)をブラウザに保存し、ページ再読み込み後も
 // 復元する(図鑑ページ等を見て戻ってきたら計算が消えている問題への対応)。計算結果そのものは
@@ -339,7 +344,7 @@ function saveState(){
   try{
     const slotEl = document.getElementById('slotNum');
     localStorage.setItem(PLANNER_STATE_KEY, JSON.stringify({
-      roleWeights, roleCaps, dayNightBalance, generalistPref, usePassive, useWorldTree,
+      roleWeights, roleCaps, dayNightBalance, generalistPref, usePassive, useWorldTree, sekhmetIsAlpha,
       slots: slotEl ? (parseInt(slotEl.value) || 15) : 15,
     }));
   }catch(e){ /* localStorageが使えない環境では何もしない */ }
@@ -356,6 +361,7 @@ function loadState(){
     if(s.generalistPref !== undefined) generalistPref = s.generalistPref;
     if(s.usePassive !== undefined) usePassive = s.usePassive;
     if(s.useWorldTree !== undefined) useWorldTree = s.useWorldTree;
+    if(s.sekhmetIsAlpha !== undefined) sekhmetIsAlpha = s.sekhmetIsAlpha;
     if(s.slots) savedSlots = s.slots;
     return true;
   }catch(e){ return false; }
@@ -421,6 +427,7 @@ document.getElementById('toggleDayNight').classList.toggle('on', dayNightBalance
 document.getElementById('toggleGeneralist').classList.toggle('on', generalistPref);
 document.getElementById('togglePassive').classList.toggle('on', usePassive);
 document.getElementById('toggleWorldTree').classList.toggle('on', useWorldTree);
+document.getElementById('toggleSekhmetAlpha').classList.toggle('on', sekhmetIsAlpha);
 
 document.getElementById('toggleDayNight').addEventListener('click', function(){
   dayNightBalance = !dayNightBalance; this.classList.toggle('on', dayNightBalance); saveState();
@@ -433,6 +440,9 @@ document.getElementById('togglePassive').addEventListener('click', function(){
 });
 document.getElementById('toggleWorldTree').addEventListener('click', function(){
   useWorldTree = !useWorldTree; this.classList.toggle('on', useWorldTree); saveState();
+});
+document.getElementById('toggleSekhmetAlpha').addEventListener('click', function(){
+  sekhmetIsAlpha = !sekhmetIsAlpha; this.classList.toggle('on', sekhmetIsAlpha); saveState();
 });
 
 const slotRange = document.getElementById('slotRange');
@@ -449,13 +459,14 @@ slotNum.addEventListener('input', () => {
 document.getElementById('clearBtn').addEventListener('click', () => {
   try{ localStorage.removeItem(PLANNER_STATE_KEY); }catch(e){}
   ROLES.forEach(r => { roleWeights[r] = (r==="手作業"||r==="運搬") ? 2 : 1; roleCaps[r] = 0; });
-  dayNightBalance = true; generalistPref = true; usePassive = true; useWorldTree = false;
+  dayNightBalance = true; generalistPref = true; usePassive = true; useWorldTree = false; sekhmetIsAlpha = false;
   refreshWeightButtons();
   document.querySelectorAll('.cap-input').forEach(inp => { inp.value = ''; });
   document.getElementById('toggleDayNight').classList.add('on');
   document.getElementById('toggleGeneralist').classList.add('on');
   document.getElementById('togglePassive').classList.add('on');
   document.getElementById('toggleWorldTree').classList.remove('on');
+  document.getElementById('toggleSekhmetAlpha').classList.remove('on');
   slotNum.value = 15; slotRange.value = 15;
   document.getElementById('resultArea').innerHTML = '';
 });
@@ -820,7 +831,13 @@ function scoredInstanceItem(item, roleLvBonus, excludeFromBonus, extraPctByName)
     loadout = actualPassiveLoadout(item.instance);
     passiveMult = 1 + loadout.totalPct/100;
   }
-  const extra = extraPctByName[item.pal.name] || 0;
+  let extra = extraPctByName[item.pal.name] || 0;
+  // セクメトのα個体は既知のゲーム内バグ(自身への作業速度バフが+400%固定になる、2026-08時点未修正)
+  // を反映する。extraPctByNameは種族単位の補正だが、α個体かどうかは個体ごとの情報なので、
+  // ここで対象個体(instance.isAlpha)を直接見て加算する。修正されたらこの分岐を削除するだけでよい。
+  if(item.pal.name === 'セクメト' && item.instance && item.instance.isAlpha){
+    extra += SEKHMET_ALPHA_BUG_SELF_PCT;
+  }
   const totalMult = mult * passiveMult * (extra ? (1 + extra/100) : 1);
   return { item, pal: item.pal, contribs, totalMult, loadout };
 }
@@ -979,6 +996,12 @@ const SYNERGY_BOOSTERS = [
 ];
 const SYNERGY_SEKHMET_TARGET_PCT = 20; // アヌビスの作業速度+20%(拠点内、重複不可)
 const SYNERGY_SEKHMET_SELF_PCT = 30;   // セクメト自身+30%(作業台/工場勤務時。施設限定かどうかはデータ上未確認のため全役職に適用)
+// ⚠️ 既知のゲーム内バグ用の暫定値(2026-08、未修正)。α個体のセクメトは自身への
+// 作業速度バフが本来の値ではなく+400%固定になる(Twitter/YouTube複数ソースで確認済み、
+// game_data/skills.jsonのランク別テーブルには存在しない実機バグのため、ここだけ実測値を
+// ハードコードしている)。ゲーム側で修正されたら、この定数と↓のsekhmetIsAlpha分岐を
+// 削除するだけで通常個体と同じ計算(SYNERGY_SEKHMET_SELF_PCT)に戻る。
+const SEKHMET_ALPHA_BUG_SELF_PCT = 400;
 const SYNERGY_JELLY_PCT = 50;          // クララン・ユラランが両方拠点にいる間、それぞれ自分の水やり速度+50%
 const MERICOLONE_HUNGER_REDUCTION_PCT = 15; // メリコロネ: 拠点パル全体の満腹度減少-15%(作業速度と無関係のためスコアには含めない、表示のみ)
 
@@ -1001,10 +1024,12 @@ function buildSynergyToggles(){
     toggles.push({
       id: 'sekhmet',
       reserve: ['セクメト'],
-      label: `セクメト(アヌビス作業速度+${SYNERGY_SEKHMET_TARGET_PCT}%・自身+${SYNERGY_SEKHMET_SELF_PCT}%)`,
+      label: sekhmetIsAlpha
+        ? `セクメト(α個体・バグ値: アヌビス作業速度+${SYNERGY_SEKHMET_TARGET_PCT}%・自身+${SEKHMET_ALPHA_BUG_SELF_PCT}%)`
+        : `セクメト(アヌビス作業速度+${SYNERGY_SEKHMET_TARGET_PCT}%・自身+${SYNERGY_SEKHMET_SELF_PCT}%)`,
       apply(ctx){
         ctx.extraPctByName['アヌビス'] = (ctx.extraPctByName['アヌビス']||0) + SYNERGY_SEKHMET_TARGET_PCT;
-        ctx.extraPctByName['セクメト'] = (ctx.extraPctByName['セクメト']||0) + SYNERGY_SEKHMET_SELF_PCT;
+        ctx.extraPctByName['セクメト'] = (ctx.extraPctByName['セクメト']||0) + (sekhmetIsAlpha ? SEKHMET_ALPHA_BUG_SELF_PCT : SYNERGY_SEKHMET_SELF_PCT);
       }
     });
   }
