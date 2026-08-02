@@ -492,7 +492,7 @@
         </div>
         <div class="save-import-list" id="saveImportList"></div>
         <button class="pform-save-btn" id="saveImportConfirmBtn" style="margin-top:14px;">選択したパルをボックスに追加</button>
-        <p style="font-size:11px;color:var(--parchment-dim);margin-top:8px;">※ 同じセーブデータを2回読み込むと重複して追加されます。やり直したい場合は先にボックスから削除してください。</p>
+        <p style="font-size:11px;color:var(--parchment-dim);margin-top:8px;">※ 同じ個体を再度読み込んだ場合は、重複追加ではなく既存のデータを上書き更新します(ニックネームなど手入力した内容は上書きされます)。</p>
       </div>
     </div>
   </div>
@@ -2583,8 +2583,31 @@ function buildInstFromParsedPal(p, idx){
     isAlpha: !!p.isAlpha,
     level: p.level || null,
     rank: p.rank || null,
+    // ゲーム内部の個体固有ID。同じ個体を再インポートした時に「新規追加」ではなく
+    // 「既存を上書き更新」と判定するための安定キー(2026-08、重複防止対応)。
+    // 手入力で登録した個体にはこの値が無い(=常に新規追加として扱われる)。
+    sourceInstanceId: p.instanceId || null,
     createdAt: Date.now(),
   };
+}
+
+// 既存リストに新規インポート分を合流させる。sourceInstanceIdが既存の何かと一致すれば
+// (=同じ個体の再インポート)、既存のuidを引き継いで上書き更新。一致しなければ新規追加。
+function mergeInstsIntoList(existingList, newInsts){
+  const list = existingList.slice();
+  let added = 0, updated = 0;
+  newInsts.forEach(inst => {
+    const idx = inst.sourceInstanceId ? list.findIndex(x => x.sourceInstanceId === inst.sourceInstanceId) : -1;
+    if(idx >= 0){
+      inst.uid = list[idx].uid; // 既存の識別子は変えない
+      list[idx] = inst;
+      updated++;
+    } else {
+      list.push(inst);
+      added++;
+    }
+  });
+  return { list, added, updated };
 }
 
 document.getElementById("saveImportConfirmBtn").addEventListener("click", async () => {
@@ -2601,11 +2624,11 @@ document.getElementById("saveImportConfirmBtn").addEventListener("click", async 
   if(saveImportState.target === "shared"){
     await importToSharedRoom(insts, skipped);
   } else {
-    const list = getInstances().concat(insts);
+    const { list, added, updated } = mergeInstsIntoList(getInstances(), insts);
     const saved = setInstances(list);
     if(saved){
       renderBoxGrid();
-      setSaveImportStatus(`${insts.length}体をパルボックスに追加しました。${skipped ? `(${skipped}体は図鑑データと紐づかず未対応でした)` : ''} 閉じるとボックスに反映されています。`, "ok");
+      setSaveImportStatus(`パルボックスに反映しました(新規${added}体・更新${updated}体)。${skipped ? `(${skipped}体は図鑑データと紐づかず未対応でした)` : ''} 閉じるとボックスに反映されています。`, "ok");
     } else {
       setSaveImportStatus(`保存に失敗したため、今回のインポートは反映されていません(上に出ている警告を確認してください)。`, "err");
     }
@@ -2614,12 +2637,18 @@ document.getElementById("saveImportConfirmBtn").addEventListener("click", async 
 
 // 共有ボックス(Firestore)への一括書き込み。1体ずつawaitすると数百体規模で
 // 非常に遅くなるため、batch()で最大500件ずつまとめて送信する(Firestoreの
-// バッチ上限が500件のため)。
+// バッチ上限が500件のため)。sourceInstanceIdが既存のドキュメントと一致する場合は
+// そのuidを再利用することで、新規追加ではなく上書き更新にする。
 async function importToSharedRoom(insts, skipped){
   if(!currentRoomCode || !firebaseReady()){
     setSaveImportStatus("共有ボックスに接続できませんでした。先に入室してください。", "err");
     return;
   }
+  let added = 0, updated = 0;
+  insts.forEach(inst => {
+    const existing = inst.sourceInstanceId ? sharedBoxState.instances.find(x => x.sourceInstanceId === inst.sourceInstanceId) : null;
+    if(existing){ inst.uid = existing.uid; updated++; } else { added++; }
+  });
   const CHUNK = 500;
   let done = 0;
   try{
@@ -2631,7 +2660,7 @@ async function importToSharedRoom(insts, skipped){
       done += chunk.length;
       setSaveImportStatus(`共有ボックスへ書き込み中… ${done}/${insts.length}体`, "");
     }
-    setSaveImportStatus(`${insts.length}体を共有ボックスに追加しました。${skipped ? `(${skipped}体は図鑑データと紐づかず未対応でした)` : ''}`, "ok");
+    setSaveImportStatus(`共有ボックスに反映しました(新規${added}体・更新${updated}体)。${skipped ? `(${skipped}体は図鑑データと紐づかず未対応でした)` : ''}`, "ok");
   }catch(e){
     setSaveImportStatus(`共有ボックスへの書き込みに失敗しました(${done}/${insts.length}体まで完了): ${e.message}`, "err");
   }

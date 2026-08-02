@@ -281,6 +281,9 @@ function simplifyCharacterEntry(entryValueProps, entryKeyProps) {
   const sp = entryValueProps?.RawData?.value?.object?.SaveParameter?.value;
   if (!sp) return null;
   const keyPlayerUId = guidBytesToStringSafe(entryKeyProps?.PlayerUId?.value);
+  // InstanceIdはゲーム内部でパル1体ごとに振られる一意なID。再インポート時に
+  // 「同じ個体かどうか」を判定する安定キーとして使う(2026-08、重複防止対応)。
+  const instanceId = guidBytesToStringSafe(entryKeyProps?.InstanceId?.value);
   const val = (name) => sp[name]?.value;
   const isPlayer = !!val('IsPlayer');
   const characterId = val('CharacterID') ?? null;
@@ -310,6 +313,7 @@ function simplifyCharacterEntry(entryValueProps, entryKeyProps) {
     equipWaza,
     ownerPlayerUId: guidBytesToStringSafe(sp['OwnerPlayerUId']?.value),
     keyPlayerUId,
+    instanceId,
   };
 }
 function guidBytesToStringSafe(v) {
