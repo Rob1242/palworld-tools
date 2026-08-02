@@ -142,14 +142,38 @@ async function talkMode() {
   const ctx = await buildTalkContext();
   if (!ctx) return;
   const say = t => speak(t, cfg.voice, cfg.speechRate);
-  console.log('話しかけモードです。Enterを押してから話してください(終了は Control+C)。\n');
+
+  // 押すキーは設定で変えられる。既定は「+」。
+  // 全角で入力される場合もあるので、両方を受け付ける。
+  const keys = (cfg.talkKeys && cfg.talkKeys.length ? cfg.talkKeys : ['+', '＋']);
+  console.log(`話しかけモードです。「${keys[0]}」を押してから話してください(終了は Control+C)。\n`);
   await say(`準備できたよ。今は${ctx.total}体、${ctx.species}種類。`);
 
+  // Enterを待たずに1文字で反応させるため、生の入力モードにする。
+  // このモードではControl+Cが自動で効かないので、自分で拾って終了させる。
+  if (!process.stdin.isTTY) {
+    console.error('このモードは対話できる画面で動かしてください。');
+    return;
+  }
+  process.stdin.setRawMode(true);
+  process.stdin.resume();
   process.stdin.setEncoding('utf8');
-  const prompt = () => process.stdout.write('Enterで録音 > ');
+
+  const cleanup = () => {
+    try { process.stdin.setRawMode(false); } catch {}
+    process.stdin.pause();
+  };
+
+  let busy = false;
+  const prompt = () => process.stdout.write(`${keys[0]}で録音 > `);
   prompt();
-  for await (const _ of process.stdin) {
-    process.stdout.write('  聞いています…\n');
+
+  process.stdin.on('data', async (key) => {
+    if (key === '\u0003') {   // Control+C
+       cleanup(); console.log('\n終了しました。'); process.exit(0); }
+    if (busy || !keys.includes(key)) return;
+    busy = true;
+    process.stdout.write('\n  聞いています…\n');
     try {
       const r = await listenOnce(cfg, ctx, say);
       if (r.heard) console.log(`  聞き取り: ${r.heard}`);
@@ -157,8 +181,9 @@ async function talkMode() {
     } catch (e) {
       console.error('  エラー:', e.message);
     }
+    busy = false;
     prompt();
-  }
+  });
 }
 
 // --- 呼びかけで反応するモード ---

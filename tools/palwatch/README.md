@@ -32,7 +32,7 @@ curl -LO https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bi
 ```bash
 node palwatch.mjs            # 1回だけ確認して、変化があれば知らせる
 node palwatch.mjs --watch    # 常駐(既定5分ごと)。遊ぶ時はこれを立ち上げておく
-node palwatch.mjs --talk     # 話しかけモード。Enterを押してから喋る
+node palwatch.mjs --talk     # 話しかけモード。「+」を押してから喋る
 node palwatch.mjs --wake     # 呼びかけモード。呼ばれたら聞き取りを始める
 node palwatch.mjs --advice   # 拠点編成の助言だけ
 node palwatch.mjs --quiet    # 声を出さず記録だけ
@@ -70,6 +70,7 @@ node palwatch.mjs --quiet    # 声を出さず記録だけ
 - `maxSpeechPerTick` — 1回にまとめて喋る上限(既定3)
 - `intervalMinutes` — 見守りの間隔(既定5分)
 - `voiceSilenceSec` — 何秒黙ったら話し終わりとみなすか(既定1.2秒)
+- `talkKeys` — `--talk` で録音を始めるキー(既定 `["+", "＋"]`)。Enterは不要
 
 ## 呼びかけモード(--wake)
 
@@ -105,4 +106,4 @@ node palwatch.mjs --quiet    # 声を出さず記録だけ
 - `wakeDebug` — `true` にすると、呼びかけ以外の聞き取り結果も表示される。調整に使う
 
 **ゲーム音が鳴っている環境では誤検知が増える。** ヘッドセットを使うと大幅に改善する。
-それでも実用にならなければ `--talk`(Enter方式)に戻せる。返答の中身は同じ。
+それでも実用にならなければ `--talk`(キーを押す方式)に戻せる。返答の中身は同じ。

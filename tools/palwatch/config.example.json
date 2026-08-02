@@ -24,5 +24,9 @@
   "wakeStopThreshold": "3%",
   "wakeSilenceSec": 1.0,
   "wakeMaxSec": 10,
-  "wakeDebug": false
+  "wakeDebug": false,
+  "talkKeys": [
+    "+",
+    "＋"
+  ]
 }
