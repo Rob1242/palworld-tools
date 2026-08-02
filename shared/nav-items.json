@@ -1,0 +1,82 @@
+[
+  {
+    "url": "palworld_home.html",
+    "label": "ホーム"
+  },
+  {
+    "url": "palworld_base_planner_v2.html",
+    "label": "拠点プランナー"
+  },
+  {
+    "url": "palworld_dex.html",
+    "label": "パル図鑑"
+  },
+  {
+    "url": "palworld_breeding.html",
+    "label": "配合検索"
+  },
+  {
+    "url": "palworld_palbox.html",
+    "label": "パルボックス"
+  },
+  {
+    "url": "palworld_combat.html",
+    "label": "戦闘最適化"
+  },
+  {
+    "url": "palworld_items.html",
+    "label": "アイテム図鑑"
+  },
+  {
+    "url": "palworld_skills.html",
+    "label": "技図鑑"
+  },
+  {
+    "url": "palworld_passives.html",
+    "label": "パッシブ図鑑"
+  },
+  {
+    "url": "palworld_tierlist.html",
+    "label": "最強Tier表"
+  },
+  {
+    "url": "palworld_ride.html",
+    "label": "ライド速度"
+  },
+  {
+    "url": "palworld_map.html",
+    "label": "出現マップ"
+  },
+  {
+    "url": "palworld_bossguide.html",
+    "label": "ボス攻略"
+  },
+  {
+    "url": "palworld_achievements.html",
+    "label": "実績一覧"
+  },
+  {
+    "url": "palworld_passives_guide.html",
+    "label": "おすすめパッシブ"
+  },
+  {
+    "url": "palworld_reference.html",
+    "label": "早見表"
+  },
+  {
+    "url": "palworld_technology.html",
+    "label": "テクノロジー"
+  },
+  {
+    "url": "palworld_iv_calc.html",
+    "label": "素質値計算機"
+  },
+  {
+    "url": "palworld_party_guide.html",
+    "label": "パーティ編成ガイド"
+  },
+  {
+    "url": "palworld_changelog.html",
+    "label": "更新履歴"
+  }
+]

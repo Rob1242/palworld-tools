@@ -1,3 +1,51 @@
+/* ============================================================
+   全ページ共通のカラーパレット・フォント(2026-08集約)
+
+   以前は同じ :root ブロックが20ページのHTMLにそれぞれ書かれており、
+   色を1つ変えるだけで20ファイルを編集する必要があった。値は全ページで
+   完全に一致していたため、ここに1本化する。
+   **色やフォントを変えるときはこのファイルだけを触ること。**
+   ============================================================ */
+:root{
+  --bg: #05080e;
+  --panel: #0e1420;
+  --panel2: #141d2b;
+  --parchment: #e7edf5;
+  --parchment-dim: #7e90a5;
+  --brass: #6ec8ea;
+  --brass-dim: #2f6b85;
+  --teal: #35d2ff;
+  --teal-dim: #1c6d86;
+  --line: rgba(120,165,220,.18);
+  --danger: #e2543f;
+  --lime: #3d7bff;
+  --lime-dim: #1f4a99;
+  --magenta: #8fd6ff;
+  --magenta-dim: #4a7fa3;
+  --font-body: "Hiragino Sans","Yu Gothic",sans-serif;
+  --font-display: "Rajdhani","Zen Kaku Gothic New", var(--font-body);
+  --font-mono: "JetBrains Mono", monospace;
+  --hp: #7bdb52;
+  --sp: #f0a233;
+  --t-無: #a7aeb8;
+  --t-炎: #ef7148;
+  --t-水: #3f93d6;
+  --t-雷: #ecc23f;
+  --t-地: #b98a4e;
+  --t-草: #6dbf4f;
+  --t-氷: #63d9e3;
+  --t-竜: #9a6ff0;
+  --t-闇: #8064b8;
+  --atk: #ff6f6f;
+  --def: #6fb8ff;
+  --tier-ss: #eaf6ff;
+  --tier-s: #8fd6ff;
+  --tier-a: #3d7bff;
+  --tier-b: #1f4a99;
+  --tier-c: #45505f;
+  --tier-d: #262e38;
+}
+
 /* ===== v2 signature system: glitch / angular nav / motion (shared across tools) ===== */
   ::selection{background:var(--lime);color:#0a0d12;}
   .icon{display:inline-flex;width:1em;height:1em;vertical-align:-0.15em;}
