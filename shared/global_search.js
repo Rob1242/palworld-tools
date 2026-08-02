@@ -297,7 +297,7 @@
 
   function dropItemRow(d){
     return `<div class="gsearch-row gsearch-subrow">
-      <img class="gsearch-icon" src="${palIcon(d.pal_asset)}" onerror="this.style.display='none'" alt="">
+      <img class="gsearch-icon" src="${palIcon(d.pal_asset)}" data-onerror="hide" alt="">
       <span class="gsearch-name">${esc(d.pal_jp_name)}</span>
       <span class="gsearch-meta">×${esc(d.qty)} ${esc(d.rate)}</span>
     </div>`;
@@ -307,7 +307,7 @@
     const name = it ? displayName(it) : m.item_asset;
     const icon = it ? it.icon : "game_data/icons/T_icon_unknown.webp";
     return `<div class="gsearch-row gsearch-subrow">
-      <img class="gsearch-icon" src="${icon}" onerror="this.style.display='none'" alt="">
+      <img class="gsearch-icon" src="${icon}" data-onerror="hide" alt="">
       <span class="gsearch-name">${esc(name)}</span>
       <span class="gsearch-meta">×${esc(m.qty)}</span>
     </div>`;
@@ -317,7 +317,7 @@
     const name = it ? displayName(it) : r.item_asset;
     const icon = it ? it.icon : "game_data/icons/T_icon_unknown.webp";
     return `<div class="gsearch-row gsearch-subrow">
-      <img class="gsearch-icon" src="${icon}" onerror="this.style.display='none'" alt="">
+      <img class="gsearch-icon" src="${icon}" data-onerror="hide" alt="">
       <span class="gsearch-name">${esc(name)}</span>
       <span class="gsearch-meta">×${esc(r.qty)} ${esc(r.rate)}</span>
     </div>`;
@@ -326,7 +326,7 @@
   function renderItemResult(item, p){
     const obtain = ITEM_OBTAIN_DATA[item.asset];
     let html = `<a class="gsearch-row gsearch-head gsearch-link" href="palworld_items.html?asset=${encodeURIComponent(item.asset)}">
-      <img class="gsearch-icon" src="${item.icon}" onerror="this.style.display='none'" alt="">
+      <img class="gsearch-icon" src="${item.icon}" data-onerror="hide" alt="">
       <span class="gsearch-name">${esc(displayName(item))}</span>
       <span class="gsearch-tag">アイテム(クリックで詳細)</span>
     </a>`;
@@ -362,7 +362,7 @@
       : `<div class="gsearch-row gsearch-head">`;
     const headClose = info.isPal && info.dex_id ? "</a>" : "</div>";
     let html = `${headTag}
-      <img class="gsearch-icon" src="${palIcon(asset)}" onerror="this.style.display='none'" alt="">
+      <img class="gsearch-icon" src="${palIcon(asset)}" data-onerror="hide" alt="">
       <span class="gsearch-name">${esc(info.jp_name)}</span>
       <span class="gsearch-tag">${info.isPal ? "パル図鑑を開く" : "人間NPC"}</span>
     ${headClose}`;
@@ -374,7 +374,7 @@
   function renderPalResult(entry){
     const p = entry.pal;
     return `<a class="gsearch-row gsearch-head gsearch-link" href="palworld_dex.html?id=${encodeURIComponent(p.id)}">
-      <img class="gsearch-icon" src="${p.icon}" onerror="this.style.display='none'" alt="">
+      <img class="gsearch-icon" src="${p.icon}" data-onerror="hide" alt="">
       <span class="gsearch-name">${esc(p.name)}<span class="gsearch-en">${esc(p.en_name || "")}</span></span>
       <span class="gsearch-tag">パル図鑑を開く</span>
     </a>`;
@@ -396,7 +396,7 @@
   function renderSkillResult(entry){
     const s = entry.skill;
     return `<a class="gsearch-row gsearch-head gsearch-link" href="palworld_skills.html?asset=${encodeURIComponent(s.asset)}">
-      <img class="gsearch-icon" src="${s.element_icon}" onerror="this.style.display='none'" alt="" style="filter:brightness(0) invert(1);">
+      <img class="gsearch-icon" src="${s.element_icon}" data-onerror="hide" alt="" style="filter:brightness(0) invert(1);">
       <span class="gsearch-name">${esc(s.name_jp)}<span class="gsearch-en">${esc(s.element_jp)} / 威力${s.power}</span></span>
       <span class="gsearch-tag">技の詳細を開く</span>
     </a>`;
@@ -404,7 +404,7 @@
   function renderPassiveResult(entry){
     const p = entry.passive;
     return `<a class="gsearch-row gsearch-head gsearch-link" href="palworld_passives.html?asset=${encodeURIComponent(p.asset)}">
-      <img class="gsearch-icon" src="${p.icon}" onerror="this.style.display='none'" alt="">
+      <img class="gsearch-icon" src="${p.icon}" data-onerror="hide" alt="">
       <span class="gsearch-name">${esc(p.name_jp)}<span class="gsearch-en">${p.rank >= 0 ? "ランク" + p.rank : "マイナス効果"}</span></span>
       <span class="gsearch-tag">パッシブの詳細を開く</span>
     </a>`;
@@ -433,13 +433,13 @@
         if(m.kind === "item"){
           const it = m.match.item;
           return `<a class="gsearch-row gsearch-link" href="palworld_items.html?asset=${encodeURIComponent(it.asset)}">
-            <img class="gsearch-icon" src="${it.icon}" onerror="this.style.display='none'" alt="">
+            <img class="gsearch-icon" src="${it.icon}" data-onerror="hide" alt="">
             <span class="gsearch-name">${esc(displayName(it))}</span><span class="gsearch-tag">アイテム</span></a>`;
         }
         if(m.kind === "dropper"){
           const info = DROPPER_INFO[m.match.asset];
           return `<div class="gsearch-row gsearch-link" data-dropper-asset="${esc(m.match.asset)}">
-            <img class="gsearch-icon" src="${palIcon(m.match.asset)}" onerror="this.style.display='none'" alt="">
+            <img class="gsearch-icon" src="${palIcon(m.match.asset)}" data-onerror="hide" alt="">
             <span class="gsearch-name">${esc(info.jp_name)}</span><span class="gsearch-tag">${info.isPal ? "パル" : "人間NPC"}</span></div>`;
         }
         if(m.kind === "pal") return renderPalResult(m.match);

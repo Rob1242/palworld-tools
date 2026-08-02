@@ -2,13 +2,11 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'self';">
 <link rel="canonical" href="https://rob1242.github.io/palworld-tools/palworld_map.html?view=missions">
 <title>ミッション一覧 | Palworld攻略ツール</title>
 <meta name="robots" content="noindex">
-<script>
-  const id = new URLSearchParams(location.search).get("id");
-  location.replace("palworld_map.html?view=missions" + (id ? "&id=" + encodeURIComponent(id) : ""));
-</script>
+<script src="pages/missions.js"></script>
 </head>
 <body>
 <p>このページは<a href="palworld_map.html?view=missions">出現マップ(ミッション)</a>に統合されました。自動的に移動します。</p>

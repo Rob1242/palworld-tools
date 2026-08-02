@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
@@ -58,6 +58,7 @@
   .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;}
 </style>
 <script src="shared/analytics.js"></script>
+<script src="shared/img-fallback.js"></script>
 <script src="shared/global_search.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"更新履歴","url":"https://rob1242.github.io/palworld-tools/palworld_changelog.html","description":"パルワールド攻略ツールの更新履歴一覧。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
 </head>
@@ -104,52 +105,6 @@
 
   <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。</p>
 </div>
-<script>
-const CHANGELOG = [
-  { date: "2026-07-20", items: [
-    "<b>ボス攻略に「フィールドボス」タブを追加</b>: アルファ個体83体の一覧をLv・ドロップ品つきで掲載",
-    "<b>最強Tier表を拡張</b>: 「戦闘(属性別)」「拠点作業」「配合牧場」の3カテゴリを追加し、ランクを5段階(SS〜C)から6段階(SS〜D)に変更",
-    "<b>「パーティ編成ガイド」ページを新規追加</b>: 序盤・拠点作業班・終盤6体編成を実データの計算からおすすめ",
-    "<b>「拠点位置ガイド」ページを新規追加</b>: 資源・地形・安全性つきのおすすめ拠点候補地を紹介(拠点プランナーとは別ツール)",
-    "出現マップのデータ元(spawn_data.js)を再取得し、欠落していたカモノスケ・シメナワ・オバケナワの野生出現データを復旧",
-    "早見表(作業優先度)で内部コード名がそのまま表示されていた箇所を、日本語の説明文に修正",
-    "ホームのツール一覧に上記の新規ページ、および実績一覧・おすすめパッシブ・早見表・テクノロジー・ミッション一覧・素質値計算機のカードを追加(ナビには追加済みだったがホーム画面に未掲載だったもの)",
-  ]},
-  { date: "2026-07-17", items: [
-    "<b>配合ロードマップに成功率シミュレーター追加</b>: 目的パッシブが全部揃う確率と、期待孵化回数の概算を表示",
-    "<b>パルボックスに個人用バックアップ/復元コード追加</b>: 端末を変えても所持データを復元できるように",
-    "<b>ボス攻略ページから戦闘最適化への連携リンク追加</b>: 推奨パルのDPSをその場で確認可能に",
-    "更新履歴ページ(このページ)を新規追加",
-  ]},
-  { date: "2026-07-16", items: [
-    "<b>「ボス攻略」ページを新規追加</b>: 塔ボス全10体+レイドボス5系統の弱点・固有技の回避法・おすすめパル編成をまとめて解説",
-    "配合ロードマップとの連携: ボス攻略の推奨パルから「配合ロードマップで検索」ボタンで直接ジャンプ可能に",
-    "パルボックスの配合ロードマップで、<b>所持済みのパルでも配合ルートを提示</b>するよう改善(以前は所持済みだと即終了していた)",
-    "全ページのスマホ表示を修正(ナビの横スクロール対応、ランキング表の折り返し崩れなど)",
-    "アイテム図鑑を日本語化(2466件中2450件、99.4%)。デバッグ用アイテムを一覧から除外、カテゴリ分類の誤りも修正",
-    "パルボックスの「パルを追加」「配合ロードマップ」で一部パル(カモノスケ・シメナワ・オバケナワ)が選択できなかった不具合を修正",
-    "図鑑に実在しないゴーストデータ(ゼロヴァース等5体)を配合表から除外",
-  ]},
-  { date: "2026-07-15", items: [
-    "戦闘最適化(DPSランキング)ツールを新規実装",
-    "出現マップツールを新規実装",
-    "サイト全体に統一デザイン(ダーク×真鍮×ネオン)を適用",
-  ]},
-  { date: "2026-07-14", items: [
-    "パッシブスキルの日英データを統合、拠点プランナーの理論値計算に反映",
-    "配合データのJP名未マッチ問題を解消",
-  ]},
-  { date: "2026-07-13", items: [
-    "拠点プランナーv2のUI改善(パルアイコン表示、作業速度スコア精度向上)",
-  ]},
-];
-
-document.getElementById("timeline").innerHTML = CHANGELOG.map(group => `
-  <div class="entry">
-    <div class="entry-date">${group.date}</div>
-    <div class="entry-box"><ul>${group.items.map(i => `<li>${i}</li>`).join("")}</ul></div>
-  </div>
-`).join("");
-</script>
+<script src="pages/changelog.js"></script>
 </body>
 </html>

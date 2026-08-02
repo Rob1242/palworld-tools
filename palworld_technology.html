@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
@@ -69,6 +69,7 @@
   .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;}
 </style>
 <script src="shared/analytics.js"></script>
+<script src="shared/img-fallback.js"></script>
 <script src="shared/global_search.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"テクノロジーツリー","url":"https://rob1242.github.io/palworld-tools/palworld_technology.html","description":"パルワールドのテクノロジーツリー一覧。Lv1〜80の建築物・アイテムを絞り込んで解放レベルとコストを確認できます。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
 </head>
@@ -128,60 +129,6 @@
   <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。</p>
 </div>
 <script src="game_data/technology_data.js"></script>
-<script>
-const state = { query: "", category: "すべて" };
-
-function render(){
-  const q = state.query.trim().toLowerCase();
-  const filtered = TECHNOLOGY_DATA.filter(t => {
-    if(state.category !== "すべて" && t.category !== state.category) return false;
-    if(q && !t.name_jp.toLowerCase().includes(q)) return false;
-    return true;
-  });
-  document.getElementById("countTag").textContent = `${filtered.length}件`;
-
-  if(!filtered.length){
-    document.getElementById("techList").innerHTML = `<div class="empty-msg">該当する技術がありません</div>`;
-    return;
-  }
-
-  const byLevel = new Map();
-  filtered.forEach(t => {
-    if(!byLevel.has(t.level)) byLevel.set(t.level, []);
-    byLevel.get(t.level).push(t);
-  });
-  const levels = Array.from(byLevel.keys()).sort((a,b) => a-b);
-
-  document.getElementById("techList").innerHTML = levels.map(lv => `
-    <div class="level-group">
-      <div class="level-header">Lv${lv}</div>
-      <div class="tech-grid">
-        ${byLevel.get(lv).map(t => `
-          <div class="tech-card">
-            <img src="${t.icon}" onerror="this.src='game_data/icons/T_icon_unknown.webp'" alt="">
-            <div>
-              <div class="tname">${t.name_jp}</div>
-              <div class="tcat">${t.category}</div>
-            </div>
-            <div class="tcost">${t.cost}</div>
-          </div>
-        `).join("")}
-      </div>
-    </div>
-  `).join("");
-}
-
-document.getElementById("searchBox").addEventListener("input", e => { state.query = e.target.value; render(); });
-document.getElementById("catChips").addEventListener("click", e => {
-  const chip = e.target.closest(".chip");
-  if(!chip) return;
-  document.querySelectorAll("#catChips .chip").forEach(c => c.classList.remove("active"));
-  chip.classList.add("active");
-  state.category = chip.dataset.cat;
-  render();
-});
-
-render();
-</script>
+<script src="pages/technology.js"></script>
 </body>
 </html>

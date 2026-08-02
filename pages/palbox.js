@@ -1,0 +1,2224 @@
+const PAL_BOX_DATA = PAL_DEX_DATA;
+
+// 共有ボックス(Firebase)の接続状態。roadmapのソース切り替えなど複数箇所から参照するため先頭で宣言。
+let firebaseApp = null;
+let db = null;
+let currentRoomCode = null;
+let sharedRoomUnsubscribe = null;
+
+// ---- 旧「所持チェックリスト」(種族IDのみ)の読み取り。個体管理への移行専用に残す ----
+const OWNED_KEY = "palworldOwnedPals";
+function getOwnedIds(){
+  try {
+    const raw = localStorage.getItem(OWNED_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch(e){
+    return [];
+  }
+}
+window.getOwnedIds = getOwnedIds;
+
+// ---- パルボックス(個体管理) ----
+// 実機のパルボックスと同じく「捕まえた個体」を1体ずつ記録する。
+// {uid, dexId, nickname, ivs:{hp,attack,defense}(0-30%,wiki確認済み), activeSkills:[技asset,...](最大3),
+//  passives:[パッシブ名,...](最大4), createdAt}
+const BOX_KEY = "palworldBoxInstances";
+function getInstances(){
+  try {
+    const raw = localStorage.getItem(BOX_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch(e){
+    return [];
+  }
+}
+// ブラウザのlocalStorage容量には上限があり(実測でこの端末では概ね5MB前後=2万体弱)、
+// 超えるとsetItemが例外を投げる。今まではここが無防備で、上限超え時に何の警告も出さず
+// 保存だけ失敗する(既存データは壊れないが、追加分がそのまま消える)状態だった(2026-08発見)。
+function setInstances(list){
+  try{
+    localStorage.setItem(BOX_KEY, JSON.stringify(list));
+    return true;
+  }catch(e){
+    console.error("setInstances失敗:", e);
+    if(e.name === "QuotaExceededError"){
+      showGlobalToast(`保存容量の上限に達したため、今回の変更は保存できませんでした(お使いのブラウザの制限、目安として2万体弱が上限です)。パルの数を減らしてから再度お試しください。`);
+    } else {
+      showGlobalToast(`パルボックスの保存に失敗しました: ${e.message}`);
+    }
+    return false;
+  }
+}
+
+let globalToastTimer = null;
+function showGlobalToast(msg, durationMs = 8000){
+  const el = document.getElementById("globalToast");
+  el.textContent = msg;
+  el.classList.add("show");
+  if(globalToastTimer) clearTimeout(globalToastTimer);
+  globalToastTimer = setTimeout(() => el.classList.remove("show"), durationMs);
+}
+function migrateLegacyOwned(){
+  // 個体データが1件も無く、旧チェックリストにIDが残っている場合のみ、
+  // 個体値・技・パッシブ未入力の簡易個体として自動移行する(データを失わないため)。
+  if(getInstances().length > 0) return;
+  const legacyIds = getOwnedIds();
+  if(!legacyIds.length) return;
+  const migrated = legacyIds.map(id => ({
+    uid: "inst_legacy_" + id,
+    dexId: id,
+    nickname: "",
+    ivs: {hp:0, attack:0, defense:0},
+    activeSkills: [],
+    passives: [],
+    createdAt: Date.now(),
+    legacy: true,
+  }));
+  setInstances(migrated);
+}
+migrateLegacyOwned();
+
+const ASSET_BY_DEXID = {};
+Object.entries(BREEDING_PALS_DATA || {}).forEach(([asset, info]) => { if(info.dex_id) ASSET_BY_DEXID[info.dex_id] = asset; });
+
+// LEARNSET_DATA(asset別)からゲーム内に実在する技全体の技名プールを構築する
+// (種族を横断して検索できるようにするため。skills_jp未生成の技はjp_name:nullのまま)
+const ALL_SKILLS_MAP = {};
+Object.values(LEARNSET_DATA).forEach(arr => arr.forEach(e => {
+  if(!(e.asset in ALL_SKILLS_MAP)) ALL_SKILLS_MAP[e.asset] = e.jp_name;
+}));
+// 技IDは共有ボックス(=合言葉を知る人なら誰でも書き換えられる)やセーブデータ由来なので、
+// 未知のIDをそのまま表示名として返すと呼び出し側のinnerHTMLでタグとして解釈されうる。
+// 対応表に無いIDはここでエスケープしてから返す(2026-08)。
+// また"__proto__"のようなキーを渡されるとObject.prototypeが返って文字列にならないため、
+// 対応表に実在するキーかどうかで判定する。
+function skillDisplayName(asset){
+  if(Object.prototype.hasOwnProperty.call(ALL_SKILLS_MAP, asset)) return ALL_SKILLS_MAP[asset];
+  return `${escapeHtml(String(asset))}(JP名未確認)`;
+}
+function passiveByName(name){ return PASSIVES_DATA.find(p => p.name === name); }
+
+// 共有ボックスと個人バックアップの中身はFirestore上にあり、合言葉さえ知っていれば
+// 誰でも書き換えられる。ゲーム本来はパッシブ4個・技3個までなので、それを大きく超える
+// 配列や極端に長い文字列が入っていたら、受け取った時点で切り詰める。
+// (5万個のパッシブを持つ個体を置かれると、それを開いた人の画面が10秒以上固まることを
+//  2026-08の検証で確認したため。表示側ではなく取り込み口で止める)
+const MAX_PASSIVES = 4;
+const MAX_ACTIVE_SKILLS = 3;
+const MAX_NICKNAME_LEN = 100;
+function sanitizeUntrustedInstance(inst){
+  if(!inst || typeof inst !== "object") return null;
+  const arr = (v, n) => Array.isArray(v) ? v.slice(0, n).map(x => String(x).slice(0, 100)) : [];
+  // 数値のはずのフィールドは必ず数値にする。個体値などは normalizeIvs() が
+  // 「ivs.hp || 0」で通すだけなので、文字列が入っているとそのまま描画に流れてしまう
+  // (2026-08の検証でIV4項目すべてでタグが生成されることを確認済み)。
+  const num = (v, min, max) => {
+    const n = Number(v);
+    return Number.isFinite(n) ? Math.min(max, Math.max(min, Math.trunc(n))) : 0;
+  };
+  const ivs = inst.ivs && typeof inst.ivs === "object" ? inst.ivs : {};
+  return {
+    ...inst,
+    uid: String(inst.uid || "").slice(0, 100),
+    nickname: typeof inst.nickname === "string" ? inst.nickname.slice(0, MAX_NICKNAME_LEN) : "",
+    passives: arr(inst.passives, MAX_PASSIVES),
+    activeSkills: arr(inst.activeSkills, MAX_ACTIVE_SKILLS),
+    ivs: {
+      hp: num(ivs.hp, 0, 100), melee: num(ivs.melee, 0, 100),
+      shot: num(ivs.shot, 0, 100), defense: num(ivs.defense, 0, 100),
+      // 旧スキーマ(attack)も数値化して残す。normalizeIvs()が参照するため。
+      ...(ivs.attack !== undefined ? { attack: num(ivs.attack, 0, 100) } : {}),
+    },
+    level: inst.level == null ? null : num(inst.level, 0, 9999),
+    rank: inst.rank == null ? null : num(inst.rank, 0, 99),
+    isAlpha: !!inst.isAlpha,
+    sex: ["male","female","unknown"].includes(inst.sex) ? inst.sex : "unknown",
+  };
+}
+function sanitizeUntrustedInstances(list){
+  return (Array.isArray(list) ? list : []).map(sanitizeUntrustedInstance).filter(Boolean);
+}
+
+// 個体値の正規化: 旧仕様({hp,attack,defense}、0-30目安)と新仕様({hp,melee,shot,defense}、
+// 実セーブデータ確認済みの0-100)の両方を受け取れるようにする(2026-08、旧データ移行対応)。
+// 旧attackはmelee/shotの区別が無かったため、両方に同じ値を引き継ぐ(完全な移行ではないが
+// 「無かった値として0にする」よりは元の入力を尊重できる)。
+function normalizeIvs(ivs){
+  if(!ivs) return {hp:0, melee:0, shot:0, defense:0};
+  if(ivs.melee !== undefined || ivs.shot !== undefined){
+    return {hp: ivs.hp||0, melee: ivs.melee||0, shot: ivs.shot||0, defense: ivs.defense||0};
+  }
+  return {hp: ivs.hp||0, melee: ivs.attack||0, shot: ivs.attack||0, defense: ivs.defense||0};
+}
+
+const ROLE_ICON = {"火おこし":"flame","水やり":"droplet","種まき":"sprout","発電":"bolt","手作業":"wrench","採集":"basket","伐採":"axe","採掘":"pickaxe","製薬":"flask","冷却":"snowflake","運搬":"box","牧場":"paw"};
+function typeBadge(t){ return `<span class="type-badge type-${t}">${t}</span>`; }
+function boxStatRow(label, val, max){
+  const pct = Math.min(100, Math.round((val/max)*100));
+  return `<div class="stat-row">
+    <div class="stat-label">${label}</div>
+    <div class="stat-bar"><div class="stat-bar-fill" style="width:${pct}%"></div></div>
+    <div class="stat-val">${val}</div>
+  </div>`;
+}
+
+const boxState = { query: "", selectedUid: null, passiveFilter: null, page: 0 };
+const sharedBoxState = { query: "", selectedUid: null, instances: [], passiveFilter: null, page: 0 };
+
+// 実際のゲーム内パルボックスは1ページ(1ボックス)30枠(6列×5行)、全32ボックスで
+// 合計960枠という仕様(2026-08確認、palworld.wiki.gg「Palbox」項目)。
+// ここでの1ページもこれに合わせて30体ずつに区切って表示する。
+const BOX_PAGE_SIZE = 30;
+
+// ---- パルボックス共通(所持ボックス・共有ボックスの両方で使う汎用レンダラー) ----
+function filterInstances(instances, query, passiveFilter){
+  let list = instances;
+  if(passiveFilter) list = list.filter(inst => (inst.passives||[]).includes(passiveFilter));
+  if(!query) return list;
+  const q = query.toLowerCase();
+  const qKana = toKana(query);
+  return list.filter(inst => {
+    const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
+    return (p && toKana(p.name).includes(qKana)) || (inst.nickname && toKana(inst.nickname).includes(qKana))
+      || (p && p.en_name && p.en_name.toLowerCase().includes(q))
+      || (inst.passives||[]).some(name => toKana(name).includes(qKana));
+  });
+}
+
+// ボックスのページ送りUIを描画する。cfg: {pagerId, state, onChange}
+function renderBoxPager(cfg, totalItems){
+  const pager = document.getElementById(cfg.pagerId);
+  if(!pager) return;
+  const totalPages = Math.max(1, Math.ceil(totalItems / BOX_PAGE_SIZE));
+  if(cfg.state.page > totalPages - 1) cfg.state.page = totalPages - 1;
+  if(cfg.state.page < 0) cfg.state.page = 0;
+  if(totalPages <= 1){ pager.innerHTML = ""; return; }
+  pager.innerHTML = `
+    <button class="pager-btn" id="${cfg.pagerId}Prev" ${cfg.state.page===0 ? "disabled" : ""}>◀ 前のボックス</button>
+    <span class="pager-label">ボックス ${cfg.state.page+1} / ${totalPages}</span>
+    <button class="pager-btn" id="${cfg.pagerId}Next" ${cfg.state.page===totalPages-1 ? "disabled" : ""}>次のボックス ▶</button>
+  `;
+  document.getElementById(`${cfg.pagerId}Prev`).addEventListener("click", () => { cfg.state.page--; cfg.onChange(); });
+  document.getElementById(`${cfg.pagerId}Next`).addEventListener("click", () => { cfg.state.page++; cfg.onChange(); });
+}
+
+// パルが持っているパッシブごとの所持数を集計し、多い順に並べる(絞り込みチップの一覧に使う)
+function passiveCounts(instances){
+  const map = new Map();
+  instances.forEach(inst => {
+    (inst.passives||[]).forEach(name => map.set(name, (map.get(name)||0) + 1));
+  });
+  return [...map.entries()].sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0], 'ja'));
+}
+
+function renderPassiveFilter(cfg){
+  // cfg: {instances, bodyId, tagId, state, onChange}
+  const counts = passiveCounts(cfg.instances);
+  const body = document.getElementById(cfg.bodyId);
+  if(counts.length === 0){
+    body.innerHTML = `<span style="color:var(--parchment-dim);font-size:12px;">登録済みのパッシブがまだありません。</span>`;
+  } else {
+    body.innerHTML = counts.map(([name, n]) => {
+      const active = cfg.state.passiveFilter === name;
+      return `<span class="pfilter-chip ${active ? 'active' : ''}" data-passive="${escapeHtml(name)}">${escapeHtml(name)}<span class="cnt">${n}</span></span>`;
+    }).join("");
+    body.querySelectorAll(".pfilter-chip[data-passive]").forEach(chip => {
+      chip.addEventListener("click", () => {
+        const name = chip.dataset.passive;
+        cfg.state.passiveFilter = cfg.state.passiveFilter === name ? null : name;
+        cfg.state.page = 0;
+        cfg.onChange();
+      });
+    });
+  }
+  const tag = document.getElementById(cfg.tagId);
+  tag.textContent = cfg.state.passiveFilter ? `絞り込み中: ${cfg.state.passiveFilter}` : "";
+}
+
+function renderInstanceGrid(cfg){
+  // cfg: {instances, gridId, countId, pagerId, state, onSelect, onChange, emptyMsg}
+  const instances = cfg.instances;
+  const fullList = filterInstances(instances, cfg.state.query, cfg.state.passiveFilter);
+  if(cfg.countId) document.getElementById(cfg.countId).textContent = `所持${instances.length}体 / 表示${fullList.length}体`;
+  const grid = document.getElementById(cfg.gridId);
+  if(instances.length === 0){
+    grid.innerHTML = `<div class="empty-box-msg"><div class="big">${ico("box")}</div>${cfg.emptyMsg}</div>`;
+    if(cfg.pagerId) document.getElementById(cfg.pagerId).innerHTML = "";
+    return;
+  }
+  if(fullList.length === 0){
+    const msg = cfg.state.query
+      ? `「${escapeHtml(cfg.state.query)}」に一致するパルが見つかりません。`
+      : `パッシブ「${escapeHtml(cfg.state.passiveFilter)}」を持つパルが見つかりません。`;
+    grid.innerHTML = `<div class="empty-box-msg">${msg}</div>`;
+    if(cfg.pagerId) document.getElementById(cfg.pagerId).innerHTML = "";
+    return;
+  }
+  if(cfg.pagerId) renderBoxPager(cfg, fullList.length);
+  const start = cfg.state.page * BOX_PAGE_SIZE;
+  const list = fullList.slice(start, start + BOX_PAGE_SIZE);
+  grid.innerHTML = list.map(inst => {
+    const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
+    if(!p) return "";
+    const sexMark = inst.sex === "male" ? `<span class="sex-mark male">♂</span>`
+      : inst.sex === "female" ? `<span class="sex-mark female">♀</span>` : "";
+    const alphaMark = inst.isAlpha ? `<span class="sex-mark" style="color:var(--danger);">α</span>` : "";
+    return `
+    <div class="card ${cfg.state.selectedUid===inst.uid ? 'selected' : ''}" data-uid="${escapeHtml(inst.uid)}" tabindex="0" role="button">
+      <div class="icon-wrap">${p.icon ? `<img src="${p.icon}" alt="${p.name}" loading="lazy">` : ""}${sexMark}${alphaMark}</div>
+      <div class="pname">${escapeHtml(inst.nickname) || p.name}</div>
+      <div class="pname-en">${inst.nickname ? p.name : (p.en_name || "")}</div>
+    </div>`;
+  }).join("");
+  grid.querySelectorAll(".card[data-uid]").forEach(card => {
+    card.addEventListener("click", () => cfg.onSelect(card.dataset.uid));
+    card.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); cfg.onSelect(card.dataset.uid); } });
+  });
+}
+
+function alphaBadge(){
+  return `<span class="badge" style="border-color:var(--danger);color:var(--danger);">α個体(ボス)</span>`;
+}
+
+function sexBadge(sex){
+  if(sex === "male") return `<span class="badge day" style="border-color:#4a95d9;color:#4a95d9;">♂ オス</span>`;
+  if(sex === "female") return `<span class="badge day" style="border-color:#ff2e7e;color:#ff2e7e;">♀ メス</span>`;
+  return `<span class="badge" style="border-color:var(--parchment-dim);color:var(--parchment-dim);">性別不明</span>`;
+}
+
+function buildDetailInnerHtml(inst, p){
+  const timeBadge = p.active_time === "夜" ? `<span class="badge night">${ico("moon")} 夜行性</span>`
+    : p.active_time === "両方" ? `<span class="badge day">${ico("sun")} 昼</span><span class="badge night">${ico("moon")} 夜</span>`
+    : `<span class="badge day">${ico("sun")} 昼行性</span>`;
+  let statsHtml = "";
+  if(p.stats){
+    statsHtml = `<div class="section">
+      <h2>種族値</h2>
+      <div class="stat-grid">
+        ${boxStatRow("HP", p.stats.hp, 200)}
+        ${boxStatRow("近接攻撃", p.stats.melee_attack, 200)}
+        ${boxStatRow("遠隔攻撃", p.stats.shot_attack, 200)}
+        ${boxStatRow("防御", p.stats.defense, 200)}
+        ${boxStatRow("作業速度", p.stats.craft_speed, 200)}
+      </div>
+    </div>`;
+  }
+  const ivs0 = normalizeIvs(inst.ivs);
+  const ivHtml = inst.legacy
+    ? `<p style="font-size:11.5px;color:var(--parchment-dim);">旧チェックリストから移行された個体のため、個体値・技・パッシブは未入力です。「編集」から入力できます。</p>`
+    : `<div class="iv-summary">
+        <span class="iv-chip">HP <b>${ivs0.hp}</b></span>
+        <span class="iv-chip">近接 <b>${ivs0.melee}</b></span>
+        <span class="iv-chip">遠隔 <b>${ivs0.shot}</b></span>
+        <span class="iv-chip">防御 <b>${ivs0.defense}</b></span>
+      </div>`;
+  const skillsHtml = inst.activeSkills.length
+    ? inst.activeSkills.map(a => `<span class="role-pill">${ico("sword")} ${skillDisplayName(a)}</span>`).join("")
+    : '<span style="color:var(--parchment-dim);font-size:12px;">未登録</span>';
+  const passivesHtml = inst.passives.length
+    ? inst.passives.map(name => {
+        const pd = passiveByName(name);
+        return `<span class="role-pill" style="border-color:var(--brass-dim);">${ico('sparkle')} ${escapeHtml(name)}${pd ? ` <b style="color:var(--brass);">Rank${pd.rank}</b>` : ''}</span>`;
+      }).join("")
+    : '<span style="color:var(--parchment-dim);font-size:12px;">未登録</span>';
+
+  const extra = PALDB_EXTRA_DATA[p.id];
+  const innatePassivesHtml = (extra && extra.innate_passives && extra.innate_passives.length) ? `<div class="section">
+    <h2>最初から持っているパッシブ</h2>
+    <div class="role-grid">
+      ${extra.innate_passives.map(n => `<span class="role-pill">${n}</span>`).join("")}
+    </div>
+  </div>` : "";
+
+  return `
+    <div class="medallion">
+      <div class="ring">${p.icon ? `<img src="${p.icon}" alt="${p.name}">` : ""}</div>
+      <span class="rivet nw"></span><span class="rivet ne"></span><span class="rivet sw"></span><span class="rivet se"></span>
+    </div>
+    <div class="detail-info">
+      <div class="dname"><a href="palworld_dex.html?id=${p.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--parchment-dim);">${escapeHtml(inst.nickname) || p.name}</a></div>
+      <div class="dname-en">${inst.nickname ? p.name + ' ・ ' : ''}${p.en_name || ""}</div>
+      <div class="badge-row">${(p.types||[]).map(typeBadge).join("")}${timeBadge}${sexBadge(inst.sex)}${inst.isAlpha ? alphaBadge() : ""}${inst.level ? `<span class="badge">Lv.${escapeHtml(String(inst.level))}</span>` : ""}${inst.rank ? `<span class="badge">★${Math.max(0, inst.rank - 1)}</span>` : ""}</div>
+      ${ivHtml}
+    </div>
+    <div class="section">
+      <h2>覚えている技</h2>
+      <div class="role-grid">${skillsHtml}</div>
+    </div>
+    <div class="section">
+      <h2>パッシブスキル</h2>
+      <div class="role-grid">${passivesHtml}</div>
+    </div>
+    ${statsHtml}
+    ${innatePassivesHtml}
+  `;
+}
+
+function closeDetailPanel(emptyId, panelId){
+  document.getElementById(emptyId).style.display = "flex";
+  document.getElementById(panelId).style.display = "none";
+}
+
+// ---- 所持パル管理(自分のボックス) ----
+function renderBoxGrid(){
+  renderInstanceGrid({
+    instances: getInstances(),
+    gridId: "boxGrid",
+    countId: "boxCountTag",
+    pagerId: "boxPager",
+    state: boxState,
+    onSelect: selectBoxPal,
+    onChange: renderBoxGrid,
+    emptyMsg: `まだパルが登録されていません。<br>「+ パルを追加」から、捕まえたパルを1体ずつ記録しましょう。`,
+  });
+  renderPassiveFilter({
+    instances: getInstances(),
+    bodyId: "boxPfilterBody",
+    tagId: "boxPfilterActiveTag",
+    state: boxState,
+    onChange: renderBoxGrid,
+  });
+}
+
+function selectBoxPal(uid){
+  boxState.selectedUid = uid;
+  const inst = getInstances().find(x => x.uid === uid);
+  if(!inst){ closeDetailPanel("boxDetailEmpty","boxDetailPanel"); return; }
+  const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
+  if(!p){ closeDetailPanel("boxDetailEmpty","boxDetailPanel"); return; }
+  renderBoxGrid();
+  document.getElementById("boxDetailPanel").innerHTML = buildDetailInnerHtml(inst, p) + `
+    <div class="box-detail-actions">
+      <button class="edit-btn" id="editInstBtn">${ico('edit')} 編集</button>
+      <button class="delete-btn" id="deleteInstBtn">${ico('trash')} 削除</button>
+    </div>
+  `;
+  document.getElementById("editInstBtn").addEventListener("click", () => openPform(inst.uid));
+  document.getElementById("deleteInstBtn").addEventListener("click", () => {
+    if(!confirm(`「${inst.nickname || p.name}」をボックスから削除しますか?`)) return;
+    setInstances(getInstances().filter(x => x.uid !== uid));
+    boxState.selectedUid = null;
+    closeDetailPanel("boxDetailEmpty","boxDetailPanel");
+    renderBoxGrid();
+  });
+  document.getElementById("boxDetailEmpty").style.display = "none";
+  document.getElementById("boxDetailPanel").style.display = "block";
+}
+
+document.getElementById("boxSearchBox").addEventListener("input", e => { boxState.query = e.target.value; boxState.page = 0; renderBoxGrid(); });
+
+// パッシブ絞り込みパネルの開閉状態はlocalStorageに覚えておく(パルが多いと縦に長くなるため既定は閉)
+const BOX_PFILTER_OPEN_KEY = "palworldBoxPfilterOpen";
+function setBoxPfilterOpen(open){
+  document.getElementById("boxPfilterBody").style.display = open ? "flex" : "none";
+  document.getElementById("boxPfilterChevron").style.transform = open ? "rotate(90deg)" : "rotate(0deg)";
+  localStorage.setItem(BOX_PFILTER_OPEN_KEY, open ? "1" : "0");
+}
+document.getElementById("boxPfilterToggle").addEventListener("click", () => {
+  setBoxPfilterOpen(document.getElementById("boxPfilterBody").style.display === "none");
+});
+setBoxPfilterOpen(localStorage.getItem(BOX_PFILTER_OPEN_KEY) === "1");
+
+renderBoxGrid();
+
+// ---- 共有ボックス(友達と共有) ----
+function renderSharedGrid(instances){
+  if(instances) sharedBoxState.instances = instances;
+  renderInstanceGrid({
+    instances: sharedBoxState.instances,
+    gridId: "sharedGrid",
+    countId: "sharedCountTag",
+    pagerId: "sharedPager",
+    state: sharedBoxState,
+    onSelect: selectSharedPal,
+    onChange: renderSharedGrid,
+    emptyMsg: `まだパルが登録されていません。「+ パルを追加」から登録しましょう。`,
+  });
+  renderPassiveFilter({
+    instances: sharedBoxState.instances,
+    bodyId: "sharedPfilterBody",
+    tagId: "sharedPfilterActiveTag",
+    state: sharedBoxState,
+    onChange: renderSharedGrid,
+  });
+}
+
+function selectSharedPal(uid){
+  sharedBoxState.selectedUid = uid;
+  const inst = sharedBoxState.instances.find(x => x.uid === uid);
+  if(!inst){ closeDetailPanel("sharedDetailEmpty","sharedDetailPanel"); return; }
+  const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
+  if(!p){ closeDetailPanel("sharedDetailEmpty","sharedDetailPanel"); return; }
+  renderSharedGrid();
+  document.getElementById("sharedDetailPanel").innerHTML = buildDetailInnerHtml(inst, p) + `
+    <div class="box-detail-actions">
+      <button class="edit-btn" id="editSharedInstBtn">${ico('edit')} 編集</button>
+      <button class="delete-btn" id="deleteSharedInstBtn">${ico('trash')} 削除</button>
+    </div>
+  `;
+  document.getElementById("editSharedInstBtn").addEventListener("click", () => openPform(inst.uid, "shared"));
+  document.getElementById("deleteSharedInstBtn").addEventListener("click", () => {
+    if(!confirm(`「${inst.nickname || p.name}」を共有ボックスから削除しますか?(元に戻せません)`)) return;
+    deleteFromSharedRoom(uid);
+    sharedBoxState.selectedUid = null;
+    closeDetailPanel("sharedDetailEmpty","sharedDetailPanel");
+  });
+  document.getElementById("sharedDetailEmpty").style.display = "none";
+  document.getElementById("sharedDetailPanel").style.display = "block";
+}
+
+document.getElementById("sharedSearchBox").addEventListener("input", e => { sharedBoxState.query = e.target.value; sharedBoxState.page = 0; renderSharedGrid(); });
+
+const SHARED_PFILTER_OPEN_KEY = "palworldSharedPfilterOpen";
+function setSharedPfilterOpen(open){
+  document.getElementById("sharedPfilterBody").style.display = open ? "flex" : "none";
+  document.getElementById("sharedPfilterChevron").style.transform = open ? "rotate(90deg)" : "rotate(0deg)";
+  localStorage.setItem(SHARED_PFILTER_OPEN_KEY, open ? "1" : "0");
+}
+document.getElementById("sharedPfilterToggle").addEventListener("click", () => {
+  setSharedPfilterOpen(document.getElementById("sharedPfilterBody").style.display === "none");
+});
+setSharedPfilterOpen(localStorage.getItem(SHARED_PFILTER_OPEN_KEY) === "1");
+
+// ---- 配合ロードマップ ----
+
+// 2026-07-21に「塔ボス・レイドボス12体は捕獲/配合による入手手段が無い」という
+// 前提でBOSS_ONLY_DEX_IDSによる除外を追加していたが、2026-07-27にユーザーから
+// 「ボルゼクス(ThunderDragonMan)を実際に配合の親として使った」という実プレイ報告を
+// 受けて調査した結果、この前提自体が誤りだったと判明。配合データを一次データ抽出の
+// tylercamp/palcalcに刷新し直接確認したところ、該当12体は全員、親としても子としても
+// 実際の配合結果に登場することが確認できた(=通常の配合対象・パルボックス追加対象として
+// 扱ってよい)。よって前提が誤っていたBOSS_ONLY_DEX_IDSによる除外は撤廃し、本当に
+// 入手不可能なゴースト個体(dex_idがnull、パル図鑑に正式登録すらされていないゼロヴァース等)
+// の除外のみ残す。パルを追加・配合ロードマップの目標選択どちらも同じ基準でよいため、
+// リストを1本化する。
+function isGhost(asset){
+  const info = BREEDING_PALS_DATA[asset];
+  return !info || !info.dex_id;
+}
+
+const PAL_LIST = Object.entries(BREEDING_PALS_DATA || {})
+  .filter(([asset]) => !isGhost(asset))
+  .map(([asset, info]) => ({
+    asset,
+    displayName: info.jp_name || `${info.en_name}(JP名未確認)`,
+    icon: info.icon,
+  })).sort((a, b) => a.displayName.localeCompare(b.displayName, 'ja'));
+
+// forwardPairs(親ペア→子、1.8MB)は「配合ロードマップ」タブを実際に開くまで
+// 読み込まない(2026-07-28、パルボックスの初期表示が配合データ3.3MB分
+// 不要に重かった件の続き)。以下はそのための遅延読込ヘルパーで、実際の
+// ゴースト個体除外・REVERSE_FORWARD_PAIRS構築・自己診断テストは
+// ensureForwardPairsLoaded()の中(読み込み完了後)に移した。
+// BREEDING_FORWARD_PAIRS_DATA自体はここで事前宣言しない
+// (breeding_forward_pairs_data.js側がconstでトップレベル宣言するため。
+// classic scriptのlet/constはスクリプトタグをまたいで同じグローバル字句
+// スコープを共有するので、ここでletを重ねると「already declared」の
+// SyntaxErrorになる)。
+let REVERSE_FORWARD_PAIRS = null;
+let forwardPairsPromise = null;
+function ensureForwardPairsLoaded(){
+  if(forwardPairsPromise) return forwardPairsPromise;
+  forwardPairsPromise = new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = "game_data/breeding_forward_pairs_data.js";
+    script.onload = () => {
+      // ゴースト個体が絡むレシピ(親のどちらか、または子がゴースト=そもそも配合で
+      // 作れない/親として所持しようがない)のみ除外する。
+      Object.keys(BREEDING_FORWARD_PAIRS_DATA || {}).forEach(key => {
+        const child = BREEDING_FORWARD_PAIRS_DATA[key];
+        const [a, b] = key.split("|");
+        if(isGhost(child) || isGhost(a) || isGhost(b)) delete BREEDING_FORWARD_PAIRS_DATA[key];
+      });
+      buildReverseForwardPairs();
+      selfTestRoute();
+      resolve();
+    };
+    script.onerror = () => reject(new Error("breeding_forward_pairs_data.js の読み込みに失敗しました"));
+    document.head.appendChild(script);
+  });
+  return forwardPairsPromise;
+}
+
+// skillDisplayName()と同じ理由で、対応表に無いアセット名をそのまま返さずエスケープする。
+// 現状ここに届く値はURLパラメータ側で実在チェック済みだが、戻り値がinnerHTMLに
+// 埋められる関数なので、呼び出し元が増えたときに穴にならないようにしておく(2026-08)。
+function nameOf(asset){
+  if(!Object.prototype.hasOwnProperty.call(BREEDING_PALS_DATA, asset)) return escapeHtml(String(asset));
+  const info = BREEDING_PALS_DATA[asset];
+  return info.jp_name || `${info.en_name}(JP名未確認)`;
+}
+function iconOf(asset){
+  const info = BREEDING_PALS_DATA[asset];
+  return info && info.icon;
+}
+
+// ひらがな入力でもカタカナのパル名・技名・パッシブ名にヒットするよう正規化する
+// (「る」→「ル」を含む名前にもヒット)
+function toKana(str){
+  return (str||"").replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
+}
+
+// ニックネーム(自由入力・共有ボックス経由で他人のブラウザにも表示されうる)や検索語を
+// innerHTMLに埋め込む箇所は、必ずこれを通してHTMLタグとして解釈されないようにする。
+function escapeHtml(str){
+  return (str||"").replace(/[&<>"']/g, ch => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+  }[ch]));
+}
+
+function setupPicker(inputEl, resultsEl, onPick, sourceList = PAL_LIST){
+  inputEl.addEventListener("input", () => {
+    const q = inputEl.value.trim().toLowerCase();
+    if(!q){ resultsEl.style.display = "none"; return; }
+    const qKana = toKana(q);
+    // 前方一致(名前が検索語で始まる)を最優先で上に出す。結果を30件に絞る際、
+    // 単純な五十音順だと「ら行」の名前は絞り込み前に切り捨てられてしまうため
+    // (例: 「る」で検索してもルミカイト等が63件中31位以降になり表示されない)。
+    const matches = sourceList
+      .filter(p => toKana(p.displayName.toLowerCase()).includes(qKana) || p.asset.toLowerCase().includes(q))
+      .sort((a, b) => {
+        const aStarts = toKana(a.displayName.toLowerCase()).startsWith(qKana) ? 0 : 1;
+        const bStarts = toKana(b.displayName.toLowerCase()).startsWith(qKana) ? 0 : 1;
+        if(aStarts !== bStarts) return aStarts - bStarts;
+        return a.displayName.localeCompare(b.displayName, 'ja');
+      })
+      .slice(0, 30);
+    if(matches.length === 0){
+      resultsEl.innerHTML = `<div class="pal-picker-item">見つかりません</div>`;
+    } else {
+      resultsEl.innerHTML = matches.map(p => `
+        <div class="pal-picker-item" data-asset="${p.asset}">
+          ${p.icon ? `<img src="${p.icon}" alt="">` : ""}<span>${p.displayName}</span>
+        </div>
+      `).join("");
+      resultsEl.querySelectorAll(".pal-picker-item[data-asset]").forEach(el => {
+        el.addEventListener("click", () => {
+          const asset = el.dataset.asset;
+          inputEl.value = nameOf(asset);
+          resultsEl.style.display = "none";
+          onPick(asset);
+        });
+      });
+    }
+    resultsEl.style.display = "block";
+  });
+  inputEl.addEventListener("blur", () => setTimeout(() => resultsEl.style.display = "none", 150));
+}
+
+function roadmapInstances(){
+  return roadmapState.source === "shared" ? sharedBoxState.instances : getInstances();
+}
+
+function ownedAssetSet(){
+  const ownedIds = new Set(roadmapInstances().map(inst => inst.dexId));
+  const owned = new Set();
+  Object.entries(BREEDING_PALS_DATA).forEach(([asset, info]) => {
+    if(info.dex_id && ownedIds.has(info.dex_id)) owned.add(asset);
+  });
+  return owned;
+}
+
+// ---- 今すぐ作れるパル一覧(所持パル同士の1回配合だけで作れる、まだ持っていないパル) ----
+// findBreedingRouteのBFSの「第1世代ぶんだけ」を切り出したもの: 所持パルの全ペアの組み合わせを
+// 総当たりし、配合表(forwardPairs)に載っている子を集める。多世代先のルートは対象外(そちらは
+// 目標パルを検索して調べる既存の機能で扱う)。
+function computeDirectlyMakeable(ownedSet){
+  const forward = BREEDING_FORWARD_PAIRS_DATA;
+  const arr = Array.from(ownedSet);
+  const result = new Map(); // child asset -> {a, b}
+  for(let i=0;i<arr.length;i++){
+    for(let j=i;j<arr.length;j++){
+      const key = [arr[i], arr[j]].sort().join("|");
+      const child = forward[key];
+      if(child && !ownedSet.has(child) && !result.has(child)){
+        result.set(child, { a: arr[i], b: arr[j] });
+      }
+    }
+  }
+  return result;
+}
+
+// forwardPairsは遅延読込のため、実描画本体(Inner)は読込完了後にしか呼べない。
+// renderQuickMakeable()はこれまで通りの同期関数として呼び出せるようにしつつ、
+// 内部で読込を待ってから描画する薄いラッパーにしている(2026-07-28)。
+function renderQuickMakeable(){
+  const grid = document.getElementById("quickMakeableGrid");
+  if(!grid) return;
+  grid.innerHTML = `<div class="empty-box-msg" style="grid-column:1/-1;padding:14px;">読み込み中…</div>`;
+  ensureForwardPairsLoaded()
+    .then(renderQuickMakeableInner)
+    .catch(err => {
+      grid.innerHTML = `<div class="empty-box-msg" style="grid-column:1/-1;padding:14px;">配合データの読み込みに失敗しました。再読み込みしてください。</div>`;
+      console.error(err);
+    });
+}
+
+function renderQuickMakeableInner(){
+  const grid = document.getElementById("quickMakeableGrid");
+  const countTag = document.getElementById("quickMakeableCount");
+  if(!grid) return;
+  const owned = ownedAssetSet();
+  const makeable = computeDirectlyMakeable(owned);
+  if(!makeable.size){
+    countTag.textContent = "";
+    grid.innerHTML = `<div class="empty-box-msg" style="grid-column:1/-1;padding:14px;">今の所持パルの組み合わせだけでは、新しく作れるパルがありません。</div>`;
+    return;
+  }
+  countTag.textContent = `${makeable.size}種`;
+  const entries = Array.from(makeable.entries()).sort((x, y) => nameOf(x[0]).localeCompare(nameOf(y[0]), 'ja'));
+  grid.innerHTML = entries.map(([child, pair]) => `
+    <div class="quick-makeable-item" data-child="${child}" data-a="${pair.a}" data-b="${pair.b}" tabindex="0" role="button" title="${nameOf(child)}">
+      ${iconOf(child) ? `<img src="${iconOf(child)}" alt="${nameOf(child)}" loading="lazy">` : ""}
+    </div>
+  `).join("");
+  grid.querySelectorAll(".quick-makeable-item").forEach(el => {
+    const open = () => openQuickMakeableModal(el.dataset.child, el.dataset.a, el.dataset.b);
+    el.addEventListener("click", open);
+    el.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); open(); } });
+  });
+}
+
+function openQuickMakeableModal(child, a, b){
+  const body = document.getElementById("quickRouteBody");
+  const palCol = (asset, isTarget) => `
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <div style="width:${isTarget ? 68 : 56}px;height:${isTarget ? 68 : 56}px;border-radius:50%;background:var(--panel2);border:2px solid ${isTarget ? 'var(--brass)' : 'var(--line)'};overflow:hidden;">
+        ${iconOf(asset) ? `<img src="${iconOf(asset)}" alt="" style="width:100%;height:100%;object-fit:cover;">` : ""}
+      </div>
+      <span style="font-size:12.5px;text-align:center;">${nameOf(asset)}</span>
+    </div>`;
+  body.innerHTML = `
+    <p class="pform-title" style="margin-top:0;">${nameOf(child)} の配合レシピ</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin:18px 0;flex-wrap:wrap;">
+      ${palCol(a)}
+      <span style="color:var(--brass);font-size:20px;">×</span>
+      ${palCol(b)}
+      <span style="color:var(--brass);font-size:20px;">→</span>
+      ${palCol(child, true)}
+    </div>
+    <p style="font-size:11.5px;color:var(--parchment-dim);text-align:center;margin-bottom:0;">今の所持パル同士だけで、配合1回で作れます(異性のペアが必要です)。</p>
+  `;
+  document.getElementById("quickRouteOverlay").classList.add("open");
+}
+
+function passiveMaskOf(passives, targetList){
+  let m = 0;
+  (passives||[]).forEach(p => { const idx = targetList.indexOf(p); if(idx >= 0) m |= (1 << idx); });
+  return m;
+}
+function popcountOf(m){ let c = 0; while(m){ c += m & 1; m >>= 1; } return c; }
+
+// 子パル -> それを作れる親ペア候補一覧への逆引き(1つの子パルに対して親ペアが
+// 数十〜千通り以上あることが多い)。forwardPairsは読込後に変化しないため
+// ensureForwardPairsLoaded()内で一度だけ構築する(REVERSE_FORWARD_PAIRS変数自体は
+// 上でlet宣言済み)。
+function buildReverseForwardPairs(){
+  const rev = {};
+  Object.entries(BREEDING_FORWARD_PAIRS_DATA).forEach(([key, child]) => {
+    const sep = key.indexOf("|");
+    const a = key.slice(0, sep), b = key.slice(sep + 1);
+    (rev[child] = rev[child] || []).push([a, b]);
+  });
+  REVERSE_FORWARD_PAIRS = rev;
+}
+
+// targetSetを指定すると、同じ子パルを作れる親ペア候補の中から、目的パッシブを理論上
+// 最も多く継承できるルートそのものを再帰的に探す(メモ化DFS)。各パルの結果は一度確定したら
+// 二度と書き換えない(cache.set は1回のみ)ため、後から他のパルの値が変わっても既に確定した
+// パルの参照が食い違う(不整合な「幽霊ルート」ができる)ことがない。
+// ※以前試した「全ペアを世代の上限回数だけ繰り返し緩和する」方式(ベルマンフォード法)は、
+// 一度確定した子パルの参照(mask/pair)を後の周回で書き換えてしまい、achieve()が返す
+// カバー数と実際に復元されるルート(reconstructSteps)が食い違う不整合なバグがあったため、
+// このメモ化DFS方式に置き換えた(実データで内部整合性を確認済み)。
+// 探索中の祖先(visiting)を再度使おうとした場合は循環として除外し、その候補だけスキップする
+// (他の候補は引き続き試すため、循環のせいで見つかるはずのルートを見逃すことはない)。
+function computeAchievableForAsset(asset, targetList, ownedSet, cache, visiting, maxGenerations){
+  if(cache.has(asset)) return cache.get(asset);
+  if(visiting.has(asset)) return null;
+  if(ownedSet.has(asset)){
+    const inst = targetList.length ? bestParentForPassives(asset, new Set(targetList)) : null;
+    const result = { mask: passiveMaskOf(inst ? inst.passives : [], targetList), gen: 0, pair: null };
+    cache.set(asset, result);
+    return result;
+  }
+  visiting.add(asset);
+  const candidates = REVERSE_FORWARD_PAIRS[asset] || [];
+  let best = null;
+  for(const [a, b] of candidates){
+    const ra = computeAchievableForAsset(a, targetList, ownedSet, cache, visiting, maxGenerations);
+    if(!ra) continue;
+    const rb = computeAchievableForAsset(b, targetList, ownedSet, cache, visiting, maxGenerations);
+    if(!rb) continue;
+    const gen = Math.max(ra.gen, rb.gen) + 1;
+    if(gen > maxGenerations) continue;
+    const mask = ra.mask | rb.mask;
+    if(!best || popcountOf(mask) > popcountOf(best.mask) || (popcountOf(mask) === popcountOf(best.mask) && gen < best.gen)){
+      best = { mask, gen, pair: [a, b] };
+    }
+  }
+  visiting.delete(asset);
+  cache.set(asset, best);
+  return best;
+}
+
+function findBreedingRoute(targetAsset, ownedSet, targetSet = new Set(), maxGenerations = 20){
+  const alreadyOwned = ownedSet.has(targetAsset);
+  // 所持済みでも「配合するならどのルートが一番良いか」を必ず探索する。
+  // targetAsset自身だけをownedSetから除外した専用Setで探索することで、
+  // computeAchievableForAssetの「所持済みなら即0ステップの葉ノード」扱いを
+  // targetAsset自身に限って回避する(中間素材としての所持判定はそのまま維持)。
+  const searchOwnedSet = alreadyOwned
+    ? new Set(Array.from(ownedSet).filter(a => a !== targetAsset))
+    : ownedSet;
+  const targetList = Array.from(targetSet);
+  const cache = new Map();
+  const rec = computeAchievableForAsset(targetAsset, targetList, searchOwnedSet, cache, new Set(), maxGenerations);
+  if(!rec){
+    // 所持済みだが配合ルートが無い(自家配合限定種など)場合は、従来通り所持済み表示に留める
+    return alreadyOwned ? { found: true, alreadyOwned: true, steps: [] } : { found: false };
+  }
+  const producedBy = {};
+  cache.forEach((r, asset) => { if(r && r.pair) producedBy[asset] = { a: r.pair[0], b: r.pair[1], generation: r.gen }; });
+  return { found: true, alreadyOwned, steps: reconstructSteps(targetAsset, producedBy, searchOwnedSet) };
+}
+
+function reconstructSteps(targetAsset, producedBy, ownedSet){
+  const needed = new Set();
+  const stack = [targetAsset];
+  while(stack.length){
+    const cur = stack.pop();
+    if(needed.has(cur)) continue;
+    // targetAsset自身は(所持済みでも)常にルートの最終ステップとして残す。
+    // 中間素材はこれまで通り所持済みなら葉ノード扱いで打ち切る。
+    if(cur !== targetAsset && ownedSet.has(cur)) continue;
+    needed.add(cur);
+    const rec = producedBy[cur];
+    if(rec){ stack.push(rec.a); stack.push(rec.b); }
+  }
+  return Array.from(needed)
+    .filter(a => producedBy[a])
+    .map(a => ({ child: a, ...producedBy[a] }))
+    .sort((x, y) => x.generation - y.generation);
+}
+
+// forwardPairs読込完了後(ensureForwardPairsLoaded内)に1回だけ呼ばれる自己診断。
+// 以前はIIFEでスクリプト読込直後に自動実行していたが、forwardPairsの遅延読込化に
+// 伴い、読込完了タイミングで呼び出す通常の関数に変更した(2026-07-28)。
+function selfTestRoute(){
+  // REVERSE_FORWARD_PAIRSはforwardPairs読込時に1度だけ構築されるため、
+  // テスト用にBREEDING_FORWARD_PAIRS_DATAを差し替えても反映されない。
+  // そのため、実データの中から検証に使える具体例を動的に探して使う。
+
+  // 自家配合(X|X)以外にルートが存在しない実データ上のパルは、所持済みなら0ステップのはず
+  let selfOnlyAsset = null;
+  for(const asset of Object.keys(BREEDING_PALS_DATA)){
+    const candidates = REVERSE_FORWARD_PAIRS[asset] || [];
+    const hasOtherRoute = candidates.some(([a, b]) => a !== asset || b !== asset);
+    if(!hasOtherRoute){ selfOnlyAsset = asset; break; }
+  }
+  if(selfOnlyAsset){
+    const r1 = findBreedingRoute(selfOnlyAsset, new Set([selfOnlyAsset]));
+    console.assert(r1.found && r1.alreadyOwned === true && r1.steps.length === 0, "[selfTest失敗] 自家配合以外にルートが無いパルは所持済みなら0ステップになるはず");
+  }
+
+  // 到達不能ケース
+  const r2 = findBreedingRoute("__NOT_EXIST__", new Set());
+  console.assert(r2.found === false, "[selfTest失敗] 存在しない組み合わせはfound:falseになるはず");
+
+  // 所持済みでも、他の所持パル同士で配合できるルートがあればそちらも提示する
+  let dynChild = null, dynPair = null;
+  for(const [key, child] of Object.entries(BREEDING_FORWARD_PAIRS_DATA)){
+    const sep = key.indexOf("|");
+    const a = key.slice(0, sep), b = key.slice(sep + 1);
+    if(a !== child && b !== child){ dynChild = child; dynPair = [a, b]; break; }
+  }
+  if(dynChild){
+    const r3 = findBreedingRoute(dynChild, new Set([dynChild, ...dynPair]));
+    console.assert(r3.found && r3.alreadyOwned === true && r3.steps.length >= 1, "[selfTest失敗] 所持済みでも配合可能なら配合ルートを提示するはず");
+  }
+
+  console.log("[selfTest] 配合ロードマップBFSの自己診断完了(上に赤いAssertion failedが無ければOK)");
+}
+
+function renderRoute(result, targetAsset, ownedSet){
+  const box = document.getElementById("roadmapResult");
+  box.className = "result-box";
+  if(!result.found){
+    box.innerHTML = `<p>「${nameOf(targetAsset)}」への配合ルートが見つかりませんでした(所持パルの組み合わせだけでは最大20世代以内でも作れません。野生入手が必要な可能性があります)。</p>`;
+    return;
+  }
+  if(result.alreadyOwned && !result.steps.length){
+    box.innerHTML = `<p>「${nameOf(targetAsset)}」はすでに所持しています(この個体だけで作れる自家配合限定種のため、他の配合ルートはありません)。</p>`;
+    return;
+  }
+  const ownedNote = result.alreadyOwned
+    ? `<p style="font-size:11.5px;color:var(--brass);margin:0 0 10px;">${ico('check')} 「${nameOf(targetAsset)}」はすでに所持していますが、以下の配合でも作れます。</p>`
+    : "";
+  const passiveNote = roadmapState.passives.length
+    ? `<p style="font-size:11.5px;color:var(--hp);margin:0 0 10px;">${ico('check')} 指定したパッシブ(${roadmapState.passives.join('・')})をできるだけ多く継承できるよう、複数の配合ルート候補の中から優先して選んでいます。</p>`
+    : "";
+  let html = `<h3 style="font-family:var(--font-display);margin-top:0;">${nameOf(targetAsset)} への配合ルート(${result.steps.length}ステップ)</h3>${ownedNote}${passiveNote}<ol class="route-pair-list" style="list-style:none;padding:0;">`;
+  result.steps.forEach(s => {
+    const isFinal = s.child === targetAsset;
+    const bothOwned = ownedSet.has(s.a) && ownedSet.has(s.b);
+    const sexStatus = bothOwned ? canPairSpeciesGenders(s.a, s.b) : null;
+    const sexWarning = sexStatus === "conflict"
+      ? `<div style="font-size:11px;color:var(--danger);margin-top:4px;">${ico('warning')} 所持個体が全員同性のため、このままでは配合できません</div>`
+      : sexStatus === "unknown"
+      ? `<div style="font-size:11px;color:var(--brass);margin-top:4px;">${ico('warning')} 性別未設定の個体があり、配合できるか未確認です</div>`
+      : "";
+    html += `<li class="route-pair-item" style="${isFinal ? 'border:1px solid var(--brass);' : (sexStatus === 'conflict' ? 'border:1px solid var(--danger);' : '')}">
+      <span class="unique-tag" style="background:var(--teal-dim);">第${s.generation}世代</span>
+      ${ownedSet.has(s.a) ? '' : ico('egg')}${iconOf(s.a) ? `<img src="${iconOf(s.a)}" alt="">` : ""}${nameOf(s.a)}
+      <span style="color:var(--brass);">×</span>
+      ${ownedSet.has(s.b) ? '' : ico('egg')}${iconOf(s.b) ? `<img src="${iconOf(s.b)}" alt="">` : ""}${nameOf(s.b)}
+      <span style="color:var(--brass);">→</span>
+      ${iconOf(s.child) ? `<img src="${iconOf(s.child)}" alt="">` : ""}${nameOf(s.child)}${isFinal ? ' '+ico('target') : ''}
+      ${sexWarning}
+    </li>`;
+  });
+  html += `</ol><p style="margin-top:10px;color:var(--parchment-dim);font-size:12px;">${ico('egg')} = このルート内で先に配合して用意する必要があるパル(元々の所持パルではない)。${ico('warning')} = 所持個体の性別設定から見て配合できるか怪しいステップ(性別を設定していないパルは判定できません)。</p>`;
+  box.innerHTML = html;
+}
+
+// ---- パッシブ厳選(目的のパッシブを持つ子を作るための最終配合ペア判定) ----
+const roadmapState = { targetAsset: null, passives: [], source: "local" };
+
+function instancesOfAsset(asset){
+  const info = BREEDING_PALS_DATA[asset];
+  if(!info || !info.dex_id) return [];
+  return roadmapInstances().filter(inst => inst.dexId === info.dex_id);
+}
+
+// 指定種族の所持個体の中から、目的パッシブとの重複が最も多い個体を選ぶ
+// (複数所持している場合、狙ったパッシブに一番近い個体を配合に使うのが得なため)
+function bestParentForPassives(asset, targetSet){
+  const candidates = instancesOfAsset(asset);
+  if(candidates.length === 0) return null;
+  let best = candidates[0], bestScore = -1;
+  candidates.forEach(inst => {
+    const score = inst.passives.filter(p => targetSet.has(p)).length;
+    if(score > bestScore){ bestScore = score; best = inst; }
+  });
+  return best;
+}
+
+// ルート内の各世代について、そのchildが「理論上引き継ぎうる最大パッシブ範囲」を
+// 再帰的に計算する。所持個体がいる種族(=これ以上配合で用意する必要が無い葉ノード)は
+// 実際のパッシブをそのまま使い、ルート内で配合して用意する中間種族(イグニアス等)は
+// さらにその親2体の範囲の合計(再帰)を使う。「範囲」であって保証ではない点に注意
+// (中間世代を挟むほど、狙った組み合わせが実際に出るまで配合をやり直す必要がある)。
+function computeAchievablePools(result, targetSet){
+  const stepByChild = {};
+  result.steps.forEach(s => { stepByChild[s.child] = s; });
+  const resolved = {};
+  function resolve(asset){
+    if(resolved[asset]) return resolved[asset];
+    const step = stepByChild[asset];
+    if(!step){
+      const inst = bestParentForPassives(asset, targetSet);
+      resolved[asset] = { pool: new Set(inst ? inst.passives : []), inst, isIntermediate: false };
+      return resolved[asset];
+    }
+    // 循環参照防止のダミー(このルート生成ロジック上ループは起きないはずだが安全のため)
+    resolved[asset] = { pool: new Set(), isIntermediate: true, step, pending: true };
+    const aRes = resolve(step.a);
+    const bRes = resolve(step.b);
+    const pool = new Set([...aRes.pool, ...bRes.pool]);
+    resolved[asset] = { pool, isIntermediate: true, step, aRes, bRes };
+    return resolved[asset];
+  }
+  result.steps.forEach(s => resolve(s.child));
+  return resolved;
+}
+
+// ---- 複数の親候補パターンを比較して最良の組み合わせを提案する ----
+// ルート内で「所持個体をそのまま使う」末端種族を集める(中間配合で用意する種族は対象外)。
+function collectLeafSpecies(result){
+  const stepByChild = {};
+  result.steps.forEach(s => { stepByChild[s.child] = s; });
+  const leaves = new Set();
+  const visited = new Set();
+  function visit(asset){
+    if(visited.has(asset)) return;
+    visited.add(asset);
+    const step = stepByChild[asset];
+    if(!step){ leaves.add(asset); return; }
+    visit(step.a); visit(step.b);
+  }
+  result.steps.forEach(s => { visit(s.a); visit(s.b); });
+  return Array.from(leaves);
+}
+
+// 配合は種族の相性表だけでなく「必ず異性同士でなければ成立しない」というゲーム側の制約があるため、
+// パッシブの継承候補プールとは別に、各配合ステップの親2体が実際に配合できる性別の組み合わせかを判定する。
+// 中間世代(このルート内でこれから配合して用意するパル)は生まれるまで性別が分からないため判定対象外(null)。
+function sexOf(inst){ return (inst && inst.sex) ? inst.sex : "unknown"; }
+
+// 基本ルート表示用の簡易判定: 2種族それぞれの所持個体群の中に、異性同士のペアが
+// 1組でも組めるかを見る(パッシブは見ない、種族単位のざっくりした「配合できそうか」判定)。
+function canPairSpeciesGenders(assetA, assetB){
+  const instsA = instancesOfAsset(assetA);
+  const instsB = instancesOfAsset(assetB);
+  if(!instsA.length || !instsB.length) return null;
+  for(const ia of instsA){
+    for(const ib of instsB){
+      const sa = sexOf(ia), sb = sexOf(ib);
+      if(sa === "unknown" || sb === "unknown") continue;
+      if(sa !== sb) return "ok";
+    }
+  }
+  const anyUnknown = instsA.some(i => sexOf(i) === "unknown") || instsB.some(i => sexOf(i) === "unknown");
+  return anyUnknown ? "unknown" : "conflict";
+}
+
+function stepSexStatus(aRes, bRes){
+  if(aRes.isIntermediate || bRes.isIntermediate) return null;
+  if(!aRes.inst || !bRes.inst) return null;
+  const sa = sexOf(aRes.inst), sb = sexOf(bRes.inst);
+  if(sa === "unknown" || sb === "unknown") return "unknown";
+  return sa === sb ? "conflict" : "ok";
+}
+
+// computeAchievablePoolsと同じ再帰だが、末端種族にどの所持個体を割り当てるかを
+// assignment(Map: asset -> instance|null)で明示的に指定できるようにしたもの。
+function computePoolsWithAssignment(result, assignment){
+  const stepByChild = {};
+  result.steps.forEach(s => { stepByChild[s.child] = s; });
+  const resolved = {};
+  function resolve(asset){
+    if(resolved[asset]) return resolved[asset];
+    const step = stepByChild[asset];
+    if(!step){
+      const inst = assignment.get(asset) || null;
+      resolved[asset] = { pool: new Set(inst ? inst.passives : []), inst, isIntermediate: false };
+      return resolved[asset];
+    }
+    resolved[asset] = { pool: new Set(), isIntermediate: true, step, pending: true };
+    const aRes = resolve(step.a);
+    const bRes = resolve(step.b);
+    const pool = new Set([...aRes.pool, ...bRes.pool]);
+    resolved[asset] = { pool, isIntermediate: true, step, aRes, bRes, sexStatus: stepSexStatus(aRes, bRes) };
+    return resolved[asset];
+  }
+  result.steps.forEach(s => resolve(s.child));
+  return resolved;
+}
+
+// 末端種族ごとに所持個体が複数いる場合、その全組み合わせ(直積)を試して
+// 「目的パッシブを何個カバーできるか」「余分なパッシブがどれだけ少ないか(継承枠を圧迫しないか)」
+// でランキングする。組み合わせ数が多すぎる場合(実用上まず起きないが安全のため)は
+// 各末端で単純に最良の1個体だけを使う従来ロジックにフォールバックする。
+function enumerateParentCombinations(result, targetSet, maxCombos = 2000){
+  const leaves = collectLeafSpecies(result);
+  const optionsPerLeaf = leaves.map(asset => {
+    const insts = instancesOfAsset(asset);
+    return insts.length ? insts : [null];
+  });
+
+  const totalCombos = optionsPerLeaf.reduce((a, opts) => a * opts.length, 1);
+  let combos;
+  if(totalCombos > maxCombos){
+    combos = [leaves.map(asset => bestParentForPassives(asset, targetSet))];
+  } else {
+    combos = [[]];
+    optionsPerLeaf.forEach(opts => {
+      const next = [];
+      combos.forEach(c => opts.forEach(o => next.push([...c, o])));
+      combos = next;
+    });
+  }
+
+  const finalStep = result.steps[result.steps.length - 1];
+  const scored = combos.map(combo => {
+    const assignment = new Map();
+    leaves.forEach((asset, i) => assignment.set(asset, combo[i]));
+    const resolved = computePoolsWithAssignment(result, assignment);
+    const finalPool = resolved[finalStep.child].pool;
+    const covered = [...targetSet].filter(p => finalPool.has(p));
+    const excess = [...finalPool].filter(p => !targetSet.has(p)).length;
+    // 性別ペナルティ: 同性のため配合不可能なステップが1つでもあれば最優先で除外扱い、
+    // 性別未設定で判定できないステップがあれば次点(「要確認」として下位に回す)。
+    let genderPenalty = 0;
+    result.steps.forEach(s => {
+      const status = resolved[s.child] && resolved[s.child].sexStatus;
+      if(status === "conflict") genderPenalty += 1000;
+      else if(status === "unknown") genderPenalty += 1;
+    });
+    return { assignment, resolved, coveredCount: covered.length, covered, excess, genderPenalty };
+  });
+
+  scored.sort((a, b) => a.genderPenalty - b.genderPenalty || b.coveredCount - a.coveredCount || a.excess - b.excess);
+
+  // 個体の組み合わせ(誰と誰を使うか)が同一なものは重複表示しないようにする
+  const seen = new Set();
+  const distinct = [];
+  scored.forEach(s => {
+    const key = leaves.map(asset => {
+      const inst = s.assignment.get(asset);
+      return inst ? inst.uid : `${asset}:none`;
+    }).join(",");
+    if(seen.has(key)) return;
+    seen.add(key);
+    distinct.push(s);
+  });
+  return { leaves, ranked: distinct };
+}
+
+// ---- 成功率シミュレーター(モンテカルロ法) ----
+// wikiで報告されている「継承枠1〜4個抽選(4個10%/3個20%/2個30%/1個40%)」のメカニクスだけを
+// モデル化する。「親の持たないパッシブが枠に追加されるボーナス抽選」は、狙ったパッシブが
+// たまたま当たる確率が低く不確実性も高いため、意図的にモデルに含めない
+// (=実際の成功率はここで出す数字よりやや高めになりうる、という前提の控えめな見積もり)。
+function rollInheritedSlotCount(){
+  const r = Math.random();
+  if(r < 0.10) return 4;
+  if(r < 0.30) return 3;
+  if(r < 0.60) return 2;
+  return 1;
+}
+function sampleWithoutReplacement(arr, n){
+  const copy = arr.slice();
+  for(let i = copy.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy.slice(0, Math.min(n, copy.length));
+}
+// resolved(computePoolsWithAssignmentの結果)をたどり、1回分の配合ルートをシミュレートして
+// 最終個体が実際に持つことになるパッシブ配列を返す。所持済み個体は乱数無し(実際のパッシブそのまま)。
+function simulateRouteOnce(resolved, asset, memo){
+  if(memo.has(asset)) return memo.get(asset);
+  const node = resolved[asset];
+  if(!node.isIntermediate){
+    const passives = node.inst ? node.inst.passives : [];
+    memo.set(asset, passives);
+    return passives;
+  }
+  const aPassives = simulateRouteOnce(resolved, node.step.a, memo);
+  const bPassives = simulateRouteOnce(resolved, node.step.b, memo);
+  const combinedPool = Array.from(new Set([...aPassives, ...bPassives]));
+  const slots = rollInheritedSlotCount();
+  const inherited = combinedPool.length <= slots ? combinedPool : sampleWithoutReplacement(combinedPool, slots);
+  memo.set(asset, inherited);
+  return inherited;
+}
+function simulateBreedingSuccessRate(resolved, finalAsset, targetList, trials = 20000){
+  if(!targetList.length) return null;
+  let successCount = 0;
+  for(let t = 0; t < trials; t++){
+    const memo = new Map();
+    const finalPassives = new Set(simulateRouteOnce(resolved, finalAsset, memo));
+    if(targetList.every(p => finalPassives.has(p))) successCount++;
+  }
+  const p = successCount / trials;
+  return { p, trials, successCount };
+}
+// 成功確率pのとき、confidence(例0.8=80%)以上の確率で少なくとも1回成功するまでに
+// 必要な試行回数の期待的な目安(幾何分布の分位点)。p=0(理論上0%)ならnullを返す。
+function attemptsForConfidence(p, confidence){
+  if(p <= 0) return null;
+  if(p >= 1) return 1;
+  return Math.ceil(Math.log(1 - confidence) / Math.log(1 - p));
+}
+
+function renderPassiveFit(result, targetAsset){
+  const wrap = document.getElementById("roadmapPassiveFit");
+  if(!wrap) return;
+  if(!roadmapState.passives.length || !result.found || !result.steps.length){
+    wrap.innerHTML = "";
+    return;
+  }
+  const targetSet = new Set(roadmapState.passives);
+  const { leaves, ranked } = enumerateParentCombinations(result, targetSet);
+  if(!ranked.length){ wrap.innerHTML = ""; return; }
+
+  const sexLabel = sex => sex === "male" ? `<span style="color:#4a95d9;">♂オス</span>`
+    : sex === "female" ? `<span style="color:#ff2e7e;">♀メス</span>`
+    : `<span style="color:var(--parchment-dim);">性別不明</span>`;
+
+  const parentLabel = (asset, res) => {
+    const label = nameOf(asset);
+    if(res.isIntermediate) return `<span style="color:var(--teal);">${label}(このルート内で配合して用意・性別は生まれるまで不明)</span>`;
+    if(!res.inst) return `<span style="color:var(--danger);">${label}(未所持・パッシブ未確認)</span>`;
+    const passiveList = res.inst.passives.length ? res.inst.passives.join('・') : '(パッシブ未登録)';
+    return `<span>${escapeHtml(res.inst.nickname) || label}${res.inst.nickname ? `(${label})` : ''} [${sexLabel(sexOf(res.inst))}] — ${escapeHtml(passiveList)}</span>`;
+  };
+
+  const renderComboDetail = (resolved) => {
+    let html = "";
+    result.steps.forEach(s => {
+      const res = resolved[s.child];
+      const aRes = resolved[s.a];
+      const bRes = resolved[s.b];
+      const gotHere = [...res.pool].filter(p => targetSet.has(p));
+      const sexWarning = res.sexStatus === "conflict"
+        ? `<p style="font-size:11.5px;color:var(--danger);margin:4px 0 0;">${ico('warning')} この2体は性別が同じため、実際には配合できません。どちらかの性別が違う個体を用意してください。</p>`
+        : res.sexStatus === "unknown"
+        ? `<p style="font-size:11.5px;color:var(--brass);margin:4px 0 0;">${ico('warning')} どちらかの性別が未設定のため、実際に配合できるか未確認です。パルボックスの編集から性別を設定してください。</p>`
+        : "";
+      html += `<div style="border-left:2px solid ${res.sexStatus === 'conflict' ? 'var(--danger)' : 'var(--line)'};padding:8px 0 8px 12px;margin-bottom:8px;">
+        <div style="font-size:11px;color:var(--brass);margin-bottom:4px;">第${s.generation}世代: ${nameOf(s.child)}</div>
+        <p style="font-size:12px;color:var(--parchment-dim);margin:0 0 4px;">${parentLabel(s.a, aRes)}</p>
+        <p style="font-size:12px;color:var(--parchment-dim);margin:0 0 4px;">${parentLabel(s.b, bRes)}</p>
+        <p style="font-size:11.5px;margin:4px 0 0;">→ ${nameOf(s.child)}が理論上引き継ぎうる目的パッシブ: ${gotHere.length ? gotHere.map(p=>`<span style="color:var(--hp);">${ico('check')}${p}</span>`).join(' ') : '<span style="color:var(--parchment-dim);">なし</span>'}</p>
+        ${sexWarning}
+      </div>`;
+    });
+    return html;
+  };
+
+  const summarizeCombo = (combo) => leaves.map(asset => {
+    const inst = combo.assignment.get(asset);
+    const label = nameOf(asset);
+    if(!inst) return `${label}:未所持`;
+    return `${label}=${escapeHtml(inst.nickname) || '(名称未設定)'}`;
+  }).join(' / ');
+
+  const best = ranked[0];
+
+  let html = `<div class="section" style="margin-top:12px;">
+    <h2>パッシブ厳選チェック(全${result.steps.length}世代)</h2>`;
+
+  if(best.genderPenalty >= 1000){
+    html += `<div class="coverage-warn" style="margin-bottom:8px;">${ico("warning")} 所持個体のどの組み合わせでも、性別が同じで配合できないステップがあります(下記の該当世代を参照)。異性の個体を用意してください。</div>`;
+  } else if(best.genderPenalty > 0){
+    html += `<p style="font-size:11.5px;color:var(--brass);margin:0 0 8px;">${ico("warning")} 性別が未設定の個体があるため、実際に配合できるか未確認のステップがあります(下記参照)。</p>`;
+  }
+
+  if(ranked.length > 1){
+    html += `<p style="font-size:11.5px;color:var(--parchment-dim);margin:0 0 8px;">所持個体の組み合わせ${ranked.length}通りを比較し、目的パッシブを最も多くカバーできる順に並べています。</p>
+    <div class="combo-rank-list">`;
+    ranked.slice(0, 3).forEach((combo, i) => {
+      const isBest = i === 0;
+      html += `<div class="combo-rank-item${isBest ? ' best' : ''}">
+        <div class="cr-head"><span>${isBest ? `${ico('check')} 最有力パターン` : `候補${i + 1}`}</span><span class="cr-score">カバー ${combo.coveredCount}/${roadmapState.passives.length}・余分${combo.excess}個</span></div>
+        <div class="cr-detail">${summarizeCombo(combo)}</div>
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  html += renderComboDetail(best.resolved);
+
+  const missing = roadmapState.passives.filter(p => !best.covered.includes(p));
+
+  if(missing.length){
+    html += `<div class="coverage-warn" style="margin-bottom:8px;">${ico("warning")} 今の所持個体の組み合わせでは、最終的に継承候補に入りません: ${missing.join('・')}<br>先にこのパッシブを持つ個体を用意するか、ルート内のどこかの親に習得させる必要があります。</div>`;
+  } else {
+    html += `<p style="font-size:12.5px;color:var(--hp);margin-bottom:8px;">目的の${roadmapState.passives.length}パッシブすべてが、最有力パターンでルートのどこかの世代で継承候補プールに入る可能性があります(上記世代ごとの内訳を参照)。</p>`;
+  }
+
+  const sim = simulateBreedingSuccessRate(best.resolved, targetAsset, roadmapState.passives);
+  if(sim){
+    const pctExact = (sim.p * 100);
+    const pctLabel = pctExact === 0 ? "0%未満(2万回試行で1回も成功せず)" : pctExact < 0.1 ? "0.1%未満" : pctExact.toFixed(pctExact < 10 ? 1 : 0) + "%";
+    const need80 = attemptsForConfidence(sim.p, 0.8);
+    const expected = sim.p > 0 ? Math.round(1 / sim.p) : null;
+    html += `<div class="archetype-box" style="background:var(--panel2);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);border-radius:6px;padding:12px 14px;margin-bottom:10px;">
+      <div style="font-weight:700;color:var(--teal);font-size:13px;margin-bottom:6px;">${ico('sparkle')} 成功率シミュレーター(概算)</div>
+      <p style="font-size:12.5px;margin:0 0 4px;">今の最有力パターンでこのルート通りに1回配合〜孵化した場合、目的パッシブ${roadmapState.passives.length}個が<b style="color:var(--parchment);">全部揃う確率は約${pctLabel}</b>。</p>
+      ${expected ? `<p style="font-size:12.5px;margin:0 0 4px;">期待値としては<b style="color:var(--parchment);">平均${expected.toLocaleString()}回</b>ほど孵化を繰り返す想定になります(80%の確率で1回は成功させるには目安${need80.toLocaleString()}回)。</p>` : ""}
+      <p style="font-size:10.5px;color:var(--parchment-dim);line-height:1.6;margin:6px 0 0;">継承枠1〜4個抽選(4個10%/3個20%/2個30%/1個40%)のメカニクスのみをモンテカルロ法(2万回試行)でシミュレートした概算値です。親の持たないパッシブが追加されるボーナス抽選は不確実性が高いため含めていません(実際の成功率はこれよりやや高めの可能性があります)。中間世代の親も所持個体と同じ手順で用意する前提です。</p>
+    </div>`;
+  }
+  html += `<p style="font-size:10.5px;color:var(--parchment-dim);line-height:1.7;">
+    ※「理論上引き継ぎうる」は保証ではありません。継承は確率制で、中間世代(配合して用意するパル)を挟むほど、
+    その世代で狙ったパッシブが実際に付くまで配合をやり直す必要があります(何世代も挟むほど成功率は下がります)。
+    参考値として、複数のwiki情報(gamewith.jp・palsoku.com等、出典間で一致・ただし最新版での検証は未確認)によると
+    「親の合計パッシブから継承枠1〜4個が抽選(4個10%/3個20%/2個30%/1個40%)され、さらに親の持たないパッシブが枠に追加される抽選(0個40%/1個30%/2個20%/3個10%)がある」とされています。
+    各世代でできるだけ余分なパッシブを持たない個体を親にすると、狙った組み合わせが揃いやすくなります。
+  </p></div>`;
+  wrap.innerHTML = html;
+}
+
+// renderQuickMakeable()と同じ理由の薄いラッパー(forwardPairs遅延読込待ち)。
+function updateRoadmapResult(){
+  if(!roadmapState.targetAsset) return;
+  const box = document.getElementById("roadmapResult");
+  if(box){ box.className = "result-box"; box.textContent = "読み込み中…"; }
+  ensureForwardPairsLoaded()
+    .then(updateRoadmapResultInner)
+    .catch(err => {
+      if(box){ box.textContent = "配合データの読み込みに失敗しました。再読み込みしてください。"; }
+      console.error(err);
+    });
+}
+
+function updateRoadmapResultInner(){
+  if(!roadmapState.targetAsset) return;
+  const owned = ownedAssetSet();
+  const targetSet = new Set(roadmapState.passives);
+  const result = findBreedingRoute(roadmapState.targetAsset, owned, targetSet);
+  renderRoute(result, roadmapState.targetAsset, owned);
+  renderPassiveFit(result, roadmapState.targetAsset);
+}
+
+function renderRoadmapPassivePickList(query){
+  const q = (query||'').toLowerCase();
+  const qKana = toKana(query||'');
+  let pool = PASSIVES_DATA;
+  if(q){
+    pool = pool
+      .filter(p => toKana(p.name).includes(qKana) || p.asset.toLowerCase().includes(q))
+      .sort((a, b) => {
+        const aStarts = toKana(a.name).startsWith(qKana) ? 0 : 1;
+        const bStarts = toKana(b.name).startsWith(qKana) ? 0 : 1;
+        return aStarts - bStarts;
+      });
+  }
+  pool = pool.slice(0, 60);
+  const list = document.getElementById('roadmapPassivePickList');
+  list.innerHTML = pool.map(p => {
+    const checked = roadmapState.passives.includes(p.name);
+    return `<div class="skill-pick-item ${checked?'checked':''}" data-name="${p.name}">
+      <span class="sp-check"></span>
+      <span class="sp-name">${p.name}</span>
+      <span class="sp-tag">Rank${p.rank}</span>
+    </div>`;
+  }).join('');
+  list.querySelectorAll('.skill-pick-item[data-name]').forEach(el => {
+    el.addEventListener('click', () => {
+      const name = el.dataset.name;
+      const idx = roadmapState.passives.indexOf(name);
+      if(idx >= 0){ roadmapState.passives.splice(idx,1); }
+      else {
+        if(roadmapState.passives.length >= 4){ alert('パッシブは最大4つまでです'); return; }
+        roadmapState.passives.push(name);
+      }
+      renderRoadmapPassivePickList(query);
+      renderRoadmapPassiveChips();
+      updateRoadmapResult();
+    });
+  });
+}
+
+function renderRoadmapPassiveChips(){
+  const el = document.getElementById('roadmapPassivePickedChips');
+  el.innerHTML = roadmapState.passives.map(name =>
+    `<span class="picked-chip passive-chip">${name}<span class="chip-x" data-remove="${name}">×</span></span>`
+  ).join('') || '<span style="color:var(--parchment-dim);font-size:11.5px;">未選択(選ばなければ従来通り種族ルートのみ表示)</span>';
+  el.querySelectorAll('[data-remove]').forEach(x => {
+    x.addEventListener('click', () => {
+      roadmapState.passives = roadmapState.passives.filter(p => p !== x.dataset.remove);
+      renderRoadmapPassivePickList(document.getElementById('roadmapPassiveSearch').value);
+      renderRoadmapPassiveChips();
+      updateRoadmapResult();
+    });
+  });
+}
+
+document.getElementById('roadmapPassiveSearch').addEventListener('input', e => renderRoadmapPassivePickList(e.target.value));
+renderRoadmapPassivePickList('');
+renderRoadmapPassiveChips();
+
+setupPicker(
+  document.querySelector('#roadmapTargetInput'),
+  document.querySelector('#roadmapView .pal-picker-results'),
+  asset => {
+    roadmapState.targetAsset = asset;
+    updateRoadmapResult();
+  }
+);
+
+document.querySelectorAll(".mode-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".mode-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    const mode = tab.dataset.mode;
+    document.getElementById("boxView").style.display = mode === "box" ? "block" : "none";
+    document.getElementById("shareView").style.display = mode === "share" ? "block" : "none";
+    document.getElementById("roadmapView").style.display = mode === "roadmap" ? "block" : "none";
+    if(mode === "roadmap") renderQuickMakeable();
+  });
+});
+
+function updateRoadmapSourceHint(){
+  const hint = document.getElementById("roadmapSourceHint");
+  if(roadmapState.source === "shared"){
+    hint.textContent = currentRoomCode
+      ? `合言葉「${currentRoomCode}」の共有ボックスに入っている個体を「所持済み」として配合ルートを計算します。`
+      : `共有ボックスに入っていません。「共有ボックス」タブで合言葉を作成/入力してから選んでください。`;
+  } else {
+    hint.textContent = `自分のボックス(この端末だけに保存されている個体)を「所持済み」として配合ルートを計算します。`;
+  }
+}
+updateRoadmapSourceHint();
+
+document.querySelectorAll("#roadmapSourceTabs .mini-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    if(tab.dataset.source === "shared" && !currentRoomCode){
+      alert("共有ボックスに入っていません。先に「共有ボックス」タブで合言葉を作成/入力してください。");
+      return;
+    }
+    document.querySelectorAll("#roadmapSourceTabs .mini-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    roadmapState.source = tab.dataset.source;
+    updateRoadmapSourceHint();
+    updateRoadmapResult();
+    renderQuickMakeable();
+  });
+});
+// (以前ここでrenderQuickMakeable()を無条件実行していたが、「配合ロードマップ」
+// タブに切り替えた時(上のmode-tabハンドラ)だけで十分なため削除。
+// 初期表示のタブは「所持パル管理」でロードマップ画面自体が非表示のため、
+// 無条件実行は無駄にforwardPairsの読込を早めるだけだった。2026-07-28)
+
+// 「今すぐ作れるパル」は所持数が多いと100種以上並んでロードマップ画面が縦に長くなりすぎるため、
+// 折りたたみ式にしている(2026-07-16、ユーザー指摘)。開閉状態はlocalStorageに覚えておく。
+const QUICK_MAKEABLE_OPEN_KEY = "palworldQuickMakeableOpen";
+function setQuickMakeableOpen(open){
+  document.getElementById("quickMakeableBody").style.display = open ? "block" : "none";
+  document.getElementById("quickMakeableChevron").style.transform = open ? "rotate(90deg)" : "rotate(0deg)";
+  localStorage.setItem(QUICK_MAKEABLE_OPEN_KEY, open ? "1" : "0");
+}
+document.getElementById("quickMakeableToggle").addEventListener("click", () => {
+  const isOpen = document.getElementById("quickMakeableBody").style.display !== "none";
+  setQuickMakeableOpen(!isOpen);
+});
+setQuickMakeableOpen(localStorage.getItem(QUICK_MAKEABLE_OPEN_KEY) === "1");
+
+document.getElementById("quickRouteClose").addEventListener("click", () => document.getElementById("quickRouteOverlay").classList.remove("open"));
+document.getElementById("quickRouteOverlay").addEventListener("click", e => { if(e.target.id === "quickRouteOverlay") document.getElementById("quickRouteOverlay").classList.remove("open"); });
+
+// ---- パル登録フォーム(捕まえた個体を1体ずつボックスへ追加/編集) ----
+const pformState = { editUid: null, asset: null, skills: [], passives: [], sex: "unknown", target: "local" };
+
+function pickSpeciesForPform(asset){
+  pformState.asset = asset;
+  const info = BREEDING_PALS_DATA[asset];
+  const p = info && info.dex_id ? PAL_BOX_DATA.find(x => x.id === info.dex_id) : null;
+  const pickedEl = document.getElementById('pformSpeciesPicked');
+  pickedEl.style.display = 'flex';
+  pickedEl.innerHTML = `
+    ${p && p.icon ? `<img src="${p.icon}" alt="">` : ''}
+    <span>${p ? p.name : nameOf(asset)}</span>
+    <button type="button" class="change-species-btn" id="changeSpeciesBtn">変更</button>
+  `;
+  document.getElementById('changeSpeciesBtn').addEventListener('click', () => {
+    pickedEl.style.display = 'none';
+    document.getElementById('pformSpeciesInput').value = '';
+    document.getElementById('pformSpeciesInput').focus();
+  });
+  document.getElementById('pformDetailSections').style.display = 'block';
+  document.getElementById('pformSexSection').style.display = 'block';
+  document.getElementById('pformAlphaSection').style.display = 'block';
+  document.getElementById('pformIvSection').style.display = 'block';
+  document.getElementById('pformSkillSection').style.display = 'block';
+  document.getElementById('pformPassiveSection').style.display = 'block';
+  document.getElementById('pformSaveBtn').disabled = false;
+  document.getElementById('pformSaveBtn').textContent = pformState.editUid ? '保存する' : (pformState.target === "shared" ? '共有ボックスに追加' : 'ボックスに追加');
+  document.getElementById('skillSearchInput').value = '';
+  document.getElementById('passiveSearchInput').value = '';
+  renderSkillPickList('');
+  renderPassivePickList('');
+}
+
+function renderSkillPickList(query){
+  const asset = pformState.asset;
+  const learnset = asset ? (LEARNSET_DATA[asset] || []) : [];
+  const q = (query||'').toLowerCase();
+  const qKana = toKana(query||'');
+  let pool;
+  if(q){
+    pool = Object.keys(ALL_SKILLS_MAP)
+      .filter(a => {
+        const jp = ALL_SKILLS_MAP[a] || '';
+        return toKana(jp).includes(qKana) || a.toLowerCase().includes(q);
+      })
+      .sort((a, b) => {
+        const aStarts = toKana(ALL_SKILLS_MAP[a] || '').startsWith(qKana) ? 0 : 1;
+        const bStarts = toKana(ALL_SKILLS_MAP[b] || '').startsWith(qKana) ? 0 : 1;
+        return aStarts - bStarts;
+      })
+      .slice(0, 40);
+  } else {
+    pool = learnset.map(e => e.asset);
+  }
+  const list = document.getElementById('skillPickList');
+  if(pool.length === 0){
+    list.innerHTML = `<div class="skill-pick-item" style="cursor:default;">${q ? '見つかりません' : 'この種族の習得技データがありません(検索して追加してください)'}</div>`;
+    return;
+  }
+  list.innerHTML = pool.map(a => {
+    const checked = pformState.skills.includes(a);
+    const entry = learnset.find(e => e.asset === a);
+    const tag = entry ? (entry.source === 'levelup' ? `Lv${entry.level}で習得` : '孵化時') : '';
+    return `<div class="skill-pick-item ${checked?'checked':''}" data-asset="${a}">
+      <span class="sp-check"></span>
+      <span class="sp-name">${skillDisplayName(a)}</span>
+      ${tag ? `<span class="sp-tag">${tag}</span>` : ''}
+    </div>`;
+  }).join('');
+  list.querySelectorAll('.skill-pick-item[data-asset]').forEach(el => {
+    el.addEventListener('click', () => {
+      const a = el.dataset.asset;
+      const idx = pformState.skills.indexOf(a);
+      if(idx >= 0){ pformState.skills.splice(idx,1); }
+      else {
+        if(pformState.skills.length >= 3){ alert('技は最大3つまでです'); return; }
+        pformState.skills.push(a);
+      }
+      renderSkillPickList(query);
+      renderPickedChips();
+    });
+  });
+}
+
+function renderPassivePickList(query){
+  const q = (query||'').toLowerCase();
+  const qKana = toKana(query||'');
+  let pool = PASSIVES_DATA;
+  if(q){
+    pool = pool
+      .filter(p => toKana(p.name).includes(qKana) || p.asset.toLowerCase().includes(q))
+      .sort((a, b) => {
+        const aStarts = toKana(a.name).startsWith(qKana) ? 0 : 1;
+        const bStarts = toKana(b.name).startsWith(qKana) ? 0 : 1;
+        return aStarts - bStarts;
+      });
+  }
+  pool = pool.slice(0, 60);
+  const list = document.getElementById('passivePickList');
+  list.innerHTML = pool.map(p => {
+    const checked = pformState.passives.includes(p.name);
+    return `<div class="skill-pick-item ${checked?'checked':''}" data-name="${p.name}">
+      <span class="sp-check"></span>
+      <span class="sp-name">${p.name}</span>
+      <span class="sp-tag">Rank${p.rank}</span>
+    </div>`;
+  }).join('');
+  list.querySelectorAll('.skill-pick-item[data-name]').forEach(el => {
+    el.addEventListener('click', () => {
+      const name = el.dataset.name;
+      const idx = pformState.passives.indexOf(name);
+      if(idx >= 0){ pformState.passives.splice(idx,1); }
+      else {
+        if(pformState.passives.length >= 4){ alert('パッシブは最大4つまでです'); return; }
+        pformState.passives.push(name);
+      }
+      renderPassivePickList(query);
+      renderPickedChips();
+    });
+  });
+}
+
+function renderPickedChips(){
+  const skillsEl = document.getElementById('skillPickedChips');
+  skillsEl.innerHTML = pformState.skills.map(a =>
+    `<span class="picked-chip">${skillDisplayName(a)}<span class="chip-x" data-remove-skill="${a}">×</span></span>`
+  ).join('') || '<span style="color:var(--parchment-dim);font-size:11.5px;">未選択</span>';
+  skillsEl.querySelectorAll('[data-remove-skill]').forEach(el => {
+    el.addEventListener('click', () => {
+      pformState.skills = pformState.skills.filter(x => x !== el.dataset.removeSkill);
+      renderSkillPickList(document.getElementById('skillSearchInput').value);
+      renderPickedChips();
+    });
+  });
+  const passivesEl = document.getElementById('passivePickedChips');
+  passivesEl.innerHTML = pformState.passives.map(name =>
+    `<span class="picked-chip passive-chip">${name}<span class="chip-x" data-remove-passive="${name}">×</span></span>`
+  ).join('') || '<span style="color:var(--parchment-dim);font-size:11.5px;">未選択</span>';
+  passivesEl.querySelectorAll('[data-remove-passive]').forEach(el => {
+    el.addEventListener('click', () => {
+      pformState.passives = pformState.passives.filter(x => x !== el.dataset.removePassive);
+      renderPassivePickList(document.getElementById('passiveSearchInput').value);
+      renderPickedChips();
+    });
+  });
+}
+
+function setPformSex(sex){
+  pformState.sex = sex;
+  document.querySelectorAll('#pformSexTabs .mini-tab').forEach(t => t.classList.toggle('active', t.dataset.sex === sex));
+}
+
+function openPform(editUid, target){
+  pformState.editUid = editUid || null;
+  pformState.target = target || "local";
+  pformState.skills = [];
+  pformState.passives = [];
+  pformState.asset = null;
+  document.getElementById('pformTitle').textContent = editUid ? 'パルを編集' : (pformState.target === "shared" ? '共有ボックスにパルを追加' : 'パルを登録');
+  document.getElementById('pformSpeciesInput').value = '';
+  document.getElementById('pformSpeciesPicked').style.display = 'none';
+  document.getElementById('pformDetailSections').style.display = 'none';
+  document.getElementById('pformSexSection').style.display = 'none';
+  document.getElementById('pformAlphaSection').style.display = 'none';
+  document.getElementById('pformIvSection').style.display = 'none';
+  document.getElementById('pformSkillSection').style.display = 'none';
+  document.getElementById('pformPassiveSection').style.display = 'none';
+  document.getElementById('pformNickname').value = '';
+  document.getElementById('pformIsAlpha').checked = false;
+  setPformSex('unknown');
+  ['ivHp','ivMelee','ivShot','ivDefense'].forEach(id => {
+    document.getElementById(id).value = 0;
+    document.getElementById(id+'Val').textContent = '0';
+  });
+  document.getElementById('pformSaveBtn').disabled = true;
+  document.getElementById('pformSaveBtn').textContent = '種族を選んでください';
+
+  if(editUid){
+    const inst = (pformState.target === "shared" ? sharedBoxState.instances : getInstances()).find(x => x.uid === editUid);
+    if(inst){
+      const asset = ASSET_BY_DEXID[inst.dexId];
+      pickSpeciesForPform(asset);
+      document.getElementById('pformNickname').value = inst.nickname || '';
+      setPformSex(inst.sex || 'unknown');
+      document.getElementById('pformIsAlpha').checked = !!inst.isAlpha;
+      const ivs0 = normalizeIvs(inst.ivs);
+      ['hp','melee','shot','defense'].forEach(k => {
+        const id = 'iv' + k[0].toUpperCase() + k.slice(1);
+        document.getElementById(id).value = ivs0[k];
+        document.getElementById(id+'Val').textContent = ivs0[k];
+      });
+      pformState.skills = inst.activeSkills.slice();
+      pformState.passives = inst.passives.slice();
+      renderSkillPickList('');
+      renderPassivePickList('');
+      renderPickedChips();
+    }
+  }
+  document.getElementById('pformOverlay').classList.add('open');
+}
+
+function closePform(){
+  document.getElementById('pformOverlay').classList.remove('open');
+}
+
+['Hp','Melee','Shot','Defense'].forEach(suffix => {
+  document.getElementById('iv'+suffix).addEventListener('input', function(){
+    document.getElementById('iv'+suffix+'Val').textContent = this.value;
+  });
+});
+
+document.getElementById('pformSaveBtn').addEventListener('click', () => {
+  if(!pformState.asset) return;
+  const info = BREEDING_PALS_DATA[pformState.asset];
+  const dexId = info ? info.dex_id : null;
+  if(!dexId){ alert('この種族は図鑑データと紐づいていないため登録できません。'); return; }
+  const inst = {
+    uid: pformState.editUid || ('inst_' + Date.now() + '_' + Math.floor(Math.random()*100000)),
+    dexId,
+    nickname: document.getElementById('pformNickname').value.trim(),
+    ivs: {
+      hp: parseInt(document.getElementById('ivHp').value) || 0,
+      melee: parseInt(document.getElementById('ivMelee').value) || 0,
+      shot: parseInt(document.getElementById('ivShot').value) || 0,
+      defense: parseInt(document.getElementById('ivDefense').value) || 0,
+    },
+    activeSkills: pformState.skills.slice(),
+    passives: pformState.passives.slice(),
+    sex: pformState.sex || "unknown",
+    isAlpha: document.getElementById('pformIsAlpha').checked,
+    createdAt: Date.now(),
+  };
+
+  if(pformState.target === "shared"){
+    saveInstanceToSharedRoom(inst);
+    sharedBoxState.selectedUid = inst.uid;
+    closePform();
+    return;
+  }
+
+  const list = getInstances();
+  if(pformState.editUid){
+    const idx = list.findIndex(x => x.uid === pformState.editUid);
+    if(idx >= 0) list[idx] = inst; else list.push(inst);
+  } else {
+    list.push(inst);
+  }
+  if(!setInstances(list)) return; // 保存失敗時はモーダルを開いたままにする(トーストで警告済み)
+  closePform();
+  boxState.selectedUid = inst.uid;
+  renderBoxGrid();
+  selectBoxPal(inst.uid);
+});
+
+setupPicker(
+  document.getElementById('pformSpeciesInput'),
+  document.querySelector('#pformSpeciesPickerWrap .pal-picker-results'),
+  asset => pickSpeciesForPform(asset)
+);
+document.getElementById('openAddPalBtn').addEventListener('click', () => openPform(null));
+document.getElementById('pformClose').addEventListener('click', closePform);
+document.getElementById('pformOverlay').addEventListener('click', e => { if(e.target.id === 'pformOverlay') closePform(); });
+document.getElementById('skillSearchInput').addEventListener('input', e => renderSkillPickList(e.target.value));
+document.getElementById('passiveSearchInput').addEventListener('input', e => renderPassivePickList(e.target.value));
+document.querySelectorAll('#pformSexTabs .mini-tab').forEach(tab => {
+  tab.addEventListener('click', () => setPformSex(tab.dataset.sex));
+});
+
+// ===== 友達と共有ボックス(Firebase Firestore) =====
+// 合言葉(6桁のコード)ごとにFirestoreのサブコレクション(palboxRooms/{code}/pals/{uid})を持ち、
+// 個体1体=1ドキュメントとして扱う。複数人が同時に追加してもお互いの内容を上書きしない。
+// game_data/firebase_config.js が未設定(apiKey空)の間は、共有機能全体を無効として扱う。
+function firebaseReady(){
+  if(typeof FIREBASE_CONFIG === "undefined" || !FIREBASE_CONFIG.apiKey) return false;
+  if(typeof firebase === "undefined") return false;
+  if(!firebaseApp){
+    firebaseApp = firebase.initializeApp(FIREBASE_CONFIG);
+    db = firebase.firestore();
+  }
+  return true;
+}
+
+function setShareStatus(msg, cls){
+  const el = document.getElementById("shareStatus");
+  el.textContent = msg;
+  el.className = "share-status" + (cls ? " " + cls : "");
+}
+
+function setRoomStatus(msg, cls){
+  const el = document.getElementById("shareRoomStatus");
+  el.textContent = msg;
+  el.className = "share-status" + (cls ? " " + cls : "");
+}
+
+// 合言葉・バックアップコードは「これを知っていること」だけがアクセス条件になるため、
+// Math.random()ではなく暗号学的乱数を使う(Math.random()は内部状態から次の値を
+// 推測できてしまい、他人のコードを言い当てられる恐れがあるため)。
+// 文字種は32種=1文字5bitちょうどなので、乱数バイトの下位5bitをそのまま使えば偏りが出ない。
+function generateRoomCode(){
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // 0/O, 1/Iなど紛らわしい文字は除外
+  const bytes = new Uint8Array(6);
+  crypto.getRandomValues(bytes);
+  let code = "";
+  for(let i=0;i<6;i++) code += chars[bytes[i] & 31];
+  return code;
+}
+
+function roomPalsRef(code){
+  return db.collection("palboxRooms").doc(code).collection("pals");
+}
+
+const SHARED_ROOM_CODE_KEY = "palworldSharedRoomCode";
+
+function enterSharedRoom(code){
+  if(!firebaseReady()){
+    setShareStatus("Firebaseが未設定のため、共有機能はまだ準備中です。", "err");
+    return;
+  }
+  if(sharedRoomUnsubscribe){ sharedRoomUnsubscribe(); sharedRoomUnsubscribe = null; }
+  currentRoomCode = code;
+  localStorage.setItem(SHARED_ROOM_CODE_KEY, code); // 他のページに移動して戻ってきても自動で再入室できるように覚えておく
+  sharedBoxState.selectedUid = null;
+  sharedBoxState.instances = [];
+  document.getElementById("shareJoinPanel").style.display = "none";
+  document.getElementById("shareRoomPanel").style.display = "block";
+  document.getElementById("shareRoomCodeText").textContent = code;
+  setShareStatus("");
+  setRoomStatus("接続中…");
+  sharedRoomUnsubscribe = roomPalsRef(code).onSnapshot(snapshot => {
+    const instances = sanitizeUntrustedInstances(snapshot.docs.map(d => d.data()));
+    setRoomStatus(`合言葉「${code}」の共有ボックス(リアルタイム更新中)`, "ok");
+    sharedBoxState.instances = instances;
+    if(sharedBoxState.selectedUid && instances.some(x => x.uid === sharedBoxState.selectedUid)){
+      selectSharedPal(sharedBoxState.selectedUid);
+    } else {
+      sharedBoxState.selectedUid = null;
+      closeDetailPanel("sharedDetailEmpty","sharedDetailPanel");
+      renderSharedGrid();
+    }
+    if(roadmapState.source === "shared"){
+      updateRoadmapResult();
+      renderQuickMakeable();
+    }
+  }, err => {
+    setRoomStatus("読み込みに失敗しました: " + err.message, "err");
+  });
+}
+
+function leaveSharedRoom(){
+  if(sharedRoomUnsubscribe){ sharedRoomUnsubscribe(); sharedRoomUnsubscribe = null; }
+  currentRoomCode = null;
+  localStorage.removeItem(SHARED_ROOM_CODE_KEY);
+  sharedBoxState.selectedUid = null;
+  sharedBoxState.instances = [];
+  document.getElementById("shareRoomPanel").style.display = "none";
+  document.getElementById("shareJoinPanel").style.display = "block";
+  document.getElementById("shareJoinInput").value = "";
+  setShareStatus("");
+  if(roadmapState.source === "shared"){
+    document.querySelector('#roadmapSourceTabs .mini-tab[data-source="local"]').click();
+  }
+}
+
+function createSharedRoom(){
+  if(!firebaseReady()){
+    setShareStatus("Firebaseが未設定のため、共有機能はまだ準備中です。", "err");
+    return;
+  }
+  enterSharedRoom(generateRoomCode());
+}
+
+// 合言葉はgenerateRoomCode()と同じ文字種6桁のみを許可する。Firestoreの.doc()は
+// "/"区切りを含む文字列を複数階層のパスとして解釈してしまうため、入力をここで
+// 厳密な形式にそろえておくことで、意図しないコレクション/ドキュメントへの
+// アクセスパスが組み立てられる余地を無くす。
+const ROOM_CODE_RE = /^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$/;
+
+function joinSharedRoom(){
+  const code = document.getElementById("shareJoinInput").value.trim().toUpperCase();
+  if(!code){ setShareStatus("合言葉を入力してください。", "err"); return; }
+  if(!ROOM_CODE_RE.test(code)){ setShareStatus("合言葉は英数字6桁で入力してください。", "err"); return; }
+  enterSharedRoom(code);
+}
+
+// ---- 個人用バックアップ/復元コード ----
+// 共有ボックス(リアルタイム同期)とは別に、端末を変えても所持データを復元できるように
+// するための一方向バックアップ機能。共有ボックスと違い自動同期はせず、ユーザーが明示的に
+// 「アップロード」「復元」を押した時だけFirestoreとやり取りする(意図しない上書きを防ぐため)。
+const PERSONAL_BACKUP_CODE_KEY = "palworldPersonalBackupCode";
+
+function personalBackupRef(code){
+  return db.collection("personalBackups").doc(code);
+}
+
+function setBackupStatus(msg, cls){
+  const el = document.getElementById("backupStatus");
+  el.textContent = msg;
+  el.className = "share-status" + (cls ? " " + cls : "");
+}
+function setBackupRestoreStatus(msg, cls){
+  const el = document.getElementById("backupRestoreStatus");
+  el.textContent = msg;
+  el.className = "share-status" + (cls ? " " + cls : "");
+}
+
+function renderBackupModal(){
+  const code = localStorage.getItem(PERSONAL_BACKUP_CODE_KEY);
+  document.getElementById("backupNoCodeSection").style.display = code ? "none" : "block";
+  document.getElementById("backupHasCodeSection").style.display = code ? "block" : "none";
+  if(code) document.getElementById("backupCodeText").textContent = code;
+  setBackupStatus("");
+  setBackupRestoreStatus("");
+  document.getElementById("backupRestoreInput").value = "";
+}
+
+async function uploadBackup(code){
+  if(!firebaseReady()){
+    setBackupStatus("Firebaseが未設定のため、バックアップ機能はまだ準備中です。", "err");
+    return;
+  }
+  setBackupStatus("アップロード中…");
+  try {
+    const instances = getInstances();
+    await personalBackupRef(code).set({
+      instances,
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+    setBackupStatus(`バックアップしました(${instances.length}体)。`, "ok");
+  } catch(e){
+    setBackupStatus("アップロードに失敗しました: " + e.message, "err");
+  }
+}
+
+// ===== セーブデータから読み込む(Palworldの.sav/.zipをブラウザ内だけで解析) =====
+// 実際のパース処理はshared/palsave-import.js(ESモジュール)側にある。
+// window.PalSaveImportはそちらのモジュールスクリプトの読み込み完了後にセットされるが、
+// ここでの利用は全てユーザー操作(クリック/ドロップ)後なので、読み込み順の問題は起きない。
+const saveImportState = { players: [], pals: [], selectedOwner: null, selected: new Set(), target: "local" };
+
+function setSaveImportStatus(msg, cls){
+  const el = document.getElementById("saveImportStatus");
+  el.textContent = msg;
+  el.className = "share-status" + (cls ? " " + cls : "");
+}
+
+function ownerLabel(uid){
+  if(!uid) return "所有者不明(拠点/ギルド割当など)";
+  const p = saveImportState.players.find(pl => pl.keyPlayerUId === uid);
+  const shortUid = uid.slice(0, 8);
+  if(uid === "00000000-0000-0000-0000-000000000001") return `${p ? p.nickname : "ホスト"}(ホスト・${shortUid})`;
+  return `${p ? p.nickname : "ゲスト"}(${shortUid})`;
+}
+
+function saveImportPalIcon(pal){
+  const info = BREEDING_PALS_DATA[pal.characterId];
+  const dex = info && info.dex_id ? PAL_BOX_DATA.find(x => x.id === info.dex_id) : null;
+  return dex;
+}
+
+function renderSaveImportOwnerTabs(){
+  const owners = [...new Set(saveImportState.pals.map(p => p.ownerPlayerUId))];
+  // パル数が多いオーナー(=たぶん本命)を先頭に
+  owners.sort((a,b) => saveImportState.pals.filter(p=>p.ownerPlayerUId===b).length - saveImportState.pals.filter(p=>p.ownerPlayerUId===a).length);
+  if(!saveImportState.selectedOwner || !owners.includes(saveImportState.selectedOwner)){
+    saveImportState.selectedOwner = owners[0];
+  }
+  const tabs = document.getElementById("saveImportOwnerTabs");
+  tabs.innerHTML = owners.map(uid => {
+    const count = saveImportState.pals.filter(p => p.ownerPlayerUId === uid).length;
+    return `<div class="mini-tab ${uid===saveImportState.selectedOwner?'active':''}" data-uid="${escapeHtml(uid||'')}">${escapeHtml(ownerLabel(uid))} (${count})</div>`;
+  }).join("");
+  tabs.querySelectorAll(".mini-tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+      saveImportState.selectedOwner = tab.dataset.uid || null;
+      renderSaveImportOwnerTabs();
+      renderSaveImportList();
+    });
+  });
+}
+
+function renderSaveImportList(){
+  const list = document.getElementById("saveImportList");
+  const owner = saveImportState.selectedOwner;
+  const rows = saveImportState.pals
+    .map((p, idx) => ({ p, idx }))
+    .filter(({p}) => p.ownerPlayerUId === owner);
+  list.innerHTML = rows.map(({p, idx}) => {
+    const dex = saveImportPalIcon(p);
+    const name = dex ? dex.name : `${p.characterId}(図鑑未対応)`;
+    const checked = saveImportState.selected.has(idx);
+    return `<label class="save-import-row">
+      <input type="checkbox" data-idx="${idx}" ${checked?'checked':''}>
+      ${dex && dex.icon ? `<img src="${dex.icon}" alt="">` : `<span style="width:28px;height:28px;flex-shrink:0;"></span>`}
+      <span class="siname">${escapeHtml(p.nickname || name)}${p.nickname ? ` <span class="sitag">(${escapeHtml(name)})</span>` : ''}</span>
+      <span class="sitag">${p.level ? `Lv.${escapeHtml(String(p.level))}` : ''}${p.isAlpha ? ' ・α' : ''}</span>
+    </label>`;
+  }).join("") || `<p style="color:var(--parchment-dim);font-size:12px;padding:10px;">このオーナーのパルはいません。</p>`;
+  list.querySelectorAll("input[type=checkbox][data-idx]").forEach(cb => {
+    cb.addEventListener("change", () => {
+      const idx = parseInt(cb.dataset.idx);
+      if(cb.checked) saveImportState.selected.add(idx); else saveImportState.selected.delete(idx);
+      updateSaveImportSelectedCount();
+    });
+  });
+  updateSaveImportSelectedCount();
+}
+
+function updateSaveImportSelectedCount(){
+  document.getElementById("saveImportSelectedCount").textContent = `${saveImportState.selected.size}体選択中(全${saveImportState.pals.length}体)`;
+}
+
+async function pickBestLevelSavFromZip(arrayBuffer){
+  const entries = window.PalSaveImport.listZipEntries(arrayBuffer).filter(e => e.name.endsWith("Level.sav"));
+  if(entries.length === 0) throw new Error("zipの中にLevel.savが見つかりませんでした");
+  // "/backup/"を含まない(=最新の実データ)ものを優先。無ければ日時が一番新しい(名前のソート順が一番後ろの)ものを使う。
+  const noBackup = entries.filter(e => !e.name.includes("/backup/"));
+  const pick = (noBackup.length ? noBackup : entries.slice().sort((a,b) => a.name.localeCompare(b.name))).slice(-1)[0];
+  const bytes = await window.PalSaveImport.extractZipEntry(arrayBuffer, pick);
+  return { bytes, pickedName: pick.name };
+}
+
+async function handleSaveImportFile(file){
+  setSaveImportStatus("読み込み中…", "");
+  document.getElementById("saveImportReviewSection").style.display = "none";
+  try{
+    const buf = await file.arrayBuffer();
+    const head = new Uint8Array(buf.slice(0,2));
+    const isZip = file.name.toLowerCase().endsWith(".zip") || (head[0]===0x50 && head[1]===0x4b);
+    let savBuf = buf;
+    if(isZip){
+      const { bytes, pickedName } = await pickBestLevelSavFromZip(buf);
+      savBuf = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
+      setSaveImportStatus(`zipの中の ${pickedName} を読み込み中…`, "");
+    }
+    const { players, pals } = await window.PalSaveImport.parsePalworldSaveFile(savBuf);
+    saveImportState.players = players;
+    saveImportState.pals = pals;
+    saveImportState.selectedOwner = null;
+    saveImportState.selected = new Set(pals.map((_, idx) => idx)); // 既定で全選択
+    setSaveImportStatus(`解析成功: パル${pals.length}体・プレイヤー${players.length}人を検出しました。`, "ok");
+    document.getElementById("saveImportReviewSection").style.display = "block";
+    renderSaveImportOwnerTabs();
+    renderSaveImportList();
+  }catch(e){
+    console.error(e);
+    setSaveImportStatus("読み込みに失敗しました: " + e.message, "err");
+  }
+}
+
+const saveImportDropZone = document.getElementById("saveImportDropZone");
+const saveImportFileInput = document.getElementById("saveImportFileInput");
+saveImportDropZone.addEventListener("click", () => saveImportFileInput.click());
+saveImportFileInput.addEventListener("change", () => {
+  if(saveImportFileInput.files[0]) handleSaveImportFile(saveImportFileInput.files[0]);
+});
+["dragenter","dragover"].forEach(ev => saveImportDropZone.addEventListener(ev, e => {
+  e.preventDefault(); saveImportDropZone.classList.add("dragover");
+}));
+["dragleave","drop"].forEach(ev => saveImportDropZone.addEventListener(ev, e => {
+  e.preventDefault(); saveImportDropZone.classList.remove("dragover");
+}));
+saveImportDropZone.addEventListener("drop", e => {
+  const file = e.dataTransfer.files && e.dataTransfer.files[0];
+  if(file) handleSaveImportFile(file);
+});
+
+document.getElementById("saveImportSelectAllBtn").addEventListener("click", () => {
+  saveImportState.pals.forEach((p, idx) => { if(p.ownerPlayerUId === saveImportState.selectedOwner) saveImportState.selected.add(idx); });
+  renderSaveImportList();
+});
+document.getElementById("saveImportSelectNoneBtn").addEventListener("click", () => {
+  saveImportState.pals.forEach((p, idx) => { if(p.ownerPlayerUId === saveImportState.selectedOwner) saveImportState.selected.delete(idx); });
+  renderSaveImportList();
+});
+
+// セーブデータの1体分(p)から、パルボックスのinst形式を組み立てる。
+// 図鑑データと紐づかない(未対応の)種族の場合はnullを返す。
+function buildInstFromParsedPal(p, idx){
+  const info = BREEDING_PALS_DATA[p.characterId];
+  const dexId = info ? info.dex_id : null;
+  if(!dexId) return null;
+  const passives = p.passiveNames.map(n => passiveByName2(n)).filter(Boolean).slice(0,4);
+  return {
+    uid: 'inst_' + Date.now() + '_' + Math.floor(Math.random()*1000000) + '_' + idx,
+    dexId,
+    nickname: p.nickname || '',
+    ivs: { hp: p.talents.hp, melee: p.talents.melee, shot: p.talents.shot, defense: p.talents.defense },
+    activeSkills: p.equipWaza.slice(0,3),
+    passives,
+    sex: p.sex || "unknown",
+    isAlpha: !!p.isAlpha,
+    level: p.level || null,
+    rank: p.rank || null,
+    // ゲーム内部の個体固有ID。同じ個体を再インポートした時に「新規追加」ではなく
+    // 「既存を上書き更新」と判定するための安定キー(2026-08、重複防止対応)。
+    // 手入力で登録した個体にはこの値が無い(=常に新規追加として扱われる)。
+    sourceInstanceId: p.instanceId || null,
+    createdAt: Date.now(),
+  };
+}
+
+// 既存リストに新規インポート分を合流させる。sourceInstanceIdが既存の何かと一致すれば
+// (=同じ個体の再インポート)、既存のuidを引き継いで上書き更新。一致しなければ新規追加。
+function mergeInstsIntoList(existingList, newInsts){
+  const list = existingList.slice();
+  let added = 0, updated = 0;
+  newInsts.forEach(inst => {
+    const idx = inst.sourceInstanceId ? list.findIndex(x => x.sourceInstanceId === inst.sourceInstanceId) : -1;
+    if(idx >= 0){
+      inst.uid = list[idx].uid; // 既存の識別子は変えない
+      list[idx] = inst;
+      updated++;
+    } else {
+      list.push(inst);
+      added++;
+    }
+  });
+  return { list, added, updated };
+}
+
+document.getElementById("saveImportConfirmBtn").addEventListener("click", async () => {
+  const insts = [];
+  let skipped = 0;
+  saveImportState.selected.forEach(idx => {
+    const p = saveImportState.pals[idx];
+    if(!p) return;
+    const inst = buildInstFromParsedPal(p, idx);
+    if(!inst){ skipped++; return; }
+    insts.push(inst);
+  });
+
+  if(saveImportState.target === "shared"){
+    await importToSharedRoom(insts, skipped);
+  } else {
+    const { list, added, updated } = mergeInstsIntoList(getInstances(), insts);
+    const saved = setInstances(list);
+    if(saved){
+      renderBoxGrid();
+      setSaveImportStatus(`パルボックスに反映しました(新規${added}体・更新${updated}体)。${skipped ? `(${skipped}体は図鑑データと紐づかず未対応でした)` : ''} 閉じるとボックスに反映されています。`, "ok");
+    } else {
+      setSaveImportStatus(`保存に失敗したため、今回のインポートは反映されていません(上に出ている警告を確認してください)。`, "err");
+    }
+  }
+});
+
+// 共有ボックス(Firestore)への一括書き込み。1体ずつawaitすると数百体規模で
+// 非常に遅くなるため、batch()で最大500件ずつまとめて送信する(Firestoreの
+// バッチ上限が500件のため)。sourceInstanceIdが既存のドキュメントと一致する場合は
+// そのuidを再利用することで、新規追加ではなく上書き更新にする。
+async function importToSharedRoom(insts, skipped){
+  if(!currentRoomCode || !firebaseReady()){
+    setSaveImportStatus("共有ボックスに接続できませんでした。先に入室してください。", "err");
+    return;
+  }
+  let added = 0, updated = 0;
+  insts.forEach(inst => {
+    const existing = inst.sourceInstanceId ? sharedBoxState.instances.find(x => x.sourceInstanceId === inst.sourceInstanceId) : null;
+    if(existing){ inst.uid = existing.uid; updated++; } else { added++; }
+  });
+  const CHUNK = 500;
+  let done = 0;
+  try{
+    for(let i=0; i<insts.length; i+=CHUNK){
+      const chunk = insts.slice(i, i+CHUNK);
+      const batch = db.batch();
+      chunk.forEach(inst => batch.set(roomPalsRef(currentRoomCode).doc(inst.uid), inst));
+      await batch.commit();
+      done += chunk.length;
+      setSaveImportStatus(`共有ボックスへ書き込み中… ${done}/${insts.length}体`, "");
+    }
+    setSaveImportStatus(`共有ボックスに反映しました(新規${added}体・更新${updated}体)。${skipped ? `(${skipped}体は図鑑データと紐づかず未対応でした)` : ''}`, "ok");
+  }catch(e){
+    setSaveImportStatus(`共有ボックスへの書き込みに失敗しました(${done}/${insts.length}体まで完了): ${e.message}`, "err");
+  }
+}
+
+// PASSIVES_DATAはJP表示名(name)で検索することが多いが、ここでは内部アセット名(asset、
+// セーブデータ由来)から逆引きする必要があるため専用の関数にする。
+function passiveByName2(asset){
+  const p = PASSIVES_DATA.find(x => x.asset === asset);
+  return p ? p.name : null;
+}
+
+function openSaveImportModal(target){
+  saveImportState.target = target;
+  document.getElementById("saveImportTitle").textContent = target === "shared"
+    ? "セーブデータから読み込む(共有ボックスへ)" : "セーブデータから読み込む";
+  document.getElementById("saveImportConfirmBtn").textContent = target === "shared"
+    ? "選択したパルを共有ボックスに追加" : "選択したパルをボックスに追加";
+  document.getElementById("saveImportOverlay").classList.add("open");
+}
+document.getElementById("openSaveImportBtn").addEventListener("click", () => openSaveImportModal("local"));
+document.getElementById("openSharedSaveImportBtn").addEventListener("click", () => {
+  if(!currentRoomCode){
+    setShareStatus("先に「友達と共有」で合言葉を発行するか入室してください。", "err");
+    document.querySelector('.mode-tab[data-mode="share"]').click();
+    return;
+  }
+  openSaveImportModal("shared");
+});
+document.getElementById("saveImportClose").addEventListener("click", () => {
+  document.getElementById("saveImportOverlay").classList.remove("open");
+});
+
+document.getElementById("openBackupBtn").addEventListener("click", () => {
+  renderBackupModal();
+  document.getElementById("backupOverlay").classList.add("open");
+});
+document.getElementById("backupClose").addEventListener("click", () => {
+  document.getElementById("backupOverlay").classList.remove("open");
+});
+document.getElementById("backupGenerateBtn").addEventListener("click", async () => {
+  if(!firebaseReady()){
+    setBackupStatus("Firebaseが未設定のため、バックアップ機能はまだ準備中です。", "err");
+    return;
+  }
+  const code = generateRoomCode();
+  localStorage.setItem(PERSONAL_BACKUP_CODE_KEY, code);
+  renderBackupModal();
+  await uploadBackup(code);
+});
+document.getElementById("backupUploadBtn").addEventListener("click", () => {
+  const code = localStorage.getItem(PERSONAL_BACKUP_CODE_KEY);
+  if(code) uploadBackup(code);
+});
+document.getElementById("backupCopyBtn").addEventListener("click", () => {
+  const code = localStorage.getItem(PERSONAL_BACKUP_CODE_KEY);
+  if(!code) return;
+  navigator.clipboard.writeText(code).then(() => setBackupStatus("コピーしました。", "ok")).catch(() => setBackupStatus("コピーに失敗しました。手動で選択してコピーしてください。", "err"));
+});
+document.getElementById("backupForgetBtn").addEventListener("click", () => {
+  localStorage.removeItem(PERSONAL_BACKUP_CODE_KEY);
+  renderBackupModal();
+});
+document.getElementById("backupRestoreBtn").addEventListener("click", async () => {
+  const code = document.getElementById("backupRestoreInput").value.trim().toUpperCase();
+  if(!code){ setBackupRestoreStatus("コードを入力してください。", "err"); return; }
+  if(!ROOM_CODE_RE.test(code)){ setBackupRestoreStatus("コードは英数字6桁で入力してください。", "err"); return; }
+  if(!firebaseReady()){
+    setBackupRestoreStatus("Firebaseが未設定のため、バックアップ機能はまだ準備中です。", "err");
+    return;
+  }
+  if(!confirm("今この端末にある所持データを、このコードの内容で上書きします。よろしいですか？")) return;
+  setBackupRestoreStatus("復元中…");
+  try {
+    const doc = await personalBackupRef(code).get();
+    if(!doc.exists){
+      setBackupRestoreStatus("そのコードのバックアップが見つかりませんでした。コードを確認してください。", "err");
+      return;
+    }
+    const data = doc.data();
+    const instances = sanitizeUntrustedInstances(data.instances);
+    localStorage.setItem(BOX_KEY, JSON.stringify(instances));
+    localStorage.setItem(PERSONAL_BACKUP_CODE_KEY, code);
+    setBackupRestoreStatus(`復元しました(${instances.length}体)。ページを再読み込みします…`, "ok");
+    setTimeout(() => location.reload(), 1200);
+  } catch(e){
+    setBackupRestoreStatus("復元に失敗しました: " + e.message, "err");
+  }
+});
+
+async function saveInstanceToSharedRoom(inst){
+  if(!currentRoomCode || !firebaseReady()) return;
+  try {
+    await roomPalsRef(currentRoomCode).doc(inst.uid).set(inst);
+  } catch(e){
+    setShareStatus("アップロードに失敗しました: " + e.message, "err");
+  }
+}
+
+async function deleteFromSharedRoom(uid){
+  if(!currentRoomCode || !firebaseReady()) return;
+  try {
+    await roomPalsRef(currentRoomCode).doc(uid).delete();
+  } catch(e){
+    setShareStatus("削除に失敗しました: " + e.message, "err");
+  }
+}
+
+document.getElementById("openShareBtn").addEventListener("click", () => {
+  document.querySelector('.mode-tab[data-mode="share"]').click();
+});
+document.getElementById("shareCreateBtn").addEventListener("click", createSharedRoom);
+document.getElementById("shareJoinBtn").addEventListener("click", joinSharedRoom);
+document.getElementById("shareJoinInput").addEventListener("keydown", e => { if(e.key === "Enter") joinSharedRoom(); });
+document.getElementById("shareLeaveBtn").addEventListener("click", leaveSharedRoom);
+document.getElementById("openSharedAddBtn").addEventListener("click", () => openPform(null, "shared"));
+document.getElementById("shareCopyBtn").addEventListener("click", () => {
+  if(!currentRoomCode) return;
+  navigator.clipboard.writeText(currentRoomCode).then(() => {
+    setRoomStatus("合言葉をコピーしました。", "ok");
+  }).catch(() => {
+    setRoomStatus("コピーに失敗しました。手動で選択してコピーしてください。", "err");
+  });
+});
+
+// 前回入っていた共有ボックスがあれば、ページを移動して戻ってきても自動で再入室する
+// (他のツールを見て戻るたびに合言葉を打ち直す手間を無くすため)。Firebase SDKはasyncで
+// 読み込んでいるため即座には使えないことがあり、準備できるまで短い間隔でリトライする。
+function tryAutoRejoinSharedRoom(retriesLeft){
+  const savedCode = localStorage.getItem(SHARED_ROOM_CODE_KEY);
+  if(!savedCode) return;
+  if(!firebaseReady()){
+    if(retriesLeft > 0) setTimeout(() => tryAutoRejoinSharedRoom(retriesLeft - 1), 200);
+    return;
+  }
+  enterSharedRoom(savedCode);
+}
+tryAutoRejoinSharedRoom(25);
+
+// 攻略ガイド側から「この配合ロードマップ検索」ボタンで遷移してきた場合、
+// URLパラメータ(target=アセットキー, passives=パッシブ名をカンマ区切り)を
+// 読み取って配合ロードマップタブに自動で切り替え、目標パルとパッシブを入力済みにする。
+// 例: palworld_palbox.html?target=JormunIgnis&passives=伝説,鬼神
+(function applyRoadmapPrefillFromURL(){
+  const params = new URLSearchParams(location.search);
+  const target = params.get("target");
+  if(!target || !BREEDING_PALS_DATA[target]) return;
+
+  document.querySelectorAll(".mode-tab").forEach(t => t.classList.remove("active"));
+  document.querySelector('.mode-tab[data-mode="roadmap"]').classList.add("active");
+  document.getElementById("boxView").style.display = "none";
+  document.getElementById("shareView").style.display = "none";
+  document.getElementById("roadmapView").style.display = "block";
+
+  roadmapState.targetAsset = target;
+  document.getElementById("roadmapTargetInput").value = nameOf(target);
+
+  const passivesParam = params.get("passives");
+  if(passivesParam){
+    roadmapState.passives = passivesParam.split(",")
+      .map(s => s.trim())
+      .filter(name => name && passiveByName(name))
+      .slice(0, 4);
+  }
+
+  renderRoadmapPassivePickList("");
+  renderRoadmapPassiveChips();
+  renderQuickMakeable();
+  updateRoadmapResult();
+})();

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
@@ -66,6 +66,7 @@
   }
 </style>
 <script src="shared/analytics.js"></script>
+<script src="shared/img-fallback.js"></script>
 <script src="shared/global_search.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ゲーム内システム早見表","url":"https://rob1242.github.io/palworld-tools/palworld_reference.html","description":"パルワールドの作業優先度・属性変換パートナースキル・パーティ全体バフ・SAN(正気度)システムの参照表をまとめて掲載。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
 </head>
@@ -123,64 +124,6 @@
 <script src="game_data/element_swap_data.js"></script>
 <script src="game_data/party_buffs_data.js"></script>
 <script src="game_data/san_system_data.js"></script>
-<script>
-function renderWork(){
-  document.getElementById("refList").innerHTML = `<p style="font-size:12px;color:var(--parchment-dim);margin-bottom:10px;">数値が小さいほど優先的に処理される作業です。</p>` + WORK_PRIORITY_DATA.map(w => `
-    <div class="ref-item">
-      <div class="ref-badge">${w.priority}</div>
-      <div class="ref-name">${w.name_jp}</div>
-      <div class="ref-sub">${w.detail_jp}</div>
-    </div>
-  `).join("");
-}
-function renderElement(){
-  document.getElementById("refList").innerHTML = `<p style="font-size:12px;color:var(--parchment-dim);margin-bottom:10px;">パートナースキルでプレイヤーの攻撃属性を変換できるパル。Lv1〜5は攻撃力増加%。</p>` + ELEMENT_SWAP_DATA.map(e => `
-    <div class="ref-item">
-      <div class="ref-name">${e.name_jp}</div>
-      <div class="ref-sub">${e.element}に変換</div>
-      <div class="ref-vals">${e.lv_bonus.map((v,i) => `<span>Lv${i+1}: +${v}%</span>`).join("")}</div>
-    </div>
-  `).join("");
-}
-function renderParty(){
-  document.getElementById("refList").innerHTML = `<p style="font-size:12px;color:var(--parchment-dim);margin-bottom:10px;">パートナースキルでパーティ全体に攻撃力バフを与えるパル(手持ちにいるだけで効果)。</p>` + PARTY_BUFFS_DATA.map(p => `
-    <div class="ref-item">
-      <div class="ref-name">${p.name_jp}</div>
-      <div class="ref-sub">${p.element || "属性指定なし"}</div>
-      <div class="ref-vals">${p.lv_bonus.map((v,i) => `<span>Lv${i+1}: +${v}%</span>`).join("")}</div>
-    </div>
-  `).join("");
-}
-function renderSan(){
-  const levelsHtml = SAN_SYSTEM_DATA.levels.map(l => `
-    <div class="ref-item">
-      <div class="ref-badge">${l.san_threshold}</div>
-      <div class="ref-name">${l.behavior}</div>
-    </div>
-  `).join("");
-  const ailmentsHtml = SAN_SYSTEM_DATA.ailments.map(a => `
-    <div class="ref-item">
-      <div class="ref-name">${a.ailment}</div>
-      <div class="ref-sub">${a.effects.join(" / ")}</div>
-      <div class="ref-sub" style="margin-left:auto;">${a.medicine}で治療</div>
-    </div>
-  `).join("");
-  document.getElementById("refList").innerHTML = `
-    <p style="font-size:12px;color:var(--parchment-dim);margin-bottom:10px;">SAN値(正気度)がしきい値を下回ると、パルが以下の行動を取ります(数値以下で発動)。</p>
-    ${levelsHtml}
-    <p style="font-size:12px;color:var(--parchment-dim);margin:18px 0 10px;">状態異常と治療に必要な医薬品:</p>
-    ${ailmentsHtml}
-  `;
-}
-const RENDERERS = { work: renderWork, element: renderElement, party: renderParty, san: renderSan };
-document.querySelectorAll(".mode-tab").forEach(tab => {
-  tab.addEventListener("click", () => {
-    document.querySelectorAll(".mode-tab").forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
-    RENDERERS[tab.dataset.cat]();
-  });
-});
-renderWork();
-</script>
+<script src="pages/reference.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.google-analytics.com https://*.analytics.google.com; object-src 'none'; base-uri 'self';">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
@@ -63,6 +63,7 @@
   }
 </style>
 <script src="shared/analytics.js"></script>
+<script src="shared/img-fallback.js"></script>
 <script src="shared/global_search.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"おすすめパッシブ早見表","url":"https://rob1242.github.io/palworld-tools/palworld_passives_guide.html","description":"パルワールドのおすすめパッシブスキル早見表。戦闘・拠点作業・ライドの用途別に厳選した組み合わせを紹介。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
 </head>
@@ -116,24 +117,6 @@
   <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。</p>
 </div>
 <script src="game_data/passives_guide_data.js"></script>
-<script>
-function render(cat){
-  document.getElementById("passiveList").innerHTML = PASSIVES_GUIDE_DATA[cat].map(p => `
-    <div class="passive-item">
-      <div class="rank-badge">R${p.rank}</div>
-      <div class="passive-name">${p.name}</div>
-      <div class="passive-effect">${p.effect}</div>
-    </div>
-  `).join("");
-}
-document.querySelectorAll(".mode-tab").forEach(tab => {
-  tab.addEventListener("click", () => {
-    document.querySelectorAll(".mode-tab").forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
-    render(tab.dataset.cat);
-  });
-});
-render("combat");
-</script>
+<script src="pages/passives_guide.js"></script>
 </body>
 </html>
