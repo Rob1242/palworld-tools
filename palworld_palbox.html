@@ -159,6 +159,9 @@
   .quick-makeable-item:hover{border-color:var(--brass);transform:translateY(-2px);}
   .quick-makeable-item:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
   .quick-makeable-item img{width:100%;height:100%;object-fit:cover;}
+  /* 既に持っている種類は控えめに見せて、まだ持っていない種類を目立たせる */
+  .quick-makeable-item.owned{opacity:.42;border-style:dashed;}
+  .quick-makeable-item.owned:hover{opacity:1;}
   .picker-row{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;margin-bottom:20px;}
   .pal-picker{position:relative;width:260px;}
   .pal-picker input{width:100%;box-sizing:border-box;background:var(--panel2);border:1px solid var(--line);color:var(--parchment);border-radius:5px;padding:8px 12px;font-size:13.5px;font-family:var(--font-body);}
@@ -660,7 +663,7 @@
         今すぐ作れるパル <span class="count-tag" id="quickMakeableCount"></span>
       </h2>
       <div id="quickMakeableBody" style="display:none;">
-        <p class="pform-hint" style="margin-top:-2px;">選択中のボックスの所持パル同士を1回配合するだけで作れる(まだ持っていない)パルの一覧です。アイコンをクリックすると配合レシピを表示します。</p>
+        <p class="pform-hint" style="margin-top:-2px;">選択中のボックスの所持パル同士を1回配合するだけで作れるパルの一覧です。<b>まだ持っていない種類を先に並べ</b>、既に持っている種類は薄い点線で表示しています(厳選し直したい時のため)。アイコンをクリックすると配合レシピを表示します。</p>
         <div class="quick-makeable-grid" id="quickMakeableGrid"></div>
       </div>
     </div>

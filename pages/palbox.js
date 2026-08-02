@@ -619,13 +619,16 @@ function ownedAssetSet(){
 function computeDirectlyMakeable(ownedSet){
   const forward = BREEDING_FORWARD_PAIRS_DATA;
   const arr = Array.from(ownedSet);
-  const result = new Map(); // child asset -> {a, b}
+  const result = new Map(); // child asset -> {a, b, owned}
   for(let i=0;i<arr.length;i++){
     for(let j=i;j<arr.length;j++){
       const key = [arr[i], arr[j]].sort().join("|");
       const child = forward[key];
-      if(child && !ownedSet.has(child) && !result.has(child)){
-        result.set(child, { a: arr[i], b: arr[j] });
+      if(child && !result.has(child)){
+        // 既に持っている種類も出す。所持数が増えるほど「未所持の子」は減っていくので、
+        // 未所持だけに絞ると大きなボックスほど表示が少なくなって実態と合わなくなるため
+        // (2026-08、共有ボックス1244体で69種しか出ないという指摘を受けて変更)。
+        result.set(child, { a: arr[i], b: arr[j], owned: ownedSet.has(child) });
       }
     }
   }
@@ -655,13 +658,18 @@ function renderQuickMakeableInner(){
   const makeable = computeDirectlyMakeable(owned);
   if(!makeable.size){
     countTag.textContent = "";
-    grid.innerHTML = `<div class="empty-box-msg" style="grid-column:1/-1;padding:14px;">今の所持パルの組み合わせだけでは、新しく作れるパルがありません。</div>`;
+    grid.innerHTML = `<div class="empty-box-msg" style="grid-column:1/-1;padding:14px;">今の所持パルの組み合わせだけでは、作れるパルがありません。</div>`;
     return;
   }
-  countTag.textContent = `${makeable.size}種`;
-  const entries = Array.from(makeable.entries()).sort((x, y) => nameOf(x[0]).localeCompare(nameOf(y[0]), 'ja'));
+  const newCount = Array.from(makeable.values()).filter(v => !v.owned).length;
+  countTag.textContent = `${makeable.size}種(未所持 ${newCount}種)`;
+  // まだ持っていない種類を先に並べる(そこが一番知りたい情報のため)。
+  const entries = Array.from(makeable.entries()).sort((x, y) =>
+    (x[1].owned === y[1].owned)
+      ? nameOf(x[0]).localeCompare(nameOf(y[0]), 'ja')
+      : (x[1].owned ? 1 : -1));
   grid.innerHTML = entries.map(([child, pair]) => `
-    <div class="quick-makeable-item" data-child="${child}" data-a="${pair.a}" data-b="${pair.b}" tabindex="0" role="button" title="${nameOf(child)}">
+    <div class="quick-makeable-item${pair.owned ? ' owned' : ''}" data-child="${child}" data-a="${pair.a}" data-b="${pair.b}" tabindex="0" role="button" title="${nameOf(child)}${pair.owned ? '(所持済み)' : '(未所持)'}">
       ${iconOf(child) ? `<img src="${iconOf(child)}" alt="${nameOf(child)}" loading="lazy">` : ""}
     </div>
   `).join("");
