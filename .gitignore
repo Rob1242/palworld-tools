@@ -7,3 +7,17 @@ __pycache__/
 firestore-debug.log
 firebase-debug.log
 *.log
+
+# ルナ(音声アシスタント)とMOD側の作業場。**このリポジトリは公開**なので、
+# 事故で push しないようまとめて除外する(2026-08-09)。
+#   tools/palwatch は 1.1GB。ECAPAのモデル・録音・声紋が入っている
+#   tools/palmem  はサーバーのメモリを読む道具で、ここで公開する意味がない
+# 既に追跡済みの9ファイル(palwatch.mjs / voice.mjs 等)はこの行の影響を受けず、
+# これまで通り追跡され続ける。新しいファイルを意図して入れたいときは
+#   git add -f <path>
+# で個別に追加すること。
+tools/palwatch/
+tools/palmem/
+
+# macOSがネットワーク共有フォルダに作るアイコン用リソースファイル
+Icon?
