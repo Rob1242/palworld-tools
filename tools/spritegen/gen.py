@@ -1,211 +1,161 @@
 #!/usr/bin/env python3
-"""1枚のパル画像から、ドット絵のアニメーション用コマを作る。
+"""パルの画像1枚から、待機モーション4コマを Gemini に描かせる。
 
-流れ:
-  元画像 → Gemini の画像モデルでポーズ違いを生成 → 後処理で「本物のドット絵」に
-  揃える → 横並びのスプライトシート + CSS を出力
+**4コマを別々に生成してはいけない。** 別リクエストにすると、色も大きさも
+向きも揃わない。「4コマを横一列に並べた1枚」として描かせると、モデルが
+自分でコマ間の一貫性を取る(2026-08-09、画面で試して確認)。
 
-**後処理が肝心。** AIが出す絵はコマごとに色も大きさもズレるので、そのままでは
-アニメにならない。ここでやること:
-  1. 余白を切って、被写体の footprint(足元・幅)で位置を揃える
-  2. 最近傍で N px に落とす → 実際にピクセルの粒が揃う
-  3. **1コマ目から作った色パレットに全コマを強制的に合わせる** → 色のチラつきが消える
+出てきた1枚は tools/spritegen/fromsheet.py で切り分けて整える。
+姿勢そのものが変わるコマが手に入るのがこの経路の価値で、
+潰す/伸ばすだけの idle.py では「収縮しているだけ」に見える。
 
 使い方:
-  export GEMINI_API_KEY=...          # AI Studio で取得したキー
-  python3 tools/spritegen/gen.py --list                  # 使えるモデルを見る
-  python3 tools/spritegen/gen.py ペコドン.png --name pecodon
-  python3 tools/spritegen/gen.py ペコドン.png --name pecodon --size 48 --colors 24
+  export GEMINI_API_KEY=...
+  python3 tools/spritegen/gen.py --all          # 未生成のパルをまとめて
+  python3 tools/spritegen/gen.py --only map     # 1体だけ
+  python3 tools/spritegen/gen.py --list         # 使えるモデルを見る
+
+**キーはファイルに書かないこと。** 環境変数だけで渡す。
 """
-import argparse, base64, json, os, sys, urllib.request, urllib.error
+import argparse, base64, json, os, sys, time, urllib.request, urllib.error
 from pathlib import Path
-from PIL import Image
 
 API = "https://generativelanguage.googleapis.com/v1beta"
+ROOT = Path(__file__).resolve().parents[2]
+SRC_DIR = ROOT / "tools/spritegen/sources"
 
-# 各コマで頼むポーズ。**元の姿を変えず、動きだけ変える**ように書く。
-# 「同じキャラ」「同じ向き」「同じ大きさ」を毎回明示しないと別物が出てくる。
-FRAMES = [
-    ("idle1", "standing still, neutral idle pose"),
-    ("idle2", "the same idle pose but squashed slightly downward, body compressed, as the down-beat of a breathing idle animation"),
-    ("blink", "the same idle pose with both eyes closed (blinking)"),
-    ("wave",  "the same standing pose but one front arm raised in a friendly wave"),
-]
+ICON = "game_data/icons/pals/"
 
-BASE_PROMPT = (
-    "Pixel art sprite of THIS EXACT creature, faithful to the reference: same colours, "
-    "same proportions, same facing direction, same size and position in frame. "
-    "Retro 16-bit game sprite, chunky visible pixels, flat cel shading, hard edges, "
-    "no anti-aliasing, no gradients, no outline glow, transparent background, "
-    "full body visible, centred, feet at the bottom. "
-    "Pose: {pose}."
-)
+# ページ用の名前 → (元画像, そのパルらしい動き)
+# **パルごとに動きを変える。** 全員が同じ呼吸をしていると、
+# 11体並べたときに「同じ処理をかけただけ」に見える。
+PALS = {
+    "home":     (ICON+"T_SheepBall_icon_normal.webp",
+                 "もぐもぐと口を動かして草を食べている。噛むたびに体が少し弾む"),
+    "dex":      (ICON+"T_PinkCat_icon_normal.webp",
+                 "尻尾を左右に振りながら、時々耳がピクッと動く"),
+    "breeding": (ICON+"T_ChickenPal_icon_normal.webp",
+                 "地面を軽くついばむ。頭を下げて、上げて、きょろきょろする"),
+    "palbox":   (ICON+"T_Carbunclo_icon_normal.webp",
+                 "尻尾をパタパタと振る。耳も一緒に揺れる"),
+    "combat":   (ICON+"T_Kitsunebi_icon_normal.webp",
+                 "尻尾の炎がゆらゆらと揺れる。体はほとんど動かさず、炎の形だけ変える"),
+    "base":     (ICON+"T_FlowerRabbit_icon_normal.webp",
+                 "その場で小さく跳ねる。着地で少し潰れ、跳んだ瞬間に伸びる"),
+    "map":      (ICON+"T_Penguin_icon_normal.webp",
+                 "両方の翼をパタパタと上下させる。体はほとんど動かさない"),
+    "items":    (ICON+"T_Hedgehog_icon_normal.webp",
+                 "背中の針が逆立って、また寝る。針の角度だけを変える"),
+    "boss":     (ICON+"T_Anubis_icon_normal.webp",
+                 "腕を組んだまま、ゆっくり頷く。頭の角度だけを変える"),
+    "tools":    (ICON+"T_Hedgehog_icon_normal.webp",
+                 "背中の針が逆立って、また寝る。針の角度だけを変える"),
+    "ride":     ("ペコドン.png",
+                 "首を縮めてしゃがみ、また伸び上がる"),
+}
+
+PROMPT = (
+    "この生き物を16bitゲーム風のドット絵にして、待機モーションの4コマを"
+    "1枚の画像に横一列で並べてください。背景は白одно色で、方眼や枠線は描かないこと。"
+    "4コマとも同じ生き物・同じ色・同じ向き・同じ大きさで、足元の高さを揃えること。"
+    "太い暗色の輪郭線、平坦な塗り、粗いピクセル、アンチエイリアスやグラデーションは無し。"
+    "動きは「{motion}」。4コマでその動きの各段階を描いてください。"
+).replace("одно", "一")     # 打ち間違い対策(白一色)
 
 
-def http_json(url, payload=None):
+def http(url, payload=None, timeout=180):
     data = json.dumps(payload).encode() if payload is not None else None
-    req = urllib.request.Request(
-        url, data=data, headers={"Content-Type": "application/json"},
-        method="POST" if data else "GET")
+    req = urllib.request.Request(url, data=data,
+                                 headers={"Content-Type": "application/json"},
+                                 method="POST" if data else "GET")
     try:
-        with urllib.request.urlopen(req, timeout=180) as r:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
             return json.loads(r.read())
     except urllib.error.HTTPError as e:
         body = e.read().decode(errors="replace")
-        sys.exit(f"APIエラー {e.code}\n{body[:1200]}")
+        raise SystemExit(f"APIエラー {e.code}\n{body[:900]}")
 
 
 def pick_model(key, override=None):
-    """画像を返せるモデルを実際に問い合わせて選ぶ。モデル名を決め打ちしない。"""
-    models = http_json(f"{API}/models?key={key}").get("models", [])
-    names = [m["name"].split("/")[-1] for m in models]
+    """画像を返せるモデルをAPIに問い合わせて選ぶ。名前を決め打ちしない。"""
+    names = [m["name"].split("/")[-1]
+             for m in http(f"{API}/models?key={key}").get("models", [])]
     if override:
         if override not in names:
-            sys.exit(f"{override} は使えない。候補:\n  " + "\n  ".join(names))
+            raise SystemExit(f"{override} は使えない。候補:\n  " + "\n  ".join(names))
         return override
     cands = [n for n in names if "image" in n and "embedding" not in n]
     if not cands:
-        sys.exit("画像を出せるモデルが見つからない。--list で一覧を確認して --model で指定して。")
-    cands.sort(key=lambda n: ("preview" in n, "pro" not in n))   # pro / 安定版を優先
+        raise SystemExit("画像を出せるモデルが無い。--list で確認して --model で指定して。")
+    cands.sort(key=lambda n: ("lite" in n, "preview" in n))   # 安定版・上位を優先
     return cands[0]
 
 
-def generate(key, model, src_b64, pose, out: Path):
+def generate(key, model, src: Path, motion: str, out: Path) -> bool:
     payload = {
         "contents": [{"parts": [
-            {"text": BASE_PROMPT.format(pose=pose)},
-            {"inline_data": {"mime_type": "image/png", "data": src_b64}},
+            {"text": PROMPT.format(motion=motion)},
+            {"inline_data": {"mime_type": "image/webp" if src.suffix == ".webp" else "image/png",
+                             "data": base64.b64encode(src.read_bytes()).decode()}},
         ]}],
         "generationConfig": {"responseModalities": ["IMAGE"]},
     }
-    res = http_json(f"{API}/models/{model}:generateContent?key={key}", payload)
+    res = http(f"{API}/models/{model}:generateContent?key={key}", payload)
     for cand in res.get("candidates", []):
         for part in cand.get("content", {}).get("parts", []):
             blob = part.get("inline_data") or part.get("inlineData")
             if blob and blob.get("data"):
                 out.write_bytes(base64.b64decode(blob["data"]))
                 return True
-    print(f"  画像が返らなかった: {json.dumps(res)[:400]}", file=sys.stderr)
+    print(f"    画像が返らなかった: {json.dumps(res)[:300]}", file=sys.stderr)
     return False
-
-
-def trim(im: Image.Image) -> Image.Image:
-    """透明な余白を落とす。背景が不透明で返ってきた場合は四隅の色を透明とみなす。"""
-    im = im.convert("RGBA")
-    if im.getextrema()[3][0] == 255:                 # 完全不透明 = 背景が塗られている
-        bg = im.getpixel((0, 0))
-        px = im.load()
-        w, h = im.size
-        for y in range(h):
-            for x in range(w):
-                r, g, b, a = px[x, y]
-                if abs(r-bg[0]) < 18 and abs(g-bg[1]) < 18 and abs(b-bg[2]) < 18:
-                    px[x, y] = (r, g, b, 0)
-    box = im.getbbox()
-    return im.crop(box) if box else im
-
-
-def pixelate(im: Image.Image, size: int) -> Image.Image:
-    """縦を size に揃えて最近傍で落とす。横は比率維持。**足元を基準に揃える。**"""
-    im = trim(im)
-    w, h = im.size
-    nw = max(1, round(w * size / h))
-    return im.resize((nw, size), Image.NEAREST)
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("source", nargs="?", help="元になるパルの画像")
-    ap.add_argument("--name", default="sprite", help="出力名")
-    ap.add_argument("--size", type=int, default=40, help="1コマの高さ(px)")
-    ap.add_argument("--colors", type=int, default=20, help="使う色数")
-    ap.add_argument("--model", help="モデルを指定する")
-    ap.add_argument("--list", action="store_true", help="使えるモデルを表示して終了")
-    ap.add_argument("--outdir", default="shared/sprites")
-    ap.add_argument("--keep-raw", action="store_true", help="1コマずつのpngも残す")
-    ap.add_argument("--raw", action="store_true",
-                    help="整える処理をせず、生成したものをそのまま並べる(まず素の状態を見たいとき)")
-    ap.add_argument("--fps", type=float, default=6, help="コマ送りの速さ")
+    ap.add_argument("--all", action="store_true")
+    ap.add_argument("--only", action="append", help="この名前だけ生成(複数可)")
+    ap.add_argument("--model")
+    ap.add_argument("--list", action="store_true")
+    ap.add_argument("--force", action="store_true", help="既にある元画像も作り直す")
     a = ap.parse_args()
 
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
-        sys.exit("GEMINI_API_KEY が無い。 export GEMINI_API_KEY=... してから実行して。")
+        raise SystemExit("GEMINI_API_KEY が無い。export してから実行して。")
 
     if a.list:
-        for m in http_json(f"{API}/models?key={key}").get("models", []):
+        for m in http(f"{API}/models?key={key}").get("models", []):
             print(" ", m["name"].split("/")[-1])
         return
-    if not a.source:
-        sys.exit("元画像を渡して。例: python3 tools/spritegen/gen.py ペコドン.png --name pecodon")
+
+    targets = a.only or (list(PALS) if a.all else [])
+    if not targets:
+        raise SystemExit("--all か --only <名前> を指定して。")
 
     model = pick_model(key, a.model)
-    print(f"モデル: {model}")
+    print(f"モデル: {model}\n")
+    SRC_DIR.mkdir(parents=True, exist_ok=True)
 
-    src_b64 = base64.b64encode(Path(a.source).read_bytes()).decode()
-    raw_dir = Path("/tmp/spritegen"); raw_dir.mkdir(exist_ok=True)
+    ok = []
+    for name in targets:
+        if name not in PALS:
+            print(f"  {name}: 定義が無い"); continue
+        rel, motion = PALS[name]
+        src = ROOT / rel
+        out = SRC_DIR / f"{name}.png"
+        if out.exists() and not a.force:
+            print(f"  {name:9} 既にある(--force で作り直し)"); ok.append(name); continue
+        if not src.exists():
+            print(f"  {name:9} 元画像が無い: {rel}"); continue
+        print(f"  {name:9} 生成中… ({motion[:22]}…)", end="", flush=True)
+        if generate(key, model, src, motion, out):
+            print(f" OK  {out.stat().st_size/1024:.0f}KB")
+            ok.append(name)
+        time.sleep(2)          # 無料枠のレート制限に当たらないよう少し待つ
 
-    frames = []
-    for label, pose in FRAMES:
-        out = raw_dir / f"{a.name}-{label}.png"
-        print(f"  生成: {label} ... ", end="", flush=True)
-        if generate(key, model, src_b64, pose, out):
-            frames.append((label, Image.open(out)))
-            print("OK")
-    if not frames:
-        sys.exit("1枚も生成できなかった。")
-
-    # --- 後処理。--raw なら飛ばして、生成されたものをそのまま並べる ---
-    small = [(l, pixelate(im, a.size)) for l, im in frames]
-    cw = max(im.width for _, im in small)
-
-    fixed = []
-    if a.raw:
-        for label, im in small:
-            canvas = Image.new("RGBA", (cw, a.size), (0, 0, 0, 0))
-            canvas.paste(im, ((cw - im.width) // 2, a.size - im.height))
-            fixed.append((label, canvas))
-    else:
-        # 1コマ目の色を基準パレットにして、全コマをそこへ寄せる
-        base = small[0][1].convert("RGB").quantize(colors=a.colors, method=Image.MEDIANCUT)
-        for label, im in small:
-            q = im.convert("RGB").quantize(palette=base, dither=Image.NONE).convert("RGBA")
-            q.putalpha(im.getchannel("A").point(lambda v: 255 if v > 128 else 0))
-            canvas = Image.new("RGBA", (cw, a.size), (0, 0, 0, 0))
-            canvas.paste(q, ((cw - q.width) // 2, a.size - q.height))   # 足元を下辺に揃える
-            fixed.append((label, canvas))
-
-    sheet = Image.new("RGBA", (cw * len(fixed), a.size), (0, 0, 0, 0))
-    for i, (_, im) in enumerate(fixed):
-        sheet.paste(im, (i * cw, 0))
-    outdir = Path(a.outdir); outdir.mkdir(parents=True, exist_ok=True)
-    sheet_path = outdir / f"{a.name}-sheet.png"
-    sheet.save(sheet_path)
-
-    if a.keep_raw:
-        for label, im in fixed:
-            im.save(outdir / f"{a.name}-{label}.png")
-
-    # そのまま見られるGIF。4倍に拡大しておく(等倍だと小さすぎて判断できない)
-    scale = 4
-    big = [im.resize((cw*scale, a.size*scale), Image.NEAREST) for _, im in fixed]
-    gif_path = outdir / f"{a.name}.gif"
-    big[0].save(gif_path, save_all=True, append_images=big[1:],
-                duration=int(1000/a.fps), loop=0, disposal=2, transparency=0)
-
-    print(f"\n出力:")
-    print(f"  {gif_path}        ← まずこれを開いて、コマ送りが成立しているか見る")
-    print(f"  {sheet_path}  ({cw}x{a.size} × {len(fixed)}コマ, {sheet_path.stat().st_size/1024:.1f}KB)")
-    print(f"""
-CSS(表示は4倍に拡大する例):
-  .pal-anim{{
-    width:{cw*4}px; height:{a.size*4}px;
-    background:url("{sheet_path}") 0 0 / {cw*len(fixed)*4}px {a.size*4}px no-repeat;
-    image-rendering:pixelated;
-    animation:palAnim {len(fixed)*0.18:.2f}s steps({len(fixed)}) infinite;
-  }}
-  @keyframes palAnim{{ to {{ background-position:-{cw*len(fixed)*4}px 0; }} }}
-""")
+    print(f"\n生成できた: {len(ok)}件 → {SRC_DIR}")
+    print("次: python3 tools/spritegen/fromsheet.py tools/spritegen/sources/<名前>.png --name <名前>")
 
 
 if __name__ == "__main__":

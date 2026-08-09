@@ -17,7 +17,7 @@
 
   /* 絵の中身を差し替えたときに古いものを掴ませないための版。
      tools/spritegen/idle.py を回して絵を作り直したら、ここも上げること。 */
-  var V = "?v=20260809c";
+  var V = "?v=20260809g";
 
   var wrap = document.querySelector("body > .wrap");
   if (!wrap) return;                       // リダイレクト用の小さいページは対象外
@@ -136,7 +136,7 @@
   /* 待機モーション。spideytracker と同じで、CSSアニメではなく
      JSで background-position を送る。画面外では止められるようにするため。 */
   var IDLE_FRAMES = 4;
-  var IDLE_MS = 190;
+  /* コマごとの間隔は下の DUR で持つ */
   var SCALE = 2;                      // 40px前後の絵を2倍で出す(等倍だと小さすぎる)
   var probe = new Image();
   probe.onload = function () {
@@ -150,15 +150,24 @@
     sprite.style.backgroundSize = (IDLE_FRAMES * 100) + "% 100%";
     mascot.replaceChild(sprite, img);
 
-    var i = 0, timer = null;
+    /* 0→1→2→3→2→1 と往復させる。0→3で折り返すと、伸び切った姿から
+       いきなり中立に戻って弾んで見える。
+       **中立(0)で1.5秒止めてから動き出す。** 動きっぱなしだと落ち着きがなく、
+       「息をしている」ではなく「ずっと動いている」に見える(2026-08-09、颯太の指摘)。
+       1周およそ2.6秒。 */
+    var SEQ = [0, 1, 2, 3, 2, 1];
+    var DUR = [1500, 200, 200, 320, 200, 200];
+    var step = 0, timer = null;
     function tick() {
-      i = (i + 1) % IDLE_FRAMES;
+      step = (step + 1) % SEQ.length;
+      var f = SEQ[step];
       /* パーセント指定なので、コマ幅が絵ごとに違っても同じ式で送れる */
-      sprite.style.backgroundPositionX = (i * 100 / (IDLE_FRAMES - 1)) + "%";
+      sprite.style.backgroundPositionX = (f * 100 / (IDLE_FRAMES - 1)) + "%";
+      timer = setTimeout(tick, DUR[step]);
     }
     function run(on) {
-      if (on && !timer) timer = setInterval(tick, IDLE_MS);
-      else if (!on && timer) { clearInterval(timer); timer = null; }
+      if (on && !timer) timer = setTimeout(tick, DUR[step]);
+      else if (!on && timer) { clearTimeout(timer); timer = null; }
     }
     run(true);                        // 観測が効かない環境でも動く側に倒す
 
