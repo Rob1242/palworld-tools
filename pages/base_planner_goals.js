@@ -19,47 +19,53 @@
      ここで既定値を入れておくことで、何も知らない人でも現実的な答えが出る。 */
   var GOALS = [
     { id: "start", icon: "🏕", name: "序盤の拠点",
-      desc: "なんでもこなせる編成。最初の拠点はこれで足りる",
-      slots: 10,
+      desc: "序盤に捕まえられるパルだけで組む。最初の拠点はこれで足りる",
+      tier: "early", slots: 10,
       w: { 手作業: 3, 運搬: 2, 採集: 2, 伐採: 2, 採掘: 2, 種まき: 1, 火おこし: 1, 水やり: 1 },
-      caps: { 手作業: 3, 火おこし: 1, 伐採: 2, 採掘: 2 } },
+      caps: { 手作業: 3, 火おこし: 1, 伐採: 2, 採掘: 2, 運搬: 3, 採集: 3, 種まき: 2, 水やり: 2 } },
 
     { id: "ore", icon: "⛏", name: "鉱石を掘る",
       desc: "採掘場・採石場を回す。石炭や硫黄の量産向け",
-      slots: 12,
+      tier: "mid", slots: 12,
       w: { 採掘: 3, 運搬: 3, 手作業: 1 },
-      caps: { 採掘: 6, 手作業: 3 } },
+      caps: { 採掘: 6, 手作業: 3, 運搬: 4 } },
 
     { id: "wood", icon: "🪓", name: "木材を集める",
       desc: "伐採場を回す。建築と加工の材料を切らさない",
-      slots: 12,
+      tier: "mid", slots: 12,
       w: { 伐採: 3, 運搬: 3, 手作業: 1 },
-      caps: { 伐採: 6, 手作業: 3 } },
+      caps: { 伐採: 6, 手作業: 3, 運搬: 4 } },
 
     { id: "food", icon: "🍖", name: "食料と牧場",
       desc: "畑と牧場を回す。ケーキ作りの下準備にも",
-      slots: 12,
+      tier: "mid", slots: 12,
       w: { 種まき: 3, 水やり: 3, 採集: 3, 牧場: 2, 手作業: 1, 運搬: 2 },
-      caps: { 手作業: 3 } },
+      caps: { 手作業: 3, 運搬: 3, 種まき: 4, 水やり: 4, 採集: 4 } },
 
     { id: "craft", icon: "🔨", name: "素材を量産する",
       desc: "組立ラインと炉をフル稼働。装備とスフィアを作る",
-      slots: 15,
+      tier: null, slots: 15,
       w: { 手作業: 3, 火おこし: 3, 運搬: 2, 採掘: 1 },
-      caps: { 手作業: 9, 火おこし: 2, 採掘: 2 } },
+      caps: { 手作業: 9, 火おこし: 2, 採掘: 2, 運搬: 4 } },
 
     { id: "all", icon: "⚙", name: "全部そこそこ",
-      desc: "12役職を満遍なく。大きい拠点の完成形",
-      slots: 15,
+      desc: "配合やボス限定のパルも使う。終盤の完成形",
+      tier: null, slots: 15,
       w: { 火おこし: 2, 水やり: 2, 種まき: 2, 発電: 2, 手作業: 3, 採集: 2,
            伐採: 2, 採掘: 2, 製薬: 2, 冷却: 2, 運搬: 2, 牧場: 1 },
-      caps: { 手作業: 3, 火おこし: 1, 製薬: 1, 発電: 1, 冷却: 1, 伐採: 2, 採掘: 2 } },
+      caps: { 手作業: 3, 火おこし: 1, 製薬: 1, 発電: 1, 冷却: 1, 伐採: 2, 採掘: 2, 運搬: 3 } },
   ];
 
   var ROLES = ["火おこし", "水やり", "種まき", "発電", "手作業", "採集",
                "伐採", "採掘", "製薬", "冷却", "運搬", "牧場"];
 
+  var TIER_LABEL = { early: "序盤に捕まえられるパルだけ", mid: "中盤までに捕まえられるパルまで" };
+
   function apply(goal) {
+    /* **候補にするパルを絞る。** ここが無いと「序盤の拠点」でも
+       配合限定のノクサージュ(図鑑#286)などが選ばれてしまう。 */
+    if (window.setPlannerTierLimit) window.setPlannerTierLimit(goal.tier || null);
+
     /* 枠数 */
     var range = document.getElementById("slotRange");
     var num = document.getElementById("slotNum");
@@ -84,8 +90,12 @@
     });
 
     var note = document.getElementById("goalNote");
-    if (note) note.textContent =
-      goal.name + " で計算しました(枠 " + goal.slots + ")。合わないところは「細かく設定する」で直せます。";
+    if (note) {
+      var lim = TIER_LABEL[goal.tier];
+      note.textContent = goal.name + " で計算しました(枠 " + goal.slots + ")。"
+        + (lim ? lim + "を候補にしています。" : "全パルを候補にしています。")
+        + "合わないところは「細かく設定する」で直せます。";
+    }
 
     var btn = document.getElementById("computeBtn");
     if (btn) btn.click();

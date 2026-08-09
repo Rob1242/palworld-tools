@@ -255,6 +255,18 @@ function effectiveScoreWithContext(pal, roleLvBonus, excludeFromBonus, extraPctB
 let PAL_BY_NAME = {};
 PAL_DATA.forEach(p => PAL_BY_NAME[p.name] = p);
 
+/* 候補にするパルの入手時期。null なら制限なし(従来どおり全パル)。
+   「序盤の拠点」と言いながら終盤のパルを勧めていたため追加(2026-08-09)。
+   tier は build_pal_data.py が野生の最小出現レベルから付けている。 */
+let plannerTierLimit = null;
+const TIER_RANK = { early: 0, mid: 1, late: 2, special: 3 };
+function plannerPool(){
+  if (plannerTierLimit === null) return PAL_DATA;
+  const max = TIER_RANK[plannerTierLimit];
+  return PAL_DATA.filter(p => TIER_RANK[p.tier === undefined ? "special" : p.tier] <= max);
+}
+window.setPlannerTierLimit = function(t){ plannerTierLimit = t || null; };
+
 // パルの実効スコアを「役職ごとの生の寄与度」に分解する。実働上限つきのDPで、
 // 上限に達した役職ぶんだけ寄与を差し引けるようにするため、baseScoreWithBonusとは別に持つ。
 function roleContribBreakdown(pal, roleLvBonus, excludeFromBonus){
@@ -354,7 +366,7 @@ async function greedyAssignment(slots, activeRoles, buildSpeciesFn, initialState
   const roleDims = buildRoleDims(activeRoles, roleCaps);
   const strides = buildStrides(roleDims);
   const maskCount = roleDims.length ? strides[strides.length-1] * roleDims[roleDims.length-1].base : 1;
-  const species = PAL_DATA.map(buildSpeciesFn).filter(sp => Object.keys(sp.contribs).length > 0);
+  const species = plannerPool().map(buildSpeciesFn).filter(sp => Object.keys(sp.contribs).length > 0);
 
   let state = initialState || 0;
   let totalScore = 0;
@@ -394,7 +406,7 @@ async function bestAssignment(slots, activeRoles, buildSpeciesFn, initialState, 
     return await greedyAssignment(slots, activeRoles, buildSpeciesFn, initialState, roleCaps);
   }
 
-  const species = PAL_DATA.map(buildSpeciesFn)
+  const species = plannerPool().map(buildSpeciesFn)
     .filter(sp => Object.keys(sp.contribs).length > 0); // どの役職の候補にもならないパルは除外(結果不変、高速化)
 
   // dp[j][m] = j体選び(同じ種の重複可)状態がmであるときの最大合計スコア。
@@ -807,7 +819,7 @@ async function evaluateSynergyBranch(slots, activeRoles, activeToggles, roleCaps
 function estimateBranchCost(slots, activeRoles, roleCaps){
   const dims = buildRoleDims(activeRoles, roleCaps);
   const maskCount = dims.length ? dims.reduce((a,d)=>a*d.base, 1) : 1;
-  return slots * maskCount * PAL_DATA.length;
+  return slots * maskCount * plannerPool().length;
 }
 
 // 拠点ブースター系パートナースキルの有効/無効の全組み合わせ(最大2^8通り程度)を総当たりし、
@@ -858,7 +870,7 @@ const selfTestPromise = (async function selfTestBestAssignment(){
   dayNightBalance = false; generalistPref = false; usePassive = false;
   const testSlots = 3;
   const { picks: dpPicks } = await bestAssignment(testSlots, ["採掘"]);
-  const best1 = PAL_DATA
+  const best1 = plannerPool()
     .map(p => ({pal: p, effective: effectiveScoreOf(p, false).effective}))
     .filter(c => c.effective > 0)
     .sort((a,b) => b.effective - a.effective)[0];
@@ -879,7 +891,7 @@ const selfTestPromise = (async function selfTestBestAssignment(){
   const coveredByPicks = new Set();
   fullPicks.forEach(p => { for(const r in p.pal.work) coveredByPicks.add(r); });
   const uncoveredNow = activeRoles.filter(r => !coveredByPicks.has(r));
-  const trulyImpossible = uncoveredNow.filter(r => !PAL_DATA.some(p => (p.work[r]||0) > 0));
+  const trulyImpossible = uncoveredNow.filter(r => !plannerPool().some(p => (p.work[r]||0) > 0));
   console.assert(JSON.stringify(uncoveredNow.slice().sort()) === JSON.stringify(trulyImpossible.slice().sort()),
     "[selfTest失敗] 20枠あるのに本来カバー可能な役職が未カバーになっている(coverageOKバグの再発)", uncoveredNow, trulyImpossible);
   console.assert(fullPicks.length === 20, "[selfTest失敗] 20枠フルに使われていない", fullPicks.length);
@@ -920,7 +932,7 @@ const selfTestPromise = (async function selfTestBestAssignment(){
   roleWeights["採掘"] = 1;
   dayNightBalance = false; generalistPref = false; usePassive = false;
   const { picks: cappedPicks } = await bestAssignment(5, ["採掘"], undefined, undefined, {"採掘": 2});
-  const bestMiner = PAL_DATA
+  const bestMiner = plannerPool()
     .map(p => ({pal: p, effective: effectiveScoreOf(p, false).effective}))
     .filter(c => c.effective > 0)
     .sort((a,b)=>b.effective-a.effective)[0];
