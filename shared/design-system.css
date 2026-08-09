@@ -262,6 +262,16 @@
   .gsearch-meta{font-size:11px;color:var(--case-lit);font-family:var(--font-mono, monospace);white-space:nowrap;flex-shrink:0;}
   .gsearch-subhead{font-size:10.5px;font-weight:700;color:var(--case-lit);text-transform:uppercase;letter-spacing:.05em;padding:calc(var(--px)*2) calc(var(--px)*2) var(--px);}
   .gsearch-empty{font-size:12px;color:var(--parchment-dim);padding:calc(var(--px)*2);}
+
+  /* Tier表の入手時期バッジ(2026-08-09)。Tier表はS/A/Bのランキングであり拠点プランナーの
+     ような「おすすめ」ではないため配合限定パルが上位に出ること自体は正しいが、見る側は
+     「S位の採掘パル」を捕まえに行こうとするので入手時期が分からないと使えない。ランキング
+     から除外はせずバッジで補足する。サイズ・余白は既存の同種ラベル.ranch-tierを踏襲。
+     specialだけ既存の--dangerで目立たせ、他と見分けられるようにする。 */
+  .tier-obtain{display:inline-block;margin-left:6px;font-size:10px;background:var(--panel2);
+    padding:1px calc(var(--px)*1.5);border-radius:0;color:var(--case-lit);vertical-align:middle;}
+  .tier-obtain.special{background:var(--danger);color:var(--parchment);}
+
   @media (max-width: 720px){
     .header-right{align-items:stretch;}
     .gsearch-wrap{max-width:none;}

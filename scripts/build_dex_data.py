@@ -5,8 +5,39 @@ from js_data_writer import write_js_consts
 CLEAN_PATH = "palworld_pals_clean.json"
 NAME_MAP_PATH = "palworld_name_jp_en_map.json"
 COMBAT_PATH = "palworld_combat_stats.json"
+SPAWN_PATH = "palworld_spawn_data.json"
 OUTPUT_PATH = "palworld_dex_data.json"
 JS_OUTPUT_PATH = "game_data/dex_data.js"
+
+# 入手時期。build_pal_data.py の算出方法と完全に同一にする(基準がページ間でズレないように)。
+# 野生の最小出現レベルで切る。野生に出ないパル(配合・ボス・レイド限定)は "special"。
+TIER_EARLY_MAX = 15     # このレベル以下で野生に出るなら序盤で捕まえられる
+TIER_MID_MAX = 35
+
+
+def build_spawn_tiers():
+    data = json.load(open(SPAWN_PATH, encoding="utf-8"))
+    min_lv = {}
+    for p in data["pals"]:
+        zones = p.get("wildZones") or []
+        if zones:
+            min_lv[p["asset"].lower()] = min(z.get("minLevel", 99) for z in zones)
+    return min_lv
+
+
+def tier_of(asset: str, min_lv: dict) -> str:
+    lv = min_lv.get((asset or "").lower())
+    if lv is None:
+        return "special"          # 野生に出ない = 配合・ボス・レイドなど
+    if lv <= TIER_EARLY_MAX:
+        return "early"
+    if lv <= TIER_MID_MAX:
+        return "mid"
+    return "late"
+
+
+def asset_of(icon: str) -> str:
+    return icon.split("/")[-1].replace("T_", "").replace("_icon_normal.webp", "")
 
 STAT_KEYS = [
     "hp",
@@ -43,6 +74,7 @@ def main():
     name_map = {e["name"]: e for e in json.load(open(NAME_MAP_PATH, encoding="utf-8"))}
     combat = json.load(open(COMBAT_PATH, encoding="utf-8"))
     combat_by_name = build_combat_index(combat)
+    min_lv = build_spawn_tiers()
 
     dex = []
     exact_match = 0
@@ -81,6 +113,7 @@ def main():
                 "name": p["name"],
                 "en_name": en_name,
                 "icon": icon,
+                "tier": tier_of(asset_of(icon or ""), min_lv),
                 "types": p["types"],
                 "active_time": p["active_time"],
                 "is_dark_type": p["is_dark_type"],

@@ -10,6 +10,12 @@ const RANCH_DROP_RE = /家畜牧場にアサインすると、(.+?)(?:ことが�
 const WORK_TYPES = ["運搬","採集","手作業","伐採","採掘","水やり","種まき","火おこし","製薬","冷却","発電","牧場"];
 const ELEMENT_TYPES = ["無","炎","水","雷","地","草","氷","竜","闇"];
 
+// Tier表はS/A/Bのランキングであり拠点プランナーのような「おすすめ」ではないため、
+// 配合限定のパルが上位に出ること自体は正しい。ただし見る側は「S位の採掘パル」を見て
+// 捕まえに行こうとするので、配合・ボス限定か序盤で野生に出るのかが分からないと使えない。
+// ランキングから除外はせず、入手時期バッジを添えて補足する(2026-08-09)。
+const OBTAIN_TIER_LABEL = { early: "序盤", mid: "中盤", late: "終盤", special: "配合・ボス" };
+
 function buildEntries(){
   return PAL_DEX_DATA.map(dp => {
     const combatPal = COMBAT_PAL_DATA.find(c => c.dex_id === dp.id);
@@ -22,6 +28,7 @@ function buildEntries(){
     const ranchMatch = ranchLevel ? RANCH_DROP_RE.exec(dp.partner_skill.effect) : null;
     return {
       id: dp.id, name: dp.name, en_name: dp.en_name, icon: dp.icon, types: dp.types,
+      obtainTier: dp.tier,
       combatScore: combatBest ? combatBest.sustained : null,
       combatDetail: combatBest ? `${combatBest.jp_name}(威力${combatBest.power}・CT${combatBest.cooldown}秒)` : null,
       mountScore: landOrFly ? dp.stats.ride_sprint_speed : null,
@@ -89,7 +96,7 @@ function render(){
     <div class="rank-row">
       <div class="rnum">#${e.rank}</div>
       <div class="icon-wrap"><img src="${e.icon}" loading="lazy" alt=""></div>
-      <div><a href="palworld_dex.html?id=${e.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;"><span class="pname" style="border-bottom:1px dashed var(--parchment-dim);">${e.name}</span></a><span class="pname-en">${e.en_name||''}</span></div>
+      <div><a href="palworld_dex.html?id=${e.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;"><span class="pname" style="border-bottom:1px dashed var(--parchment-dim);">${e.name}</span></a><span class="pname-en">${e.en_name||''}</span>${OBTAIN_TIER_LABEL[e.obtainTier] ? `<span class="tier-obtain ${e.obtainTier}">${OBTAIN_TIER_LABEL[e.obtainTier]}</span>` : ''}</div>
       <div class="tier-badge ${e.tier}">${e.tier}</div>
       <div class="detail-text"><b>${e.label}: ${e.isLevel ? "★".repeat(e.score) : Math.round(e.score).toLocaleString()}</b>${e.detail ? ' / '+e.detail : ''}</div>
     </div>
