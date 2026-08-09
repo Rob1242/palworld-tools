@@ -91,14 +91,18 @@ const hadSavedState = loadState();
 // ・wiki確認済み: palworld.wiki.gg で実際にページを開いて本文(英語原文)を確認したもの
 // ・ユーザー確認: wiki.gg/paldb.cc/OP.GG等を複数当たっても記載が見つからず、
 //   プレイヤー自身の実プレイ経験に基づく申告値(2026-07)。出典の確度が違うため区別して表示する。
+// 「1台あたり何体」の根拠は残すが、**台数を掛けさせない**。
+// 設備を何台置いても全部が同時に動くわけではなく、実際は3〜5体で足りることが多い
+// (2026-08-09、颯太の指摘。手作業は修理台・作業台・スフィア工場ラインと台数が増えるが、
+//  それでも4体ぐらいで回るとのこと)。
 const ROLE_CAP_HINT = {
-  "手作業": "組立ライン(生産/武器/スフィア)は1台3体(wiki確認済み)。組立ラインIIも3体(ユーザー確認、wiki記載無し)。台数×3を目安に入力してください",
-  "火おこし": "通常の炉(旧式/改良/電気)は1台1体(wiki確認済み)。巨大な炉も1体(ユーザー確認、wikiには「複数体対応」とあるが具体的人数の記載は無し)",
+  "手作業": "修理台・作業台・スフィア工場ラインなど台数は増えるが、全部が同時に動くわけではない。3〜5体で足りることが多い",
+  "火おこし": "炉は1台1体。炉を何台置くかで決まる。2〜3体あれば足りることが多い",
   "製薬": "薬品台(旧式/電気)は1台1体(wiki確認済み)",
   "発電": "発電機は1台1体(ユーザー確認、wiki記載無し)",
   "冷却": "冷蔵庫・冷却装置は1台1体(ユーザー確認、wiki記載無し)",
-  "伐採": "伐採場は1台2体(ユーザー確認、wiki記載無し)",
-  "採掘": "採掘場・各種採石場(石炭/水晶/硫黄等)は1台2体(ユーザー確認、wiki記載無し)",
+  "伐採": "伐採場は1台2体。木材が足りているなら2体でも回る",
+  "採掘": "採掘場・採石場は1台2体。掘りたい種類の数だけ増える",
 };
 
 const rolesGrid = document.getElementById('rolesGrid');
@@ -108,13 +112,13 @@ ROLES.forEach(role => {
   const hint = ROLE_CAP_HINT[role];
   const capTitle = hint
     ? `${hint}。空欄なら無制限`
-    : "この役職に実際に割り当てられる上限人数(施設数・ノード数など)。空欄なら無制限";
+    : "この役職に何体まで置くか。入れた数だけ埋めます。空欄なら無制限";
   item.innerHTML = `<span class="role-name">${role}${hint ? ' <span title="'+hint+'" style="cursor:help;color:var(--brass);">ℹ️</span>' : ''}</span>
     <div class="weight-btns" data-role="${role}">
       <div class="wbtn" data-w="0">無</div><div class="wbtn" data-w="1">低</div>
       <div class="wbtn" data-w="2">中</div><div class="wbtn" data-w="3">高</div>
     </div>
-    <input type="number" class="cap-input" data-role="${role}" min="0" placeholder="上限無" title="${capTitle}" value="${roleCaps[role] > 0 ? roleCaps[role] : ''}">`;
+    <input type="number" class="cap-input" data-role="${role}" min="0" placeholder="制限なし" title="${capTitle}" value="${roleCaps[role] > 0 ? roleCaps[role] : ''}">`;
   rolesGrid.appendChild(item);
 });
 function refreshWeightButtons(){
@@ -1216,7 +1220,7 @@ function renderResult(picks, slots, activeRoles, stats){
   sections.forEach(section => {
     const sectionCount = section.items.reduce((s,g)=>s+g.count, 0);
     const cap = section.role ? roleCaps[section.role] : 0;
-    const capNote = cap > 0 ? `(実働上限${cap} / ${Math.min(sectionCount, cap)}使用)` : '';
+    const capNote = cap > 0 ? `(指定 ${cap}体)` : '';
     const heading = section.role
       ? `${ROLE_ICON[section.role]||''} ${section.role}メイン ・ ${sectionCount}体 ${capNote}`
       : `その他(汎用役職)`;

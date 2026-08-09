@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_base_planner_v2.html">
 <link rel="canonical" href="https://rob1242.github.io/palworld-tools/palworld_base_planner_v2.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="shared/design-system.css?v=20260809q">
+<link rel="stylesheet" href="shared/design-system.css?v=20260809r">
 <style>
   *{box-sizing:border-box;}
   body{margin:0;background: var(--bg);
@@ -239,6 +239,7 @@
     <h2>何をする拠点にする?</h2>
     <div class="goal-grid" id="goalGrid"></div>
     <p class="goal-note" id="goalNote">選ぶとすぐ計算します。あとから細かく変えられます。</p>
+    <p class="goal-note" style="color:var(--parchment-dim);">各役職の人数は「設備の台数」ではなく<b>実際に置いて意味がある人数</b>で入れています。設備を何台置いても全部が同時に動くわけではないので、手作業でも3〜5体で足りることが多いためです。</p>
   </div>
 
   <details class="adv" id="advBox">
@@ -287,7 +288,10 @@
 
   <div class="panel">
     <h2>役職の重要度・実働上限</h2>
-    <p class="subtitle" style="margin-top:0;">「無/低/中/高」で重要度を、右の数値欄で「実際に何体まで働かせる意味があるか」の上限を指定できます(施設数・資源ノード数などプレイヤーの拠点固有の事情のため、ゲーム内データに同時作業人数の情報が無く自動判定できません。空欄なら無制限)。</p>
+    <p class="subtitle" style="margin-top:0;">左の「無/低/中/高」で重要度を、右の数値で<b>その役職に何体まで置くか</b>を決めます。
+    <br><b>入れた数だけ埋めます。</b>「設備を何台置いたか」ではありません——手作業なら修理台・作業台・スフィア工場ラインと何台置いても、
+    全部が同時に動くわけではないので、実際は<b>3〜5体もいれば足りることが多い</b>です。多めに入れると、その数だけパルを割り当ててしまいます。
+    <br>空欄なら無制限(枠が許すかぎり増やします)。</p>
     <div class="roles-grid" id="rolesGrid"></div>
     <p class="subtitle" style="font-size:11px;margin-top:10px;margin-bottom:0;">※ 適正Lv6以上は実測が無く、Lv4→5の伸び率から推定した値です。牧場はLvではなく★による収穫倍率システム(handoff文書3.5参照)で、他役職と同じ実測データが無いため、重要度を上げても計算には反映されません(捏造禁止ルールにより未対応のまま表示)。</p>
   </div>
@@ -317,9 +321,9 @@
 <script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js" integrity="sha384-qn4Jh88HhJA8dplNQyGjOh9OGI4izVhrfj/qIFgaKcdgOE06pXqIKGlsCILZcLAC" crossorigin="anonymous"></script>
 
 <script src="shared/util.js"></script>
-<script src="pages/base_planner_v2.js?v=20260809q"></script>
-<script src="pages/base_planner_goals.js?v=20260809q"></script>
-<script src="shared/arcade.js?v=20260809q" defer></script>
-<script src="shared/sfx.js?v=20260809q" defer></script>
+<script src="pages/base_planner_v2.js?v=20260809r"></script>
+<script src="pages/base_planner_goals.js?v=20260809r"></script>
+<script src="shared/arcade.js?v=20260809r" defer></script>
+<script src="shared/sfx.js?v=20260809r" defer></script>
 </body>
 </html>
