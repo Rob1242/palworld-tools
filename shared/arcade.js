@@ -17,7 +17,7 @@
 
   /* 絵の中身を差し替えたときに古いものを掴ませないための版。
      tools/spritegen/idle.py を回して絵を作り直したら、ここも上げること。 */
-  var V = "?v=20260809r";
+  var V = "?v=20260809s";
 
   var wrap = document.querySelector("body > .wrap");
   if (!wrap) return;                       // リダイレクト用の小さいページは対象外

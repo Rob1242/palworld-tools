@@ -1151,8 +1151,9 @@ function renderProductionDashboard(picks, activeRoles){
   let html = `<div class="section" style="margin-top:16px;">
     <h3 style="font-size:13px;color:var(--brass);margin:0 0 8px;letter-spacing:.03em;">${ico('gauge') || ''} 役職ごとの強さ</h3>
     <p style="font-size:11px;color:var(--parchment-dim);line-height:1.7;margin:0 0 10px;">
-      この編成が役職ごとにどれくらい強いかです。<b>Lv1のパル1体を100%</b>として、置いたパル全員ぶんを足した値。バーが長いほど強く、短い役職は人手が足りていません。<br><span style="opacity:.7">※ 施設に何体入るかや実際の産出量(個/時間)はゲームのデータに無いため含めていません。</span>
-      配置面子の中で相対的に手薄な役職の把握にお使いください。
+      この編成が役職ごとにどれくらい強いかです。数字は<b>「Lv1のパル何体ぶんの働きか」</b>。
+      バーが長いほど強く、短い役職は人手が足りていません。<br><span style="opacity:.7">※ 施設に何体入るかや実際の産出量(個/時間)はゲームのデータに無いため含めていません。
+      役職どうしの数字を比べるのではなく、この編成の中で手薄な役職を見つけるのに使ってください。</span>
     </p>
     <div class="prod-dash-list">`;
   rolesWithWork.forEach(r => {
@@ -1161,7 +1162,7 @@ function renderProductionDashboard(picks, activeRoles){
     html += `<div class="prod-dash-row">
       <div class="prod-dash-label">${ROLE_ICON[r]||''} ${r}${isWeak ? ' <span class="prod-dash-weak-tag">手薄</span>' : ''}</div>
       <div class="prod-dash-bar"><div class="prod-dash-fill${isWeak?' weak':''}" style="width:${pct}%"></div></div>
-      <div class="prod-dash-value">${Math.round(roleTotals[r] * 100)}%</div>
+      <div class="prod-dash-value">${Math.round(roleTotals[r]).toLocaleString()}<span style="opacity:.6;font-size:.85em;">体ぶん</span></div>
     </div>`;
   });
   html += `</div></div>`;
@@ -1189,10 +1190,10 @@ function renderResult(picks, slots, activeRoles, stats){
   const modeText = stats.approximate
     ? '貪欲法による近似解(役職の実働上限を多数同時に設定したため厳密解は現実的な時間で終わらず、近似に切り替えました)'
     : '動的計画法による厳密最適解(近似ではありません)';
-  html += `<div class="progress-log">${modeText} / 重複配置・実働上限・パートナースキル相乗効果を考慮 / 計算時間${stats.solveMs}ms / 相乗効果パターン${(stats.combosEvaluated||1).toLocaleString()}通りを探索</div>`;
+  html += `<div class="progress-log">${modeText} / 同じパルの複数配置・指定人数・パートナースキルの組み合わせを考慮 / ${(stats.combosEvaluated||1).toLocaleString()}通りを試して${(stats.solveMs/1000).toFixed(1)}秒</div>`;
 
   if(stats.approximate){
-    html += `<div class="coverage-warn">${ico("warning")} 役職の実働上限が多く状態数が膨らみすぎたため、今回は数学的に確実な最適解ではなく近似(貪欲法)です。近似度が気になる場合は、実働上限をかける役職を減らして試してください。</div>`;
+    html += `<div class="coverage-warn">${ico("warning")} 人数を指定した役職が多く、組み合わせが多すぎて全部は試しきれませんでした。<b>今回の答えは「かなり良い」止まりで、best とは限りません。</b>人数を指定する役職を減らすと、全通り試したうえでの最適解が出ます。</div>`;
   }
   if(stats.combosSkipped){
     html += `<div class="progress-log">${ico("info") || ""} 相乗効果は ${(stats.combosEvaluated||0).toLocaleString()} 通りを試しました(全部で ${(stats.totalCombosPossible||0).toLocaleString()} 通り)。上限を付けた役職が多いほど計算量が増えるため、組み合わせ同士の重ね掛けまでは見ていません。単独で効くものは拾えています。</div>`;
