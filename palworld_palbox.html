@@ -264,6 +264,18 @@
   .iv-chip b{color:var(--brass);}
   .empty-box-msg{grid-column:1/-1;text-align:center;padding:50px 20px;color:var(--parchment-dim);font-size:13px;line-height:1.8;}
   .empty-box-msg .big{font-size:32px;margin-bottom:8px;}
+  /* 何も登録されていない状態の入口。ここに来た人は「セーブから一括」「手で1体ずつ」
+     「別端末から復元」の3通りに分かれるので、一番早い一括読み込みを主役に置き、
+     残り2つは目立たない導線として下に並べる。 */
+  .box-onboard{max-width:420px;margin:22px auto 0;}
+  .box-onboard-primary{padding:12px 24px;font-size:14px;}
+  .box-onboard-desc{font-size:11.5px;line-height:1.75;color:var(--parchment-dim);margin:10px 0 0;}
+  /* ファイル名は var(--font-mono)(Silkscreen)で出さない。この書体は小文字が
+     大文字の字形で描かれるため、Level.sav が LEVEL.SAV に見えて探す名前を誤らせる。 */
+  .box-onboard-desc b{color:var(--brass);}
+  .box-onboard-alts{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 18px;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);}
+  .box-onboard-link{background:none;border:none;padding:0;color:var(--teal);font-family:var(--font-body);font-size:12px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;}
+  .box-onboard-link:hover{color:var(--parchment);}
   .add-pal-btn{padding:7px 16px;background:var(--teal);border:1px solid var(--teal);color:#08222c;font-weight:700;font-size:13px;border-radius:6px;cursor:pointer;font-family:var(--font-body);white-space:nowrap;}
   .add-pal-btn:hover{box-shadow:0 0 12px rgba(53,210,255,.4);}
   .share-btn{padding:7px 16px;background:var(--panel2);border:1px solid var(--brass-dim);color:var(--brass);font-weight:700;font-size:13px;border-radius:6px;cursor:pointer;font-family:var(--font-body);white-space:nowrap;}
@@ -494,11 +506,8 @@
     <div class="pform-box" style="max-width:640px;">
       <button class="pform-close" id="saveImportClose">×</button>
       <p class="pform-title" id="saveImportTitle">セーブデータから読み込む</p>
-      <p style="font-size:12.5px;color:var(--parchment-dim);line-height:1.7;margin:0 0 16px;">
-        Palworldのセーブファイル(<code>Level.sav</code>、または友達から送られたバックアップの<code>.zip</code>)を選ぶと、
-        所持しているパルの個体値・パッシブ・技・α個体かどうかを自動で読み取ります。
-        <b style="color:var(--parchment);">ファイルはこの端末の中だけで処理され、どこにもアップロードされません。</b>
-      </p>
+      <!-- 日本語はソースの改行がそのまま文中の空白になって出るので、1文ずつ改行せず続けて書く -->
+      <p style="font-size:12.5px;color:var(--parchment-dim);line-height:1.7;margin:0 0 16px;">Palworldのセーブファイル(<b style="color:var(--brass);">Level.sav</b>、または友達から送られたバックアップの<b style="color:var(--brass);">.zip</b>)を選ぶと、所持しているパルの個体値・パッシブ・技・α個体かどうかを自動で読み取ります。<b style="color:var(--parchment);">ファイルはこの端末の中だけで処理され、どこにもアップロードされません。</b></p>
 
       <div id="saveImportDropSection">
         <div class="save-import-drop" id="saveImportDropZone">

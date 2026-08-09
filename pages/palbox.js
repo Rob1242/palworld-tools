@@ -358,6 +358,48 @@ function closeDetailPanel(emptyId, panelId){
   document.getElementById(panelId).style.display = "none";
 }
 
+// 空のボックスに来た人の入口。手入力は1体につき最大15項目(種族・ニックネーム・性別・
+// α・個体値4・技3・パッシブ4)かかるのに対し、セーブデータ読み込みはファイル1つで
+// 全部埋まる。以前はここで「1体ずつ記録しましょう」とだけ案内していて、
+// 一番早い道が見えていなかった。ボタンは既存のヘッダーのものを click() して、
+// 開き方の実装を二重に持たないようにする。
+const BOX_ONBOARD_HTML = `まだパルが登録されていません。
+  <div class="box-onboard">
+    <button class="add-pal-btn box-onboard-primary" data-onboard="save">セーブデータから読み込む</button>
+    <p class="box-onboard-desc"><!-- 日本語は改行がそのまま空白になって文中に出るので1行で書く -->セーブファイル(<b>Level.sav</b>)を選ぶだけで、持っているパルを個体値・技・パッシブ・α個体かどうかまで丸ごと読み取ります。ファイルはこの端末の中だけで処理され、どこにもアップロードされません。</p>
+    <div class="box-onboard-alts">
+      <button class="box-onboard-link" data-onboard="add">1体ずつ手で登録する</button>
+      <button class="box-onboard-link" data-onboard="backup">バックアップコードから復元する</button>
+    </div>
+  </div>`;
+
+// 共有ボックスには復元(バックアップコード)が無いので、2択だけにする。
+const SHARED_ONBOARD_HTML = `この共有ボックスにはまだパルがいません。
+  <div class="box-onboard">
+    <button class="add-pal-btn box-onboard-primary" data-onboard="sharedSave">セーブデータから読み込む</button>
+    <p class="box-onboard-desc">自分のセーブファイル(<b>Level.sav</b>)から選んだパルを、この共有ボックスに入れられます。ファイルはこの端末の中だけで処理されます。</p>
+    <div class="box-onboard-alts">
+      <button class="box-onboard-link" data-onboard="sharedAdd">1体ずつ手で登録する</button>
+    </div>
+  </div>`;
+
+// 入口のボタンは空表示のたびに作り直されるので、グリッドに委譲して1回だけ登録する。
+const ONBOARD_BTN_IDS = {
+  save: "openSaveImportBtn",
+  add: "openAddPalBtn",
+  backup: "openBackupBtn",
+  sharedSave: "openSharedSaveImportBtn",
+  sharedAdd: "openSharedAddBtn",
+};
+for(const gridId of ["boxGrid", "sharedGrid"]){
+  document.getElementById(gridId).addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-onboard]");
+    if(!btn) return;
+    const targetId = ONBOARD_BTN_IDS[btn.dataset.onboard];
+    if(targetId) document.getElementById(targetId).click();
+  });
+}
+
 // ---- 所持パル管理(自分のボックス) ----
 function renderBoxGrid(){
   renderInstanceGrid({
@@ -368,7 +410,7 @@ function renderBoxGrid(){
     state: boxState,
     onSelect: selectBoxPal,
     onChange: renderBoxGrid,
-    emptyMsg: `まだパルが登録されていません。<br>「+ パルを追加」から、捕まえたパルを1体ずつ記録しましょう。`,
+    emptyMsg: BOX_ONBOARD_HTML,
   });
   renderPassiveFilter({
     instances: getInstances(),
@@ -431,7 +473,7 @@ function renderSharedGrid(instances){
     state: sharedBoxState,
     onSelect: selectSharedPal,
     onChange: renderSharedGrid,
-    emptyMsg: `まだパルが登録されていません。「+ パルを追加」から登録しましょう。`,
+    emptyMsg: SHARED_ONBOARD_HTML,
   });
   renderPassiveFilter({
     instances: sharedBoxState.instances,
