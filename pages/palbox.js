@@ -240,6 +240,10 @@ function renderInstanceGrid(cfg){
   const fullList = filterInstances(instances, cfg.state.query, cfg.state.passiveFilter);
   if(cfg.countId) document.getElementById(cfg.countId).textContent = `所持${instances.length}体 / 表示${fullList.length}体`;
   const grid = document.getElementById(cfg.gridId);
+  // 1体もいないときは検索欄とパッシブ絞り込みを隠す(CSS側で対応)。
+  // 何も絞り込めないのに場所だけ取り、狭い画面では入口を画面外まで押し下げるため。
+  const panel = grid.closest(".box-panel");
+  if(panel) panel.dataset.empty = instances.length === 0 ? "1" : "0";
   if(instances.length === 0){
     grid.innerHTML = `<div class="empty-box-msg"><div class="big">${ico("box")}</div>${cfg.emptyMsg}</div>`;
     if(cfg.pagerId) document.getElementById(cfg.pagerId).innerHTML = "";
