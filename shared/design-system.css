@@ -413,7 +413,10 @@
     padding:calc(var(--px)*1.5) calc(var(--px)*3);
     display:flex;justify-content:space-between;gap:calc(var(--px)*4);align-items:center;
   }
-  .arc-bar button{background:none;border:0;font:inherit;cursor:pointer;color:var(--ink);padding:0;}
+  /* 指で押す前提の余白。padding:0 だと実測18pxしかなく、スマホで狙って外す。
+     見た目の位置を変えないよう、負のマージンで押し出した分を戻している。 */
+  .arc-bar button{background:none;border:0;font:inherit;cursor:pointer;color:var(--ink);
+    padding:9px 8px;margin:-9px -8px;min-height:36px;}
   .arc-bubble p{margin:0;padding:calc(var(--px)*3);font-size:12.5px;line-height:1.8;color:var(--parchment);}
 
   /* 起動ログ。セッション中の最初の1ページだけ、1.8秒 */
@@ -456,3 +459,18 @@
    一部のページは同名クラスを自前の<style>でも定義しているが、後勝ちで問題ない。 */
 .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;line-height:1.7;}
 .footer-note a{color:var(--brass);}
+
+/* 注意書き(.caveat)の折りたたみ。狭い画面でのみ効く。詳細は shared/caveat-collapse.js。
+   デスクトップでは data-collapsed が "0" に戻されるので、見た目は従来のまま。 */
+.caveat-toggle{
+  display:block;width:100%;margin:-10px 0 16px;padding:8px 12px;
+  background:var(--panel2);border:1px solid var(--line);border-radius:8px;
+  color:var(--brass);font-family:var(--font-body);font-size:12px;font-weight:700;
+  cursor:pointer;text-align:center;min-height:36px;
+}
+.caveat-toggle:hover{border-color:var(--brass);}
+.caveat[data-collapsed="1"]{
+  max-height:3.6em;overflow:hidden;margin-bottom:10px;
+  -webkit-mask-image:linear-gradient(#000 40%, transparent 100%);
+          mask-image:linear-gradient(#000 40%, transparent 100%);
+}
