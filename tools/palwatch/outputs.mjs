@@ -25,6 +25,37 @@ async function voicevoxAvailable(cfg) {
   return voicevoxAlive;
 }
 
+// --- 動画・音楽の音量を一時的に下げる(ダッキング) ---
+// macOSはアプリ別の音量制御が無いため、システム全体の出力音量を下げて戻す形で実現する。
+// YouTube等を見ながらでもルナの声が埋もれないようにするのが目的。
+async function getSystemVolume() {
+  try {
+    const { stdout } = await execFileAsync('osascript', ['-e', 'output volume of (get volume settings)']);
+    const v = parseInt(stdout.trim(), 10);
+    return Number.isFinite(v) ? v : null;
+  } catch {
+    return null;
+  }
+}
+async function setSystemVolume(level) {
+  try {
+    await execFileAsync('osascript', ['-e', `set volume output volume ${level}`]);
+  } catch {}
+}
+async function duckWhileSpeaking(cfg, fn) {
+  if (cfg && cfg.duckAudio === false) return fn();
+  const before = await getSystemVolume();
+  if (before == null) return fn();   // 音量取得に失敗したら諦めて普通に喋る
+  const factor = cfg?.duckVolumeFactor ?? 0.35;
+  const duckTo = Math.min(before, Math.round(before * factor));
+  await setSystemVolume(duckTo);
+  try {
+    await fn();
+  } finally {
+    await setSystemVolume(before);
+  }
+}
+
 // 内容に応じた話し方を選ぶ。
 // VOICEVOXは同じキャラでもスタイルごとに別の番号が振られているので、
 // 「うれしい報告はこの番号」「淡々とした報告はこの番号」と割り当てられる。
@@ -67,21 +98,23 @@ async function speakVoicevox(text, cfg, tone) {
 // tone には出来事の種類('catch' 'levelup' など)や 'reply' を渡す。
 // 未指定なら既定の話し方になる。
 export async function speak(text, voice = 'Kyoko', rate = 190, cfg = null, tone = null) {
-  // VOICEVOXを使う設定で、実際に起動していればそちらで喋る
-  if (cfg && cfg.useVoicevox !== false && cfg.voicevoxUrl && await voicevoxAvailable(cfg)) {
-    try {
-      await speakVoicevox(text, cfg, tone);
-      return;
-    } catch (e) {
-      console.error('  VOICEVOXでの読み上げに失敗、標準の声に切り替えます:', e.message);
-      voicevoxAlive = false;   // 以降はsayを使う
+  await duckWhileSpeaking(cfg, async () => {
+    // VOICEVOXを使う設定で、実際に起動していればそちらで喋る
+    if (cfg && cfg.useVoicevox !== false && cfg.voicevoxUrl && await voicevoxAvailable(cfg)) {
+      try {
+        await speakVoicevox(text, cfg, tone);
+        return;
+      } catch (e) {
+        console.error('  VOICEVOXでの読み上げに失敗、標準の声に切り替えます:', e.message);
+        voicevoxAlive = false;   // 以降はsayを使う
+      }
     }
-  }
-  try {
-    await execFileAsync('say', ['-v', voice, '-r', String(rate), text]);
-  } catch (e) {
-    console.error('  読み上げに失敗:', e.message);
-  }
+    try {
+      await execFileAsync('say', ['-v', voice, '-r', String(rate), text]);
+    } catch (e) {
+      console.error('  読み上げに失敗:', e.message);
+    }
+  });
 }
 
 // --- Obsidianの日誌 ---

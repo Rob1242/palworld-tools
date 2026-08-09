@@ -832,7 +832,7 @@ function estimateBranchCost(slots, activeRoles, roleCaps){
 // ただし役職の実働上限を多数同時に設定すると状態数が爆発するため、見積もり計算量が
 // 現実的な時間(目安60秒)に収まらない場合は、相乗効果の全探索を諦めて「相乗効果無し」の
 // 1パターンだけを厳密計算する(役職配分そのものの上限つき厳密最適化は常に維持する)。
-async function runSynergyOptimization(slots, activeRoles, roleCaps, onProgress){
+async function runSynergyOptimization(slots, activeRoles, roleCaps, onProgress, onFirstResult){
   const toggles = buildSynergyToggles();
   const totalCombos = 1 << toggles.length;
 
@@ -864,6 +864,17 @@ async function runSynergyOptimization(slots, activeRoles, roleCaps, onProgress){
     const result = await evaluateSynergyBranch(slots, activeRoles, activeToggles, roleCaps);
     if(result && (!best || result.totalScore > best.totalScore)){
       best = result;
+    }
+    // **1通り目(相乗効果なし)が出た時点で、まず画面に出す。**
+    // 全256通りを待つと7.2秒何も出ず、目的を選んだ瞬間に走る画面なので
+    // 「固まった」ようにしか見えなかった(2026-08-09)。答えの精度より、
+    // まず何か見えていることを優先する。残りは裏で回して、
+    // より良いものが見つかったら差し替える。
+    if(ci === 0 && onFirstResult && comboList.length > 1){
+      onFirstResult({ ...best, combosEvaluated: 1, combosSkipped: true,
+                      totalCombosPossible: totalCombos, provisional: true });
+      await new Promise(r => setTimeout(r, 0));   // 描画を先に通す
+      lastYield = performance.now();
     }
     if(performance.now() - lastYield > 150){ // 経過時間ベースで処理を譲る(重いケースでもタブがフリーズしない)
       if(onProgress) onProgress(ci+1, comboList.length);
@@ -1050,22 +1061,36 @@ async function runCompute(){
   activeRoles.forEach(r => { if(roleCaps[r] > 0) activeRoleCaps[r] = roleCaps[r]; });
 
   const t0 = performance.now();
+
+  function paint(r, extra){
+    renderResult(r.picks, slots, activeRoles, Object.assign({
+      finalTotal: r.totalScore,
+      solveMs: Math.round(performance.now() - t0),
+      combosEvaluated: r.combosEvaluated,
+      combosSkipped: r.combosSkipped,
+      totalCombosPossible: r.totalCombosPossible,
+      activeToggleLabels: r.toggleLabels || [],
+      approximate: r.approximate,
+    }, extra || {}));
+  }
+
+  let firstScore = null;
   const result = (palSourceState.mode === "ideal")
     ? await runSynergyOptimization(slots, activeRoles, activeRoleCaps, (done, total) => {
-        btn.textContent = `計算中...(${done}/${total}パターン)`;
+        btn.textContent = `よりよい組み合わせを探索中...(${done}/${total})`;
+      }, (partial) => {
+        firstScore = partial.totalScore;
+        paint(partial, { provisional: true });
       })
     : await runOwnedModeOptimization(slots, activeRoles, activeRoleCaps);
-  const solveMs = Math.round(performance.now() - t0);
 
-  renderResult(result.picks, slots, activeRoles, {
-    finalTotal: result.totalScore,
-    solveMs,
-    combosEvaluated: result.combosEvaluated,
-    combosSkipped: result.combosSkipped,
-    totalCombosPossible: result.totalCombosPossible,
-    activeToggleLabels: result.toggleLabels || [],
-    approximate: result.approximate,
-  });
+  // 暫定と同じ答えなら描き直さない(スクロール位置が飛ぶのを避ける)。
+  if(firstScore === null || Math.abs(result.totalScore - firstScore) > 1e-6){
+    paint(result);
+  } else {
+    var note = document.getElementById("provisionalNote");
+    if(note) note.remove();
+  }
 
   btn.disabled = false; btn.textContent = "この条件で最適配置を計算する";
 }
@@ -1178,6 +1203,11 @@ function renderResult(picks, slots, activeRoles, stats){
   const nightCount = picks.filter(p => p.loadout ? p.loadout.isNightActive : (p.pal.active==="夜"||p.pal.active==="両方")).length;
 
   let html = '';
+  // 暫定表示。裏でまだ探索が続いていることを隠さない
+  // (黙って後から中身が入れ替わると、見ていた人が混乱するため)。
+  if(stats.provisional){
+    html += `<div class="progress-log" id="provisionalNote">${ico("info") || ""} まずは相乗効果なしの答えです。パートナースキルの組み合わせを裏で探索中で、より良いものが見つかったら差し替わります。</div>`;
+  }
   html += `<div class="summary">
     <div class="metric"><div class="num">${picks.length}/${slots}</div><div class="lbl">置いたパル</div></div>
     <div class="metric"><div class="num">${totalMeal}</div><div class="lbl">1日に必要な食料</div></div>
@@ -1187,9 +1217,11 @@ function renderResult(picks, slots, activeRoles, stats){
 
   html += renderProductionDashboard(picks, activeRoles);
 
+  // アルゴリズム名(貪欲法/動的計画法)は使う人には意味が無い。
+  // 知りたいのは「この答えは best なのか、まあまあ止まりなのか」だけ。
   const modeText = stats.approximate
-    ? '貪欲法による近似解(役職の実働上限を多数同時に設定したため厳密解は現実的な時間で終わらず、近似に切り替えました)'
-    : '動的計画法による厳密最適解(近似ではありません)';
+    ? 'これは<b>ベストに近い答え</b>です(人数を指定した役職が多く、全通りは試しきれませんでした)'
+    : 'これは<b>全通り試したうえでのベスト</b>です';
   html += `<div class="progress-log">${modeText} / 同じパルの複数配置・指定人数・パートナースキルの組み合わせを考慮 / ${(stats.combosEvaluated||1).toLocaleString()}通りを試して${(stats.solveMs/1000).toFixed(1)}秒</div>`;
 
   if(stats.approximate){

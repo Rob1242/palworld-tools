@@ -2283,6 +2283,25 @@ document.querySelectorAll("#autoPullModeTabs .mini-tab").forEach(tab => {
 });
 renderAutoPullUI();
 runAutoPull();
+// サーバー側のpalsyncは5分おきにしか更新しないため、ページを開いたままでも
+// それより短い間隔でポーリングすれば実質「開きっぱなしで追従」する。
+// このタブがアクティブな間だけ動けば十分なので、バックグラウンドタブでの
+// 無駄な読み取りを避けるためvisibilitychangeで止め/再開する。
+let autoPullTimer = null;
+function startAutoPullPolling(){
+  if(autoPullTimer) return;
+  autoPullTimer = setInterval(runAutoPull, 60000);
+}
+function stopAutoPullPolling(){
+  if(!autoPullTimer) return;
+  clearInterval(autoPullTimer);
+  autoPullTimer = null;
+}
+if(document.visibilityState === "visible") startAutoPullPolling();
+document.addEventListener("visibilitychange", () => {
+  if(document.visibilityState === "visible"){ startAutoPullPolling(); runAutoPull(); }
+  else stopAutoPullPolling();
+});
 
 async function saveInstanceToSharedRoom(inst){
   if(!currentRoomCode || !firebaseReady()) return;

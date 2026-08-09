@@ -2,3 +2,8 @@
 config.json
 # 前回の状態(サイズが大きく、履歴に残す意味もない)
 state.json
+voiceprint.json
+.venv-voiceid/
+voicebank/
+voicechat/
+psn-token.txt

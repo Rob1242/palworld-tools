@@ -1,13 +1,17 @@
 // Palworld専用サーバーの様子を見て、声をかけたりObsidianに書き留めたりする。
 //
 // 動く場所: 颯太さんのMac(声を出す先とObsidianがここにあるため)
-// データ元 : サーバー側(VM)が5分ごとに更新しているバックアップ
+// データ元 : 2つある。
+//   ・セーブ経由 … サーバー側(VM)が更新しているバックアップ。数十秒遅れるが確実
+//   ・メモリ直読み … サーバーのメモリを外から読む。捕まえた瞬間(約1秒)に届く
+//   片方が壊れてももう片方が残るよう、2つは独立して動かしている。
 //
 // 使い方:
 //   node palwatch.mjs            … 1回だけ確認する
 //   node palwatch.mjs --watch    … 常駐して定期的に確認する
 //   node palwatch.mjs --quiet    … 声を出さずに日誌だけ書く
 //   node palwatch.mjs --advice   … 拠点編成の助言だけ出す
+//   node palwatch.mjs --memtest  … 即時報告の経路が繋がっているか試す
 //
 // 設定は同じフォルダの config.json に置く(合言葉を含むのでgit管理下に入れないこと)。
 
@@ -17,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { fetchCurrent, diffEvents, loadState, saveState, ivTotal } from './events.mjs';
 import { speak, appendJournal } from './outputs.mjs';
 import { loadPlannerData, analyzeBase, buildAdvice } from './base-advice.mjs';
+import { MemFeed, catchText, catchKey, snapshotOnce } from './memfeed.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const cfg = JSON.parse(fs.readFileSync(path.join(HERE, 'config.json'), 'utf8'));
@@ -33,6 +38,33 @@ const dexName = id => nameById.get(id) || null;
 
 const plannerData = loadPlannerData(cfg.gameDataDir);
 const STATE_FILE = path.join(HERE, 'state.json');
+
+// メモリから直に受け取って、もう報告したパル。
+// この後にセーブ経由の報告が同じパルを持ってくるので、二度言わないために覚えておく。
+const announcedByMemory = new Set();
+
+// 動いているメモリ受信。声で聞かれたとき、その場の数で答えるために覗く。
+let liveFeed = null;
+
+// サーバーのメモリを直に見る経路をつなぐ。
+//
+// セーブ経由(数十秒)とは別に、捕まえた瞬間(約1秒)を受け取る。
+// 片方が壊れてももう片方が残るよう、2つは独立させてある。
+function startMemFeed({ selftest = false } = {}) {
+  if (cfg.memFeed === false) return;
+
+  const feed = new MemFeed(cfg, async (c) => {
+    const { text, tone } = catchText(c);
+    console.log(`  [即時] ${text}${c.selftest ? '   ← 試験用の合図' : ''}`);
+    // 試験用の合図は本物ではないので、あとの報告を黙らせてはいけない。
+    if (!c.selftest) announcedByMemory.add(catchKey(c));
+    if (!quiet) await speak(text, cfg.voice, cfg.speechRate, cfg, tone);
+  }, console.log, selftest);
+  feed.start();
+  liveFeed = feed;
+  process.on('SIGINT', () => { feed.stop(); process.exit(0); });
+  return feed;
+}
 
 async function tick() {
   let cur;
@@ -58,8 +90,26 @@ async function tick() {
   }
 
   const prev = loadState(STATE_FILE);
-  const events = diffEvents(prev, cur, dexName);
+  let events = diffEvents(prev, cur, dexName);
   saveState(STATE_FILE, cur);
+
+  // メモリ経由で既に伝えたパルは、声に出すのをやめる。
+  // 同じ捕獲を1秒後と数分後の2回言われると、二重に聞こえて煩い。
+  //
+  // 消すのではなく重みを0にする。日誌には残したいので——
+  // 声に出したかどうかと、記録に残すかどうかは別の話。
+  //
+  // ただし「初めての種類」「今までで一番いい個体」はメモリ側では分からない
+  // (過去を知らないため)。その手の積み上げの話だけは、あらためて言う。
+  if (announcedByMemory.size) {
+    for (const e of events) {
+      if (e.type !== 'catch') continue;
+      const key = `${e.pal.dexId}:${e.pal.ivs.hp}:${e.pal.ivs.shot}:${e.pal.ivs.defense}`;
+      if (!announcedByMemory.has(key)) continue;
+      announcedByMemory.delete(key);
+      if (!e.isNewSpecies && e.weight < 4) e.weight = 0;
+    }
+  }
 
   if (!events.length) {
     console.log(`変化なし(${cur.pals.length}体)`);
@@ -103,18 +153,36 @@ async function tick() {
 // Enterを押している間ではなく「Enterを押したら録音開始、話し終わりを無音で検出」方式。
 // ゲームのコントローラーを持ったままでも扱いやすいのと、押しっぱなしより確実なため。
 // 質問に答えるための材料をそろえる(--talk と --wake で共通)
-async function buildTalkContext() {
+export async function buildTalkContext() {
   const { toHira } = await import('./voice.mjs');
-  const cur = await fetchCurrent(cfg);
-  if (!cur.pals.length) { console.log('まだパルのデータがありません。'); return null; }
 
-  const speciesSet = new Set(cur.pals.map(p => p.dexId));
-  const best = cur.pals.slice().sort((a, b) => ivTotal(b) - ivTotal(a))[0];
-  const advice = buildAdvice(analyzeBase(cur.pals, dexName, plannerData, cfg.baseSlots), cfg.baseSlots);
+  // 材料はメモリを優先する。
+  //
+  // セーブ経由のデータは最大5分古い。「今何体いる?」と聞かれて5分前の数を
+  // 自信満々に答えるのは、黙るより悪い。メモリなら今この瞬間の数が分かる。
+  // メモリが取れないときだけセーブ経由に落ちる(片方が壊れても答えは返る)。
+  let pals = cfg.memFeed === false ? null : await snapshotOnce(cfg);
+  let source = 'メモリ';
+  if (!pals || !pals.length) {
+    const cur = await fetchCurrent(cfg);
+    pals = cur.pals;
+    source = 'セーブ経由';
+  }
+  if (!pals.length) { console.log('まだパルのデータがありません。'); return null; }
+  console.log(`  材料: ${source}(${pals.length}体)`);
+
+  // 受信が動いていれば、そちらの最新に差し替わる。
+  // 会話の途中で捕まえても、次の質問には新しい数で答えられる。
+  const latest = () => (liveFeed?.pals?.length ? liveFeed.pals : pals);
+
+  const advice = buildAdvice(analyzeBase(pals, dexName, plannerData, cfg.baseSlots), cfg.baseSlots);
   const ctx = {
-    total: cur.pals.length,
-    species: speciesSet.size,
-    best: best ? { name: dexName(best.dexId) || best.dexId, iv: ivTotal(best) } : null,
+    get total() { return latest().length; },
+    get species() { return new Set(latest().map(p => p.dexId)).size; },
+    get best() {
+      const b = latest().slice().sort((a, c) => ivTotal(c) - ivTotal(a))[0];
+      return b ? { name: dexName(b.dexId) || b.dexId, iv: ivTotal(b) } : null;
+    },
     advice,
     // 聞き取った文にパル名が含まれていればその所持状況を返す。
     // 認識結果はカタカナが崩れることがあるので、両方を平仮名に寄せて比べる。
@@ -125,7 +193,7 @@ async function buildTalkContext() {
         .sort((a, b) => b.name.length - a.name.length);
       for (const p of sorted) {
         if (th.includes(toHira(p.name))) {
-          const mine = cur.pals.filter(x => x.dexId === p.id);
+          const mine = latest().filter(x => x.dexId === p.id);
           return { name: p.name, count: mine.length,
             bestIv: mine.length ? Math.max(...mine.map(ivTotal)) : 0 };
         }
@@ -196,6 +264,11 @@ async function wakeMode() {
   if (!ctx) return;
   const say = (t, tone = 'reply') => speak(t, cfg.voice, cfg.speechRate, cfg, tone);
 
+  // 呼びかけ待ちの間も、捕まえたら知らせる。
+  // 颯太さんがパルワールドを遊んでいるのはたいていこのモードなので、
+  // ここで繋がっていないと即時報告の意味がほとんど無い。
+  startMemFeed();
+
   const words = cfg.wakeWords?.length ? cfg.wakeWords : ['ルナ'];
   console.log(`「${words[0]}」と呼びかけてください(終了は Control+C)。`);
   console.log('「ルナ、今何体いる」のように用件まで続けて言ってもいいです。\n');
@@ -209,9 +282,9 @@ async function wakeMode() {
     try {
       if (rest) {
         // 呼びかけと一緒に用件も言われた場合は、聞き直さずそのまま答える
-        const reply = interpret(rest, ctx);
-        if (reply) { console.log(`  返答: ${reply}`); await say(reply); }
-        else { await say('ごめん、聞き取れなかった。もう一回言って。'); }
+        const result = interpret(rest, ctx);
+        if (result) { console.log(`  返答: ${result.text}`); await say(result.text, result.tone); }
+        else { await say('ごめん、聞き取れなかった。もう一回言って。', 'unsure'); }
       } else {
         // 呼びかけだけだった場合は、返事をしてから用件を聞く
         await say('なに?');
@@ -249,12 +322,189 @@ async function listVoices() {
 
 if (args.includes('--voices')) {
   await listVoices();
+} else if (args.includes('--enroll')) {
+  const { enroll } = await import('./voiceid.mjs');
+  await enroll(cfg, { quick: args.includes('--quick') });
+} else if (args.includes('--calibrate')) {
+  const { calibrate } = await import('./voiceid.mjs');
+  await calibrate(cfg);
+} else if (args.includes('--read')) {
+  // 途中から再開できるようにする: --read 20 で21文目から
+  const i = args.indexOf('--read');
+  const fromArg = parseInt(args[i + 1], 10);
+  const from = Math.max(0, Number.isFinite(fromArg) ? fromArg : 0);
+  // 印を付けられるようにする: --read --label リビング
+  const li = args.indexOf('--label');
+  const label = li >= 0 ? (args[li + 1] || '') : '';
+  const { readAloud } = await import('./readaloud.mjs');
+  await readAloud(cfg, { from, label });
+} else if (args.includes('--compare-models')) {
+  const { compare } = await import('./compare-models.mjs');
+  await compare(cfg);
+} else if (args.includes('--ask')) {
+  // 文字で振り分けを試す: --ask "今何体いる"
+  // 声を使わずに判断層だけを確かめられる。
+  const i = args.indexOf('--ask');
+  const text = args.slice(i + 1).filter(a => !a.startsWith('--')).join(' ');
+  if (!text) {
+    console.log('使い方: node palwatch.mjs --ask "今何体いる"');
+  } else {
+    const [{ respond }, voice, context] = await Promise.all([
+      import('./respond.mjs'), import('./voice.mjs'), import('./context/index.mjs'),
+    ]);
+    const ctx = await buildTalkContext();
+    const rulesFn = ctx ? (t => voice.interpret(t, ctx)) : null;
+    const situation = await context.currentCached(cfg);
+    const t0 = Date.now();
+    const r = await respond(text, cfg, { rulesFn, ctx, situation });
+    console.log(`  ${((Date.now() - t0) / 1000).toFixed(1)}秒  ${r.who}${r.risk ? ' / ' + r.risk : ''}`);
+    console.log(`  ルナ: ${r.say}`);
+  }
+} else if (args.includes('--context')) {
+  const ctx = await import('./context/index.mjs');
+  const psn = await import('./context/psn.mjs');
+  console.log('いま何をしているか、検知できるかを確認します。\n');
+  const ts = psn.tokenState(cfg);
+  console.log('  PSNトークン:', ts.ok ? `あり(${ts.length}文字)` : `× ${ts.why}`);
+  console.log('  パルワールドVM:', cfg.palworldVm?.name || '未設定');
+  console.log('');
+  const c = await ctx.current(cfg);
+  if (!c) {
+    console.log('  → 何も検知できませんでした(既定の語彙のまま動きます)');
+  } else {
+    console.log(`  → ${c.title ?? '不明'} を検知(${c.source})`);
+    if (c.scene) {
+      console.log(`     場面: ${c.scene}`);
+      console.log(`     語彙を切り替えます: ${c.vocabulary?.slice(0, 46)}…`);
+    } else {
+      console.log('     場面の割り当てが無いので、語彙は既定のままです');
+    }
+    if (c.data) console.log(`     ${JSON.stringify(c.data)}`);
+  }
+} else if (args.includes('--e2e')) {
+  // 通しで測る: --e2e [回数] [--label 名前]
+  const i = args.indexOf('--e2e');
+  const n = parseInt(args[i + 1], 10);
+  const li = args.indexOf('--label');
+  const { endToEnd } = await import('./endtoend.mjs');
+  await endToEnd(cfg, {
+    rounds: Number.isFinite(n) ? n : 10,
+    label: li >= 0 ? (args[li + 1] || '') : '',
+  });
+} else if (args.includes('--mictest')) {
+  const { micTest } = await import('./mictest.mjs');
+  await micTest(cfg);
+} else if (args.includes('--whoami')) {
+  // 場所の名前を受け取る: --whoami リビング
+  const i = args.indexOf('--whoami');
+  const place = (args[i + 1] && !args[i + 1].startsWith('--')) ? args[i + 1] : '';
+  const { whoAmI } = await import('./whoami.mjs');
+  await whoAmI(cfg, { place });
+} else if (args.includes('--saturation')) {
+  const { report } = await import('./saturation.mjs');
+  report(cfg);
+} else if (args.includes('--insights')) {
+  const [{ report }, bank] = await Promise.all([
+    import('./insights.mjs'), import('./voicebank.mjs'),
+  ]);
+  report(cfg, bank.loadIndex(cfg));
+} else if (args.includes('--weakspots')) {
+  const { report } = await import('./weakspots.mjs');
+  report(cfg.corrections);
+} else if (args.includes('--fix')) {
+  // 聞き間違いを覚えさせる: --fix "誤り" "正しい"
+  // 語彙のヒントで直らなかった語だけをここに入れる。確実に置き換わる。
+  const i = args.indexOf('--fix');
+  const wrong = args[i + 1], right = args[i + 2];
+  if (!wrong || !right) {
+    console.log('使い方: node palwatch.mjs --fix "聞き間違えられた形" "本来の形"');
+    console.log('例:     node palwatch.mjs --fix "リューナ" "ルナ"');
+    console.log('\n今の対応表:');
+    const c = cfg.corrections || {};
+    if (!Object.keys(c).length) console.log('  (まだ空です)');
+    for (const [w, r] of Object.entries(c)) console.log(`  ${w} → ${r}`);
+  } else {
+    const file = path.join(HERE, 'config.json');
+    const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+    raw.corrections = { ...(raw.corrections || {}), [wrong]: right };
+    fs.writeFileSync(file, JSON.stringify(raw, null, 2) + '\n');
+    console.log(`覚えました: 「${wrong}」→「${right}」`);
+    console.log(`  対応表は現在${Object.keys(raw.corrections).length}件です。`);
+  }
+} else if (args.includes('--devtalk')) {
+  const { voiceChat } = await import('./voicechat.mjs');
+  await voiceChat(cfg, {
+    speakReplies: args.includes('--speak'),
+    mode: args.includes('--push') ? 'push' : 'always',
+  });
+} else if (args.includes('--collect')) {
+  const { collectMode } = await import('./collect.mjs');
+  await collectMode(cfg);
+} else if (args.includes('--miccheck')) {
+  const { micCheck } = await import('./collect.mjs');
+  await micCheck(cfg);
+} else if (args.includes('--build')) {
+  const { buildFromBank } = await import('./collect.mjs');
+  await buildFromBank(cfg);
+} else if (args.includes('--drop')) {
+  // 覚えのない録音を消す: --drop <idの一部> [...]
+  const ids = args.slice(args.indexOf('--drop') + 1).filter(a => !a.startsWith('--'));
+  if (!ids.length) {
+    console.log('消したい録音のidを指定してください(--voicebank --all で一覧が出ます)。');
+  } else {
+    const bank = await import('./voicebank.mjs');
+    const hit = bank.drop(cfg, ids);
+    console.log(hit.length ? `${hit.length}件消しました。` : '一致する録音がありませんでした。');
+    for (const e of hit) console.log(`  ${e.id}  ${e.transcript}`);
+    if (hit.length) console.log('\n  声紋に反映するには --build か --relearn を実行してください。');
+  }
+} else if (args.includes('--correct')) {
+  // 正しい書き起こしを記録する: --correct <id> "本当に言った文"
+  // 私(Claude)が会話の文脈から判断して使う。颯太さんが打つ必要はない。
+  const i = args.indexOf('--correct');
+  const id = args[i + 1];
+  const truth = args.slice(i + 2).filter(a => !a.startsWith('--')).join(' ');
+  const bank = await import('./voicebank.mjs');
+  if (!id || !truth) {
+    const done = bank.labelled(cfg);
+    console.log(`正解が付いた音声: ${done.length}件`);
+    const secs = done.reduce((a, e) => a + ((e.quality?.seconds) || 0), 0);
+    console.log(`  合計 ${Math.round(secs / 60)}分  (追加学習の目安は60〜120分)`);
+    if (done.length) {
+      console.log('\n  最近の5件:');
+      for (const e of done.slice(-5)) {
+        console.log(`    聞こえ: ${e.transcript}`);
+        console.log(`    正解  : ${e.truth}`);
+      }
+    }
+  } else {
+    const hit = bank.correct(cfg, id, truth);
+    console.log(hit ? `記録しました: ${hit.transcript} → ${truth}`
+                    : `${id} が見つかりません`);
+  }
+} else if (args.includes('--voicebank')) {
+  const { stats } = await import('./voiceid.mjs');
+  stats(cfg, { all: args.includes('--all') });
+} else if (args.includes('--relearn')) {
+  const { rebuild } = await import('./voiceid.mjs');
+  await rebuild(cfg);
 } else if (args.includes('--wake')) {
   await wakeMode();
 } else if (args.includes('--talk')) {
   await talkMode();
+} else if (args.includes('--memtest')) {
+  // 「サーバー → SSH → Mac → 声」が繋がっているかを、遊んでいないときでも確かめる。
+  // サーバー側に偽の捕獲を1件だけ出させて、そのまま最後まで通す。
+  console.log('メモリ経由の経路を試します(偽の捕獲を1件流します)。');
+  const t0 = Date.now();
+  startMemFeed({ selftest: true });
+  setTimeout(() => {
+    console.log(`${((Date.now() - t0) / 1000).toFixed(1)}秒で終了。合図が出ていなければ経路が切れています。`);
+    process.exit(0);
+  }, 30000);
 } else if (watch) {
   console.log(`見守りを開始します(${cfg.intervalMinutes}分ごと)。止めるには Control+C。`);
+  startMemFeed();
   await tick();
   setInterval(tick, cfg.intervalMinutes * 60 * 1000);
 } else {
