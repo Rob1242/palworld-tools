@@ -88,19 +88,137 @@ def outline(im: Image.Image, col=OUTLINE) -> Image.Image:
     return out
 
 
+def saturation_weighted_resize(im: Image.Image, nw: int, nh: int) -> Image.Image:
+    """面積平均で縮めるが、鮮やかな画素を重く数える。
+
+    ただのBOXだと、狭くて鮮やかな特徴が周りの地味な色に薄められて消える。
+    ツッパニャン(Cattiva)で実測したところ、元アイコンの2.60%(260px)を
+    占める青い目が、縮小後は**0px**になっていた(2026-08-10)。
+    目は白目・黒目・ハイライトと隣り合っているので、平均を取ると灰色に化ける。
+    大きい目がこのパルの一番の特徴なので、消えると別のパルに見える。
+
+    彩度を重みにすると、同じセルの中で「地の色」より「差し色」が優先される。
+    SATURATION(彩度を上げてから減色する既存の対策)は減色段階の話で、
+    平均で消えたものは戻せないため、こちらは縮小段階で効かせる。
+    """
+    src = im.convert("RGBA")
+    w, h = src.size
+    px = src.load()
+    out = Image.new("RGBA", (nw, nh))
+    op = out.load()
+    for oy in range(nh):
+        y0, y1 = oy * h // nh, max(oy * h // nh + 1, (oy + 1) * h // nh)
+        for ox in range(nw):
+            x0, x1 = ox * w // nw, max(ox * w // nw + 1, (ox + 1) * w // nw)
+            sr = sg = sb = sa = wsum = 0.0
+            acount = 0
+            for y in range(y0, y1):
+                for x in range(x0, x1):
+                    r, g, b, a = px[x, y]
+                    sa += a
+                    acount += 1
+                    if a == 0:
+                        continue
+                    mx, mn = max(r, g, b), min(r, g, b)
+                    sat = (mx - mn) / mx if mx else 0.0
+                    # 1.0 が従来の面積平均。彩度で最大4倍まで重くする
+                    wt = (1.0 + 3.0 * sat) * (a / 255)
+                    sr += r * wt; sg += g * wt; sb += b * wt; wsum += wt
+            if wsum > 0:
+                op[ox, oy] = (round(sr / wsum), round(sg / wsum), round(sb / wsum),
+                              round(sa / max(acount, 1)))
+            else:
+                op[ox, oy] = (0, 0, 0, 0)
+    return out
+
+
+ACCENT_SLOTS = 5        # パレット28色のうち、差し色のために空けておく枠
+
+
+def _hue_sat(r, g, b):
+    mx, mn = max(r, g, b), min(r, g, b)
+    if not mx or mx == mn:
+        return 0.0, 0.0
+    d = mx - mn
+    if mx == r:   hue = ((g - b) / d) % 6
+    elif mx == g: hue = (b - r) / d + 2
+    else:         hue = (r - g) / d + 4
+    return hue * 60.0, d / mx
+
+
+def build_palette(rgba: Image.Image, colors: int = COLORS, accent_slots: int = ACCENT_SLOTS):
+    """減色用のパレットを作る。差し色のぶんを先に取り置く。
+
+    多数派の色だけでパレットを組むと、狭い差し色が最寄りの多数派に吸われて
+    消える。ツッパニャンの青い目で実測すると、縮小直後は33px残っていたのに
+    MEDIANCUT 28色を通した時点で**0px**になっていた(2026-08-10)。
+    体のピンクが画面の大半を占めるため、色空間の分割がピンク側に集中する。
+
+    「彩度が高い画素」だけで選ぶと体のピンクも該当してしまうので、
+    **主要な色相から離れていること**を条件にする。目・くちばし・差し色は
+    地の色と色相が違うから目立つ、という性質をそのまま使う。
+
+    離れ方は100°以上。40°程度まで緩めると、地の色の陰影(クリーム色の体が
+    黄色寄りに転ぶ等)を差し色と誤認し、モコロンの顔に黄色い点が散った
+    (2026-08-10、実際にそうなって直した)。実測での候補数:
+
+        色相差    40°以上   100°以上
+        モコロン      39        4     ← 陰影。拾ってはいけない
+        ツッパニャン  27       27     ← 目。拾いたい
+
+    さらに面積が1%未満のものは枠を割かない。数個の点のために色を1つ
+    確保すると、その色が他の場所にも現れてノイズになる。
+    """
+    MIN_HUE_DIST = 100.0
+    MIN_SHARE = 0.01
+    rgb = rgba.convert("RGB")
+    base = rgb.quantize(colors=colors - accent_slots, method=Image.MEDIANCUT)
+    data = list(base.getpalette()[: (colors - accent_slots) * 3])
+
+    px = rgba.load(); w, h = rgba.size
+    hist = {}
+    pixels = []
+    for y in range(h):
+        for x in range(w):
+            r, g, b, a = px[x, y]
+            if a < 140:
+                continue
+            hue, sat = _hue_sat(r, g, b)
+            pixels.append((r, g, b, hue, sat))
+            if sat >= 0.20:
+                hist[int(hue) // 20] = hist.get(int(hue) // 20, 0) + 1
+
+    if hist:
+        main = max(hist, key=hist.get) * 20 + 10
+        accents = [(r, g, b) for r, g, b, hue, sat in pixels
+                   if sat >= 0.25
+                   and min(abs(hue - main), 360 - abs(hue - main)) > MIN_HUE_DIST]
+        if len(accents) < len(pixels) * MIN_SHARE:
+            accents = []
+        if accents:
+            strip = Image.new("RGB", (len(accents), 1))
+            strip.putdata(accents)
+            k = min(accent_slots, len(set(accents)))
+            data += list(strip.quantize(colors=k, method=Image.MEDIANCUT).getpalette()[: k * 3])
+
+    data += [0] * (768 - len(data))
+    pal = Image.new("P", (1, 1))
+    pal.putpalette(data)
+    return pal
+
+
 def pixelize(im: Image.Image, height: int, palette=None):
     """3Dレンダ → ドット絵。手順はモジュールの説明どおり。"""
     w, h = im.size
     nw = max(1, round(w * height / h))
-    small = im.resize((nw, height), Image.BOX)          # 1. 面積平均
+    small = saturation_weighted_resize(im, nw, height)   # 1. 面積平均(彩度で重み付け)
 
     rgb = ImageEnhance.Color(small.convert("RGB")).enhance(SATURATION)
     small = Image.merge("RGBA", (*rgb.split(), small.getchannel("A")))
 
     a = small.getchannel("A").point(lambda v: 255 if v >= 140 else 0)
     src_rgb = small.convert("RGB")
-    q = (src_rgb.quantize(palette=palette, dither=Image.NONE) if palette
-         else src_rgb.quantize(colors=COLORS, method=Image.MEDIANCUT, dither=Image.NONE))
+    q = src_rgb.quantize(palette=palette or build_palette(small), dither=Image.NONE)
     q = q.convert("RGBA"); q.putalpha(a)                # 2. 減色
     return despeckle(q)                                  # 3. ゴミ取り
 
@@ -109,8 +227,11 @@ def build(src_path: Path, name: str):
     src = trim(Image.open(src_path))
 
     # 1コマ目のパレットを基準にして、全コマの色を揃える(チラつき止め)
-    ref = pixelize(src, SIZE)
-    palette = ref.convert("RGB").quantize(colors=COLORS, method=Image.MEDIANCUT)
+    # 基準パレットも差し色の枠を確保して作る。ここを素のMEDIANCUTに戻すと、
+    # 全コマがそのパレットに揃えられるので差し色が全コマから消える。
+    w0, h0 = src.size
+    ref = saturation_weighted_resize(src, max(1, round(w0 * SIZE / h0)), SIZE)
+    palette = build_palette(ref)
 
     frames = []
     for sx, sy, dy in POSES:

@@ -30,8 +30,15 @@ _spec = importlib.util.spec_from_file_location("idle", Path(__file__).with_name(
 idle = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(idle)
 
 
-def keyout_white(im: Image.Image, thr=238) -> Image.Image:
+def keyout_white(im: Image.Image, thr=225) -> Image.Image:
     """背景の白だけを抜く。
+
+    閾値225の根拠(2026-08-10): 生成元は方眼紙の背景で、**罫線が(236,236,236)**
+    と、以前の閾値238のすぐ下にあった。そのため罫線と枠線が抜けずに残り、
+    ツッパニャンの頭の上に白い四角が浮いていた。
+    下げても安全なのは、キャラに濃い輪郭が描かれていて塗りつぶしが中へ
+    入れないため。実測では白いモコロンでも消えたのは0.4%だけだった
+    (dex: 73,423→60,892px で罫線が消え、home: 78,199→77,873px)。
 
     **「白い画素を全部消す」ではいけない**(2026-08-09、颯太の指摘で発覚)。
     モコロンの毛、レイバーンの体、レジェンディアの脚のように
@@ -65,6 +72,50 @@ def keyout_white(im: Image.Image, thr=238) -> Image.Image:
             nx, ny = x+dx, y+dy
             if 0 <= nx < w and 0 <= ny < h and not seen[ny*w+nx] and whiteish(px[nx, ny]):
                 seen[ny*w+nx] = 1; q.append((nx, ny))
+    return im
+
+
+def keep_main_blob(im: Image.Image, min_ratio=0.05) -> Image.Image:
+    """本体から離れた小さいカタマリを落とす。
+
+    生成元の絵は方眼紙の上に描かれていて、**グリッド線と枠線が薄いグレー**
+    (純白ではない)。keyout_white は白しか抜かないので、この線が残って
+    キャラの頭の上に白い四角が浮く(2026-08-10、颯太の指摘で発覚。
+    ツッパニャンの頭上に出ていたもの)。
+
+    閾値を下げて灰色まで抜く手もあるが、モコロンの毛のように**キャラ自身が
+    白い**場合に体を削ってしまう(2026-08-09に一度やらかしている)。
+    そこで「本体と繋がっていない小さい破片だけ落とす」方式にする。
+    面積が最大のカタマリの min_ratio 未満のものを消すので、尻尾のような
+    大きい離れパーツは残る。
+    """
+    from collections import deque
+    im = im.convert("RGBA")
+    px = im.load(); w, h = im.size
+    label = [-1] * (w * h)
+    sizes = []
+    for sy in range(h):
+        for sx in range(w):
+            if px[sx, sy][3] == 0 or label[sy*w + sx] >= 0:
+                continue
+            idx = len(sizes); n = 0
+            q = deque([(sx, sy)]); label[sy*w + sx] = idx
+            while q:
+                x, y = q.popleft(); n += 1
+                for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                    nx, ny = x+dx, y+dy
+                    if 0 <= nx < w and 0 <= ny < h and label[ny*w + nx] < 0 and px[nx, ny][3] > 0:
+                        label[ny*w + nx] = idx; q.append((nx, ny))
+            sizes.append(n)
+    if not sizes:
+        return im
+    biggest = max(sizes)
+    for y in range(h):
+        for x in range(w):
+            i = label[y*w + x]
+            if i >= 0 and sizes[i] < biggest * min_ratio:
+                r, g, b, _ = px[x, y]
+                px[x, y] = (r, g, b, 0)
     return im
 
 
@@ -138,19 +189,30 @@ def main():
     else:
         src = keyout_white(Image.open(a.source))
         frames = [f.crop(f.getbbox()) for f in split_frames(src, a.frames)]
+
+    # 罫線・枠線の残骸を落としてから縮小する。縮小後だと数pxになっていて
+    # 本体との区別がつかない
+    frames = [keep_main_blob(f) for f in frames]
+    frames = [f.crop(f.getbbox() or (0, 0, f.width, f.height)) for f in frames]
     print(f"  分割: {len(frames)}コマ / 元の高さ {[f.height for f in frames]}")
 
+    # 縮小は彩度で重み付けする(idle.py 側の説明を参照)。ただのBOXだと
+    # 目のような狭くて鮮やかな特徴が周りの色に薄められて消える。
     scale = a.size / max(f.height for f in frames)      # 全コマ共通の倍率
-    smalls = [f.resize((max(1, round(f.width*scale)), max(1, round(f.height*scale))),
-                       Image.BOX) for f in frames]
+    smalls = [idle.saturation_weighted_resize(
+                  f, max(1, round(f.width*scale)), max(1, round(f.height*scale)))
+              for f in frames]
 
     # 共通パレット。全コマを繋げた画像から作ると、コマ間の色ブレが消える
     strip = Image.new("RGBA", (sum(s.width for s in smalls), a.size), (0, 0, 0, 0))
     x = 0
     for s in smalls:
         strip.paste(s, (x, a.size - s.height)); x += s.width
-    pal = ImageEnhance.Color(strip.convert("RGB")).enhance(a.sat) \
-            .quantize(colors=a.colors, method=Image.MEDIANCUT)
+    # 素のMEDIANCUTだと、面積の小さい差し色(目など)にパレットの枠が回らず
+    # 最寄りの多数派に吸われて消える。差し色ぶんの枠を先に確保する。
+    strip_rgb = ImageEnhance.Color(strip.convert("RGB")).enhance(a.sat)
+    strip_enh = Image.merge("RGBA", (*strip_rgb.split(), strip.getchannel("A")))
+    pal = idle.build_palette(strip_enh, colors=a.colors)
 
     outs = []
     for s in smalls:
