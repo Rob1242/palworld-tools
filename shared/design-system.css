@@ -359,6 +359,12 @@
     width:calc(var(--px)*20);height:calc(var(--px)*20);
     image-rendering:pixelated;flex-shrink:0;
   }
+  /* 待機モーション用。寸法と背景は arcade.js が絵ごとに入れる
+     (コマ幅がパルごとに違うため、CSS側で決め打ちできない) */
+  .arc-mascot-sprite{
+    image-rendering:pixelated;flex-shrink:0;
+    background-repeat:no-repeat;background-position:0 0;
+  }
   .arc-bubble{
     pointer-events:auto;background:#12100c;max-width:420px;margin-bottom:calc(var(--px)*3);
     box-shadow:

@@ -15,6 +15,10 @@
 (function () {
   "use strict";
 
+  /* 絵の中身を差し替えたときに古いものを掴ませないための版。
+     tools/spritegen/idle.py を回して絵を作り直したら、ここも上げること。 */
+  var V = "?v=20260809c";
+
   var wrap = document.querySelector("body > .wrap");
   if (!wrap) return;                       // リダイレクト用の小さいページは対象外
 
@@ -37,7 +41,7 @@
     "palworld_passives.html":        ["palbox",   "ランクの高いパッシブは、配合で受け継がせる価値があるよ。"],
     "palworld_passives_guide.html":  ["palbox",   "用途別の組み合わせを厳選してあるよ。迷ったらここの通りで大丈夫。"],
     "palworld_tierlist.html":        ["combat",   "戦闘・拠点・マウントで最強は全然違うよ。用途を決めてから見て。"],
-    "palworld_ride.html":            ["map",      "移動が面倒になってきたら、ここで一番速い足を選ぶといいよ。"],
+    "palworld_ride.html":            ["ride",     "移動が面倒になってきたら、ここで一番速い足を選ぶといいよ。"],
     "palworld_iv_calc.html":         ["tools",    "今のHP・攻撃・防御を入れるだけで、隠れた素質値が逆算できるよ。"],
     "palworld_technology.html":      ["base",     "先に解放レベルを見ておくと、無駄なポイントを使わずに済むよ。"],
     "palworld_achievements.html":    ["tools",    "進行度で絞り込むと、残りの実績だけ並べられるよ。"],
@@ -118,13 +122,56 @@
     }
   });
 
-  /* ===== 3. 枠の外に立つ相棒 ===== */
+  /* ===== 3. 枠の外に立つ相棒。息をしている ===== */
   var mascot = el("div", "arc-mascot");
+
+  /* まず静止画で置く。**動く版はこれを置き換える形にする。**
+     シートの読み込みに失敗しても、相棒が消えずに立ったままになる。 */
   var img = el("img");
-  img.src = "shared/sprites/" + page[0] + ".png";
+  img.src = "shared/sprites/" + page[0] + ".png" + V;
   img.alt = "";
   img.width = 28; img.height = 28;
   mascot.appendChild(img);
+
+  /* 待機モーション。spideytracker と同じで、CSSアニメではなく
+     JSで background-position を送る。画面外では止められるようにするため。 */
+  var IDLE_FRAMES = 4;
+  var IDLE_MS = 190;
+  var SCALE = 2;                      // 40px前後の絵を2倍で出す(等倍だと小さすぎる)
+  var probe = new Image();
+  probe.onload = function () {
+    var fw = probe.naturalWidth / IDLE_FRAMES, fh = probe.naturalHeight;
+    if (!fw || !fh) return;
+
+    var sprite = el("div", "arc-mascot-sprite");
+    sprite.style.width = (fw * SCALE) + "px";
+    sprite.style.height = (fh * SCALE) + "px";
+    sprite.style.backgroundImage = 'url("' + probe.src + '")';
+    sprite.style.backgroundSize = (IDLE_FRAMES * 100) + "% 100%";
+    mascot.replaceChild(sprite, img);
+
+    var i = 0, timer = null;
+    function tick() {
+      i = (i + 1) % IDLE_FRAMES;
+      /* パーセント指定なので、コマ幅が絵ごとに違っても同じ式で送れる */
+      sprite.style.backgroundPositionX = (i * 100 / (IDLE_FRAMES - 1)) + "%";
+    }
+    function run(on) {
+      if (on && !timer) timer = setInterval(tick, IDLE_MS);
+      else if (!on && timer) { clearInterval(timer); timer = null; }
+    }
+    run(true);                        // 観測が効かない環境でも動く側に倒す
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (e) {
+        run(e[0].isIntersecting && !document.hidden);
+      }).observe(sprite);
+    }
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) run(false);
+    });
+  };
+  probe.src = "shared/sprites/" + page[0] + "-idle.png" + V;
 
   var bubble = el("div", "arc-bubble");
   bubble.innerHTML =
