@@ -18,6 +18,13 @@
 
 出力: shared/sprites/<name>-idle.png (4コマのシート) と <name>.png (静止画)
 使い方: python3 tools/spritegen/idle.py
+
+**警告(2026-08-10)**: 下の SOURCES は**公開中のスプライトとは別物**。
+実際に配信されているのは gen.py(Gemini)で描いた絵を fromsheet.py で整えた
+ものであり、パルの顔ぶれも高さも違う(公開中は高さ48px、こちらは43px)。
+このスクリプトを何も考えずに実行すると、**11体が別のパルに置き換わる。**
+一度それをやってgit checkoutで戻している。
+作り直したいときは fromsheet.py を使うこと。手順は README.md にある。
 """
 from pathlib import Path
 from PIL import Image, ImageEnhance

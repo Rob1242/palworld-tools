@@ -30,15 +30,25 @@ _spec = importlib.util.spec_from_file_location("idle", Path(__file__).with_name(
 idle = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(idle)
 
 
-def keyout_white(im: Image.Image, thr=225) -> Image.Image:
+def keyout_white(im: Image.Image, thr=238) -> Image.Image:
     """背景の白だけを抜く。
 
-    閾値225の根拠(2026-08-10): 生成元は方眼紙の背景で、**罫線が(236,236,236)**
-    と、以前の閾値238のすぐ下にあった。そのため罫線と枠線が抜けずに残り、
-    ツッパニャンの頭の上に白い四角が浮いていた。
-    下げても安全なのは、キャラに濃い輪郭が描かれていて塗りつぶしが中へ
-    入れないため。実測では白いモコロンでも消えたのは0.4%だけだった
-    (dex: 73,423→60,892px で罫線が消え、home: 78,199→77,873px)。
+    しきい値は絵ごとに変える(--white)。既定は238。
+
+    生成元は方眼紙の背景で、**罫線が(236,236,236)** と既定値のすぐ下にある。
+    罫線が残る絵(ツッパニャンは頭の上に白い四角が浮いていた)では225まで
+    下げると消える。
+
+    **ただし一律に下げてはいけない。** キャラ自身の白が背景と地続きだと
+    一緒に持っていかれる。実測(2026-08-10、11体を作り直して比較):
+
+        モコロン    白系 1418→1488px   問題なし
+        ツッパニャン 罫線が消える       下げたい
+        ペンタマ    白系  131→**0**px  **腹が丸ごと消えた**
+        レイバーン  白系  607→ 517px   一部欠けた
+
+    なので既定は安全側の238に置き、必要な絵だけ `--white 225` を付ける。
+    下げたときは必ず目で確認すること。
 
     **「白い画素を全部消す」ではいけない**(2026-08-09、颯太の指摘で発覚)。
     モコロンの毛、レイバーンの体、レジェンディアの脚のように
@@ -166,6 +176,11 @@ def main():
     ap.add_argument("--colors", type=int, default=30)
     ap.add_argument("--sat", type=float, default=1.25)
     ap.add_argument("--frames", type=int, default=4)
+    ap.add_argument("--white", type=int, default=238,
+                    help="背景として抜く白のしきい値。既定238。方眼紙の罫線(236)が"
+                         "残る絵では225まで下げる。ただし**キャラ自身の白が背景と"
+                         "地続きだと一緒に消える**ので、下げたら必ず目で確認すること"
+                         "(ペンタマの白い腹が全部消えた実例あり)")
     ap.add_argument("--grid", help="2x2 のように指定すると、縦横に等分してコマにする。"
                                    "**1コマに2体いる絵はこちらを使う**"
                                    "(空白で切る自動分割だと、2体を別コマと数えてしまう)")
@@ -182,12 +197,13 @@ def main():
         for ry in range(rows):
             for cx in range(cols):
                 cell = keyout_white(raw.crop((cx*W//cols + inset, ry*H//rows + inset,
-                                              (cx+1)*W//cols - inset, (ry+1)*H//rows - inset)))
+                                              (cx+1)*W//cols - inset, (ry+1)*H//rows - inset)),
+                                    thr=a.white)
                 b = cell.getbbox()
                 frames.append(cell.crop(b) if b else cell)
         print(f"  格子 {a.grid} で分割: {len(frames)}コマ")
     else:
-        src = keyout_white(Image.open(a.source))
+        src = keyout_white(Image.open(a.source), thr=a.white)
         frames = [f.crop(f.getbbox()) for f in split_frames(src, a.frames)]
 
     # 罫線・枠線の残骸を落としてから縮小する。縮小後だと数pxになっていて
