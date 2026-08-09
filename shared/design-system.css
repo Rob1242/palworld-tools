@@ -367,6 +367,9 @@
      参考にした spideytracker も画面左下に固定されている。 */
   .arc-mascot{
     position:fixed;left:calc(var(--px)*2);bottom:calc(var(--px)*2);z-index:60;
+    /* **独立したレイヤーに載せる。** 画面に固定した要素をレイヤー化しないと、
+       スクロールのたびに下の内容と一緒に描き直される(2026-08-09)。 */
+    transform:translateZ(0);
     display:flex;align-items:flex-end;gap:calc(var(--px)*2);
     pointer-events:none;
   }
@@ -382,7 +385,10 @@
      (コマ幅がパルごとに違うため、CSS側で決め打ちできない) */
   .arc-mascot-sprite, .arc-badge-sprite{
     image-rendering:pixelated;flex-shrink:0;
-    background-repeat:no-repeat;background-position:0 0;
+  }
+  /* コマ送りは中の帯を transform でずらす(描き直しを起こさないため) */
+  .arc-mascot-sprite-strip, .arc-badge-sprite-strip{
+    image-rendering:pixelated;background-repeat:no-repeat;
   }
   /* バッジの中身。文字だった頃の中央寄せをそのまま使う */
   body .brand-badge{padding:0;overflow:hidden;}

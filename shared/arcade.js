@@ -17,7 +17,7 @@
 
   /* 絵の中身を差し替えたときに古いものを掴ませないための版。
      tools/spritegen/idle.py を回して絵を作り直したら、ここも上げること。 */
-  var V = "?v=20260809i";
+  var V = "?v=20260809j";
 
   var wrap = document.querySelector("body > .wrap");
   if (!wrap) return;                       // リダイレクト用の小さいページは対象外
@@ -133,21 +133,33 @@
       var fw = probe.naturalWidth / IDLE_FRAMES, fh = probe.naturalHeight;
       if (!fw || !fh) return;
 
+      /* **コマ送りは transform で行う。** background-position を動かすと
+         毎コマそこを描き直すことになる。中に長い帯を入れて左へずらす形なら
+         合成だけで済み、描き直しが起きない(2026-08-09、重くなったという
+         指摘を受けて変更)。 */
+      var w = fw * scale, h = fh * scale;
       var sprite = el("div", cls);
-      sprite.style.width = (fw * scale) + "px";
-      sprite.style.height = (fh * scale) + "px";
-      sprite.style.backgroundImage = 'url("' + probe.src + '")';
-      sprite.style.backgroundSize = (IDLE_FRAMES * 100) + "% 100%";
+      sprite.style.width = w + "px";
+      sprite.style.height = h + "px";
+      sprite.style.overflow = "hidden";
+
+      var strip = el("div", cls + "-strip");
+      strip.style.width = (w * IDLE_FRAMES) + "px";
+      strip.style.height = h + "px";
+      strip.style.backgroundImage = 'url("' + probe.src + '")';
+      strip.style.backgroundSize = "100% 100%";
+      sprite.appendChild(strip);
       onReady(sprite);
 
       var step = 0, timer = null;
       function tick() {
         step = (step + 1) % seq.length;
-        /* パーセント指定なので、コマ幅が絵ごとに違っても同じ式で送れる */
-        sprite.style.backgroundPositionX = (seq[step] * 100 / (IDLE_FRAMES - 1)) + "%";
+        strip.style.transform = "translateX(" + (-seq[step] * w) + "px)";
         timer = setTimeout(tick, dur[step]);
       }
       function run(on) {
+        /* 止めている間はレイヤーを確保し続けない */
+        strip.style.willChange = on ? "transform" : "auto";
         if (on && !timer) timer = setTimeout(tick, dur[step]);
         else if (!on && timer) { clearTimeout(timer); timer = null; }
       }
