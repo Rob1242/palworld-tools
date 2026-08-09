@@ -44,6 +44,7 @@
     { name: "パーティ編成ガイド", url: "palworld_party_guide.html" },
     { name: "拠点位置ガイド", url: "palworld_map.html?view=basespots" },
     { name: "更新履歴", url: "palworld_changelog.html" },
+    { name: "公式リンク", url: "palworld_official.html" },
   ];
 
   const DROP_KEYWORDS = ["落とす","落ちる","おとす","おちる","ドロップ","入手方法","入手できる","入手先","産出"];
