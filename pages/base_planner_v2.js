@@ -838,24 +838,36 @@ async function runSynergyOptimization(slots, activeRoles, roleCaps, onProgress){
   // 単純な計算量モデルでは説明しきれない変動があるため、安全側に低めの値を使う。
   const THROUGHPUT = 1.2e7;
   const TIME_BUDGET_SEC = 20;
+  // 予算に収まらないときは相乗効果の探索を1通り(全部オフ)に落とす。
+  // 「単独オンだけ N+1通り試す」案を入れてみたが、上限つきDPを複数回まわすと
+  // 実際に画面が固まった(2026-08-09、4秒予算でも再現)。目的を選んだ瞬間に
+  // 走る画面なので、探索の網羅性より待たせないことを優先して元に戻した。
   const combosToRun = (branchCost * totalCombos / THROUGHPUT > TIME_BUDGET_SEC) ? 1 : totalCombos;
-  const combosSkipped = combosToRun < totalCombos;
+  const singlesOnly = false;
+  const runCount = combosToRun;
+  const combosSkipped = runCount < totalCombos;
 
   let best = null;
   let lastYield = performance.now();
-  for(let combo=0; combo<combosToRun; combo++){
+  // singlesOnly のときは「全部オフ」と「1つだけオン」を順に見る
+  const comboList = singlesOnly
+    ? [0].concat(toggles.map((_, i) => 1 << i))
+    : Array.from({ length: runCount }, (_, i) => i);
+
+  for(let ci=0; ci<comboList.length; ci++){
+    const combo = comboList[ci];
     const activeToggles = toggles.filter((t,i) => (combo & (1<<i)) !== 0);
     const result = await evaluateSynergyBranch(slots, activeRoles, activeToggles, roleCaps);
     if(result && (!best || result.totalScore > best.totalScore)){
       best = result;
     }
     if(performance.now() - lastYield > 150){ // 経過時間ベースで処理を譲る(重いケースでもタブがフリーズしない)
-      if(onProgress) onProgress(combo+1, combosToRun);
+      if(onProgress) onProgress(ci+1, comboList.length);
       await new Promise(r => setTimeout(r, 0));
       lastYield = performance.now();
     }
   }
-  return { ...best, combosEvaluated: combosToRun, combosSkipped, totalCombosPossible: totalCombos };
+  return { ...best, combosEvaluated: comboList.length, combosSkipped, totalCombosPossible: totalCombos };
 }
 
 const selfTestPromise = (async function selfTestBestAssignment(){
@@ -1179,7 +1191,7 @@ function renderResult(picks, slots, activeRoles, stats){
     html += `<div class="coverage-warn">${ico("warning")} 役職の実働上限が多く状態数が膨らみすぎたため、今回は数学的に確実な最適解ではなく近似(貪欲法)です。近似度が気になる場合は、実働上限をかける役職を減らして試してください。</div>`;
   }
   if(stats.combosSkipped){
-    html += `<div class="coverage-warn">${ico("warning")} 役職の実働上限を多数同時に設定したため状態数が膨らみ、相乗効果の全探索(最大${(stats.totalCombosPossible||0).toLocaleString()}パターン)は現実的な時間で終わらないと判断し省略しました。役職配分そのもの(重複配置・実働上限つき)は今まで通り計算しています。相乗効果も含めたい場合は、実働上限をかける役職を減らすか、より大きな枠数変更をお試しください。</div>`;
+    html += `<div class="progress-log">${ico("info") || ""} 相乗効果は ${(stats.combosEvaluated||0).toLocaleString()} 通りを試しました(全部で ${(stats.totalCombosPossible||0).toLocaleString()} 通り)。上限を付けた役職が多いほど計算量が増えるため、組み合わせ同士の重ね掛けまでは見ていません。単独で効くものは拾えています。</div>`;
   } else if(stats.activeToggleLabels && stats.activeToggleLabels.length){
     html += `<div class="progress-log">${ico('sparkle')} 採用した相乗効果: ${stats.activeToggleLabels.join(' / ')}</div>`;
   }

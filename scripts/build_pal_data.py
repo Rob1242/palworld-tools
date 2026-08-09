@@ -1,4 +1,5 @@
 import json
+import re
 
 from js_data_writer import write_js_consts
 
@@ -47,6 +48,21 @@ def asset_of(icon: str) -> str:
     return icon.split("/")[-1].replace("T_", "").replace("_icon_normal.webp", "")
 
 
+# 牧場は「速さ」ではなく「何が採れるか」で選ぶ役職。
+# Lv別の実測データが無いためスコア化できない(本体でも意図的に除外している)。
+# 代わりに、パートナースキルの文面から採れるものを抜いて持たせる。
+RANCH_RE = re.compile(r"牧場に(?:アサイン|配置)[^。]*?と、?\s*([^。]{2,30}?)(?:を|が)(?:落とす|生産|産出|出す|作る|つくる)")
+
+
+def ranch_drop(effect: str):
+    if not effect:
+        return None
+    m = RANCH_RE.search(effect)
+    if m:
+        return m.group(1).strip("、 ")
+    return None
+
+
 def build_pal_data():
     clean = json.load(open(CLEAN_PATH, encoding="utf-8"))
     name_map = {e["name"]: e for e in json.load(open(NAME_MAP_PATH, encoding="utf-8"))}
@@ -63,6 +79,7 @@ def build_pal_data():
         entry = {
             "name": p["name"],
             "tier": tier_of(asset_of(nm.get("icon", "")), min_lv),
+            "ranch": ranch_drop(((p.get("partner_skill") or {}).get("effect")) or ""),
             "types": p["types"],
             "active": p["active_time"],
             "work": work,
