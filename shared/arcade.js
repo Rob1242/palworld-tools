@@ -17,7 +17,7 @@
 
   /* 絵の中身を差し替えたときに古いものを掴ませないための版。
      tools/spritegen/idle.py を回して絵を作り直したら、ここも上げること。 */
-  var V = "?v=20260809g";
+  var V = "?v=20260809i";
 
   var wrap = document.querySelector("body > .wrap");
   if (!wrap) return;                       // リダイレクト用の小さいページは対象外
@@ -122,6 +122,49 @@
     }
   });
 
+  /* ===== コマ送りの共通部分 =====
+     spideytracker と同じで、CSSアニメではなくJSで background-position を送る。
+     画面外で止められるようにするため。相棒とバッジの2箇所で使う。 */
+  var IDLE_FRAMES = 4;
+
+  function makeSprite(cls, url, scale, seq, dur, onReady) {
+    var probe = new Image();
+    probe.onload = function () {
+      var fw = probe.naturalWidth / IDLE_FRAMES, fh = probe.naturalHeight;
+      if (!fw || !fh) return;
+
+      var sprite = el("div", cls);
+      sprite.style.width = (fw * scale) + "px";
+      sprite.style.height = (fh * scale) + "px";
+      sprite.style.backgroundImage = 'url("' + probe.src + '")';
+      sprite.style.backgroundSize = (IDLE_FRAMES * 100) + "% 100%";
+      onReady(sprite);
+
+      var step = 0, timer = null;
+      function tick() {
+        step = (step + 1) % seq.length;
+        /* パーセント指定なので、コマ幅が絵ごとに違っても同じ式で送れる */
+        sprite.style.backgroundPositionX = (seq[step] * 100 / (IDLE_FRAMES - 1)) + "%";
+        timer = setTimeout(tick, dur[step]);
+      }
+      function run(on) {
+        if (on && !timer) timer = setTimeout(tick, dur[step]);
+        else if (!on && timer) { clearTimeout(timer); timer = null; }
+      }
+      run(true);                        // 観測が効かない環境でも動く側に倒す
+
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (e) {
+          run(e[0].isIntersecting && !document.hidden);
+        }).observe(sprite);
+      }
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) run(false);
+      });
+    };
+    probe.src = url;
+  }
+
   /* ===== 3. 枠の外に立つ相棒。息をしている ===== */
   var mascot = el("div", "arc-mascot");
 
@@ -133,54 +176,14 @@
   img.width = 28; img.height = 28;
   mascot.appendChild(img);
 
-  /* 待機モーション。spideytracker と同じで、CSSアニメではなく
-     JSで background-position を送る。画面外では止められるようにするため。 */
-  var IDLE_FRAMES = 4;
-  /* コマごとの間隔は下の DUR で持つ */
-  var SCALE = 2;                      // 40px前後の絵を2倍で出す(等倍だと小さすぎる)
-  var probe = new Image();
-  probe.onload = function () {
-    var fw = probe.naturalWidth / IDLE_FRAMES, fh = probe.naturalHeight;
-    if (!fw || !fh) return;
-
-    var sprite = el("div", "arc-mascot-sprite");
-    sprite.style.width = (fw * SCALE) + "px";
-    sprite.style.height = (fh * SCALE) + "px";
-    sprite.style.backgroundImage = 'url("' + probe.src + '")';
-    sprite.style.backgroundSize = (IDLE_FRAMES * 100) + "% 100%";
-    mascot.replaceChild(sprite, img);
-
-    /* 0→1→2→3→2→1 と往復させる。0→3で折り返すと、伸び切った姿から
-       いきなり中立に戻って弾んで見える。
-       **中立(0)で1.5秒止めてから動き出す。** 動きっぱなしだと落ち着きがなく、
-       「息をしている」ではなく「ずっと動いている」に見える(2026-08-09、颯太の指摘)。
-       1周およそ2.6秒。 */
-    var SEQ = [0, 1, 2, 3, 2, 1];
-    var DUR = [1500, 200, 200, 320, 200, 200];
-    var step = 0, timer = null;
-    function tick() {
-      step = (step + 1) % SEQ.length;
-      var f = SEQ[step];
-      /* パーセント指定なので、コマ幅が絵ごとに違っても同じ式で送れる */
-      sprite.style.backgroundPositionX = (f * 100 / (IDLE_FRAMES - 1)) + "%";
-      timer = setTimeout(tick, DUR[step]);
-    }
-    function run(on) {
-      if (on && !timer) timer = setTimeout(tick, DUR[step]);
-      else if (!on && timer) { clearTimeout(timer); timer = null; }
-    }
-    run(true);                        // 観測が効かない環境でも動く側に倒す
-
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (e) {
-        run(e[0].isIntersecting && !document.hidden);
-      }).observe(sprite);
-    }
-    document.addEventListener("visibilitychange", function () {
-      if (document.hidden) run(false);
-    });
-  };
-  probe.src = "shared/sprites/" + page[0] + "-idle.png" + V;
+  /* 0→1→2→3→2→1 と往復させる。0→3で折り返すと、伸び切った姿から
+     いきなり中立に戻って弾んで見える。
+     **中立(0)で1.5秒止めてから動き出す。** 動きっぱなしだと落ち着きがなく、
+     「息をしている」ではなく「ずっと動いている」に見える(2026-08-09、颯太の指摘)。
+     1周およそ2.6秒。 */
+  makeSprite("arc-mascot-sprite", "shared/sprites/" + page[0] + "-idle.png" + V, 2,
+             [0, 1, 2, 3, 2, 1], [1500, 200, 200, 320, 200, 200],
+             function (sprite) { mascot.replaceChild(sprite, img); });
 
   var bubble = el("div", "arc-bubble");
   bubble.innerHTML =
@@ -190,13 +193,33 @@
   mascot.appendChild(bubble);
   ticker.parentNode.insertBefore(mascot, ticker.nextSibling);
 
+  /* 相棒は画面に貼り付いているので、吹き出しは出しっぱなしにしない。
+     8秒で畳み、相棒を押すとまた出る。閉じるボタンはその場限りではなく
+     セッション中ずっと黙らせる(うるさいと思った人向け)。 */
+  var quietTimer = setTimeout(function () { mascot.classList.add("is-quiet"); }, 8000);
+  mascot.addEventListener("click", function (e) {
+    if (e.target.closest(".arc-bubble")) return;      // 吹き出し内の操作は素通し
+    clearTimeout(quietTimer);
+    mascot.classList.toggle("is-quiet");
+  });
+
   bubble.querySelector(".arc-close").addEventListener("click", function () {
     bubble.remove();
     try { sessionStorage.setItem("arc-bubble-off", "1"); } catch (e) {}
   });
   try { if (sessionStorage.getItem("arc-bubble-off")) bubble.remove(); } catch (e) {}
 
-  /* ===== 4. 起動ログ。セッション中の最初の1ページだけ ===== */
+  /* ===== 4. 左上のバッジ。「P」の代わりにモノクローナが首をかしげる =====
+     文字を消すのは絵が載ったときだけ。読み込みに失敗したら「P」のまま残る。
+     相棒より間隔を長くしてある(常に視界に入る位置なので、動きすぎると気が散る)。 */
+  var badge = document.querySelector(".brand-badge");
+  if (badge) {
+    makeSprite("arc-badge-sprite", "shared/sprites/brand-idle.png" + V, 2,
+               [0, 1, 2, 3, 2, 1], [2600, 260, 260, 420, 260, 260],
+               function (sprite) { badge.textContent = ""; badge.appendChild(sprite); });
+  }
+
+  /* ===== 5. 起動ログ。セッション中の最初の1ページだけ ===== */
   var booted = true;
   try { booted = !!sessionStorage.getItem("arc-booted"); } catch (e) {}
   if (!booted && !reduce) {

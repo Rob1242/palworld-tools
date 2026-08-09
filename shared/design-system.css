@@ -190,6 +190,18 @@
   }
   .title small, .brand-title small{text-shadow:none;color:var(--case-lit);font-family:var(--font-mono);}
 
+  /* 左上の「P」。角丸+内側グローの名残だったので、筐体のボタンに揃える。
+     各ページの .brand-badge より詳細度を1つ上げて上書きする(2026-08-09)。 */
+  body .brand-badge{
+    border-radius:0;border:0;background:var(--case-lit);color:var(--ink);
+    font-family:var(--font-mono);font-weight:400;
+    box-shadow:
+      calc(var(--px)*-1) 0 0 0 var(--ink), var(--px) 0 0 0 var(--ink),
+      0 calc(var(--px)*-1) 0 0 var(--ink), 0 var(--px) 0 0 var(--ink),
+      inset 0 var(--px) 0 0 rgba(255,255,255,.55),
+      inset 0 calc(var(--px)*-1) 0 0 rgba(0,0,0,.28);
+  }
+
   /* ナビ。平行四辺形 → 筐体から生えたプラスチックのタブ */
   nav.tabs{display:flex;background:transparent;border:none;padding:0;gap:var(--px);
     flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;max-width:100%;}
@@ -350,21 +362,30 @@
   .arc-ticker:hover .arc-track{animation-play-state:paused;}
 
   /* 枠の外に立つ相棒と、その吹き出し */
+  /* **画面に貼り付ける。** ページ末尾に置くと、図鑑のような高さ1万pxの
+     ページでは最後までスクロールしないと会えない(2026-08-09、颯太の指摘)。
+     参考にした spideytracker も画面左下に固定されている。 */
   .arc-mascot{
-    max-width:1400px;margin:calc(var(--px)*-1) auto 0;
-    display:flex;align-items:flex-end;gap:calc(var(--px)*3);
-    padding-left:calc(var(--px)*3);pointer-events:none;position:relative;z-index:2;
+    position:fixed;left:calc(var(--px)*2);bottom:calc(var(--px)*2);z-index:60;
+    display:flex;align-items:flex-end;gap:calc(var(--px)*2);
+    pointer-events:none;
   }
+  .arc-mascot .arc-mascot-sprite,
+  .arc-mascot img{cursor:pointer;pointer-events:auto;}
+  /* 吹き出しは畳める。出しっぱなしだと画面を食う */
+  .arc-mascot.is-quiet .arc-bubble{display:none;}
   .arc-mascot img{
     width:calc(var(--px)*20);height:calc(var(--px)*20);
     image-rendering:pixelated;flex-shrink:0;
   }
   /* 待機モーション用。寸法と背景は arcade.js が絵ごとに入れる
      (コマ幅がパルごとに違うため、CSS側で決め打ちできない) */
-  .arc-mascot-sprite{
+  .arc-mascot-sprite, .arc-badge-sprite{
     image-rendering:pixelated;flex-shrink:0;
     background-repeat:no-repeat;background-position:0 0;
   }
+  /* バッジの中身。文字だった頃の中央寄せをそのまま使う */
+  body .brand-badge{padding:0;overflow:hidden;}
   .arc-bubble{
     pointer-events:auto;background:#12100c;max-width:420px;margin-bottom:calc(var(--px)*3);
     box-shadow:
@@ -392,8 +413,9 @@
   @keyframes arcBootIn{to{opacity:1;}}
 
   @media (max-width:820px){
-    .arc-mascot{flex-direction:column;align-items:flex-start;}
-    .arc-bubble{max-width:none;margin-bottom:0;}
+    /* 狭い画面では吹き出しが場所を食うので、相棒だけ置く(押せば出る) */
+    .arc-mascot{gap:var(--px);}
+    .arc-bubble{max-width:min(70vw,320px);margin-bottom:0;}
     .arc-plaque-in{font-size:11px;padding:var(--px) calc(var(--px)*3);}
     html>body{padding:calc(var(--px)*4) calc(var(--px)*4) calc(var(--px)*16);}
     body>.wrap{

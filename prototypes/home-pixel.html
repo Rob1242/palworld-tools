@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ja" data-font="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ホーム(ピクセル筐体案・試作) | Palworld 攻略ツール</title>
+<!-- 試作。本番に入れるときは CSP メタとインラインscriptの外出しが要る(現行ページと同じ扱い) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=DotGothic16&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ピクセル筐体案(試作 2026-08-09)
+
+   参考: spideytracker.net。ただし「ドット絵にする」ではなく
+   ・暗い画面を明るい筐体が囲む(普通のダークテーマと逆)
+   ・装飾は全部ベゼルに寄せ、中身は素っ気なくする
+   ・UIが枠からはみ出す / 枠の外にキャラが立つ / 何もしなくても動く
+   を移植することを狙っている。
+
+   規則: ぼかしは全面禁止(box-shadowもtext-shadowもblur=0)。
+        サイズは全部 --px の倍数。角丸は使わず、box-shadowの
+        十字重ねで「角が欠けた」ピクセル輪郭を作る。
+   ============================================================ */
+:root{
+  --px: 4px;
+
+  /* 画面(中身)*/
+  --screen:      #0a1628;
+  --screen-2:    #0e1c3b;
+  --grid:        rgba(120,165,220,.10);
+
+  /* 筐体(枠)*/
+  --case:        #7fb2d9;
+  --case-lit:    #a8e1fe;
+  --case-dim:    #3f6f9e;
+  --case-deep:   #2b4f7a;
+
+  --ink:         #000000;
+  --paper:       #d7f5ff;
+  --paper-dim:   #7e9fbd;
+
+  /* 差し色 */
+  --amber:       #f89d51;
+  --amber-lit:   #ffd988;
+  --ok:          #7bdb52;
+  --hot:         #e2543f;
+  --cyan:        #09a4c7;
+
+  /* 書体(下の切替で差し替わる)*/
+  --font-jp:     "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+  --font-en:     "Silkscreen", var(--font-jp);
+}
+/* A: 英数字だけピクセル、日本語はゴシック(参考サイトと同じ判断) */
+html[data-font="a"]{ --font-jp:"Zen Kaku Gothic New","Hiragino Sans",sans-serif; --font-en:"Silkscreen",var(--font-jp); }
+/* B: 日本語もドット(DotGothic16) */
+html[data-font="b"]{ --font-jp:"DotGothic16","Hiragino Sans",sans-serif;        --font-en:"Silkscreen",var(--font-jp); }
+/* C: ピクセル書体なし。枠と部品だけピクセル */
+html[data-font="c"]{ --font-jp:"Zen Kaku Gothic New","Hiragino Sans",sans-serif; --font-en:var(--font-jp); }
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:linear-gradient(180deg,#3a63b8 0%,#24417f 45%,#0f1d3f 100%);
+  background-attachment:fixed;
+  min-height:100vh;
+  font-family:var(--font-jp);
+  color:var(--paper);
+  padding:calc(var(--px)*9) calc(var(--px)*9) calc(var(--px)*30);
+}
+img{image-rendering:pixelated;}
+
+/* ---- ピクセル輪郭。角が45度に欠けた昔の筐体の形になる ---- */
+.px{
+  position:relative;
+  box-shadow:
+    calc(var(--px)*-1) 0 0 0 var(--ink),
+    var(--px) 0 0 0 var(--ink),
+    0 calc(var(--px)*-1) 0 0 var(--ink),
+    0 var(--px) 0 0 var(--ink);
+}
+/* 上辺が明るく下辺が暗い=プラスチックの厚み */
+.px-lit{
+  box-shadow:
+    calc(var(--px)*-1) 0 0 0 var(--ink),
+    var(--px) 0 0 0 var(--ink),
+    0 calc(var(--px)*-1) 0 0 var(--ink),
+    0 var(--px) 0 0 var(--ink),
+    inset 0 var(--px) 0 0 rgba(255,255,255,.55),
+    inset 0 calc(var(--px)*-1) 0 0 rgba(0,0,0,.30),
+    inset var(--px) 0 0 0 rgba(255,255,255,.18),
+    inset calc(var(--px)*-1) 0 0 0 rgba(0,0,0,.20);
+}
+
+/* ================= 筐体 ================= */
+.device{
+  position:relative;
+  max-width:1400px;
+  margin:0 auto;
+  background:var(--case);
+  padding:calc(var(--px)*7) calc(var(--px)*5) calc(var(--px)*5) calc(var(--px)*5);
+}
+.device::before{ /* 筐体の上に走るハイライト帯 */
+  content:"";position:absolute;left:calc(var(--px)*2);right:calc(var(--px)*2);top:calc(var(--px)*2);
+  height:var(--px);background:var(--case-lit);
+}
+.device::after{ /* 筐体の下の影。ぼかさない */
+  content:"";position:absolute;left:calc(var(--px)*2);right:calc(var(--px)*2);bottom:calc(var(--px)*2);
+  height:var(--px);background:var(--case-deep);
+}
+
+/* 画面 */
+.screen{
+  position:relative;
+  background:var(--screen);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:calc(var(--px)*16) calc(var(--px)*16);
+  min-height:calc(var(--px)*120);
+  padding:calc(var(--px)*14) calc(var(--px)*8) calc(var(--px)*12) calc(var(--px)*24);
+  box-shadow:
+    inset 0 var(--px) 0 0 #000,
+    inset 0 calc(var(--px)*-1) 0 0 rgba(255,255,255,.10);
+  overflow:hidden;
+}
+
+/* 上ベゼルに載る看板。枠にまたがって置く */
+.plaque{
+  position:absolute; top:calc(var(--px)*-4); left:50%; transform:translateX(-50%);
+  z-index:5;
+  background:var(--case-deep);
+  padding:calc(var(--px)*2) calc(var(--px)*6);
+  font-family:var(--font-en);
+  font-size:15px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--paper); white-space:nowrap;
+}
+.plaque b{font-family:var(--font-jp);letter-spacing:.02em;}
+.plaque .dot{display:inline-block;width:calc(var(--px)*3);height:calc(var(--px)*3);background:var(--hot);
+  margin:0 calc(var(--px)*2);vertical-align:-2px;}
+
+/* 角の丸ボタン。筐体からはみ出して置く */
+.corner{
+  position:absolute; z-index:6;
+  width:calc(var(--px)*16); height:calc(var(--px)*16);
+  background:var(--case-lit); color:var(--ink);
+  border:0; padding:0; cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-en); font-size:20px;
+  transition:transform .06s steps(1);
+}
+.corner:hover{transform:translateY(calc(var(--px)*-1));}
+.corner:active{transform:translateY(var(--px));}
+.corner.tl{top:calc(var(--px)*-3); left:calc(var(--px)*-3); background:var(--amber-lit);}
+.corner.tr{top:calc(var(--px)*-3); right:calc(var(--px)*-3);}
+.corner span{display:block;line-height:1;}
+
+/* 左端から生えるタブ。半分だけ枠の外に出す */
+.tabs{
+  position:absolute; z-index:6; left:calc(var(--px)*-4); top:calc(var(--px)*34);
+  display:flex; flex-direction:column; gap:calc(var(--px)*2);
+}
+.tabs button{
+  font-family:var(--font-jp); font-size:12px; font-weight:700;
+  background:var(--case-lit); color:var(--ink);
+  border:0; cursor:pointer;
+  padding:calc(var(--px)*2) calc(var(--px)*3) calc(var(--px)*2) calc(var(--px)*4);
+  text-align:left; min-width:calc(var(--px)*22);
+  transition:transform .06s steps(1);
+}
+.tabs button:hover{transform:translateX(var(--px));}
+.tabs button[aria-pressed="true"]{background:var(--amber);}
+.tabs button[aria-pressed="true"]::after{content:"";position:absolute;}
+
+/* 下ベゼルのティッカー。放っておいても動き続ける */
+.ticker{
+  position:relative; margin-top:calc(var(--px)*3);
+  background:#1a2b3d; overflow:hidden;
+  height:calc(var(--px)*10); display:flex; align-items:center;
+}
+.ticker-track{
+  display:inline-flex; gap:calc(var(--px)*10); white-space:nowrap;
+  padding-left:100%;
+  animation:tick 38s linear infinite;
+  font-family:var(--font-en); font-size:12px; letter-spacing:.06em;
+  color:var(--case-lit);
+}
+.ticker-track b{font-family:var(--font-jp);color:var(--paper);font-weight:700;}
+.ticker-track i{font-style:normal;color:var(--amber-lit);}
+@keyframes tick{from{transform:translateX(0);} to{transform:translateX(-100%);}}
+.ticker:hover .ticker-track{animation-play-state:paused;}
+
+/* ================= 中身(素っ気なく) ================= */
+.hero{margin:0 0 calc(var(--px)*10);}
+.hero .kicker{
+  font-family:var(--font-en); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--cyan); margin-bottom:calc(var(--px)*3);
+}
+.hero h1{
+  font-family:var(--font-jp); font-weight:900;
+  font-size:clamp(30px,5.2vw,58px); line-height:1.1; margin:0;
+  color:#fff; text-shadow:var(--px) var(--px) 0 var(--ink), calc(var(--px)*2) calc(var(--px)*2) 0 var(--case-deep);
+}
+.hero h1 em{font-style:normal;color:var(--amber-lit);}
+.hero p{margin:calc(var(--px)*5) 0 0;font-size:13.5px;line-height:1.9;color:var(--paper-dim);max-width:46em;}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:calc(var(--px)*5);}
+.card{
+  display:block; text-decoration:none; color:inherit;
+  background:var(--screen-2);
+  padding:calc(var(--px)*5);
+  transition:transform .06s steps(1);
+}
+.card:hover{transform:translate(calc(var(--px)*-1),calc(var(--px)*-1));background:#132749;}
+.card:active{transform:translate(var(--px),var(--px));}
+.card:focus-visible{outline:calc(var(--px)*1) solid var(--amber-lit);outline-offset:calc(var(--px)*1);}
+.card .sock{
+  width:calc(var(--px)*14); height:calc(var(--px)*14);
+  background:#08111f; display:flex;align-items:center;justify-content:center;
+  margin-bottom:calc(var(--px)*4);
+  box-shadow:inset 0 var(--px) 0 0 rgba(0,0,0,.6), inset 0 calc(var(--px)*-1) 0 0 rgba(255,255,255,.10);
+}
+.card .sock img{width:calc(var(--px)*10);height:calc(var(--px)*10);object-fit:contain;}
+.card h2{margin:0 0 calc(var(--px)*2);font-size:16px;font-weight:700;color:#fff;}
+.card .tag{
+  display:inline-block; font-family:var(--font-en); font-size:9px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink); background:var(--case);
+  padding:calc(var(--px)*.5) calc(var(--px)*1.5); margin-bottom:calc(var(--px)*2);
+}
+.card p{margin:0;font-size:12px;line-height:1.75;color:var(--paper-dim);}
+.card .go{
+  margin-top:calc(var(--px)*3); font-family:var(--font-en); font-size:10px; letter-spacing:.12em;
+  color:var(--amber-lit);
+}
+.card[hidden]{display:none;}
+
+/* メニュー。箱を作らず点線1本だけ(参考サイトと同じ素っ気なさ) */
+.drawer{
+  position:absolute; inset:0; z-index:8;
+  background:rgba(8,17,31,.94);
+  padding:calc(var(--px)*16) calc(var(--px)*8);
+  display:none; overflow:auto;
+}
+.drawer[open]{display:block;}
+.drawer ul{list-style:none;margin:0;padding:0;max-width:520px;}
+.drawer li{border-bottom:1px dotted rgba(168,225,254,.35);}
+.drawer a{
+  display:block;padding:calc(var(--px)*3) calc(var(--px)*2);
+  color:var(--paper);text-decoration:none;font-size:14px;
+}
+.drawer a:hover{color:var(--amber-lit);background:rgba(168,225,254,.06);}
+.drawer a::before{content:"▸ ";color:var(--cyan);}
+
+/* 起動ログ。1.6秒だけ流れて消える */
+.boot{
+  position:absolute; inset:0; z-index:9; background:var(--screen);
+  padding:calc(var(--px)*10) calc(var(--px)*8);
+  font-family:var(--font-en); font-size:12px; line-height:2; color:var(--case-dim);
+  cursor:pointer;
+}
+.boot[hidden]{display:none;}
+.boot div{opacity:0;animation:bootin .01s steps(1) forwards;}
+.boot div b{color:var(--ok);font-family:var(--font-en);}
+@keyframes bootin{to{opacity:1;}}
+.boot .skip{position:absolute;right:calc(var(--px)*8);bottom:calc(var(--px)*8);color:var(--paper-dim);font-size:10px;}
+
+/* 枠の外に立つマスコット + 吹き出し */
+.mascot{
+  position:relative; max-width:1400px; margin:calc(var(--px)*-6) auto 0;
+  display:flex; align-items:flex-end; gap:calc(var(--px)*3);
+  padding-left:calc(var(--px)*4);
+  pointer-events:none;
+}
+.mascot img{width:calc(var(--px)*22);height:calc(var(--px)*22);}
+.bubble{
+  pointer-events:auto;
+  background:#12100c; max-width:400px; margin-bottom:calc(var(--px)*4);
+}
+.bubble .bar{
+  background:var(--amber-lit); color:var(--ink);
+  font-size:12px; font-weight:700;
+  padding:calc(var(--px)*1.5) calc(var(--px)*3);
+  display:flex; justify-content:space-between; gap:calc(var(--px)*4);
+}
+.bubble .bar button{background:none;border:0;font:inherit;cursor:pointer;color:var(--ink);}
+.bubble p{margin:0;padding:calc(var(--px)*3);font-size:12.5px;line-height:1.8;color:var(--paper);}
+
+/* 書体の切替(試作用。決まったら消す) */
+.fontsw{
+  max-width:1400px;margin:calc(var(--px)*6) auto 0;
+  display:flex;align-items:center;gap:calc(var(--px)*2);flex-wrap:wrap;
+  font-size:12px;color:#cfe4ff;
+}
+.fontsw button{
+  font-family:var(--font-jp);font-size:12px;cursor:pointer;border:0;
+  background:var(--case);color:var(--ink);padding:calc(var(--px)*1.5) calc(var(--px)*3);
+}
+.fontsw button[aria-pressed="true"]{background:var(--amber-lit);font-weight:700;}
+.fontsw .note{opacity:.75;}
+
+.foot{max-width:1400px;margin:calc(var(--px)*6) auto 0;font-size:11px;color:#a8c0e0;line-height:1.8;}
+
+@media (max-width:820px){
+  .tabs{position:static;flex-direction:row;flex-wrap:wrap;margin-bottom:calc(var(--px)*3);}
+  .screen{padding:calc(var(--px)*12) calc(var(--px)*4) calc(var(--px)*8);}
+  .plaque{font-size:11px;padding:calc(var(--px)*1.5) calc(var(--px)*3);}
+  .corner{width:calc(var(--px)*11);height:calc(var(--px)*11);font-size:15px;}
+}
+@media (prefers-reduced-motion: reduce){
+  .ticker-track{animation:none;padding-left:0;}
+  .boot{display:none;}
+  .card,.corner,.tabs button{transition:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="device px">
+  <div class="plaque px">PALWORLD <span class="dot"></span> <b>攻略ツール</b></div>
+  <button class="corner tl px-lit" id="menuBtn" aria-label="メニュー"><span>≡</span></button>
+  <button class="corner tr px-lit" id="searchBtn" aria-label="サイト内検索"><span>Q</span></button>
+
+  <div class="tabs" id="tabs">
+    <button class="px-lit" data-cat="all" aria-pressed="true">すべて</button>
+    <button class="px-lit" data-cat="build" aria-pressed="false">育成</button>
+    <button class="px-lit" data-cat="base"  aria-pressed="false">拠点</button>
+    <button class="px-lit" data-cat="explore" aria-pressed="false">探索</button>
+    <button class="px-lit" data-cat="fight" aria-pressed="false">戦闘</button>
+    <button class="px-lit" data-cat="ref"   aria-pressed="false">資料</button>
+  </div>
+
+  <div class="screen">
+
+    <div class="boot" id="boot">
+      <div>PALWORLD TOOLKIT v2.6 BOOTING...</div>
+      <div>LOADING PAL DATABASE ... 298 ENTRIES <b>[OK]</b></div>
+      <div>LOADING BREEDING TABLE ... <b>[OK]</b></div>
+      <div>LOADING WORLD MAP TILES ... <b>[OK]</b></div>
+      <div>CALIBRATING WORK SUITABILITY ... <b>[OK]</b></div>
+      <div>READY.</div>
+      <div class="skip">クリックでスキップ</div>
+    </div>
+
+    <div class="drawer px" id="drawer">
+      <ul id="navList"></ul>
+    </div>
+
+    <div class="hero">
+      <div class="kicker">Unofficial Toolkit</div>
+      <h1>攻略の<em>基地</em>、<br>ここに。</h1>
+      <p>拠点配置、図鑑、配合、パルボックス。迷ったらここから選ぶ。</p>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <div class="ticker px">
+    <div class="ticker-track">
+      <span><b>収録パル</b> <i>298</i> 体</span>
+      <span><b>アイテム</b> <i>2,466</i> 種</span>
+      <span><b>アクティブスキル</b> <i>350</i> 種</span>
+      <span><b>パッシブ</b> <i>115</i> 種</span>
+      <span><b>パル像</b> <i>407</i> 体</span>
+      <span><b>ミッション</b> <i>117</i> 件</span>
+      <span><b>フィールドボス</b> <i>83</i> 体</span>
+      <span><b>塔ボス</b> <i>10</i> 体</span>
+      <span><b>ツール</b> <i>20</i> 種 — 全部無料</span>
+    </div>
+  </div>
+</div>
+
+<div class="mascot">
+  <!-- 28pxに落としてから拡大表示。これで既存アセットがドット絵になる -->
+  <img src="assets/mascot-28.png" alt="">
+  <div class="bubble px" id="bubble">
+    <div class="bar"><span>ようこそ</span><button type="button" id="bubbleClose">× 閉じる</button></div>
+    <p>左のタブで用途を選ぶと、そのツールだけ残るよ。左上の ≡ から全ページに飛べる。</p>
+  </div>
+</div>
+
+<div class="fontsw">
+  <span class="note">試作用の書体切替:</span>
+  <button data-font="a" aria-pressed="true">A 英数字だけドット</button>
+  <button data-font="b" aria-pressed="false">B 日本語もドット</button>
+  <button data-font="c" aria-pressed="false">C ドット書体なし</button>
+  <span class="note">— 同じ画面で比べられる。パル名・説明文の読みやすさで決めてください</span>
+</div>
+
+<p class="foot">試作(2026-08-09)。本番反映はまだしていません。当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。</p>
+
+<script>
+const TOOLS = [
+  ["base_planner","拠点プランナー","base","palworld_base_planner_v2.html","役職の重要度と枠数を入れるだけで、287体の中から拠点に置くべきパルの組み合わせを自動計算。"],
+  ["dex","パル図鑑","ref","palworld_dex.html","種族値、属性相性、ドロップ、入手方法。298体、捕獲前に知るべき全データを収録。"],
+  ["breeding","配合検索","build","palworld_breeding.html","欲しい子から親候補を逆引き。固定レシピもランク配合ペアも一発で表示。"],
+  ["palbox","パルボックス","build","palworld_palbox.html","所持パルを個体値・技・パッシブごと記録して、目的パルへの配合ロードマップを自動で組む。"],
+  ["combat","戦闘最適化","fight","palworld_combat.html","理想ビルドでのDPS指数で全パルをランキング。1体で最強の火力を出せるパルが一目で分かる。"],
+  ["map","出現マップ","explore","palworld_map.html","パルを選ぶと、野生・ボスの出現エリアと個体数を世界地図上に表示。塔ボス・商人・ファストトラベルのレイヤーも同じページに。"],
+  ["statues","パル像コンプリート","explore","palworld_map.html?view=statues","全12種407体分のパル像の場所を地図上に表示。クリックで回収済みを記録できる。"],
+  ["items","アイテム図鑑","ref","palworld_items.html","素材・武器・防具・食料など2466種をカテゴリ別に一覧。鉱石やインゴットもまとめて検索。"],
+  ["skills","技図鑑","fight","palworld_skills.html","アクティブスキル350種を属性別に一覧。習得できるパルとそのレベルまで確認できる。"],
+  ["passives","パッシブ図鑑","build","palworld_passives.html","パッシブスキル115種を効果・ランク別に一覧。入手元まで掲載。"],
+  ["tierlist","最強Tier表","fight","palworld_tierlist.html","戦闘・拠点作業・マウントの3カテゴリで全パルをSS〜Cにランキング。"],
+  ["ride","ライド速度ランキング","ref","palworld_ride.html","陸上・飛行・水上でライド可能なパルを走行速度・ライド疾走速度でランキング。"],
+  ["bossguide","ボス攻略","fight","palworld_bossguide.html","塔ボス全10体・レイド・フィールドボス83体の弱点、固有技の回避法、おすすめ編成。"],
+  ["achievements","実績一覧","explore","palworld_achievements.html","全実績の解除条件を一覧化。進行度で絞り込んで残りを確認できる。"],
+  ["passives_guide","おすすめパッシブ","build","palworld_passives_guide.html","戦闘・拠点作業・ライドの用途別に、付けるべき組み合わせを厳選して紹介。"],
+  ["reference","早見表","ref","palworld_reference.html","作業優先度・属性変換・パーティ全体バフ・SANシステムの参照表。"],
+  ["technology","テクノロジー","base","palworld_technology.html","Lv1〜80のテクノロジーツリーを一覧表示。解放レベルとコストを確認できる。"],
+  ["missions","ミッション一覧","explore","palworld_map.html?view=missions","メイン・サブ117件を一覧化。報酬と次に発生するミッションのつながりも。"],
+  ["iv_calc","素質値(IV)計算機","build","palworld_iv_calc.html","HP・攻撃・防御の現在値から隠れた素質値を逆算。"],
+  ["party_guide","パーティ編成ガイド","build","palworld_party_guide.html","序盤・拠点作業班・終盤6体編成を、実データの計算に基づいて段階別におすすめ。"],
+  ["base_spots","拠点位置ガイド","base","palworld_map.html?view=basespots","資源・地形・安全性の観点からおすすめの拠点候補地そのものを紹介。"],
+];
+const CAT = {build:"BUILD", base:"BASE", explore:"EXPLORE", fight:"COMBAT", ref:"DATA"};
+
+const grid = document.getElementById('grid');
+grid.innerHTML = TOOLS.map(([icon,name,cat,url,desc]) => `
+  <a class="card px" href="../${url}" data-cat="${cat}">
+    <div class="sock"><img src="../game_data/icons/home_cards/${icon}.webp" alt=""></div>
+    <div class="tag">${CAT[cat]}</div>
+    <h2>${name}</h2>
+    <p>${desc}</p>
+    <div class="go">OPEN TOOL →</div>
+  </a>`).join('');
+
+document.getElementById('navList').innerHTML = TOOLS
+  .map(([,name,,url]) => `<li><a href="../${url}">${name}</a></li>`).join('')
+  + `<li><a href="../palworld_changelog.html">更新履歴</a></li>`;
+
+// 用途タブ
+document.getElementById('tabs').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  [...e.currentTarget.children].forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  const cat = b.dataset.cat;
+  grid.querySelectorAll('.card').forEach(c => {
+    c.hidden = cat !== 'all' && c.dataset.cat !== cat;
+  });
+});
+
+// メニュー
+const drawer = document.getElementById('drawer'), menuBtn = document.getElementById('menuBtn');
+menuBtn.addEventListener('click', () => {
+  const open = drawer.hasAttribute('open');
+  drawer.toggleAttribute('open', !open);
+  menuBtn.querySelector('span').textContent = open ? '≡' : '×';
+});
+// 検索ボタンは本番で既存の global_search.js を開く。試作では未接続。
+
+// 吹き出し
+document.getElementById('bubbleClose').addEventListener('click', () => {
+  document.getElementById('bubble').remove();
+});
+
+// 起動ログ
+const boot = document.getElementById('boot');
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  [...boot.querySelectorAll('div')].forEach((d,i) => { d.style.animationDelay = (i*0.22)+'s'; });
+  const kill = () => boot.hidden = true;
+  boot.addEventListener('click', kill);
+  setTimeout(kill, 1900);
+} else { boot.hidden = true; }
+
+// 書体切替
+document.querySelector('.fontsw').addEventListener('click', e => {
+  const b = e.target.closest('button[data-font]'); if (!b) return;
+  document.documentElement.dataset.font = b.dataset.font;
+  [...b.parentElement.querySelectorAll('button')].forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+});
+</script>
+</body>
+</html>
