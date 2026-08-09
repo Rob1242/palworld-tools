@@ -885,7 +885,23 @@ async function runSynergyOptimization(slots, activeRoles, roleCaps, onProgress, 
   return { ...best, combosEvaluated: comboList.length, combosSkipped, totalCombosPossible: totalCombos };
 }
 
-const selfTestPromise = (async function selfTestBestAssignment(){
+/* 自己診断は既定で走らせない。URLに ?selftest=1 を付けたときだけ動く。
+
+   この診断は bestAssignment(本体の最適化計算)を7回呼ぶ。実測で**18.0秒**
+   かかり、しかも下の方で selfTestPromise.then(() => compute()) と繋がって
+   いるため、**利用者が最初の結果を見るまで18秒待たされていた**うえ、
+   その間タブがCPUを食い続けていた(2026-08-10、Chromeに「ブラウザの動作を
+   遅くしているタブ」と名指しされて発覚)。
+
+   消さずに残すのは、上限や重複の扱いを壊したときに気づく唯一の仕掛けだから。
+   計算まわりを触ったら palworld_base_planner_v2.html?selftest=1 を開いて、
+   コンソールに赤いAssertion failedが出ないことを確認すること。 */
+const SELFTEST_ON = new URLSearchParams(location.search).has("selftest");
+if (!SELFTEST_ON && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) {
+  console.log("[selfTest] 自己診断は既定で無効。確認するには URL に ?selftest=1 を付けて開く");
+}
+
+const selfTestPromise = !SELFTEST_ON ? Promise.resolve() : (async function selfTestBestAssignment(){
   const savedWeights = Object.assign({}, roleWeights);
   const savedDayNight = dayNightBalance, savedGeneralist = generalistPref, savedPassive = usePassive;
 
