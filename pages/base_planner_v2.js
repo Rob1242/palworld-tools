@@ -1121,9 +1121,9 @@ function renderProductionDashboard(picks, activeRoles){
   const maxLog = Math.max(...logVals, 0.001);
 
   let html = `<div class="section" style="margin-top:16px;">
-    <h3 style="font-size:13px;color:var(--brass);margin:0 0 8px;letter-spacing:.03em;">${ico('gauge') || ''} 拠点生産力ダッシュボード(役職別・相対値)</h3>
+    <h3 style="font-size:13px;color:var(--brass);margin:0 0 8px;letter-spacing:.03em;">${ico('gauge') || ''} 役職ごとの強さ</h3>
     <p style="font-size:11px;color:var(--parchment-dim);line-height:1.7;margin:0 0 10px;">
-      各役職のLv1パル1体を基準(100%)にした相対速度の合計です(役職ごとに伸び方が違うためバー幅は対数圧縮、右の%が実際の値)。施設の同時作業人数や実際の産出量(個/時間)はゲーム内データに存在しないため含めていません(パッシブ・パートナースキルによる速度ボーナスも未加算です)。
+      この編成が役職ごとにどれくらい強いかです。<b>Lv1のパル1体を100%</b>として、置いたパル全員ぶんを足した値。バーが長いほど強く、短い役職は人手が足りていません。<br><span style="opacity:.7">※ 施設に何体入るかや実際の産出量(個/時間)はゲームのデータに無いため含めていません。</span>
       配置面子の中で相対的に手薄な役職の把握にお使いください。
     </p>
     <div class="prod-dash-list">`;
@@ -1150,10 +1150,10 @@ function renderResult(picks, slots, activeRoles, stats){
 
   let html = '';
   html += `<div class="summary">
-    <div class="metric"><div class="num">${picks.length}/${slots}</div><div class="lbl">配置数</div></div>
-    <div class="metric"><div class="num">${totalMeal}</div><div class="lbl">合計食事量</div></div>
-    <div class="metric"><div class="num">${nightCount}</div><div class="lbl">24h稼働可能数</div></div>
-    <div class="metric"><div class="num">${Math.round(stats.finalTotal)}</div><div class="lbl">合計実効スコア</div></div>
+    <div class="metric"><div class="num">${picks.length}/${slots}</div><div class="lbl">置いたパル</div></div>
+    <div class="metric"><div class="num">${totalMeal}</div><div class="lbl">1日に必要な食料</div></div>
+    <div class="metric"><div class="num">${nightCount}</div><div class="lbl">夜も働ける数</div></div>
+    <div class="metric"><div class="num">${Math.round(stats.finalTotal)}</div><div class="lbl" title="この編成の総合力。絶対値に意味は無く、条件を変えたときの比較に使う数字です">総合力(比較用)</div></div>
   </div>`;
 
   html += renderProductionDashboard(picks, activeRoles);
