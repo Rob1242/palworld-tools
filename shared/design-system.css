@@ -450,3 +450,9 @@
     .arc-track{animation:none;padding-left:calc(var(--px)*4);}
     .arc-boot{display:none;}
   }
+
+/* ページ末尾の免責表記。ポケットペアの二次創作ガイドライン⑥(公式製品と誤認される
+   表現の禁止)への対応として、全ページに「非公式」と権利表記を出すために共通化した。
+   一部のページは同名クラスを自前の<style>でも定義しているが、後勝ちで問題ない。 */
+.footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;line-height:1.7;}
+.footer-note a{color:var(--brass);}
