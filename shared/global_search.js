@@ -14,7 +14,7 @@
     "game_data/items_obtain_data.js",
     // 使うのはパルの基本情報だけなので、配合ペア表まで含む breeding_data.js(3.3MB)ではなく
     // 軽量版(55KB)を読む。検索を1回使うだけで3MB以上落ちてくるのを避けるため(2026-08)。
-    "game_data/breeding_pals_data.js",
+    "game_data/breeding_pals_data.js?v=20260810j",
     "game_data/missions_data.js",
     "game_data/skills_page_data.js",
     "game_data/passives_page_data.js",

@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_mutation.html">
 <link rel="canonical" href="https://rob1242.github.io/palworld-tools/palworld_mutation.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="shared/design-system.css?v=20260810h">
+<link rel="stylesheet" href="shared/design-system.css?v=20260810j">
 <style>
   *{box-sizing:border-box;}
   body{margin:0;background:var(--bg);color:var(--parchment);font-family:var(--font-body);padding:0;}
@@ -119,9 +119,10 @@
   </header>
 
   <p class="caveat">
-    配合牧場で稀に生まれる<b>変異したタマゴ</b>の行き先を計算します。変異先は完全なランダムではなく、親のランクから作られる目標値に近いパルが選ばれます。計算式は<b>強い方の親ランク×0.5 + 親同士のランク差×0.4 + 強い方の親ランクの0〜10%の乱数</b>で、当サイトの<a href="palworld_breeding.html">配合ランク</a>データで検算したうえで採用しています。<br>
-    <b>確率は目安です。</b>実際のゲームは全種を変異先にしているわけではなく、除外されるパルがいることが分かっています。当サイトはその一覧を持っていないため<b>全299種を候補として計算</b>しており、そのぶん確率は薄まります。<b>「候補に挙がるかどうか」は漏れがありませんが、数値そのものは実際より低く出ます。</b><br>
-    変異率を上げるには、配合牧場のチェストに<b>豪華野菜ケーキ</b>を入れます(ゲーム内の説明文に「変異が起こりやすくなり、才能も育ちやすくなる」と明記)。変異個体は才能が高く、変異限定のパッシブが付くことがあります。
+    配合牧場で稀に生まれる<b>変異したタマゴ</b>の行き先を計算します。変異先は完全なランダムではなく、親のランクから作られる目標値に近いパルが選ばれます。計算式は<b>強い方の親ランク×0.5 + 親同士のランク差×0.4 + 強い方の親ランクの0〜10%の乱数</b>(強い方＝配合ランクが<b>小さい</b>方)。<br>
+    <b>変異先になれないパル</b>(伝説・塔ボス・レイド・コラボ等)は候補から外しています。この判定はゲームの生データに入っている <span style="font-family:var(--font-mono);">ignore_combi</span> を使っており、299体中38体が該当します。<br>
+    <b>確率は目安です。</b>式は外部の解析情報を、当サイトの配合ランクデータで検算したうえで採用しています(コゴエール同士の例で公称値と5件中4件が小数点以下まで一致)。<b>ポケットペアが公式に発表した数値ではありません。</b><br>
+    変異率を上げるには、配合牧場のチェストに<b>豪華野菜ケーキ</b>を入れます(ゲーム内の説明文に「変異が起こりやすくなり、才能も育ちやすくなる」と明記)。変異個体は才能値が高く、変異限定のパッシブが付くことがあります。
   </p>
 
   <div class="mode-tabs">
@@ -156,12 +157,12 @@
 
   <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。<br><a href="palworld_official.html">公式サイト・各プラットフォームのリンクはこちら</a></p>
 </div>
-<script src="game_data/breeding_pals_data.js"></script>
+<script src="game_data/breeding_pals_data.js?v=20260810j"></script>
 <script src="shared/text-normalize.js"></script>
-<script src="shared/mutation-calc.js?v=20260810h"></script>
-<script src="pages/mutation.js?v=20260810h"></script>
-<script src="shared/caveat-collapse.js?v=20260810h" defer></script>
-<script src="shared/arcade.js?v=20260810h" defer></script>
-<script src="shared/sfx.js?v=20260810h" defer></script>
+<script src="shared/mutation-calc.js?v=20260810j"></script>
+<script src="pages/mutation.js?v=20260810j"></script>
+<script src="shared/caveat-collapse.js?v=20260810j" defer></script>
+<script src="shared/arcade.js?v=20260810j" defer></script>
+<script src="shared/sfx.js?v=20260810j" defer></script>
 </body>
 </html>

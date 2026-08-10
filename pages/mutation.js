@@ -83,7 +83,8 @@ function renderForward() {
 
   box.innerHTML = `
     <div class="calc-line">
-      <span>強い方 <b>${Math.max(ra, rb)}</b></span>
+      <!-- 「強い方」は combi_rank が小さい方。Math.max ではない -->
+      <span>強い方のランク <b>${Math.min(ra, rb)}</b></span>
       <span>ランク差 <b>${Math.abs(ra - rb)}</b></span>
       <span>目標値 <b>${range.lo.toFixed(0)} 〜 ${range.hi.toFixed(0)}</b></span>
       <span>候補 <b>${list.length}体</b></span>
