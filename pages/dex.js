@@ -1,3 +1,33 @@
+/* 詳細表示でしか使わないデータは、パルをクリックするまで読まない。
+ *
+ * 一覧を出すのに要るのは PAL_DEX_DATA と SPAWN_FLAGS_DATA だけ。
+ * それ以外の5ファイルまで最初に読んでいたため、本番で
+ * **DOM構築3,227ms / 読み込み完了3,910ms** かかっていた(2026-08-10 実測)。
+ * 配合検索・パルボックスで既に使っている遅延読み込みと同じ手。 */
+const DETAIL_SCRIPTS = [
+  "game_data/item_icons_data.js",   // ITEM_ICONS(ドロップ品のアイコン)
+  "game_data/learnset_data.js",
+  "game_data/paldb_extra_data.js",
+  "game_data/capture_rate_data.js",
+  "game_data/movement_data.js",
+  "game_data/level80_stats_data.js",
+];
+let detailDataPromise = null;
+
+function ensureDetailData(){
+  if(detailDataPromise) return detailDataPromise;
+  detailDataPromise = Promise.all(DETAIL_SCRIPTS.map(src => new Promise((resolve, reject) => {
+    if(document.querySelector(`script[data-detail="${src}"]`)) return resolve();
+    const el = document.createElement("script");
+    el.src = src + (window.ASSET_VER || "");
+    el.dataset.detail = src;
+    el.onload = resolve;
+    el.onerror = () => reject(new Error("failed: " + src));
+    document.head.appendChild(el);
+  })));
+  return detailDataPromise;
+}
+
 // 出現マップ埋め込み表示の有無だけを見るため、全パルの出現座標データ(1.2MB)ではなく
 // dexIdごとの真偽値のみを持つ軽量データ(spawn_flags_data.js)を使う(2026-07-28)
 const SPAWN_BY_DEXID = SPAWN_FLAGS_DATA;
@@ -124,9 +154,16 @@ function palAssetFromIcon(icon){
   return m ? m[1] : null;
 }
 
-function openDetail(id){
+async function openDetail(id){
   const p = PAL_DEX_DATA.find(x => x.id === id);
   if(!p) return;
+  try{
+    await ensureDetailData();
+  }catch(e){
+    // 詳細用データが落ちてきていなくても、基本情報だけは出す。
+    // 各参照は typeof チェック済みなので、欠けても壊れない。
+    console.warn("[dex] 詳細データの読み込みに失敗:", e);
+  }
   state.selectedId = id;
   const workEntries = Object.entries(p.work).sort((a,b)=>b[1]-a[1]);
   const rideBadges = [
@@ -190,7 +227,7 @@ function openDetail(id){
     </div>
   </div>` : "";
 
-  const extra = PALDB_EXTRA_DATA[id];
+  const extra = (typeof PALDB_EXTRA_DATA !== "undefined") ? PALDB_EXTRA_DATA[id] : null;
   const innatePassivesHtml = (extra && extra.innate_passives && extra.innate_passives.length) ? `<div class="section">
     <h2>最初から持っているパッシブ</h2>
     <div class="role-grid">
@@ -217,7 +254,7 @@ function openDetail(id){
     <h2>ドロップアイテム</h2>
     <div class="drop-list">
       ${extra.drops.map(d => `<div class="drop-item">
-        ${ITEM_ICONS[d.item] ? `<img class="drop-icon" src="${ITEM_ICONS[d.item]}" alt="">` : ""}
+        ${(typeof ITEM_ICONS !== "undefined" ? ITEM_ICONS : {})[d.item] ? `<img class="drop-icon" src="${(typeof ITEM_ICONS !== "undefined" ? ITEM_ICONS : {})[d.item]}" alt="">` : ""}
         ${d.tier && d.tier !== "normal" ? `<span class="drop-tier ${d.tier}">${d.tier}</span>` : ""}
         <span class="drop-name">${d.item}</span>
         <span class="drop-qty">×${d.qty}</span>
