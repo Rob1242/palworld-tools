@@ -252,6 +252,7 @@ async function renderReverseResult(targetAsset){
       html += `<button class="show-more-btn" id="showMoreBtn">残り${rest.length}件をすべて表示</button>`;
     }
   }
+  html += mutationParentsBlock(targetAsset);
   box.innerHTML = html;
   const btn = document.getElementById("showMoreBtn");
   if(btn){
@@ -260,6 +261,43 @@ async function renderReverseResult(targetAsset){
       btn.remove();
     });
   }
+}
+
+/* 逆引きに「突然変異で狙う場合の親」を足す。
+   「このパルが欲しい」という問いは1つなのに、通常配合と変異で答えが
+   別ページに割れていたため、同じ画面に寄せた(2026-08-10)。
+   通常ルートが見つからないパルでも、変異なら届くことがある。 */
+function mutationParentsBlock(targetAsset){
+  if(typeof MutationCalc === "undefined") return "";
+  const t = BREEDING_DATA.pals[targetAsset];
+  if(!t || typeof t.combi_rank !== "number") return "";
+  if(!MutationCalc.canMutateInto(t)){
+    return `<p class="mut-none">${nameOf(targetAsset)}は<b>突然変異では出せません</b>(伝説・塔ボス・レイド等は変異先になりません)。</p>`;
+  }
+  if(!mutationParentsBlock._index) mutationParentsBlock._index = MutationCalc.buildRankIndex(BREEDING_DATA.pals);
+  const res = MutationCalc.parentsFor(targetAsset, BREEDING_DATA.pals, mutationParentsBlock._index, { limit: 12 });
+  if(!res.length) return "";
+
+  const rows = res.map(r => `
+    <div class="pair-item mut-pair">
+      ${iconOf(r.a) ? `<img src="${iconOf(r.a)}" alt="">` : ""}${nameOf(r.a)}
+      <span style="color:var(--brass);">×</span>
+      ${iconOf(r.b) ? `<img src="${iconOf(r.b)}" alt="">` : ""}${nameOf(r.b)}
+      <span class="mut-pct">${(r.probability*100).toFixed(1)}%</span>
+    </div>`).join("");
+
+  return `
+    <div class="mut-inline">
+      <div class="mut-head">
+        <b>突然変異</b>で狙う場合の親
+        <a href="palworld_mutation.html" class="mut-link">仕組み →</a>
+      </div>
+      <div class="route-pair-list">${rows}</div>
+      <div class="mut-note">
+        %は<b>変異が起きたときに${nameOf(targetAsset)}になる割合</b>です。変異そのものが起きる確率(約1〜3%)は別にかかるので、掛け算になります。
+        親のランクが近いほどレアな変異先を狙えます。
+      </div>
+    </div>`;
 }
 
 setupPicker(
