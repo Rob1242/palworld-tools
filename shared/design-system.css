@@ -432,9 +432,12 @@
     transition:opacity .45s ease, visibility .45s;
   }
   .arc-boot.is-leaving{opacity:0;visibility:hidden;}
-  /* 迎えている間は色を伏せておき、明ける瞬間に色が戻る */
-  .arc-boot-stage{filter:saturate(0);transition:filter .45s ease;}
-  .arc-boot.is-leaving .arc-boot-stage{filter:saturate(1);}
+  /* 最初は saturate(0) でモノクロにしていたが、色が戻るのがフェードの
+     0.45秒だけで誰にも見えず、しかも赤い瞳という一番の特徴を3秒間
+     隠すだけになっていた(2026-08-11、颯太さんの指摘で発覚)。
+     色は最初から出し、去り際にわずかに明るくするだけにする。 */
+  .arc-boot-stage{transition:filter .45s ease;}
+  .arc-boot.is-leaving .arc-boot-stage{filter:brightness(1.25);}
   .arc-boot-title{
     font-family:var(--font-display);font-size:15px;letter-spacing:.24em;
     color:var(--case-lit);text-transform:uppercase;
