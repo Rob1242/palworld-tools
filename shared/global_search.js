@@ -44,6 +44,7 @@
     { name: "パーティ編成ガイド", url: "palworld_party_guide.html" },
     { name: "拠点位置ガイド", url: "palworld_map.html?view=basespots" },
     { name: "更新履歴", url: "palworld_changelog.html" },
+    { name: "突然変異", url: "palworld_mutation.html" },
     { name: "公式リンク", url: "palworld_official.html" },
   ];
 

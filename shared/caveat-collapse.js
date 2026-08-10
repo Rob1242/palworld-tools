@@ -84,4 +84,12 @@
 
   if (mq.addEventListener) mq.addEventListener("change", apply);
   else if (mq.addListener) mq.addListener(apply); // 古いSafari
+
+  // 初期レイアウトが確定する前に apply() が走ると、実際より狭いと誤判定して
+  // ボタンが出たままになることがある。リサイズでも一応かけ直す。
+  var t = null;
+  window.addEventListener("resize", function () {
+    clearTimeout(t);
+    t = setTimeout(apply, 150);
+  });
 })();
