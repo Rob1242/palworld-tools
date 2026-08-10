@@ -17,7 +17,7 @@
 
   /* 絵の中身を差し替えたときに古いものを掴ませないための版。
      tools/spritegen/idle.py を回して絵を作り直したら、ここも上げること。 */
-  var V = "?v=20260810a";
+  var V = "?v=20260811a";
 
   var wrap = document.querySelector("body > .wrap");
   if (!wrap) return;                       // リダイレクト用の小さいページは対象外
@@ -231,30 +231,58 @@
                function (sprite) { badge.textContent = ""; badge.appendChild(sprite); });
   }
 
-  /* ===== 5. 起動ログ。セッション中の最初の1ページだけ ===== */
+  /* ===== 5. 起動演出。セッション中の最初の1ページだけ =====
+
+     モノクローナ(内部名 MonochromeQueen、パートナースキル「染まらぬ孤高の姫」)が
+     カーテシーで迎える。
+
+     **尺を固定しない。** 以前は1.8秒で必ず明けていたが、図鑑は本番で
+     読み込みに2.3秒かかるため、明けた直後にまだ読み込み中の画面が見えていた
+     (2026-08-10 実測)。お辞儀しきったところでページの準備を待ち、
+     整い次第フェードで明ける。待ち時間が演出に変わる。
+
+     ただし上限は設ける。回線が遅いときに閉じ込めないため。 */
   var booted = true;
   try { booted = !!sessionStorage.getItem("arc-booted"); } catch (e) {}
   if (!booted && !reduce) {
     try { sessionStorage.setItem("arc-booted", "1"); } catch (e) {}
-    var lines = [
-      "PALWORLD TOOLKIT BOOTING...",
-      "LOADING PAL DATABASE ... 298 ENTRIES <b>[OK]</b>",
-      "LOADING BREEDING TABLE ... <b>[OK]</b>",
-      "LOADING WORLD MAP TILES ... <b>[OK]</b>",
-      "CALIBRATING WORK SUITABILITY ... <b>[OK]</b>",
-      "READY."
-    ];
+
+    /* makeSprite はコマをループさせる作りなので、最後のコマの表示時間を
+       極端に長くして「立ったまま止まる」状態にする(1回だけのお辞儀にする)。 */
+    var BOW_FRAMES = [0, 1, 2, 3, 0];              // 立つ→沈む→最深→戻る→立つ
+    var BOW_DUR    = [260, 200, 420, 220, 999999];
+    var BOW_MS     = 260 + 200 + 420 + 220;        // お辞儀にかかる時間 1.1秒
+    var MAX_WAIT   = 4000;                         // これ以上は待たない
+
     var boot = el("div", "arc-boot");
     boot.setAttribute("aria-hidden", "true");
-    lines.forEach(function (t, i) {
-      var d = el("div", null, t);
-      d.style.animationDelay = (i * 0.2) + "s";
-      boot.appendChild(d);
-    });
+    var stage = el("div", "arc-boot-stage");
+    boot.appendChild(stage);
+    boot.appendChild(el("div", "arc-boot-title", "PALWORLD TOOLKIT"));
+    boot.appendChild(el("div", "arc-boot-sub", "お待ちください"));
     boot.appendChild(el("div", "arc-skip", "クリックでスキップ"));
     document.body.appendChild(boot);
-    var kill = function () { if (boot.parentNode) boot.remove(); };
+
+    var gone = false;
+    var kill = function () {
+      if (gone) return;
+      gone = true;
+      boot.classList.add("is-leaving");        // 色が戻りながらフェード
+      setTimeout(function () { if (boot.parentNode) boot.remove(); }, 500);
+    };
     boot.addEventListener("click", kill);
-    setTimeout(kill, 1800);
+
+    /* お辞儀を1回だけ再生し、終わったら「準備できたか」を待つ */
+    var bowDone = false;
+    makeSprite("arc-boot-sprite", "shared/sprites/curtsy-idle.png" + V, 3,
+               BOW_FRAMES, BOW_DUR,
+               function (sprite) { stage.appendChild(sprite); });
+    setTimeout(function () { bowDone = true; tryLeave(); }, BOW_MS);
+
+    var pageReady = document.readyState === "complete";
+    window.addEventListener("load", function () { pageReady = true; tryLeave(); });
+    function tryLeave() { if (bowDone && pageReady) kill(); }
+
+    setTimeout(kill, MAX_WAIT);                // 保険
   }
 })();
