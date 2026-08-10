@@ -887,15 +887,71 @@ function selfTestRoute(){
   console.log("[selfTest] 配合ロードマップBFSの自己診断完了(上に赤いAssertion failedが無ければOK)");
 }
 
+/* 所持パル同士の配合で、目的のパルが「突然変異で一発で出せるか」を調べる。
+ *
+ * 通常の配合ルートとは別経路。低確率だが世代を重ねずに届くことがあるので、
+ * ルートが長いときほど価値がある。計算は shared/mutation-calc.js。
+ * 変異そのものが起きる確率(約1〜3%)は別なので、そこは注記で断る。 */
+function mutationShortcut(targetAsset, ownedSet){
+  if(typeof MutationCalc === "undefined" || typeof BREEDING_PALS_DATA === "undefined") return "";
+  const target = BREEDING_PALS_DATA[targetAsset];
+  if(!target || typeof target.combi_rank !== "number") return "";
+  if(!MutationCalc.canMutateInto(target)) return "";      // そもそも変異先になれない
+
+  if(!mutationShortcut._index) mutationShortcut._index = MutationCalc.buildRankIndex(BREEDING_PALS_DATA);
+  const owned = [...ownedSet].filter(a => BREEDING_PALS_DATA[a] && typeof BREEDING_PALS_DATA[a].combi_rank === "number");
+  if(owned.length < 1) return "";
+
+  const hits = [];
+  for(let i = 0; i < owned.length; i++){
+    for(let j = i; j < owned.length; j++){
+      const p = MutationCalc.probabilityOf(targetAsset,
+        BREEDING_PALS_DATA[owned[i]].combi_rank,
+        BREEDING_PALS_DATA[owned[j]].combi_rank,
+        mutationShortcut._index);
+      if(p > 0) hits.push({ a: owned[i], b: owned[j], p });
+    }
+  }
+  if(!hits.length) return "";
+  hits.sort((x, y) => y.p - x.p);
+
+  const rows = hits.slice(0, 5).map(h => `
+    <li class="route-pair-item" style="border:1px dashed var(--brass-dim);">
+      <span class="unique-tag" style="background:var(--brass-dim);">変異</span>
+      ${iconOf(h.a) ? `<img src="${iconOf(h.a)}" alt="">` : ""}${nameOf(h.a)}
+      <span style="color:var(--brass);">×</span>
+      ${iconOf(h.b) ? `<img src="${iconOf(h.b)}" alt="">` : ""}${nameOf(h.b)}
+      <span style="color:var(--brass);">→</span>
+      ${iconOf(targetAsset) ? `<img src="${iconOf(targetAsset)}" alt="">` : ""}${nameOf(targetAsset)}
+      <span style="margin-left:auto;font-family:var(--font-mono);font-size:11.5px;color:var(--brass);">${(h.p*100).toFixed(1)}%</span>
+    </li>`).join("");
+
+  return `
+    <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line);">
+      <h3 style="font-family:var(--font-display);margin:0 0 4px;font-size:15px;">
+        突然変異なら一発で出せる組み合わせ
+      </h3>
+      <p style="font-size:11.5px;color:var(--parchment-dim);margin:0 0 10px;line-height:1.7;">
+        所持パル同士を配合して<b style="color:var(--brass);">変異が起きた場合</b>に、${nameOf(targetAsset)}になる組み合わせです。
+        右の%は<b>変異が起きたときに、その中で当たる割合</b>。変異そのものが起きる確率(約1〜3%、豪華野菜ケーキ使用時)は別にかかります。
+        <a href="palworld_mutation.html" style="color:var(--teal);">突然変異の仕組み →</a>
+      </p>
+      <ol class="route-pair-list" style="list-style:none;padding:0;margin:0;">${rows}</ol>
+      ${hits.length > 5 ? `<p style="font-size:11px;color:var(--parchment-dim);margin:8px 0 0;">ほか${hits.length - 5}組</p>` : ""}
+    </div>`;
+}
+
 function renderRoute(result, targetAsset, ownedSet){
   const box = document.getElementById("roadmapResult");
   box.className = "result-box";
   if(!result.found){
-    box.innerHTML = `<p>「${nameOf(targetAsset)}」への配合ルートが見つかりませんでした(所持パルの組み合わせだけでは最大20世代以内でも作れません。野生入手が必要な可能性があります)。</p>`;
+    box.innerHTML = `<p>「${nameOf(targetAsset)}」への配合ルートが見つかりませんでした(所持パルの組み合わせだけでは最大20世代以内でも作れません。野生入手が必要な可能性があります)。</p>`
+      + mutationShortcut(targetAsset, ownedSet);
     return;
   }
   if(result.alreadyOwned && !result.steps.length){
-    box.innerHTML = `<p>「${nameOf(targetAsset)}」はすでに所持しています(この個体だけで作れる自家配合限定種のため、他の配合ルートはありません)。</p>`;
+    box.innerHTML = `<p>「${nameOf(targetAsset)}」はすでに所持しています(この個体だけで作れる自家配合限定種のため、他の配合ルートはありません)。</p>`
+      + mutationShortcut(targetAsset, ownedSet);
     return;
   }
   const ownedNote = result.alreadyOwned
@@ -925,6 +981,7 @@ function renderRoute(result, targetAsset, ownedSet){
     </li>`;
   });
   html += `</ol><p style="margin-top:10px;color:var(--parchment-dim);font-size:12px;">${ico('egg')} = このルート内で先に配合して用意する必要があるパル(元々の所持パルではない)。${ico('warning')} = 所持個体の性別設定から見て配合できるか怪しいステップ(性別を設定していないパルは判定できません)。</p>`;
+  html += mutationShortcut(targetAsset, ownedSet);
   box.innerHTML = html;
 }
 

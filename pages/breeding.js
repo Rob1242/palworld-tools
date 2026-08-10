@@ -160,7 +160,42 @@ async function renderForwardResult(){
       ${childDexId ? `<a href="palworld_dex.html?id=${childDexId}" class="pair-pal-link">${childInner}</a>` : childInner}
     </div>
     <p style="margin-top:10px;color:var(--parchment-dim);font-size:13px;">が生まれます</p>
+    ${mutationBlock(forwardState.a, forwardState.b)}
   `;
+}
+
+/* この組で突然変異が起きたら何になるかを、通常の結果の下に添える。
+   計算は shared/mutation-calc.js。ここでは表示だけ。
+   稀にしか起きない話なので、主役の「が生まれます」を邪魔しないよう
+   区切り線の下に小さく置く。 */
+function mutationBlock(a, b){
+  if(typeof MutationCalc === "undefined") return "";
+  const pa = BREEDING_DATA.pals[a], pb = BREEDING_DATA.pals[b];
+  if(!pa || !pb || typeof pa.combi_rank !== "number" || typeof pb.combi_rank !== "number") return "";
+
+  if(!mutationBlock._index) mutationBlock._index = MutationCalc.buildRankIndex(BREEDING_DATA.pals);
+  const { range, list } = MutationCalc.candidates(pa.combi_rank, pb.combi_rank, mutationBlock._index);
+  if(!list.length) return "";
+
+  const top = list.slice(0, 6).map(c => {
+    const dex = dexIdOf(c.id);
+    const inner = `${iconOf(c.id) ? `<img src="${iconOf(c.id)}" alt="">` : ""}<span>${nameOf(c.id)}</span><i>${(c.probability*100).toFixed(1)}%</i>`;
+    return `<span class="mut-chip">${dex ? `<a href="palworld_dex.html?id=${dex}">${inner}</a>` : inner}</span>`;
+  }).join("");
+  const more = list.length > 6 ? `<span class="mut-more">ほか${list.length - 6}体</span>` : "";
+
+  return `
+    <div class="mut-inline">
+      <div class="mut-head">
+        まれに<b>突然変異</b>が起きた場合の行き先
+        <a href="palworld_mutation.html" class="mut-link">くわしく →</a>
+      </div>
+      <div class="mut-chips">${top}${more}</div>
+      <div class="mut-note">
+        目標値 ${range.lo.toFixed(0)}〜${range.hi.toFixed(0)}(強い方のランク ${Math.min(pa.combi_rank, pb.combi_rank)} / 差 ${Math.abs(pa.combi_rank - pb.combi_rank)})。
+        確率は候補内での割合で、変異そのものが起きる確率(約1〜3%)は別です。
+      </div>
+    </div>`;
 }
 
 setupPicker(document.querySelector('#pickerA input'), document.querySelector('#pickerA .pal-picker-results'), asset => { forwardState.a = asset; renderForwardResult(); });
