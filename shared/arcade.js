@@ -17,7 +17,7 @@
 
   /* 絵の中身を差し替えたときに古いものを掴ませないための版。
      tools/spritegen/idle.py を回して絵を作り直したら、ここも上げること。 */
-  var V = "?v=20260811a";
+  var V = "?v=20260811b";
 
   var wrap = document.querySelector("body > .wrap");
   if (!wrap) return;                       // リダイレクト用の小さいページは対象外
@@ -250,9 +250,10 @@
     /* makeSprite はコマをループさせる作りなので、最後のコマの表示時間を
        極端に長くして「立ったまま止まる」状態にする(1回だけのお辞儀にする)。 */
     var BOW_FRAMES = [0, 1, 2, 3, 0];              // 立つ→沈む→最深→戻る→立つ
-    var BOW_DUR    = [260, 200, 420, 220, 999999];
-    var BOW_MS     = 260 + 200 + 420 + 220;        // お辞儀にかかる時間 1.1秒
-    var MAX_WAIT   = 4000;                         // これ以上は待たない
+    var BOW_DUR    = [700, 500, 1100, 600, 999999];
+    var BOW_MS     = 700 + 500 + 1100 + 600;       // お辞儀にかかる時間 2.9秒
+    var MIN_SHOW   = 3000;                         // 最低これだけは見せる
+    var MAX_WAIT   = 6000;                         // これ以上は待たない
 
     var boot = el("div", "arc-boot");
     boot.setAttribute("aria-hidden", "true");
@@ -274,10 +275,10 @@
 
     /* お辞儀を1回だけ再生し、終わったら「準備できたか」を待つ */
     var bowDone = false;
-    makeSprite("arc-boot-sprite", "shared/sprites/curtsy-idle.png" + V, 3,
+    makeSprite("arc-boot-sprite", "shared/sprites/curtsy-idle.png" + V, 4,
                BOW_FRAMES, BOW_DUR,
                function (sprite) { stage.appendChild(sprite); });
-    setTimeout(function () { bowDone = true; tryLeave(); }, BOW_MS);
+    setTimeout(function () { bowDone = true; tryLeave(); }, Math.max(BOW_MS, MIN_SHOW));
 
     var pageReady = document.readyState === "complete";
     window.addEventListener("load", function () { pageReady = true; tryLeave(); });

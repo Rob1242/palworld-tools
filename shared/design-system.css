@@ -393,11 +393,11 @@
   }
   /* 待機モーション用。寸法と背景は arcade.js が絵ごとに入れる
      (コマ幅がパルごとに違うため、CSS側で決め打ちできない) */
-  .arc-mascot-sprite, .arc-badge-sprite{
+  .arc-mascot-sprite, .arc-badge-sprite, .arc-boot-sprite{
     image-rendering:pixelated;flex-shrink:0;
   }
   /* コマ送りは中の帯を transform でずらす(描き直しを起こさないため) */
-  .arc-mascot-sprite-strip, .arc-badge-sprite-strip{
+  .arc-mascot-sprite-strip, .arc-badge-sprite-strip, .arc-boot-sprite-strip{
     image-rendering:pixelated;background-repeat:no-repeat;
   }
   /* バッジの中身。文字だった頃の中央寄せをそのまま使う */
