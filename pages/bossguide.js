@@ -15,7 +15,11 @@ function palChip(name, count, passives){
   const dpsLink = hasCombatData
     ? `<a class="rm-link" href="palworld_combat.html?id=${encodeURIComponent(info.dex_id)}" target="_blank" rel="noopener">戦闘最適化で見る →</a>`
     : "";
-  return `<span class="pal-chip">${icon}<span class="pc-name">${name}</span>${countTag}${link}${dpsLink}</span>`;
+  // 入手時期を必ず添える。ボスの推奨レベルより後にしか手に入らないパルを
+  // 勧めている箇所が実際に3つあった(塔3のゴリガイア=野生Lv35、塔4のヒグルミ=
+  // 野生に出ない、レイドLv30のアズルーナ=野生Lv50)。編成自体は正しいので
+  // 差し替えず、いつ揃うのかが分かる状態にする。
+  return `<span class="pal-chip">${icon}<span class="pc-name">${name}</span>${obtainBadge(info && info.tier)}${countTag}${link}${dpsLink}</span>`;
 }
 
 function passiveTags(list){

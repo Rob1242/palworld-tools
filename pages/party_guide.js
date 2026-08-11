@@ -17,7 +17,9 @@ function computeCombatBestEarly(pal, lv){
 }
 
 
-function palChip(name, role, reason){
+// showObtain: 入手時期バッジを出すか。序盤タブは野生Lv5以下だけに絞って組んでいるので
+// 全部「序盤」になり、出しても情報量が無い。終盤タブと拠点タブでだけ出す。
+function palChip(name, role, reason, showObtain){
   const dp = PAL_DEX_DATA.find(p => p.name === name);
   if(!dp) return "";
   return `
@@ -25,7 +27,7 @@ function palChip(name, role, reason){
       <img src="${dp.icon}" alt="">
       <div>
         <div class="squad-role">${role}</div>
-        <div class="squad-name"><a href="palworld_dex.html?id=${dp.id}" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--parchment-dim);" target="_blank" rel="noopener">${dp.name}</a> ${dp.types.map(t=>`<span class="type-badge type-${t}">${t}</span>`).join(" ")}</div>
+        <div class="squad-name"><a href="palworld_dex.html?id=${dp.id}" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--parchment-dim);" target="_blank" rel="noopener">${dp.name}</a> ${dp.types.map(t=>`<span class="type-badge type-${t}">${t}</span>`).join(" ")}${showObtain ? obtainBadge(dp.tier) : ""}</div>
         <div class="squad-reason">${reason}</div>
       </div>
     </div>`;
@@ -90,15 +92,23 @@ function renderBase(){
       const m = RANCH_DROP_RE.exec(top.partner_skill.effect);
       return m ? `/ 産出: ${m[1]}` : "";
     })() : "";
+    // 12作業のうち9つで1位が「野生に出ないパル」だった(★8は全10体中9体がspecial。
+    // 野生で獲れるパルの上限は★7で、序盤に至っては★4が上限)。しかも同率が1体しか
+    // 無いので、この表だけ見ても代わりが分からなかった。1位は動かさず、
+    // 野生では手に入らないときだけ「野生で獲れる最上位」を併記する。
+    const wildTop = candidates.find(p => p.tier !== "special");
+    const wildNote = (top.tier === "special" && wildTop)
+      ? `<span class="wild-alt">野生で獲れる最上位: ${wildTop.name} ${"★".repeat(wildTop.work[w])}${obtainBadge(wildTop.tier)}</span>`
+      : "";
     return `<tr>
       <td>${w}</td>
-      <td><img src="${top.icon}" alt="">${top.name}</td>
+      <td><img src="${top.icon}" alt="">${top.name}${obtainBadge(top.tier)}</td>
       <td class="stars">${"★".repeat(top.work[w])}</td>
-      <td>${extra}${ranchNote}</td>
+      <td>${extra}${ranchNote}${wildNote}</td>
     </tr>`;
   }).join("");
   box.innerHTML = `
-    <p class="section-lead">全298種の中から、作業タイプごとに適性レベル(★の数)が最も高いパルを1体ずつ選んだ「作業班」の一覧です。同レベルのパルが複数いる場合は他候補の数を併記しています。牧場だけは配置時の産出アイテムも表示します(パートナースキルの説明文から判明したもののみ)。</p>
+    <p class="section-lead">全298種の中から、作業タイプごとに適性レベル(★の数)が最も高いパルを1体ずつ選んだ「作業班」の一覧です。同レベルのパルが複数いる場合は他候補の数を併記しています。牧場だけは配置時の産出アイテムも表示します(パートナースキルの説明文から判明したもののみ)。<b>★の最上位は多くが配合・ボス限定のパル</b>なので、野生で捕まえられるかどうかを名前の横のバッジで示し、野生に出ないパルが1位のときは「野生で獲れる最上位」も併記しています。</p>
     <div style="overflow-x:auto;">
     <table class="work-table">
       <thead><tr><th>作業</th><th>おすすめパル</th><th>適性</th><th>備考</th></tr></thead>
@@ -127,12 +137,12 @@ function renderCombat(){
   box.innerHTML = `
     <p class="section-lead">Lv80・星4・才能100%・ソウル60%を想定した終盤の汎用6体編成です。属性の異なる2枚看板アタッカー+各アタッカー専属のバフ役+保険(蘇生)+盾役、という役割分担で組んでいます。ボスごとの弱点属性に合わせて差し替えたい場合は<a href="palworld_tierlist.html">最強Tier表(戦闘属性別)</a>や<a href="palworld_bossguide.html">ボス攻略</a>ページの個別編成を参照してください。</p>
     <div class="squad-grid">
-      ${palChip(top1.dp.name, "メインアタッカー①", `全パル中トップの持続DPS(${Math.round(top1.best.sustained).toLocaleString()})。使用技: ${top1.best.jp_name}(威力${top1.best.power}・CT${top1.best.cooldown}秒)`)}
-      ${palChip(top2.dp.name, "メインアタッカー②", `氷属性トップの持続DPS(${Math.round(top2.best.sustained).toLocaleString()})。①と属性が異なり、氷が弱点のボス(塔ボス7・レイドボス多数)を任せられる。`)}
-      ${palChip("ミルフィー", "バフ役①", "パートナースキルで<b>無属性パルの攻撃力が上昇</b>。①のダメージを底上げする専属サポート。")}
-      ${palChip("フブキツネ", "バフ役②", "パートナースキルで<b>氷属性パルの攻撃力が上昇</b>。②のダメージを底上げする専属サポート。")}
-      ${palChip("モモンパ", "保険枠", "パートナースキルで<b>瀕死時にプレイヤーを自動蘇生</b>。ボス戦での事故死を防ぐ定番の保険役(ボス攻略ページの多くの編成でも採用)。")}
-      ${palChip("アイギルガ", "盾役", "ライド中、イージスチャージ使用時の<b>シールド継続時間が延長</b>。プレイヤー自身の生存力を底上げする守り役。")}
+      ${palChip(top1.dp.name, "メインアタッカー①", `全パル中トップの持続DPS(${Math.round(top1.best.sustained).toLocaleString()})。使用技: ${top1.best.jp_name}(威力${top1.best.power}・CT${top1.best.cooldown}秒)`, true)}
+      ${palChip(top2.dp.name, "メインアタッカー②", `氷属性トップの持続DPS(${Math.round(top2.best.sustained).toLocaleString()})。①と属性が異なり、氷が弱点のボス(塔ボス7・レイドボス多数)を任せられる。`, true)}
+      ${palChip("ミルフィー", "バフ役①", "パートナースキルで<b>無属性パルの攻撃力が上昇</b>。①のダメージを底上げする専属サポート。", true)}
+      ${palChip("フブキツネ", "バフ役②", "パートナースキルで<b>氷属性パルの攻撃力が上昇</b>。②のダメージを底上げする専属サポート。", true)}
+      ${palChip("モモンパ", "保険枠", "パートナースキルで<b>瀕死時にプレイヤーを自動蘇生</b>。ボス戦での事故死を防ぐ定番の保険役(ボス攻略ページの多くの編成でも採用)。", true)}
+      ${palChip("アイギルガ", "盾役", "ライド中、イージスチャージ使用時の<b>シールド継続時間が延長</b>。プレイヤー自身の生存力を底上げする守り役。", true)}
     </div>
     <p class="section-lead" style="margin-top:8px;">属性バフを持つパルは現状9属性中8属性分しか確認できておらず(<a href="palworld_reference.html">早見表のパーティバフ一覧</a>参照)、竜属性の専属バフ役は今のところ見つかっていません。竜属性を主力にする場合はバフ役なしで組む必要があります。</p>
   `;

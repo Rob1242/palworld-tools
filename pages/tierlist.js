@@ -14,7 +14,7 @@ const ELEMENT_TYPES = ["無","炎","水","雷","地","草","氷","竜","闇"];
 // 配合限定のパルが上位に出ること自体は正しい。ただし見る側は「S位の採掘パル」を見て
 // 捕まえに行こうとするので、配合・ボス限定か序盤で野生に出るのかが分からないと使えない。
 // ランキングから除外はせず、入手時期バッジを添えて補足する(2026-08-09)。
-const OBTAIN_TIER_LABEL = { early: "序盤", mid: "中盤", late: "終盤", special: "配合・ボス" };
+// バッジ本体は shared/util.js の obtainBadge()。ボス攻略・パーティ編成でも同じものを使う。
 
 function buildEntries(){
   return PAL_DEX_DATA.map(dp => {
@@ -96,7 +96,7 @@ function render(){
     <div class="rank-row">
       <div class="rnum">#${e.rank}</div>
       <div class="icon-wrap"><img src="${e.icon}" loading="lazy" alt=""></div>
-      <div><a href="palworld_dex.html?id=${e.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;"><span class="pname" style="border-bottom:1px dashed var(--parchment-dim);">${e.name}</span></a><span class="pname-en">${e.en_name||''}</span>${OBTAIN_TIER_LABEL[e.obtainTier] ? `<span class="tier-obtain ${e.obtainTier}">${OBTAIN_TIER_LABEL[e.obtainTier]}</span>` : ''}</div>
+      <div><a href="palworld_dex.html?id=${e.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;"><span class="pname" style="border-bottom:1px dashed var(--parchment-dim);">${e.name}</span></a><span class="pname-en">${e.en_name||''}</span>${obtainBadge(e.obtainTier)}</div>
       <div class="tier-badge ${e.tier}">${e.tier}</div>
       <div class="detail-text"><b>${e.label}: ${e.isLevel ? "★".repeat(e.score) : Math.round(e.score).toLocaleString()}</b>${e.detail ? ' / '+e.detail : ''}</div>
     </div>

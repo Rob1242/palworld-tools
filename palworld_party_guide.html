@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_party_guide.html">
 <link rel="canonical" href="https://rob1242.github.io/palworld-tools/palworld_party_guide.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="shared/design-system.css?v=20260811d">
+<link rel="stylesheet" href="shared/design-system.css?v=20260811e">
 <style>
   *{box-sizing:border-box;}
   body{margin:0;background: var(--bg);
@@ -63,6 +63,9 @@
   .work-table img{width:28px;height:28px;border-radius:50%;object-fit:cover;background:var(--panel2);border:1px solid var(--line);vertical-align:middle;margin-right:8px;}
   .work-table .stars{color:var(--brass);font-family:var(--font-mono);font-size:11px;}
   .work-table tr:hover{background:rgba(255,255,255,.02);}
+  /* 1位が野生に出ないパルのとき、備考欄に出す代替案。備考の他の文言(同率数・産出)と
+     並ぶので、改行して独立した1行にする。 */
+  .work-table .wild-alt{display:block;margin-top:4px;color:var(--parchment-dim);}
 
   .link-row{font-size:11.5px;color:var(--parchment-dim);margin-top:6px;}
   .link-row a{color:var(--teal);}
@@ -133,9 +136,10 @@
 <script src="game_data/combat_data.js"></script>
 <script src="game_data/spawn_data.js"></script>
 <script src="game_data/party_buffs_data.js"></script>
+<script src="shared/util.js?v=20260811e"></script>
 <script src="shared/combat-formula.js"></script>
-<script src="pages/party_guide.js?v=20260811d"></script>
-<script src="shared/arcade.js?v=20260811d" defer></script>
-<script src="shared/sfx.js?v=20260811d" defer></script>
+<script src="pages/party_guide.js?v=20260811e"></script>
+<script src="shared/arcade.js?v=20260811e" defer></script>
+<script src="shared/sfx.js?v=20260811e" defer></script>
 </body>
 </html>
