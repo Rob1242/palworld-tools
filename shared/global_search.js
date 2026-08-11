@@ -9,15 +9,15 @@
 // 遅延ロードする(全ページに1.5MB超のJSONを常時読ませるのは重すぎるため)。
 (function(){
   const REQUIRED_SCRIPTS = [
-    "game_data/items_dex_data.js",
-    "game_data/dex_data.js",
-    "game_data/items_obtain_data.js",
+    "game_data/items_dex_data.js?v=b2b5cfb4",
+    "game_data/dex_data.js?v=5e723d9a",
+    "game_data/items_obtain_data.js?v=d1f4f9c2",
     // 使うのはパルの基本情報だけなので、配合ペア表まで含む breeding_data.js(3.3MB)ではなく
     // 軽量版(55KB)を読む。検索を1回使うだけで3MB以上落ちてくるのを避けるため(2026-08)。
-    "game_data/breeding_pals_data.js?v=20260810j",
-    "game_data/missions_data.js",
-    "game_data/skills_page_data.js",
-    "game_data/passives_page_data.js",
+    "game_data/breeding_pals_data.js?v=b1ebe621",
+    "game_data/missions_data.js?v=76eaa318",
+    "game_data/skills_page_data.js?v=b05d17f9",
+    "game_data/passives_page_data.js?v=603eb677",
   ];
 
   const PAGES = [
@@ -42,6 +42,8 @@
     { name: "ミッション一覧", url: "palworld_map.html?view=missions" },
     { name: "素質値計算機", url: "palworld_iv_calc.html" },
     { name: "経験値計算機", url: "palworld_exp_calc.html" },
+    { name: "素材計算機", url: "palworld_material_calc.html" },
+    { name: "ケーキ材料", url: "palworld_material_calc.html" },
     { name: "レベル上げ", url: "palworld_exp_calc.html" },
     { name: "パーティ編成ガイド", url: "palworld_party_guide.html" },
     { name: "拠点位置ガイド", url: "palworld_map.html?view=basespots" },

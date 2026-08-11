@@ -7,14 +7,14 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-<title>経験値・レベル上げ計算機 | Palworld攻略ツール</title>
-<meta name="description" content="パルワールドの経験値計算機。今のレベルから目標レベルまでに必要な経験値と、何体倒せば届くかの目安をプレイヤー・パル別に計算します。">
+<title>素材計算機｜必要な材料を根っこまで計算 | Palworld攻略ツール</title>
+<meta name="description" content="パルワールドの素材計算機。ケーキなど作りたいものと個数を入れると、必要な材料を根っこの素材まで展開し、買い物リストにまとめます。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="経験値・レベル上げ計算機 | Palworld攻略ツール">
-<meta property="og:description" content="パルワールドの経験値計算機。今のレベルから目標レベルまでに必要な経験値と、何体倒せば届くかの目安をプレイヤー・パル別に計算します。">
+<meta property="og:title" content="素材計算機｜必要な材料を根っこまで計算 | Palworld攻略ツール">
+<meta property="og:description" content="パルワールドの素材計算機。ケーキなど作りたいものと個数を入れると、必要な材料を根っこの素材まで展開し、買い物リストにまとめます。">
 <meta property="og:image" content="https://rob1242.github.io/palworld-tools/game_data/art/hero_sphere_2.webp">
-<meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_exp_calc.html">
-<link rel="canonical" href="https://rob1242.github.io/palworld-tools/palworld_exp_calc.html">
+<meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_material_calc.html">
+<link rel="canonical" href="https://rob1242.github.io/palworld-tools/palworld_material_calc.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="shared/design-system.css?v=20260811n">
 <style>
@@ -31,9 +31,6 @@
   .caveat{font-size:11.5px;color:var(--parchment-dim);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-bottom:16px;line-height:1.7;}
   .caveat b{color:var(--brass);}
 
-  .mode-tabs{display:flex;gap:2px;margin-bottom:16px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
-  .mode-tab{padding:9px 22px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:14.5px;}
-  .mode-tab.active{background:var(--teal);color:#08222c;box-shadow:0 0 10px rgba(53,210,255,.4);}
 
   .section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:14px;box-shadow:0 8px 24px rgba(0,0,0,.2);}
   .section h2{font-size:11.5px;margin:-16px -18px 14px;padding:10px 18px;background:rgba(0,0,0,.24);border-bottom:1px solid var(--line);border-radius:10px 10px 0 0;color:var(--brass);letter-spacing:.1em;text-transform:uppercase;font-weight:700;}
@@ -43,29 +40,40 @@
   .form-field input:focus,.form-field select:focus{outline:none;border-color:var(--teal);}
   .field-note{font-size:10.5px;color:var(--parchment-dim);margin-top:4px;}
 
-  /* 答えは1つだけ大きく出す。ここを探して来る人がほとんどなので、
-     細かい内訳より先に目に入る位置と大きさにする。 */
-  .answer{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
-  .answer-num{font-family:var(--font-mono);font-size:34px;font-weight:700;color:var(--lime);line-height:1.1;}
-  .answer-unit{font-size:13px;color:var(--parchment-dim);}
-  .answer-sub{font-size:12px;color:var(--parchment-dim);margin-top:8px;line-height:1.7;}
-  .answer-sub b{color:var(--parchment);}
-  .warn{color:var(--danger);font-weight:700;}
 
-  .kill-table{width:100%;border-collapse:collapse;font-size:12.5px;}
-  .kill-table th{text-align:left;color:var(--brass);font-size:11px;letter-spacing:.05em;padding:8px 10px;border-bottom:1px solid var(--line);}
-  .kill-table td{padding:8px 10px;border-bottom:1px solid var(--line);font-family:var(--font-mono);}
-  .kill-table td:first-child{font-family:var(--font-body);}
-  .kill-table tr:hover{background:rgba(255,255,255,.02);}
-  .kill-table .num{text-align:right;}
-  .kill-table .hi{color:var(--lime);font-weight:700;}
+  .preset-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+  .preset{padding:7px 14px;border-radius:20px;border:1px solid var(--line);background:var(--panel);
+    color:var(--parchment-dim);font-size:12.5px;cursor:pointer;font-family:var(--font-body);}
+  .preset.active{background:var(--teal);color:#08222c;border-color:var(--teal);font-weight:700;}
 
-  .breakdown{max-height:320px;overflow-y:auto;}
-  .breakdown table{width:100%;border-collapse:collapse;font-size:12px;}
-  .breakdown th{position:sticky;top:0;background:var(--panel);text-align:right;color:var(--brass);font-size:10.5px;padding:6px 10px;border-bottom:1px solid var(--line);}
-  .breakdown th:first-child{text-align:left;}
-  .breakdown td{padding:5px 10px;border-bottom:1px solid var(--line);font-family:var(--font-mono);text-align:right;}
-  .breakdown td:first-child{text-align:left;font-family:var(--font-body);}
+  .target-head{display:flex;align-items:center;gap:12px;margin-bottom:4px;}
+  .target-head img{width:40px;height:40px;object-fit:contain;background:var(--panel2);
+    border:1px solid var(--line);border-radius:8px;padding:4px;}
+  .target-name{font-family:var(--font-display);font-weight:700;font-size:20px;color:var(--parchment);}
+
+  /* 買い物リストが主役。ここだけ見れば畑と牧場の目標が決まる */
+  .shop-table{width:100%;border-collapse:collapse;font-size:13px;}
+  .shop-table th{text-align:left;color:var(--brass);font-size:11px;letter-spacing:.05em;
+    padding:8px 10px;border-bottom:1px solid var(--line);}
+  .shop-table td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle;}
+  .shop-table td.num{text-align:right;font-family:var(--font-mono);font-weight:700;
+    color:var(--lime);font-size:15px;white-space:nowrap;}
+  .shop-table td.src{color:var(--parchment-dim);font-size:11.5px;}
+  .shop-table img.mini{width:22px;height:22px;object-fit:contain;vertical-align:middle;margin-right:8px;}
+  .shop-table tr:hover{background:rgba(255,255,255,.02);}
+
+  .mid-row{display:flex;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--line);font-size:12.5px;}
+  .mid-row:last-child{border-bottom:none;}
+
+  /* 展開図。行の深さは padding-left で表す(枠線を引くと段が増えるほど窮屈になる) */
+  .tree-row{display:flex;gap:8px;align-items:center;padding:4px 0;font-size:12.5px;}
+  .tree-row img{width:20px;height:20px;object-fit:contain;flex-shrink:0;}
+  .tree-row.leaf .t-name{color:var(--parchment-dim);}
+  .t-name{font-weight:600;}
+  .t-qty{font-family:var(--font-mono);color:var(--lime);}
+  .t-from{color:var(--parchment-dim);font-size:11px;margin-left:auto;text-align:right;}
+  .t-from.warn{color:var(--danger);}
+  .dim{color:var(--parchment-dim);font-size:12px;}
 
   .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;line-height:1.7;}
   .footer-note a{color:var(--brass);}
@@ -73,14 +81,14 @@
 <script src="shared/analytics.js?v=20260811n"></script>
 <script src="shared/img-fallback.js?v=20260811n"></script>
 <script src="shared/global_search.js?v=20260811n" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"経験値・レベル上げ計算機","url":"https://rob1242.github.io/palworld-tools/palworld_exp_calc.html","description":"パルワールドの経験値計算機。今のレベルから目標レベルまでに必要な経験値と、何体倒せば届くかの目安をプレイヤー・パル別に計算します。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"素材計算機｜必要な材料を根っこまで計算","url":"https://rob1242.github.io/palworld-tools/palworld_material_calc.html","description":"パルワールドの素材計算機。ケーキなど作りたいものと個数を入れると、必要な材料を根っこの素材まで展開し、買い物リストにまとめます。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <a class="brand-link" href="palworld_home.html">
       <div class="brand-badge">P</div>
-      <h1 class="title glitch-hover" data-text="経験値計算機"><small>Palworld 攻略ツール</small>経験値・レベル上げ計算機</h1>
+      <h1 class="title glitch-hover" data-text="素材計算機"><small>Palworld 攻略ツール</small>素材計算機</h1>
     </a>
     <div class="header-right">
       <div class="gsearch-wrap">
@@ -106,8 +114,8 @@
       <a href="palworld_reference.html"><span>早見表</span></a>
       <a href="palworld_technology.html"><span>テクノロジー</span></a>
       <a href="palworld_iv_calc.html"><span>素質値計算機</span></a>
-      <a href="palworld_exp_calc.html" class="current"><span>経験値計算機</span></a>
-      <a href="palworld_material_calc.html"><span>素材計算機</span></a>
+      <a href="palworld_exp_calc.html"><span>経験値計算機</span></a>
+      <a href="palworld_material_calc.html" class="current"><span>素材計算機</span></a>
       <a href="palworld_party_guide.html"><span>パーティ編成ガイド</span></a>
       <a href="palworld_changelog.html"><span>更新履歴</span></a>
     </nav>
@@ -115,69 +123,55 @@
   </header>
 
   <div class="caveat">
-    ゲーム内の経験値テーブルをそのまま使って、今のレベルから目標レベルまでに必要な経験値を出します。プレイヤーとパルは別のテーブルなので、上のタブで切り替えてください。
-    <b>正式版1.0の上限はプレイヤー・パルとも Lv80</b> です(テーブル自体はLv100まで入っていますが、Lv81以降は必要経験値も獲得経験値も減少する古いデータの残骸だったため、このツールでは扱いません)。
-    「何体倒せば届くか」は<b>テーブル上の獲得経験値をそのまま割った目安</b>です。実際にはパーティで分け合ったり、料理・ケーキ・サーバー設定の倍率で変わるため、下限の見積もりとして見てください。
-  </div>
-
-  <div class="mode-tabs">
-    <button class="mode-tab active" data-mode="player">プレイヤー</button>
-    <button class="mode-tab" data-mode="pal">パル</button>
+    作りたいものと個数を入れると、<b>それ以上分解できない素材まで一気に展開</b>します。上の「必要な材料」だけ見れば、畑と牧場に何を何個用意すればいいかが分かります。
+    材料と作業台はゲーム内のレシピをそのまま使っています。<b>素材を落とすパルも併記</b>しているので、足りないものをどのパルで賄うかもここで決められます。
+    配合のケーキを入口に置いていますが、作れるものなら何でも選べます。
   </div>
 
   <div class="section">
-    <h2>今の状況</h2>
+    <h2>作りたいもの</h2>
+    <div class="preset-row" id="presetBox"></div>
     <div class="form-grid">
       <div class="form-field">
-        <label for="curLv">今のレベル</label>
-        <input type="number" id="curLv" value="30" min="1" max="80">
+        <label for="itemSelect">アイテム</label>
+        <select id="itemSelect"></select>
       </div>
       <div class="form-field">
-        <label for="tgtLv">目標レベル</label>
-        <input type="number" id="tgtLv" value="80" min="1" max="80">
-      </div>
-      <div class="form-field">
-        <label for="curExp">今のレベルで貯まっている経験値(任意)</label>
-        <input type="number" id="curExp" value="0" min="0" placeholder="0">
-        <div class="field-note" id="curExpNote"></div>
+        <label for="qtyInput">個数</label>
+        <input type="number" id="qtyInput" value="1" min="1" max="9999">
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>必要な経験値</h2>
-    <div class="answer">
-      <div class="answer-num" id="needNum">—</div>
-      <div class="answer-unit" id="needUnit">EXP</div>
+    <h2>必要な材料(これ以上分解できないもの) <span id="rootCount" style="color:var(--parchment-dim);font-weight:400;"></span></h2>
+    <div class="target-head">
+      <span id="targetIcon"></span>
+      <span class="target-name" id="targetName"></span>
     </div>
-    <div class="answer-sub" id="needSub"></div>
-  </div>
-
-  <div class="section">
-    <h2>何体倒せば届くか(目安)</h2>
     <div style="overflow-x:auto;">
-      <table class="kill-table">
-        <thead><tr><th>倒す相手</th><th class="num">1体あたり</th><th class="num">必要な数</th></tr></thead>
-        <tbody id="killBody"></tbody>
+      <table class="shop-table">
+        <thead><tr><th>素材</th><th class="num" style="text-align:right;">必要数</th><th>主な入手先</th></tr></thead>
+        <tbody id="shoppingBody"></tbody>
       </table>
     </div>
-    <div class="answer-sub" id="killNote"></div>
   </div>
 
   <div class="section">
-    <h2>レベルごとの内訳</h2>
-    <div class="breakdown">
-      <table>
-        <thead><tr><th>Lv</th><th>次のLvまで</th><th>ここまでの累計</th><th>この相手を倒すと</th></tr></thead>
-        <tbody id="breakdownBody"></tbody>
-      </table>
-    </div>
+    <h2>途中で作るもの</h2>
+    <div id="midBox"></div>
+  </div>
+
+  <div class="section">
+    <h2>展開図</h2>
+    <div id="treeBox"></div>
   </div>
 
   <p class="footer-note">経験値テーブルはゲーム内データ(pal_exp_table)をそのまま使用しています。当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。<br><a href="palworld_official.html">公式サイト・各プラットフォームのリンクはこちら</a><br><span class="data-version">収録データ: パルワールド 正式版 v1.0(2026-07-11 取得) / サイト最終更新: 2026-08-11</span></p>
 </div>
-<script src="game_data/exp_table_data.js?v=f957d5e1"></script>
-<script src="pages/exp_calc.js?v=20260811n"></script>
+<script src="game_data/items_dex_data.js?v=b2b5cfb4"></script>
+<script src="game_data/items_obtain_data.js?v=d1f4f9c2"></script>
+<script src="pages/material_calc.js?v=20260811n"></script>
 <script src="shared/caveat-collapse.js?v=20260811n" defer></script>
 <script src="shared/arcade.js?v=20260811n" defer></script>
 <script src="shared/sfx.js?v=20260811n" defer></script>
