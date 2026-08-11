@@ -534,3 +534,10 @@
   -webkit-mask-image:linear-gradient(#000 40%, transparent 100%);
           mask-image:linear-gradient(#000 40%, transparent 100%);
 }
+
+/* フッターの「収録データ: …」の行(scripts/inject_data_version.py が入れる)。
+   権利表記より一段落として、注記であることを見た目でも分かるようにする。
+   .footer-note は各ページのインラインCSSで定義されているので、こちらは
+   色と字送りだけを足す(サイズは親を継ぐ)。 */
+.data-version{display:inline-block;margin-top:4px;font-family:var(--font-mono);
+  font-size:.92em;letter-spacing:.02em;opacity:.75;}
