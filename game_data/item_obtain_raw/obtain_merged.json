@@ -1,29 +1,4 @@
 {
- "AI Core": {
-  "production": [
-   {
-    "workbench_asset": "Advanced_Workshop",
-    "materials": [
-     {
-      "item_asset": "Computer",
-      "qty": "5"
-     },
-     {
-      "item_asset": "Soralite_Ingot",
-      "qty": "10"
-     },
-     {
-      "item_asset": "Thermal_Core",
-      "qty": "2"
-     },
-     {
-      "item_asset": "Ancient_Civilization_Core",
-      "qty": "1"
-     }
-    ]
-   }
-  ]
- },
  "Diamond": {
   "dropped_by": [
    {
@@ -123,6 +98,31 @@
     "pal_jp_name": "ゴルディング",
     "qty": "1",
     "rate": "100%"
+   }
+  ]
+ },
+ "AI Core": {
+  "production": [
+   {
+    "workbench_asset": "Advanced_Workshop",
+    "materials": [
+     {
+      "item_asset": "Computer",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Soralite_Ingot",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Thermal_Core",
+      "qty": "2"
+     },
+     {
+      "item_asset": "Ancient_Civilization_Core",
+      "qty": "1"
+     }
+    ]
    }
   ]
  },
@@ -39527,6 +39527,221 @@
      {
       "item_asset": "Bellanoir_Liberos_Slab_Fragment",
       "qty": "4"
+     }
+    ]
+   }
+  ]
+ },
+ "Average Feed Bag": {
+  "production": [
+   {
+    "workbench_asset": "High_Quality_Workbench",
+    "materials": [
+     {
+      "item_asset": "Wood",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Giant Feed Bag": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Hardwood",
+      "qty": "50"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "200"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "50"
+     },
+     {
+      "item_asset": "Carbon_Fiber",
+      "qty": "20"
+     }
+    ]
+   }
+  ]
+ },
+ "Giant Pal Soul": {
+  "production": [
+   {
+    "workbench_asset": "Crusher",
+    "materials": [
+     {
+      "item_asset": "Large_Pal_Soul",
+      "qty": "2"
+     }
+    ]
+   }
+  ]
+ },
+ "Giant Pouch": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line_II",
+    "materials": [
+     {
+      "item_asset": "High_Quality_Wooden_Board",
+      "qty": "50"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "120"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "40"
+     },
+     {
+      "item_asset": "Carbon_Fiber",
+      "qty": "20"
+     }
+    ]
+   }
+  ]
+ },
+ "Huge Feed Bag": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "Hardwood",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "90"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "35"
+     },
+     {
+      "item_asset": "Carbon_Fiber",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Large Feed Bag": {
+  "production": [
+   {
+    "workbench_asset": "High_Quality_Workbench",
+    "materials": [
+     {
+      "item_asset": "Wood",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "50"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "20"
+     }
+    ]
+   }
+  ]
+ },
+ "Large Pal Soul": {
+  "production": [
+   {
+    "workbench_asset": "Crusher",
+    "materials": [
+     {
+      "item_asset": "Medium_Pal_Soul",
+      "qty": "2"
+     }
+    ]
+   }
+  ]
+ },
+ "Large Pouch": {
+  "production": [
+   {
+    "workbench_asset": "Production_Assembly_Line",
+    "materials": [
+     {
+      "item_asset": "High_Quality_Wooden_Board",
+      "qty": "20"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "80"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "30"
+     },
+     {
+      "item_asset": "Carbon_Fiber",
+      "qty": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "Medium Pal Soul": {
+  "production": [
+   {
+    "workbench_asset": "Crusher",
+    "materials": [
+     {
+      "item_asset": "Small_Pal_Soul",
+      "qty": "2"
+     }
+    ]
+   }
+  ]
+ },
+ "Small Feed Bag": {
+  "production": [
+   {
+    "workbench_asset": "High_Quality_Workbench",
+    "materials": [
+     {
+      "item_asset": "Wood",
+      "qty": "5"
+     },
+     {
+      "item_asset": "Fiber",
+      "qty": "10"
+     },
+     {
+      "item_asset": "Leather",
+      "qty": "3"
+     }
+    ]
+   }
+  ]
+ },
+ "Small Pal Soul": {
+  "production": [
+   {
+    "workbench_asset": "Crusher",
+    "materials": [
+     {
+      "item_asset": "Medium_Pal_Soul",
+      "qty": "1"
      }
     ]
    }
