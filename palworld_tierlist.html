@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_tierlist.html">
 <link rel="canonical" href="https://rob1242.github.io/palworld-tools/palworld_tierlist.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="shared/design-system.css?v=20260811e">
+<link rel="stylesheet" href="shared/design-system.css?v=20260811f">
 <style>
   ::selection{background:var(--lime);color:#0a0d12;}
   *{box-sizing:border-box;}
@@ -67,6 +67,18 @@
   .type-badge.type-闇{background:var(--t-闇);}
   .detail-text{font-size:11.5px;color:var(--parchment-dim);line-height:1.5;}
   .detail-text b{color:var(--parchment);font-weight:700;}
+
+  /* 拠点作業・配合牧場は★のレベルで束ねる(2026-08-11)。順位のパーセンタイルで
+     Tierを切ると同じ★が並び順だけで別Tierに割れるため、ランクを出すのをやめた。
+     ★は見出しに1回だけ出し、行からは順位もTierバッジも消して3列にする。 */
+  .level-head{display:flex;align-items:baseline;gap:10px;padding:14px 4px 4px;border-bottom:1px solid var(--line);margin-top:6px;}
+  .level-head:first-child{margin-top:0;}
+  .level-stars{color:var(--brass);font-family:var(--font-mono);font-size:14px;letter-spacing:.06em;}
+  .level-label{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--parchment);}
+  .level-count{font-family:var(--font-mono);font-size:11px;color:var(--parchment-dim);margin-left:auto;}
+  /* 3列目(牧場の産出アイテム)は無い行があるので auto。1fr にすると拠点作業タブで
+     右半分が丸ごと空いて、名前が左に押し込まれる。 */
+  .rank-row.level{grid-template-columns:40px 1fr auto;}
   .na{color:var(--parchment-dim);font-style:italic;font-size:11.5px;}
 
   .empty-msg{text-align:center;padding:40px 0;color:var(--parchment-dim);font-size:13px;}
@@ -80,6 +92,11 @@
     .rank-row > div:nth-child(3){flex:1;min-width:0;}
     .rank-row .tier-badge{flex-shrink:0;}
     .rank-row .detail-text{flex-basis:100%;}
+    /* ★束ね表示の行は順位もTierバッジも無いので、名前が3列目ではなく2列目にいる。
+       nth-child(3)の指定(詳細度が.detail-textより高い)がそのままだと詳細テキストに
+       flex:1が当たり、名前は伸びず詳細は折り返さなくなる。 */
+    .rank-row.level > div:nth-child(2){flex:1;min-width:0;}
+    .rank-row.level > div:nth-child(3){flex-basis:100%;flex-grow:0;}
   }
 </style>
 <script src="shared/analytics.js"></script>
@@ -129,8 +146,9 @@
   <p class="caveat">
     「戦闘」は Lv80・星4・才能100%・ソウル60% を仮定し、そのパルの持ち技の中から最も持続火力(威力×属性一致補正÷クールタイム、汎用パッシブ4枠込み)が高い技を選んだ場合のDPSで評価しています(戦闘最適化ツールの計算式と同じ)。
     「マウント」は乗騎速度(ライド疾走)で評価し、非乗騎パルは対象外です(水上専用パルの正確な泳ぎ速度は<a href="palworld_ride.html">ライド速度ランキング</a>ページを参照してください)。
-    Tierは各カテゴリ内の相対的な順位(上位5%=SS、15%=S、35%=A、60%=B、85%=C、それ以下=D)によるもので、目安としてご覧ください。
-    「戦闘(属性別)」はその属性を持つパルだけに絞った上でのDPS順位、「拠点作業」は選択した作業の適性レベル(星の数、1〜8)順位、「配合牧場」は牧場作業に配置した際の産出アイテム(パルのパートナースキル説明文から抽出)付きの牧場適性ランキングです。
+    SS〜DのTierが付くのは「戦闘」「戦闘(属性別)」「マウント」の3カテゴリだけです。各カテゴリ内の相対的な順位(上位5%=SS、15%=S、35%=A、60%=B、85%=C、それ以下=D)によるもので、目安としてご覧ください。
+    「拠点作業」「配合牧場」はTierを付けず、<b>ゲームが持っている作業適性レベル(星の数、1〜8)そのもので束ねて</b>表示します。★は飛び飛びの段階なので、順位のパーセンタイルでTierを切ると同じ★のパルが並び順だけで別Tierに割れてしまうためです。同じ★の中は先に入手できるパルから並べています。
+    「戦闘(属性別)」はその属性を持つパルだけに絞った上でのDPS順位、「配合牧場」は牧場作業に配置した際の産出アイテム(パルのパートナースキル説明文から抽出)も併記しています。
     Terrariaコラボパル11体(クトゥルフのめだま〜かがやくコウモリ)は専用技のクールタイムが1秒という他に例のない値のため、
     DPS計算式に通すと桁外れのスコアになってしまい「戦闘」カテゴリのランキングからは除外しています(実際のゲームプレイ上の値かボス戦AI由来の値か未検証のため)。
   </p>
@@ -157,12 +175,12 @@
   <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。<br><a href="palworld_official.html">公式サイト・各プラットフォームのリンクはこちら</a></p>
 </div>
 
-<script src="shared/util.js?v=20260811e"></script>
+<script src="shared/util.js?v=20260811f"></script>
 <script src="shared/text-normalize.js"></script>
 <script src="shared/combat-formula.js"></script>
-<script src="pages/tierlist.js?v=20260811e"></script>
-<script src="shared/caveat-collapse.js?v=20260811e" defer></script>
-<script src="shared/arcade.js?v=20260811e" defer></script>
-<script src="shared/sfx.js?v=20260811e" defer></script>
+<script src="pages/tierlist.js?v=20260811f"></script>
+<script src="shared/caveat-collapse.js?v=20260811f" defer></script>
+<script src="shared/arcade.js?v=20260811f" defer></script>
+<script src="shared/sfx.js?v=20260811f" defer></script>
 </body>
 </html>

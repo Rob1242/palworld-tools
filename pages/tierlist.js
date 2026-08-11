@@ -52,6 +52,17 @@ function tierOf(rank, total){
   return "D";
 }
 
+// 「拠点作業」「配合牧場」はスコアが★1〜8の飛び飛びの段階で、順位のパーセンタイルで
+// SS/S/A/B/C/Dを切ると同じ★のパルが並び順だけで別Tierに割れる。実測すると
+// 12作業で50件そうなっていた(牧場の★4がSSとSに割れる等)。段階そのものが
+// 適性なので、この2カテゴリはランクを付けず★のレベルで束ねて表示する(2026-08-11)。
+// 戦闘・マウントは連続値なのでパーセンタイルのTierのまま。
+const LEVEL_CATS = new Set(["work", "ranch"]);
+
+// 束ねた中の並び順。★が同じならゲーム的な優劣は無いので、先に手に入るものから並べる。
+// (並べないと図鑑番号順になり、なぜその順なのかが読み取れない)
+const OBTAIN_ORDER = { early: 0, mid: 1, late: 2, special: 3 };
+
 const state = { cat: "combat", query: "", element: "炎", work: "運搬" };
 
 function scoreAndDetailFor(e){
@@ -74,11 +85,37 @@ function eligibleEntries(){
   return ENTRIES;
 }
 
+function palCell(e){
+  return `<div><a href="palworld_dex.html?id=${e.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;"><span class="pname" style="border-bottom:1px dashed var(--parchment-dim);">${e.name}</span></a><span class="pname-en">${e.en_name||''}</span>${obtainBadge(e.obtainTier)}</div>`;
+}
+
+// ★のレベルごとに束ねる。見出しに★と体数を出すので、行の側では★を繰り返さない。
+function renderLevelGroups(list, label){
+  const levels = [...new Set(list.map(e => e.score))].sort((a,b) => b - a);
+  return levels.map(lv => {
+    const rows = list.filter(e => e.score === lv)
+      .sort((a,b) => (OBTAIN_ORDER[a.obtainTier] ?? 9) - (OBTAIN_ORDER[b.obtainTier] ?? 9) || a.name.localeCompare(b.name, "ja"));
+    return `
+      <div class="level-head">
+        <span class="level-stars">${"★".repeat(lv)}</span>
+        <span class="level-label">${label} ${lv}</span>
+        <span class="level-count">${rows.length}体</span>
+      </div>
+      ${rows.map(e => `
+        <div class="rank-row level">
+          <div class="icon-wrap"><img src="${e.icon}" loading="lazy" alt=""></div>
+          ${palCell(e)}
+          ${e.detail ? `<div class="detail-text">${e.detail}</div>` : ''}
+        </div>`).join("")}`;
+  }).join("");
+}
+
 function render(){
   const pool = eligibleEntries();
   let ranked = pool.map(e => ({ e, ...scoreAndDetailFor(e) })).filter(x => x.score != null);
   ranked.sort((a,b) => b.score - a.score);
   const total = ranked.length;
+  const isLevel = LEVEL_CATS.has(state.cat);
 
   let list = ranked.map((x, i) => ({ ...x.e, score: x.score, detail: x.detail, label: x.label, isLevel: x.isLevel, rank: i+1, tier: tierOf(i+1, total) }));
   if(state.query){
@@ -92,13 +129,17 @@ function render(){
     box.innerHTML = `<div class="empty-msg">該当するパルが見つかりません。</div>`;
     return;
   }
+  if(isLevel){
+    box.innerHTML = renderLevelGroups(list, state.cat === "ranch" ? "牧場適性" : `${state.work}適性`);
+    return;
+  }
   box.innerHTML = list.map(e => `
     <div class="rank-row">
       <div class="rnum">#${e.rank}</div>
       <div class="icon-wrap"><img src="${e.icon}" loading="lazy" alt=""></div>
-      <div><a href="palworld_dex.html?id=${e.id}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;"><span class="pname" style="border-bottom:1px dashed var(--parchment-dim);">${e.name}</span></a><span class="pname-en">${e.en_name||''}</span>${obtainBadge(e.obtainTier)}</div>
+      ${palCell(e)}
       <div class="tier-badge ${e.tier}">${e.tier}</div>
-      <div class="detail-text"><b>${e.label}: ${e.isLevel ? "★".repeat(e.score) : Math.round(e.score).toLocaleString()}</b>${e.detail ? ' / '+e.detail : ''}</div>
+      <div class="detail-text"><b>${e.label}: ${Math.round(e.score).toLocaleString()}</b>${e.detail ? ' / '+e.detail : ''}</div>
     </div>
   `).join("");
 }
