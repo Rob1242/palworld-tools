@@ -43,6 +43,8 @@
     { name: "素質値計算機", url: "palworld_iv_calc.html" },
     { name: "経験値計算機", url: "palworld_exp_calc.html" },
     { name: "素材計算機", url: "palworld_material_calc.html" },
+    { name: "ソウル計算機", url: "palworld_soul_calc.html" },
+    { name: "パルソウル", url: "palworld_soul_calc.html" },
     { name: "ケーキ材料", url: "palworld_material_calc.html" },
     { name: "レベル上げ", url: "palworld_exp_calc.html" },
     { name: "パーティ編成ガイド", url: "palworld_party_guide.html" },

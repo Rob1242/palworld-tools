@@ -7,14 +7,14 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-<title>経験値・レベル上げ計算機 | Palworld攻略ツール</title>
-<meta name="description" content="パルワールドの経験値計算機。今のレベルから目標レベルまでに必要な経験値と、何体倒せば届くかの目安をプレイヤー・パル別に計算します。">
+<title>パルソウル分配計算機｜手持ちで足りるか計算 | Palworld攻略ツール</title>
+<meta name="description" content="パルワールドのパルソウル計算機。手持ちの小・中・大・極のソウルで、ステータス強化がどこまで届くかを計算し、粉砕機での両替手順まで出します。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="経験値・レベル上げ計算機 | Palworld攻略ツール">
-<meta property="og:description" content="パルワールドの経験値計算機。今のレベルから目標レベルまでに必要な経験値と、何体倒せば届くかの目安をプレイヤー・パル別に計算します。">
+<meta property="og:title" content="パルソウル分配計算機｜手持ちで足りるか計算 | Palworld攻略ツール">
+<meta property="og:description" content="パルワールドのパルソウル計算機。手持ちの小・中・大・極のソウルで、ステータス強化がどこまで届くかを計算し、粉砕機での両替手順まで出します。">
 <meta property="og:image" content="https://rob1242.github.io/palworld-tools/game_data/art/hero_sphere_2.webp">
-<meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_exp_calc.html">
-<link rel="canonical" href="https://rob1242.github.io/palworld-tools/palworld_exp_calc.html">
+<meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_soul_calc.html">
+<link rel="canonical" href="https://rob1242.github.io/palworld-tools/palworld_soul_calc.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="shared/design-system.css?v=20260811q">
 <style>
@@ -31,9 +31,6 @@
   .caveat{font-size:11.5px;color:var(--parchment-dim);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-bottom:16px;line-height:1.7;}
   .caveat b{color:var(--brass);}
 
-  .mode-tabs{display:flex;gap:2px;margin-bottom:16px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;width:fit-content;}
-  .mode-tab{padding:9px 22px;border:none;border-radius:6px;background:transparent;color:var(--parchment-dim);cursor:pointer;font-family:var(--font-display);font-weight:600;font-size:14.5px;}
-  .mode-tab.active{background:var(--teal);color:#08222c;box-shadow:0 0 10px rgba(53,210,255,.4);}
 
   .section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:14px;box-shadow:0 8px 24px rgba(0,0,0,.2);}
   .section h2{font-size:11.5px;margin:-16px -18px 14px;padding:10px 18px;background:rgba(0,0,0,.24);border-bottom:1px solid var(--line);border-radius:10px 10px 0 0;color:var(--brass);letter-spacing:.1em;text-transform:uppercase;font-weight:700;}
@@ -43,29 +40,38 @@
   .form-field input:focus,.form-field select:focus{outline:none;border-color:var(--teal);}
   .field-note{font-size:10.5px;color:var(--parchment-dim);margin-top:4px;}
 
-  /* 答えは1つだけ大きく出す。ここを探して来る人がほとんどなので、
-     細かい内訳より先に目に入る位置と大きさにする。 */
-  .answer{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
-  .answer-num{font-family:var(--font-mono);font-size:34px;font-weight:700;color:var(--lime);line-height:1.1;}
-  .answer-unit{font-size:13px;color:var(--parchment-dim);}
-  .answer-sub{font-size:12px;color:var(--parchment-dim);margin-top:8px;line-height:1.7;}
-  .answer-sub b{color:var(--parchment);}
-  .warn{color:var(--danger);font-weight:700;}
 
-  .kill-table{width:100%;border-collapse:collapse;font-size:12.5px;}
-  .kill-table th{text-align:left;color:var(--brass);font-size:11px;letter-spacing:.05em;padding:8px 10px;border-bottom:1px solid var(--line);}
-  .kill-table td{padding:8px 10px;border-bottom:1px solid var(--line);font-family:var(--font-mono);}
-  .kill-table td:first-child{font-family:var(--font-body);}
-  .kill-table tr:hover{background:rgba(255,255,255,.02);}
-  .kill-table .num{text-align:right;}
-  .kill-table .hi{color:var(--lime);font-weight:700;}
 
-  .breakdown{max-height:320px;overflow-y:auto;}
-  .breakdown table{width:100%;border-collapse:collapse;font-size:12px;}
-  .breakdown th{position:sticky;top:0;background:var(--panel);text-align:right;color:var(--brass);font-size:10.5px;padding:6px 10px;border-bottom:1px solid var(--line);}
-  .breakdown th:first-child{text-align:left;}
-  .breakdown td{padding:5px 10px;border-bottom:1px solid var(--line);font-family:var(--font-mono);text-align:right;}
-  .breakdown td:first-child{text-align:left;font-family:var(--font-body);}
+  .verdict{font-family:var(--font-display);font-weight:700;font-size:22px;margin-bottom:6px;}
+  .verdict .ok{color:var(--lime);}
+  .verdict .ng{color:var(--danger);}
+  .target-label{font-size:12.5px;color:var(--parchment-dim);}
+
+  .soul-table{width:100%;border-collapse:collapse;font-size:13px;}
+  .soul-table th{text-align:left;color:var(--brass);font-size:11px;letter-spacing:.05em;
+    padding:8px 10px;border-bottom:1px solid var(--line);}
+  .soul-table th.num,.soul-table td.num{text-align:right;font-family:var(--font-mono);}
+  .soul-table td{padding:8px 10px;border-bottom:1px solid var(--line);}
+  .soul-table td.ok{color:var(--lime);}
+  .soul-table td.ng{color:var(--danger);font-weight:700;}
+  .soul-table tr.row-ng{background:rgba(255,90,90,.06);}
+
+  .step{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:12.5px;}
+  .step:last-child{border-bottom:none;}
+  .step-n{width:20px;height:20px;border-radius:50%;background:var(--panel2);border:1px solid var(--line);
+    display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-mono);
+    font-size:11px;color:var(--brass);flex-shrink:0;}
+  .step b{color:var(--lime);}
+
+  .chip{display:inline-block;padding:4px 10px;margin:0 6px 6px 0;border-radius:20px;
+    border:1px solid var(--line);background:var(--panel2);font-size:12px;color:var(--parchment-dim);}
+  .chip b{color:var(--parchment);font-family:var(--font-mono);}
+
+  /* 推定を含む区間に入ったときだけ出す。確定値と推定値を混ぜて黙って出さない */
+  .estimate-note{display:none;font-size:11.5px;color:#e7c3af;background:#3a2a20;
+    border:1px solid var(--danger);border-radius:6px;padding:10px 14px;margin-top:12px;line-height:1.7;}
+  .dim{color:var(--parchment-dim);font-size:12px;}
+  input[type="range"]{width:100%;accent-color:var(--lime);height:4px;}
 
   .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;line-height:1.7;}
   .footer-note a{color:var(--brass);}
@@ -73,14 +79,14 @@
 <script src="shared/analytics.js?v=20260811q"></script>
 <script src="shared/img-fallback.js?v=20260811q"></script>
 <script src="shared/global_search.js?v=20260811q" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"経験値・レベル上げ計算機","url":"https://rob1242.github.io/palworld-tools/palworld_exp_calc.html","description":"パルワールドの経験値計算機。今のレベルから目標レベルまでに必要な経験値と、何体倒せば届くかの目安をプレイヤー・パル別に計算します。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"パルソウル分配計算機｜手持ちで足りるか計算","url":"https://rob1242.github.io/palworld-tools/palworld_soul_calc.html","description":"パルワールドのパルソウル計算機。手持ちの小・中・大・極のソウルで、ステータス強化がどこまで届くかを計算し、粉砕機での両替手順まで出します。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <a class="brand-link" href="palworld_home.html">
       <div class="brand-badge">P</div>
-      <h1 class="title glitch-hover" data-text="経験値計算機"><small>Palworld 攻略ツール</small>経験値・レベル上げ計算機</h1>
+      <h1 class="title glitch-hover" data-text="ソウル計算機"><small>Palworld 攻略ツール</small>パルソウル分配計算機</h1>
     </a>
     <div class="header-right">
       <div class="gsearch-wrap">
@@ -106,9 +112,9 @@
       <a href="palworld_reference.html"><span>早見表</span></a>
       <a href="palworld_technology.html"><span>テクノロジー</span></a>
       <a href="palworld_iv_calc.html"><span>素質値計算機</span></a>
-      <a href="palworld_exp_calc.html" class="current"><span>経験値計算機</span></a>
+      <a href="palworld_exp_calc.html"><span>経験値計算機</span></a>
       <a href="palworld_material_calc.html"><span>素材計算機</span></a>
-      <a href="palworld_soul_calc.html"><span>ソウル計算機</span></a>
+      <a href="palworld_soul_calc.html" class="current"><span>ソウル計算機</span></a>
       <a href="palworld_party_guide.html"><span>パーティ編成ガイド</span></a>
       <a href="palworld_changelog.html"><span>更新履歴</span></a>
     </nav>
@@ -116,69 +122,63 @@
   </header>
 
   <div class="caveat">
-    ゲーム内の経験値テーブルをそのまま使って、今のレベルから目標レベルまでに必要な経験値を出します。プレイヤーとパルは別のテーブルなので、上のタブで切り替えてください。
-    <b>正式版1.0の上限はプレイヤー・パルとも Lv80</b> です(テーブル自体はLv100まで入っていますが、Lv81以降は必要経験値も獲得経験値も減少する古いデータの残骸だったため、このツールでは扱いません)。
-    「何体倒せば届くか」は<b>テーブル上の獲得経験値をそのまま割った目安</b>です。実際にはパーティで分け合ったり、料理・ケーキ・サーバー設定の倍率で変わるため、下限の見積もりとして見てください。
-  </div>
-
-  <div class="mode-tabs">
-    <button class="mode-tab active" data-mode="player">プレイヤー</button>
-    <button class="mode-tab" data-mode="pal">パル</button>
+    力の石像でのステータス強化に、手持ちのパルソウルが足りるかを計算します。<b>1段階 +3%、20段階で +60%</b>。粉砕機での両替(小2→中、中2→大、大2→極)も込みで、余りを上の段へ持ち上げたうえで判定します。
+    <b>下の段へは降ろせません。</b>分解のレシピは存在しますが、1個から何個できるかがゲームデータに無いため扱っていません。小さいソウルが足りないとき、大きいソウルでは埋められない点に注意してください。
   </div>
 
   <div class="section">
-    <h2>今の状況</h2>
+    <h2>手持ちのソウル</h2>
+    <div class="form-grid" id="haveGrid"></div>
+  </div>
+
+  <div class="section">
+    <h2>目標</h2>
     <div class="form-grid">
       <div class="form-field">
-        <label for="curLv">今のレベル</label>
-        <input type="number" id="curLv" value="30" min="1" max="80">
+        <label for="slotsInput">強化したいステータスの枠数(HP・攻撃・防御なら3)</label>
+        <input type="number" id="slotsInput" value="3" min="1" max="999">
       </div>
       <div class="form-field">
-        <label for="tgtLv">目標レベル</label>
-        <input type="number" id="tgtLv" value="80" min="1" max="80">
-      </div>
-      <div class="form-field">
-        <label for="curExp">今のレベルで貯まっている経験値(任意)</label>
-        <input type="number" id="curExp" value="0" min="0" placeholder="0">
-        <div class="field-note" id="curExpNote"></div>
+        <label for="rankInput">目標ランク <span id="rankVal" style="color:var(--lime);"></span></label>
+        <input type="range" id="rankInput" min="1" max="20" value="20">
       </div>
     </div>
-  </div>
-
-  <div class="section">
-    <h2>必要な経験値</h2>
-    <div class="answer">
-      <div class="answer-num" id="needNum">—</div>
-      <div class="answer-unit" id="needUnit">EXP</div>
+    <div style="margin-top:12px;">
+      <div class="dim" style="margin-bottom:6px;">1ステータスあたりの必要数</div>
+      <div id="perStatBox"></div>
     </div>
-    <div class="answer-sub" id="needSub"></div>
+    <div class="estimate-note" id="estimateNote">
+      <b>ランク11〜20の1段階ごとの内訳は推定です。</b>複数の攻略サイトで一致しているのは
+      「1ステータスMAXで 小10 / 中6 / 大6 / 極30」という<b>合計</b>までで、11〜20をどう刻むかは
+      どこにも書かれていませんでした。10段階で合計30になる平坦な分け方が「毎段階3個」しか無いため
+      それを採用しています。<b>ランク20(MAX)の合計は確定値</b>なので、MAXまで上げる場合の答えは正確です。
+    </div>
   </div>
 
   <div class="section">
-    <h2>何体倒せば届くか(目安)</h2>
-    <div style="overflow-x:auto;">
-      <table class="kill-table">
-        <thead><tr><th>倒す相手</th><th class="num">1体あたり</th><th class="num">必要な数</th></tr></thead>
-        <tbody id="killBody"></tbody>
+    <h2>結果</h2>
+    <div class="verdict" id="verdict"></div>
+    <div class="target-label" id="targetLabel"></div>
+    <div style="overflow-x:auto;margin-top:12px;">
+      <table class="soul-table">
+        <thead><tr>
+          <th>ソウル</th><th class="num">必要</th><th class="num">手持ち</th>
+          <th class="num">両替で追加</th><th class="num">判定</th>
+        </tr></thead>
+        <tbody id="tableBody"></tbody>
       </table>
     </div>
-    <div class="answer-sub" id="killNote"></div>
   </div>
 
   <div class="section">
-    <h2>レベルごとの内訳</h2>
-    <div class="breakdown">
-      <table>
-        <thead><tr><th>Lv</th><th>次のLvまで</th><th>ここまでの累計</th><th>この相手を倒すと</th></tr></thead>
-        <tbody id="breakdownBody"></tbody>
-      </table>
-    </div>
+    <h2>両替の手順(粉砕機)</h2>
+    <div id="stepsBox"></div>
+    <div class="dim" id="strandedNote" style="margin-top:8px;"></div>
   </div>
 
   <p class="footer-note">経験値テーブルはゲーム内データ(pal_exp_table)をそのまま使用しています。当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。<br><a href="palworld_official.html">公式サイト・各プラットフォームのリンクはこちら</a><br><span class="data-version">収録データ: パルワールド 正式版 v1.0(2026-07-11 取得) / サイト最終更新: 2026-08-11</span></p>
 </div>
-<script src="game_data/exp_table_data.js?v=f957d5e1"></script>
-<script src="pages/exp_calc.js?v=20260811q"></script>
+<script src="pages/soul_calc.js?v=20260811q"></script>
 <script src="shared/caveat-collapse.js?v=20260811q" defer></script>
 <script src="shared/arcade.js?v=20260811q" defer></script>
 <script src="shared/sfx.js?v=20260811q" defer></script>
