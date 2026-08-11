@@ -17,7 +17,7 @@
 
   /* 絵の中身を差し替えたときに古いものを掴ませないための版。
      tools/spritegen/idle.py を回して絵を作り直したら、ここも上げること。 */
-  var V = "?v=20260811f";
+  var V = "?v=20260811g";
 
   var wrap = document.querySelector("body > .wrap");
   if (!wrap) return;                       // リダイレクト用の小さいページは対象外
@@ -241,9 +241,38 @@
      (2026-08-10 実測)。お辞儀しきったところでページの準備を待ち、
      整い次第フェードで明ける。待ち時間が演出に変わる。
 
-     ただし上限は設ける。回線が遅いときに閉じ込めないため。 */
+     ただし上限は設ける。回線が遅いときに閉じ込めないため。
+
+     **「1回だけ」の記録に sessionStorage を使わないこと(2026-08-11)。**
+     sessionStorage はタブ単位で、`target="_blank" rel="noopener"` で開いた
+     新しいタブには引き継がれない。Tier表・ボス攻略・パーティ編成からパルを
+     押すと図鑑が新しいタブで開くので、**押すたびに毎回この演出が最初から流れ**、
+     颯太さんの「Tier表からパル詳細を開くとめっちゃ遅い」になっていた。
+
+     実測(本番、2026-08-11):
+       sessionStorageが空       curtsy-idle.png を要求 = 演出が走る
+       同じタブ内で移動         要求なし = 走らない
+       図鑑の読み込み(温キャッシュ) DOMContentLoaded 228ms / load 264ms
+       演出の下限               2,000ms + フェード500ms = 2,500ms
+
+     つまり0.26秒で出せる画面を2.5秒待たせていた。演出の尺ではなく
+     「1タブ1回」になっていたことが原因なので、記録先を localStorage に移して
+     時間で期限を切る。タブをまたいでも1回、時間が空いたらまた挨拶する。 */
+  var BOOT_KEY = "arc-booted-at";
+  var BOOT_WINDOW_MS = 30 * 60 * 1000;   // これだけ間が空いたら、次の訪問として挨拶し直す
+
   var booted = true;
-  try { booted = !!sessionStorage.getItem("arc-booted"); } catch (e) {}
+  try {
+    var last = parseInt(localStorage.getItem(BOOT_KEY), 10);
+    booted = !!last && (Date.now() - last) < BOOT_WINDOW_MS;
+  } catch (e) {
+    /* localStorage が使えない環境(プライベートモード等)では従来どおりタブ単位。
+       演出が余分に流れることはあっても、出なくなるよりはよい。 */
+    try { booted = !!sessionStorage.getItem("arc-booted"); } catch (e2) {}
+  }
+  /* 期限は「最後に見たページ」から数える。読んでいる間に切れて、次のクリックで
+     いきなり挨拶が始まるのを防ぐため、演出を出さない場合も時刻を更新する。 */
+  try { localStorage.setItem(BOOT_KEY, String(Date.now())); } catch (e) {}
   if (!booted && !reduce) {
     try { sessionStorage.setItem("arc-booted", "1"); } catch (e) {}
 
