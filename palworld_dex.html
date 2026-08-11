@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_dex.html">
 <link rel="canonical" href="https://rob1242.github.io/palworld-tools/palworld_dex.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="shared/design-system.css?v=20260811q">
+<link rel="stylesheet" href="shared/design-system.css?v=20260812c">
 <style>
   ::selection{background:var(--lime);color:#0a0d12;}
   *{box-sizing:border-box;}
@@ -149,7 +149,6 @@
   .spawn-map-link{display:inline-block;margin-top:8px;font-size:11.5px;color:var(--brass);text-decoration:none;}
   .spawn-map-link:hover{text-decoration:underline;}
 
-  .footer-note{font-size:11px;color:var(--parchment-dim);text-align:center;margin-top:24px;}
   .footer-note a{color:var(--brass);}
 
   @media (max-width:520px){
@@ -158,7 +157,6 @@
   }
 
   /* ===== v2 signature system: hero / glitch / angular nav / motion ===== */
-  .icon{display:inline-flex;width:1em;height:1em;vertical-align:-0.15em;}
   .icon svg{width:100%;height:100%;}
 
   h1.title{font-weight:900;}
@@ -195,12 +193,13 @@
   .medallion .ring{transition:box-shadow .2s;}
   .detail-head:hover .medallion .ring{box-shadow:0 0 0 1px rgba(0,0,0,.4), 0 0 22px rgba(61,123,255,.28);}
 
-  .brand-link{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;transition:opacity .15s;}
+  /* gap は共通と同値(calc(var(--px)*3) = 12px)なので共通に任せる */
+  .brand-link{transition:opacity .15s;}
   .brand-link:hover{opacity:.82;}
 </style>
-<script src="shared/analytics.js?v=20260811q"></script>
-<script src="shared/img-fallback.js?v=20260811q"></script>
-<script src="shared/global_search.js?v=20260811q" defer></script>
+<script src="shared/analytics.js?v=20260812c"></script>
+<script src="shared/img-fallback.js?v=20260812c"></script>
+<script src="shared/global_search.js?v=20260812c" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"パル図鑑","url":"https://rob1242.github.io/palworld-tools/palworld_dex.html","description":"パルワールドのパル図鑑。全298体の種族値、属性相性、ドロップ、入手方法を収録した捕獲前チェック必須のデータベース。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
 </head>
 <body>
@@ -367,13 +366,13 @@
 
 <script src="game_data/dex_data.js?v=5e723d9a"></script>
 <script src="game_data/spawn_flags_data.js?v=0e5f35e8"></script>
-<script src="shared/icons.js?v=20260811q"></script>
+<script src="shared/icons.js?v=20260812c"></script>
 
-<script src="shared/text-normalize.js?v=20260811q"></script>
-<script src="shared/util.js?v=20260811q"></script>
-<script>window.ASSET_VER="?v=20260811q";</script>
-<script src="pages/dex.js?v=20260811q"></script>
-<script src="shared/arcade.js?v=20260811q" defer></script>
-<script src="shared/sfx.js?v=20260811q" defer></script>
+<script src="shared/text-normalize.js?v=20260812c"></script>
+<script src="shared/util.js?v=20260812c"></script>
+<script>window.ASSET_VER="?v=20260812c";</script>
+<script src="pages/dex.js?v=20260812c"></script>
+<script src="shared/arcade.js?v=20260812c" defer></script>
+<script src="shared/sfx.js?v=20260812c" defer></script>
 </body>
 </html>

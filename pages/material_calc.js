@@ -1,7 +1,8 @@
 // 素材計算機。作りたいものと個数から、根っこの素材まで展開する。
 //
 // 新しいデータは取っていない。すでにある2つを組み合わせているだけ:
-//   ITEMS_DEX_DATA    アイテムの名前・アイコン・カテゴリ
+//   MATERIAL_ITEMS_DATA  アイテムの名前・アイコン・カテゴリ(items_dex_data から5項目だけ抜いた軽量版。
+//                        scripts/build_material_items_data.py が生成。1,392KB -> 480KB)
 //   ITEM_OBTAIN_DATA  production(作業台と材料) / dropped_by(落とすパル)
 //
 // 作った動機(2026-08-11): 配合の実質的なボトルネックはケーキで、
@@ -9,7 +10,7 @@
 // 出せなかった。ケーキ専用にせず、production を持つものなら何でも展開できるようにしてある
 // (回路や合金でも同じ問題が起きるため)。
 
-const ITEM_BY_ASSET = new Map(ITEMS_DEX_DATA.map(i => [i.asset, i]));
+const ITEM_BY_ASSET = new Map(MATERIAL_ITEMS_DATA.map(i => [i.asset, i]));
 
 function itemName(asset){
   const it = ITEM_BY_ASSET.get(asset);
@@ -31,7 +32,7 @@ function dropsOf(asset){
 
 // 作れるもの(production を持つもの)だけを候補にする。
 // 素材そのものを選んでも展開する先が無く、画面が空になるため。
-const CRAFTABLE = ITEMS_DEX_DATA
+const CRAFTABLE = MATERIAL_ITEMS_DATA
   .filter(i => recipeOf(i.asset))
   .filter(i => !/test|debug|dummy/i.test(i.asset))
   .filter(i => (i.name_jp && i.name_jp !== "-") || i.name_en)
