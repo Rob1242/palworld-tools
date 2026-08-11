@@ -48,6 +48,38 @@
 
 作り直すなら**1体ずつ、前後を目で見比べてから**にすること。
 
+## 演出用スプライトは2種類ある(2026-08-11)
+
+**用途が違うので混ぜないこと。** 詳細は `shared/arcade.js` の 5. と 6.。
+
+| ファイル | 使う場面 | 動きの性質 | コマの順 |
+|---|---|---|---|
+| `curtsy-idle.png` | サイト起動時(全画面・セッション1回) | **1回で終わる**カーテシー | 0→1→2→3→0 で停止 |
+| `waiting-idle.png` | データ読み込み中(画面の隅) | **終わらない**待ちの動き | 0→1→2→3→2→1 の往復 |
+
+お辞儀は「終わる動き」なので、いつ終わるか分からない読み込みに使うと
+しきったあと固まって見える。逆に往復ループは入場の挨拶にならない。
+
+`waiting-idle.png` は**まだ無くても壊れない**(絵が読めなければ帯だけが出る)。
+作るときのコマンド:
+
+    python3 tools/spritegen/fromsheet.py tools/spritegen/sources/waiting.png \
+      --name waiting --size 56 --colors 16
+
+`--size 56 --colors 16` は curtsy と同じ設定。44px/30色だとまだらになり、
+12色だと赤い斑点が出て、64px以上だと赤い瞳が消えることを実測で確認済み。
+
+**赤い瞳が全コマに残っているかを必ず数えること。** カーテシーでは頭を下げた
+3コマ目だけ赤が0pxになっていて、颯太さんの指摘で気づいた(2026-08-11):
+
+    python3 -c "
+    from PIL import Image
+    im=Image.open('shared/sprites/waiting-idle.png').convert('RGB'); w=im.width//4
+    for i in range(4):
+        f=im.crop((i*w,0,(i+1)*w,im.height))
+        print(i, sum(1 for r,g,b in f.getdata() if r>110 and r-g>45 and r-b>45))
+    "
+
 ## 絵を作り直したら
 
 `shared/arcade.js` の `var V = "?v=..."` を上げること。上げないと古い絵を掴む。

@@ -17,7 +17,7 @@
 
   /* 絵の中身を差し替えたときに古いものを掴ませないための版。
      tools/spritegen/idle.py を回して絵を作り直したら、ここも上げること。 */
-  var V = "?v=20260811c";
+  var V = "?v=20260811d";
 
   var wrap = document.querySelector("body > .wrap");
   if (!wrap) return;                       // リダイレクト用の小さいページは対象外
@@ -249,11 +249,17 @@
 
     /* makeSprite はコマをループさせる作りなので、最後のコマの表示時間を
        極端に長くして「立ったまま止まる」状態にする(1回だけのお辞儀にする)。 */
+    /* 尺は2秒。根拠(2026-08-11):
+         ・一番重いパル図鑑の読み込みが本番で2,327ms。2秒はほぼ実作業に覆われる
+         ・0.8秒未満だと演出と認識されず「画面が乱れた」に見える
+         ・3秒を超えると「まだか」が頭をよぎる
+       セッション中1回だけ・クリックでスキップ可なので、2秒なら十分軽い。
+       読み込みが終わらないときだけ立ったまま待ち、3.5秒で打ち切る。 */
     var BOW_FRAMES = [0, 1, 2, 3, 0];              // 立つ→沈む→最深→戻る→立つ
-    var BOW_DUR    = [700, 500, 1100, 600, 999999];
-    var BOW_MS     = 700 + 500 + 1100 + 600;       // お辞儀にかかる時間 2.9秒
-    var MIN_SHOW   = 3000;                         // 最低これだけは見せる
-    var MAX_WAIT   = 6000;                         // これ以上は待たない
+    var BOW_DUR    = [450, 350, 750, 450, 999999];
+    var BOW_MS     = 450 + 350 + 750 + 450;        // お辞儀にかかる時間 2.0秒
+    var MIN_SHOW   = 2000;                         // 最低これだけは見せる
+    var MAX_WAIT   = 3500;                         // これ以上は待たない
 
     var boot = el("div", "arc-boot");
     boot.setAttribute("aria-hidden", "true");
@@ -286,4 +292,80 @@
 
     setTimeout(kill, MAX_WAIT);                // 保険
   }
+
+  /* ===== 6. 読み込み中の表示。起動演出とは**別物** =====
+
+     混ぜないこと(2026-08-11、颯太さんの指示):
+
+       起動演出  全画面 / 1回きり / お辞儀  … 入場の挨拶。終わりの時刻が決まっている
+       これ      画面の隅 / ループ / 別動作  … 作業中の合図。いつ終わるか分からない
+
+     お辞儀は「終わる動き」なので、いつ終わるか分からない待ちに使うと
+     お辞儀しきったあと固まって見える。待ちにはループする動きを当てる。
+
+     絵は shared/sprites/waiting-idle.png(4コマ)。**まだ無くても壊れない。**
+     makeSprite は読み込めたときだけ絵を差し込むので、無ければ帯だけが出る。 */
+  var WAIT_FRAMES = [0, 1, 2, 3, 2, 1];
+  var WAIT_DUR    = [180, 180, 180, 180, 180, 180];
+  var LOAD_DELAY  = 250;   // これより速く終わる読み込みでは出さない(チラつくだけ)
+
+  var loadCount = 0, loadEl = null, loadTimer = null;
+
+  function buildLoader(label) {
+    loadEl = el("div", "arc-load");
+    loadEl.setAttribute("role", "status");
+    var fig = el("div", "arc-load-fig");
+    var body = el("div", "arc-load-body");
+    body.appendChild(el("div", "arc-load-text", label || "読み込み中"));
+    body.appendChild(el("div", "arc-load-bar"));
+    loadEl.appendChild(fig);
+    loadEl.appendChild(body);
+    document.body.appendChild(loadEl);
+    /* 足した直後に class を付けると transition が効かないので、間に一度
+       レイアウトを確定させる。requestAnimationFrame は**使わない**:
+       裏に回ったタブでは発火しないため、戻ってきたときに透明のまま残る
+       (2026-08-11 実測、opacity が0のままだった)。 */
+    void loadEl.offsetWidth;
+    loadEl.classList.add("is-in");
+    if (!reduce) {
+      makeSprite("arc-load-sprite", "shared/sprites/waiting-idle.png" + V, 1,
+                 WAIT_FRAMES, WAIT_DUR, function (s) { fig.appendChild(s); });
+    }
+  }
+
+  /* 入れ子で呼ばれても1つだけ出す。全部終わってから消す。 */
+  function loadingStart(label) {
+    loadCount++;
+    if (loadCount === 1 && !loadTimer && !loadEl) {
+      loadTimer = setTimeout(function () { loadTimer = null; buildLoader(label); }, LOAD_DELAY);
+    }
+    var ended = false;
+    return function done() {
+      if (ended) return;                    // 二重に呼ばれても数がずれないように
+      ended = true;
+      loadCount = Math.max(0, loadCount - 1);
+      if (loadCount > 0) return;
+      if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+      if (loadEl) {
+        var g = loadEl;
+        loadEl = null;
+        g.classList.remove("is-in");
+        setTimeout(function () { if (g.parentNode) g.remove(); }, 260);
+      }
+    };
+  }
+
+  /* 使う側はこれだけ書けばいい:
+       await Arcade.whileLoading(読み込みのPromise, "詳細データを読み込み中");
+     失敗しても必ず消える(finally)。Arcade が無いページでも動くよう、
+     呼ぶ側は Arcade && Arcade.whileLoading で確認すること。 */
+  window.Arcade = window.Arcade || {};
+  window.Arcade.loading = loadingStart;
+  window.Arcade.whileLoading = function (promise, label) {
+    var done = loadingStart(label);
+    return Promise.resolve(promise).then(
+      function (v) { done(); return v; },
+      function (e) { done(); throw e; }
+    );
+  };
 })();

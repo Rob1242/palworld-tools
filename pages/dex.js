@@ -14,6 +14,9 @@ const DETAIL_SCRIPTS = [
 ];
 let detailDataPromise = null;
 
+/* 読み込み中は画面の隅に合図を出す(shared/arcade.js)。
+ * 起動演出のお辞儀とは別物で、こちらはループする待ちの動き。
+ * 0.25秒以内に終わればそもそも出ない(2回目以降はキャッシュで即返る)。 */
 function ensureDetailData(){
   if(detailDataPromise) return detailDataPromise;
   detailDataPromise = Promise.all(DETAIL_SCRIPTS.map(src => new Promise((resolve, reject) => {
@@ -25,6 +28,9 @@ function ensureDetailData(){
     el.onerror = () => reject(new Error("failed: " + src));
     document.head.appendChild(el);
   })));
+  if(window.Arcade && window.Arcade.whileLoading){
+    detailDataPromise = window.Arcade.whileLoading(detailDataPromise, "詳細データを読み込み中");
+  }
   return detailDataPromise;
 }
 

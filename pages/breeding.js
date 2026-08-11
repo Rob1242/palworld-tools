@@ -41,6 +41,11 @@ function loadDataScript(src){
     s.onerror = () => reject(new Error("読み込みに失敗しました: " + src));
     document.head.appendChild(s);
   });
+  // 読み込み中は画面の隅に合図を出す(shared/arcade.js)。
+  // 起動演出のお辞儀とは別物で、こちらはループする待ちの動き。
+  if(window.Arcade && window.Arcade.whileLoading){
+    loadedDataPromises[src] = window.Arcade.whileLoading(loadedDataPromises[src], "配合データを読み込み中");
+  }
   return loadedDataPromises[src];
 }
 

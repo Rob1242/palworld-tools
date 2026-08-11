@@ -582,6 +582,11 @@ function ensureForwardPairsLoaded(){
     script.onerror = () => reject(new Error("breeding_forward_pairs_data.js の読み込みに失敗しました"));
     document.head.appendChild(script);
   });
+  // 読み込み中は画面の隅に合図を出す(shared/arcade.js)。
+  // 起動演出のお辞儀とは別物で、こちらはループする待ちの動き。
+  if(window.Arcade && window.Arcade.whileLoading){
+    forwardPairsPromise = window.Arcade.whileLoading(forwardPairsPromise, "配合ルートを準備中");
+  }
   return forwardPairsPromise;
 }
 
