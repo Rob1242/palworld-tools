@@ -10,14 +10,14 @@
    この4つ。20ページ全部が body > .wrap という同じ骨格なので、
    HTMLを1行ずつ書き換えずに、このスクリプト1本を読み込むだけで全部に乗る。
 
-   **各ページのHTMLには <script src="shared/arcade.js?v=20260811j" defer></script> だけ足す。**
+   **各ページのHTMLには <script src="shared/arcade.js?v=20260811k" defer></script> だけ足す。**
    ============================================================ */
 (function () {
   "use strict";
 
   /* 絵の中身を差し替えたときに古いものを掴ませないための版。
      tools/spritegen/idle.py を回して絵を作り直したら、ここも上げること。 */
-  var V = "?v=20260811j";
+  var V = "?v=20260811k";
 
   var wrap = document.querySelector("body > .wrap");
   if (!wrap) return;                       // リダイレクト用の小さいページは対象外

@@ -541,3 +541,8 @@
    色と字送りだけを足す(サイズは親を継ぐ)。 */
 .data-version{display:inline-block;margin-top:4px;font-family:var(--font-mono);
   font-size:.92em;letter-spacing:.02em;opacity:.75;}
+
+/* 注記の中でゲーム内部の変数名などをそのまま出すとき用。
+   本文と地続きに見えると「サイトが決めた値」と誤読されるので、明確に別物として見せる。 */
+code{font-family:var(--font-mono);font-size:.92em;background:rgba(0,0,0,.28);
+  border:1px solid var(--line);border-radius:3px;padding:1px 5px;}

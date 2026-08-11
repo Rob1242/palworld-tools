@@ -135,7 +135,7 @@ function renderCombat(){
   const top1 = topAttackerOfElement("無");
   const top2 = topAttackerOfElement("氷");
   box.innerHTML = `
-    <p class="section-lead">Lv80・星4・才能100%・ソウル60%を想定した終盤の汎用6体編成です。属性の異なる2枚看板アタッカー+各アタッカー専属のバフ役+保険(蘇生)+盾役、という役割分担で組んでいます。ボスごとの弱点属性に合わせて差し替えたい場合は<a href="palworld_tierlist.html">最強Tier表(戦闘属性別)</a>や<a href="palworld_bossguide.html">ボス攻略</a>ページの個別編成を参照してください。</p>
+    <p class="section-lead">Lv80・星4・才能100%・ソウル60%を想定した終盤の汎用6体編成です。属性の異なる2枚看板アタッカー+各アタッカー専属のバフ役+保険(蘇生)+盾役、という役割分担で組んでいます。ボスごとの弱点属性に合わせて差し替えたい場合は<a href="palworld_tierlist.html">最強Tier表(戦闘属性別)</a>や<a href="palworld_bossguide.html">ボス攻略</a>ページの個別編成を参照してください。なお<b>正式版1.0の「覚醒」は含めていません。</b>上昇量が確定できていないためです(ゲーム内部の値と第三者の実測が食い違っており、公式の数値も未公表。詳細は<a href=\"palworld_combat.html\">戦闘最適化</a>ページの注記)。全パルに同じように効くと見られるため順位は変わらない見込みですが、絶対値はこの分だけ低く出ます。</p>
     <div class="squad-grid">
       ${palChip(top1.dp.name, "メインアタッカー①", `全パル中トップの持続DPS(${Math.round(top1.best.sustained).toLocaleString()})。使用技: ${top1.best.jp_name}(威力${top1.best.power}・CT${top1.best.cooldown}秒)`, true)}
       ${palChip(top2.dp.name, "メインアタッカー②", `氷属性トップの持続DPS(${Math.round(top2.best.sustained).toLocaleString()})。①と属性が異なり、氷が弱点のボス(塔ボス7・レイドボス多数)を任せられる。`, true)}
