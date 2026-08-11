@@ -41,6 +41,8 @@
     { name: "テクノロジー", url: "palworld_technology.html" },
     { name: "ミッション一覧", url: "palworld_map.html?view=missions" },
     { name: "素質値計算機", url: "palworld_iv_calc.html" },
+    { name: "経験値計算機", url: "palworld_exp_calc.html" },
+    { name: "レベル上げ", url: "palworld_exp_calc.html" },
     { name: "パーティ編成ガイド", url: "palworld_party_guide.html" },
     { name: "拠点位置ガイド", url: "palworld_map.html?view=basespots" },
     { name: "更新履歴", url: "palworld_changelog.html" },

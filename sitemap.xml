@@ -29,6 +29,10 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://rob1242.github.io/palworld-tools/palworld_exp_calc.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://rob1242.github.io/palworld-tools/palworld_home.html</loc>
     <priority>1.0</priority>
   </url>

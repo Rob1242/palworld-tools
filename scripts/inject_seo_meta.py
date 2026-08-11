@@ -7,7 +7,7 @@ SITE_URL = "https://rob1242.github.io/palworld-tools"
 OG_IMAGE = f"{SITE_URL}/game_data/art/hero_sphere_2.webp"
 
 DESCRIPTIONS = {
-    "palworld_home.html": "パルワールド(Palworld)の非公式攻略ツールまとめ。パル図鑑・配合検索・拠点プランナー・戦闘最適化・アイテム図鑑など全20種のツールを無料で使えます。",
+    "palworld_home.html": "パルワールド(Palworld)の非公式攻略ツールまとめ。パル図鑑・配合検索・拠点プランナー・戦闘最適化・アイテム図鑑など全24種のツールを無料で使えます。",
     "palworld_achievements.html": "パルワールドの全実績の解除条件を一覧表示。進行度で絞り込んで、残りの実績をまとめて確認できます。",
     "palworld_base_planner_v2.html": "拠点に置くべきパルの組み合わせを自動計算。役職の重要度と枠数を入れるだけで、287体の中から最適な配置を提案します。",
     "palworld_base_spots.html": "パルワールドのおすすめ拠点候補地を紹介。資源・地形・安全性の観点から選んだ立地ガイドです。",
