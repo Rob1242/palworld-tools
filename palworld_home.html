@@ -17,7 +17,7 @@
 <meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_home.html">
 <link rel="canonical" href="https://rob1242.github.io/palworld-tools/palworld_home.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="shared/design-system.css?v=20260811c">
+<link rel="stylesheet" href="shared/design-system.css?v=20260811d">
 <style>
   ::selection{background:var(--lime);color:#0a0d12;}
   *{box-sizing:border-box;}
@@ -34,18 +34,10 @@
   .icon{display:inline-flex;width:1em;height:1em;vertical-align:-0.15em;}
   .icon svg{width:100%;height:100%;}
 
-  nav.tabs{display:flex;gap:6px;background:transparent;border:none;padding:0;}
-  nav.tabs a{position:relative;font-size:12.5px;color:var(--parchment-dim);text-decoration:none;padding:9px 18px 9px 20px;font-weight:600;font-family:var(--font-display);letter-spacing:.02em;
-    background:var(--panel2);border:1px solid var(--line);clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
-    transition:color .15s, background .15s, transform .15s;}
-  nav.tabs a span{position:relative;z-index:1;}
-  nav.tabs a::before{content:"";position:absolute;inset:0;background:rgba(61,123,255,.22);
-    opacity:0;transition:opacity .2s;}
-  nav.tabs a:hover{color:var(--parchment);transform:translateY(-1px);}
-  nav.tabs a:hover::before{opacity:1;}
-  nav.tabs a.current{color:#08111a;background:var(--lime);border-color:var(--lime);font-weight:700;box-shadow:0 0 16px rgba(61,123,255,.45);}
-  nav.tabs a.current::before{display:none;}
-  nav.tabs a:active{transform:scale(.96);}
+  /* ナビのタブは shared/design-system.css が持っている。
+     ここにあった上書きは2026-08-09より前の設計(平行四辺形+青いグロー)の残りで、
+     インライン<style>は外部CSSより後に読まれるため**古いほうが勝っていた**。
+     このページだけタブが暗く・角丸で・光っていた原因(2026-08-11、颯太さんの指摘)。 */
 
   /* ===== ヒーロー: Poster案(2026-07-29採用、edgerunners公式サイトの"太い・斜め・
      ギザギザ"なグラフィック的大胆さを構造だけ引用。色は既存のブルー+マゼンタのまま、
@@ -352,7 +344,7 @@
 
   <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。<br><a href="palworld_official.html">公式サイト・各プラットフォームのリンクはこちら</a></p>
 </div>
-<script src="shared/arcade.js?v=20260811c" defer></script>
-<script src="shared/sfx.js?v=20260811c" defer></script>
+<script src="shared/arcade.js?v=20260811d" defer></script>
+<script src="shared/sfx.js?v=20260811d" defer></script>
 </body>
 </html>

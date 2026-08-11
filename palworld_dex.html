@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_dex.html">
 <link rel="canonical" href="https://rob1242.github.io/palworld-tools/palworld_dex.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="shared/design-system.css?v=20260811c">
+<link rel="stylesheet" href="shared/design-system.css?v=20260811d">
 <style>
   ::selection{background:var(--lime);color:#0a0d12;}
   *{box-sizing:border-box;}
@@ -30,10 +30,10 @@
   .brand-badge{width:42px;height:42px;border-radius:8px;background:var(--panel2);border:1px solid var(--teal-dim);box-shadow:0 0 0 1px rgba(0,0,0,.4), inset 0 0 12px rgba(53,210,255,.12);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--teal);flex-shrink:0;}
   h1.title{font-family:var(--font-display);font-weight:700;font-size:27px;margin:0;color:var(--parchment);letter-spacing:.03em;}
   .title small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--brass);letter-spacing:.22em;text-transform:uppercase;margin-bottom:3px;}
-  nav.tabs{display:flex;gap:2px;background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:8px;padding:3px;}
-  nav.tabs a{font-size:12.5px;color:var(--parchment-dim);text-decoration:none;padding:7px 14px;border-radius:6px;font-weight:600;transition:color .12s,background .12s;}
-  nav.tabs a:hover{color:var(--parchment);}
-  nav.tabs a.current{color:#08222c;background:var(--teal);font-weight:700;box-shadow:0 0 10px rgba(53,210,255,.4);}
+  /* ナビのタブは shared/design-system.css が持っている。
+     ここにあった上書きは2026-08-09より前の設計(平行四辺形+青いグロー)の残りで、
+     インライン<style>は外部CSSより後に読まれるため**古いほうが勝っていた**。
+     このページだけタブが暗く・角丸で・光っていた原因(2026-08-11、颯太さんの指摘)。 */
 
   /* controls */
   .controls{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,.25);}
@@ -161,47 +161,20 @@
   .icon{display:inline-flex;width:1em;height:1em;vertical-align:-0.15em;}
   .icon svg{width:100%;height:100%;}
 
-  h1.title, .hero-title{font-weight:900;}
+  h1.title{font-weight:900;}
 
-  .glitch-hover{position:relative;display:inline-block;cursor:default;}
-  .glitch-hover::before, .glitch-hover::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;height:100%;overflow:hidden;opacity:0;}
-  .glitch-hover:hover::before{opacity:.7;color:var(--lime);clip-path:inset(0 0 55% 0);transform:translate(-2px,-1px);animation:glitchShift .32s steps(2) infinite;}
-  .glitch-hover:hover::after{opacity:.7;color:var(--magenta);clip-path:inset(55% 0 0 0);transform:translate(2px,1px);animation:glitchShift .32s steps(2) infinite reverse;}
-  @keyframes glitchShift{0%{transform:translate(-2px,-1px);}50%{transform:translate(2px,1px);}100%{transform:translate(-1px,1px);}}
+  /* glitch-hover と glitchShift も shared/design-system.css が持っている。
+     ここにあった上書きは旧設計の残りで、**このページだけ**タイトルの
+     ずれ方が違っていた(他21ページは共通側を使っている)。 */
 
-  nav.tabs{background:transparent;border:none;padding:0;gap:6px;}
-  nav.tabs a{position:relative;font-size:12.5px;color:var(--parchment-dim);text-decoration:none;padding:9px 18px 9px 20px;font-weight:600;font-family:var(--font-display);letter-spacing:.02em;
-    background:var(--panel2);border:1px solid var(--line);clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
-    transition:color .15s, background .15s, transform .15s;}
-  nav.tabs a span{position:relative;z-index:1;}
-  nav.tabs a::before{content:"";position:absolute;inset:0;background:rgba(61,123,255,.22);
-    opacity:0;transition:opacity .2s;}
-  nav.tabs a:hover{color:var(--parchment);transform:translateY(-1px);}
-  nav.tabs a:hover::before{opacity:1;}
-  nav.tabs a.current{color:#08111a;background:var(--lime);border-color:var(--lime);font-weight:700;box-shadow:0 0 16px rgba(61,123,255,.45);}
-  nav.tabs a.current::before{display:none;}
 
-  /* 2026-08-09: AI生成イラストを廃止し、ホームと同じ「文字だけのポスター」に統一。
-     斜めの切り欠きも角丸もやめ、上辺に琥珀のストライプを1本入れるだけにした。 */
-  .hero{position:relative;min-height:200px;overflow:hidden;margin-bottom:20px;
-    border:0;background:var(--panel);
-    box-shadow:inset 0 calc(var(--px)*2) 0 0 var(--lime);}
-  .hero-content{position:relative;min-height:200px;display:flex;flex-direction:column;justify-content:center;padding:0 28px;max-width:560px;}
-  .hero-eyebrow{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.28em;color:var(--lime);margin-bottom:10px;text-shadow:none;display:flex;align-items:center;gap:2px;}
-  .hero-title{font-family:var(--font-display);font-size:44px;line-height:1.05;color:#fff;letter-spacing:.02em;margin:0 0 10px;text-shadow:var(--px) var(--px) 0 var(--ink);}
-  .hero-title .accent{color:var(--pulse);text-shadow:var(--px) var(--px) 0 var(--ink);}
-  .hero-sub{font-size:13px;color:var(--parchment-dim);max-width:400px;line-height:1.7;margin:0;}
-  @media (max-width:640px){
-    .hero{height:200px;}
-    .hero-title{font-size:28px;}
-    .hero-sub{display:none;}
-  }
 
   .section h2{position:relative;display:flex;align-items:center;gap:8px;}
   .section h2::before{content:"";width:9px;height:9px;background:var(--lime);clip-path:polygon(0 20%,80% 0,100% 80%,20% 100%);flex-shrink:0;box-shadow:0 0 8px rgba(61,123,255,.6);}
 
-  .chip, .back-btn, .card, nav.tabs a{transition:transform .15s cubic-bezier(.2,.8,.3,1.3), border-color .15s, box-shadow .15s, background .15s;}
-  .chip:active, .back-btn:active, nav.tabs a:active{transform:scale(.96);}
+  /* 押下の動きも design-system.css 側(steps(1)の硬い動き)に任せる。
+     ここにあった cubic-bezier のバウンドは旧設計の残りで、
+     このページのタブ・チップ・カードだけ跳ねていた。 */
 
   .back-btn{position:relative;overflow:hidden;font-family:var(--font-display);font-weight:600;letter-spacing:.02em;}
   .back-btn:hover{border-color:var(--lime-dim);color:var(--parchment);box-shadow:0 0 14px rgba(61,123,255,.12);background:var(--panel2);}
@@ -268,14 +241,12 @@
   </header>
 
   <div id="listView">
-    <div class="hero">
-      <div class="hero-scanlines"></div>
-      <div class="hero-content">
-        <div class="hero-eyebrow">CAPTURE INTEL ARCHIVE<span class="term-cursor"></span></div>
-        <h2 class="hero-title glitch-hover" data-text="パル図鑑">パル<span class="accent text-pulse">図鑑</span></h2>
-        <p class="hero-sub">種族値、ドロップ率、入手ルート。捕獲前に、丸裸にする。</p>
-      </div>
-    </div>
+    <!-- ヒーローは2026-08-11に外した。ページ名を3回(上の看板・h1・ヒーロー)
+         繰り返しているだけで、どの幅でも固定200px+余白20pxを先頭で使っていた。
+         図鑑は高さ1万pxでスクロール量が一番多く、一番よく開かれるページなので、
+         毎回その分だけ検索欄が下がるコストが見合わない。
+         キャッチコピーは <meta name="description"> が同じ役割を持っている。
+         ヒーローを持つのはホームだけ。ツールページは操作卓に直行する。 -->
     <div class="controls">
       <div class="controls-row">
         <input type="text" id="searchBox" placeholder="パル名・英語名で検索…">
@@ -397,9 +368,9 @@
 
 <script src="shared/text-normalize.js"></script>
 <script src="shared/util.js"></script>
-<script>window.ASSET_VER="?v=20260811c";</script>
-<script src="pages/dex.js?v=20260811c"></script>
-<script src="shared/arcade.js?v=20260811c" defer></script>
-<script src="shared/sfx.js?v=20260811c" defer></script>
+<script>window.ASSET_VER="?v=20260811d";</script>
+<script src="pages/dex.js?v=20260811d"></script>
+<script src="shared/arcade.js?v=20260811d" defer></script>
+<script src="shared/sfx.js?v=20260811d" defer></script>
 </body>
 </html>
