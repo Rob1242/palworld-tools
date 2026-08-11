@@ -82,10 +82,35 @@ Object.entries(BREEDING_PALS_DATA || {}).forEach(([asset, info]) => { if(info.de
 
 // LEARNSET_DATA(asset別)からゲーム内に実在する技全体の技名プールを構築する
 // (種族を横断して検索できるようにするため。skills_jp未生成の技はjp_name:nullのまま)
-const ALL_SKILLS_MAP = {};
-Object.values(LEARNSET_DATA).forEach(arr => arr.forEach(e => {
-  if(!(e.asset in ALL_SKILLS_MAP)) ALL_SKILLS_MAP[e.asset] = e.jp_name;
-}));
+// 以前はここで LEARNSET_DATA(537KB)を全走査して作っていたが、出来上がるのは
+// 313件・16KB の対応表だけだった。生成済みのものを読む(2026-08-12)。
+// LEARNSET_DATA 本体は詳細画面でしか要らないので、開いたときに読む(ensureLearnset)。
+const ALL_SKILLS_MAP = SKILL_NAMES_DATA;
+
+// 詳細画面でしか使わない重いデータ(learnset 537KB / paldb_extra 200KB)は
+// 開いたときに読む。パル図鑑・技図鑑・アイテム図鑑と同じ形。
+const PALBOX_DETAIL_SCRIPTS = [
+  "game_data/learnset_data.js?v=0c7df10f",
+  "game_data/paldb_extra_data.js?v=fdd8f5ac",
+];
+let palboxDetailPromise = null;
+function ensurePalboxDetail(){
+  if(palboxDetailPromise) return palboxDetailPromise;
+  palboxDetailPromise = Promise.all(PALBOX_DETAIL_SCRIPTS.map(src => new Promise((resolve, reject) => {
+    if(document.querySelector(`script[data-detail="${src}"]`)) return resolve();
+    const el = document.createElement("script");
+    el.src = src;   // ?v= は scripts/version_game_data.py が中身のハッシュで刻む
+    el.dataset.detail = src;
+    el.onload = resolve;
+    el.onerror = () => reject(new Error("failed: " + src));
+    document.head.appendChild(el);
+  })));
+  if(window.Arcade && window.Arcade.whileLoading){
+    palboxDetailPromise = window.Arcade.whileLoading(palboxDetailPromise, "詳細データを読み込み中");
+  }
+  return palboxDetailPromise;
+}
+
 // 技IDは共有ボックス(=合言葉を知る人なら誰でも書き換えられる)やセーブデータ由来なので、
 // 未知のIDをそのまま表示名として返すと呼び出し側のinnerHTMLでタグとして解釈されうる。
 // 対応表に無いIDはここでエスケープしてから返す(2026-08)。
@@ -325,7 +350,7 @@ function buildDetailInnerHtml(inst, p){
       }).join("")
     : '<span style="color:var(--parchment-dim);font-size:12px;">未登録</span>';
 
-  const extra = PALDB_EXTRA_DATA[p.id];
+  const extra = (typeof PALDB_EXTRA_DATA !== "undefined") ? PALDB_EXTRA_DATA[p.id] : null;
   const innatePassivesHtml = (extra && extra.innate_passives && extra.innate_passives.length) ? `<div class="section">
     <h2>最初から持っているパッシブ</h2>
     <div class="role-grid">
@@ -425,13 +450,14 @@ function renderBoxGrid(){
   });
 }
 
-function selectBoxPal(uid){
+async function selectBoxPal(uid){
   boxState.selectedUid = uid;
   const inst = getInstances().find(x => x.uid === uid);
   if(!inst){ closeDetailPanel("boxDetailEmpty","boxDetailPanel"); return; }
   const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
   if(!p){ closeDetailPanel("boxDetailEmpty","boxDetailPanel"); return; }
   renderBoxGrid();
+  await ensurePalboxDetail().catch(() => {});   // 失敗しても詳細は出す(該当欄が空になるだけ)
   document.getElementById("boxDetailPanel").innerHTML = buildDetailInnerHtml(inst, p) + `
     <div class="box-detail-actions">
       <button class="edit-btn" id="editInstBtn">${ico('edit')} 編集</button>
@@ -488,13 +514,14 @@ function renderSharedGrid(instances){
   });
 }
 
-function selectSharedPal(uid){
+async function selectSharedPal(uid){
   sharedBoxState.selectedUid = uid;
   const inst = sharedBoxState.instances.find(x => x.uid === uid);
   if(!inst){ closeDetailPanel("sharedDetailEmpty","sharedDetailPanel"); return; }
   const p = PAL_BOX_DATA.find(x => x.id === inst.dexId);
   if(!p){ closeDetailPanel("sharedDetailEmpty","sharedDetailPanel"); return; }
   renderSharedGrid();
+  await ensurePalboxDetail().catch(() => {});   // 失敗しても詳細は出す(該当欄が空になるだけ)
   document.getElementById("sharedDetailPanel").innerHTML = buildDetailInnerHtml(inst, p) + `
     <div class="box-detail-actions">
       <button class="edit-btn" id="editSharedInstBtn">${ico('edit')} 編集</button>
@@ -1583,13 +1610,13 @@ function pickSpeciesForPform(asset){
   document.getElementById('pformSaveBtn').textContent = pformState.editUid ? '保存する' : (pformState.target === "shared" ? '共有ボックスに追加' : 'ボックスに追加');
   document.getElementById('skillSearchInput').value = '';
   document.getElementById('passiveSearchInput').value = '';
-  renderSkillPickList('');
+  ensurePalboxDetail().catch(() => {}).then(() => renderSkillPickList(''));
   renderPassivePickList('');
 }
 
 function renderSkillPickList(query){
   const asset = pformState.asset;
-  const learnset = asset ? (LEARNSET_DATA[asset] || []) : [];
+  const learnset = (asset && typeof LEARNSET_DATA !== "undefined") ? (LEARNSET_DATA[asset] || []) : [];
   const q = (query||'').toLowerCase();
   const qKana = toKana(query||'');
   let pool;

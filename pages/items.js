@@ -47,7 +47,7 @@ const DISPLAY_ITEMS = (() => {
     if(!EQUIPMENT_CATEGORIES.has(it.category)){
       out.push({
         asset: it.asset, name_jp: it.name_jp, name_en: it.name_en, name_jp_literal: it.name_jp_literal, icon: it.icon,
-        category: it.category, subcategory: it.subcategory, description_en: it.description_en, description_jp: it.description_jp,
+        category: it.category, subcategory: it.subcategory,
         weight: it.weight, max_stack: it.max_stack, price: it.price, rarity: it.rarity,
         isGroup: false,
         tiers: [{ asset: it.asset, rarity: it.rarity, rarityName: null, price: it.price, stats: statsOf(it.asset) }],
@@ -64,7 +64,7 @@ const DISPLAY_ITEMS = (() => {
     const prices = sorted.map(t => t.price);
     out.push({
       asset: rep.asset, name_jp: rep.name_jp, name_en: rep.name_en, name_jp_literal: rep.name_jp_literal, icon: rep.icon,
-      category: rep.category, subcategory: rep.subcategory, description_en: rep.description_en, description_jp: rep.description_jp,
+      category: rep.category, subcategory: rep.subcategory,
       weight: rep.weight, max_stack: rep.max_stack,
       price: Math.max(...prices), priceMin: Math.min(...prices), priceMax: Math.max(...prices),
       rarity: rep.rarity, isGroup: sorted.length > 1,
@@ -76,7 +76,7 @@ const DISPLAY_ITEMS = (() => {
   (typeof BUILDING_ITEMS_DATA !== "undefined" ? BUILDING_ITEMS_DATA : []).forEach(b => {
     out.push({
       asset: b.asset, name_jp: b.name_jp, name_en: null, icon: b.icon,
-      category: "建築物", subcategory: b.subcategory, description_en: null, description_jp: null,
+      category: "建築物", subcategory: b.subcategory,
       weight: null, max_stack: null, price: null, rarity: 0,
       tech_level: b.tech_level, tech_cost: b.tech_cost,
       isGroup: false,
@@ -327,7 +327,36 @@ function buildObtainHtml(it){
   return sections.join("");
 }
 
-function openModal(asset){
+// 説明文は詳細を開いたときにしか使わないのに、以前は items_dex_data.js に同梱されていた
+// (description_en 235KB + description_jp 124KB + キー名の繰り返し)。一覧のカード描画にも
+// サイト内検索にも不要なので、開いたときだけ読む(技図鑑・パル図鑑と同じ形、2026-08-12)。
+const DESC_SRC = "game_data/items_desc_data.js?v=f6f22682";
+let descPromise = null;
+function ensureDescriptions(){
+  if(descPromise) return descPromise;
+  descPromise = new Promise((resolve, reject) => {
+    if(typeof ITEMS_DESC_DATA !== "undefined") return resolve();
+    const el = document.createElement("script");
+    el.src = DESC_SRC;   // ?v= は scripts/version_game_data.py が中身のハッシュで刻む
+    el.onload = resolve;
+    el.onerror = () => reject(new Error("failed: " + DESC_SRC));
+    document.head.appendChild(el);
+  });
+  if(window.Arcade && window.Arcade.whileLoading){
+    descPromise = window.Arcade.whileLoading(descPromise, "説明文を読み込み中");
+  }
+  return descPromise;
+}
+
+async function openModal(asset){
+  // 読み込みに失敗しても詳細は出す。説明文の欄だけ空になる
+  let desc = {};
+  try {
+    await ensureDescriptions();
+    desc = (typeof ITEMS_DESC_DATA !== "undefined" && ITEMS_DESC_DATA[asset]) || {};
+  } catch(e){
+    desc = {};
+  }
   const it = DISPLAY_ITEMS.find(x => x.asset === asset || x.tiers.some(t => t.asset === asset));
   if(!it) return;
   const name = displayName(it);
@@ -355,7 +384,7 @@ function openModal(asset){
              <div class="k">最大スタック数</div><div class="v">${it.max_stack.toLocaleString()}</div>`}
       </div>
       ${it.category !== "建築物" ? (it.isGroup ? buildStatTable(it) : buildSingleStats(it)) : ""}
-      <div class="modal-desc">${it.description_jp || it.description_en || "(説明文なし)"}</div>
+      <div class="modal-desc">${desc.description_jp || desc.description_en || "(説明文なし)"}</div>
       <div class="detail-sections">
         ${buildObtainHtml(it)}
         ${buildUsedInHtml(it)}

@@ -9,7 +9,7 @@
 // 遅延ロードする(全ページに1.5MB超のJSONを常時読ませるのは重すぎるため)。
 (function(){
   const REQUIRED_SCRIPTS = [
-    "game_data/items_dex_data.js?v=b2b5cfb4",
+    "game_data/items_dex_data.js?v=1d9f7c93",
     "game_data/dex_data.js?v=5e723d9a",
     "game_data/items_obtain_data.js?v=d1f4f9c2",
     // 使うのはパルの基本情報だけなので、配合ペア表まで含む breeding_data.js(3.3MB)ではなく
