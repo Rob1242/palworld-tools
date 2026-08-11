@@ -232,6 +232,11 @@
   .back-btn:hover, .btn:hover{background:var(--panel2);}
   .back-btn:hover{border-color:var(--lime);box-shadow:none;}
 
+  /* カードは角なし。ナビのタブ・ベゼルと同じ直線で揃える(筐体デザイン)。
+     **各ページのインライン<style>で border-radius を書き直さないこと。**
+     インラインは外部CSSより後に読まれるので、書くとこちらが負ける。
+     実際に6ページが border-radius:8px を持っていて、2026-08-12まで
+     カードだけ角丸のまま残っていた。 */
   .card{overflow:hidden;border-radius:0;}
   .card:hover{border-color:var(--lime);box-shadow:calc(var(--px)*-1) calc(var(--px)*-1) 0 0 var(--case-deep);}
 

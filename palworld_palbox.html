@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://rob1242.github.io/palworld-tools/palworld_palbox.html">
 <link rel="canonical" href="https://rob1242.github.io/palworld-tools/palworld_palbox.html">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="shared/design-system.css?v=20260812j">
+<link rel="stylesheet" href="shared/design-system.css?v=20260812m">
 <link rel="preload" as="script" href="game_data/breeding_pals_data.js?v=b1ebe621">
 <style>
   *{box-sizing:border-box;}
@@ -51,7 +51,7 @@
 
   /* grid */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 10px 10px;cursor:pointer;position:relative;text-align:center;transition:border-color .12s, transform .12s;content-visibility:auto;contain-intrinsic-size:0 220px;}
+  .card{background:var(--panel);border:1px solid var(--line);padding:12px 10px 10px;cursor:pointer;position:relative;text-align:center;transition:border-color .12s, transform .12s;content-visibility:auto;contain-intrinsic-size:0 220px;}
   .card:hover{border-color:var(--lime-dim);transform:translateY(-2px);}
   .card:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
   .card .icon-wrap{position:relative;width:64px;height:64px;margin:0 auto 8px;border-radius:50%;background:var(--panel2);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;}
@@ -366,10 +366,10 @@
   .global-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
   </style>
-<script src="shared/frame-guard.js?v=20260812j"></script>
-<script src="shared/analytics.js?v=20260812j"></script>
-<script src="shared/img-fallback.js?v=20260812j"></script>
-<script src="shared/global_search.js?v=20260812j" defer></script>
+<script src="shared/frame-guard.js?v=20260812m"></script>
+<script src="shared/analytics.js?v=20260812m"></script>
+<script src="shared/img-fallback.js?v=20260812m"></script>
+<script src="shared/global_search.js?v=20260812m" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"パルボックス","url":"https://rob1242.github.io/palworld-tools/palworld_palbox.html","description":"パルワールドのパルボックス管理ツール。所持パルを個体値・技・パッシブごと記録して、目的パルへの配合ロードマップを自動で組みます。","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
 </head>
 <body>
@@ -735,24 +735,24 @@
     <div id="roadmapPassiveFit"></div>
   </div>
 
-  <p class="footer-note">所持データはこの端末のブラウザ内(localStorage)にのみ保存されます。他の端末・ブラウザとは共有されません。<br><span class="data-version">収録データ: パルワールド 正式版 v1.0(2026-07-11 取得) / サイト最終更新: 2026-08-11</span></p>
+  <p class="footer-note">所持データはこの端末のブラウザ内(localStorage)にのみ保存されます。他の端末・ブラウザとは共有されません。<br><span class="data-version">収録データ: パルワールド 正式版 v1.0(2026-07-11 取得) / サイト最終更新: 2026-08-12</span></p>
   <p class="footer-note">当ツールは『パルワールド(Palworld)』の非公式ファンメイド攻略ツールです。ゲーム内の名称・画像等の権利は © Pocketpair, Inc. および各権利者に帰属します。<br><a href="palworld_official.html">公式サイト・各プラットフォームのリンクはこちら</a></p>
 </div>
 <script src="game_data/dex_data.js?v=5e723d9a"></script>
 <script src="game_data/skill_names_data.js?v=c329c03b"></script>
 <script src="game_data/breeding_pals_data.js?v=b1ebe621"></script>
 <script src="game_data/passives_data.js?v=a7549bc4"></script>
-<script src="shared/icons.js?v=20260812j"></script>
-<script type="module" src="shared/palsave-import.js?v=20260812j"></script>
+<script src="shared/icons.js?v=20260812m"></script>
+<script type="module" src="shared/palsave-import.js?v=20260812m"></script>
 <script src="game_data/firebase_config.js?v=f505fd0b"></script>
 <script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js" integrity="sha384-AQ3POAMqIhwS81FrUH95ekxqBZHeP5tG2JfEL3+7GuTtfRLWnrRh32UxwzM+//A9" crossorigin="anonymous"></script>
 <script async src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js" integrity="sha384-qn4Jh88HhJA8dplNQyGjOh9OGI4izVhrfj/qIFgaKcdgOE06pXqIKGlsCILZcLAC" crossorigin="anonymous"></script>
 
-<script src="shared/text-normalize.js?v=20260812j"></script>
-<script src="shared/util.js?v=20260812j"></script>
-<script src="shared/mutation-calc.js?v=20260812j"></script>
-<script src="pages/palbox.js?v=20260812j"></script>
-<script src="shared/arcade.js?v=20260812j" defer></script>
-<script src="shared/sfx.js?v=20260812j" defer></script>
+<script src="shared/text-normalize.js?v=20260812m"></script>
+<script src="shared/util.js?v=20260812m"></script>
+<script src="shared/mutation-calc.js?v=20260812m"></script>
+<script src="pages/palbox.js?v=20260812m"></script>
+<script src="shared/arcade.js?v=20260812m" defer></script>
+<script src="shared/sfx.js?v=20260812m" defer></script>
 </body>
 </html>
