@@ -47,11 +47,40 @@ function renderGrid(){
   });
 }
 
-function openModal(asset){
+// 習得できるパルの一覧(learners)は詳細を開いたときにしか使わないのに、
+// 以前は一覧用データに同梱されていて 1,552KB のうち 1,370KB を占めていた。
+// パル図鑑(pages/dex.js の ensureDetailData)と同じ形で、開いたときだけ読む。
+const LEARNERS_SRC = "game_data/skills_learners_data.js?v=b1ce321f";
+let learnersPromise = null;
+function ensureLearners(){
+  if(learnersPromise) return learnersPromise;
+  learnersPromise = new Promise((resolve, reject) => {
+    if(typeof SKILLS_LEARNERS_DATA !== "undefined") return resolve();
+    const el = document.createElement("script");
+    el.src = LEARNERS_SRC;   // ?v= は scripts/version_game_data.py が中身のハッシュで刻む
+    el.onload = resolve;
+    el.onerror = () => reject(new Error("failed: " + LEARNERS_SRC));
+    document.head.appendChild(el);
+  });
+  if(window.Arcade && window.Arcade.whileLoading){
+    learnersPromise = window.Arcade.whileLoading(learnersPromise, "習得パルを読み込み中");
+  }
+  return learnersPromise;
+}
+
+async function openModal(asset){
   const s = SKILLS_PAGE_DATA.find(x => x.asset === asset);
   if(!s) return;
-  const learnersHtml = s.learners.length
-    ? s.learners.map(l => `<a class="drop-item" href="palworld_dex.html?id=${encodeURIComponent(l.dex_id)}">
+  // 読み込みに失敗しても詳細そのものは出す。習得パルの欄だけ空にする
+  let learners = [];
+  try {
+    await ensureLearners();
+    learners = (typeof SKILLS_LEARNERS_DATA !== "undefined" && SKILLS_LEARNERS_DATA[asset]) || [];
+  } catch(e){
+    learners = [];
+  }
+  const learnersHtml = learners.length
+    ? learners.map(l => `<a class="drop-item" href="palworld_dex.html?id=${encodeURIComponent(l.dex_id)}">
         <img class="drop-icon" src="${l.icon}" data-onerror="hide" alt="">
         <span class="drop-name">${l.name_jp}</span>
         <span class="drop-qty">${l.source === "levelup" && l.level ? `Lv.${l.level}` : "卵"}</span>
@@ -75,7 +104,7 @@ function openModal(asset){
       </div>
       <div class="modal-desc">${s.effect_jp || s.description_en || "(効果説明なし)"}</div>
       <div class="modal-section">
-        <h4>習得できるパル(${s.learners.length}体)</h4>
+        <h4>習得できるパル(${learners.length}体)</h4>
         <div class="drop-list">${learnersHtml}</div>
       </div>
     </div>

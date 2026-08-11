@@ -52,7 +52,7 @@ function loadDataScript(src){
 // ゴースト個体(dex_idが無く、パル図鑑に正式登録すらされていない個体)が絡むレシピは、
 // そもそも配合で作れない/親として所持しようがないので除外する。
 function ensureForwardPairs(){
-  return loadDataScript("game_data/breeding_forward_pairs_data.js").then(() => {
+  return loadDataScript("game_data/breeding_forward_pairs_data.js?v=2b0908f4").then(() => {
     if(BREEDING_DATA.forwardPairs) return;
     const fp = BREEDING_FORWARD_PAIRS_DATA;
     Object.keys(fp).forEach(key => {
@@ -64,7 +64,7 @@ function ensureForwardPairs(){
 }
 
 function ensureReverseParents(){
-  return loadDataScript("game_data/breeding_reverse_parents_data.js").then(() => {
+  return loadDataScript("game_data/breeding_reverse_parents_data.js?v=a8505e8c").then(() => {
     if(BREEDING_DATA.reverseParents) return;
     const rp = BREEDING_REVERSE_PARENTS_DATA;
     Object.entries(rp).forEach(([target, entry]) => {

@@ -35,11 +35,11 @@ function palChip(name, role, reason, showObtain){
 
 // ---- 序盤(Lv1〜15、実際に野生入手できるパルのみ) ----
 function buildEarlyData(){
-  const minLevelByAsset = {};
-  SPAWN_DATA.pals.forEach(s => {
-    const levels = (s.wildZones||[]).map(z=>z.minLevel).filter(x=>x!=null);
-    if(levels.length) minLevelByAsset[s.dexId] = Math.min(minLevelByAsset[s.dexId] ?? 99, ...levels);
-  });
+  // 最低出現レベルだけを持つ小さな表を使う(game_data/min_level_data.js、2.1KB)。
+  // 以前は spawn_data.js(1,180KB)を丸ごと読んでこの1箇所のためだけに集計していた。
+  // dex_data の tier(early/mid/late/special)では代用できない。ここは Lv5以下という
+  // tier より細かい線で切っているため(2026-08-12)。
+  const minLevelByAsset = MIN_LEVEL_BY_DEX_ID;
   const early = PAL_DEX_DATA.filter(p => minLevelByAsset[p.id] != null && minLevelByAsset[p.id] <= 5);
   const attackers = early.map(p => {
     const cp = COMBAT_PAL_DATA.find(c => c.dex_id === p.id);

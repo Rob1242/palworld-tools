@@ -566,7 +566,7 @@ function ensureForwardPairsLoaded(){
   if(forwardPairsPromise) return forwardPairsPromise;
   forwardPairsPromise = new Promise((resolve, reject) => {
     const script = document.createElement("script");
-    script.src = "game_data/breeding_forward_pairs_data.js";
+    script.src = "game_data/breeding_forward_pairs_data.js?v=2b0908f4";
     script.onload = () => {
       // ゴースト個体が絡むレシピ(親のどちらか、または子がゴースト=そもそも配合で
       // 作れない/親として所持しようがない)のみ除外する。

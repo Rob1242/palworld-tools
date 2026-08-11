@@ -16,7 +16,7 @@
     // 軽量版(55KB)を読む。検索を1回使うだけで3MB以上落ちてくるのを避けるため(2026-08)。
     "game_data/breeding_pals_data.js?v=b1ebe621",
     "game_data/missions_data.js?v=76eaa318",
-    "game_data/skills_page_data.js?v=b05d17f9",
+    "game_data/skills_page_data.js?v=a86b7395",
     "game_data/passives_page_data.js?v=603eb677",
   ];
 

@@ -5,12 +5,12 @@
  * **DOM構築3,227ms / 読み込み完了3,910ms** かかっていた(2026-08-10 実測)。
  * 配合検索・パルボックスで既に使っている遅延読み込みと同じ手。 */
 const DETAIL_SCRIPTS = [
-  "game_data/item_icons_data.js",   // ITEM_ICONS(ドロップ品のアイコン)
-  "game_data/learnset_data.js",
-  "game_data/paldb_extra_data.js",
-  "game_data/capture_rate_data.js",
-  "game_data/movement_data.js",
-  "game_data/level80_stats_data.js",
+  "game_data/item_icons_data.js?v=0b030eec",   // ITEM_ICONS(ドロップ品のアイコン)
+  "game_data/learnset_data.js?v=0c7df10f",
+  "game_data/paldb_extra_data.js?v=fdd8f5ac",
+  "game_data/capture_rate_data.js?v=a17371d5",
+  "game_data/movement_data.js?v=a23c57c6",
+  "game_data/level80_stats_data.js?v=57c90819",
 ];
 let detailDataPromise = null;
 
@@ -22,7 +22,7 @@ function ensureDetailData(){
   detailDataPromise = Promise.all(DETAIL_SCRIPTS.map(src => new Promise((resolve, reject) => {
     if(document.querySelector(`script[data-detail="${src}"]`)) return resolve();
     const el = document.createElement("script");
-    el.src = src + (window.ASSET_VER || "");
+    el.src = src;   // ?v= は scripts/version_game_data.py が中身のハッシュで刻む
     el.dataset.detail = src;
     el.onload = resolve;
     el.onerror = () => reject(new Error("failed: " + src));

@@ -30,11 +30,20 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # 対象は .js だけ。画像(webp)は中身を差し替えることが稀で、
 # 差し替えるときは名前を変えるか個別に対応すればよい。
-REF_RE = re.compile(r'src="(game_data/[^"?]+\.js)(\?v=[^"]*)?"')
+# src= だけでなく href= も見る。<link rel="preload" as="script" href="..."> が
+# 無版のまま残っていて、**同じファイルを版付き/版無しで二重に取得**していた
+# (技図鑑で 1,552KB の旧版を余計に落としていた。2026-08-12に発覚)。
+REF_RE = re.compile(r'(src|href)="(game_data/[^"?]+\.js)(\?v=[^"]*)?"')
 
 # HTMLの <script src> だけでなく、JS の中で動的に読み込んでいる参照も対象にする。
 # shared/global_search.js が breeding_pals_data.js を注入しており、そこだけ
 # 手書きの古い版(?v=20260810j)が残っていた。HTMLしか見ていないと永久に気づけない。
+#
+# pages/*.js も対象。図鑑の詳細(dex.js)と技図鑑の習得パル(skills.js)は
+# game_data を動的に読む。以前は window.ASSET_VER を使っていたが、
+# **このサイトのCSPは script-src に 'unsafe-inline' を持たないためインラインscriptが
+# 実行されず、ASSET_VER は常に undefined だった**(2026-08-12に発覚)。
+# 版が付かないまま配られていたので、ここでハッシュを刻む方式に統一した。
 JS_REF_RE = re.compile(r'"(game_data/[^"?]+\.js)(\?v=[^"]*)?"')
 
 
@@ -62,7 +71,7 @@ def main():
 
         def sub(m):
             nonlocal refs, changed
-            rel, old = m.group(1), m.group(2)
+            attr, rel, old = m.group(1), m.group(2), m.group(3)
             h = resolve(rel)
             if h is None:
                 return m.group(0)
@@ -70,7 +79,10 @@ def main():
             new = f"?v={h}"
             if old != new:
                 changed += 1
-            return f'src="{rel}{new}"'
+            # 属性名は必ず元のまま返す。<link> は href、<script> は src。
+            # ここを src に固定していたため、preload の href を src に書き換えて
+            # preload を無効化する事故を起こした(2026-08-12)
+            return f'{attr}="{rel}{new}"'
 
         text = REF_RE.sub(sub, text)
         if text != original:
@@ -79,7 +91,7 @@ def main():
 
     # JS の中から動的に読んでいる分
     js_refs = js_changed = js_touched = 0
-    for js in sorted((ROOT / "shared").glob("*.js")):
+    for js in sorted(list((ROOT / "shared").glob("*.js")) + list((ROOT / "pages").glob("*.js"))):
         text = original = js.read_text(encoding="utf-8")
 
         def sub_js(m):
