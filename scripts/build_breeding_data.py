@@ -29,7 +29,7 @@ from js_data_writer import write_js_consts
 
 PALCALC_DB_URL = "https://raw.githubusercontent.com/tylercamp/palcalc/master/PalCalc.Model/db.json"
 PALCALC_BREEDING_URL = "https://raw.githubusercontent.com/tylercamp/palcalc/master/PalCalc.Model/breeding.json"
-AWY64_BREEDING_URL = "https://raw.githubusercontent.com/Awy64/palworld-atlas-data/main/published/v1/builds/24181105/breeding.json"
+AWY64_BREEDING_URL = "https://raw.githubusercontent.com/Awy64/palworld-atlas-data/main/published/v1/builds/25247047/breeding.json"
 
 DEX_PATH = "palworld_dex_data.json"
 OUTPUT_PATH = "palworld_breeding_data.json"
@@ -59,8 +59,13 @@ def build_jp_index(dex):
     return idx
 
 
+# palcalc側の英語名が、ゲーム更新(1.0.x)で変わった変種。自サイトの図鑑は旧表記のまま使うため別名で対応する
+# (2026-10-02: Snock Lux → Snock Terra。日本語名ドンツムは不変)
+EN_ALIASES = {"snock terra": "snock_lux"}
+
+
 def match_asset_to_jp(en_name, jp_idx):
-    key = en_name.strip().lower()
+    key = EN_ALIASES.get(en_name.strip().lower(), en_name.strip().lower())
     if key in jp_idx:
         return jp_idx[key], "exact"
     if " " in en_name:

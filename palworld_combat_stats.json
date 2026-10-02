@@ -7779,7 +7779,7 @@
     "support": 100,
     "craft_speed": 100,
     "max_full_stomach": 450,
-    "food_amount": 6,
+    "food_amount": 2,
     "type1": "Dark",
     "type2": "None",
     "rarity": 5,

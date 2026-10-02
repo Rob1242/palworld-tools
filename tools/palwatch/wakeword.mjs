@@ -94,9 +94,29 @@ export function stripWake(text, words) {
   return text.replace(/^[\s、。,.]+/, '').trim();
 }
 
+// 門の判定だけを切り出したもの。録音も声紋も触らないので、マイク無しで測れる。
+// 退行したかどうかを、颯太さんが喋り直さずに確かめられるようにするため。
+//
+//   strict … 呼びかけ語がそのまま入っていた
+//   loose  … 崩れた形で入っていた(声紋で本人と確認できたときだけ通す)
+//   open   … 開けっぱなしなので、呼びかけが無くても受ける(同じく声紋が要る)
+export function wakeGate(text, words, open = false) {
+  if (containsWake(text, words)) return 'strict';
+  if (containsWakeLoose(text, words)) return 'loose';
+  if (open && text.trim()) return 'open';
+  return null;
+}
+
+// 呼びかけ語という手がかりが無いものは、声紋で本人と確認できたときだけ通す。
+// 手がかりを1つも持たないまま通す道は作らない。
+export const gateNeedsVoiceprint = mode => mode !== 'strict';
+
 // 呼びかけを待ち続ける。呼ばれたら onWake(用件のテキスト) を呼ぶ。
 // 用件が空(呼びかけonly)なら null を渡すので、呼び出し側で聞き直せばよい。
-export async function listenForWake(cfg, onWake, shouldStop = () => false) {
+//
+// isOpen が true を返している間は呼びかけ語を要求しない(開けっぱなし)。
+// 既定は常に false なので、渡さなければ従来どおりの動きになる。
+export async function listenForWake(cfg, onWake, shouldStop = () => false, isOpen = () => false) {
   const words = cfg.wakeWords && cfg.wakeWords.length ? cfg.wakeWords : ['ルナ'];
   const model = cfg.wakeWhisperModel || cfg.whisperModel;
 
@@ -143,42 +163,40 @@ export async function listenForWake(cfg, onWake, shouldStop = () => false) {
       }
       if (!text) continue;
 
-      // 厳しい判定で通ればそれでよい。通らなくても、崩れた形なら望みがある。
-      const strict = containsWake(text, words);
-      const loose = !strict && containsWakeLoose(text, words);
-      if (!strict && !loose) {
+      // 開けている間は呼びかけ語を要求しない。判定は wakeGate に切り出してあるので、
+      // 壊していないかを eval/test_wakegate.mjs でマイク無しに測れる。
+      const mode = wakeGate(text, words, isOpen());
+      if (!mode) {
         if (cfg.wakeDebug) console.log(`  (呼びかけ以外: ${text})`);
         continue;
       }
 
-      // 声紋を見る。緩い判定で拾ったものは、ここで本人と確認できたときだけ通す。
+      // 声紋を見る。呼びかけ語という手がかりが無いものは、本人と確認できたときだけ通す。
       // 文字が崩れていても、声が本人なら呼びかけとして扱ってよい。
       const { ok, similarity, embed } = await voiceid.checkOwner(wav, cfg);
 
-      // 声紋が使えない状態(未登録など)で緩い判定を通すと、守るものが無くなる。
-      if (loose && similarity == null) {
-        if (cfg.wakeDebug) console.log(`  (崩れた呼びかけだが、声紋で確認できないので見送り: ${text})`);
+      // 声紋が使えない状態(未登録など)で手がかりの無いものを通すと、守るものが無くなる。
+      if (gateNeedsVoiceprint(mode) && similarity == null) {
+        const why = mode === 'open' ? '開けているが' : '崩れた呼びかけだが';
+        if (cfg.wakeDebug) console.log(`  (${why}、声紋で確認できないので見送り: ${text})`);
         continue;
       }
 
-      // 弾いた音も残す。しきい値を測り直すときの「弾きたい側」の実データになる。
-      // 捨てると較正のたびに動画を流して録り直すことになる。
+      // 残すかと、声紋の材料にするかは別の判断(voicebank.collectDecision)。
+      // 弾いた音も、ぎりぎり通った音も残す——しきい値を測り直すときの実データになるし、
+      // 捨てると較正のたびに録り直しになる。声紋に混ぜるかは accepted で分けている。
+      const keep = bank.collectDecision(cfg, similarity, ok);
+      if (keep.save) {
+        bank.add(cfg, { wav, embed, transcript: text, transcriptRaw: rawText, similarity,
+          rms: await measureRms(wav), source: mode === 'open' ? 'session' : 'live',
+          accepted: keep.accepted });
+      }
+
       if (!ok) {
         if (cfg.wakeDebug) {
           console.log(`  (別の人の声として無視: ${text} / 一致度 ${similarity?.toFixed(3)})`);
         }
-        if (cfg.collectVoice) {
-          bank.add(cfg, { wav, embed, transcript: text, transcriptRaw: rawText, similarity,
-            rms: await measureRms(wav), source: 'live', accepted: false });
-        }
         continue;
-      }
-
-      // 通した声のうち、はっきり本人だったものだけ貯める。
-      // ぎりぎり通ったものを混ぜると、そこに他人が居た場合に声紋がそちらへ寄る。
-      if (bank.shouldAdmit(cfg, similarity)) {
-        bank.add(cfg, { wav, embed, transcript: text, transcriptRaw: rawText, similarity,
-          rms: await measureRms(wav), source: 'live', accepted: true });
       }
 
       const rest = stripWake(text, words);

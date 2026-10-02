@@ -2226,11 +2226,11 @@
     },
     "ElecSnail_Ground": {
       "jp_name": "ドンツム",
-      "en_name": "Snock Lux",
+      "en_name": "Snock Terra",
       "icon": "game_data/icons/pals/T_ElecSnail_Ground_icon_normal.webp",
       "dex_id": "260",
       "combi_rank": 1500,
-      "match_status": "variant_fallback"
+      "match_status": "exact"
     },
     "LanternButler": {
       "jp_name": "ヴィランタン",

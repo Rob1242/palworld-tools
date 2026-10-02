@@ -3,7 +3,7 @@ import re
 # 各ページに meta description / Open Graph / Twitter Card タグを追加する。
 # 検索結果のスニペットと、Discord/X共有時のリンクプレビューの両方に使われるため、
 # 実際の検索キーワード(パルワールド 鉱石、パルワールド 配合 等)を自然に含めた文にする。
-SITE_URL = "https://rob1242.github.io/palworld-tools"
+SITE_URL = "https://palworkbench.com"
 OG_IMAGE = f"{SITE_URL}/game_data/art/hero_sphere_2.webp"
 
 DESCRIPTIONS = {

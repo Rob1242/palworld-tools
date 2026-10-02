@@ -24,8 +24,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 # 生データマインを取得した時点のゲームバージョン。データを取り直したときだけ変える。
-GAME_VERSION = "正式版 v1.0"
-DATA_TAKEN_ON = "2026-07-11"
+# 2026-10-02: 出現・配合・技術・ミッションは1.0.5で取り直し、種族値・作業適性・属性・アイテムの価格/スタック/ランクは
+# 1.0.5の生データ(Awy64/palworld-atlas-data build 25247047)と突き合わせて差分を反映した。
+# 技・パッシブ・ドロップ・アイテム重量は突き合わせ先が無く1.0時点のまま。確認できていない範囲を「対応」と書かない。
+GAME_VERSION = "正式版 v1.0.5(技・パッシブ・ドロップ・アイテム重量は v1.0 時点のまま)"
+DATA_TAKEN_ON = "2026-10-02"
 
 MARK_RE = re.compile(r'<span class="data-version">.*?</span>', re.S)
 FOOTER_RE = re.compile(r'(<p class="footer-note">)(.*?)(</p>)', re.S)

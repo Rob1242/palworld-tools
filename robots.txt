@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rob1242.github.io/palworld-tools/sitemap.xml
+Sitemap: https://palworkbench.com/sitemap.xml

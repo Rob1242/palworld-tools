@@ -21,7 +21,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE_URL = "https://rob1242.github.io/palworld-tools"
+SITE_URL = "https://palworkbench.com"
 HOME = "palworld_home.html"
 
 REDIRECT_RE = re.compile(r'http-equiv=["\']refresh["\']', re.I)

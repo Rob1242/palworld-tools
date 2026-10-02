@@ -9,7 +9,7 @@
 // 統合前の旧ページ(palworld_statues.html等)のcanonicalは元々この?view=単位を
 // 正規URLとして指しているため、ここでも?view=単位で自己参照canonicalを持たせて
 // 一致させる。
-const BASE_URL = "https://rob1242.github.io/palworld-tools/palworld_map.html";
+const BASE_URL = "https://palworkbench.com/palworld_map.html";
 const VIEW_META = {
   map: {
     title: "出現マップ | Palworld攻略ツール",
@@ -73,23 +73,57 @@ document.querySelectorAll(".view-tab").forEach(tab => {
 const PAL_BY_DEXID = {};
 PAL_DEX_DATA.forEach(p => { PAL_BY_DEXID[p.id] = p; });
 
-function buildPalList(spawnData){
-  return spawnData.pals
-    .map(s => ({ spawn: s, dex: PAL_BY_DEXID[s.dexId] }))
+// パル選択欄の候補。名前とアイコンは PAL_DEX_DATA から取れるので、
+// 索引(出現する dexId の並び、2KB)だけで作れる。
+// **座標データはここでは読まない。** 以前は spawn_data.js(1,180KB)と
+// worldtree_spawn_data.js(164KB)を起動時に読んでいたが、座標が要るのは
+// パルを選んだあとだけ。パル像・ミッション・拠点おすすめのビューを見に来た人は
+// 一度も使わないのに1.3MBを落としていた(2026-08-12)。
+function buildPalList(dexIds){
+  return dexIds
+    .map(id => ({ dexId: id, dex: PAL_BY_DEXID[id] }))
     .filter(x => x.dex)
     .map(x => ({
-      dexId: x.spawn.dexId,
+      dexId: x.dexId,
       name: x.dex.name,
       enName: x.dex.en_name,
       icon: x.dex.icon,
-      spawn: x.spawn,
     }));
 }
 
 const PAL_LISTS = {
-  palpagos: buildPalList(SPAWN_DATA),
-  worldtree: buildPalList(WORLDTREE_SPAWN_DATA),
+  palpagos: buildPalList(SPAWN_INDEX_DATA.palpagos),
+  worldtree: buildPalList(SPAWN_INDEX_DATA.worldtree),
 };
+
+// 座標データ本体。パルを選んだときに初めて読む。
+const SPAWN_SCRIPTS = {
+  palpagos: "game_data/spawn_data.js?v=18ecd33b",
+  worldtree: "game_data/worldtree_spawn_data.js?v=0ab15369",
+};
+const spawnPromises = {};
+const SPAWN_BY_REGION = {};   // region -> { dexId: spawn }
+function ensureSpawnData(region){
+  if(spawnPromises[region]) return spawnPromises[region];
+  const src = SPAWN_SCRIPTS[region];
+  let pr = new Promise((resolve, reject) => {
+    const el = document.createElement("script");
+    el.src = src;   // ?v= は scripts/version_game_data.py が中身のハッシュで刻む
+    el.onload = resolve;
+    el.onerror = () => reject(new Error("failed: " + src));
+    document.head.appendChild(el);
+  }).then(() => {
+    const data = region === "worldtree" ? WORLDTREE_SPAWN_DATA : SPAWN_DATA;
+    const by = {};
+    data.pals.forEach(sp => { by[String(sp.dexId)] = sp; });
+    SPAWN_BY_REGION[region] = by;
+  });
+  if(window.Arcade && window.Arcade.whileLoading){
+    pr = window.Arcade.whileLoading(pr, "出現データを読み込み中");
+  }
+  spawnPromises[region] = pr;
+  return pr;
+}
 
 const LANDMARK_KIND_LABEL = { boss: "ボスの塔", fasttravel: "ファストトラベル" };
 const CURATED_TYPE_LABEL = {
@@ -221,9 +255,18 @@ function setupPicker(){
   input.addEventListener("blur", () => setTimeout(() => results.style.display = "none", 150));
 }
 
-function selectPal(dexId){
-  const p = PAL_LISTS[state.region].find(x => x.dexId === dexId);
-  if(!p) return;
+async function selectPal(dexId){
+  const found = PAL_LISTS[state.region].find(x => x.dexId === dexId);
+  if(!found) return;
+  // 座標はここで初めて読む。失敗したら選択しない(空の地図を出さない)
+  try {
+    await ensureSpawnData(state.region);
+  } catch(e){
+    return;
+  }
+  const spawn = (SPAWN_BY_REGION[state.region] || {})[dexId];
+  if(!spawn) return;
+  const p = { ...found, spawn };
   state.pal = p;
   const selPalIcon = document.getElementById("selPalIcon");
   selPalIcon.style.display = p.icon ? "" : "none";
@@ -521,7 +564,8 @@ function renderCuratedLandmarks(){
 function renderLandmarks(){
   landmarkLayerGroup.clearLayers();
   if(state.region !== "worldtree") return;
-  WORLDTREE_SPAWN_DATA.landmarks.forEach(lm => {
+  // 目印は索引側に同梱してある(15件・2KB)。座標データ本体を待たずに描ける
+  WORLDTREE_LANDMARKS_DATA.forEach(lm => {
     const icon = L.divIcon({
       className: `landmark-icon ${lm.kind}`,
       html: `<div class="lm-dot" title="${LANDMARK_KIND_LABEL[lm.kind]}"></div><div class="lm-label">${lm.name_jp || lm.name_en}</div>`,

@@ -10274,7 +10274,7 @@
                 "support": 100,
                 "craft_speed": 100,
                 "max_full_stomach": 450,
-                "food_amount": 6,
+                "food_amount": 2,
                 "element_type1": "Dark",
                 "element_type2": "None",
                 "zukan_index": 50,

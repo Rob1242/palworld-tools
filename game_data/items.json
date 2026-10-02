@@ -99064,7 +99064,7 @@
             "element_type": "EPalElementType::None",
             "sneak_atk_rate": 1.0,
             "corruption_factor": 0.0,
-            "rank": 4,
+            "rank": 2,
             "passive_skills": [
                 "None",
                 "None",
@@ -100727,7 +100727,7 @@
             "type_b_display": "",
             "sort_id": 5069,
             "description": "Sacred water brimming with the energy of the World Tree.\r\nIt purifies all things and awakens latent powers.\r\nWhen consumed, World Tree resources will not vanish when approached for a period of time.",
-            "weight": 1.0,
+            "weight": 0.1,
             "price": 5000,
             "max_stack": 9999,
             "restore_satiety": 0,

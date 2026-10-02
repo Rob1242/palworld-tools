@@ -270,12 +270,41 @@ async function wakeMode() {
   startMemFeed();
 
   const words = cfg.wakeWords?.length ? cfg.wakeWords : ['ルナ'];
+  const keys = (cfg.talkKeys && cfg.talkKeys.length ? cfg.talkKeys : ['+', '＋']);
   console.log(`「${words[0]}」と呼びかけてください(終了は Control+C)。`);
-  console.log('「ルナ、今何体いる」のように用件まで続けて言ってもいいです。\n');
+  console.log('「ルナ、今何体いる」のように用件まで続けて言ってもいいです。');
+
+  // 開けっぱなし。押している間ではなく、押すたびに開け閉めする。
+  // ゲーム中は手がコントローラで塞がるので、発話ごとに押させない作りにしてある。
+  // 開けている間も声紋は見ているので、他人の声には反応しない。
+  let open = false;
+  const canToggle = process.stdin.isTTY;
+  if (canToggle) {
+    console.log(`「${keys[0]}」で聞きっぱなしに切り替え(呼びかけ不要。もう一度押すと戻る)。`);
+  } else {
+    console.log('(対話できる画面ではないので、聞きっぱなしへの切り替えは使えません)');
+  }
+  console.log('');
   await say('呼びかけを待ってるね。');
 
   let stopping = false;
-  process.on('SIGINT', () => { stopping = true; process.exit(0); });
+  const restoreInput = () => { try { process.stdin.setRawMode(false); } catch {} };
+  process.on('SIGINT', () => { stopping = true; restoreInput(); process.exit(0); });
+
+  if (canToggle) {
+    // Enterを待たずに1文字で反応させるため、生の入力モードにする。
+    // このモードではControl+Cが自動で効かないので、自分で拾って終了させる。
+    process.stdin.setRawMode(true);
+    process.stdin.resume();
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', async (key) => {
+      if (key === '') { restoreInput(); console.log('\n終了しました。'); process.exit(0); }
+      if (!keys.includes(key)) return;
+      open = !open;
+      console.log(open ? '\n  ▶ 聞いています(呼びかけ不要)' : '\n  ■ 呼びかけ待ちに戻りました');
+      await say(open ? '聞いてるよ。' : '呼びかけ待ちに戻すね。');
+    });
+  }
 
   await listenForWake(cfg, async (rest, whole) => {
     console.log(`  呼ばれました: ${whole}`);
@@ -295,8 +324,9 @@ async function wakeMode() {
     } catch (e) {
       console.error('  エラー:', e.message);
     }
-  }, () => stopping);
+  }, () => stopping, () => open);
 
+  restoreInput();
   console.log('終了しました。');
 }
 
@@ -317,6 +347,37 @@ async function listVoices() {
   } catch (e) {
     console.log('VOICEVOXに接続できません:', e.message);
     console.log('  VOICEVOXアプリを起動してから、もう一度お試しください。');
+  }
+}
+
+// 常駐に入る前に、判断層が昨日と同じ賢さかを確かめる。
+//
+// **なぜ要るか(2026-09-03の実測)**
+// モデルは環境で静かに劣化する。今日だけでこれだけ観測した:
+//   プロンプトの末尾を削っただけで 分類 39/40 → 35/40
+//   format(enum) を足したら 崩れた発話の素通りが 1件 → 5件
+//   モデル読み込み直後は数学が2点低い
+// しかも劣化は「間違った答えが返る」形なので、使っていて気づきにくい。
+//
+// 落ちても**止めない**。止めるとルナが使えなくなる方が困る。
+// 代わりに颯太さんに伝え、危険側の閾値を厳しくして動く。
+async function guardStartup() {
+  try {
+    const { startupCheck } = await import('./selftest.mjs');
+    const r = await startupCheck(cfg);
+    if (r.ok) {
+      console.log(`自己診断 ${r.passed}/${r.total}(${r.ms}ms)`);
+      return;
+    }
+    console.log(`自己診断 ${r.passed}/${r.total} — 判断層に異常があります`);
+    for (const f of r.failures) console.log('  ✗', f);
+    // 実行系を全部確認側に倒す。判断が弱っている日に関門を緩いままにしない。
+    cfg.forceConfirmAll = true;
+    if (r.say) await speak(r.say, { tone: 'alert' }).catch(() => {});
+  } catch (e) {
+    // 診断そのものが動かないのは、それ自体が異常。ただし起動は止めない。
+    console.log('自己診断を実行できませんでした:', (e.message || e).toString().slice(0, 60));
+    cfg.forceConfirmAll = true;
   }
 }
 
@@ -489,9 +550,18 @@ if (args.includes('--voices')) {
   const { rebuild } = await import('./voiceid.mjs');
   await rebuild(cfg);
 } else if (args.includes('--wake')) {
+  await guardStartup();
   await wakeMode();
 } else if (args.includes('--talk')) {
+  await guardStartup();
   await talkMode();
+} else if (args.includes('--selftest')) {
+  // 単体で回したいとき用。CIや、設定をいじった直後の確認に使う。
+  const { selfTest } = await import('./selftest.mjs');
+  const r = await selfTest(cfg);
+  console.log(`自己診断: ${r.passed}/${r.total}  ${r.ms}ms`);
+  for (const f of r.failures) console.log('  ✗', f);
+  process.exit(r.ok ? 0 : 1);
 } else if (args.includes('--memtest')) {
   // 「サーバー → SSH → Mac → 声」が繋がっているかを、遊んでいないときでも確かめる。
   // サーバー側に偽の捕獲を1件だけ出させて、そのまま最後まで通す。
