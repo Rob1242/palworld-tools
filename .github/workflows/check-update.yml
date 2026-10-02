@@ -1,0 +1,37 @@
+# 毎週、ゲームのアップデートが来ていないか確認する(確認だけ。データは書き換えない)。
+# 変更が見つかったら Issue を立てる → GitHub からメールが届く。反映は手元で `update_all.py --apply`。
+name: ゲームのアップデート確認
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"        # 毎週月曜 09:00(日本時間)
+  workflow_dispatch:            # 手動でも実行できる
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 差分を確認する(何も書き換えない)
+        id: check
+        run: |
+          python3 scripts/update_all.py | tee report.txt
+          if grep -q "更新は不要" report.txt; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+      - name: 変更があれば Issue を立てる
+        if: steps.check.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create update-check --description "ゲームのアップデート検知" --color 1D76DB 2>/dev/null || true
+          if [ -n "$(gh issue list --label update-check --state open --json number --jq '.[0].number')" ]; then
+            echo "未対応の検知 Issue が既にあるので、新しくは立てない"; exit 0
+          fi
+          { echo "ゲームのアップデートの可能性を検知しました。手元で次を実行してください。"; echo; echo '```'; echo 'python3 scripts/update_all.py --apply'; echo '```'; echo; echo '### 検知した差分'; echo '```'; cat report.txt; echo '```'; } > body.md
+          gh issue create --title "ゲームのアップデートを検知 ($(date -u +%F))" --label update-check --body-file body.md
